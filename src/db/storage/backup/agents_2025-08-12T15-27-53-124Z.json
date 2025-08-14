@@ -1,0 +1,233 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2025-08-12T15:27:52.415Z",
+  "dataType": "agents",
+  "count": 25,
+  "data": [
+    {
+      "id": 1,
+      "name": "艾莲·乔",
+      "faction": "维多利亚家政",
+      "role": "强攻",
+      "rarity": "S",
+      "element": "冰",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 2,
+      "name": "亚历山德丽娜",
+      "faction": "维多利亚家政",
+      "role": "支援",
+      "rarity": "S",
+      "element": "电",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 3,
+      "name": "莱卡恩",
+      "faction": "维多利亚家政",
+      "role": "击破",
+      "rarity": "S",
+      "element": "冰",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 4,
+      "name": "可琳",
+      "faction": "维多利亚家政",
+      "role": "强攻",
+      "rarity": "A",
+      "element": "物理",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 5,
+      "name": "星见雅",
+      "faction": "H.S.O.S.6",
+      "role": "异常",
+      "rarity": "S",
+      "element": "冰",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 6,
+      "name": "朱鸢",
+      "faction": "刑侦特勤组",
+      "role": "强攻",
+      "rarity": "S",
+      "element": "以太",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 7,
+      "name": "格莉丝",
+      "faction": "白祈重工",
+      "role": "异常",
+      "rarity": "S",
+      "element": "电",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 8,
+      "name": "11号",
+      "faction": "奥伯勒斯小队",
+      "role": "强攻",
+      "rarity": "S",
+      "element": "火",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 9,
+      "name": "简",
+      "faction": "刑侦特勤组",
+      "role": "异常",
+      "rarity": "S",
+      "element": "物理",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 10,
+      "name": "月城柳",
+      "faction": "H.S.O.S.6",
+      "role": "异常",
+      "rarity": "S",
+      "element": "电",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 11,
+      "name": "柏妮斯",
+      "faction": "卡吕冬之子",
+      "role": "异常",
+      "rarity": "S",
+      "element": "火",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 12,
+      "name": "青衣",
+      "faction": "刑侦特勤组",
+      "role": "击破",
+      "rarity": "S",
+      "element": "电",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 13,
+      "name": "耀嘉音",
+      "faction": "天琴座",
+      "role": "支援",
+      "rarity": "S",
+      "element": "以太",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 14,
+      "name": "凯撒",
+      "faction": "卡吕冬之子",
+      "role": "防护",
+      "rarity": "S",
+      "element": "物理",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 15,
+      "name": "妮可",
+      "faction": "狡兔屋",
+      "role": "支援",
+      "rarity": "A",
+      "element": "以太",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 16,
+      "name": "比利",
+      "faction": "狡兔屋",
+      "role": "强攻",
+      "rarity": "A",
+      "element": "物理",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 17,
+      "name": "安比",
+      "faction": "狡兔屋",
+      "role": "击破",
+      "rarity": "A",
+      "element": "电",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 18,
+      "name": "苍角",
+      "faction": "H.S.O.S.6",
+      "role": "支援",
+      "rarity": "A",
+      "element": "冰",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 19,
+      "name": "本·比格",
+      "faction": "白祈重工",
+      "role": "防护",
+      "rarity": "A",
+      "element": "火",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 20,
+      "name": "安东",
+      "faction": "白祈重工",
+      "role": "强攻",
+      "rarity": "A",
+      "element": "电",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 21,
+      "name": "赛斯",
+      "faction": "刑侦特勤组",
+      "role": "防护",
+      "rarity": "A",
+      "element": "电",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 22,
+      "name": "派派",
+      "faction": "卡吕冬之子",
+      "role": "异常",
+      "rarity": "A",
+      "element": "物理",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 23,
+      "name": "薇薇安",
+      "faction": "反舌鸟",
+      "role": "异常",
+      "rarity": "S",
+      "element": "以太",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 24,
+      "name": "仪玄",
+      "faction": "云岿山",
+      "role": "命破",
+      "rarity": "S",
+      "element": "以太",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 25,
+      "name": "爱丽丝",
+      "faction": "怪啖屋",
+      "role": "异常",
+      "rarity": "S",
+      "element": "物理",
+      "image": "/assets/zzz.jpg"
+    }
+  ]
+}

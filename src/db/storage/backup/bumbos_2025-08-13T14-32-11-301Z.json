@@ -1,0 +1,292 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2025-08-13T14:32:11.263Z",
+  "dataType": "bumbos",
+  "data": {
+    "count": 20,
+    "data": [
+      {
+        "id": 1,
+        "name": "共鸣布",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 1,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 1,
+          "name": "S",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 2,
+        "name": "左轮布",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 1,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 1,
+          "name": "S",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 3,
+        "name": "插头布",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 1,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 1,
+          "name": "S",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 4,
+        "name": "阿全",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 1,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 1,
+          "name": "S",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 5,
+        "name": "艾米莉安",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 1,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 1,
+          "name": "S",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 6,
+        "name": "飚速布",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 1,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 1,
+          "name": "S",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 7,
+        "name": "巴特勒",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 1,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 1,
+          "name": "S",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 8,
+        "name": "鲨牙布",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 1,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 1,
+          "name": "S",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 9,
+        "name": "气压布",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 2,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 2,
+          "name": "A",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 10,
+        "name": "电击布",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 2,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 2,
+          "name": "A",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 11,
+        "name": "寻宝布",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 2,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 2,
+          "name": "A",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 12,
+        "name": "果核布",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 2,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 2,
+          "name": "A",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 13,
+        "name": "纸袋布",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 2,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 2,
+          "name": "A",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 14,
+        "name": "飞靶布",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 2,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 2,
+          "name": "A",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 15,
+        "name": "企鹅布",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 2,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 2,
+          "name": "A",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 16,
+        "name": "纸壳布",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 2,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 2,
+          "name": "A",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 17,
+        "name": "磁力布",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 2,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 2,
+          "name": "A",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 18,
+        "name": "扑击布",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 2,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 2,
+          "name": "A",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 19,
+        "name": "泪眼布",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 2,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 2,
+          "name": "A",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 20,
+        "name": "恶魔布",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 2,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 2,
+          "name": "A",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      }
+    ],
+    "lastUpdated": "2025-08-13T14:32:11.261Z",
+    "source": "database"
+  }
+}

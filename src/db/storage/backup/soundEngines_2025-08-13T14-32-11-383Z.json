@@ -1,0 +1,672 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2025-08-13T14:32:11.340Z",
+  "dataType": "soundEngines",
+  "data": {
+    "count": 30,
+    "data": [
+      {
+        "id": 1,
+        "name": "深海访客",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 1,
+        "roleId": 1,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 1,
+          "name": "S",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        },
+        "Role": {
+          "id": 1,
+          "name": "强攻",
+          "description": null,
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 2,
+        "name": "钢铁肉垫",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 1,
+        "roleId": 1,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 1,
+          "name": "S",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        },
+        "Role": {
+          "id": 1,
+          "name": "强攻",
+          "description": null,
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 3,
+        "name": "硫磺石",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 1,
+        "roleId": 1,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 1,
+          "name": "S",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        },
+        "Role": {
+          "id": 1,
+          "name": "强攻",
+          "description": null,
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 4,
+        "name": "燃狱齿轮",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 1,
+        "roleId": 3,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 1,
+          "name": "S",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        },
+        "Role": {
+          "id": 3,
+          "name": "击破",
+          "description": null,
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 5,
+        "name": "拘缚者",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 1,
+        "roleId": 3,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 1,
+          "name": "S",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        },
+        "Role": {
+          "id": 3,
+          "name": "击破",
+          "description": null,
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 6,
+        "name": "嵌合编译器",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 1,
+        "roleId": 4,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 1,
+          "name": "S",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        },
+        "Role": {
+          "id": 4,
+          "name": "异常",
+          "description": null,
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 7,
+        "name": "啜泣摇篮",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 1,
+        "roleId": 2,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 1,
+          "name": "S",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        },
+        "Role": {
+          "id": 2,
+          "name": "支援",
+          "description": null,
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 8,
+        "name": "加农转子",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 2,
+        "roleId": 1,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 2,
+          "name": "A",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        },
+        "Role": {
+          "id": 1,
+          "name": "强攻",
+          "description": null,
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 9,
+        "name": "星徽引擎",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 2,
+        "roleId": 1,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 2,
+          "name": "A",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        },
+        "Role": {
+          "id": 1,
+          "name": "强攻",
+          "description": null,
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 10,
+        "name": "鎏金花信",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 2,
+        "roleId": 1,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 2,
+          "name": "A",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        },
+        "Role": {
+          "id": 1,
+          "name": "强攻",
+          "description": null,
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 11,
+        "name": "贵重古核",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 2,
+        "roleId": 3,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 2,
+          "name": "A",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        },
+        "Role": {
+          "id": 3,
+          "name": "击破",
+          "description": null,
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 12,
+        "name": "人为刀俎",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 2,
+        "roleId": 3,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 2,
+          "name": "A",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        },
+        "Role": {
+          "id": 3,
+          "name": "击破",
+          "description": null,
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 13,
+        "name": "双生泣星",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 2,
+        "roleId": 4,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 2,
+          "name": "A",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        },
+        "Role": {
+          "id": 4,
+          "name": "异常",
+          "description": null,
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 14,
+        "name": "触电唇彩",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 2,
+        "roleId": 4,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 2,
+          "name": "A",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        },
+        "Role": {
+          "id": 4,
+          "name": "异常",
+          "description": null,
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 15,
+        "name": "时光切片",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 2,
+        "roleId": 2,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 2,
+          "name": "A",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        },
+        "Role": {
+          "id": 2,
+          "name": "支援",
+          "description": null,
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 16,
+        "name": "好斗的阿炮",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 2,
+        "roleId": 2,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 2,
+          "name": "A",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        },
+        "Role": {
+          "id": 2,
+          "name": "支援",
+          "description": null,
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 17,
+        "name": "电波漫步",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 2,
+        "roleId": 6,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 2,
+          "name": "A",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        },
+        "Role": {
+          "id": 6,
+          "name": "命破",
+          "description": null,
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 18,
+        "name": "光影刻刀",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 2,
+        "roleId": 5,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 2,
+          "name": "A",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        },
+        "Role": {
+          "id": 5,
+          "name": "防护",
+          "description": null,
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 19,
+        "name": "「电磁暴」- 壹式",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 3,
+        "roleId": 4,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 3,
+          "name": "B",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        },
+        "Role": {
+          "id": 4,
+          "name": "异常",
+          "description": null,
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 20,
+        "name": "「电磁暴」- 贰式",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 3,
+        "roleId": 4,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 3,
+          "name": "B",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        },
+        "Role": {
+          "id": 4,
+          "name": "异常",
+          "description": null,
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 21,
+        "name": "「电磁暴」- 叁式",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 3,
+        "roleId": 4,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 3,
+          "name": "B",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        },
+        "Role": {
+          "id": 4,
+          "name": "异常",
+          "description": null,
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 22,
+        "name": "「湍流」- 矢型",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 3,
+        "roleId": 3,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 3,
+          "name": "B",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        },
+        "Role": {
+          "id": 3,
+          "name": "击破",
+          "description": null,
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 23,
+        "name": "「湍流」- 铳型",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 3,
+        "roleId": 3,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 3,
+          "name": "B",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        },
+        "Role": {
+          "id": 3,
+          "name": "击破",
+          "description": null,
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 24,
+        "name": "「湍流」- 斧型",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 3,
+        "roleId": 3,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 3,
+          "name": "B",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        },
+        "Role": {
+          "id": 3,
+          "name": "击破",
+          "description": null,
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 25,
+        "name": "「月相」- 望",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 3,
+        "roleId": 1,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 3,
+          "name": "B",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        },
+        "Role": {
+          "id": 1,
+          "name": "强攻",
+          "description": null,
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 26,
+        "name": "「月相」- 朔",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 3,
+        "roleId": 1,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 3,
+          "name": "B",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        },
+        "Role": {
+          "id": 1,
+          "name": "强攻",
+          "description": null,
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 27,
+        "name": "「月相」- 晦",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 3,
+        "roleId": 1,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 3,
+          "name": "B",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        },
+        "Role": {
+          "id": 1,
+          "name": "强攻",
+          "description": null,
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 28,
+        "name": "「残响」-I 型",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 3,
+        "roleId": 2,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 3,
+          "name": "B",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        },
+        "Role": {
+          "id": 2,
+          "name": "支援",
+          "description": null,
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 29,
+        "name": "「残响」-II 型",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 3,
+        "roleId": 2,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 3,
+          "name": "B",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        },
+        "Role": {
+          "id": 2,
+          "name": "支援",
+          "description": null,
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      },
+      {
+        "id": 30,
+        "name": "「残响」-III 型",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 3,
+        "roleId": 2,
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z",
+        "Rarity": {
+          "id": 3,
+          "name": "B",
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        },
+        "Role": {
+          "id": 2,
+          "name": "支援",
+          "description": null,
+          "createdAt": "2025-08-13T14:24:30.000Z",
+          "updatedAt": "2025-08-13T14:24:30.000Z"
+        }
+      }
+    ],
+    "lastUpdated": "2025-08-13T14:32:11.338Z",
+    "source": "database"
+  }
+}

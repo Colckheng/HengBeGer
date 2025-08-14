@@ -1,0 +1,218 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2025-08-12T15:12:31.051Z",
+  "dataType": "soundEngines",
+  "count": 30,
+  "data": [
+    {
+      "id": 1,
+      "name": "深海访客",
+      "rarity": "S",
+      "role": "强攻",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 2,
+      "name": "钢铁肉垫",
+      "rarity": "S",
+      "role": "强攻",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 3,
+      "name": "硫磺石",
+      "rarity": "S",
+      "role": "强攻",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 4,
+      "name": "燃狱齿轮",
+      "rarity": "S",
+      "role": "击破",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 5,
+      "name": "拘缚者",
+      "rarity": "S",
+      "role": "击破",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 6,
+      "name": "嵌合编译器",
+      "rarity": "S",
+      "role": "异常",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 7,
+      "name": "啜泣摇篮",
+      "rarity": "S",
+      "role": "支援",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 8,
+      "name": "加农转子",
+      "rarity": "A",
+      "role": "强攻",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 9,
+      "name": "星徽引擎",
+      "rarity": "A",
+      "role": "强攻",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 10,
+      "name": "鎏金花信",
+      "rarity": "A",
+      "role": "强攻",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 11,
+      "name": "贵重古核",
+      "rarity": "A",
+      "role": "击破",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 12,
+      "name": "人为刀俎",
+      "rarity": "A",
+      "role": "击破",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 13,
+      "name": "双生泣星",
+      "rarity": "A",
+      "role": "异常",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 14,
+      "name": "触电唇彩",
+      "rarity": "A",
+      "role": "异常",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 15,
+      "name": "时光切片",
+      "rarity": "A",
+      "role": "支援",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 16,
+      "name": "好斗的阿炮",
+      "rarity": "A",
+      "role": "支援",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 17,
+      "name": "电波漫步",
+      "rarity": "A",
+      "role": "命破",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 18,
+      "name": "光影刻刀",
+      "rarity": "A",
+      "role": "防护",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 19,
+      "name": "「电磁暴」- 壹式",
+      "rarity": "B",
+      "role": "异常",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 20,
+      "name": "「电磁暴」- 贰式",
+      "rarity": "B",
+      "role": "异常",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 21,
+      "name": "「电磁暴」- 叁式",
+      "rarity": "B",
+      "role": "异常",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 22,
+      "name": "「湍流」- 矢型",
+      "rarity": "B",
+      "role": "击破",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 23,
+      "name": "「湍流」- 铳型",
+      "rarity": "B",
+      "role": "击破",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 24,
+      "name": "「湍流」- 斧型",
+      "rarity": "B",
+      "role": "击破",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 25,
+      "name": "「月相」- 望",
+      "rarity": "B",
+      "role": "强攻",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 26,
+      "name": "「月相」- 朔",
+      "rarity": "B",
+      "role": "强攻",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 27,
+      "name": "「月相」- 晦",
+      "rarity": "B",
+      "role": "强攻",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 28,
+      "name": "「残响」-I 型",
+      "rarity": "B",
+      "role": "支援",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 29,
+      "name": "「残响」-II 型",
+      "rarity": "B",
+      "role": "支援",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 30,
+      "name": "「残响」-III 型",
+      "rarity": "B",
+      "role": "支援",
+      "image": "/assets/zzz.jpg"
+    }
+  ]
+}

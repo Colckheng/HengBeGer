@@ -1,0 +1,178 @@
+#root {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  background-color: rgb(11, 11, 11);
+}
+
+/* 确保整个页面背景都是指定颜色 */
+html, body {
+  background-color: rgb(11, 11, 11);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 80vh;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* PC端容器优化 */
+@media (min-width: 1200px) {
+  .game-container {
+    padding: 2rem 0;
+  }
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 2.5rem;
+  color: #fff;
+  font-weight: 700;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  letter-spacing: 1px;
+}
+
+.home-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.home-link:hover h1 {
+  color: #f0f0f0;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+  transform: scale(1.02);
+  transition: all 0.3s ease;
+}
+
+/* PC端标题优化 */
+@media (min-width: 1200px) {
+  h1 {
+    font-size: 3.5rem;
+    margin-bottom: 3rem;
+  }
+}
+
+.game-options {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1.5rem;
+  width: 100%;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding: 1rem;
+  -webkit-overflow-scrolling: touch;
+  min-width: min-content;
+}
+.placeholder-logo {
+  background-color: rgb(11, 11, 11);
+}
+/* 确保卡片不会换行 */
+.game-options > * {
+  flex-shrink: 0;
+}
+
+.game-options::-webkit-scrollbar {
+  height: 8px;
+}
+
+.game-options::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+.game-options::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+@media (min-width: 900px) {
+  .game-options {
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+.game-card {
+  background-color: rgb(11, 11, 11);
+  padding: 2rem;
+  width: 320px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+
+.game-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+/* PC端优化 */
+@media (min-width: 1200px) {
+  .game-card {
+    width: 360px;
+    padding: 2.5rem;
+  }
+}
+
+/* 确保在小屏幕上也能横向滚动 */
+@media (max-width: 900px) {
+  .game-options {
+    justify-content: flex-start;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+.game-card:hover {
+  transform: translateY(-10px);
+}
+
+.game-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.game-image-placeholder {
+  width: 100%;
+  height: 200px;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.placeholder-logo {
+  height: 8em;
+  padding: 1em;
+}
+
+/* PC端图片优化 */
+@media (min-width: 1200px) {
+  .game-image-placeholder {
+    height: 250px;
+  }
+  .placeholder-logo {
+    height: 10em;
+  }
+}
+
+/* 移除导致纵向排列的媒体查询，确保所有屏幕尺寸下都是横向排列 */
+@media (max-width: 768px) {
+  .game-card {
+    width: 240px;
+  }
+}
+
+
+

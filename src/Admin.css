@@ -1,0 +1,372 @@
+.admin-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  background-color: rgb(11, 11, 11);
+  color: white;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: rgb(30, 30, 30);
+  border-bottom: 1px solid rgb(50, 50, 50);
+}
+
+.admin-header h2 {
+  margin: 0;
+}
+
+.back-button {
+  padding: 8px 12px;
+  background-color: rgb(50, 50, 50);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.back-button:hover {
+  background-color: rgb(70, 70, 70);
+}
+
+.admin-tabs {
+  display: flex;
+  background-color: rgb(20, 20, 20);
+  border-bottom: 1px solid rgb(50, 50, 50);
+}
+
+.admin-tabs button {
+  padding: 12px 20px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  border-bottom: 3px solid transparent;
+}
+
+.admin-tabs button:hover {
+  background-color: rgb(30, 30, 30);
+}
+
+.admin-tabs button.active {
+  border-bottom: 3px solid #61dafb;
+  background-color: rgb(30, 30, 30);
+}
+
+.admin-content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.admin-form-container {
+  width: 350px;
+  max-width: 350px;
+  padding: 20px;
+  background-color: rgb(20, 20, 20);
+  border-right: 1px solid rgb(50, 50, 50);
+  overflow-y: auto;
+}
+
+.admin-list-container {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-group label {
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  padding: 8px 10px;
+  background-color: rgb(30, 30, 30);
+  color: white;
+  border: 1px solid rgb(50, 50, 50);
+  border-radius: 4px;
+}
+
+.form-group textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+/* 代理人名称输入框样式 */
+.agent-name-input {
+  width: 250px !important;
+  min-width: 250px !important;
+  max-width: 250px !important;
+  box-sizing: border-box !important;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.form-actions button {
+  padding: 8px 12px;
+  background-color: #61dafb;
+  color: black !important;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.form-actions button:hover {
+  background-color: #38b2e1;
+}
+
+.form-actions button[type="button"] {
+  background-color: rgb(50, 50, 50);
+  color: white;
+}
+
+.form-actions button[type="button"]:hover {
+  background-color: rgb(70, 70, 70);
+}
+
+.admin-list h3 {
+  margin-top: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgb(50, 50, 50);
+}
+
+.card-actions {
+  display: flex;
+  gap: 10px;
+  padding: 10px 15px 15px;
+}
+
+.card-actions button {
+  flex: 1;
+  padding: 6px 10px;
+  background-color: rgb(50, 50, 50);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.card-actions button:hover {
+  background-color: rgb(70, 70, 70);
+}
+
+.card-actions button:nth-child(2) {
+  background-color: #ff4d4f;
+}
+
+.card-actions button:nth-child(2):hover {
+  background-color: #ff7875;
+}
+
+.filter-container {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: rgb(20, 20, 20);
+  border-radius: 8px;
+}
+
+.filter-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: flex-end;
+}
+
+.filter-form .form-group {
+  flex: 1;
+  min-width: 150px;
+}
+
+@media (max-width: 768px) {
+  .admin-content {
+    flex-direction: column;
+  }
+
+  .admin-form-container {
+    width: auto;
+    border-right: none;
+    border-bottom: 1px solid rgb(50, 50, 50);
+  }
+}
+
+/* 新样式：使表单覆盖整个页面 */
+.admin-form-full-page {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-form-full-page .admin-form {
+  width: 100%;
+  max-width: none;
+}
+
+.admin-form-full-page .form-group input,
+.admin-form-full-page .form-group textarea,
+.admin-form-full-page .form-group select {
+  padding: 12px 15px;
+  font-size: 16px;
+}
+
+.admin-form-full-page .form-actions button {
+  padding: 12px 20px;
+  font-size: 16px;
+}
+
+/* 新增样式类 */
+.admin-header-full {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: rgb(30, 30, 30);
+  border-bottom: 1px solid rgb(50, 50, 50);
+  width: 100%;
+}
+
+.admin-main-content-full {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  padding: 20px;
+  background-color: rgb(20, 20, 20);
+  width: 100%;
+}
+
+.admin-form-full-centered {
+  width: 100%;
+  max-width: 600px; /* 增加表单最大宽度 */
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.admin-form-full-centered .admin-form {
+  width: 100%;
+  max-width: 500px; /* 表单内容最大宽度 */
+  padding: 20px;
+}
+
+/* 调整表单输入框大小 */
+.admin-form-full-centered .form-group input,
+.admin-form-full-centered .form-group textarea,
+.admin-form-full-centered .form-group select {
+  padding: 12px 15px; /* 增加内边距使输入框变大 */
+  font-size: 16px; /* 增加字体大小 */
+}
+
+/* 调整按钮大小 */
+.admin-form-full-centered .form-actions button {
+  padding: 12px 20px; /* 增加按钮内边距 */
+  font-size: 16px; /* 增加按钮字体大小 */
+}
+
+/* 存储系统相关样式 */
+.storage-status {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 15px;
+  padding: 10px;
+  background-color: rgb(40, 40, 40);
+  border-radius: 6px;
+  border: 1px solid rgb(60, 60, 60);
+}
+
+.status-indicator {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.status-indicator.connected {
+  background-color: #28a745;
+  color: white;
+}
+
+.status-indicator.disconnected {
+  background-color: #dc3545;
+  color: white;
+}
+
+.last-sync {
+  font-size: 11px;
+  color: #ccc;
+  text-align: center;
+}
+
+.sync-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.update-button.secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.update-button.secondary:hover:not(:disabled) {
+  background-color: #545b62;
+}
+
+.update-button.primary {
+  background-color: #007bff;
+  color: white;
+}
+
+.update-button.primary:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.update-button.warning {
+  background-color: #ffc107;
+  color: #212529;
+}
+
+.update-button.warning:hover:not(:disabled) {
+  background-color: #e0a800;
+}
+
+.update-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.update-button-container {
+  padding: 15px;
+  background-color: rgb(25, 25, 25);
+  border-top: 1px solid rgb(50, 50, 50);
+}

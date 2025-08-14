@@ -1,0 +1,62 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2025-08-12T15:23:39.694Z",
+  "dataType": "driveDisks",
+  "count": 9,
+  "data": [
+    {
+      "id": 1,
+      "name": "啄木鸟电音",
+      "description": "暴击",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 2,
+      "name": "河豚电音",
+      "description": "供穿透率",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 3,
+      "name": "激素朋克",
+      "description": "攻击力",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 4,
+      "name": "摇摆爵士",
+      "description": "能量自动回复提升",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 5,
+      "name": "震星迪斯科",
+      "description": "冲击力",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 6,
+      "name": "混沌重金属",
+      "description": "以太增伤与暴击伤害",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 7,
+      "name": "獠牙重金属",
+      "description": "物理增伤与队伍触发强击时全属性增伤",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 8,
+      "name": "雷暴重金属",
+      "description": "电增伤与攻击力提升",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 9,
+      "name": "炎狱重金属",
+      "description": "火增伤与高额暴击率",
+      "image": "/assets/zzz.jpg"
+    }
+  ]
+}

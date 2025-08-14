@@ -1,0 +1,787 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2025-08-13T02:38:50.163Z",
+  "dataType": "agents",
+  "data": {
+    "count": 25,
+    "data": [
+      {
+        "id": 1,
+        "name": "艾莲·乔",
+        "element": "冰",
+        "image": "/images/agents/ellen.jpg",
+        "factionId": 1,
+        "roleId": 1,
+        "rarityId": 1,
+        "createdAt": "2025-08-13T02:38:07.000Z",
+        "updatedAt": "2025-08-13T02:38:24.000Z",
+        "Faction": {
+          "id": 1,
+          "name": "维多利亚家政",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Role": {
+          "id": 1,
+          "name": "强攻",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Rarity": {
+          "id": 1,
+          "name": "S",
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        }
+      },
+      {
+        "id": 2,
+        "name": "亚历山德丽娜",
+        "element": "电",
+        "image": "/images/agents/alexandrina.jpg",
+        "factionId": 1,
+        "roleId": 2,
+        "rarityId": 1,
+        "createdAt": "2025-08-13T02:38:07.000Z",
+        "updatedAt": "2025-08-13T02:38:50.000Z",
+        "Faction": {
+          "id": 1,
+          "name": "维多利亚家政",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Role": {
+          "id": 2,
+          "name": "支援",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Rarity": {
+          "id": 1,
+          "name": "S",
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        }
+      },
+      {
+        "id": 3,
+        "name": "莱卡恩",
+        "element": "冰",
+        "image": "/images/agents/lycaon.jpg",
+        "factionId": 1,
+        "roleId": 3,
+        "rarityId": 1,
+        "createdAt": "2025-08-13T02:38:07.000Z",
+        "updatedAt": "2025-08-13T02:38:50.000Z",
+        "Faction": {
+          "id": 1,
+          "name": "维多利亚家政",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Role": {
+          "id": 3,
+          "name": "击破",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Rarity": {
+          "id": 1,
+          "name": "S",
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        }
+      },
+      {
+        "id": 4,
+        "name": "可琳",
+        "element": "物理",
+        "image": "/images/agents/corin.jpg",
+        "factionId": 1,
+        "roleId": 1,
+        "rarityId": 2,
+        "createdAt": "2025-08-13T02:38:07.000Z",
+        "updatedAt": "2025-08-13T02:38:50.000Z",
+        "Faction": {
+          "id": 1,
+          "name": "维多利亚家政",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Role": {
+          "id": 1,
+          "name": "强攻",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Rarity": {
+          "id": 2,
+          "name": "A",
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        }
+      },
+      {
+        "id": 5,
+        "name": "星见雅",
+        "element": "冰",
+        "image": null,
+        "factionId": 2,
+        "roleId": 4,
+        "rarityId": 1,
+        "createdAt": "2025-08-13T02:38:07.000Z",
+        "updatedAt": "2025-08-13T02:38:07.000Z",
+        "Faction": {
+          "id": 2,
+          "name": "H.S.O.S.6",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Role": {
+          "id": 4,
+          "name": "异常",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Rarity": {
+          "id": 1,
+          "name": "S",
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        }
+      },
+      {
+        "id": 6,
+        "name": "朱鸢",
+        "element": "以太",
+        "image": null,
+        "factionId": 3,
+        "roleId": 1,
+        "rarityId": 1,
+        "createdAt": "2025-08-13T02:38:07.000Z",
+        "updatedAt": "2025-08-13T02:38:07.000Z",
+        "Faction": {
+          "id": 3,
+          "name": "刑侦特勤组",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Role": {
+          "id": 1,
+          "name": "强攻",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Rarity": {
+          "id": 1,
+          "name": "S",
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        }
+      },
+      {
+        "id": 7,
+        "name": "格莉丝",
+        "element": "电",
+        "image": null,
+        "factionId": 4,
+        "roleId": 4,
+        "rarityId": 1,
+        "createdAt": "2025-08-13T02:38:07.000Z",
+        "updatedAt": "2025-08-13T02:38:07.000Z",
+        "Faction": {
+          "id": 4,
+          "name": "白祈重工",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Role": {
+          "id": 4,
+          "name": "异常",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Rarity": {
+          "id": 1,
+          "name": "S",
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        }
+      },
+      {
+        "id": 8,
+        "name": "11号",
+        "element": "火",
+        "image": null,
+        "factionId": 5,
+        "roleId": 1,
+        "rarityId": 1,
+        "createdAt": "2025-08-13T02:38:07.000Z",
+        "updatedAt": "2025-08-13T02:38:07.000Z",
+        "Faction": {
+          "id": 5,
+          "name": "奥伯勒斯小队",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Role": {
+          "id": 1,
+          "name": "强攻",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Rarity": {
+          "id": 1,
+          "name": "S",
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        }
+      },
+      {
+        "id": 9,
+        "name": "简",
+        "element": "物理",
+        "image": null,
+        "factionId": 3,
+        "roleId": 4,
+        "rarityId": 1,
+        "createdAt": "2025-08-13T02:38:07.000Z",
+        "updatedAt": "2025-08-13T02:38:07.000Z",
+        "Faction": {
+          "id": 3,
+          "name": "刑侦特勤组",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Role": {
+          "id": 4,
+          "name": "异常",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Rarity": {
+          "id": 1,
+          "name": "S",
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        }
+      },
+      {
+        "id": 10,
+        "name": "月城柳",
+        "element": "电",
+        "image": null,
+        "factionId": 2,
+        "roleId": 4,
+        "rarityId": 1,
+        "createdAt": "2025-08-13T02:38:07.000Z",
+        "updatedAt": "2025-08-13T02:38:07.000Z",
+        "Faction": {
+          "id": 2,
+          "name": "H.S.O.S.6",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Role": {
+          "id": 4,
+          "name": "异常",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Rarity": {
+          "id": 1,
+          "name": "S",
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        }
+      },
+      {
+        "id": 11,
+        "name": "柏妮斯",
+        "element": "火",
+        "image": null,
+        "factionId": 6,
+        "roleId": 4,
+        "rarityId": 1,
+        "createdAt": "2025-08-13T02:38:07.000Z",
+        "updatedAt": "2025-08-13T02:38:07.000Z",
+        "Faction": {
+          "id": 6,
+          "name": "卡吕冬之子",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Role": {
+          "id": 4,
+          "name": "异常",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Rarity": {
+          "id": 1,
+          "name": "S",
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        }
+      },
+      {
+        "id": 12,
+        "name": "青衣",
+        "element": "电",
+        "image": null,
+        "factionId": 3,
+        "roleId": 3,
+        "rarityId": 1,
+        "createdAt": "2025-08-13T02:38:07.000Z",
+        "updatedAt": "2025-08-13T02:38:07.000Z",
+        "Faction": {
+          "id": 3,
+          "name": "刑侦特勤组",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Role": {
+          "id": 3,
+          "name": "击破",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Rarity": {
+          "id": 1,
+          "name": "S",
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        }
+      },
+      {
+        "id": 13,
+        "name": "耀嘉音",
+        "element": "以太",
+        "image": null,
+        "factionId": 7,
+        "roleId": 2,
+        "rarityId": 1,
+        "createdAt": "2025-08-13T02:38:07.000Z",
+        "updatedAt": "2025-08-13T02:38:07.000Z",
+        "Faction": {
+          "id": 7,
+          "name": "天琴座",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Role": {
+          "id": 2,
+          "name": "支援",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Rarity": {
+          "id": 1,
+          "name": "S",
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        }
+      },
+      {
+        "id": 14,
+        "name": "凯撒",
+        "element": "物理",
+        "image": null,
+        "factionId": 6,
+        "roleId": 5,
+        "rarityId": 1,
+        "createdAt": "2025-08-13T02:38:07.000Z",
+        "updatedAt": "2025-08-13T02:38:07.000Z",
+        "Faction": {
+          "id": 6,
+          "name": "卡吕冬之子",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Role": {
+          "id": 5,
+          "name": "防护",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Rarity": {
+          "id": 1,
+          "name": "S",
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        }
+      },
+      {
+        "id": 15,
+        "name": "妮可",
+        "element": "以太",
+        "image": null,
+        "factionId": 8,
+        "roleId": 2,
+        "rarityId": 2,
+        "createdAt": "2025-08-13T02:38:07.000Z",
+        "updatedAt": "2025-08-13T02:38:07.000Z",
+        "Faction": {
+          "id": 8,
+          "name": "狡兔屋",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Role": {
+          "id": 2,
+          "name": "支援",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Rarity": {
+          "id": 2,
+          "name": "A",
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        }
+      },
+      {
+        "id": 16,
+        "name": "比利",
+        "element": "物理",
+        "image": null,
+        "factionId": 8,
+        "roleId": 1,
+        "rarityId": 2,
+        "createdAt": "2025-08-13T02:38:07.000Z",
+        "updatedAt": "2025-08-13T02:38:07.000Z",
+        "Faction": {
+          "id": 8,
+          "name": "狡兔屋",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Role": {
+          "id": 1,
+          "name": "强攻",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Rarity": {
+          "id": 2,
+          "name": "A",
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        }
+      },
+      {
+        "id": 17,
+        "name": "安比",
+        "element": "电",
+        "image": null,
+        "factionId": 8,
+        "roleId": 3,
+        "rarityId": 2,
+        "createdAt": "2025-08-13T02:38:07.000Z",
+        "updatedAt": "2025-08-13T02:38:07.000Z",
+        "Faction": {
+          "id": 8,
+          "name": "狡兔屋",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Role": {
+          "id": 3,
+          "name": "击破",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Rarity": {
+          "id": 2,
+          "name": "A",
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        }
+      },
+      {
+        "id": 18,
+        "name": "苍角",
+        "element": "冰",
+        "image": null,
+        "factionId": 2,
+        "roleId": 2,
+        "rarityId": 2,
+        "createdAt": "2025-08-13T02:38:07.000Z",
+        "updatedAt": "2025-08-13T02:38:07.000Z",
+        "Faction": {
+          "id": 2,
+          "name": "H.S.O.S.6",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Role": {
+          "id": 2,
+          "name": "支援",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Rarity": {
+          "id": 2,
+          "name": "A",
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        }
+      },
+      {
+        "id": 19,
+        "name": "本·比格",
+        "element": "火",
+        "image": null,
+        "factionId": 4,
+        "roleId": 5,
+        "rarityId": 2,
+        "createdAt": "2025-08-13T02:38:07.000Z",
+        "updatedAt": "2025-08-13T02:38:07.000Z",
+        "Faction": {
+          "id": 4,
+          "name": "白祈重工",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Role": {
+          "id": 5,
+          "name": "防护",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Rarity": {
+          "id": 2,
+          "name": "A",
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        }
+      },
+      {
+        "id": 20,
+        "name": "安东",
+        "element": "电",
+        "image": null,
+        "factionId": 4,
+        "roleId": 1,
+        "rarityId": 2,
+        "createdAt": "2025-08-13T02:38:07.000Z",
+        "updatedAt": "2025-08-13T02:38:07.000Z",
+        "Faction": {
+          "id": 4,
+          "name": "白祈重工",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Role": {
+          "id": 1,
+          "name": "强攻",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Rarity": {
+          "id": 2,
+          "name": "A",
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        }
+      },
+      {
+        "id": 21,
+        "name": "赛斯",
+        "element": "电",
+        "image": null,
+        "factionId": 3,
+        "roleId": 5,
+        "rarityId": 2,
+        "createdAt": "2025-08-13T02:38:07.000Z",
+        "updatedAt": "2025-08-13T02:38:07.000Z",
+        "Faction": {
+          "id": 3,
+          "name": "刑侦特勤组",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Role": {
+          "id": 5,
+          "name": "防护",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Rarity": {
+          "id": 2,
+          "name": "A",
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        }
+      },
+      {
+        "id": 22,
+        "name": "派派",
+        "element": "物理",
+        "image": null,
+        "factionId": 6,
+        "roleId": 4,
+        "rarityId": 2,
+        "createdAt": "2025-08-13T02:38:07.000Z",
+        "updatedAt": "2025-08-13T02:38:07.000Z",
+        "Faction": {
+          "id": 6,
+          "name": "卡吕冬之子",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Role": {
+          "id": 4,
+          "name": "异常",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Rarity": {
+          "id": 2,
+          "name": "A",
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        }
+      },
+      {
+        "id": 23,
+        "name": "薇薇安",
+        "element": "以太",
+        "image": null,
+        "factionId": 9,
+        "roleId": 4,
+        "rarityId": 1,
+        "createdAt": "2025-08-13T02:38:07.000Z",
+        "updatedAt": "2025-08-13T02:38:07.000Z",
+        "Faction": {
+          "id": 9,
+          "name": "反舌鸟",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Role": {
+          "id": 4,
+          "name": "异常",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Rarity": {
+          "id": 1,
+          "name": "S",
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        }
+      },
+      {
+        "id": 24,
+        "name": "仪玄",
+        "element": "以太",
+        "image": null,
+        "factionId": 10,
+        "roleId": 6,
+        "rarityId": 1,
+        "createdAt": "2025-08-13T02:38:07.000Z",
+        "updatedAt": "2025-08-13T02:38:07.000Z",
+        "Faction": {
+          "id": 10,
+          "name": "云岿山",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Role": {
+          "id": 6,
+          "name": "命破",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Rarity": {
+          "id": 1,
+          "name": "S",
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        }
+      },
+      {
+        "id": 25,
+        "name": "爱丽丝",
+        "element": "物理",
+        "image": null,
+        "factionId": 11,
+        "roleId": 4,
+        "rarityId": 1,
+        "createdAt": "2025-08-13T02:38:07.000Z",
+        "updatedAt": "2025-08-13T02:38:07.000Z",
+        "Faction": {
+          "id": 11,
+          "name": "怪啖屋",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Role": {
+          "id": 4,
+          "name": "异常",
+          "description": null,
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        },
+        "Rarity": {
+          "id": 1,
+          "name": "S",
+          "createdAt": "2025-08-13T02:38:07.000Z",
+          "updatedAt": "2025-08-13T02:38:07.000Z"
+        }
+      }
+    ],
+    "lastUpdated": "2025-08-13T02:38:50.161Z",
+    "source": "database"
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2025-08-14T14:04:16.023Z",
+  "dataType": "bumbos",
+  "count": 20,
+  "source": "web",
+  "data": [
+    {
+      "id": 1,
+      "name": "共鸣布",
+      "rarity": "S",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 2,
+      "name": "左轮布",
+      "rarity": "S",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 3,
+      "name": "插头布",
+      "rarity": "S",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 4,
+      "name": "阿全",
+      "rarity": "S",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 5,
+      "name": "艾米莉安",
+      "rarity": "S",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 6,
+      "name": "飚速布",
+      "rarity": "S",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 7,
+      "name": "巴特勒",
+      "rarity": "S",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 8,
+      "name": "鲨牙布",
+      "rarity": "S",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 9,
+      "name": "气压布",
+      "rarity": "A",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 10,
+      "name": "电击布",
+      "rarity": "A",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 11,
+      "name": "寻宝布",
+      "rarity": "A",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 12,
+      "name": "果核布",
+      "rarity": "A",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 13,
+      "name": "纸袋布",
+      "rarity": "A",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 14,
+      "name": "飞靶布",
+      "rarity": "A",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 15,
+      "name": "企鹅布",
+      "rarity": "A",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 16,
+      "name": "纸壳布",
+      "rarity": "A",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 17,
+      "name": "磁力布",
+      "rarity": "A",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 18,
+      "name": "扑击布",
+      "rarity": "A",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 19,
+      "name": "泪眼布",
+      "rarity": "A",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 20,
+      "name": "恶魔布",
+      "rarity": "A",
+      "image": "/assets/zzz.jpg"
+    }
+  ]
+}

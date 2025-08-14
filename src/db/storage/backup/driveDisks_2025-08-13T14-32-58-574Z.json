@@ -1,0 +1,75 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2025-08-13T14:32:58.533Z",
+  "dataType": "driveDisks",
+  "data": {
+    "count": 9,
+    "data": [
+      {
+        "id": 1,
+        "name": "啄木鸟电音",
+        "image": "/assets/zzz.jpg",
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z"
+      },
+      {
+        "id": 2,
+        "name": "河豚电音",
+        "image": "/assets/zzz.jpg",
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z"
+      },
+      {
+        "id": 3,
+        "name": "激素朋克",
+        "image": "/assets/zzz.jpg",
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z"
+      },
+      {
+        "id": 4,
+        "name": "摇摆爵士",
+        "image": "/assets/zzz.jpg",
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z"
+      },
+      {
+        "id": 5,
+        "name": "震星迪斯科",
+        "image": "/assets/zzz.jpg",
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z"
+      },
+      {
+        "id": 6,
+        "name": "混沌重金属",
+        "image": "/assets/zzz.jpg",
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z"
+      },
+      {
+        "id": 7,
+        "name": "獠牙重金属",
+        "image": "/assets/zzz.jpg",
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z"
+      },
+      {
+        "id": 8,
+        "name": "雷暴重金属",
+        "image": "/assets/zzz.jpg",
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z"
+      },
+      {
+        "id": 9,
+        "name": "炎狱重金属",
+        "image": "/assets/zzz.jpg",
+        "createdAt": "2025-08-13T14:24:30.000Z",
+        "updatedAt": "2025-08-13T14:24:30.000Z"
+      }
+    ],
+    "lastUpdated": "2025-08-13T14:32:58.531Z",
+    "source": "database"
+  }
+}
