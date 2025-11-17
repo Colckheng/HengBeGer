@@ -65,3 +65,10 @@ coverage
 
 # nyc test coverage
 .nyc_output
+
+# Storage data files (runtime)
+src/db/storage/**
+!src/db/storage/README.md
+
+# Local test pages
+test-data.html

@@ -11,6 +11,9 @@ import defineBumbo from './models/bumbo.js';
 import defineDriveDisk from './models/drivedisk.js';
 import defineRarity from './models/rarity.js';
 import storageManager from './storageManager.js';
+import { createIndexes, checkIndexes } from './indexes.js';
+import { logger, logDatabase } from '../utils/logger.js';
+import { withErrorHandling } from '../utils/errorHandler.js';
 
 // 读取文本文件数据
 const readDataFile = () => {
@@ -122,20 +125,25 @@ const parseData = (data) => {
 // 初始化数据库数据
 const initializeData = async (sequelize) => {
   try {
-    // 初始化存储系统
-    console.log('🔄 正在初始化存储管理系统...');
-    const storageInitialized = await storageManager.initializeStorage();
-    if (!storageInitialized) {
-      console.error('❌ 存储系统初始化失败');
-      return false;
+    const shouldInitStorage = process.env.INIT_DB === 'true';
+    logger.info('检查是否需要初始化存储系统...', { shouldInitStorage });
+    if (shouldInitStorage) {
+      logger.info('正在初始化存储管理系统...');
+      const storageInitialized = await storageManager.initializeStorage();
+      if (!storageInitialized) {
+        logger.error('存储系统初始化失败');
+        return false;
+      }
+    } else {
+      logger.info('跳过存储初始化（保留现有数据）');
     }
     
     // 获取存储系统状态
     const storageStatus = await storageManager.getStorageStatus();
-    console.log('📊 存储系统状态:', JSON.stringify(storageStatus, null, 2));
+    logger.info('存储系统状态', { storageStatus });
     
     // 使用传入的sequelize实例
-    console.log('🔍 正在初始化数据库...');
+    logger.info('正在初始化数据库...');
 
     // 定义所有模型
     const Faction = defineFaction(sequelize);
@@ -145,7 +153,7 @@ const initializeData = async (sequelize) => {
     const SoundEngine = defineSoundEngine(sequelize);
     const Bumbo = defineBumbo(sequelize);
     const DriveDisk = defineDriveDisk(sequelize);
-    console.log('✅ 所有模型定义完成!');
+    logger.info('所有模型定义完成');
 
     // 设置模型关联 - 暂时注释掉以避免自动字段生成
     // const models = { Faction, Role, Rarity, Agent, SoundEngine, Bumbo, DriveDisk };
@@ -154,37 +162,41 @@ const initializeData = async (sequelize) => {
     //     models[modelName].associate(models);
     //   }
     // });
-    console.log('✅ 模型关联设置已跳过!');
+    logger.info('模型关联设置已跳过');
     // 使用传入的sequelize实例
-console.log('🔍 使用传入的数据库连接:');
-console.log(`- 主机: ${sequelize.config.host}`);
-console.log(`- 端口: ${sequelize.config.port}`);
-console.log(`- 数据库: ${sequelize.config.database}`);
-console.log(`- 用户名: ${sequelize.config.username}`);
-console.log(`- 方言: ${sequelize.config.dialect}`);
+    logger.info('使用传入的数据库连接', {
+      host: sequelize.config.host,
+      port: sequelize.config.port,
+      database: sequelize.config.database,
+      username: sequelize.config.username,
+      dialect: sequelize.config.dialect
+    });
 
-// 测试数据库连接
-console.log('🔍 测试数据库连接...');
-await sequelize.authenticate();
-console.log('✅ 数据库连接成功!');
+    // 测试数据库连接
+    logger.info('测试数据库连接...');
+    await sequelize.authenticate();
+    logger.info('数据库连接成功');
+    logDatabase('连接测试', { status: 'success' });
 
-// 模型已通过导入定义
-console.log('✅ 模型已通过导入定义');
+    // 模型已通过导入定义
+    logger.info('模型已通过导入定义');
+    logDatabase('模型定义', { status: 'completed' });
 
     // 检查连接池状态
     const pool = sequelize.connectionManager.pool;
-    console.log('🔍 连接池状态:');
-    console.log(`- 最大连接数: ${pool.max || 'N/A'}`);
-    console.log(`- 最小连接数: ${pool.min || 'N/A'}`);
-    console.log(`- 获取超时: ${pool.acquireTimeoutMillis || 'N/A'}`);
-    console.log(`- 空闲超时: ${pool.idleTimeoutMillis || 'N/A'}`);
-    console.log(`- 当前连接数: ${pool.size || 'N/A'}`);
-    console.log(`- 可用连接数: ${(pool.availableConnections && pool.availableConnections.length) || 0}`);
-    console.log(`- 等待队列长度: ${(pool._pendingAcquires && pool._pendingAcquires.length) || 0}`);
+    logger.info('连接池状态', {
+      maxConnections: pool.max || 'N/A',
+      minConnections: pool.min || 'N/A',
+      acquireTimeout: pool.acquireTimeoutMillis || 'N/A',
+      idleTimeout: pool.idleTimeoutMillis || 'N/A',
+      currentConnections: pool.size || 'N/A',
+      availableConnections: (pool.availableConnections && pool.availableConnections.length) || 0,
+      waitingQueueLength: (pool._pendingAcquires && pool._pendingAcquires.length) || 0
+    });
 
     // 确认当前使用的数据库
     const currentDb = sequelize.config.database;
-    console.log(`🔍 当前使用的数据库: ${currentDb}`);
+    logger.info('当前使用的数据库', { database: currentDb });
 
     // 检查数据库是否存在
     try {
@@ -192,47 +204,62 @@ console.log('✅ 模型已通过导入定义');
         `SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '${currentDb}'`
       );
       if (result.length === 0) {
-        console.error(`❌ 数据库 ${currentDb} 不存在`);
+        logger.error('数据库不存在', { database: currentDb });
         return false;
       } else {
-        console.log(`✅ 数据库 ${currentDb} 已存在`);
+        logger.info('数据库已存在', { database: currentDb });
       }
     } catch (dbError) {
-      console.error('❌ 检查数据库存在性失败:', dbError.message);
-      console.error('数据库错误详情:', dbError);
+      logger.error('检查数据库存在性失败', {
+        message: dbError.message,
+        stack: dbError.stack,
+        code: dbError.code
+      });
       return false;
     }
 
     // 手动删除可能存在问题的表
-    console.log('🧹 清理可能存在的问题表...');
-    try {
-      await sequelize.query('DROP TABLE IF EXISTS agents');
-      await sequelize.query('DROP TABLE IF EXISTS sound_engines');
-      await sequelize.query('DROP TABLE IF EXISTS bumbos');
-      console.log('✅ 问题表已清理');
-    } catch (dropError) {
-      console.log('⚠️ 清理表时出现警告:', dropError.message);
+    const destructive = process.env.NODE_ENV === 'development' && process.env.INIT_DB === 'true';
+    if (destructive) {
+      try {
+        await sequelize.query('DROP TABLE IF EXISTS agents');
+        await sequelize.query('DROP TABLE IF EXISTS sound_engines');
+        await sequelize.query('DROP TABLE IF EXISTS bumbos');
+        logger.info('问题表已清理');
+        logDatabase('清理表', { status: 'success', tables: ['agents', 'sound_engines', 'bumbos'] });
+      } catch (dropError) {
+        logger.warn('清理表时出现警告', { message: dropError.message });
+      }
     }
 
     // 同步模型到数据库
-    console.log('🚀 开始同步数据库模型...');
+    logger.info('开始同步数据库模型...');
     try {
-      await sequelize.sync({ force: true });
-      console.log('✅ 数据库表已创建');
+      if (destructive) {
+        await sequelize.sync({ force: true });
+        logDatabase('模型同步', { status: 'success', force: true });
+      } else {
+        await sequelize.sync({ alter: true });
+        logDatabase('模型同步', { status: 'success', alter: true });
+      }
+      logger.info('数据库表同步完成');
     } catch (syncError) {
-      console.error('❌ 模型同步失败:', syncError.message);
-      console.error('同步错误详情:', syncError);
+      logger.error('模型同步失败', {
+        message: syncError.message,
+        stack: syncError.stack,
+        sql: syncError.sql
+      });
       return false;
     }
 
     // 检查表是否存在
-    console.log('🔍 检查表是否存在...');
+    logger.info('检查表是否存在...');
     try {
       const [tables] = await sequelize.query(
         "SHOW TABLES LIKE 'rarities'"
       );
       if (tables.length === 0) {
-        console.error('❌ 表 rarities 不存在，尝试手动创建...');
+        logger.error('表 rarities 不存在，尝试手动创建...');
         // 手动创建表
         await sequelize.query(
           `CREATE TABLE IF NOT EXISTS rarities (
@@ -242,27 +269,30 @@ console.log('✅ 模型已通过导入定义');
             updatedAt DATETIME NOT NULL
           )`
         );
-        console.log('✅ 手动创建表 rarities 成功');
+        logger.info('手动创建表 rarities 成功');
       } else {
-        console.log('✅ 表 rarities 已存在');
+        logger.info('表 rarities 已存在');
       }
     } catch (tableError) {
-      console.error('❌ 检查表存在性失败:', tableError.message);
-      console.error('表错误详情:', tableError);
+      logger.error('检查表存在性失败', {
+        message: tableError.message,
+        stack: tableError.stack,
+        sql: tableError.sql
+      });
       return false;
     }
 
     // 从存储系统读取数据
-    console.log('📖 正在从存储系统读取数据...');
+    logger.info('正在从存储系统读取数据...');
     const storageData = await storageManager.getAllStorageData();
     
     if (!storageData || Object.keys(storageData).length === 0) {
-      console.error('❌ 从存储系统读取数据失败，尝试解析文本文件...');
+      logger.error('从存储系统读取数据失败，尝试解析文本文件...');
       // 备用方案：解析文本文件
       const data = readDataFile();
       const parsedData = parseData(data);
       if (!parsedData) {
-        console.error('❌ 数据解析失败');
+        logger.error('数据解析失败');
         return false;
       }
       // 将解析的数据保存到存储系统
@@ -270,11 +300,12 @@ console.log('✅ 模型已通过导入定义');
       storageData = parsedData;
     }
     
-    console.log('✅ 数据读取成功');
-    console.log(`- 代理人: ${storageData.agents?.length || 0} 个`);
-    console.log(`- 音擎: ${storageData.soundEngines?.length || 0} 个`);
-    console.log(`- 邦布: ${storageData.bumbos?.length || 0} 个`);
-    console.log(`- 驱动盘: ${storageData.driveDisks?.length || 0} 个`);
+    logger.info('数据读取成功', {
+      agents: storageData.agents?.length || 0,
+      soundEngines: storageData.soundEngines?.length || 0,
+      bumbos: storageData.bumbos?.length || 0,
+      driveDisks: storageData.driveDisks?.length || 0
+    });
     
     // 使用存储数据替代解析数据
     const parsedData = storageData;
@@ -282,23 +313,22 @@ console.log('✅ 模型已通过导入定义');
     // 插入等级数据 - 支持S、A、B三个等级
     const rarityMap = {};
     const rarities = ['S', 'A', 'B'];
-    console.log('🔍 尝试使用原始SQL插入等级数据...');
+    logger.info('插入等级数据');
     for (const rarity of rarities) {
       try {
         // 使用Sequelize模型插入
         const result = await Rarity.create({ name: rarity });
         rarityMap[rarity] = result.id;
-        console.log(`✅ 成功插入等级: ${rarity}, ID: ${result.id}`);
+        logger.info('插入等级成功', { rarity, id: result.id });
       } catch (sqlError) {
-        console.error(`❌ 插入等级 ${rarity} 失败:`, sqlError.message);
-        console.error('SQL错误详情:', sqlError);
+        logger.error('插入等级失败', { rarity, message: sqlError.message });
         return false;
       }
     }
     
     // 检查解析出的所有rarity值
     const uniqueRarities = [...new Set([...parsedData.agents.map(agent => agent.rarity), ...parsedData.soundEngines.map(engine => engine.rarity), ...parsedData.bumbos.map(bumbo => bumbo.rarity)])];
-    console.log('🔍 检测到的等级类型:', uniqueRarities);
+    logger.info('检测到的等级类型', { rarities: uniqueRarities });
 
     // 插入阵营数据
     const factionMap = {};
@@ -354,26 +384,41 @@ console.log('✅ 模型已通过导入定义');
     }
 
     // 数据初始化完成后，确保存储系统与数据库同步
-    console.log('🔄 正在同步数据到存储系统...');
+    logger.info('正在同步数据到存储系统...');
     try {
       await storageManager.saveToStorage('agents', parsedData.agents);
       await storageManager.saveToStorage('soundEngines', parsedData.soundEngines);
       await storageManager.saveToStorage('bumbos', parsedData.bumbos);
       await storageManager.saveToStorage('driveDisks', parsedData.driveDisks);
-      console.log('✅ 数据同步到存储系统完成');
+      logger.info('数据同步到存储系统完成');
     } catch (syncError) {
-      console.error('⚠️ 数据同步到存储系统失败:', syncError.message);
+      logger.warn('数据同步到存储系统失败', { message: syncError.message });
     }
     
-    console.log('✅ 数据初始化成功');
+    // 创建数据库索引以优化查询性能
+    logger.info('正在创建数据库索引...');
+    try {
+      const indexesCreated = await createIndexes(sequelize);
+      if (indexesCreated) {
+        logger.info('数据库索引创建完成');
+        await checkIndexes(sequelize);
+      } else {
+        logger.warn('索引创建失败，但不影响系统运行');
+      }
+    } catch (indexError) {
+      logger.warn('索引创建过程中出现错误', { message: indexError.message });
+    }
+    
+    logger.info('数据初始化成功');
     return true;
   } catch (error) {
-    console.error('❌ 数据初始化失败:', error.message);
-    console.error('错误类型:', error.name);
-    console.error('错误详情:', error);
-    console.error('SQL状态:', error.parent?.sqlState);
-    console.error('SQL错误码:', error.parent?.errno);
-    console.error('SQL消息:', error.parent?.sqlMessage);
+    logger.error('数据初始化失败', {
+      message: error.message,
+      name: error.name,
+      sqlState: error.parent?.sqlState,
+      errno: error.parent?.errno,
+      sqlMessage: error.parent?.sqlMessage
+    });
     return false;
   }
 };

@@ -11,23 +11,27 @@ const apiService = {
   // 获取所有数据
   fetchData: async () => {
     try {
-      const response = await fetch(`${API_BASE_URL}/storage/data`);
+      const response = await fetch(`${API_BASE_URL}/dual-storage/web/data`);
       if (!response.ok) throw new Error('网络响应异常');
       const result = await response.json();
       if (result.success) {
-        // 数据结构处理，提取实际的数据数组
+        const normalize = (v) => {
+          if (!v) return [];
+          if (Array.isArray(v)) return v;
+          if (typeof v === 'object' && Array.isArray(v.data)) return v.data;
+          return [];
+        };
         const flattenedData = {
-          agents: result.data.agents?.data || [],
-          soundEngines: result.data.soundEngines?.data || [],
-          bumbos: result.data.bumbos?.data || [],
-          driveDisks: result.data.driveDisks?.data || []
+          agents: normalize(result.data.agents),
+          soundEngines: normalize(result.data.soundEngines),
+          bumbos: normalize(result.data.bumbos),
+          driveDisks: normalize(result.data.driveDisks)
         };
         return flattenedData;
       } else {
         throw new Error(result.message || '获取数据失败');
       }
     } catch (error) {
-      console.error('获取数据失败:', error);
       throw error;
     }
   },
@@ -39,7 +43,6 @@ const apiService = {
       if (!response.ok) throw new Error('获取基础数据失败');
       return await response.json();
     } catch (error) {
-      console.error('获取基础数据失败:', error);
       throw error;
     }
   },
@@ -47,10 +50,6 @@ const apiService = {
   // 代理人相关API
   addAgent: async (agent) => {
     try {
-      console.log('🚀 开始添加代理人请求');
-      console.log('📤 请求URL:', `${API_BASE_URL}/agents`);
-      console.log('📤 请求数据:', agent);
-      
       const response = await fetch(`${API_BASE_URL}/agents`, {
         method: 'POST',
         headers: { 
@@ -59,25 +58,13 @@ const apiService = {
         body: JSON.stringify(agent)
       });
       
-      console.log('📥 响应状态:', response.status, response.statusText);
-      console.log('📥 响应头:', Object.fromEntries(response.headers.entries()));
-      
       if (!response.ok) {
-        const errorText = await response.text();
-        console.error('❌ 响应错误内容:', errorText);
         throw new Error(`添加代理人失败: ${response.status} ${response.statusText}`);
       }
       
       const result = await response.json();
-      console.log('✅ 添加代理人成功:', result);
       return result;
     } catch (error) {
-      console.error('❌ 添加代理人失败:', error);
-      console.error('❌ 错误详情:', {
-        name: error.name,
-        message: error.message,
-        stack: error.stack
-      });
       throw error;
     }
   },
@@ -92,7 +79,6 @@ const apiService = {
       if (!response.ok) throw new Error('更新代理人失败');
       return await response.json();
     } catch (error) {
-      console.error('更新代理人失败:', error);
       throw error;
     }
   },
@@ -102,10 +88,12 @@ const apiService = {
       const response = await fetch(`${API_BASE_URL}/agents/${id}`, {
         method: 'DELETE'
       });
-      if (!response.ok) throw new Error('删除代理人失败');
+      if (!response.ok) {
+        const text = await response.text();
+        throw new Error(`删除代理人失败: ${response.status} ${text}`);
+      }
       return true;
     } catch (error) {
-      console.error('删除代理人失败:', error);
       throw error;
     }
   },
@@ -121,7 +109,6 @@ const apiService = {
       if (!response.ok) throw new Error('添加音擎失败');
       return await response.json();
     } catch (error) {
-      console.error('添加音擎失败:', error);
       throw error;
     }
   },
@@ -136,7 +123,6 @@ const apiService = {
       if (!response.ok) throw new Error('更新音擎失败');
       return await response.json();
     } catch (error) {
-      console.error('更新音擎失败:', error);
       throw error;
     }
   },
@@ -149,7 +135,6 @@ const apiService = {
       if (!response.ok) throw new Error('删除音擎失败');
       return true;
     } catch (error) {
-      console.error('删除音擎失败:', error);
       throw error;
     }
   },
@@ -165,7 +150,6 @@ const apiService = {
       if (!response.ok) throw new Error('添加邦布失败');
       return await response.json();
     } catch (error) {
-      console.error('添加邦布失败:', error);
       throw error;
     }
   },
@@ -180,7 +164,6 @@ const apiService = {
       if (!response.ok) throw new Error('更新邦布失败');
       return await response.json();
     } catch (error) {
-      console.error('更新邦布失败:', error);
       throw error;
     }
   },
@@ -193,7 +176,6 @@ const apiService = {
       if (!response.ok) throw new Error('删除邦布失败');
       return true;
     } catch (error) {
-      console.error('删除邦布失败:', error);
       throw error;
     }
   },
@@ -209,7 +191,6 @@ const apiService = {
       if (!response.ok) throw new Error('添加驱动盘失败');
       return await response.json();
     } catch (error) {
-      console.error('添加驱动盘失败:', error);
       throw error;
     }
   },
@@ -224,7 +205,6 @@ const apiService = {
       if (!response.ok) throw new Error('更新驱动盘失败');
       return await response.json();
     } catch (error) {
-      console.error('更新驱动盘失败:', error);
       throw error;
     }
   },
@@ -237,7 +217,6 @@ const apiService = {
       if (!response.ok) throw new Error('删除驱动盘失败');
       return true;
     } catch (error) {
-      console.error('删除驱动盘失败:', error);
       throw error;
     }
   }

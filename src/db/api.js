@@ -181,17 +181,23 @@ export const updateAgent = async (id, agentData) => {
     if (!agent) return null;
 
     // 查找关联模型的ID
-    if (agentData.faction) {
+    if (agentData.factionId) {
+      agent.factionId = agentData.factionId;
+    } else if (agentData.faction) {
       const faction = await Faction.findOne({ where: { name: agentData.faction } });
       if (faction) agent.factionId = faction.id;
     }
 
-    if (agentData.role) {
+    if (agentData.roleId) {
+      agent.roleId = agentData.roleId;
+    } else if (agentData.role) {
       const role = await Role.findOne({ where: { name: agentData.role } });
       if (role) agent.roleId = role.id;
     }
 
-    if (agentData.rarity) {
+    if (agentData.rarityId) {
+      agent.rarityId = agentData.rarityId;
+    } else if (agentData.rarity) {
       const rarity = await Rarity.findOne({ where: { name: agentData.rarity } });
       if (rarity) agent.rarityId = rarity.id;
     }
@@ -220,6 +226,7 @@ export const deleteAgent = async (id) => {
     if (!agent) return false;
 
     await agent.destroy();
+    await syncDatabaseToStorage();
     return true;
   } catch (error) {
     console.error('删除代理人失败:', error);
@@ -242,20 +249,30 @@ export const getAllSoundEngines = async () => {
 // 添加音擎
 export const addSoundEngine = async (engineData) => {
   try {
-    // 查找关联模型的ID
-    const rarity = await Rarity.findOne({ where: { name: engineData.rarity } });
-    const role = await Role.findOne({ where: { name: engineData.role } });
-
-    if (!rarity || !role) {
-      throw new Error('关联数据不存在');
+    let rarityId;
+    let roleId;
+    if (engineData.rarityId) {
+      rarityId = engineData.rarityId;
+    } else {
+      const rarity = await Rarity.findOne({ where: { name: engineData.rarity } });
+      if (!rarity) throw new Error('稀有度不存在');
+      rarityId = rarity.id;
     }
-
-    return await SoundEngine.create({
+    if (engineData.roleId) {
+      roleId = engineData.roleId;
+    } else {
+      const role = await Role.findOne({ where: { name: engineData.role } });
+      if (!role) throw new Error('职业不存在');
+      roleId = role.id;
+    }
+    const created = await SoundEngine.create({
       name: engineData.name,
-      rarityId: rarity.id,
-      roleId: role.id,
+      rarityId,
+      roleId,
       image: engineData.image || '/assets/zzz.jpg'
     });
+    await syncDatabaseToStorage();
+    return created;
   } catch (error) {
     console.error('添加音擎失败:', error);
     throw error;
@@ -268,22 +285,27 @@ export const updateSoundEngine = async (id, engineData) => {
     const engine = await SoundEngine.findByPk(id);
     if (!engine) return null;
 
-    // 查找关联模型的ID
-    if (engineData.rarity) {
-      const rarity = await Rarity.findOne({ where: { name: engineData.rarity } });
-      if (rarity) engine.rarityId = rarity.id;
-    }
+  // 查找关联模型的ID
+  if (engineData.rarityId) {
+    engine.rarityId = engineData.rarityId;
+  } else if (engineData.rarity) {
+    const rarity = await Rarity.findOne({ where: { name: engineData.rarity } });
+    if (rarity) engine.rarityId = rarity.id;
+  }
 
-    if (engineData.role) {
-      const role = await Role.findOne({ where: { name: engineData.role } });
-      if (role) engine.roleId = role.id;
-    }
+  if (engineData.roleId) {
+    engine.roleId = engineData.roleId;
+  } else if (engineData.role) {
+    const role = await Role.findOne({ where: { name: engineData.role } });
+    if (role) engine.roleId = role.id;
+  }
 
     // 更新其他字段
     engine.name = engineData.name || engine.name;
     engine.image = engineData.image || engine.image;
 
     await engine.save();
+    await syncDatabaseToStorage();
     return engine;
   } catch (error) {
     console.error('更新音擎失败:', error);
@@ -298,6 +320,7 @@ export const deleteSoundEngine = async (id) => {
     if (!engine) return false;
 
     await engine.destroy();
+    await syncDatabaseToStorage();
     return true;
   } catch (error) {
     console.error('删除音擎失败:', error);
@@ -320,18 +343,21 @@ export const getAllBumbos = async () => {
 // 添加邦布
 export const addBumbo = async (bumboData) => {
   try {
-    // 查找关联模型的ID
-    const rarity = await Rarity.findOne({ where: { name: bumboData.rarity } });
-
-    if (!rarity) {
-      throw new Error('关联数据不存在');
+    let rarityId;
+    if (bumboData.rarityId) {
+      rarityId = bumboData.rarityId;
+    } else {
+      const rarity = await Rarity.findOne({ where: { name: bumboData.rarity } });
+      if (!rarity) throw new Error('稀有度不存在');
+      rarityId = rarity.id;
     }
-
-    return await Bumbo.create({
+    const created = await Bumbo.create({
       name: bumboData.name,
-      rarityId: rarity.id,
+      rarityId,
       image: bumboData.image || '/assets/zzz.jpg'
     });
+    await syncDatabaseToStorage();
+    return created;
   } catch (error) {
     console.error('添加邦布失败:', error);
     throw error;
@@ -344,17 +370,20 @@ export const updateBumbo = async (id, bumboData) => {
     const bumbo = await Bumbo.findByPk(id);
     if (!bumbo) return null;
 
-    // 查找关联模型的ID
-    if (bumboData.rarity) {
-      const rarity = await Rarity.findOne({ where: { name: bumboData.rarity } });
-      if (rarity) bumbo.rarityId = rarity.id;
-    }
+  // 查找关联模型的ID
+  if (bumboData.rarityId) {
+    bumbo.rarityId = bumboData.rarityId;
+  } else if (bumboData.rarity) {
+    const rarity = await Rarity.findOne({ where: { name: bumboData.rarity } });
+    if (rarity) bumbo.rarityId = rarity.id;
+  }
 
     // 更新其他字段
     bumbo.name = bumboData.name || bumbo.name;
     bumbo.image = bumboData.image || bumbo.image;
 
     await bumbo.save();
+    await syncDatabaseToStorage();
     return bumbo;
   } catch (error) {
     console.error('更新邦布失败:', error);
@@ -369,6 +398,7 @@ export const deleteBumbo = async (id) => {
     if (!bumbo) return false;
 
     await bumbo.destroy();
+    await syncDatabaseToStorage();
     return true;
   } catch (error) {
     console.error('删除邦布失败:', error);
@@ -389,11 +419,13 @@ export const getAllDriveDisks = async () => {
 // 添加驱动盘
 export const addDriveDisk = async (diskData) => {
   try {
-    return await DriveDisk.create({
+    const created = await DriveDisk.create({
       name: diskData.name,
       description: diskData.description,
       image: diskData.image || '/assets/zzz.jpg'
     });
+    await syncDatabaseToStorage();
+    return created;
   } catch (error) {
     console.error('添加驱动盘失败:', error);
     throw error;
@@ -412,6 +444,7 @@ export const updateDriveDisk = async (id, diskData) => {
     disk.image = diskData.image || disk.image;
 
     await disk.save();
+    await syncDatabaseToStorage();
     return disk;
   } catch (error) {
     console.error('更新驱动盘失败:', error);
@@ -426,6 +459,7 @@ export const deleteDriveDisk = async (id) => {
     if (!disk) return false;
 
     await disk.destroy();
+    await syncDatabaseToStorage();
     return true;
   } catch (error) {
     console.error('删除驱动盘失败:', error);

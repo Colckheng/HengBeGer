@@ -2,6 +2,7 @@ import React, { useState, useRef, memo, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useData } from './DataContext';
 import axios from 'axios';
+const API_BASE_URL = import.meta?.env?.DEV ? '/api' : '/api';
 import './ZZZWiki.css';
 
 const AdminPanel = () => {
@@ -36,18 +37,12 @@ const AdminPanel = () => {
   useEffect(() => {
     const initializeAdminSession = async () => {
       try {
-        console.log('🔄 正在初始化管理员会话...');
-        
         // 1. 首先初始化双存储系统
-        const initResponse = await axios.post('http://localhost:3001/api/dual-storage/initialize');
-        if (!initResponse.data.success) {
-          console.warn('双存储系统初始化失败，但继续尝试初始化管理员会话');
-        }
+        const initResponse = await axios.post(`${API_BASE_URL}/dual-storage/initialize`);
         
         // 2. 初始化管理员会话（复制网页端数据到管理员端）
-        const sessionResponse = await axios.post('http://localhost:3001/api/dual-storage/admin/session');
+        const sessionResponse = await axios.post(`${API_BASE_URL}/dual-storage/admin/session`);
         if (sessionResponse.data.success) {
-          console.log('✅ 管理员会话初始化成功');
           setSessionInitialized(true);
           
           // 3. 加载管理员端数据
@@ -55,11 +50,8 @@ const AdminPanel = () => {
           
           // 4. 加载双存储系统状态
           await loadDualStorageStatus();
-        } else {
-          console.error('❌ 管理员会话初始化失败:', sessionResponse.data.message);
         }
       } catch (error) {
-        console.error('❌ 初始化管理员会话时发生错误:', error);
         // 即使初始化失败，也尝试加载现有数据
         await loadAdminData();
       }
@@ -106,7 +98,7 @@ const AdminPanel = () => {
   // 保存编辑
   const saveEdit = async (updatedData) => {
     try {
-      console.log('开始保存编辑:', { activeTab, editModalData, updatedData });
+
       
       if (!editModalData || !editModalData.id) {
         throw new Error('编辑数据无效，缺少ID');
@@ -119,7 +111,7 @@ const AdminPanel = () => {
         if (processedData.roleId) processedData.roleId = parseInt(processedData.roleId);
         if (processedData.rarityId) processedData.rarityId = parseInt(processedData.rarityId);
       }
-      console.log('处理后的数据:', processedData);
+
       
       let result;
       
@@ -144,7 +136,7 @@ const AdminPanel = () => {
           throw new Error('未知的activeTab: ' + activeTab);
       }
       
-      console.log('更新成功，准备保存到管理员存储');
+
       
       // 保存到管理员端存储
       if (result && sessionInitialized) {
@@ -154,7 +146,6 @@ const AdminPanel = () => {
       closeEditModal();
       alert('修改保存成功！');
     } catch (error) {
-      console.error('保存编辑失败:', error);
       alert('保存失败: ' + error.message);
     }
   };
@@ -198,28 +189,38 @@ const AdminPanel = () => {
         switch (activeTab) {
           case 'agents':
             await handleAddAgent(formData);
-            updatedData = data.agents;
             break;
           case 'soundEngines':
             await handleAddSoundEngine(formData);
-            updatedData = data.soundEngines;
             break;
           case 'bumbos':
             await handleAddBumbo(formData);
-            updatedData = data.bumbos;
             break;
           case 'driveDisks':
             await handleAddDriveDisk(formData);
-            updatedData = data.driveDisks;
             break;
           default:
             break;
         }
+        const storageResp = await axios.get(`${API_BASE_URL}/storage/data`);
+        const storageData = storageResp.data?.data || {};
+        const pick = (t) => Array.isArray(storageData[t]?.data) ? storageData[t].data : [];
+        if (activeTab === 'agents') updatedData = pick('agents');
+        if (activeTab === 'soundEngines') updatedData = pick('soundEngines');
+        if (activeTab === 'bumbos') updatedData = pick('bumbos');
+        if (activeTab === 'driveDisks') updatedData = pick('driveDisks');
       }
 
       // 保存到管理员端存储
       if (updatedData && sessionInitialized) {
         await saveAdminData(activeTab, updatedData);
+        try {
+          const syncResp = await axios.post(`${API_BASE_URL}/dual-storage/sync`);
+          if (syncResp.data?.success) {
+            await handleUpdateData();
+            await loadDualStorageStatus();
+          }
+        } catch {}
       }
 
       // 重置表单
@@ -232,7 +233,6 @@ const AdminPanel = () => {
         setActiveSubTab('list');
       }
     } catch (error) {
-      console.error('提交表单失败:', error);
       alert('操作失败: ' + error.message);
     }
   };
@@ -241,7 +241,7 @@ const AdminPanel = () => {
   const deleteItem = async (type, id) => {
     if (window.confirm('确定要删除这个项目吗？')) {
       try {
-        console.log('开始删除项目:', { type, id });
+
         
         if (!id) {
           throw new Error('删除失败：缺少项目ID');
@@ -252,36 +252,58 @@ const AdminPanel = () => {
         switch (type) {
           case 'agents':
             await handleDeleteAgent(id);
-            updatedData = data.agents;
             break;
           case 'soundEngines':
             await handleDeleteSoundEngine(id);
-            updatedData = data.soundEngines;
             break;
           case 'bumbos':
             await handleDeleteBumbo(id);
-            updatedData = data.bumbos;
             break;
           case 'driveDisks':
             await handleDeleteDriveDisk(id);
-            updatedData = data.driveDisks;
             break;
           default:
             throw new Error('未知的删除类型: ' + type);
         }
         
-        console.log('删除成功，准备保存到管理员存储');
+
         
-        // 保存到管理员端存储
-        if (updatedData && sessionInitialized) {
-          await saveAdminData(type, updatedData);
+        // 从根存储拉取最新数组，保存到管理员端并同步到网页端
+        const storageResp = await axios.get(`${API_BASE_URL}/storage/data`);
+        const storageData = storageResp.data?.data || {};
+        const pick = (t) => Array.isArray(storageData[t]?.data) ? storageData[t].data : [];
+        if (sessionInitialized) {
+          const arr = pick(type);
+          await saveAdminData(type, arr);
+          try {
+            const syncResp = await axios.post(`${API_BASE_URL}/dual-storage/sync`);
+            if (syncResp.data?.success) {
+              await handleUpdateData();
+              await loadDualStorageStatus();
+            }
+          } catch {}
         }
         
         alert('删除成功！');
       } catch (error) {
-        console.error('删除项目失败:', error);
-        alert('删除失败: ' + error.message);
-      }
+          try {
+            const storageResp = await axios.get(`${API_BASE_URL}/storage/data`);
+            const storageData = storageResp.data?.data || {};
+            const pick = (t) => Array.isArray(storageData[t]?.data) ? storageData[t].data : [];
+            const arr = pick(type).filter(item => Number(item.id) !== Number(id));
+            if (sessionInitialized) {
+              await saveAdminData(type, arr);
+              const syncResp = await axios.post(`${API_BASE_URL}/dual-storage/sync`);
+              if (syncResp.data?.success) {
+                await handleUpdateData();
+                await loadDualStorageStatus();
+                alert('后端删除失败，已从网页端数据移除并同步');
+                return;
+              }
+            }
+          } catch {}
+          alert('删除失败: ' + error.message);
+        }
     }
   };
 
@@ -293,22 +315,19 @@ const AdminPanel = () => {
   // 加载管理员端数据
   const loadAdminData = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/api/dual-storage/admin/data');
+      const response = await axios.get(`${API_BASE_URL}/dual-storage/admin/data`);
       if (response.data.success) {
         setAdminData(response.data.data);
-        console.log('✅ 管理员端数据加载成功');
-      } else {
-        console.error('❌ 加载管理员端数据失败:', response.data.message);
       }
     } catch (error) {
-      console.error('❌ 加载管理员端数据时发生错误:', error);
+      // 静默处理错误
     }
   };
 
   // 加载双存储系统状态
   const loadDualStorageStatus = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/api/dual-storage/status');
+      const response = await axios.get(`${API_BASE_URL}/dual-storage/status`);
       if (response.data.success) {
         const status = response.data.status;
         setDualStorageStatus({
@@ -317,29 +336,23 @@ const AdminPanel = () => {
           lastSync: status.web?.agents?.lastUpdated || null,
           dataCount: Object.values(status.admin || {}).reduce((sum, item) => sum + (item.count || 0), 0)
         });
-        console.log('✅ 双存储系统状态加载成功');
-      } else {
-        console.error('❌ 加载双存储系统状态失败:', response.data.message);
       }
     } catch (error) {
-      console.error('❌ 加载双存储系统状态时发生错误:', error);
+      // 静默处理错误
     }
   };
 
   // 保存管理员端数据
   const saveAdminData = async (type, data) => {
     try {
-      const response = await axios.put(`http://localhost:3001/api/dual-storage/admin/${type}`, { data });
+      const response = await axios.put(`${API_BASE_URL}/dual-storage/admin/${type}`, { data });
       if (response.data.success) {
-        console.log(`✅ 管理员端 ${type} 数据保存成功`);
         setHasAdminChanges(true);
         return true;
       } else {
-        console.error(`❌ 保存管理员端 ${type} 数据失败:`, response.data.message);
         return false;
       }
     } catch (error) {
-      console.error(`❌ 保存管理员端 ${type} 数据时发生错误:`, error);
       return false;
     }
   };
@@ -352,10 +365,8 @@ const AdminPanel = () => {
     setSyncLoading(true);
     try {
       // 1. 同步管理员端数据到网页端
-      const syncResponse = await axios.post('http://localhost:3001/api/dual-storage/sync');
+      const syncResponse = await axios.post(`${API_BASE_URL}/dual-storage/sync`);
       if (syncResponse.data.success) {
-        console.log('✅ 数据同步成功:', syncResponse.data.syncResults);
-        
         // 2. 刷新前端显示的数据（从网页端重新加载）
         await handleUpdateData();
         
@@ -368,7 +379,6 @@ const AdminPanel = () => {
         throw new Error(syncResponse.data.message || '同步失败');
       }
     } catch (error) {
-      console.error('❌ 更新数据失败:', error);
       alert('更新数据失败: ' + error.message);
     } finally {
       setSyncLoading(false);
@@ -378,7 +388,7 @@ const AdminPanel = () => {
   // 存储系统相关函数
   const loadStorageData = async (type = null) => {
     try {
-      const url = type ? `http://localhost:3001/api/storage/${type}` : 'http://localhost:3001/api/storage/data';
+      const url = type ? `${API_BASE_URL}/storage/${type}` : `${API_BASE_URL}/storage/data`;
       const response = await axios.get(url);
       if (response.data.success) {
         if (type) {
@@ -386,17 +396,15 @@ const AdminPanel = () => {
         } else {
           setStorageData(response.data.data);
         }
-      } else {
-        console.error('加载存储数据失败:', response.data.message);
       }
     } catch (error) {
-      console.error('加载存储数据失败:', error);
+      // 静默处理错误
     }
   };
 
   const loadStorageStatus = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/api/storage/status');
+      const response = await axios.get(`${API_BASE_URL}/storage/status`);
       if (response.data.success) {
         const status = response.data.status;
         // 转换API返回的复杂状态为前端期望的简单格式
@@ -490,6 +498,18 @@ const AdminPanel = () => {
             </div>
             
             <div className="form-group">
+              <label>属性:</label>
+              <select name="element" value={formData.element || ''} onChange={handleInputChange} required>
+                <option value="">选择属性</option>
+                <option value="物理">物理</option>
+                <option value="火">火</option>
+                <option value="冰">冰</option>
+                <option value="电">电</option>
+                <option value="以太">以太</option>
+              </select>
+            </div>
+            
+            <div className="form-group">
               <label>图片:</label>
               <input type="file" name="imageFile" onChange={handleFileChange} accept="image/*" />
               <input type="hidden" name="image" value={formData.image || ''} />
@@ -498,7 +518,7 @@ const AdminPanel = () => {
               <label>稀有度:</label>
               <select name="rarityId" value={formData.rarityId || ''} onChange={handleInputChange} required>
                 <option value="">选择稀有度</option>
-                {baseData?.rarities?.map(rarity => (
+                {baseData?.rarities?.filter(rarity => rarity.name === 'S' || rarity.name === 'A').map(rarity => (
                   <option key={rarity.id} value={rarity.id}>{rarity.name}</option>
                 ))}
               </select>
@@ -519,12 +539,12 @@ const AdminPanel = () => {
               <input type="text" name="name" value={formData.name || ''} onChange={handleInputChange} required className="agent-name-input" style={{width: '250px', minWidth: '250px', maxWidth: '250px', boxSizing: 'border-box'}} />
             </div>
             <div className="form-group">
-              <label>类型:</label>
-              <select name="type" value={formData.type || ''} onChange={handleInputChange} required>
-                <option value="">选择类型</option>
-                <option value="攻击">攻击</option>
-                <option value="防御">防御</option>
-                <option value="辅助">辅助</option>
+              <label>职业:</label>
+              <select name="role" value={formData.role || ''} onChange={handleInputChange} required>
+                <option value="">选择职业</option>
+                {baseData?.roles?.map(role => (
+                  <option key={role.id} value={role.name}>{role.name}</option>
+                ))}
               </select>
             </div>
             <div className="form-group">
@@ -534,9 +554,11 @@ const AdminPanel = () => {
             </div>
             <div className="form-group">
               <label>稀有度:</label>
-              <select name="rarity" value={formData.rarity || 'S'} onChange={handleInputChange}>
-                <option value="S">S</option>
-                <option value="A">A</option>
+              <select name="rarityId" value={formData.rarityId || ''} onChange={handleInputChange} required>
+                <option value="">选择稀有度</option>
+                {baseData?.rarities?.map(rarity => (
+                  <option key={rarity.id} value={rarity.id}>{rarity.name}</option>
+                ))}
               </select>
             </div>
             <div className="form-actions">
@@ -561,9 +583,11 @@ const AdminPanel = () => {
             </div>
             <div className="form-group">
               <label>稀有度:</label>
-              <select name="rarity" value={formData.rarity || 'S'} onChange={handleInputChange}>
-                <option value="S">S</option>
-                <option value="A">A</option>
+              <select name="rarityId" value={formData.rarityId || ''} onChange={handleInputChange} required>
+                <option value="">选择稀有度</option>
+                {baseData?.rarities?.filter(rarity => rarity.name === 'S' || rarity.name === 'A').map(rarity => (
+                  <option key={rarity.id} value={rarity.id}>{rarity.name}</option>
+                ))}
               </select>
             </div>
             <div className="form-actions">
@@ -942,32 +966,6 @@ const AdminPanel = () => {
           </ul>
         </nav>
         <div className="update-button-container">
-          <div className="dual-storage-status">
-            <div className="storage-section">
-              <h4>双存储系统状态</h4>
-              <div className={`status-indicator ${dualStorageStatus.initialized ? 'connected' : 'disconnected'}`}>
-                {dualStorageStatus.initialized ? '✅ 系统已初始化' : '❌ 系统未初始化'}
-              </div>
-              <div className={`status-indicator ${sessionInitialized ? 'connected' : 'disconnected'}`}>
-                {sessionInitialized ? '✅ 管理员会话活跃' : '❌ 管理员会话未激活'}
-              </div>
-            </div>
-            
-            <div className="sync-info">
-              <div className="data-count">
-                管理员端数据: {dualStorageStatus.dataCount} 条记录
-              </div>
-              <div className="last-sync">
-                最后同步: {dualStorageStatus.lastSync ? new Date(dualStorageStatus.lastSync).toLocaleString() : '从未同步'}
-              </div>
-              {hasAdminChanges && (
-                <div className="changes-indicator">
-                  ⚠️ 有未同步的修改
-                </div>
-              )}
-            </div>
-          </div>
-          
           <div className="sync-buttons">
             <button
               className={`update-button ${hasAdminChanges ? 'primary urgent' : 'primary'}`}
