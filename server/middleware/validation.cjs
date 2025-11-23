@@ -236,7 +236,7 @@ const validateId = (req, res, next) => {
 // 数据类型验证中间件
 const validateDataType = (req, res, next) => {
   try {
-    const allowedTypes = ['agents', 'factions', 'soundEngines', 'bumbos', 'driveDisks'];
+    const allowedTypes = ['agents', 'factions', 'soundEngines', 'bumbos', 'driveDisks', 'hsrCharacters', 'hsrCones', 'hsrRelics'];
     const type = validators.isEnum(req.params.type, allowedTypes, '数据类型');
     req.params.type = type;
     next();
@@ -244,6 +244,42 @@ const validateDataType = (req, res, next) => {
     next(error);
   }
 };
+
+// HSR 验证
+const validateHsrCharacterData = (data) => {
+  const cleaned = {}
+  cleaned.name = validators.hasLength(data.name, 1, 50, '角色名称')
+  if (data.elementId !== undefined) cleaned.elementId = validators.isPositiveInteger(data.elementId, '元素ID')
+  else cleaned.element = validators.hasLength(data.element || '', 1, 10, '角色元素')
+  if (data.pathId !== undefined) cleaned.pathId = validators.isPositiveInteger(data.pathId, '命途ID')
+  else cleaned.path = validators.hasLength(data.path || '', 1, 10, '角色命途')
+  if (data.rarityId !== undefined) cleaned.rarityId = validators.isPositiveInteger(data.rarityId, '稀有度ID')
+  else cleaned.rarity = validators.hasLength(data.rarity || '', 1, 5, '稀有度')
+  if (data.image) cleaned.image = validators.hasLength(data.image, 0, 5000000, '图片数据')
+  return cleaned
+}
+
+const validateHsrConeData = (data) => {
+  const cleaned = {}
+  cleaned.name = validators.hasLength(data.name, 1, 50, '光锥名称')
+  if (data.pathId !== undefined) cleaned.pathId = validators.isPositiveInteger(data.pathId, '命途ID')
+  else cleaned.path = validators.hasLength(data.path || '', 1, 10, '命途')
+  if (data.rarityId !== undefined) cleaned.rarityId = validators.isPositiveInteger(data.rarityId, '稀有度ID')
+  else cleaned.rarity = validators.hasLength(data.rarity || '', 1, 5, '稀有度')
+  if (data.image) cleaned.image = validators.hasLength(data.image, 0, 5000000, '图片数据')
+  return cleaned
+}
+
+const validateHsrRelicData = (data) => {
+  const cleaned = {}
+  cleaned.name = validators.hasLength(data.name, 1, 50, '遗器名称')
+  if (data.typeId !== undefined) cleaned.typeId = validators.isPositiveInteger(data.typeId, '遗器类型ID')
+  else cleaned.type = validators.isEnum(data.type, ['隧洞遗器','位面饰品'], '遗器类型')
+  if (data.setName) cleaned.setName = validators.hasLength(data.setName, 1, 50, '套装名')
+  if (data.part) cleaned.part = validators.isEnum(data.part, ['头','手','身','脚','位面球','连结绳'], '部位')
+  if (data.image) cleaned.image = validators.hasLength(data.image, 0, 5000000, '图片数据')
+  return cleaned
+}
 
 // 请求体验证中间件工厂
 const validateBody = (validatorFn) => {
@@ -268,6 +304,9 @@ module.exports = {
   validateSoundEngineData,
   validateBumboData,
   validateDriveDiskData,
+  validateHsrCharacterData,
+  validateHsrConeData,
+  validateHsrRelicData,
   validateId,
   validateDataType,
   validateBody

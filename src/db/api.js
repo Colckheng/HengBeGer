@@ -7,10 +7,20 @@ import defineFaction from './models/faction.js';
 import defineRole from './models/role.js';
 import defineRarity from './models/rarity.js';
 import { sequelize as defaultSequelize } from './config.js';
+// HSR models
+import defineHsrElement from './models/hsr/element.js'
+import defineHsrPath from './models/hsr/path.js'
+import defineHsrRarity from './models/hsr/rarity.js'
+import defineHsrRelicType from './models/hsr/relicType.js'
+import defineHsrCharacter from './models/hsr/character.js'
+import defineHsrCone from './models/hsr/cone.js'
+import defineHsrRelic from './models/hsr/relic.js'
 
 // 全局变量存储当前使用的sequelize实例
 let currentSequelize = defaultSequelize;
 let Agent, SoundEngine, Bumbo, DriveDisk, Faction, Role, Rarity;
+// HSR
+let HsrElement, HsrPath, HsrRarity, HsrRelicType, HsrCharacter, HsrCone, HsrRelic;
 
 // 初始化模型的函数
 function initializeModels(sequelizeInstance = defaultSequelize) {
@@ -22,6 +32,14 @@ function initializeModels(sequelizeInstance = defaultSequelize) {
   Faction = defineFaction(sequelizeInstance);
   Role = defineRole(sequelizeInstance);
   Rarity = defineRarity(sequelizeInstance);
+  // HSR
+  HsrElement = defineHsrElement(sequelizeInstance);
+  HsrPath = defineHsrPath(sequelizeInstance);
+  HsrRarity = defineHsrRarity(sequelizeInstance);
+  HsrRelicType = defineHsrRelicType(sequelizeInstance);
+  HsrCharacter = defineHsrCharacter(sequelizeInstance);
+  HsrCone = defineHsrCone(sequelizeInstance);
+  HsrRelic = defineHsrRelic(sequelizeInstance);
   
   // 设置模型关联
   setupAssociations();
@@ -44,6 +62,13 @@ function setupAssociations() {
   Rarity.hasMany(Agent, { foreignKey: 'rarityId' });
   Rarity.hasMany(SoundEngine, { foreignKey: 'rarityId' });
   Rarity.hasMany(Bumbo, { foreignKey: 'rarityId' });
+  // HSR associations
+  HsrCharacter.belongsTo(HsrElement, { foreignKey: 'elementId' })
+  HsrCharacter.belongsTo(HsrPath, { foreignKey: 'pathId' })
+  HsrCharacter.belongsTo(HsrRarity, { foreignKey: 'rarityId' })
+  HsrCone.belongsTo(HsrPath, { foreignKey: 'pathId' })
+  HsrCone.belongsTo(HsrRarity, { foreignKey: 'rarityId' })
+  HsrRelic.belongsTo(HsrRelicType, { foreignKey: 'typeId' })
 }
 
 // 默认初始化
@@ -62,6 +87,9 @@ export const syncDatabaseToStorage = async () => {
     const soundEngines = await getAllSoundEngines();
     const bumbos = await getAllBumbos();
     const driveDisks = await getAllDriveDisks();
+    const hsrCharacters = await getAllHsrCharacters();
+    const hsrCones = await getAllHsrCones();
+    const hsrRelics = await getAllHsrRelics();
     
     // 保存到存储文件
     await storageManager.saveToStorage('agents', {
@@ -91,6 +119,24 @@ export const syncDatabaseToStorage = async () => {
       lastUpdated: new Date().toISOString(),
       source: 'database'
     });
+    await storageManager.saveToStorage('hsrCharacters', {
+      count: hsrCharacters.length,
+      data: hsrCharacters,
+      lastUpdated: new Date().toISOString(),
+      source: 'database'
+    })
+    await storageManager.saveToStorage('hsrCones', {
+      count: hsrCones.length,
+      data: hsrCones,
+      lastUpdated: new Date().toISOString(),
+      source: 'database'
+    })
+    await storageManager.saveToStorage('hsrRelics', {
+      count: hsrRelics.length,
+      data: hsrRelics,
+      lastUpdated: new Date().toISOString(),
+      source: 'database'
+    })
     
     console.log('✅ 数据库数据已同步到存储文件');
   } catch (error) {
@@ -100,8 +146,8 @@ export const syncDatabaseToStorage = async () => {
 };
 
 // 导出模型获取函数
-export const getModels = () => ({ Agent, SoundEngine, Bumbo, DriveDisk, Faction, Role, Rarity });
-export { Agent, SoundEngine, Bumbo, DriveDisk, Faction, Role, Rarity, initializeModels };
+export const getModels = () => ({ Agent, SoundEngine, Bumbo, DriveDisk, Faction, Role, Rarity, HsrElement, HsrPath, HsrRarity, HsrRelicType, HsrCharacter, HsrCone, HsrRelic });
+export { Agent, SoundEngine, Bumbo, DriveDisk, Faction, Role, Rarity, HsrElement, HsrPath, HsrRarity, HsrRelicType, HsrCharacter, HsrCone, HsrRelic, initializeModels };
 
 // 获取所有代理人
 export const getAllAgents = async () => {
@@ -114,6 +160,102 @@ export const getAllAgents = async () => {
     return [];
   }
 };
+
+// HSR — 获取
+export const getAllHsrCharacters = async () => {
+  try {
+    return await HsrCharacter.findAll({ include: [HsrElement, HsrPath, HsrRarity] })
+  } catch (e) { console.error('获取HSR角色失败:', e); return [] }
+}
+export const getAllHsrCones = async () => {
+  try { return await HsrCone.findAll({ include: [HsrPath, HsrRarity] }) } catch (e) { console.error('获取HSR光锥失败:', e); return [] }
+}
+export const getAllHsrRelics = async () => {
+  try { return await HsrRelic.findAll({ include: [HsrRelicType] }) } catch (e) { console.error('获取HSR遗器失败:', e); return [] }
+}
+
+// HSR — 添加
+export const addHsrCharacter = async (payload) => {
+  try {
+    const created = await HsrCharacter.create({
+      name: payload.name,
+      elementId: payload.elementId || (await HsrElement.findOne({ where: { name: payload.element } }))?.id,
+      pathId: payload.pathId || (await HsrPath.findOne({ where: { name: payload.path } }))?.id,
+      rarityId: payload.rarityId || (await HsrRarity.findOne({ where: { name: payload.rarity } }))?.id,
+      image: payload.image || '/assets/hsr.jpg'
+    })
+    await syncDatabaseToStorage();
+    return created
+  } catch (error) { console.error('添加HSR角色失败:', error); throw error }
+}
+
+export const addHsrCone = async (payload) => {
+  try {
+    const created = await HsrCone.create({
+      name: payload.name,
+      pathId: payload.pathId || (await HsrPath.findOne({ where: { name: payload.path } }))?.id,
+      rarityId: payload.rarityId || (await HsrRarity.findOne({ where: { name: payload.rarity } }))?.id,
+      image: payload.image || '/assets/hsr.jpg'
+    })
+    await syncDatabaseToStorage();
+    return created
+  } catch (error) { console.error('添加HSR光锥失败:', error); throw error }
+}
+
+export const addHsrRelic = async (payload) => {
+  try {
+    const created = await HsrRelic.create({
+      name: payload.name,
+      typeId: payload.typeId || (await HsrRelicType.findOne({ where: { name: payload.type } }))?.id,
+      setName: payload.setName,
+      part: payload.part,
+      image: payload.image || '/assets/hsr.jpg'
+    })
+    await syncDatabaseToStorage();
+    return created
+  } catch (error) { console.error('添加HSR遗器失败:', error); throw error }
+}
+
+// HSR — 更新
+export const updateHsrCharacter = async (id, payload) => {
+  try {
+    const model = await HsrCharacter.findByPk(id); if (!model) return null
+    if (payload.elementId) model.elementId = payload.elementId; else if (payload.element) { const e = await HsrElement.findOne({ where: { name: payload.element } }); if (e) model.elementId = e.id }
+    if (payload.pathId) model.pathId = payload.pathId; else if (payload.path) { const p = await HsrPath.findOne({ where: { name: payload.path } }); if (p) model.pathId = p.id }
+    if (payload.rarityId) model.rarityId = payload.rarityId; else if (payload.rarity) { const r = await HsrRarity.findOne({ where: { name: payload.rarity } }); if (r) model.rarityId = r.id }
+    model.name = payload.name || model.name
+    model.image = payload.image || model.image
+    await model.save(); await syncDatabaseToStorage(); return model
+  } catch (error) { console.error('更新HSR角色失败:', error); throw error }
+}
+
+export const updateHsrCone = async (id, payload) => {
+  try {
+    const model = await HsrCone.findByPk(id); if (!model) return null
+    if (payload.pathId) model.pathId = payload.pathId; else if (payload.path) { const p = await HsrPath.findOne({ where: { name: payload.path } }); if (p) model.pathId = p.id }
+    if (payload.rarityId) model.rarityId = payload.rarityId; else if (payload.rarity) { const r = await HsrRarity.findOne({ where: { name: payload.rarity } }); if (r) model.rarityId = r.id }
+    model.name = payload.name || model.name
+    model.image = payload.image || model.image
+    await model.save(); await syncDatabaseToStorage(); return model
+  } catch (error) { console.error('更新HSR光锥失败:', error); throw error }
+}
+
+export const updateHsrRelic = async (id, payload) => {
+  try {
+    const model = await HsrRelic.findByPk(id); if (!model) return null
+    if (payload.typeId) model.typeId = payload.typeId; else if (payload.type) { const t = await HsrRelicType.findOne({ where: { name: payload.type } }); if (t) model.typeId = t.id }
+    model.name = payload.name || model.name
+    model.setName = payload.setName || model.setName
+    model.part = payload.part || model.part
+    model.image = payload.image || model.image
+    await model.save(); await syncDatabaseToStorage(); return model
+  } catch (error) { console.error('更新HSR遗器失败:', error); throw error }
+}
+
+// HSR — 删除
+export const deleteHsrCharacter = async (id) => { try { const m = await HsrCharacter.findByPk(id); if (!m) return false; await m.destroy(); await syncDatabaseToStorage(); return true } catch (e) { console.error('删除HSR角色失败:', e); throw e } }
+export const deleteHsrCone = async (id) => { try { const m = await HsrCone.findByPk(id); if (!m) return false; await m.destroy(); await syncDatabaseToStorage(); return true } catch (e) { console.error('删除HSR光锥失败:', e); throw e } }
+export const deleteHsrRelic = async (id) => { try { const m = await HsrRelic.findByPk(id); if (!m) return false; await m.destroy(); await syncDatabaseToStorage(); return true } catch (e) { console.error('删除HSR遗器失败:', e); throw e } }
 
 // 添加代理人
 export const addAgent = async (agentData) => {

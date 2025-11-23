@@ -142,7 +142,7 @@ const initializeData = async (sequelize) => {
     const storageStatus = await storageManager.getStorageStatus();
     logger.info('存储系统状态', { storageStatus });
     
-    // 使用传入的sequelize实例
+  // 使用传入的sequelize实例
     logger.info('正在初始化数据库...');
 
     // 定义所有模型

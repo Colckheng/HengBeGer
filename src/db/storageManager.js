@@ -2,6 +2,7 @@
 import fs from 'fs';
 import path from 'path';
 import initialData from '../initialdata.js';
+import { logger } from '../utils/logger.js';
 
 /**
  * 存储管理器类
@@ -47,7 +48,7 @@ class StorageManager {
    */
   async initializeStorage() {
     try {
-      console.log('🔄 正在初始化存储系统...');
+      logger.info('正在初始化存储系统...');
       
       const dataTypes = ['agents', 'soundEngines', 'bumbos', 'driveDisks'];
       
@@ -65,10 +66,10 @@ class StorageManager {
         };
         
         await fs.promises.writeFile(filePath, JSON.stringify(storageData, null, 2), 'utf-8');
-        console.log(`✅ ${type} 数据已保存到存储系统 (${data.length} 条记录)`);
+        logger.info('数据已保存到存储系统', { type, count: data.length });
       }
       
-      console.log('✅ 存储系统初始化完成');
+      logger.info('存储系统初始化完成');
       return true;
     } catch (error) {
       console.error('❌ 存储系统初始化失败:', error);
@@ -78,23 +79,26 @@ class StorageManager {
 
   /**
    * 从存储系统读取数据
+   * 优先返回用户保存的数据，仅在首次使用时返回初始数据
    */
   async readFromStorage(type) {
     try {
       const filePath = this.getStorageFilePath(type);
       
       if (!fs.existsSync(filePath)) {
-        console.log(`⚠️ 存储文件不存在: ${type}，使用初始数据`);
-        return initialData[type] || [];
+        logger.warn('存储文件不存在，返回空数据', { type });
+        return [];
       }
       
       const fileContent = await fs.promises.readFile(filePath, 'utf-8');
       const storageData = JSON.parse(fileContent);
       
+      logger.info('读取存储数据', { type, count: storageData.count || 0 });
       return storageData.data || [];
     } catch (error) {
-      console.error(`❌ 读取存储数据失败 (${type}):`, error);
-      return initialData[type] || [];
+      logger.error('读取存储数据失败', { type, message: error.message });
+      // 读取失败时返回空数组，避免意外覆盖用户数据
+      return [];
     }
   }
 
@@ -109,7 +113,7 @@ class StorageManager {
       if (fs.existsSync(filePath)) {
         const backupPath = this.getBackupFilePath(type);
         await fs.promises.copyFile(filePath, backupPath);
-        console.log(`📦 已创建备份: ${path.basename(backupPath)}`);
+        logger.info('已创建备份', { file: path.basename(backupPath) });
       }
       
       // 保存新数据
@@ -122,11 +126,11 @@ class StorageManager {
       };
       
       await fs.promises.writeFile(filePath, JSON.stringify(storageData, null, 2), 'utf-8');
-      console.log(`✅ ${type} 数据已更新到存储系统 (${data.length} 条记录)`);
+      logger.info('数据已更新到存储系统', { type, count: data.length });
       
       return true;
     } catch (error) {
-      console.error(`❌ 保存存储数据失败 (${type}):`, error);
+      logger.error('保存存储数据失败', { type, message: error.message });
       return false;
     }
   }
@@ -145,7 +149,7 @@ class StorageManager {
       
       return result;
     } catch (error) {
-      console.error('❌ 获取所有存储数据失败:', error);
+      logger.error('获取所有存储数据失败', { message: error.message });
       return initialData;
     }
   }
@@ -156,7 +160,7 @@ class StorageManager {
    */
   async syncToDatabase(sequelize, type, data) {
     try {
-      console.log(`🔄 正在同步 ${type} 数据到数据库...`);
+      logger.info('正在同步数据到数据库...', { type, count: data?.length || 0 });
       
       // 这里可以添加具体的数据库同步逻辑
       // 例如：清空现有数据，插入新数据
@@ -164,10 +168,10 @@ class StorageManager {
       // 保存到存储系统
       await this.saveToStorage(type, data);
       
-      console.log(`✅ ${type} 数据同步完成`);
+      logger.info('数据同步完成', { type });
       return true;
     } catch (error) {
-      console.error(`❌ 同步 ${type} 数据到数据库失败:`, error);
+      logger.error('同步数据到数据库失败', { type, message: error.message });
       return false;
     }
   }
@@ -210,7 +214,7 @@ class StorageManager {
       
       return status;
     } catch (error) {
-      console.error('❌ 获取存储系统状态失败:', error);
+      logger.error('获取存储系统状态失败', { message: error.message });
       return {
         initialized: false,
         error: error.message,
@@ -225,7 +229,7 @@ class StorageManager {
    */
   async resetStorage() {
     try {
-      console.log('🔄 正在重置存储系统...');
+      logger.info('正在重置存储系统...');
       
       // 创建完整备份
       const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
@@ -248,10 +252,10 @@ class StorageManager {
       // 重新初始化
       await this.initializeStorage();
       
-      console.log(`✅ 存储系统已重置，备份保存在: ${fullBackupPath}`);
+      logger.info('存储系统已重置', { backupDir: fullBackupPath });
       return true;
     } catch (error) {
-      console.error('❌ 重置存储系统失败:', error);
+      logger.error('重置存储系统失败', { message: error.message });
       return false;
     }
   }

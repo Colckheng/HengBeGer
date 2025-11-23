@@ -1890,3 +1890,34 @@ input[type="file"] {
 .btn-secondary:hover {
   background-color: #666;
 }
+
+/* Loading and Error States */
+.loading-container, .error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  text-align: center;
+}
+
+.loading-container p {
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+.error-container p {
+  font-size: 1.2rem;
+  color: #ff6b6b;
+}
+
+/* Empty State */
+.empty-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  width: 100%;
+  text-align: center;
+  color: #888;
+  font-size: 1.1rem;
+}

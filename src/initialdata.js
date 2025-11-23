@@ -96,6 +96,74 @@ const initialData = {
     { id: 8, name: '雷暴重金属', description: '电增伤与攻击力提升', image: '/assets/zzz.jpg' },
     { id: 9, name: '炎狱重金属', description: '火增伤与高额暴击率', image: '/assets/zzz.jpg' }
   ]
+  ,
+  // HSR 初始数据
+  hsrCharacters: [
+    { id: 1, name: '开拓者·毁灭', element: '物理', path: '毁灭', rarity: '五星', image: '/assets/hsr.jpg' },
+    { id: 2, name: '三月七', element: '冰', path: '存护', rarity: '四星', image: '/assets/hsr.jpg' },
+    { id: 3, name: '银狼', element: '量子', path: '虚无', rarity: '五星', image: '/assets/hsr.jpg' },
+    { id: 4, name: '卡芙卡', element: '雷', path: '虚无', rarity: '五星', image: '/assets/hsr.jpg' },
+    { id: 5, name: '刃', element: '风', path: '毁灭', rarity: '五星', image: '/assets/hsr.jpg' },
+    { id: 6, name: '景元', element: '雷', path: '智识', rarity: '五星', image: '/assets/hsr.jpg' },
+    { id: 7, name: '布洛妮娅', element: '风', path: '同谐', rarity: '五星', image: '/assets/hsr.jpg' },
+    { id: 8, name: '希儿', element: '量子', path: '巡猎', rarity: '五星', image: '/assets/hsr.jpg' },
+    { id: 9, name: '丹恒·饮月', element: '风', path: '毁灭', rarity: '五星', image: '/assets/hsr.jpg' },
+    { id: 10, name: '镜流', element: '冰', path: '毁灭', rarity: '五星', image: '/assets/hsr.jpg' },
+    { id: 11, name: '符玄', element: '量子', path: '存护', rarity: '五星', image: '/assets/hsr.jpg' },
+    { id: 12, name: '罗刹', element: '虚数', path: '丰饶', rarity: '五星', image: '/assets/hsr.jpg' },
+    { id: 13, name: '白露', element: '雷', path: '丰饶', rarity: '五星', image: '/assets/hsr.jpg' },
+    { id: 14, name: '阮·梅', element: '冰', path: '同谐', rarity: '五星', image: '/assets/hsr.jpg' },
+    { id: 15, name: '黑天鹅', element: '风', path: '虚无', rarity: '五星', image: '/assets/hsr.jpg' },
+    { id: 16, name: '艾丝妲', element: '火', path: '同谐', rarity: '四星', image: '/assets/hsr.jpg' },
+    { id: 17, name: '丹恒', element: '风', path: '巡猎', rarity: '四星', image: '/assets/hsr.jpg' },
+    { id: 18, name: '佩拉', element: '冰', path: '虚无', rarity: '四星', image: '/assets/hsr.jpg' },
+    { id: 19, name: '希露瓦', element: '雷', path: '智识', rarity: '四星', image: '/assets/hsr.jpg' },
+    { id: 20, name: '娜塔莎', element: '物理', path: '丰饶', rarity: '四星', image: '/assets/hsr.jpg' },
+    { id: 21, name: '知更鸟', element: '风', path: '同谐', rarity: '五星', image: '/assets/hsr.jpg' },
+    { id: 22, name: '砂金', element: '虚数', path: '存护', rarity: '五星', image: '/assets/hsr.jpg' }
+    ,
+    { id: 23, name: '克拉拉', element: '物理', path: '毁灭', rarity: '五星', image: '/assets/hsr.jpg' },
+    { id: 24, name: '虎克', element: '火', path: '巡猎', rarity: '四星', image: '/assets/hsr.jpg' },
+    { id: 25, name: '素裳', element: '物理', path: '巡猎', rarity: '四星', image: '/assets/hsr.jpg' },
+    { id: 26, name: '杰帕德', element: '冰', path: '存护', rarity: '五星', image: '/assets/hsr.jpg' },
+    { id: 27, name: '停云', element: '雷', path: '同谐', rarity: '四星', image: '/assets/hsr.jpg' },
+    { id: 28, name: '姬子', element: '火', path: '智识', rarity: '五星', image: '/assets/hsr.jpg' },
+    { id: 29, name: '瓦尔特', element: '虚数', path: '智识', rarity: '五星', image: '/assets/hsr.jpg' },
+    { id: 30, name: '驭空', element: '虚数', path: '同谐', rarity: '四星', image: '/assets/hsr.jpg' },
+    { id: 31, name: '托帕', element: '火', path: '巡猎', rarity: '五星', image: '/assets/hsr.jpg' }
+  ],
+  hsrCones: [
+    { id: 1, name: '一场术后对话', path: '毁灭', rarity: '四星', image: '/assets/hsr.jpg' },
+    { id: 2, name: '以世界为据点', path: '同谐', rarity: '五星', image: '/assets/hsr.jpg' },
+    { id: 3, name: '夜色中的我', path: '巡猎', rarity: '五星', image: '/assets/hsr.jpg' },
+    { id: 4, name: '但战斗还未结束', path: '同谐', rarity: '五星', image: '/assets/hsr.jpg' },
+    { id: 5, name: '不灭的刹那', path: '智识', rarity: '五星', image: '/assets/hsr.jpg' },
+    { id: 6, name: '正义吧吾等之名', path: '毁灭', rarity: '五星', image: '/assets/hsr.jpg' },
+    { id: 7, name: '无可取代的东西', path: '虚无', rarity: '四星', image: '/assets/hsr.jpg' },
+    { id: 8, name: '对抗', path: '巡猎', rarity: '三星', image: '/assets/hsr.jpg' },
+    { id: 9, name: '我将成为我自己的剑', path: '毁灭', rarity: '五星', image: '/assets/hsr.jpg' },
+    { id: 10, name: '镜中故我', path: '同谐', rarity: '五星', image: '/assets/hsr.jpg' },
+    { id: 11, name: '她已关闭双眼', path: '存护', rarity: '五星', image: '/assets/hsr.jpg' },
+    { id: 12, name: '耐心是你需要的', path: '虚无', rarity: '五星', image: '/assets/hsr.jpg' },
+    { id: 13, name: '在夜色中', path: '巡猎', rarity: '五星', image: '/assets/hsr.jpg' },
+    { id: 14, name: '时光不待人', path: '丰饶', rarity: '五星', image: '/assets/hsr.jpg' },
+    { id: 15, name: '破晓之前', path: '智识', rarity: '五星', image: '/assets/hsr.jpg' }
+  ],
+  hsrRelics: [
+    { id: 1, name: '盗贼公国的陨星', type: '隧洞遗器', setName: '盗贼公国的陨星', part: '手', image: '/assets/hsr.jpg' },
+    { id: 2, name: '天才的光辉', type: '隧洞遗器', setName: '天才的光辉', part: '头', image: '/assets/hsr.jpg' },
+    { id: 3, name: '苍穹银河', type: '位面饰品', setName: '苍穹银河', part: '位面球', image: '/assets/hsr.jpg' },
+    { id: 4, name: '太空封印站', type: '位面饰品', setName: '太空封印站', part: '连结绳', image: '/assets/hsr.jpg' },
+    { id: 5, name: '野穗伴行的牧人', type: '隧洞遗器', setName: '野穗伴行的牧人', part: '身', image: '/assets/hsr.jpg' },
+    { id: 6, name: '拳击冠军', type: '隧洞遗器', setName: '街头出身的拳王', part: '脚', image: '/assets/hsr.jpg' },
+    { id: 7, name: '冰原猎人', type: '隧洞遗器', setName: '冰原猎人', part: '手', image: '/assets/hsr.jpg' },
+    { id: 8, name: '信使的旅行', type: '隧洞遗器', setName: '信使的旅行', part: '脚', image: '/assets/hsr.jpg' },
+    { id: 9, name: '长生的弟子', type: '隧洞遗器', setName: '长生的弟子', part: '身', image: '/assets/hsr.jpg' },
+    { id: 10, name: '不锈庭园', type: '位面饰品', setName: '不锈庭园', part: '位面球', image: '/assets/hsr.jpg' },
+    { id: 11, name: '制胜的竞技场', type: '位面饰品', setName: '制胜的竞技场', part: '连结绳', image: '/assets/hsr.jpg' },
+    { id: 12, name: '停转的萨尔索图', type: '位面饰品', setName: '停转的萨尔索图', part: '位面球', image: '/assets/hsr.jpg' },
+    { id: 13, name: '不老者的舰队', type: '位面饰品', setName: '不老者的舰队', part: '连结绳', image: '/assets/hsr.jpg' }
+  ]
 };
 
 export default initialData;

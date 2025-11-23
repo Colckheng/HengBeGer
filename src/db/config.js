@@ -1,6 +1,12 @@
 // 数据库连接配置
 import { Sequelize } from 'sequelize';
 import process from 'process';
+import { config } from 'dotenv';
+import { logger, logDatabase } from '../utils/logger.js';
+import { securityManager, createSecureDbConfig, validateEnvironmentSecurity } from '../utils/security.js';
+
+// 加载环境变量
+config();
 
 // 从环境变量或配置文件中获取数据库连接信息
 export const baseDbConfig = {
@@ -21,17 +27,23 @@ export function createSequelizeInstance(username, password) {
     password
   };
 
-  console.log('数据库配置信息:');
-  console.log(`数据库名: ${config.database}`);
-  console.log(`用户名: ${config.username}`);
-  console.log(`密码: ${config.password ? '*****' : '未设置'}`);
-  console.log(`主机: ${config.host}:${config.port}`);
+  // 使用安全配置创建器验证配置
+  const secureConfig = createSecureDbConfig(config);
+
+  // 安全地记录数据库配置信息（敏感信息已掩码）
+  const sanitizedConfig = securityManager.sanitizeForLogging(config);
+  logger.info('数据库配置信息', {
+    database: sanitizedConfig.database,
+    username: sanitizedConfig.username,
+    password: sanitizedConfig.password,
+    host: `${sanitizedConfig.host}:${sanitizedConfig.port}`
+  });
 
   return new Sequelize(config.database, config.username, config.password, {
     host: config.host,
     dialect: config.dialect,
     port: config.port,
-    logging: (msg) => console.log(`[Sequelize] ${msg}`),
+    logging: (msg) => logger.debug(`Sequelize: ${msg}`),
     pool: {
       max: 5,
       min: 0,
@@ -48,16 +60,37 @@ export function createSequelizeInstance(username, password) {
   });
 }
 
-// 创建默认的Sequelize实例（用于向后兼容）
-const defaultUsername = 'root';
-const defaultPassword = process.env.DB_PASSWORD || 'password';
-export const sequelize = createSequelizeInstance(defaultUsername, defaultPassword);
-
-// 检查密码是否为空
-if (!defaultPassword) {
-  console.warn('⚠️ 警告: 数据库密码未设置，这可能导致连接失败。');
-  console.warn('⚠️ 建议: 设置环境变量 DB_PASSWORD 或修改 config.js 中的默认密码。');
+// 执行环境安全检查
+const securityValidation = validateEnvironmentSecurity();
+const silenced = process.env.SECURITY_SILENCE === 'true';
+if (!securityValidation.isSecure && !silenced) {
+  securityManager.logSecurityEvent('环境配置安全检查失败', {
+    issues: securityValidation.issues
+  });
+  if (process.env.NODE_ENV === 'production') {
+    throw new Error(`生产环境安全检查失败: ${securityValidation.issues.join(', ')}`);
+  } else {
+    securityValidation.issues.forEach(issue => {
+      logger.warn(`⚠️ 安全警告: ${issue}`);
+    });
+  }
 }
+
+// 创建默认的Sequelize实例（用于向后兼容）
+const defaultUsername = process.env.DB_USER || 'root';
+const defaultPassword = process.env.DB_PASSWORD;
+
+// 安全检查：确保密码已设置
+if (!defaultPassword) {
+  const errorMsg = '数据库密码未设置，无法建立连接';
+  securityManager.logSecurityEvent('数据库密码缺失', {
+    username: defaultUsername,
+    environment: process.env.NODE_ENV
+  });
+  throw new Error(errorMsg);
+}
+
+export const sequelize = createSequelizeInstance(defaultUsername, defaultPassword);
 
 // 带重试机制的连接函数
 const connectWithRetry = async (sequelizeInstance, attempt = 1) => {

@@ -118,19 +118,15 @@ const AdminPanel = () => {
       switch (activeTab) {
         case 'agents':
           await handleUpdateAgent(editModalData.id, processedData);
-          result = data.agents;
           break;
         case 'soundEngines':
           await handleUpdateSoundEngine(editModalData.id, processedData);
-          result = data.soundEngines;
           break;
         case 'bumbos':
           await handleUpdateBumbo(editModalData.id, processedData);
-          result = data.bumbos;
           break;
         case 'driveDisks':
           await handleUpdateDriveDisk(editModalData.id, processedData);
-          result = data.driveDisks;
           break;
         default:
           throw new Error('未知的activeTab: ' + activeTab);
@@ -138,9 +134,23 @@ const AdminPanel = () => {
       
 
       
-      // 保存到管理员端存储
-      if (result && sessionInitialized) {
+      // 读取最新存储数组，保存到管理员端并同步到网页端
+      const storageResp = await axios.get(`${API_BASE_URL}/storage/data`);
+      const storageData = storageResp.data?.data || {};
+      const pick = (t) => Array.isArray(storageData[t]?.data) ? storageData[t].data : [];
+      if (sessionInitialized) {
+        if (activeTab === 'agents') result = pick('agents');
+        if (activeTab === 'soundEngines') result = pick('soundEngines');
+        if (activeTab === 'bumbos') result = pick('bumbos');
+        if (activeTab === 'driveDisks') result = pick('driveDisks');
         await saveAdminData(activeTab, result);
+        try {
+          const syncResp = await axios.post(`${API_BASE_URL}/dual-storage/sync`);
+          if (syncResp.data?.success) {
+            await handleUpdateData();
+            await loadDualStorageStatus();
+          }
+        } catch {}
       }
       
       closeEditModal();

@@ -1,6 +1,15 @@
 // 数据同步API - 管理员界面数据更新接口
 import storageManager from '../db/storageManager.js';
 import { createSequelizeInstance } from '../db/config.js';
+import { 
+  addAgent, updateAgent, deleteAgent,
+  addSoundEngine, updateSoundEngine, deleteSoundEngine,
+  addBumbo, updateBumbo, deleteBumbo,
+  addDriveDisk, updateDriveDisk, deleteDriveDisk,
+  getAllAgents, getAllSoundEngines, getAllBumbos, getAllDriveDisks
+} from '../db/api.js';
+import { logger, logDatabase } from '../utils/logger.js';
+import { catchAsync, AppError } from '../utils/errorHandler.js';
 
 /**
  * 数据同步控制器
@@ -12,7 +21,7 @@ class DataSyncController {
    */
   static async getAllData(req, res) {
     try {
-      console.log('📖 API: 获取所有数据');
+      logger.info('获取所有数据');
       const data = await storageManager.getAllStorageData();
       
       res.json({
@@ -22,7 +31,7 @@ class DataSyncController {
         timestamp: new Date().toISOString()
       });
     } catch (error) {
-      console.error('❌ API: 获取数据失败:', error);
+      logger.error('获取数据失败', { message: error.message, stack: error.stack });
       res.status(500).json({
         success: false,
         message: '获取数据失败',
@@ -37,7 +46,7 @@ class DataSyncController {
   static async getDataByType(req, res) {
     try {
       const { type } = req.params;
-      console.log(`📖 API: 获取 ${type} 数据`);
+      logger.info(`获取 ${type} 数据`);
       
       const validTypes = ['agents', 'soundEngines', 'bumbos', 'driveDisks'];
       if (!validTypes.includes(type)) {
@@ -58,7 +67,7 @@ class DataSyncController {
         timestamp: new Date().toISOString()
       });
     } catch (error) {
-      console.error(`❌ API: 获取 ${req.params.type} 数据失败:`, error);
+      logger.error(`获取 ${req.params.type} 数据失败`, { message: error.message, stack: error.stack });
       res.status(500).json({
         success: false,
         message: '获取数据失败',
@@ -76,7 +85,7 @@ class DataSyncController {
       const { type } = req.params;
       const { data } = req.body;
       
-      console.log(`🔄 API: 更新 ${type} 数据`);
+      logger.info(`更新 ${type} 数据`, { count: data.length });
       
       const validTypes = ['agents', 'soundEngines', 'bumbos', 'driveDisks'];
       if (!validTypes.includes(type)) {
@@ -113,10 +122,13 @@ class DataSyncController {
         });
       }
       
-      // TODO: 这里可以添加数据库同步逻辑
-      // await DataSyncController.syncToDatabase(type, data);
+      // 同步数据到数据库
+      const syncResult = await DataSyncController.syncToDatabase(type, data);
+      if (!syncResult) {
+        logger.warn('数据库同步失败，但存储系统更新成功', { type, count: data.length });
+      }
       
-      console.log(`✅ API: ${type} 数据更新成功`);
+      logger.info(`${type} 数据更新成功`, { count: data.length, syncResult });
       
       res.json({
         success: true,
@@ -125,7 +137,7 @@ class DataSyncController {
         timestamp: new Date().toISOString()
       });
     } catch (error) {
-      console.error(`❌ API: 更新 ${req.params.type} 数据失败:`, error);
+      logger.error(`更新 ${req.params.type} 数据失败`, { message: error.message, stack: error.stack });
       res.status(500).json({
         success: false,
         message: '更新数据失败',
@@ -141,7 +153,7 @@ class DataSyncController {
     try {
       const { data } = req.body;
       
-      console.log('🔄 API: 批量更新所有数据');
+      logger.info('批量更新所有数据');
       
       if (!data || typeof data !== 'object') {
         return res.status(400).json({
@@ -174,7 +186,7 @@ class DataSyncController {
         }
       }
       
-      console.log('✅ API: 批量数据更新完成');
+      logger.info('批量数据更新完成', { results });
       
       res.json({
         success: true,
@@ -183,7 +195,7 @@ class DataSyncController {
         timestamp: new Date().toISOString()
       });
     } catch (error) {
-      console.error('❌ API: 批量更新数据失败:', error);
+      logger.error('批量更新数据失败', { message: error.message, stack: error.stack });
       res.status(500).json({
         success: false,
         message: '批量更新数据失败',
@@ -197,7 +209,7 @@ class DataSyncController {
    */
   static async getStorageStatus(req, res) {
     try {
-      console.log('📊 API: 获取存储系统状态');
+      logger.info('获取存储系统状态');
       const status = await storageManager.getStorageStatus();
       
       res.json({
@@ -207,7 +219,7 @@ class DataSyncController {
         timestamp: new Date().toISOString()
       });
     } catch (error) {
-      console.error('❌ API: 获取存储系统状态失败:', error);
+      logger.error('获取存储系统状态失败', { message: error.message, stack: error.stack });
       res.status(500).json({
         success: false,
         message: '获取存储系统状态失败',
@@ -221,7 +233,7 @@ class DataSyncController {
    */
   static async resetStorage(req, res) {
     try {
-      console.log('🔄 API: 重置存储系统');
+      logger.info('重置存储系统');
       const resetResult = await storageManager.resetStorage();
       
       if (resetResult) {
@@ -237,7 +249,7 @@ class DataSyncController {
         });
       }
     } catch (error) {
-      console.error('❌ API: 重置存储系统失败:', error);
+      logger.error('重置存储系统失败', { message: error.message, stack: error.stack });
       res.status(500).json({
         success: false,
         message: '重置存储系统失败',
@@ -304,16 +316,152 @@ class DataSyncController {
   }
 
   /**
-   * 同步数据到数据库（预留接口）
+   * 同步数据到数据库
    */
   static async syncToDatabase(type, data) {
     try {
-      // 这里可以添加具体的数据库同步逻辑
-      console.log(`🔄 同步 ${type} 数据到数据库...`);
-      // TODO: 实现数据库同步逻辑
+      logger.info(`开始同步 ${type} 数据到数据库`, { count: data.length });
+      
+      // 根据数据类型选择对应的同步策略
+      switch (type) {
+        case 'agents':
+          return await DataSyncController.syncAgents(data);
+        case 'soundEngines':
+          return await DataSyncController.syncSoundEngines(data);
+        case 'bumbos':
+          return await DataSyncController.syncBumbos(data);
+        case 'driveDisks':
+          return await DataSyncController.syncDriveDisks(data);
+        default:
+          throw new AppError(`不支持的数据类型: ${type}`, 400);
+      }
+    } catch (error) {
+      logger.error(`同步 ${type} 数据到数据库失败`, {
+        message: error.message,
+        stack: error.stack,
+        type,
+        dataCount: data?.length || 0
+      });
+      return false;
+    }
+  }
+
+  /**
+   * 同步代理人数据
+   */
+  static async syncAgents(agents) {
+    try {
+      const existingAgents = await getAllAgents();
+      const existingIds = new Set(existingAgents.map(agent => agent.id));
+      
+      let syncCount = 0;
+      for (const agent of agents) {
+        try {
+          if (existingIds.has(agent.id)) {
+            await updateAgent(agent.id, agent);
+          } else {
+            await addAgent(agent);
+          }
+          syncCount++;
+        } catch (error) {
+          logger.warn(`同步代理人失败`, { agentId: agent.id, error: error.message });
+        }
+      }
+      
+      logDatabase('代理人同步', { status: 'success', syncCount, totalCount: agents.length });
       return true;
     } catch (error) {
-      console.error(`❌ 同步 ${type} 数据到数据库失败:`, error);
+      logger.error('代理人数据同步失败', { message: error.message });
+      return false;
+    }
+  }
+
+  /**
+   * 同步音擎数据
+   */
+  static async syncSoundEngines(soundEngines) {
+    try {
+      const existingSoundEngines = await getAllSoundEngines();
+      const existingIds = new Set(existingSoundEngines.map(engine => engine.id));
+      
+      let syncCount = 0;
+      for (const engine of soundEngines) {
+        try {
+          if (existingIds.has(engine.id)) {
+            await updateSoundEngine(engine.id, engine);
+          } else {
+            await addSoundEngine(engine);
+          }
+          syncCount++;
+        } catch (error) {
+          logger.warn(`同步音擎失败`, { engineId: engine.id, error: error.message });
+        }
+      }
+      
+      logDatabase('音擎同步', { status: 'success', syncCount, totalCount: soundEngines.length });
+      return true;
+    } catch (error) {
+      logger.error('音擎数据同步失败', { message: error.message });
+      return false;
+    }
+  }
+
+  /**
+   * 同步邦布数据
+   */
+  static async syncBumbos(bumbos) {
+    try {
+      const existingBumbos = await getAllBumbos();
+      const existingIds = new Set(existingBumbos.map(bumbo => bumbo.id));
+      
+      let syncCount = 0;
+      for (const bumbo of bumbos) {
+        try {
+          if (existingIds.has(bumbo.id)) {
+            await updateBumbo(bumbo.id, bumbo);
+          } else {
+            await addBumbo(bumbo);
+          }
+          syncCount++;
+        } catch (error) {
+          logger.warn(`同步邦布失败`, { bumboId: bumbo.id, error: error.message });
+        }
+      }
+      
+      logDatabase('邦布同步', { status: 'success', syncCount, totalCount: bumbos.length });
+      return true;
+    } catch (error) {
+      logger.error('邦布数据同步失败', { message: error.message });
+      return false;
+    }
+  }
+
+  /**
+   * 同步驱动盘数据
+   */
+  static async syncDriveDisks(driveDisks) {
+    try {
+      const existingDriveDisks = await getAllDriveDisks();
+      const existingIds = new Set(existingDriveDisks.map(disk => disk.id));
+      
+      let syncCount = 0;
+      for (const disk of driveDisks) {
+        try {
+          if (existingIds.has(disk.id)) {
+            await updateDriveDisk(disk.id, disk);
+          } else {
+            await addDriveDisk(disk);
+          }
+          syncCount++;
+        } catch (error) {
+          logger.warn(`同步驱动盘失败`, { diskId: disk.id, error: error.message });
+        }
+      }
+      
+      logDatabase('驱动盘同步', { status: 'success', syncCount, totalCount: driveDisks.length });
+      return true;
+    } catch (error) {
+      logger.error('驱动盘数据同步失败', { message: error.message });
       return false;
     }
   }

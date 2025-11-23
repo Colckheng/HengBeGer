@@ -2,6 +2,7 @@
 import fs from 'fs';
 import path from 'path';
 import initialData from '../initialdata.js';
+import { logger } from '../utils/logger.js';
 
 /**
  * 双存储系统管理器类
@@ -52,55 +53,77 @@ class DualStorageManager {
 
   /**
    * 初始化双存储系统
-   * 将初始数据保存到网页端存储系统
+   * 只在文件不存在时使用初始数据，否则保留用户现有数据
    */
   async initializeDualStorage() {
     try {
-      console.log('🔄 正在初始化双存储系统...');
+      logger.info('正在检查双存储系统状态...');
       
-      const dataTypes = ['agents', 'soundEngines', 'bumbos', 'driveDisks'];
+      const dataTypes = ['agents', 'soundEngines', 'bumbos', 'driveDisks', 'hsrCharacters', 'hsrCones', 'hsrRelics'];
+      let hasInitialized = false;
       
-      // 初始化网页端存储
+      // 检查并初始化网页端存储（仅在文件不存在时）
       for (const type of dataTypes) {
         const webFilePath = this.getWebStorageFilePath(type);
-        const data = initialData[type] || [];
         
-        const storageData = {
-          version: '1.0.0',
-          lastUpdated: new Date().toISOString(),
-          dataType: type,
-          count: data.length,
-          source: 'web',
-          data: data
-        };
-        
-        await fs.promises.writeFile(webFilePath, JSON.stringify(storageData, null, 2), 'utf-8');
-        console.log(`✅ 网页端 ${type} 数据已保存 (${data.length} 条记录)`);
+        if (!fs.existsSync(webFilePath)) {
+          // 文件不存在，使用初始数据创建
+          const data = initialData[type] || [];
+          
+          const storageData = {
+            version: '1.0.0',
+            lastUpdated: new Date().toISOString(),
+            dataType: type,
+            count: data.length,
+            source: 'web',
+            data: data
+          };
+          
+          await fs.promises.writeFile(webFilePath, JSON.stringify(storageData, null, 2), 'utf-8');
+          logger.info('网页端数据已初始化', { type, count: data.length });
+          hasInitialized = true;
+        } else {
+          // 文件已存在，保留用户数据
+          const existingContent = await fs.promises.readFile(webFilePath, 'utf-8');
+          const existingData = JSON.parse(existingContent);
+          logger.info('网页端数据已存在，保留用户数据', { type, count: existingData.count || 0 });
+        }
       }
       
-      console.log('✅ 双存储系统初始化完成');
+      if (hasInitialized) {
+        logger.info('双存储系统初始化完成');
+      } else {
+        logger.info('双存储系统检查完成，用户数据已保留');
+      }
       return true;
     } catch (error) {
-      console.error('❌ 双存储系统初始化失败:', error);
+      logger.error('双存储系统初始化失败', { message: error.message });
       return false;
     }
   }
 
   /**
-   * 管理员进入时：复制网页端数据到管理员端
+   * 管理员进入时：检查并初始化管理员会话数据
+   * 优先保留现有管理员数据，仅在不存在时从网页端复制
    */
   async initializeAdminSession() {
     try {
-      console.log('🔄 正在初始化管理员会话...');
+      logger.info('正在检查管理员会话状态...');
       
-      const dataTypes = ['agents', 'soundEngines', 'bumbos', 'driveDisks'];
+      const dataTypes = ['agents', 'soundEngines', 'bumbos', 'driveDisks', 'hsrCharacters', 'hsrCones', 'hsrRelics'];
+      let hasInitialized = false;
       
       for (const type of dataTypes) {
         const webFilePath = this.getWebStorageFilePath(type);
         const adminFilePath = this.getAdminStorageFilePath(type);
         
-        if (fs.existsSync(webFilePath)) {
-          // 读取网页端数据
+        if (fs.existsSync(adminFilePath)) {
+          // 管理员端数据已存在，保留现有数据
+          const adminContent = await fs.promises.readFile(adminFilePath, 'utf-8');
+          const adminData = JSON.parse(adminContent);
+          logger.info('管理员端数据已存在，保留现有数据', { type, count: adminData.count || 0 });
+        } else if (fs.existsSync(webFilePath)) {
+          // 管理员端数据不存在，从网页端复制
           const webContent = await fs.promises.readFile(webFilePath, 'utf-8');
           const webData = JSON.parse(webContent);
           
@@ -113,17 +136,24 @@ class DualStorageManager {
           };
           
           await fs.promises.writeFile(adminFilePath, JSON.stringify(adminData, null, 2), 'utf-8');
-          console.log(`✅ 管理员端 ${type} 数据已初始化`);
+          logger.info('管理员端数据已从网页端复制', { type, count: adminData.count || 0 });
+          hasInitialized = true;
         } else {
-          console.log(`⚠️ 网页端 ${type} 数据不存在，使用初始数据`);
+          // 网页端和管理员端都不存在，使用初始数据
+          logger.warn('网页端数据不存在，使用初始数据', { type });
           await this.saveToAdminStorage(type, initialData[type] || []);
+          hasInitialized = true;
         }
       }
       
-      console.log('✅ 管理员会话初始化完成');
+      if (hasInitialized) {
+        logger.info('管理员会话初始化完成');
+      } else {
+        logger.info('管理员会话检查完成，现有数据已保留');
+      }
       return true;
     } catch (error) {
-      console.error('❌ 管理员会话初始化失败:', error);
+      logger.error('管理员会话初始化失败', { message: error.message });
       return false;
     }
   }
@@ -136,17 +166,19 @@ class DualStorageManager {
       const filePath = this.getWebStorageFilePath(type);
       
       if (!fs.existsSync(filePath)) {
-        console.log(`⚠️ 网页端存储文件不存在: ${type}，使用初始数据`);
-        return initialData[type] || [];
+        logger.warn('网页端存储文件不存在，返回空数据', { type });
+        return [];
       }
       
       const fileContent = await fs.promises.readFile(filePath, 'utf-8');
       const storageData = JSON.parse(fileContent);
       
+      logger.info('读取网页端数据', { type, count: storageData.count || 0 });
       return storageData.data || [];
     } catch (error) {
-      console.error(`❌ 读取网页端存储数据失败 (${type}):`, error);
-      return initialData[type] || [];
+      logger.error('读取网页端存储数据失败', { type, message: error.message });
+      // 读取失败时返回空数组，避免意外覆盖用户数据
+      return [];
     }
   }
 
@@ -158,7 +190,7 @@ class DualStorageManager {
       const filePath = this.getAdminStorageFilePath(type);
       
       if (!fs.existsSync(filePath)) {
-        console.log(`⚠️ 管理员端存储文件不存在: ${type}，需要先初始化会话`);
+        logger.warn('管理员端存储文件不存在，需要先初始化会话', { type });
         return [];
       }
       
@@ -167,7 +199,7 @@ class DualStorageManager {
       
       return storageData.data || [];
     } catch (error) {
-      console.error(`❌ 读取管理员端存储数据失败 (${type}):`, error);
+      logger.error('读取管理员端存储数据失败', { type, message: error.message });
       return [];
     }
   }
@@ -184,7 +216,7 @@ class DualStorageManager {
       if (fs.existsSync(filePath)) {
         const backupPath = this.getBackupFilePath(type, 'admin');
         await fs.promises.copyFile(filePath, backupPath);
-        console.log(`📦 已创建管理员端备份: ${path.basename(backupPath)}`);
+        logger.info('已创建管理员端备份', { file: path.basename(backupPath) });
       }
       
       // 保存新数据
@@ -198,7 +230,7 @@ class DualStorageManager {
       };
       
       await fs.promises.writeFile(filePath, JSON.stringify(storageData, null, 2), 'utf-8');
-      console.log(`✅ 管理员端 ${type} 数据已更新 (${data.length} 条记录)`);
+      logger.info('管理员端数据已更新', { type, count: data.length });
       
       return true;
     } catch (error) {
@@ -213,9 +245,9 @@ class DualStorageManager {
    */
   async syncAdminToWeb() {
     try {
-      console.log('🔄 正在同步管理员端数据到网页端...');
+      logger.info('正在同步管理员端数据到网页端...');
       
-      const dataTypes = ['agents', 'soundEngines', 'bumbos', 'driveDisks'];
+      const dataTypes = ['agents', 'soundEngines', 'bumbos', 'driveDisks', 'hsrCharacters', 'hsrCones', 'hsrRelics'];
       const syncResults = {};
       
       for (const type of dataTypes) {
@@ -227,7 +259,7 @@ class DualStorageManager {
           if (fs.existsSync(webFilePath)) {
             const backupPath = this.getBackupFilePath(type, 'web');
             await fs.promises.copyFile(webFilePath, backupPath);
-            console.log(`📦 已创建网页端备份: ${path.basename(backupPath)}`);
+            logger.info('已创建网页端备份', { file: path.basename(backupPath) });
           }
           
           // 读取管理员端数据
@@ -251,20 +283,20 @@ class DualStorageManager {
             lastUpdated: webData.lastUpdated
           };
           
-          console.log(`✅ ${type} 数据已同步到网页端 (${adminData.count} 条记录)`);
+          logger.info('数据已同步到网页端', { type, count: adminData.count });
         } else {
           syncResults[type] = {
             success: false,
             error: '管理员端数据不存在'
           };
-          console.log(`⚠️ 管理员端 ${type} 数据不存在，跳过同步`);
+          logger.warn('管理员端数据不存在，跳过同步', { type });
         }
       }
       
-      console.log('✅ 数据同步完成');
+      logger.info('数据同步完成');
       return syncResults;
     } catch (error) {
-      console.error('❌ 同步数据到网页端失败:', error);
+      logger.error('同步数据到网页端失败', { message: error.message });
       return { error: error.message };
     }
   }
@@ -274,7 +306,7 @@ class DualStorageManager {
    */
   async getAllAdminData() {
     try {
-      const dataTypes = ['agents', 'soundEngines', 'bumbos', 'driveDisks'];
+      const dataTypes = ['agents', 'soundEngines', 'bumbos', 'driveDisks', 'hsrCharacters', 'hsrCones', 'hsrRelics'];
       const result = {};
       
       for (const type of dataTypes) {
@@ -290,20 +322,28 @@ class DualStorageManager {
 
   /**
    * 获取网页端所有数据
+   * 返回用户保存的数据，不会自动返回初始数据
    */
   async getAllWebData() {
     try {
-      const dataTypes = ['agents', 'soundEngines', 'bumbos', 'driveDisks'];
+      const dataTypes = ['agents', 'soundEngines', 'bumbos', 'driveDisks', 'hsrCharacters', 'hsrCones', 'hsrRelics'];
       const result = {};
       
       for (const type of dataTypes) {
         result[type] = await this.readFromWebStorage(type);
       }
       
+      logger.info('获取网页端所有数据完成', { summary: Object.keys(result).map(key => `${key}: ${result[key].length}`).join(', ') });
       return result;
     } catch (error) {
-      console.error('❌ 获取网页端所有数据失败:', error);
-      return initialData;
+      logger.error('获取网页端所有数据失败', { message: error.message });
+      // 返回空数据结构，避免意外覆盖用户数据
+      return {
+        agents: [],
+        soundEngines: [],
+        bumbos: [],
+        driveDisks: []
+      };
     }
   }
 
@@ -366,7 +406,7 @@ class DualStorageManager {
       
       return status;
     } catch (error) {
-      console.error('❌ 获取双存储系统状态失败:', error);
+      logger.error('获取双存储系统状态失败', { message: error.message });
       return {
         initialized: false,
         error: error.message,
@@ -380,7 +420,7 @@ class DualStorageManager {
    */
   async cleanupAdminSession() {
     try {
-      console.log('🔄 正在清理管理员端会话数据...');
+      logger.info('正在清理管理员端会话数据...');
       
       const dataTypes = ['agents', 'soundEngines', 'bumbos', 'driveDisks'];
       
@@ -392,14 +432,14 @@ class DualStorageManager {
           const backupPath = this.getBackupFilePath(type, 'admin_cleanup');
           await fs.promises.copyFile(adminFilePath, backupPath);
           await fs.promises.unlink(adminFilePath);
-          console.log(`✅ 管理员端 ${type} 数据已清理`);
+          logger.info('管理员端数据已清理', { type });
         }
       }
       
-      console.log('✅ 管理员端会话数据清理完成');
+      logger.info('管理员端会话数据清理完成');
       return true;
     } catch (error) {
-      console.error('❌ 清理管理员端会话数据失败:', error);
+      logger.error('清理管理员端会话数据失败', { message: error.message });
       return false;
     }
   }

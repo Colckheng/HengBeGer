@@ -25,7 +25,10 @@ const apiService = {
           agents: normalize(result.data.agents),
           soundEngines: normalize(result.data.soundEngines),
           bumbos: normalize(result.data.bumbos),
-          driveDisks: normalize(result.data.driveDisks)
+          driveDisks: normalize(result.data.driveDisks),
+          hsrCharacters: normalize(result.data.hsrCharacters),
+          hsrCones: normalize(result.data.hsrCones),
+          hsrRelics: normalize(result.data.hsrRelics)
         };
         return flattenedData;
       } else {
@@ -39,9 +42,15 @@ const apiService = {
   // 获取基础数据（factions、roles、rarities）
   fetchBaseData: async () => {
     try {
-      const response = await fetch(`${API_BASE_URL}/base-data`);
-      if (!response.ok) throw new Error('获取基础数据失败');
-      return await response.json();
+      const zzzResp = await fetch(`${API_BASE_URL}/base-data`)
+      if (!zzzResp.ok) throw new Error('获取ZZZ基础数据失败')
+      let hsr = { elements: [], paths: [], rarities: [], relicTypes: [], relicParts: [] }
+      try {
+        const hsrResp = await fetch(`${API_BASE_URL}/hsr/base-data`)
+        if (hsrResp.ok) hsr = await hsrResp.json()
+      } catch {}
+      const zzz = await zzzResp.json()
+      return { ...zzz, hsr }
     } catch (error) {
       throw error;
     }
@@ -224,8 +233,8 @@ const apiService = {
 
 // 数据提供者组件
 const DataProvider = ({ children }) => {
-  const [data, setData] = useState({ agents: [], soundEngines: [], bumbos: [], driveDisks: [] });
-  const [baseData, setBaseData] = useState({ factions: [], roles: [], rarities: [] });
+  const [data, setData] = useState({ agents: [], soundEngines: [], bumbos: [], driveDisks: [], hsrCharacters: [], hsrCones: [], hsrRelics: [] });
+  const [baseData, setBaseData] = useState({ factions: [], roles: [], rarities: [], hsr: { elements: [], paths: [], rarities: [], relicTypes: [], relicParts: [] } });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 

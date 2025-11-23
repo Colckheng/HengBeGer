@@ -15,7 +15,9 @@
     "launch:frontend": "node launcher.js frontend",
     "launch:backend": "node launcher.js backend",
     "quick-start": "node launcher.js",
-    "setup-password": "node setup-mysql-password.js"
+    "setup-password": "node setup-mysql-password.js",
+    "security-check": "node security-check.js",
+    "generate-password": "node security-check.js --generate-password"
   },
   "dependencies": {
     "assert": "^2.1.0",

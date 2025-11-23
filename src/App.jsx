@@ -5,6 +5,9 @@ import star from './assets/star.jpg'
 import mc from './assets/mc.jpg'
 import ZZZWiki from './ZZZWiki.jsx'
 import AdminPanel from './AdminPanel.jsx'
+import HsrWiki from './hsr/HsrWiki.jsx'
+import HsrAdminPanel from './hsr/HsrAdminPanel.jsx'
+import DataTest from './DataTest.jsx'
 import { useParams } from 'react-router-dom'
 
 // 代理人详情页面包装组件
@@ -32,10 +35,12 @@ function App() {
                 </Link>
               </div>
               <div className="game-card">
-                <h2>崩坏：星穹铁道</h2>
-                <div className="game-image-placeholder" style={{backgroundColor: 'rgb(11, 11, 11)'}}>
-                  <img src={star} alt="崩坏：星穹铁道" className="placeholder-logo" />
-                </div>
+                <Link to="/hsr-wiki" className="game-link">
+                  <h2>崩坏：星穹铁道</h2>
+                  <div className="game-image-placeholder" style={{backgroundColor: 'rgb(11, 11, 11)'}}>
+                    <img src={star} alt="崩坏：星穹铁道" className="placeholder-logo" />
+                  </div>
+                </Link>
               </div>
               <div className="game-card">
                 <h2>鸣潮</h2>
@@ -49,6 +54,9 @@ function App() {
         <Route path="/zzz-wiki" element={<ZZZWiki />} />
         <Route path="/zzz-wiki/agent/:id" element={<AgentDetailWrapper />} />
         <Route path="/zzz-wiki/admin" element={<AdminPanel />} />
+        <Route path="/hsr-wiki" element={<HsrWiki />} />
+        <Route path="/hsr-wiki/admin" element={<HsrAdminPanel />} />
+        <Route path="/data-test" element={<DataTest />} />
       </Routes>
     </div>
   )

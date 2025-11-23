@@ -8,13 +8,16 @@ import Filter from './Filter';
 const ZZZWiki = ({ mode = 'list', agentId = null }) => {
   // 从context获取数据，不再使用模拟数据
 
-  const { data } = useData();
+  const { data, loading, error } = useData();
   const [activeTab, setActiveTab] = useState('agents');
   const [selectedAgent, setSelectedAgent] = useState(null);
   const [filters, setFilters] = useState({
     agents: { role: [], element: [], faction: [] },
     soundEngines: { role: [], rarity: [] },
-    bumbos: { rarity: [] }
+    bumbos: { rarity: [] },
+    hsrCharacters: { element: [], path: [], rarity: [] },
+    hsrCones: { path: [], rarity: [] },
+    hsrRelics: { type: [], part: [] }
   });
   const [filteredData, setFilteredData] = useState([]);
   const navigate = useNavigate();
@@ -70,6 +73,28 @@ const ZZZWiki = ({ mode = 'list', agentId = null }) => {
         break;
       case 'driveDisks':
         // 驱动盘无筛选功能，显示全部
+        break;
+      case 'hsrCharacters':
+        filtered = filtered.filter(item => {
+          const eMatch = !tabFilters.element || tabFilters.element.length === 0 || tabFilters.element.includes(item.element || item.HsrElement?.name)
+          const pMatch = !tabFilters.path || tabFilters.path.length === 0 || tabFilters.path.includes(item.path || item.HsrPath?.name)
+          const rMatch = !tabFilters.rarity || tabFilters.rarity.length === 0 || tabFilters.rarity.includes(item.rarity || item.HsrRarity?.name)
+          return eMatch && pMatch && rMatch
+        })
+        break;
+      case 'hsrCones':
+        filtered = filtered.filter(item => {
+          const pMatch = !tabFilters.path || tabFilters.path.length === 0 || tabFilters.path.includes(item.path || item.HsrPath?.name)
+          const rMatch = !tabFilters.rarity || tabFilters.rarity.length === 0 || tabFilters.rarity.includes(item.rarity || item.HsrRarity?.name)
+          return pMatch && rMatch
+        })
+        break;
+      case 'hsrRelics':
+        filtered = filtered.filter(item => {
+          const tMatch = !tabFilters.type || tabFilters.type.length === 0 || tabFilters.type.includes(item.type || item.HsrRelicType?.name)
+          const partMatch = !tabFilters.part || tabFilters.part.length === 0 || tabFilters.part.includes(item.part)
+          return tMatch && partMatch
+        })
         break;
     }
 
@@ -139,26 +164,32 @@ const ZZZWiki = ({ mode = 'list', agentId = null }) => {
                 onFilterChange={handleFilterChange}
               />
               <div className="content-grid">
-              {filteredAgents.map(agent => (
-                <div
-                  key={agent.id}
-                  className="card"
-                  onClick={() => handleAgentClick(agent)}
-                >
-                  <img 
-                    src={agent.image && agent.image.startsWith('data:') ? agent.image : (agent.image || `/images/agents/${agent.name.toLowerCase().replace(/[^a-z0-9]/g, '')}.jpg`)} 
-                    alt={agent.name} 
-                    className="card-image" 
-                    onError={(e) => { e.target.src = '/assets/zzz.jpg'; }} 
-                  />
-                  <h3>{agent.name}</h3>
-                  <p className="card-role">{agent.role || agent.Role?.name || '未知职业'}</p>
-                  <div className="card-footer">
-                    <span className="rarity-badge" data-rarity={getRarityBadge(agent.rarity || agent.Rarity?.name)}>{getRarityBadge(agent.rarity || agent.Rarity?.name)}</span>
-                    <span className="role-tag">{agent.faction || agent.Faction?.name || '未知阵营'}</span>
-                  </div>
+              {filteredAgents.length === 0 ? (
+                <div className="empty-state">
+                  <p>暂无代理人数据</p>
                 </div>
-              ))}
+              ) : (
+                filteredAgents.map(agent => (
+                  <div
+                    key={agent.id}
+                    className="card"
+                    onClick={() => handleAgentClick(agent)}
+                  >
+                    <img 
+                      src={agent.image && agent.image.startsWith('data:') ? agent.image : (agent.image || `/images/agents/${agent.name.toLowerCase().replace(/[^a-z0-9]/g, '')}.jpg`)} 
+                      alt={agent.name} 
+                      className="card-image" 
+                      onError={(e) => { e.target.src = '/assets/zzz.jpg'; }} 
+                    />
+                    <h3>{agent.name}</h3>
+                    <p className="card-role">{agent.role || agent.Role?.name || '未知职业'}</p>
+                    <div className="card-footer">
+                      <span className="rarity-badge" data-rarity={getRarityBadge(agent.rarity || agent.Rarity?.name)}>{getRarityBadge(agent.rarity || agent.Rarity?.name)}</span>
+                      <span className="role-tag">{agent.faction || agent.Faction?.name || '未知阵营'}</span>
+                    </div>
+                  </div>
+                ))
+              )}
               </div>
             </div>
           );
@@ -271,7 +302,17 @@ const ZZZWiki = ({ mode = 'list', agentId = null }) => {
         </nav>
       </div>
       <div className="main-content">
-        {renderContent()}
+        {loading ? (
+          <div className="loading-container">
+            <p>加载中...</p>
+          </div>
+        ) : error ? (
+          <div className="error-container">
+            <p>加载失败: {error}</p>
+          </div>
+        ) : (
+          renderContent()
+        )}
       </div>
     </div>
   );

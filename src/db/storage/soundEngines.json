@@ -1,9 +1,9 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2025-08-14T14:04:24.618Z",
+  "lastUpdated": "2025-11-23T03:48:37.825Z",
   "dataType": "soundEngines",
   "data": {
-    "count": 30,
+    "count": 31,
     "data": [
       {
         "id": 1,
@@ -11,20 +11,20 @@
         "image": "/assets/zzz.jpg",
         "rarityId": 1,
         "roleId": 1,
-        "createdAt": "2025-08-14T13:45:16.000Z",
-        "updatedAt": "2025-08-14T13:45:16.000Z",
+        "createdAt": "2025-11-17T07:02:18.000Z",
+        "updatedAt": "2025-11-17T07:02:18.000Z",
         "Rarity": {
           "id": 1,
           "name": "S",
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         },
         "Role": {
           "id": 1,
           "name": "强攻",
           "description": null,
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         }
       },
       {
@@ -33,20 +33,20 @@
         "image": "/assets/zzz.jpg",
         "rarityId": 1,
         "roleId": 1,
-        "createdAt": "2025-08-14T13:45:16.000Z",
-        "updatedAt": "2025-08-14T13:45:16.000Z",
+        "createdAt": "2025-11-17T07:02:18.000Z",
+        "updatedAt": "2025-11-17T07:02:18.000Z",
         "Rarity": {
           "id": 1,
           "name": "S",
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         },
         "Role": {
           "id": 1,
           "name": "强攻",
           "description": null,
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         }
       },
       {
@@ -55,20 +55,20 @@
         "image": "/assets/zzz.jpg",
         "rarityId": 1,
         "roleId": 1,
-        "createdAt": "2025-08-14T13:45:16.000Z",
-        "updatedAt": "2025-08-14T13:45:16.000Z",
+        "createdAt": "2025-11-17T07:02:18.000Z",
+        "updatedAt": "2025-11-17T07:02:18.000Z",
         "Rarity": {
           "id": 1,
           "name": "S",
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         },
         "Role": {
           "id": 1,
           "name": "强攻",
           "description": null,
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         }
       },
       {
@@ -77,20 +77,20 @@
         "image": "/assets/zzz.jpg",
         "rarityId": 1,
         "roleId": 3,
-        "createdAt": "2025-08-14T13:45:16.000Z",
-        "updatedAt": "2025-08-14T13:45:16.000Z",
+        "createdAt": "2025-11-17T07:02:18.000Z",
+        "updatedAt": "2025-11-17T07:02:18.000Z",
         "Rarity": {
           "id": 1,
           "name": "S",
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         },
         "Role": {
           "id": 3,
           "name": "击破",
           "description": null,
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         }
       },
       {
@@ -99,20 +99,20 @@
         "image": "/assets/zzz.jpg",
         "rarityId": 1,
         "roleId": 3,
-        "createdAt": "2025-08-14T13:45:16.000Z",
-        "updatedAt": "2025-08-14T13:45:16.000Z",
+        "createdAt": "2025-11-17T07:02:18.000Z",
+        "updatedAt": "2025-11-17T07:02:18.000Z",
         "Rarity": {
           "id": 1,
           "name": "S",
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         },
         "Role": {
           "id": 3,
           "name": "击破",
           "description": null,
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         }
       },
       {
@@ -121,20 +121,20 @@
         "image": "/assets/zzz.jpg",
         "rarityId": 1,
         "roleId": 4,
-        "createdAt": "2025-08-14T13:45:16.000Z",
-        "updatedAt": "2025-08-14T13:45:16.000Z",
+        "createdAt": "2025-11-17T07:02:18.000Z",
+        "updatedAt": "2025-11-17T07:02:18.000Z",
         "Rarity": {
           "id": 1,
           "name": "S",
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         },
         "Role": {
           "id": 4,
           "name": "异常",
           "description": null,
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         }
       },
       {
@@ -143,20 +143,20 @@
         "image": "/assets/zzz.jpg",
         "rarityId": 1,
         "roleId": 2,
-        "createdAt": "2025-08-14T13:45:16.000Z",
-        "updatedAt": "2025-08-14T13:45:16.000Z",
+        "createdAt": "2025-11-17T07:02:18.000Z",
+        "updatedAt": "2025-11-17T07:02:18.000Z",
         "Rarity": {
           "id": 1,
           "name": "S",
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         },
         "Role": {
           "id": 2,
           "name": "支援",
           "description": null,
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         }
       },
       {
@@ -165,20 +165,20 @@
         "image": "/assets/zzz.jpg",
         "rarityId": 2,
         "roleId": 1,
-        "createdAt": "2025-08-14T13:45:16.000Z",
-        "updatedAt": "2025-08-14T13:45:16.000Z",
+        "createdAt": "2025-11-17T07:02:18.000Z",
+        "updatedAt": "2025-11-17T07:02:18.000Z",
         "Rarity": {
           "id": 2,
           "name": "A",
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         },
         "Role": {
           "id": 1,
           "name": "强攻",
           "description": null,
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         }
       },
       {
@@ -187,20 +187,20 @@
         "image": "/assets/zzz.jpg",
         "rarityId": 2,
         "roleId": 1,
-        "createdAt": "2025-08-14T13:45:16.000Z",
-        "updatedAt": "2025-08-14T13:45:16.000Z",
+        "createdAt": "2025-11-17T07:02:18.000Z",
+        "updatedAt": "2025-11-17T07:02:18.000Z",
         "Rarity": {
           "id": 2,
           "name": "A",
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         },
         "Role": {
           "id": 1,
           "name": "强攻",
           "description": null,
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         }
       },
       {
@@ -209,20 +209,20 @@
         "image": "/assets/zzz.jpg",
         "rarityId": 2,
         "roleId": 1,
-        "createdAt": "2025-08-14T13:45:16.000Z",
-        "updatedAt": "2025-08-14T13:45:16.000Z",
+        "createdAt": "2025-11-17T07:02:18.000Z",
+        "updatedAt": "2025-11-17T07:02:18.000Z",
         "Rarity": {
           "id": 2,
           "name": "A",
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         },
         "Role": {
           "id": 1,
           "name": "强攻",
           "description": null,
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         }
       },
       {
@@ -231,20 +231,20 @@
         "image": "/assets/zzz.jpg",
         "rarityId": 2,
         "roleId": 3,
-        "createdAt": "2025-08-14T13:45:16.000Z",
-        "updatedAt": "2025-08-14T13:45:16.000Z",
+        "createdAt": "2025-11-17T07:02:18.000Z",
+        "updatedAt": "2025-11-17T07:02:18.000Z",
         "Rarity": {
           "id": 2,
           "name": "A",
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         },
         "Role": {
           "id": 3,
           "name": "击破",
           "description": null,
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         }
       },
       {
@@ -253,20 +253,20 @@
         "image": "/assets/zzz.jpg",
         "rarityId": 2,
         "roleId": 3,
-        "createdAt": "2025-08-14T13:45:16.000Z",
-        "updatedAt": "2025-08-14T13:45:16.000Z",
+        "createdAt": "2025-11-17T07:02:18.000Z",
+        "updatedAt": "2025-11-17T07:02:18.000Z",
         "Rarity": {
           "id": 2,
           "name": "A",
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         },
         "Role": {
           "id": 3,
           "name": "击破",
           "description": null,
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         }
       },
       {
@@ -275,20 +275,20 @@
         "image": "/assets/zzz.jpg",
         "rarityId": 2,
         "roleId": 4,
-        "createdAt": "2025-08-14T13:45:16.000Z",
-        "updatedAt": "2025-08-14T13:45:16.000Z",
+        "createdAt": "2025-11-17T07:02:18.000Z",
+        "updatedAt": "2025-11-17T07:02:18.000Z",
         "Rarity": {
           "id": 2,
           "name": "A",
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         },
         "Role": {
           "id": 4,
           "name": "异常",
           "description": null,
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         }
       },
       {
@@ -297,20 +297,20 @@
         "image": "/assets/zzz.jpg",
         "rarityId": 2,
         "roleId": 4,
-        "createdAt": "2025-08-14T13:45:16.000Z",
-        "updatedAt": "2025-08-14T13:45:16.000Z",
+        "createdAt": "2025-11-17T07:02:18.000Z",
+        "updatedAt": "2025-11-17T07:02:18.000Z",
         "Rarity": {
           "id": 2,
           "name": "A",
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         },
         "Role": {
           "id": 4,
           "name": "异常",
           "description": null,
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         }
       },
       {
@@ -319,20 +319,20 @@
         "image": "/assets/zzz.jpg",
         "rarityId": 2,
         "roleId": 2,
-        "createdAt": "2025-08-14T13:45:16.000Z",
-        "updatedAt": "2025-08-14T13:45:16.000Z",
+        "createdAt": "2025-11-17T07:02:18.000Z",
+        "updatedAt": "2025-11-17T07:02:18.000Z",
         "Rarity": {
           "id": 2,
           "name": "A",
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         },
         "Role": {
           "id": 2,
           "name": "支援",
           "description": null,
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         }
       },
       {
@@ -341,20 +341,20 @@
         "image": "/assets/zzz.jpg",
         "rarityId": 2,
         "roleId": 2,
-        "createdAt": "2025-08-14T13:45:16.000Z",
-        "updatedAt": "2025-08-14T13:45:16.000Z",
+        "createdAt": "2025-11-17T07:02:18.000Z",
+        "updatedAt": "2025-11-17T07:02:18.000Z",
         "Rarity": {
           "id": 2,
           "name": "A",
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         },
         "Role": {
           "id": 2,
           "name": "支援",
           "description": null,
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         }
       },
       {
@@ -363,20 +363,20 @@
         "image": "/assets/zzz.jpg",
         "rarityId": 2,
         "roleId": 6,
-        "createdAt": "2025-08-14T13:45:16.000Z",
-        "updatedAt": "2025-08-14T13:45:16.000Z",
+        "createdAt": "2025-11-17T07:02:18.000Z",
+        "updatedAt": "2025-11-17T07:02:18.000Z",
         "Rarity": {
           "id": 2,
           "name": "A",
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         },
         "Role": {
           "id": 6,
           "name": "命破",
           "description": null,
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         }
       },
       {
@@ -385,20 +385,20 @@
         "image": "/assets/zzz.jpg",
         "rarityId": 2,
         "roleId": 5,
-        "createdAt": "2025-08-14T13:45:16.000Z",
-        "updatedAt": "2025-08-14T13:45:16.000Z",
+        "createdAt": "2025-11-17T07:02:18.000Z",
+        "updatedAt": "2025-11-17T07:02:18.000Z",
         "Rarity": {
           "id": 2,
           "name": "A",
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         },
         "Role": {
           "id": 5,
           "name": "防护",
           "description": null,
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         }
       },
       {
@@ -407,20 +407,20 @@
         "image": "/assets/zzz.jpg",
         "rarityId": 3,
         "roleId": 4,
-        "createdAt": "2025-08-14T13:45:16.000Z",
-        "updatedAt": "2025-08-14T13:45:16.000Z",
+        "createdAt": "2025-11-17T07:02:18.000Z",
+        "updatedAt": "2025-11-17T07:02:18.000Z",
         "Rarity": {
           "id": 3,
           "name": "B",
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         },
         "Role": {
           "id": 4,
           "name": "异常",
           "description": null,
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         }
       },
       {
@@ -429,20 +429,20 @@
         "image": "/assets/zzz.jpg",
         "rarityId": 3,
         "roleId": 4,
-        "createdAt": "2025-08-14T13:45:16.000Z",
-        "updatedAt": "2025-08-14T13:45:16.000Z",
+        "createdAt": "2025-11-17T07:02:18.000Z",
+        "updatedAt": "2025-11-17T07:02:18.000Z",
         "Rarity": {
           "id": 3,
           "name": "B",
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         },
         "Role": {
           "id": 4,
           "name": "异常",
           "description": null,
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         }
       },
       {
@@ -451,20 +451,20 @@
         "image": "/assets/zzz.jpg",
         "rarityId": 3,
         "roleId": 4,
-        "createdAt": "2025-08-14T13:45:16.000Z",
-        "updatedAt": "2025-08-14T13:45:16.000Z",
+        "createdAt": "2025-11-17T07:02:18.000Z",
+        "updatedAt": "2025-11-17T07:02:18.000Z",
         "Rarity": {
           "id": 3,
           "name": "B",
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         },
         "Role": {
           "id": 4,
           "name": "异常",
           "description": null,
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         }
       },
       {
@@ -473,20 +473,20 @@
         "image": "/assets/zzz.jpg",
         "rarityId": 3,
         "roleId": 3,
-        "createdAt": "2025-08-14T13:45:17.000Z",
-        "updatedAt": "2025-08-14T13:45:17.000Z",
+        "createdAt": "2025-11-17T07:02:18.000Z",
+        "updatedAt": "2025-11-17T07:02:18.000Z",
         "Rarity": {
           "id": 3,
           "name": "B",
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         },
         "Role": {
           "id": 3,
           "name": "击破",
           "description": null,
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         }
       },
       {
@@ -495,20 +495,20 @@
         "image": "/assets/zzz.jpg",
         "rarityId": 3,
         "roleId": 3,
-        "createdAt": "2025-08-14T13:45:17.000Z",
-        "updatedAt": "2025-08-14T13:45:17.000Z",
+        "createdAt": "2025-11-17T07:02:18.000Z",
+        "updatedAt": "2025-11-17T07:02:18.000Z",
         "Rarity": {
           "id": 3,
           "name": "B",
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         },
         "Role": {
           "id": 3,
           "name": "击破",
           "description": null,
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         }
       },
       {
@@ -517,20 +517,20 @@
         "image": "/assets/zzz.jpg",
         "rarityId": 3,
         "roleId": 3,
-        "createdAt": "2025-08-14T13:45:17.000Z",
-        "updatedAt": "2025-08-14T13:45:17.000Z",
+        "createdAt": "2025-11-17T07:02:18.000Z",
+        "updatedAt": "2025-11-17T07:02:18.000Z",
         "Rarity": {
           "id": 3,
           "name": "B",
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         },
         "Role": {
           "id": 3,
           "name": "击破",
           "description": null,
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         }
       },
       {
@@ -539,20 +539,20 @@
         "image": "/assets/zzz.jpg",
         "rarityId": 3,
         "roleId": 1,
-        "createdAt": "2025-08-14T13:45:17.000Z",
-        "updatedAt": "2025-08-14T13:45:17.000Z",
+        "createdAt": "2025-11-17T07:02:18.000Z",
+        "updatedAt": "2025-11-17T07:02:18.000Z",
         "Rarity": {
           "id": 3,
           "name": "B",
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         },
         "Role": {
           "id": 1,
           "name": "强攻",
           "description": null,
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         }
       },
       {
@@ -561,20 +561,20 @@
         "image": "/assets/zzz.jpg",
         "rarityId": 3,
         "roleId": 1,
-        "createdAt": "2025-08-14T13:45:17.000Z",
-        "updatedAt": "2025-08-14T13:45:17.000Z",
+        "createdAt": "2025-11-17T07:02:18.000Z",
+        "updatedAt": "2025-11-17T07:02:18.000Z",
         "Rarity": {
           "id": 3,
           "name": "B",
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         },
         "Role": {
           "id": 1,
           "name": "强攻",
           "description": null,
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         }
       },
       {
@@ -583,20 +583,20 @@
         "image": "/assets/zzz.jpg",
         "rarityId": 3,
         "roleId": 1,
-        "createdAt": "2025-08-14T13:45:17.000Z",
-        "updatedAt": "2025-08-14T13:45:17.000Z",
+        "createdAt": "2025-11-17T07:02:18.000Z",
+        "updatedAt": "2025-11-17T07:02:18.000Z",
         "Rarity": {
           "id": 3,
           "name": "B",
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         },
         "Role": {
           "id": 1,
           "name": "强攻",
           "description": null,
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         }
       },
       {
@@ -605,20 +605,20 @@
         "image": "/assets/zzz.jpg",
         "rarityId": 3,
         "roleId": 2,
-        "createdAt": "2025-08-14T13:45:17.000Z",
-        "updatedAt": "2025-08-14T13:45:17.000Z",
+        "createdAt": "2025-11-17T07:02:18.000Z",
+        "updatedAt": "2025-11-17T07:02:18.000Z",
         "Rarity": {
           "id": 3,
           "name": "B",
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         },
         "Role": {
           "id": 2,
           "name": "支援",
           "description": null,
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         }
       },
       {
@@ -627,20 +627,20 @@
         "image": "/assets/zzz.jpg",
         "rarityId": 3,
         "roleId": 2,
-        "createdAt": "2025-08-14T13:45:17.000Z",
-        "updatedAt": "2025-08-14T13:45:17.000Z",
+        "createdAt": "2025-11-17T07:02:18.000Z",
+        "updatedAt": "2025-11-17T07:02:18.000Z",
         "Rarity": {
           "id": 3,
           "name": "B",
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         },
         "Role": {
           "id": 2,
           "name": "支援",
           "description": null,
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         }
       },
       {
@@ -649,24 +649,46 @@
         "image": "/assets/zzz.jpg",
         "rarityId": 3,
         "roleId": 2,
-        "createdAt": "2025-08-14T13:45:17.000Z",
-        "updatedAt": "2025-08-14T13:45:17.000Z",
+        "createdAt": "2025-11-17T07:02:18.000Z",
+        "updatedAt": "2025-11-17T07:02:18.000Z",
         "Rarity": {
           "id": 3,
           "name": "B",
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         },
         "Role": {
           "id": 2,
           "name": "支援",
           "description": null,
-          "createdAt": "2025-08-14T13:45:16.000Z",
-          "updatedAt": "2025-08-14T13:45:16.000Z"
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
+        }
+      },
+      {
+        "id": 31,
+        "name": "测试音擎Z",
+        "image": "/assets/zzz.jpg",
+        "rarityId": 1,
+        "roleId": 1,
+        "createdAt": "2025-11-17T08:15:54.000Z",
+        "updatedAt": "2025-11-17T08:15:54.000Z",
+        "Rarity": {
+          "id": 1,
+          "name": "S",
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
+        },
+        "Role": {
+          "id": 1,
+          "name": "强攻",
+          "description": null,
+          "createdAt": "2025-11-17T07:02:18.000Z",
+          "updatedAt": "2025-11-17T07:02:18.000Z"
         }
       }
     ],
-    "lastUpdated": "2025-08-14T14:04:24.616Z",
+    "lastUpdated": "2025-11-23T03:48:37.820Z",
     "source": "database"
   }
 }
