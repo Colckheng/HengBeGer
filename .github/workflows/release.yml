@@ -32,6 +32,14 @@ jobs:
       - name: Upload Release Assets
         uses: softprops/action-gh-release@v2
         with:
+          name: HengBerGer App ${{ github.ref_name }}
+          body: |
+            更新内容：
+            - HSR 页面与管理端统一一页展示，移除搜索与分页
+            - 绝区零管理端编辑弹窗支持图片上传与预览
+            - 后端启用安全头与限流、压缩传输、Prometheus 指标
+            - 统一健康接口响应体，开发环境可自动降级 SQLite
+            - 为 HSR 表补充索引，提升查询与渲染性能
           files: |
             HengBerGerApp/out/make/squirrel.windows/x64/*.exe
         env:
