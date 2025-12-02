@@ -294,6 +294,7 @@ export const logAPI = (req, res, startTime) => {
   const duration = Date.now() - startTime;
   logger.api(req.method, req.path, res.statusCode, duration, {
     userAgent: req.get('User-Agent'),
-    ip: req.ip
+    ip: req.ip,
+    requestId: req.requestId
   });
 };

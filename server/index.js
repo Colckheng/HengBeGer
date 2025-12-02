@@ -1,10 +1,15 @@
 // 后端服务器入口文件（ESM）
 import express from 'express';
 import cors from 'cors';
+import helmet from 'helmet';
+import rateLimit from 'express-rate-limit';
+import client from 'prom-client';
+import compression from 'compression';
 import dotenv from 'dotenv';
+import dotenvSafe from 'dotenv-safe';
 import process from 'process';
 
-import { createSequelizeInstance } from '../src/db/config.js';
+import { createSequelizeInstance, createSqliteInstance } from '../src/db/config.js';
 import {
   syncData,
   addAgent,
@@ -45,6 +50,7 @@ import DataSyncController from '../src/api/dataSync.js';
 import dualStorageManager from '../src/db/dualStorageManager.js';
 import QueryOptimizer from '../src/db/queryOptimizer.js';
 import initialData from '../src/initialdata.js';
+import { createIndexes } from '../src/db/indexes.js';
 
 import { logger, logAPI } from '../src/utils/logger.js';
 import { errorMiddleware, catchAsync, AppError, initializeErrorHandling } from '../src/utils/errorHandler.js';
@@ -62,11 +68,26 @@ import {
   validateBody
 } from './middleware/validation.cjs';
 
-dotenv.config();
+try {
+  dotenvSafe.config();
+} catch (e) {
+  dotenv.config();
+}
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+const isTest = process.env.NODE_ENV === 'test';
+const register = new client.Registry();
+client.collectDefaultMetrics({ register });
+const apiRequestCounter = new client.Counter({ name: 'api_requests_total', help: 'Total API requests', labelNames: ['method','route','status'] });
+const apiRequestDuration = new client.Histogram({ name: 'api_request_duration_ms', help: 'API request duration (ms)', labelNames: ['route','method'], buckets: [50,100,200,500,1000,2000] });
+register.registerMetric(apiRequestCounter);
+register.registerMetric(apiRequestDuration);
 
+app.use(helmet());
+app.use(compression());
+const limiter = rateLimit({ windowMs: 60 * 1000, max: 200 });
+app.use(limiter);
 app.use(cors({
   origin: process.env.NODE_ENV === 'production'
     ? ['https://yourdomain.com']
@@ -75,6 +96,21 @@ app.use(cors({
 }));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+app.use((req,res,next)=>{
+  res.success = (data, message = '', code = 0) => {
+    res.json({ code, message, data, requestId: req.requestId });
+  };
+  res.fail = (message = 'bad request', code = 1, data = null, status = 400) => {
+    res.status(status).json({ code, message, data, requestId: req.requestId });
+  };
+  next();
+});
+app.use((req, res, next) => {
+  const rid = req.get('x-request-id') || Math.random().toString(36).slice(2);
+  req.requestId = rid;
+  res.setHeader('x-request-id', rid);
+  next();
+});
 app.use((req, res, next) => {
   res.setHeader('Content-Type', 'application/json; charset=utf-8');
   next();
@@ -92,6 +128,10 @@ app.use((req, res, next) => {
   });
   res.on('finish', () => {
     logAPI(req, res, req.startTime);
+    try {
+      apiRequestCounter.inc({ method: req.method, route: req.path, status: res.statusCode });
+      apiRequestDuration.observe({ route: req.path, method: req.method }, Date.now() - req.startTime);
+    } catch {}
   });
   next();
 });
@@ -102,17 +142,26 @@ let queryOptimizer;
 
 const initDb = async () => {
   try {
+    if (isTest) {
+      dbInitialized = true;
+      return;
+    }
     logger.info('正在初始化数据库连接...');
     const dbUser = process.env.DB_USER || 'root';
     const dbPassword = process.env.DB_PASSWORD;
-    if (!dbPassword) {
+    if (!dbPassword && process.env.NODE_ENV !== 'production') {
+      logger.warn('未检测到数据库密码，开发模式下启用 SQLite 本地数据库');
+      sequelize = createSqliteInstance();
+    } else if (!dbPassword) {
       const errorMsg = '数据库密码环境变量 DB_PASSWORD 未设置，无法启动服务器';
       logger.error(errorMsg);
       process.exit(1);
+    } else {
+      sequelize = createSequelizeInstance(process.env.DB_USER || 'root', dbPassword);
     }
     logger.info('数据库连接信息', { user: dbUser, passwordSet: !!dbPassword });
-    sequelize = createSequelizeInstance(dbUser, dbPassword);
     initializeModels(sequelize);
+    try { await createIndexes(sequelize); } catch {}
     const shouldInit = process.env.INIT_DB === 'true' || process.env.NODE_ENV === 'development';
     if (shouldInit) {
       await initializeData(sequelize);
@@ -188,11 +237,12 @@ const checkDbConnection = (req, res, next) => {
 };
 
 app.get('/health', (req, res) => {
-  res.json({
-    status: 'ok',
-    database: dbInitialized ? 'connected' : 'disconnected',
-    timestamp: new Date().toISOString()
-  });
+  res.success({ status: 'ok', database: dbInitialized ? 'connected' : 'disconnected', timestamp: new Date().toISOString() }, 'health');
+});
+
+app.get('/metrics', async (req, res) => {
+  res.setHeader('Content-Type', register.contentType);
+  res.end(await register.metrics());
 });
 
 app.get('/api/data', checkDbConnection, catchAsync(async (req, res) => {
@@ -292,6 +342,39 @@ app.get('/api/hsr/base-data', checkDbConnection, catchAsync(async (req, res) => 
     relicTypes: relicTypes.map(t => ({ id: t.id, name: t.name })),
     relicParts: ['头','手','身','脚','位面球','连结绳']
   });
+}));
+
+// HSR 分页接口（不影响现有前端）
+app.get('/api/hsr/characters/list', checkDbConnection, catchAsync(async (req, res) => {
+  const limit = Math.min(parseInt(req.query.limit) || 12, 100);
+  const offset = Math.max(parseInt(req.query.offset) || 0, 0);
+  const where = {};
+  const { elementId, pathId, rarityId } = req.query;
+  if (elementId) where.elementId = parseInt(elementId);
+  if (pathId) where.pathId = parseInt(pathId);
+  if (rarityId) where.rarityId = parseInt(rarityId);
+  const result = await HsrCharacter.findAndCountAll({ where, include: [HsrElement, HsrPath, HsrRarity], limit, offset, order: [['id','ASC']] });
+  res.success({ total: result.count, items: result.rows });
+}));
+app.get('/api/hsr/cones/list', checkDbConnection, catchAsync(async (req, res) => {
+  const limit = Math.min(parseInt(req.query.limit) || 12, 100);
+  const offset = Math.max(parseInt(req.query.offset) || 0, 0);
+  const where = {};
+  const { pathId, rarityId } = req.query;
+  if (pathId) where.pathId = parseInt(pathId);
+  if (rarityId) where.rarityId = parseInt(rarityId);
+  const result = await HsrCone.findAndCountAll({ where, include: [HsrPath, HsrRarity], limit, offset, order: [['id','ASC']] });
+  res.success({ total: result.count, items: result.rows });
+}));
+app.get('/api/hsr/relics/list', checkDbConnection, catchAsync(async (req, res) => {
+  const limit = Math.min(parseInt(req.query.limit) || 12, 100);
+  const offset = Math.max(parseInt(req.query.offset) || 0, 0);
+  const where = {};
+  const { typeId, part } = req.query;
+  if (typeId) where.typeId = parseInt(typeId);
+  if (part) where.part = part;
+  const result = await HsrRelic.findAndCountAll({ where, include: [HsrRelicType], limit, offset, order: [['id','ASC']] });
+  res.success({ total: result.count, items: result.rows });
 }));
 
 app.post('/api/hsr/characters', checkDbConnection, validateBody(validateHsrCharacterData), catchAsync(async (req, res) => {
@@ -514,9 +597,11 @@ app.put('/api/storage/:type', checkDbConnection, validateDataType, catchAsync(as
 app.use(errorMiddleware);
 
 initDb().then(() => {
-  app.listen(PORT, () => {
-    logger.info(`服务器运行在 http://localhost:${PORT}`);
-  });
+  if (!isTest) {
+    app.listen(PORT, () => {
+      logger.info(`服务器运行在 http://localhost:${PORT}`);
+    });
+  }
 });
 
 process.on('SIGINT', async () => {
@@ -525,3 +610,5 @@ process.on('SIGINT', async () => {
   }
   process.exit(0);
 });
+
+export default app;

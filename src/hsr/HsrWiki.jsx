@@ -9,7 +9,7 @@ const HsrWiki = () => {
   const [activeTab, setActiveTab] = useState('hsrCharacters')
   const [filters, setFilters] = useState({ hsrCharacters:{ element:[], path:[], rarity:[] }, hsrCones:{ path:[], rarity:[] }, hsrRelics:{ type:[], part:[] } })
 
-  const handleFilterChange = (tab, type, values) => setFilters(prev => ({ ...prev, [tab]: { ...prev[tab], [type]: values } }))
+  const handleFilterChange = (tab, type, values) => { setFilters(prev => ({ ...prev, [tab]: { ...prev[tab], [type]: values } })) }
   const arr = (v)=> Array.isArray(v)?v:[]
   const hsr = baseData?.hsr || { elements:[], paths:[], rarities:[], relicTypes:[], relicParts:[] }
 

@@ -16,6 +16,10 @@ dist-ssr
 build
 *.local
 
+# Binary installers
+*.exe
+*.msi
+
 # Environment files
 .env
 .env.local

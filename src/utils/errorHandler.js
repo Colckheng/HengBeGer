@@ -210,7 +210,8 @@ export const errorMiddleware = (err, req, res, next) => {
   logger.api(req.method, req.path, errorInfo.statusCode, Date.now() - startTime, {
     error: err.message,
     userAgent: req.get('User-Agent'),
-    ip: req.ip
+    ip: req.ip,
+    requestId: req.requestId
   });
   
   // 返回错误响应
@@ -218,6 +219,7 @@ export const errorMiddleware = (err, req, res, next) => {
     success: false,
     error: errorInfo.message,
     timestamp: new Date().toISOString(),
+    requestId: req.requestId,
     ...(process.env.NODE_ENV === 'development' && {
       stack: err.stack,
       details: err

@@ -60,6 +60,14 @@ export function createSequelizeInstance(username, password) {
   });
 }
 
+export function createSqliteInstance(storagePath = './data/hengbeger.sqlite') {
+  return new Sequelize({
+    dialect: 'sqlite',
+    storage: storagePath,
+    logging: (msg) => logger.debug(`Sequelize: ${msg}`)
+  });
+}
+
 // 执行环境安全检查
 const securityValidation = validateEnvironmentSecurity();
 const silenced = process.env.SECURITY_SILENCE === 'true';
@@ -81,16 +89,22 @@ const defaultUsername = process.env.DB_USER || 'root';
 const defaultPassword = process.env.DB_PASSWORD;
 
 // 安全检查：确保密码已设置
-if (!defaultPassword) {
-  const errorMsg = '数据库密码未设置，无法建立连接';
-  securityManager.logSecurityEvent('数据库密码缺失', {
-    username: defaultUsername,
-    environment: process.env.NODE_ENV
-  });
-  throw new Error(errorMsg);
+let sequelizeImpl;
+if (!defaultPassword && process.env.NODE_ENV !== 'production') {
+  sequelizeImpl = createSqliteInstance();
+} else {
+  if (!defaultPassword) {
+    const errorMsg = '数据库密码未设置，无法建立连接';
+    securityManager.logSecurityEvent('数据库密码缺失', {
+      username: defaultUsername,
+      environment: process.env.NODE_ENV
+    });
+    throw new Error(errorMsg);
+  }
+  sequelizeImpl = createSequelizeInstance(defaultUsername, defaultPassword);
 }
 
-export const sequelize = createSequelizeInstance(defaultUsername, defaultPassword);
+export const sequelize = sequelizeImpl;
 
 // 带重试机制的连接函数
 const connectWithRetry = async (sequelizeInstance, attempt = 1) => {

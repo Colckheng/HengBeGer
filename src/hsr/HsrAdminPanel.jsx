@@ -11,11 +11,17 @@ const HsrAdminPanel = () => {
   const [activeSubTab, setActiveSubTab] = useState('add')
   const [form, setForm] = useState({})
   const [editingItem, setEditingItem] = useState(null)
+  const [showEditModal, setShowEditModal] = useState(false)
+  const [editModalData, setEditModalData] = useState({})
+  const [modalImagePreview, setModalImagePreview] = useState(null)
+  const [imagePreview, setImagePreview] = useState(null)
+  const [dualStatus, setDualStatus] = useState({})
   const [base, setBase] = useState({ elements:[], paths:[], rarities:[], relicTypes:[], relicParts:[] })
   const [sessionInitialized, setSessionInitialized] = useState(false)
   const [hasAdminChanges, setHasAdminChanges] = useState(false)
   const [syncLoading, setSyncLoading] = useState(false)
   const [data, setData] = useState({ hsrCharacters:[], hsrCones:[], hsrRelics:[] })
+  
 
   const loadBase = async ()=>{ const r = await axios.get(`${API_BASE_URL}/hsr/base-data`); setBase(r.data) }
   const loadWeb = async ()=>{
@@ -34,10 +40,11 @@ const HsrAdminPanel = () => {
   useEffect(()=>{ (async()=>{ await loadBase(); await initDual(); await loadWeb() })() }, [])
 
   const onChange = (e)=>{ setForm(prev=>({ ...prev, [e.target.name]: e.target.value })); setHasAdminChanges(true) }
-  const onFile = (e)=>{ const f=e.target.files?.[0]; if(!f) return; const r=new FileReader(); r.onloadend=()=> setForm(prev=>({ ...prev, image:r.result })); r.readAsDataURL(f) }
+  const onFile = (e)=>{ const f=e.target.files?.[0]; if(!f) return; const r=new FileReader(); r.onloadend=()=> { setForm(prev=>({ ...prev, image:r.result })); setImagePreview(r.result) }; r.readAsDataURL(f) }
 
   const saveAdminData = async (type, arr)=>{ await axios.put(`${API_BASE_URL}/dual-storage/admin/${type}`, { data: arr }); setHasAdminChanges(true) }
   const syncAdminToWeb = async ()=>{ const resp = await axios.post(`${API_BASE_URL}/dual-storage/sync`); if (resp.data?.success) { await handleUpdateData(); await loadWeb() } }
+  const loadDualStorageStatus = async ()=>{ try{ const r = await axios.get(`${API_BASE_URL}/dual-storage/status`); if (r.data?.success) setDualStatus(r.data.status||{}) } catch{} }
 
   const addItem = async ()=>{
     if (activeTab==='hsrCharacters') await axios.post(`${API_BASE_URL}/hsr/characters`, form)
@@ -59,6 +66,28 @@ const HsrAdminPanel = () => {
     if (sessionInitialized) { await saveAdminData(activeTab, arr); await syncAdminToWeb() }
     await loadWeb()
     setForm({}); setEditingItem(null)
+  }
+
+  const openEditModal = (item)=>{
+    setEditModalData(item)
+    setModalImagePreview(item.image||null)
+    setShowEditModal(true)
+  }
+  const closeEditModal = ()=>{ setShowEditModal(false); setEditModalData({}); setModalImagePreview(null) }
+  const handleModalInputChange = (e)=>{ const { name, value } = e.target; setEditModalData(prev=>({ ...prev, [name]: value })) }
+  const handleModalFileChange = (e)=>{ const f=e.target.files?.[0]; if(!f) return; const r=new FileReader(); r.onloadend=()=>{ setEditModalData(prev=>({ ...prev, image:r.result })); setModalImagePreview(r.result) }; r.readAsDataURL(f) }
+  const saveEdit = async ()=>{
+    const id = editModalData.id
+    const payload = { ...editModalData }
+    if (activeTab==='hsrCharacters') await axios.put(`${API_BASE_URL}/hsr/characters/${id}`, payload)
+    else if (activeTab==='hsrCones') await axios.put(`${API_BASE_URL}/hsr/cones/${id}`, payload)
+    else await axios.put(`${API_BASE_URL}/hsr/relics/${id}`, payload)
+    const web = await axios.get(`${API_BASE_URL}/dual-storage/web/data`)
+    const arr = Array.isArray(web.data?.data?.[activeTab]) ? web.data.data[activeTab] : []
+    if (sessionInitialized) { await saveAdminData(activeTab, arr); await syncAdminToWeb() }
+    await loadWeb()
+    closeEditModal()
+    alert('修改保存成功！')
   }
 
   const deleteItem = async (id)=>{
@@ -92,7 +121,7 @@ const HsrAdminPanel = () => {
         <div className="form-group"><label>稀有度:</label><select name="rarityId" value={form.rarityId||''} onChange={onChange} required>
           <option value="">选择稀有度</option>{base.rarities.map(r=> <option key={r.id} value={r.id}>{r.name}</option>)}
         </select></div>
-        <div className="form-group"><label>图片:</label><input type="file" onChange={onFile} accept="image/*" /><input type="hidden" name="image" value={form.image||''} /></div>
+        <div className="form-group"><label>图片:</label><input type="file" onChange={onFile} accept="image/*" />{imagePreview && <img src={imagePreview} alt="预览" className="image-preview" />}<input type="hidden" name="image" value={form.image||''} /></div>
         <div className="form-actions"><button type="submit" className="btn-primary">{editingItem?'更新':'添加'}</button>{editingItem&&<button type="button" className="btn-secondary" onClick={()=>{setEditingItem(null); setForm({})}}>取消</button>}</div>
       </form>
     )
@@ -106,7 +135,7 @@ const HsrAdminPanel = () => {
         <div className="form-group"><label>稀有度:</label><select name="rarityId" value={form.rarityId||''} onChange={onChange} required>
           <option value="">选择稀有度</option>{base.rarities.map(r=> <option key={r.id} value={r.id}>{r.name}</option>)}
         </select></div>
-        <div className="form-group"><label>图片:</label><input type="file" onChange={onFile} accept="image/*" /><input type="hidden" name="image" value={form.image||''} /></div>
+        <div className="form-group"><label>图片:</label><input type="file" onChange={onFile} accept="image/*" />{imagePreview && <img src={imagePreview} alt="预览" className="image-preview" />}<input type="hidden" name="image" value={form.image||''} /></div>
         <div className="form-actions"><button type="submit" className="btn-primary">{editingItem?'更新':'添加'}</button>{editingItem&&<button type="button" className="btn-secondary" onClick={()=>{setEditingItem(null); setForm({})}}>取消</button>}</div>
       </form>
     )
@@ -121,13 +150,14 @@ const HsrAdminPanel = () => {
         <div className="form-group"><label>部位:</label><select name="part" value={form.part||''} onChange={onChange}>
           <option value="">选择部位</option>{base.relicParts.map(p=> <option key={p} value={p}>{p}</option>)}
         </select></div>
-        <div className="form-group"><label>图片:</label><input type="file" onChange={onFile} accept="image/*" /><input type="hidden" name="image" value={form.image||''} /></div>
+        <div className="form-group"><label>图片:</label><input type="file" onChange={onFile} accept="image/*" />{imagePreview && <img src={imagePreview} alt="预览" className="image-preview" />}<input type="hidden" name="image" value={form.image||''} /></div>
         <div className="form-actions"><button type="submit" className="btn-primary">{editingItem?'更新':'添加'}</button>{editingItem&&<button type="button" className="btn-secondary" onClick={()=>{setEditingItem(null); setForm({})}}>取消</button>}</div>
       </form>
     )
   }
 
   const list = (type)=> (Array.isArray(data[type])?data[type]:[])
+  
 
   return (
     <div className="third-div">
@@ -169,15 +199,52 @@ const HsrAdminPanel = () => {
           {activeSubTab==='add' ? (
             <div className="admin-form-full-page">{renderForm()}</div>
           ) : (
-            <div className="admin-list-full"><div className="admin-list-container"><div className="content-grid">
+            <div className="admin-list-full"><div className="admin-list-container">
+              <div className="content-grid">
               {list(activeTab).map(item=> (
                 <div key={item.id} className="card shadow-md">
                   <img src={item.image||star} alt={item.name} className="card-image" onError={(e)=>{e.target.src=star}} />
                   <div className="card-content"><h3 className="card-title">{item.name}</h3></div>
-                  <div className="card-actions"><button className="btn-edit" onClick={()=>{setEditingItem(item); setForm({ name:item.name, image:item.image, elementId:item.elementId||'', pathId:item.pathId||'', rarityId:item.rarityId||'', typeId:item.typeId||'', setName:item.setName||'', part:item.part||'' }); setActiveSubTab('add');}}>编辑</button><button className="btn-delete" onClick={()=>deleteItem(item.id)}>删除</button></div>
+                  <div className="card-actions"><button className="btn-edit" onClick={()=>openEditModal(item)}>编辑</button><button className="btn-delete" onClick={()=>deleteItem(item.id)}>删除</button></div>
                 </div>
               ))}
-            </div></div></div>
+              </div>
+            </div></div>
+          )}
+          <div className="sync-buttons">
+            <button className="update-button secondary" onClick={loadDualStorageStatus} disabled={syncLoading} title="刷新存储系统状态">🔄 刷新状态</button>
+          </div>
+          {showEditModal && (
+            <div className="modal-overlay" onClick={closeEditModal}>
+              <div className="modal-content" onClick={(e)=>e.stopPropagation()}>
+                <div className="modal-header"><h3>编辑{activeTab==='hsrCharacters'?'角色':activeTab==='hsrCones'?'光锥':'遗器'}</h3><button className="modal-close" onClick={closeEditModal}>×</button></div>
+                <div className="modal-body">
+                  <div className="form-group"><label>名称:</label><input name="name" value={editModalData.name||''} onChange={handleModalInputChange} /></div>
+                  {activeTab==='hsrCharacters' && (
+                    <>
+                      <div className="form-group"><label>元素:</label><select name="elementId" value={editModalData.elementId||''} onChange={handleModalInputChange}><option value="">选择元素</option>{base.elements.map(el=> <option key={el.id} value={el.id}>{el.name}</option>)}</select></div>
+                      <div className="form-group"><label>命途:</label><select name="pathId" value={editModalData.pathId||''} onChange={handleModalInputChange}><option value="">选择命途</option>{base.paths.map(p=> <option key={p.id} value={p.id}>{p.name}</option>)}</select></div>
+                      <div className="form-group"><label>稀有度:</label><select name="rarityId" value={editModalData.rarityId||''} onChange={handleModalInputChange}><option value="">选择稀有度</option>{base.rarities.map(r=> <option key={r.id} value={r.id}>{r.name}</option>)}</select></div>
+                    </>
+                  )}
+                  {activeTab==='hsrCones' && (
+                    <>
+                      <div className="form-group"><label>命途:</label><select name="pathId" value={editModalData.pathId||''} onChange={handleModalInputChange}><option value="">选择命途</option>{base.paths.map(p=> <option key={p.id} value={p.id}>{p.name}</option>)}</select></div>
+                      <div className="form-group"><label>稀有度:</label><select name="rarityId" value={editModalData.rarityId||''} onChange={handleModalInputChange}><option value="">选择稀有度</option>{base.rarities.map(r=> <option key={r.id} value={r.id}>{r.name}</option>)}</select></div>
+                    </>
+                  )}
+                  {activeTab==='hsrRelics' && (
+                    <>
+                      <div className="form-group"><label>类型:</label><select name="typeId" value={editModalData.typeId||''} onChange={handleModalInputChange}><option value="">选择类型</option>{base.relicTypes.map(t=> <option key={t.id} value={t.id}>{t.name}</option>)}</select></div>
+                      <div className="form-group"><label>套装名:</label><input name="setName" value={editModalData.setName||''} onChange={handleModalInputChange} /></div>
+                      <div className="form-group"><label>部位:</label><select name="part" value={editModalData.part||''} onChange={handleModalInputChange}><option value="">选择部位</option>{base.relicParts.map(p=> <option key={p} value={p}>{p}</option>)}</select></div>
+                    </>
+                  )}
+                  <div className="form-group"><label>图片:</label><input type="file" onChange={handleModalFileChange} accept="image/*" />{modalImagePreview && <img src={modalImagePreview} alt="预览" className="image-preview" />}</div>
+                </div>
+                <div className="modal-footer"><button className="btn-secondary" onClick={closeEditModal}>取消</button><button className="btn-primary" onClick={saveEdit}>保存</button></div>
+              </div>
+            </div>
           )}
         </div>
       </div>

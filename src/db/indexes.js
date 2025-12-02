@@ -47,6 +47,16 @@ export async function createIndexes(sequelize) {
     await ensureIndex('sound_engines', 'idx_sound_engines_created_at', 'createdAt');
     await ensureIndex('bumbos', 'idx_bumbos_created_at', 'createdAt');
     await ensureIndex('drive_disks', 'idx_drive_disks_created_at', 'createdAt');
+    // HSR tables
+    await ensureIndex('hsr_characters', 'idx_hsr_characters_element', 'elementId');
+    await ensureIndex('hsr_characters', 'idx_hsr_characters_path', 'pathId');
+    await ensureIndex('hsr_characters', 'idx_hsr_characters_rarity', 'rarityId');
+    await ensureIndex('hsr_characters', 'idx_hsr_characters_name', 'name');
+    await ensureIndex('hsr_cones', 'idx_hsr_cones_path', 'pathId');
+    await ensureIndex('hsr_cones', 'idx_hsr_cones_rarity', 'rarityId');
+    await ensureIndex('hsr_cones', 'idx_hsr_cones_name', 'name');
+    await ensureIndex('hsr_relics', 'idx_hsr_relics_type', 'typeId');
+    await ensureIndex('hsr_relics', 'idx_hsr_relics_name', 'name');
     
     logger.info('数据库索引创建完成');
     return true;

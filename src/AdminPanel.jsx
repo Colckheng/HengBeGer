@@ -740,14 +740,27 @@ const AdminPanel = () => {
   // 编辑弹窗组件
   const EditModal = () => {
     const [modalFormData, setModalFormData] = useState({...editModalData});
+    const [modalImagePreview, setModalImagePreview] = useState(editModalData?.image || null);
     
     useEffect(() => {
       setModalFormData({...editModalData});
+      setModalImagePreview(editModalData?.image || null);
     }, [editModalData]);
     
     const handleModalInputChange = (e) => {
       const { name, value } = e.target;
       setModalFormData(prev => ({ ...prev, [name]: value }));
+    };
+
+    const handleModalFileChange = (e) => {
+      const file = e.target.files?.[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setModalFormData(prev => ({ ...prev, image: reader.result }));
+        setModalImagePreview(reader.result);
+      };
+      reader.readAsDataURL(file);
     };
     
     const handleModalSave = () => {
@@ -776,6 +789,11 @@ const AdminPanel = () => {
                     value={modalFormData.name || ''} 
                     onChange={handleModalInputChange} 
                   />
+                </div>
+                <div className="form-group">
+                  <label>图片:</label>
+                  <input type="file" name="imageFile" onChange={handleModalFileChange} accept="image/*" />
+                  {modalImagePreview && <img src={modalImagePreview} alt="预览" className="image-preview" />}
                 </div>
                 <div className="form-group">
                   <label>等级:</label>
@@ -818,6 +836,11 @@ const AdminPanel = () => {
                   />
                 </div>
                 <div className="form-group">
+                  <label>图片:</label>
+                  <input type="file" name="imageFile" onChange={handleModalFileChange} accept="image/*" />
+                  {modalImagePreview && <img src={modalImagePreview} alt="预览" className="image-preview" />}
+                </div>
+                <div className="form-group">
                   <label>类型:</label>
                   <select name="type" value={modalFormData.type || ''} onChange={handleModalInputChange}>
                     <option value="">选择类型</option>
@@ -839,6 +862,11 @@ const AdminPanel = () => {
                     onChange={handleModalInputChange} 
                   />
                 </div>
+                <div className="form-group">
+                  <label>图片:</label>
+                  <input type="file" name="imageFile" onChange={handleModalFileChange} accept="image/*" />
+                  {modalImagePreview && <img src={modalImagePreview} alt="预览" className="image-preview" />}
+                </div>
               </>
             )}
             {activeTab === 'driveDisks' && (
@@ -851,6 +879,11 @@ const AdminPanel = () => {
                     value={modalFormData.name || ''} 
                     onChange={handleModalInputChange} 
                   />
+                </div>
+                <div className="form-group">
+                  <label>图片:</label>
+                  <input type="file" name="imageFile" onChange={handleModalFileChange} accept="image/*" />
+                  {modalImagePreview && <img src={modalImagePreview} alt="预览" className="image-preview" />}
                 </div>
               </>
             )}
