@@ -1,0 +1,38 @@
+name: Release Windows Installer
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build-and-release-windows:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install frontend deps (HengBeGer)
+        working-directory: HengBeGer
+        run: npm ci
+
+      - name: Install app deps (HengBerGerApp)
+        working-directory: HengBerGerApp
+        run: npm ci
+
+      - name: Make Windows installer (Squirrel)
+        working-directory: HengBerGerApp
+        run: npm run make
+
+      - name: Upload Release Assets
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            HengBerGerApp/out/make/squirrel.windows/x64/*.exe
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
