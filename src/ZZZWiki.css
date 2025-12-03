@@ -122,7 +122,7 @@
 
 .single-scrollbar::-webkit-scrollbar-thumb {
   background-color: #444;
-  border-radius: 4px;
+  border-radius: 0;
 }
 
 .single-scrollbar::-webkit-scrollbar-thumb:hover {
@@ -140,7 +140,7 @@
   margin-bottom: 15px;
   padding: 10px;
   background-color: rgba(30, 30, 30, 0.7);
-  border-radius: 4px;
+  border-radius: 0;
 }
 
 /* 代理人筛选垂直布局 */
@@ -188,8 +188,8 @@
   padding: 6px 12px;
   background-color: #333;
   color: #fff;
-  border: 1px solid #555;
-  border-radius: 4px;
+  border: 1px solid #ffffff;
+  border-radius: 0;
   cursor: pointer;
   font-size: 12px;
   transition: all 0.2s ease;
@@ -199,14 +199,14 @@
 .agents-filter-horizontal .filter-options button:hover,
 .agents-filter-horizontal .filter-row button:hover {
   background-color: #444;
-  border-color: #61dafb;
+  border-color: #ffffff;
 }
 
 .agents-filter-horizontal .filter-options button.active,
 .agents-filter-horizontal .filter-row button.active {
   background-color: #61dafb;
   color: #282c34;
-  border-color: #61dafb;
+  border-color: #ffffff;
 }
 
 /* 音擎筛选横向布局 */
@@ -236,24 +236,24 @@
 
 .soundengines-filter-horizontal .filter-options button {
   padding: 4px 8px;
-  border: 1px solid #444;
+  border: 1px solid #ffffff;
   background-color: transparent;
   color: #fff;
-  border-radius: 4px;
+  border-radius: 0;
   cursor: pointer;
   font-size: 12px;
   transition: all 0.2s;
 }
 
 .soundengines-filter-horizontal .filter-options button:hover {
-  border-color: #61dafb;
-  color: #61dafb;
+  border-color: #ffffff;
+  color: #ffffff;
 }
 
 .soundengines-filter-horizontal .filter-options button.active {
   background-color: #61dafb;
   color: #282c34;
-  border-color: #61dafb;
+  border-color: #ffffff;
 }
 
 /* 邦布筛选布局 */
@@ -283,33 +283,33 @@
 
 .bumbos-filter-horizontal .filter-options button {
   padding: 4px 8px;
-  border: 1px solid #444;
+  border: 1px solid #ffffff;
   background-color: transparent;
   color: #fff;
-  border-radius: 4px;
+  border-radius: 0;
   cursor: pointer;
   font-size: 12px;
   transition: all 0.2s;
 }
 
 .bumbos-filter-horizontal .filter-options button:hover {
-  border-color: #61dafb;
-  color: #61dafb;
+  border-color: #ffffff;
+  color: #ffffff;
 }
 
 .bumbos-filter-horizontal .filter-options button.active {
   background-color: #61dafb;
   color: #282c34;
-  border-color: #61dafb;
+  border-color: #ffffff;
 }
 
 .filter-container input,
 .filter-container select {
   padding: 8px;
-  border: 1px solid #444;
+  border: 1px solid #ffffff;
   background-color: #1e1e1e;
   color: #fff;
-  border-radius: 4px;
+  border-radius: 0;
   flex: 1;
 }
 
@@ -348,8 +348,8 @@
 .admin-list-section {
   background-color: rgba(30, 30, 30, 0.85) !important;
   padding: 20px !important;
-  border-radius: 10px !important;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25) !important;
+  border-radius: 0 !important;
+  box-shadow: 0 6px 16px rgba(255, 255, 255, 0.25) !important;
   width: 100% !important;
   box-sizing: border-box !important;
   overflow: visible !important;
@@ -357,22 +357,22 @@
 
 .card {
   background: linear-gradient(135deg, rgb(30, 30, 30) 0%, rgb(20, 20, 20) 100%);
-  border-radius: 12px;
+  border-radius: 0;
   display: flex;
   flex-direction: column;
   height: 100%;
   overflow: hidden;
   transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
   width: 100%;
   max-width: 300px;
   position: relative;
-  border: 1px solid rgba(50, 50, 50, 0.5);
+  border: 1px solid #ffffff;
 }
 
 .card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.4);
 }
 
 .card-image {
@@ -380,7 +380,7 @@
   height: 200px;
   object-fit: cover;
   background-color: rgba(40, 40, 40, 0.5);
-  border-radius: 12px 12px 0 0;
+  border-radius: 0;
   padding: 10px;
   box-sizing: border-box;
   transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -436,12 +436,12 @@
 
 .rarity-badge {
   padding: 4px 10px;
-  border-radius: 20px;
+  border-radius: 0;
   font-size: 0.8rem;
   font-weight: bold;
   transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  border: 1px solid #ffffff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
 }
 
 .rarity-badge[data-rarity="S"] {
@@ -467,11 +467,11 @@
 
 .role-tag {
   padding: 3px 10px;
-  border-radius: 20px;
+  border-radius: 0;
   font-size: 0.8rem;
   background: linear-gradient(135deg, #333 0%, #222 100%);
   color: #ddd;
-  border: 1px solid rgba(70, 70, 70, 0.5);
+  border: 1px solid #ffffff;
   transition: all 0.3s ease;
 }
 
@@ -507,8 +507,8 @@
   margin-top: 10px;
   max-width: 200px;
   max-height: 200px;
-  border-radius: 4px;
-  border: 1px solid #444;
+  border-radius: 0;
+  border: 1px solid #ffffff;
 }
 
 /* 代理人详情页面样式 */
@@ -522,7 +522,7 @@
 .agent-preview-panel {
   padding: 15px;
   background-color: transparent;
-  border-radius: 10px;
+  border-radius: 0;
   box-shadow: none;
   overflow: visible;
   max-height: none;
@@ -533,14 +533,14 @@
   font-size: 1.2rem;
   margin-bottom: 15px;
   padding-bottom: 10px;
-  border-bottom: 1px solid rgba(60, 60, 60, 0.5);
+  border-bottom: 1px solid #ffffff;
 }
 
 .preview-image {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 0;
   margin-bottom: 15px;
 }
 
@@ -569,7 +569,7 @@
   background-color: rgba(40, 40, 40, 0.7);
   color: #e0e0e0;
   border: none;
-  border-radius: 6px;
+  border-radius: 0;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   font-size: 0.95rem;
@@ -579,7 +579,7 @@
   background-color: #61dafb;
   color: #111;
   font-weight: 600;
-  box-shadow: 0 4px 8px rgba(97, 218, 251, 0.2);
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
 }
 
 .admin-tab:hover:not(.active) {
@@ -590,14 +590,14 @@
 .admin-form {
   background-color: rgba(40, 40, 40, 0.85);
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  border-radius: 0;
+  box-shadow: 0 6px 16px rgba(255, 255, 255, 0.25);
   transition: all 0.3s ease;
   flex-grow: 1;
 }
 
 .admin-form:hover {
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
 }
 
 .admin-form h3 {
@@ -606,7 +606,7 @@
   color: #61dafb;
   font-size: 1.3rem;
   font-weight: 600;
-  border-bottom: 1px solid rgba(60, 60, 60, 0.5);
+  border-bottom: 1px solid #ffffff;
   padding-bottom: 10px;
 }
 
@@ -627,10 +627,10 @@
 .form-group textarea {
   width: 100%;
   padding: 9px 12px;
-  border: 1px solid rgba(70, 70, 70, 0.7);
+  border: 1px solid #ffffff;
   background-color: rgba(20, 20, 20, 0.6);
   color: #fff;
-  border-radius: 6px;
+  border-radius: 0;
   transition: all 0.3s ease;
   font-size: 0.95rem;
 }
@@ -639,8 +639,8 @@
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #61dafb;
-  box-shadow: 0 0 0 2px rgba(97, 218, 251, 0.15);
+  border-color: #ffffff;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.15);
   background-color: rgba(25, 25, 25, 0.8);
 }
 
@@ -654,7 +654,7 @@
 .form-actions button {
   padding: 9px 16px;
   border: none;
-  border-radius: 6px;
+  border-radius: 0;
   cursor: pointer;
   font-weight: 600;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -1206,7 +1206,7 @@
 .preview-info {
   margin-bottom: 12px;
   padding-bottom: 12px;
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid #ffffff;
 }
 
 .preview-info:last-child {
@@ -1776,12 +1776,12 @@ input[type="file"] {
 
 .modal-content {
   background-color: #2a2a2a;
-  border-radius: 8px;
+  border-radius: 0;
   width: 90%;
   max-width: 500px;
   max-height: 80vh;
   overflow-y: auto;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.5);
 }
 
 .modal-header {
@@ -1789,7 +1789,7 @@ input[type="file"] {
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  border-bottom: 1px solid #444;
+  border-bottom: 1px solid #ffffff;
 }
 
 .modal-header h3 {
@@ -1810,7 +1810,7 @@ input[type="file"] {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 4px;
+  border-radius: 0;
   transition: background-color 0.2s;
 }
 
@@ -1858,7 +1858,7 @@ input[type="file"] {
   justify-content: flex-end;
   gap: 10px;
   padding: 20px;
-  border-top: 1px solid #444;
+  border-top: 1px solid #ffffff;
 }
 
 .btn-primary {
@@ -1920,4 +1920,60 @@ input[type="file"] {
   text-align: center;
   color: #888;
   font-size: 1.1rem;
+}
+
+button,
+.btn-primary,
+.btn-secondary,
+.admin-tab,
+.card,
+.card-image,
+.image-preview,
+.preview-image,
+.no-image-preview,
+input[type="text"],
+select,
+textarea,
+.form-group input,
+.form-group select,
+.form-group textarea,
+.submenu,
+.submenu li,
+.nav-link,
+.admin-form,
+.agent-preview-panel,
+.admin-list-section,
+.admin-form-section,
+.agent-preview-section,
+.dual-storage-status,
+.status-indicator {
+  border-radius: 0 !important;
+}
+
+.card,
+.admin-form,
+.agent-preview-panel,
+.admin-form-section,
+.agent-preview-section,
+.modal-content,
+.update-button:hover,
+.nav-link:hover {
+  box-shadow: 0 6px 16px rgba(255, 255, 255, 0.2) !important;
+}
+
+.agents-filter-horizontal .filter-options button,
+.agents-filter-horizontal .filter-row button,
+.soundengines-filter-horizontal .filter-options button,
+.bumbos-filter-horizontal .filter-options button,
+.filter-container input,
+.filter-container select,
+.submenu li.active,
+.admin-tabs button.active,
+.card,
+.card-footer,
+.modal-header,
+.modal-footer,
+.preview-title,
+.preview-info {
+  border-color: #ffffff !important;
 }
