@@ -1,177 +1,398 @@
-#root {
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-  font-family: 'Arial', sans-serif;
-  background-color: rgb(11, 11, 11);
-}
-
-/* 确保整个页面背景都是指定颜色 */
-html, body {
-  background-color: rgb(11, 11, 11);
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-}
-
 .game-container {
+  min-height: 100vh;
+}
+
+.home-screen {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 40px 28px 36px;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(255, 202, 76, 0.18), transparent 24%),
+    radial-gradient(circle at 85% 18%, rgba(84, 155, 255, 0.18), transparent 26%),
+    linear-gradient(145deg, #090b10 0%, #111522 45%, #090b10 100%);
+}
+
+.home-screen::before,
+.home-screen::after {
+  content: '';
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(80px);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.home-screen::before {
+  top: -120px;
+  right: -80px;
+  width: 320px;
+  height: 320px;
+  background: rgba(255, 162, 71, 0.24);
+}
+
+.home-screen::after {
+  bottom: -100px;
+  left: -60px;
+  width: 280px;
+  height: 280px;
+  background: rgba(69, 142, 255, 0.22);
+}
+
+.home-frame {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 28px;
+  width: min(1320px, 100%);
+  margin: 0 auto;
+}
+
+.home-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+  gap: 28px;
+  min-height: min(84vh, 860px);
+}
+
+.home-panel,
+.home-poster {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 30px;
+  background: rgba(9, 12, 20, 0.72);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(18px);
+}
+
+.home-panel {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  padding: 34px;
+}
+
+.home-kicker {
+  display: inline-flex;
   align-items: center;
-  min-height: 80vh;
-  max-width: 1400px;
-  margin: 0 auto;
+  gap: 10px;
+  width: fit-content;
+  padding: 8px 14px;
+  border: 1px solid rgba(255, 205, 92, 0.24);
+  border-radius: 999px;
+  background: rgba(255, 205, 92, 0.08);
+  color: #ffcf6f;
+  font-size: 0.86rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
-/* PC端容器优化 */
-@media (min-width: 1200px) {
-  .game-container {
-    padding: 2rem 0;
-  }
-}
-
-h1 {
-  font-size: 3rem;
-  margin-bottom: 2.5rem;
-  color: #fff;
-  font-weight: 700;
-  text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
-  letter-spacing: 1px;
-}
-
-.home-link {
-  text-decoration: none;
-  color: inherit;
-}
-
-.home-link:hover h1 {
-  color: #f0f0f0;
-  text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
-  transform: scale(1.02);
-  transition: all 0.3s ease;
-}
-
-/* PC端标题优化 */
-@media (min-width: 1200px) {
-  h1 {
-    font-size: 3.5rem;
-    margin-bottom: 3rem;
-  }
-}
-
-.game-options {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 1.5rem;
-  width: 100%;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  padding: 1rem;
-  -webkit-overflow-scrolling: touch;
-  min-width: min-content;
-}
-.placeholder-logo {
-  background-color: rgb(11, 11, 11);
-}
-/* 确保卡片不会换行 */
-.game-options > * {
-  flex-shrink: 0;
-}
-
-.game-options::-webkit-scrollbar {
+.home-kicker::before {
+  content: '';
+  width: 8px;
   height: 8px;
+  border-radius: 999px;
+  background: currentColor;
+  box-shadow: 0 0 16px rgba(255, 205, 92, 0.8);
 }
 
-.game-options::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0.3);
-  border-radius: 0;
+.home-copy {
+  max-width: 640px;
+  padding-top: 18px;
 }
 
-.game-options::-webkit-scrollbar-track {
-  background-color: rgba(255, 255, 255, 0.1);
+.home-title {
+  margin: 0;
+  color: #fbfcff;
+  font-family: 'Rajdhani', 'Noto Sans SC', sans-serif;
+  font-size: clamp(4.4rem, 10vw, 7.4rem);
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
-@media (min-width: 900px) {
-  .game-options {
-    justify-content: center;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+.home-subtitle {
+  max-width: 520px;
+  margin: 18px 0 0;
+  color: rgba(238, 243, 255, 0.76);
+  font-size: 1.02rem;
 }
 
-.game-card {
-  background-color: rgb(11, 11, 11);
-  padding: 2rem;
-  width: 320px;
-  transition: transform 0.3s ease;
-  cursor: pointer;
-  flex: 0 0 auto;
+.home-copy-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 32px;
 }
 
-.game-link {
-  text-decoration: none;
-  color: inherit;
+.home-copy-item {
+  padding: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.home-copy-label {
+  margin: 0 0 8px;
+  color: rgba(255, 255, 255, 0.44);
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.home-copy-item strong {
   display: block;
+  color: #ffffff;
+  font-size: 1.08rem;
+  font-weight: 700;
 }
 
-/* PC端优化 */
-@media (min-width: 1200px) {
-  .game-card {
-    width: 360px;
-    padding: 2.5rem;
-  }
+.home-copy-item span {
+  display: block;
+  margin-top: 6px;
+  color: rgba(240, 244, 255, 0.68);
+  font-size: 0.92rem;
 }
 
-/* 确保在小屏幕上也能横向滚动 */
-@media (max-width: 900px) {
-  .game-options {
-    justify-content: flex-start;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-}
-
-.game-card:hover {
-  transform: translateY(-10px);
-}
-
-.game-card h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: #fff;
-}
-
-.game-image-placeholder {
-  width: 100%;
-  height: 200px;
-  margin-bottom: 0.5rem;
+.home-actions {
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.home-action,
+.home-secondary-action {
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  padding: 0 22px;
+  border-radius: 999px;
+  font-weight: 700;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
 }
 
-.placeholder-logo {
-  height: 8em;
-  padding: 1em;
+.home-action {
+  background: linear-gradient(135deg, #ffd36b, #ff9c5c);
+  color: #10131b;
+  box-shadow: 0 16px 30px rgba(255, 160, 92, 0.22);
 }
 
-/* PC端图片优化 */
-@media (min-width: 1200px) {
-  .game-image-placeholder {
-    height: 250px;
+.home-secondary-action {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.03);
+  color: #eef2ff;
+}
+
+.home-action:hover,
+.home-secondary-action:hover {
+  transform: translateY(-2px);
+}
+
+.home-support {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 20px;
+  color: rgba(255, 255, 255, 0.54);
+  font-size: 0.92rem;
+}
+
+.home-support-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.18), transparent);
+}
+
+.home-poster {
+  min-height: 100%;
+}
+
+.home-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.9;
+}
+
+.home-poster::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(7, 8, 12, 0.12), rgba(7, 8, 12, 0.94)),
+    linear-gradient(130deg, rgba(255, 206, 85, 0.08), transparent 42%);
+}
+
+.home-poster-copy {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  left: 24px;
+  z-index: 1;
+  display: grid;
+  gap: 12px;
+}
+
+.home-poster-copy h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  font-weight: 800;
+  line-height: 0.96;
+}
+
+.home-poster-copy p {
+  max-width: 420px;
+  margin: 0;
+  color: rgba(239, 244, 255, 0.74);
+  font-size: 0.94rem;
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.home-entry {
+  position: relative;
+  overflow: hidden;
+  min-height: 280px;
+  padding: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 26px;
+  background: rgba(12, 15, 24, 0.76);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.home-entry::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(9, 11, 18, 0.1), rgba(9, 11, 18, 0.92));
+}
+
+.home-entry img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.62;
+}
+
+.home-entry:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 214, 119, 0.18);
+  box-shadow: 0 36px 80px rgba(0, 0, 0, 0.34);
+}
+
+.home-entry-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.home-entry-tag {
+  display: inline-flex;
+  width: fit-content;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.home-entry h3 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.home-entry p {
+  max-width: 260px;
+  margin: 12px 0 0;
+  color: rgba(239, 244, 255, 0.72);
+  font-size: 0.94rem;
+}
+
+.home-entry-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  margin-top: 18px;
+  color: #ffd36b;
+  font-weight: 700;
+}
+
+.home-entry-link::after {
+  content: '→';
+  transform: translateX(0);
+  transition: transform 180ms ease;
+}
+
+.home-entry:hover .home-entry-link::after {
+  transform: translateX(4px);
+}
+
+.home-entry.disabled {
+  opacity: 0.76;
+}
+
+.home-entry.disabled .home-entry-link {
+  color: rgba(255, 255, 255, 0.56);
+}
+
+@media (max-width: 1120px) {
+  .home-hero,
+  .home-grid {
+    grid-template-columns: 1fr;
   }
-  .placeholder-logo {
-    height: 10em;
+
+  .home-poster {
+    min-height: 380px;
   }
 }
 
-/* 移除导致纵向排列的媒体查询，确保所有屏幕尺寸下都是横向排列 */
-@media (max-width: 768px) {
-  .game-card {
-    width: 240px;
+@media (max-width: 720px) {
+  .home-screen {
+    padding: 24px 18px 28px;
+  }
+
+  .home-panel {
+    padding: 24px;
+  }
+
+  .home-copy-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-title {
+    font-size: clamp(3.2rem, 18vw, 5.2rem);
+  }
+
+  .home-entry {
+    min-height: 240px;
   }
 }
-
-

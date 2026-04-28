@@ -1,52 +1,61 @@
 # 项目架构说明
 
+> 注意：这份文档成稿较早，保留它主要是为了说明项目演进思路。当前实现请优先以 `README.md`、`docs/04-quick-start.md`、`docs/11-admin-workflow.md` 和 `docs/14-implementation-roadmap.md` 为准。
+
 ## 目录结构
 
 ```
 HengBeGer/
-├── src/                    # 前端源码
-│   ├── assets/            # 静态资源
-│   │   └── 新建 文本文档.txt  # 游戏数据源文件
-│   ├── db/                # 数据库相关
-│   │   ├── models/        # 数据模型定义
-│   │   │   ├── agent.js   # 代理人模型
-│   │   │   ├── faction.js # 阵营模型
-│   │   │   ├── role.js    # 职业模型
-│   │   │   ├── rarity.js  # 稀有度模型
-│   │   │   ├── soundengine.js # 音擎模型
-│   │   │   ├── bumbo.js   # 邦布模型
-│   │   │   └── drivedisk.js # 驱动盘模型
-│   │   ├── storage/       # 存储系统
-│   │   │   ├── web/       # 网页端数据存储
-│   │   │   ├── admin/     # 管理员端数据存储
-│   │   │   └── backup/    # 备份数据存储
-│   │   ├── config.js      # 数据库配置
-│   │   ├── api.js         # 数据库API服务
-│   │   ├── initializeData.js # 数据初始化脚本
-│   │   ├── storageManager.js # 存储管理器
-│   │   ├── dualStorageManager.js # 双存储管理器
-│   │   ├── queryOptimizer.js # 查询优化器
-│   │   ├── errorHandler.js # 错误处理器
-│   │   └── security.js    # 安全验证模块
-│   ├── App.jsx            # 主应用组件
-│   ├── main.jsx           # 应用入口
-│   ├── DataContext.jsx    # 数据上下文管理
-│   ├── ZZZWiki.jsx        # 主要展示组件
-│   ├── Filter.jsx         # 筛选组件
-│   ├── AdminPanel.jsx     # 管理面板组件
-│   └── *.css              # 样式文件
-├── src/api/               # API接口层
-│   ├── dataSync.js        # 数据同步API
-│   └── routes.js          # 路由定义
-├── server/                # 后端服务器
-│   └── index.js           # Express服务器入口
-├── init-db.js             # 数据库初始化脚本
-├── package.json           # 项目配置和依赖
-├── vite.config.js         # Vite构建配置
-├── .env.example           # 环境变量模板
-├── 09-code-review-findings.md # 代码审查发现与改进建议
-└── README.md              # 项目说明
+├── docs/                         # 项目文档、工作流和路线图
+├── public/                       # 静态公开资源
+├── server/                       # Express 服务入口与中间件
+│   ├── middleware/               # auth / validation / error middleware
+│   ├── __tests__/                # 后端路由与服务测试
+│   └── index.js                  # 服务入口、路由注册、健康检查
+├── src/
+│   ├── api/                      # 前端 API client 与管理员会话辅助
+│   │   ├── adminSession.js
+│   │   ├── client.js
+│   │   ├── config.js
+│   │   └── dataSync.js           # storage 管理接口封装
+│   ├── assets/                   # 首页与 Wiki 使用的图片资源
+│   ├── components/
+│   │   └── AdminAuthGate.jsx     # 管理员登录守卫
+│   ├── db/                       # 模型、数据同步、storage 与查询优化
+│   │   ├── models/               # ZZZ 与 HSR Sequelize 模型
+│   │   │   └── hsr/              # HSR 子模型
+│   │   ├── storage/
+│   │   │   ├── admin/            # legacy staging 快照
+│   │   │   ├── web/              # 公开站点快照
+│   │   │   └── *.json            # root storage 快照
+│   │   ├── api.js                # DB CRUD 与 storage 同步入口
+│   │   ├── config.js             # Sequelize 初始化
+│   │   ├── dualStorageManager.js # admin / web 双快照管理
+│   │   ├── initializedata.js     # 初始数据与数据库引导
+│   │   ├── queryOptimizer.js     # 查询优化与分析接口
+│   │   └── storageManager.js     # root storage 管理
+│   ├── hsr/                      # HSR Wiki 与管理页
+│   ├── utils/                    # logger / error handler / security
+│   ├── AdminPanel.jsx            # ZZZ 管理页
+│   ├── App.jsx                   # 路由入口
+│   ├── DataContext.jsx           # 全局数据获取与 CRUD 封装
+│   ├── Filter.jsx                # ZZZ Wiki 筛选组件
+│   ├── ZZZWiki.jsx               # ZZZ Wiki
+│   └── main.jsx                  # React 应用入口
+├── init-db.js                    # 初始化数据库脚本
+├── launcher.js                   # 一键启动前后端
+├── package.json                  # 脚本与依赖
+├── README.md                     # 当前项目总览
+└── 开发规范文档.md                # 额外开发约定
 ```
+
+### 当前主路径
+
+- 公开页：`/zzz-wiki`、`/hsr-wiki`
+- 管理页：`/zzz-wiki/admin`、`/hsr-wiki/admin`
+- 数据事实源：MySQL
+- 公开读取源：`src/db/storage/web/*.json`
+- legacy staging：`src/db/storage/admin/*.json`
 
 ## 技术架构
 
@@ -56,6 +65,8 @@ HengBeGer/
 - 状态管理: React Context API
 - 样式: 原生CSS + 响应式设计
 - 构建工具: Vite (支持热重载、代理等)
+- 公开数据读取: 默认通过 `/api/dual-storage/web/data`
+- 管理写入流程: 通过管理接口写库，再自动刷新 storage 快照
 
 ### 后端架构
 - 框架: Express.js
@@ -63,6 +74,8 @@ HengBeGer/
 - ORM: Sequelize
 - 中间件: CORS、JSON解析、请求日志
 - 环境配置: dotenv
+- 认证: 管理员密码登录，支持 Cookie 会话与签名 Session Token
+- 运维接口: 健康检查、metrics、storage 状态与 legacy staging 接口
 
 ### 数据库设计
 
@@ -176,18 +189,67 @@ CREATE TABLE rarities (
 
 ## API设计
 
-### RESTful API端点
+### 当前主要接口
+
+当前版本已经不再使用本文早期提到的 `/api/search`、`/api/data/sync`、`/api/data/batch` 这类接口，主接口分组如下：
 
 ```http
-GET  /health
-GET  /api/data
-GET  /api/data/optimized
-GET  /api/search
-GET  /api/storage/status
-POST /api/storage/reset
-POST /api/data/sync
-PUT  /api/data/batch
+GET    /health/live
+GET    /health/ready
+
+GET    /api/auth/session
+POST   /api/auth/session
+DELETE /api/auth/session
+
+GET    /api/base-data
+GET    /api/hsr/base-data
+GET    /api/dual-storage/web/data
+
+POST   /api/agents
+PUT    /api/agents/:id
+DELETE /api/agents/:id
+
+POST   /api/sound-engines
+PUT    /api/sound-engines/:id
+DELETE /api/sound-engines/:id
+
+POST   /api/bumbos
+PUT    /api/bumbos/:id
+DELETE /api/bumbos/:id
+
+POST   /api/drive-disks
+PUT    /api/drive-disks/:id
+DELETE /api/drive-disks/:id
+
+POST   /api/hsr/characters
+PUT    /api/hsr/characters/:id
+DELETE /api/hsr/characters/:id
+
+POST   /api/hsr/cones
+PUT    /api/hsr/cones/:id
+DELETE /api/hsr/cones/:id
+
+POST   /api/hsr/relics
+PUT    /api/hsr/relics/:id
+DELETE /api/hsr/relics/:id
+
+GET    /api/storage/status
+PUT    /api/storage/:type
+PUT    /api/storage/batch/update
+POST   /api/storage/reset
+
+POST   /api/dual-storage/admin/session
+GET    /api/dual-storage/admin/data
+PUT    /api/dual-storage/admin/:type
+POST   /api/dual-storage/sync
+DELETE /api/dual-storage/admin/session
 ```
+
+说明：
+
+- 公开站点当前主要读取 `GET /api/dual-storage/web/data`
+- 管理页默认走“直接写数据库并自动刷新 storage”的流程
+- legacy staging 接口仍保留，但已经不再是事实源
 
 ## 数据流架构
 

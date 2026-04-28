@@ -22,7 +22,7 @@ export async function createIndexes(sequelize) {
       if (exists.length === 0) {
         try {
           await sequelize.query(`CREATE INDEX ${indexName} ON ${table}(${columns})`);
-        } catch (e) {
+        } catch {
           await sequelize.query(`ALTER TABLE ${table} ADD INDEX ${indexName} (${columns})`);
         }
       }
@@ -99,7 +99,7 @@ export async function dropIndexes(sequelize) {
       try {
         await sequelize.query(`DROP INDEX ${indexName} ON ${tableName}`);
         logger.info('删除索引完成', { indexName, tableName });
-      } catch (error) {
+      } catch {
         try {
           await sequelize.query(`ALTER TABLE ${tableName} DROP INDEX ${indexName}`);
           logger.info('兼容方式删除索引完成', { indexName, tableName });

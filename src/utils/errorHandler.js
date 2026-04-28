@@ -81,6 +81,14 @@ export const handleError = (error, context = '') => {
       isOperational: error.isOperational
     };
   }
+
+  if (error?.isOperational && typeof error.statusCode === 'number' && typeof error.message === 'string') {
+    return {
+      statusCode: error.statusCode,
+      message: error.message,
+      isOperational: true
+    };
+  }
   
   // 数据库相关错误
   if (error.name === 'SequelizeError' || error.name?.startsWith('Sequelize')) {
@@ -200,7 +208,7 @@ const handleSystemError = (error) => {
 /**
  * Express错误处理中间件
  */
-export const errorMiddleware = (err, req, res, next) => {
+export const errorMiddleware = (err, req, res, _next) => {
   const startTime = Date.now();
   
   // 处理错误
@@ -217,6 +225,7 @@ export const errorMiddleware = (err, req, res, next) => {
   // 返回错误响应
   res.status(errorInfo.statusCode).json({
     success: false,
+    message: errorInfo.message,
     error: errorInfo.message,
     timestamp: new Date().toISOString(),
     requestId: req.requestId,

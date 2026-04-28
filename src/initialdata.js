@@ -1,168 +1,1246 @@
 // 绝区零图鉴初始数据定义
 const initialData = {
-  // 代理人数据：名字、阵营、职业、等级(S/A)、属性
-  agents: [
-    { id: 1, name: '艾莲·乔', faction: '维多利亚家政', role: '强攻', rarity: 'S', element: '冰', image: '/assets/zzz.jpg' },
-    { id: 2, name: '亚历山德丽娜', faction: '维多利亚家政', role: '支援', rarity: 'S', element: '电', image: '/assets/zzz.jpg' },
-    { id: 3, name: '莱卡恩', faction: '维多利亚家政', role: '击破', rarity: 'S', element: '冰', image: '/assets/zzz.jpg' },
-    { id: 4, name: '可琳', faction: '维多利亚家政', role: '强攻', rarity: 'A', element: '物理', image: '/assets/zzz.jpg' },
-    { id: 5, name: '星见雅', faction: 'H.S.O.S.6', role: '异常', rarity: 'S', element: '冰', image: '/assets/zzz.jpg' },
-    { id: 6, name: '朱鸢', faction: '刑侦特勤组', role: '强攻', rarity: 'S', element: '以太', image: '/assets/zzz.jpg' },
-    { id: 7, name: '格莉丝', faction: '白祈重工', role: '异常', rarity: 'S', element: '电', image: '/assets/zzz.jpg' },
-    { id: 8, name: '11号', faction: '奥伯勒斯小队', role: '强攻', rarity: 'S', element: '火', image: '/assets/zzz.jpg' },
-    { id: 9, name: '简', faction: '刑侦特勤组', role: '异常', rarity: 'S', element: '物理', image: '/assets/zzz.jpg' },
-    { id: 10, name: '月城柳', faction: 'H.S.O.S.6', role: '异常', rarity: 'S', element: '电', image: '/assets/zzz.jpg' },
-    { id: 11, name: '柏妮斯', faction: '卡吕冬之子', role: '异常', rarity: 'S', element: '火', image: '/assets/zzz.jpg' },
-    { id: 12, name: '青衣', faction: '刑侦特勤组', role: '击破', rarity: 'S', element: '电', image: '/assets/zzz.jpg' },
-    { id: 13, name: '耀嘉音', faction: '天琴座', role: '支援', rarity: 'S', element: '以太', image: '/assets/zzz.jpg' },
-    { id: 14, name: '凯撒', faction: '卡吕冬之子', role: '防护', rarity: 'S', element: '物理', image: '/assets/zzz.jpg' },
-    { id: 15, name: '妮可', faction: '狡兔屋', role: '支援', rarity: 'A', element: '以太', image: '/assets/zzz.jpg' },
-    { id: 16, name: '比利', faction: '狡兔屋', role: '强攻', rarity: 'A', element: '物理', image: '/assets/zzz.jpg' },
-    { id: 17, name: '安比', faction: '狡兔屋', role: '击破', rarity: 'A', element: '电', image: '/assets/zzz.jpg' },
-    { id: 18, name: '苍角', faction: 'H.S.O.S.6', role: '支援', rarity: 'A', element: '冰', image: '/assets/zzz.jpg' },
-    { id: 19, name: '本·比格', faction: '白祈重工', role: '防护', rarity: 'A', element: '火', image: '/assets/zzz.jpg' },
-    { id: 20, name: '安东', faction: '白祈重工', role: '强攻', rarity: 'A', element: '电', image: '/assets/zzz.jpg' },
-    { id: 21, name: '赛斯', faction: '刑侦特勤组', role: '防护', rarity: 'A', element: '电', image: '/assets/zzz.jpg' },
-    { id: 22, name: '派派', faction: '卡吕冬之子', role: '异常', rarity: 'A', element: '物理', image: '/assets/zzz.jpg' },
-    { id: 23, name: '薇薇安', faction: '反舌鸟', role: '异常', rarity: 'S', element: '以太', image: '/assets/zzz.jpg' },
-    { id: 24, name: '仪玄', faction: '云岿山', role: '命破', rarity: 'S', element: '以太', image: '/assets/zzz.jpg' },
-    { id: 25, name: '爱丽丝', faction: '怪啖屋', role: '异常', rarity: 'S', element: '物理', image: '/assets/zzz.jpg' }
+  "agents": [
+    {
+      "id": 1,
+      "name": "伊德海莉",
+      "faction": "怪啖屋",
+      "role": "命破",
+      "rarity": "S",
+      "element": "冰",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 2,
+      "name": "卢西娅",
+      "faction": "怪啖屋",
+      "role": "支援",
+      "rarity": "S",
+      "element": "以太",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 3,
+      "name": "奥菲丝 &「鬼火」",
+      "faction": "奥波勒斯小队",
+      "role": "强攻",
+      "rarity": "S",
+      "element": "火",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 4,
+      "name": "「席德」",
+      "faction": "奥波勒斯小队",
+      "role": "强攻",
+      "rarity": "S",
+      "element": "电",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 5,
+      "name": "爱丽丝",
+      "faction": "怪啖屋",
+      "role": "异常",
+      "rarity": "S",
+      "element": "物理",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 6,
+      "name": "柚叶",
+      "faction": "怪啖屋",
+      "role": "支援",
+      "rarity": "S",
+      "element": "物理",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 7,
+      "name": "橘福福",
+      "faction": "云岿山",
+      "role": "击破",
+      "rarity": "S",
+      "element": "火",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 8,
+      "name": "仪玄",
+      "faction": "云岿山",
+      "role": "命破",
+      "rarity": "S",
+      "element": "以太",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 9,
+      "name": "雨果",
+      "faction": "反舌鸟",
+      "role": "强攻",
+      "rarity": "S",
+      "element": "冰",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 10,
+      "name": "薇薇安",
+      "faction": "反舌鸟",
+      "role": "异常",
+      "rarity": "S",
+      "element": "以太",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 11,
+      "name": "「扳机」",
+      "faction": "奥伯勒斯小队",
+      "role": "击破",
+      "rarity": "S",
+      "element": "电",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 12,
+      "name": "零号・安比",
+      "faction": "奥伯勒斯小队",
+      "role": "强攻",
+      "rarity": "S",
+      "element": "电",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 13,
+      "name": "伊芙琳",
+      "faction": "天琴座",
+      "role": "强攻",
+      "rarity": "S",
+      "element": "火",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 14,
+      "name": "耀嘉音",
+      "faction": "天琴座",
+      "role": "支援",
+      "rarity": "S",
+      "element": "以太",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 15,
+      "name": "悠真",
+      "faction": "H.S.O.S.6",
+      "role": "强攻",
+      "rarity": "S",
+      "element": "电",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 16,
+      "name": "莱特",
+      "faction": "卡吕冬之子",
+      "role": "击破",
+      "rarity": "S",
+      "element": "火",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 17,
+      "name": "月城柳",
+      "faction": "H.S.O.S.6",
+      "role": "异常",
+      "rarity": "S",
+      "element": "电",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 18,
+      "name": "柏妮斯",
+      "faction": "卡吕冬之子",
+      "role": "异常",
+      "rarity": "S",
+      "element": "火",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 19,
+      "name": "凯撒",
+      "faction": "卡吕冬之子",
+      "role": "防护",
+      "rarity": "S",
+      "element": "物理",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 20,
+      "name": "简",
+      "faction": "刑侦特勤组",
+      "role": "异常",
+      "rarity": "S",
+      "element": "物理",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 21,
+      "name": "青衣",
+      "faction": "刑侦特勤组",
+      "role": "击破",
+      "rarity": "S",
+      "element": "电",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 22,
+      "name": "朱鸢",
+      "faction": "刑侦特勤组",
+      "role": "强攻",
+      "rarity": "S",
+      "element": "以太",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 23,
+      "name": "「11号」",
+      "faction": "奥伯勒斯小队",
+      "role": "强攻",
+      "rarity": "S",
+      "element": "火",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 24,
+      "name": "艾莲",
+      "faction": "维多利亚家政",
+      "role": "强攻",
+      "rarity": "S",
+      "element": "冰",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 25,
+      "name": "珂蕾妲",
+      "faction": "白祈重工",
+      "role": "击破",
+      "rarity": "S",
+      "element": "火",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 26,
+      "name": "格莉丝",
+      "faction": "白祈重工",
+      "role": "异常",
+      "rarity": "S",
+      "element": "电",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 27,
+      "name": "猫又",
+      "faction": "狡兔屋",
+      "role": "强攻",
+      "rarity": "S",
+      "element": "物理",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 28,
+      "name": "真斗",
+      "faction": "怪啖屋",
+      "role": "命破",
+      "rarity": "A",
+      "element": "火",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 29,
+      "name": "潘引壶",
+      "faction": "云岿山",
+      "role": "防护",
+      "rarity": "A",
+      "element": "物理",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 30,
+      "name": "波可娜",
+      "faction": "卡吕冬之子",
+      "role": "击破",
+      "rarity": "A",
+      "element": "电",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 31,
+      "name": "赛斯",
+      "faction": "刑侦特勤组",
+      "role": "防护",
+      "rarity": "A",
+      "element": "电",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 32,
+      "name": "可琳",
+      "faction": "维多利亚家政",
+      "role": "强攻",
+      "rarity": "A",
+      "element": "物理",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 33,
+      "name": "安东",
+      "faction": "白祈重工",
+      "role": "强攻",
+      "rarity": "A",
+      "element": "电",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 34,
+      "name": "本·比格",
+      "faction": "白祈重工",
+      "role": "防护",
+      "rarity": "A",
+      "element": "火",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 35,
+      "name": "比利",
+      "faction": "狡兔屋",
+      "role": "强攻",
+      "rarity": "A",
+      "element": "物理",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 36,
+      "name": "安比",
+      "faction": "狡兔屋",
+      "role": "击破",
+      "rarity": "A",
+      "element": "电",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 37,
+      "name": "妮可",
+      "faction": "狡兔屋",
+      "role": "支援",
+      "rarity": "A",
+      "element": "以太",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 38,
+      "name": "苍角",
+      "faction": "H.S.O.S.6",
+      "role": "支援",
+      "rarity": "A",
+      "element": "冰",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 39,
+      "name": "派派",
+      "faction": "卡吕冬之子",
+      "role": "异常",
+      "rarity": "A",
+      "element": "物理",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 40,
+      "name": "露西",
+      "faction": "卡吕冬之子",
+      "role": "支援",
+      "rarity": "A",
+      "element": "火",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 41,
+      "name": "莱卡恩",
+      "faction": "维多利亚家政",
+      "role": "击破",
+      "rarity": "S",
+      "element": "冰",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 42,
+      "name": "亚历山德丽娜",
+      "faction": "维多利亚家政",
+      "role": "支援",
+      "rarity": "S",
+      "element": "电",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 43,
+      "name": "星见雅",
+      "faction": "H.S.O.S.6",
+      "role": "异常",
+      "rarity": "S",
+      "element": "冰",
+      "image": "/assets/zzz.jpg"
+    }
   ],
-  // 音擎数据：名字、等级(S/A/B)、职业
-  soundEngines: [
-    { id: 1, name: '深海访客', rarity: 'S', role: '强攻', image: '/assets/zzz.jpg' },
-    { id: 2, name: '钢铁肉垫', rarity: 'S', role: '强攻', image: '/assets/zzz.jpg' },
-    { id: 3, name: '硫磺石', rarity: 'S', role: '强攻', image: '/assets/zzz.jpg' },
-    { id: 4, name: '燃狱齿轮', rarity: 'S', role: '击破', image: '/assets/zzz.jpg' },
-    { id: 5, name: '拘缚者', rarity: 'S', role: '击破', image: '/assets/zzz.jpg' },
-    { id: 6, name: '嵌合编译器', rarity: 'S', role: '异常', image: '/assets/zzz.jpg' },
-    { id: 7, name: '啜泣摇篮', rarity: 'S', role: '支援', image: '/assets/zzz.jpg' },
-    { id: 8, name: '加农转子', rarity: 'A', role: '强攻', image: '/assets/zzz.jpg' },
-    { id: 9, name: '星徽引擎', rarity: 'A', role: '强攻', image: '/assets/zzz.jpg' },
-    { id: 10, name: '鎏金花信', rarity: 'A', role: '强攻', image: '/assets/zzz.jpg' },
-    { id: 11, name: '贵重古核', rarity: 'A', role: '击破', image: '/assets/zzz.jpg' },
-    { id: 12, name: '人为刀俎', rarity: 'A', role: '击破', image: '/assets/zzz.jpg' },
-    { id: 13, name: '双生泣星', rarity: 'A', role: '异常', image: '/assets/zzz.jpg' },
-    { id: 14, name: '触电唇彩', rarity: 'A', role: '异常', image: '/assets/zzz.jpg' },
-    { id: 15, name: '时光切片', rarity: 'A', role: '支援', image: '/assets/zzz.jpg' },
-    { id: 16, name: '好斗的阿炮', rarity: 'A', role: '支援', image: '/assets/zzz.jpg' },
-    { id: 17, name: '电波漫步', rarity: 'A', role: '命破', image: '/assets/zzz.jpg' },
-    { id: 18, name: '光影刻刀', rarity: 'A', role: '防护', image: '/assets/zzz.jpg' },
-    { id: 19, name: '「电磁暴」- 壹式', rarity: 'B', role: '异常', image: '/assets/zzz.jpg' },
-    { id: 20, name: '「电磁暴」- 贰式', rarity: 'B', role: '异常', image: '/assets/zzz.jpg' },
-    { id: 21, name: '「电磁暴」- 叁式', rarity: 'B', role: '异常', image: '/assets/zzz.jpg' },
-    { id: 22, name: '「湍流」- 矢型', rarity: 'B', role: '击破', image: '/assets/zzz.jpg' },
-    { id: 23, name: '「湍流」- 铳型', rarity: 'B', role: '击破', image: '/assets/zzz.jpg' },
-    { id: 24, name: '「湍流」- 斧型', rarity: 'B', role: '击破', image: '/assets/zzz.jpg' },
-    { id: 25, name: '「月相」- 望', rarity: 'B', role: '强攻', image: '/assets/zzz.jpg' },
-    { id: 26, name: '「月相」- 朔', rarity: 'B', role: '强攻', image: '/assets/zzz.jpg' },
-    { id: 27, name: '「月相」- 晦', rarity: 'B', role: '强攻', image: '/assets/zzz.jpg' },
-    { id: 28, name: '「残响」-I 型', rarity: 'B', role: '支援', image: '/assets/zzz.jpg' },
-    { id: 29, name: '「残响」-II 型', rarity: 'B', role: '支援', image: '/assets/zzz.jpg' },
-    { id: 30, name: '「残响」-III 型', rarity: 'B', role: '支援', image: '/assets/zzz.jpg' }
+  "soundEngines": [
+    {
+      "id": 1,
+      "name": "深海访客",
+      "rarity": "S",
+      "role": "强攻",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 2,
+      "name": "钢铁肉垫",
+      "rarity": "S",
+      "role": "强攻",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 3,
+      "name": "硫磺石",
+      "rarity": "S",
+      "role": "强攻",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 4,
+      "name": "燃狱齿轮",
+      "rarity": "S",
+      "role": "击破",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 5,
+      "name": "拘缚者",
+      "rarity": "S",
+      "role": "击破",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 6,
+      "name": "嵌合编译器",
+      "rarity": "S",
+      "role": "异常",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 7,
+      "name": "啜泣摇篮",
+      "rarity": "S",
+      "role": "支援",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 8,
+      "name": "加农转子",
+      "rarity": "A",
+      "role": "强攻",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 9,
+      "name": "星徽引擎",
+      "rarity": "A",
+      "role": "强攻",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 10,
+      "name": "鎏金花信",
+      "rarity": "A",
+      "role": "强攻",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 11,
+      "name": "贵重古核",
+      "rarity": "A",
+      "role": "击破",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 12,
+      "name": "人为刀俎",
+      "rarity": "A",
+      "role": "击破",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 13,
+      "name": "双生泣星",
+      "rarity": "A",
+      "role": "异常",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 14,
+      "name": "触电唇彩",
+      "rarity": "A",
+      "role": "异常",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 15,
+      "name": "时光切片",
+      "rarity": "A",
+      "role": "支援",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 16,
+      "name": "好斗的阿炮",
+      "rarity": "A",
+      "role": "支援",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 17,
+      "name": "电波漫步",
+      "rarity": "A",
+      "role": "命破",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 18,
+      "name": "光影刻刀",
+      "rarity": "A",
+      "role": "防护",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 19,
+      "name": "「电磁暴」- 壹式",
+      "rarity": "B",
+      "role": "异常",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 20,
+      "name": "「电磁暴」- 贰式",
+      "rarity": "B",
+      "role": "异常",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 21,
+      "name": "「电磁暴」- 叁式",
+      "rarity": "B",
+      "role": "异常",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 22,
+      "name": "「湍流」- 矢型",
+      "rarity": "B",
+      "role": "击破",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 23,
+      "name": "「湍流」- 铳型",
+      "rarity": "B",
+      "role": "击破",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 24,
+      "name": "「湍流」- 斧型",
+      "rarity": "B",
+      "role": "击破",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 25,
+      "name": "「月相」- 望",
+      "rarity": "B",
+      "role": "强攻",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 26,
+      "name": "「月相」- 朔",
+      "rarity": "B",
+      "role": "强攻",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 27,
+      "name": "「月相」- 晦",
+      "rarity": "B",
+      "role": "强攻",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 28,
+      "name": "「残响」-I 型",
+      "rarity": "B",
+      "role": "支援",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 29,
+      "name": "「残响」-II 型",
+      "rarity": "B",
+      "role": "支援",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 30,
+      "name": "「残响」-III 型",
+      "rarity": "B",
+      "role": "支援",
+      "image": "/assets/zzz.jpg"
+    }
   ],
-  // 邦布数据：名字、等级(S/A)
-  bumbos: [
-    { id: 1, name: '共鸣布', rarity: 'S', image: '/assets/zzz.jpg' },
-    { id: 2, name: '左轮布', rarity: 'S', image: '/assets/zzz.jpg' },
-    { id: 3, name: '插头布', rarity: 'S', image: '/assets/zzz.jpg' },
-    { id: 4, name: '阿全', rarity: 'S', image: '/assets/zzz.jpg' },
-    { id: 5, name: '艾米莉安', rarity: 'S', image: '/assets/zzz.jpg' },
-    { id: 6, name: '飚速布', rarity: 'S', image: '/assets/zzz.jpg' },
-    { id: 7, name: '巴特勒', rarity: 'S', image: '/assets/zzz.jpg' },
-    { id: 8, name: '鲨牙布', rarity: 'S', image: '/assets/zzz.jpg' },
-    { id: 9, name: '气压布', rarity: 'A', image: '/assets/zzz.jpg' },
-    { id: 10, name: '电击布', rarity: 'A', image: '/assets/zzz.jpg' },
-    { id: 11, name: '寻宝布', rarity: 'A', image: '/assets/zzz.jpg' },
-    { id: 12, name: '果核布', rarity: 'A', image: '/assets/zzz.jpg' },
-    { id: 13, name: '纸袋布', rarity: 'A', image: '/assets/zzz.jpg' },
-    { id: 14, name: '飞靶布', rarity: 'A', image: '/assets/zzz.jpg' },
-    { id: 15, name: '企鹅布', rarity: 'A', image: '/assets/zzz.jpg' },
-    { id: 16, name: '纸壳布', rarity: 'A', image: '/assets/zzz.jpg' },
-    { id: 17, name: '磁力布', rarity: 'A', image: '/assets/zzz.jpg' },
-    { id: 18, name: '扑击布', rarity: 'A', image: '/assets/zzz.jpg' },
-    { id: 19, name: '泪眼布', rarity: 'A', image: '/assets/zzz.jpg' },
-    { id: 20, name: '恶魔布', rarity: 'A', image: '/assets/zzz.jpg' }
+  "bumbos": [
+    {
+      "id": 1,
+      "name": "共鸣布",
+      "rarity": "S",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 2,
+      "name": "左轮布",
+      "rarity": "S",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 3,
+      "name": "插头布",
+      "rarity": "S",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 4,
+      "name": "阿全",
+      "rarity": "S",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 5,
+      "name": "艾米莉安",
+      "rarity": "S",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 6,
+      "name": "飚速布",
+      "rarity": "S",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 7,
+      "name": "巴特勒",
+      "rarity": "S",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 8,
+      "name": "鲨牙布",
+      "rarity": "S",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 9,
+      "name": "气压布",
+      "rarity": "A",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 10,
+      "name": "电击布",
+      "rarity": "A",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 11,
+      "name": "寻宝布",
+      "rarity": "A",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 12,
+      "name": "果核布",
+      "rarity": "A",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 13,
+      "name": "纸袋布",
+      "rarity": "A",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 14,
+      "name": "飞靶布",
+      "rarity": "A",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 15,
+      "name": "企鹅布",
+      "rarity": "A",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 16,
+      "name": "纸壳布",
+      "rarity": "A",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 17,
+      "name": "磁力布",
+      "rarity": "A",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 18,
+      "name": "扑击布",
+      "rarity": "A",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 19,
+      "name": "泪眼布",
+      "rarity": "A",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 20,
+      "name": "恶魔布",
+      "rarity": "A",
+      "image": "/assets/zzz.jpg"
+    }
   ],
-  // 驱动盘数据：名字、描述
-  driveDisks: [
-    { id: 1, name: '啄木鸟电音', description: '暴击', image: '/assets/zzz.jpg' },
-    { id: 2, name: '河豚电音', description: '供穿透率', image: '/assets/zzz.jpg' },
-    { id: 3, name: '激素朋克', description: '攻击力', image: '/assets/zzz.jpg' },
-    { id: 4, name: '摇摆爵士', description: '能量自动回复提升', image: '/assets/zzz.jpg' },
-    { id: 5, name: '震星迪斯科', description: '冲击力', image: '/assets/zzz.jpg' },
-    { id: 6, name: '混沌重金属', description: '以太增伤与暴击伤害', image: '/assets/zzz.jpg' },
-    { id: 7, name: '獠牙重金属', description: '物理增伤与队伍触发强击时全属性增伤', image: '/assets/zzz.jpg' },
-    { id: 8, name: '雷暴重金属', description: '电增伤与攻击力提升', image: '/assets/zzz.jpg' },
-    { id: 9, name: '炎狱重金属', description: '火增伤与高额暴击率', image: '/assets/zzz.jpg' }
-  ]
-  ,
-  // HSR 初始数据
-  hsrCharacters: [
-    { id: 1, name: '开拓者·毁灭', element: '物理', path: '毁灭', rarity: '五星', image: '/assets/hsr.jpg' },
-    { id: 2, name: '三月七', element: '冰', path: '存护', rarity: '四星', image: '/assets/hsr.jpg' },
-    { id: 3, name: '银狼', element: '量子', path: '虚无', rarity: '五星', image: '/assets/hsr.jpg' },
-    { id: 4, name: '卡芙卡', element: '雷', path: '虚无', rarity: '五星', image: '/assets/hsr.jpg' },
-    { id: 5, name: '刃', element: '风', path: '毁灭', rarity: '五星', image: '/assets/hsr.jpg' },
-    { id: 6, name: '景元', element: '雷', path: '智识', rarity: '五星', image: '/assets/hsr.jpg' },
-    { id: 7, name: '布洛妮娅', element: '风', path: '同谐', rarity: '五星', image: '/assets/hsr.jpg' },
-    { id: 8, name: '希儿', element: '量子', path: '巡猎', rarity: '五星', image: '/assets/hsr.jpg' },
-    { id: 9, name: '丹恒·饮月', element: '风', path: '毁灭', rarity: '五星', image: '/assets/hsr.jpg' },
-    { id: 10, name: '镜流', element: '冰', path: '毁灭', rarity: '五星', image: '/assets/hsr.jpg' },
-    { id: 11, name: '符玄', element: '量子', path: '存护', rarity: '五星', image: '/assets/hsr.jpg' },
-    { id: 12, name: '罗刹', element: '虚数', path: '丰饶', rarity: '五星', image: '/assets/hsr.jpg' },
-    { id: 13, name: '白露', element: '雷', path: '丰饶', rarity: '五星', image: '/assets/hsr.jpg' },
-    { id: 14, name: '阮·梅', element: '冰', path: '同谐', rarity: '五星', image: '/assets/hsr.jpg' },
-    { id: 15, name: '黑天鹅', element: '风', path: '虚无', rarity: '五星', image: '/assets/hsr.jpg' },
-    { id: 16, name: '艾丝妲', element: '火', path: '同谐', rarity: '四星', image: '/assets/hsr.jpg' },
-    { id: 17, name: '丹恒', element: '风', path: '巡猎', rarity: '四星', image: '/assets/hsr.jpg' },
-    { id: 18, name: '佩拉', element: '冰', path: '虚无', rarity: '四星', image: '/assets/hsr.jpg' },
-    { id: 19, name: '希露瓦', element: '雷', path: '智识', rarity: '四星', image: '/assets/hsr.jpg' },
-    { id: 20, name: '娜塔莎', element: '物理', path: '丰饶', rarity: '四星', image: '/assets/hsr.jpg' },
-    { id: 21, name: '知更鸟', element: '风', path: '同谐', rarity: '五星', image: '/assets/hsr.jpg' },
-    { id: 22, name: '砂金', element: '虚数', path: '存护', rarity: '五星', image: '/assets/hsr.jpg' }
-    ,
-    { id: 23, name: '克拉拉', element: '物理', path: '毁灭', rarity: '五星', image: '/assets/hsr.jpg' },
-    { id: 24, name: '虎克', element: '火', path: '巡猎', rarity: '四星', image: '/assets/hsr.jpg' },
-    { id: 25, name: '素裳', element: '物理', path: '巡猎', rarity: '四星', image: '/assets/hsr.jpg' },
-    { id: 26, name: '杰帕德', element: '冰', path: '存护', rarity: '五星', image: '/assets/hsr.jpg' },
-    { id: 27, name: '停云', element: '雷', path: '同谐', rarity: '四星', image: '/assets/hsr.jpg' },
-    { id: 28, name: '姬子', element: '火', path: '智识', rarity: '五星', image: '/assets/hsr.jpg' },
-    { id: 29, name: '瓦尔特', element: '虚数', path: '智识', rarity: '五星', image: '/assets/hsr.jpg' },
-    { id: 30, name: '驭空', element: '虚数', path: '同谐', rarity: '四星', image: '/assets/hsr.jpg' },
-    { id: 31, name: '托帕', element: '火', path: '巡猎', rarity: '五星', image: '/assets/hsr.jpg' }
+  "driveDisks": [
+    {
+      "id": 1,
+      "name": "啄木鸟电音",
+      "description": "暴击",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 2,
+      "name": "河豚电音",
+      "description": "供穿透率",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 3,
+      "name": "激素朋克",
+      "description": "攻击力",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 4,
+      "name": "摇摆爵士",
+      "description": "能量自动回复提升",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 5,
+      "name": "震星迪斯科",
+      "description": "冲击力",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 6,
+      "name": "混沌重金属",
+      "description": "以太增伤与暴击伤害",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 7,
+      "name": "獠牙重金属",
+      "description": "物理增伤与队伍触发强击时全属性增伤",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 8,
+      "name": "雷暴重金属",
+      "description": "电增伤与攻击力提升",
+      "image": "/assets/zzz.jpg"
+    },
+    {
+      "id": 9,
+      "name": "炎狱重金属",
+      "description": "火增伤与高额暴击率",
+      "image": "/assets/zzz.jpg"
+    }
   ],
-  hsrCones: [
-    { id: 1, name: '一场术后对话', path: '毁灭', rarity: '四星', image: '/assets/hsr.jpg' },
-    { id: 2, name: '以世界为据点', path: '同谐', rarity: '五星', image: '/assets/hsr.jpg' },
-    { id: 3, name: '夜色中的我', path: '巡猎', rarity: '五星', image: '/assets/hsr.jpg' },
-    { id: 4, name: '但战斗还未结束', path: '同谐', rarity: '五星', image: '/assets/hsr.jpg' },
-    { id: 5, name: '不灭的刹那', path: '智识', rarity: '五星', image: '/assets/hsr.jpg' },
-    { id: 6, name: '正义吧吾等之名', path: '毁灭', rarity: '五星', image: '/assets/hsr.jpg' },
-    { id: 7, name: '无可取代的东西', path: '虚无', rarity: '四星', image: '/assets/hsr.jpg' },
-    { id: 8, name: '对抗', path: '巡猎', rarity: '三星', image: '/assets/hsr.jpg' },
-    { id: 9, name: '我将成为我自己的剑', path: '毁灭', rarity: '五星', image: '/assets/hsr.jpg' },
-    { id: 10, name: '镜中故我', path: '同谐', rarity: '五星', image: '/assets/hsr.jpg' },
-    { id: 11, name: '她已关闭双眼', path: '存护', rarity: '五星', image: '/assets/hsr.jpg' },
-    { id: 12, name: '耐心是你需要的', path: '虚无', rarity: '五星', image: '/assets/hsr.jpg' },
-    { id: 13, name: '在夜色中', path: '巡猎', rarity: '五星', image: '/assets/hsr.jpg' },
-    { id: 14, name: '时光不待人', path: '丰饶', rarity: '五星', image: '/assets/hsr.jpg' },
-    { id: 15, name: '破晓之前', path: '智识', rarity: '五星', image: '/assets/hsr.jpg' }
+  "hsrCharacters": [
+    {
+      "id": 1,
+      "name": "开拓者·毁灭",
+      "element": "物理",
+      "path": "毁灭",
+      "rarity": "五星",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 2,
+      "name": "三月七",
+      "element": "冰",
+      "path": "存护",
+      "rarity": "四星",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 3,
+      "name": "银狼",
+      "element": "量子",
+      "path": "虚无",
+      "rarity": "五星",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 4,
+      "name": "卡芙卡",
+      "element": "雷",
+      "path": "虚无",
+      "rarity": "五星",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 5,
+      "name": "刃",
+      "element": "风",
+      "path": "毁灭",
+      "rarity": "五星",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 6,
+      "name": "景元",
+      "element": "雷",
+      "path": "智识",
+      "rarity": "五星",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 7,
+      "name": "布洛妮娅",
+      "element": "风",
+      "path": "同谐",
+      "rarity": "五星",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 8,
+      "name": "希儿",
+      "element": "量子",
+      "path": "巡猎",
+      "rarity": "五星",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 9,
+      "name": "丹恒·饮月",
+      "element": "风",
+      "path": "毁灭",
+      "rarity": "五星",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 10,
+      "name": "镜流",
+      "element": "冰",
+      "path": "毁灭",
+      "rarity": "五星",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 11,
+      "name": "符玄",
+      "element": "量子",
+      "path": "存护",
+      "rarity": "五星",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 12,
+      "name": "罗刹",
+      "element": "虚数",
+      "path": "丰饶",
+      "rarity": "五星",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 13,
+      "name": "白露",
+      "element": "雷",
+      "path": "丰饶",
+      "rarity": "五星",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 14,
+      "name": "阮·梅",
+      "element": "冰",
+      "path": "同谐",
+      "rarity": "五星",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 15,
+      "name": "黑天鹅",
+      "element": "风",
+      "path": "虚无",
+      "rarity": "五星",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 16,
+      "name": "艾丝妲",
+      "element": "火",
+      "path": "同谐",
+      "rarity": "四星",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 17,
+      "name": "丹恒",
+      "element": "风",
+      "path": "巡猎",
+      "rarity": "四星",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 18,
+      "name": "佩拉",
+      "element": "冰",
+      "path": "虚无",
+      "rarity": "四星",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 19,
+      "name": "希露瓦",
+      "element": "雷",
+      "path": "智识",
+      "rarity": "四星",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 20,
+      "name": "娜塔莎",
+      "element": "物理",
+      "path": "丰饶",
+      "rarity": "四星",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 21,
+      "name": "知更鸟",
+      "element": "风",
+      "path": "同谐",
+      "rarity": "五星",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 22,
+      "name": "砂金",
+      "element": "虚数",
+      "path": "存护",
+      "rarity": "五星",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 23,
+      "name": "克拉拉",
+      "element": "物理",
+      "path": "毁灭",
+      "rarity": "五星",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 24,
+      "name": "虎克",
+      "element": "火",
+      "path": "巡猎",
+      "rarity": "四星",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 25,
+      "name": "素裳",
+      "element": "物理",
+      "path": "巡猎",
+      "rarity": "四星",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 26,
+      "name": "杰帕德",
+      "element": "冰",
+      "path": "存护",
+      "rarity": "五星",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 27,
+      "name": "停云",
+      "element": "雷",
+      "path": "同谐",
+      "rarity": "四星",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 28,
+      "name": "姬子",
+      "element": "火",
+      "path": "智识",
+      "rarity": "五星",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 29,
+      "name": "瓦尔特",
+      "element": "虚数",
+      "path": "智识",
+      "rarity": "五星",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 30,
+      "name": "驭空",
+      "element": "虚数",
+      "path": "同谐",
+      "rarity": "四星",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 31,
+      "name": "托帕",
+      "element": "火",
+      "path": "巡猎",
+      "rarity": "五星",
+      "image": "/assets/hsr.jpg"
+    }
   ],
-  hsrRelics: [
-    { id: 1, name: '盗贼公国的陨星', type: '隧洞遗器', setName: '盗贼公国的陨星', part: '手', image: '/assets/hsr.jpg' },
-    { id: 2, name: '天才的光辉', type: '隧洞遗器', setName: '天才的光辉', part: '头', image: '/assets/hsr.jpg' },
-    { id: 3, name: '苍穹银河', type: '位面饰品', setName: '苍穹银河', part: '位面球', image: '/assets/hsr.jpg' },
-    { id: 4, name: '太空封印站', type: '位面饰品', setName: '太空封印站', part: '连结绳', image: '/assets/hsr.jpg' },
-    { id: 5, name: '野穗伴行的牧人', type: '隧洞遗器', setName: '野穗伴行的牧人', part: '身', image: '/assets/hsr.jpg' },
-    { id: 6, name: '拳击冠军', type: '隧洞遗器', setName: '街头出身的拳王', part: '脚', image: '/assets/hsr.jpg' },
-    { id: 7, name: '冰原猎人', type: '隧洞遗器', setName: '冰原猎人', part: '手', image: '/assets/hsr.jpg' },
-    { id: 8, name: '信使的旅行', type: '隧洞遗器', setName: '信使的旅行', part: '脚', image: '/assets/hsr.jpg' },
-    { id: 9, name: '长生的弟子', type: '隧洞遗器', setName: '长生的弟子', part: '身', image: '/assets/hsr.jpg' },
-    { id: 10, name: '不锈庭园', type: '位面饰品', setName: '不锈庭园', part: '位面球', image: '/assets/hsr.jpg' },
-    { id: 11, name: '制胜的竞技场', type: '位面饰品', setName: '制胜的竞技场', part: '连结绳', image: '/assets/hsr.jpg' },
-    { id: 12, name: '停转的萨尔索图', type: '位面饰品', setName: '停转的萨尔索图', part: '位面球', image: '/assets/hsr.jpg' },
-    { id: 13, name: '不老者的舰队', type: '位面饰品', setName: '不老者的舰队', part: '连结绳', image: '/assets/hsr.jpg' }
+  "hsrCones": [
+    {
+      "id": 1,
+      "name": "一场术后对话",
+      "path": "毁灭",
+      "rarity": "四星",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 2,
+      "name": "以世界为据点",
+      "path": "同谐",
+      "rarity": "五星",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 3,
+      "name": "夜色中的我",
+      "path": "巡猎",
+      "rarity": "五星",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 4,
+      "name": "但战斗还未结束",
+      "path": "同谐",
+      "rarity": "五星",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 5,
+      "name": "不灭的刹那",
+      "path": "智识",
+      "rarity": "五星",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 6,
+      "name": "正义吧吾等之名",
+      "path": "毁灭",
+      "rarity": "五星",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 7,
+      "name": "无可取代的东西",
+      "path": "虚无",
+      "rarity": "四星",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 8,
+      "name": "对抗",
+      "path": "巡猎",
+      "rarity": "三星",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 9,
+      "name": "我将成为我自己的剑",
+      "path": "毁灭",
+      "rarity": "五星",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 10,
+      "name": "镜中故我",
+      "path": "同谐",
+      "rarity": "五星",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 11,
+      "name": "她已关闭双眼",
+      "path": "存护",
+      "rarity": "五星",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 12,
+      "name": "耐心是你需要的",
+      "path": "虚无",
+      "rarity": "五星",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 13,
+      "name": "在夜色中",
+      "path": "巡猎",
+      "rarity": "五星",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 14,
+      "name": "时光不待人",
+      "path": "丰饶",
+      "rarity": "五星",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 15,
+      "name": "破晓之前",
+      "path": "智识",
+      "rarity": "五星",
+      "image": "/assets/hsr.jpg"
+    }
+  ],
+  "hsrRelics": [
+    {
+      "id": 1,
+      "name": "盗贼公国的陨星",
+      "type": "隧洞遗器",
+      "setName": "盗贼公国的陨星",
+      "part": "手",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 2,
+      "name": "天才的光辉",
+      "type": "隧洞遗器",
+      "setName": "天才的光辉",
+      "part": "头",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 3,
+      "name": "苍穹银河",
+      "type": "位面饰品",
+      "setName": "苍穹银河",
+      "part": "位面球",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 4,
+      "name": "太空封印站",
+      "type": "位面饰品",
+      "setName": "太空封印站",
+      "part": "连结绳",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 5,
+      "name": "野穗伴行的牧人",
+      "type": "隧洞遗器",
+      "setName": "野穗伴行的牧人",
+      "part": "身",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 6,
+      "name": "拳击冠军",
+      "type": "隧洞遗器",
+      "setName": "街头出身的拳王",
+      "part": "脚",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 7,
+      "name": "冰原猎人",
+      "type": "隧洞遗器",
+      "setName": "冰原猎人",
+      "part": "手",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 8,
+      "name": "信使的旅行",
+      "type": "隧洞遗器",
+      "setName": "信使的旅行",
+      "part": "脚",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 9,
+      "name": "长生的弟子",
+      "type": "隧洞遗器",
+      "setName": "长生的弟子",
+      "part": "身",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 10,
+      "name": "不锈庭园",
+      "type": "位面饰品",
+      "setName": "不锈庭园",
+      "part": "位面球",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 11,
+      "name": "制胜的竞技场",
+      "type": "位面饰品",
+      "setName": "制胜的竞技场",
+      "part": "连结绳",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 12,
+      "name": "停转的萨尔索图",
+      "type": "位面饰品",
+      "setName": "停转的萨尔索图",
+      "part": "位面球",
+      "image": "/assets/hsr.jpg"
+    },
+    {
+      "id": 13,
+      "name": "不老者的舰队",
+      "type": "位面饰品",
+      "setName": "不老者的舰队",
+      "part": "连结绳",
+      "image": "/assets/hsr.jpg"
+    }
   ]
 };
 

@@ -1,175 +1,476 @@
-import React, { useState, memo } from 'react'
-import { Link } from 'react-router-dom'
-import { useData } from '../DataContext'
-import '../ZZZWiki.css'
-import star from '../assets/star.jpg'
+import { memo, startTransition, useMemo, useState } from 'react';
+import { Link } from 'react-router-dom';
+
+import star from '../assets/star.jpg';
+import PaginationControls from '../components/PaginationControls.jsx';
+import { useData } from '../DataContext.jsx';
+import usePaginatedPublicList from '../hooks/usePaginatedPublicList.js';
+import { buildHsrListRequest } from '../utils/publicFilterParams.js';
+import '../ZZZWiki.css';
+
+const TAB_CONFIG = {
+  hsrCharacters: {
+    title: '角色',
+    endpoint: '/hsr/characters/list',
+    heroCopy: '元素、命途和稀有度筛选被压到更紧凑的浏览界面里。',
+    emptyMessage: '暂无角色数据。',
+  },
+  hsrCones: {
+    title: '光锥',
+    endpoint: '/hsr/cones/list',
+    heroCopy: '更适合搭配角色检索的光锥目录，保留分页与筛选能力。',
+    emptyMessage: '暂无光锥数据。',
+  },
+  hsrRelics: {
+    title: '遗器',
+    endpoint: '/hsr/relics/list',
+    heroCopy: '遗器按类型与部位浏览，保留现有查询逻辑并强化视觉层次。',
+    emptyMessage: '暂无遗器数据。',
+  },
+};
+
+const DEFAULT_FILTERS = {
+  hsrCharacters: { element: [], path: [], rarity: [] },
+  hsrCones: { path: [], rarity: [] },
+  hsrRelics: { type: [], part: [] },
+};
+
+const normalizeArray = (value) => (Array.isArray(value) ? value : []);
+
+const toggleValue = (values = [], candidate) => (
+  values.includes(candidate)
+    ? values.filter((value) => value !== candidate)
+    : [...values, candidate]
+);
+
+const countSelectedFilters = (filters = {}) => (
+  Object.values(filters).reduce((count, value) => (
+    count + (Array.isArray(value) ? value.length : 0)
+  ), 0)
+);
+
+const withFallbackImage = (fallback) => (item) => {
+  const image = item.image;
+  if (image && (image.startsWith('data:') || image.startsWith('/'))) {
+    return image;
+  }
+
+  return image || fallback;
+};
+
+const characterImage = withFallbackImage(star);
+const coneImage = withFallbackImage(star);
+const relicImage = withFallbackImage(star);
+
+const DynamicFilterGroup = ({
+  title,
+  values = [],
+  options,
+  onReset,
+  onToggle,
+}) => (
+  <div className="filter-group">
+    <h3>{title}</h3>
+    <div className="filter-options filter-options-wrap">
+      <button
+        type="button"
+        className={!values.length ? 'active' : ''}
+        onClick={onReset}
+      >
+        全部
+      </button>
+      {options.map((option) => (
+        <button
+          key={option.value}
+          type="button"
+          className={values.includes(option.value) ? 'active' : ''}
+          onClick={() => onToggle(option.value)}
+        >
+          {option.label}
+        </button>
+      ))}
+    </div>
+  </div>
+);
 
 const HsrWiki = () => {
-  const { data, baseData, loading, error } = useData()
-  const [activeTab, setActiveTab] = useState('hsrCharacters')
-  const [filters, setFilters] = useState({ hsrCharacters:{ element:[], path:[], rarity:[] }, hsrCones:{ path:[], rarity:[] }, hsrRelics:{ type:[], part:[] } })
+  const {
+    baseData,
+    loading: contextLoading,
+    error: contextError,
+  } = useData();
+  const [activeTab, setActiveTab] = useState('hsrCharacters');
+  const [filters, setFilters] = useState(DEFAULT_FILTERS);
 
-  const handleFilterChange = (tab, type, values) => { setFilters(prev => ({ ...prev, [tab]: { ...prev[tab], [type]: values } })) }
-  const arr = (v)=> Array.isArray(v)?v:[]
-  const hsr = baseData?.hsr || { elements:[], paths:[], rarities:[], relicTypes:[], relicParts:[] }
+  const requestFilters = useMemo(
+    () => buildHsrListRequest(activeTab, filters[activeTab], baseData),
+    [activeTab, baseData, filters],
+  );
 
-  const applyFilters = (items, tab) => {
-    const f = filters[tab] || {}
-    if (tab==='hsrCharacters') return items.filter(i=>
-      (!f.element.length || f.element.includes(i.element || i.HsrElement?.name)) &&
-      (!f.path.length || f.path.includes(i.path || i.HsrPath?.name)) &&
-      (!f.rarity.length || f.rarity.includes(i.rarity || i.HsrRarity?.name))
-    )
-    if (tab==='hsrCones') return items.filter(i=>
-      (!f.path.length || f.path.includes(i.path || i.HsrPath?.name)) &&
-      (!f.rarity.length || f.rarity.includes(i.rarity || i.HsrRarity?.name))
-    )
-    if (tab==='hsrRelics') return items.filter(i=>
-      (!f.type.length || f.type.includes(i.type || i.HsrRelicType?.name)) &&
-      (!f.part.length || f.part.includes(i.part))
-    )
-    return items
-  }
+  const listState = usePaginatedPublicList({
+    endpoint: TAB_CONFIG[activeTab].endpoint,
+    filters: requestFilters,
+    resetKey: activeTab,
+    fallbackError: '加载列表失败。',
+  });
+
+  const loading = contextLoading || listState.loading;
+  const error = listState.error || contextError;
+  const hsr = baseData?.hsr || {
+    elements: [],
+    paths: [],
+    rarities: [],
+    relicTypes: [],
+    relicParts: [],
+  };
+
+  const selectedFilterCount = countSelectedFilters(filters[activeTab]);
+  const heroStats = [
+    {
+      label: '当前分类',
+      value: TAB_CONFIG[activeTab].title,
+      detail: '当前展示资料类型',
+      accent: 'blue',
+      kind: 'category',
+    },
+    {
+      label: '总条目',
+      value: listState.total,
+      detail: `当前分类共 ${listState.total} 条`,
+      accent: 'plain',
+      kind: 'number',
+    },
+    {
+      label: '筛选条件',
+      value: selectedFilterCount ? `${selectedFilterCount} 项生效` : '显示全部',
+      detail: selectedFilterCount ? '结果范围已缩小' : '显示全部结果',
+      status: selectedFilterCount ? '已筛选' : '未筛选',
+      accent: 'plain',
+      kind: 'filter',
+    },
+  ];
+
+  const handleFilterChange = (tab, type, values) => {
+    setFilters((current) => ({
+      ...current,
+      [tab]: {
+        ...current[tab],
+        [type]: values,
+      },
+    }));
+  };
 
   const renderFilters = () => {
-    const f = filters[activeTab]
-    const toggle = (list, val)=> (list.includes(val) ? list.filter(v=>v!==val) : [...list,val])
-    if (activeTab==='hsrCharacters') return (
-      <div className="agents-filter-horizontal">
-        <div className="filter-group"><h3>元素</h3><div className="filter-options">
-          <button className={!f.element.length?'active':''} onClick={()=>handleFilterChange('hsrCharacters','element',[])}>全部</button>
-          {arr(hsr.elements).map(e=> (
-            <button key={e.id||e.name} className={(f.element&&f.element.includes(e.name))?'active':''} onClick={()=>handleFilterChange('hsrCharacters','element',toggle(f.element,e.name))}>{e.name}</button>
-          ))}
-        </div></div>
-        <div className="filter-group"><h3>命途</h3><div className="filter-options">
-          <button className={!f.path.length?'active':''} onClick={()=>handleFilterChange('hsrCharacters','path',[])}>全部</button>
-          {arr(hsr.paths).map(p=> (
-            <button key={p.id||p.name} className={(f.path&&f.path.includes(p.name))?'active':''} onClick={()=>handleFilterChange('hsrCharacters','path',toggle(f.path,p.name))}>{p.name}</button>
-          ))}
-        </div></div>
-        <div className="filter-group"><h3>稀有度</h3><div className="filter-options">
-          <button className={!f.rarity.length?'active':''} onClick={()=>handleFilterChange('hsrCharacters','rarity',[])}>全部</button>
-          {arr(hsr.rarities).map(r=> (
-            <button key={r.id||r.name} className={(f.rarity&&f.rarity.includes(r.name))?'active':''} onClick={()=>handleFilterChange('hsrCharacters','rarity',toggle(f.rarity,r.name))}>{r.name}</button>
-          ))}
-        </div></div>
-      </div>
-    )
-    if (activeTab==='hsrCones') return (
-      <div className="soundengines-filter-horizontal">
-        <div className="filter-group"><h3>命途</h3><div className="filter-options">
-          <button className={!f.path.length?'active':''} onClick={()=>handleFilterChange('hsrCones','path',[])}>全部</button>
-          {arr(hsr.paths).map(p=> (
-            <button key={p.id||p.name} className={(f.path&&f.path.includes(p.name))?'active':''} onClick={()=>handleFilterChange('hsrCones','path',toggle(f.path,p.name))}>{p.name}</button>
-          ))}
-        </div></div>
-        <div className="filter-group"><h3>稀有度</h3><div className="filter-options">
-          <button className={!f.rarity.length?'active':''} onClick={()=>handleFilterChange('hsrCones','rarity',[])}>全部</button>
-          {arr(hsr.rarities).map(r=> (
-            <button key={r.id||r.name} className={(f.rarity&&f.rarity.includes(r.name))?'active':''} onClick={()=>handleFilterChange('hsrCones','rarity',toggle(f.rarity,r.name))}>{r.name}</button>
-          ))}
-        </div></div>
-      </div>
-    )
-    if (activeTab==='hsrRelics') return (
-      <div className="bumbos-filter-horizontal">
-        <div className="filter-group"><h3>类型</h3><div className="filter-options">
-          <button className={!f.type.length?'active':''} onClick={()=>handleFilterChange('hsrRelics','type',[])}>全部</button>
-          {arr(hsr.relicTypes).map(t=> (
-            <button key={t.id||t.name} className={(f.type&&f.type.includes(t.name))?'active':''} onClick={()=>handleFilterChange('hsrRelics','type',toggle(f.type,t.name))}>{t.name}</button>
-          ))}
-        </div></div>
-        <div className="filter-group"><h3>部位</h3><div className="filter-options">
-          <button className={!f.part.length?'active':''} onClick={()=>handleFilterChange('hsrRelics','part',[])}>全部</button>
-          {arr(hsr.relicParts).map(p=> (
-            <button key={p} className={(f.part&&f.part.includes(p))?'active':''} onClick={()=>handleFilterChange('hsrRelics','part',toggle(f.part,p))}>{p}</button>
-          ))}
-        </div></div>
-      </div>
-    )
-    return null
-  }
+    if (activeTab === 'hsrCharacters') {
+      return (
+        <div className="filter-container">
+          <DynamicFilterGroup
+            title="元素"
+            values={filters.hsrCharacters.element}
+            options={normalizeArray(hsr.elements).map((item) => ({
+              label: item.name,
+              value: item.name,
+            }))}
+            onReset={() => handleFilterChange('hsrCharacters', 'element', [])}
+            onToggle={(option) => handleFilterChange(
+              'hsrCharacters',
+              'element',
+              toggleValue(filters.hsrCharacters.element, option),
+            )}
+          />
+          <DynamicFilterGroup
+            title="命途"
+            values={filters.hsrCharacters.path}
+            options={normalizeArray(hsr.paths).map((item) => ({
+              label: item.name,
+              value: item.name,
+            }))}
+            onReset={() => handleFilterChange('hsrCharacters', 'path', [])}
+            onToggle={(option) => handleFilterChange(
+              'hsrCharacters',
+              'path',
+              toggleValue(filters.hsrCharacters.path, option),
+            )}
+          />
+          <DynamicFilterGroup
+            title="稀有度"
+            values={filters.hsrCharacters.rarity}
+            options={normalizeArray(hsr.rarities).map((item) => ({
+              label: item.name,
+              value: item.name,
+            }))}
+            onReset={() => handleFilterChange('hsrCharacters', 'rarity', [])}
+            onToggle={(option) => handleFilterChange(
+              'hsrCharacters',
+              'rarity',
+              toggleValue(filters.hsrCharacters.rarity, option),
+            )}
+          />
+        </div>
+      );
+    }
 
-  const renderList = () => {
-    if (activeTab==='hsrCharacters') {
-      const items = applyFilters(arr(data.hsrCharacters), 'hsrCharacters')
+    if (activeTab === 'hsrCones') {
       return (
-        <div className="content-grid">
-          {items.map(it=> (
-            <div key={it.id} className="card">
-              <img src={it.image || star} alt={it.name} className="card-image" onError={(e)=>{e.target.src=star}} />
-              <h3>{it.name}</h3>
-              <div className="card-footer">
-                <span className="role-tag">{it.element || it.HsrElement?.name}</span>
-                <span className="role-tag">{it.path || it.HsrPath?.name}</span>
-                <span className="rarity-badge">{it.rarity || it.HsrRarity?.name}</span>
-              </div>
-            </div>
-          ))}
+        <div className="filter-container">
+          <DynamicFilterGroup
+            title="命途"
+            values={filters.hsrCones.path}
+            options={normalizeArray(hsr.paths).map((item) => ({
+              label: item.name,
+              value: item.name,
+            }))}
+            onReset={() => handleFilterChange('hsrCones', 'path', [])}
+            onToggle={(option) => handleFilterChange(
+              'hsrCones',
+              'path',
+              toggleValue(filters.hsrCones.path, option),
+            )}
+          />
+          <DynamicFilterGroup
+            title="稀有度"
+            values={filters.hsrCones.rarity}
+            options={normalizeArray(hsr.rarities).map((item) => ({
+              label: item.name,
+              value: item.name,
+            }))}
+            onReset={() => handleFilterChange('hsrCones', 'rarity', [])}
+            onToggle={(option) => handleFilterChange(
+              'hsrCones',
+              'rarity',
+              toggleValue(filters.hsrCones.rarity, option),
+            )}
+          />
         </div>
-      )
+      );
     }
-    if (activeTab==='hsrCones') {
-      const items = applyFilters(arr(data.hsrCones), 'hsrCones')
-      return (
-        <div className="content-grid">
-          {items.map(it=> (
-            <div key={it.id} className="card">
-              <img src={it.image || star} alt={it.name} className="card-image" onError={(e)=>{e.target.src=star}} />
-              <h3>{it.name}</h3>
-              <div className="card-footer">
-                <span className="role-tag">{it.path || it.HsrPath?.name}</span>
-                <span className="rarity-badge">{it.rarity || it.HsrRarity?.name}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      )
-    }
-    const items = applyFilters(arr(data.hsrRelics), 'hsrRelics')
+
     return (
-      <div className="content-grid">
-        {items.map(it=> (
-          <div key={it.id} className="card">
-            <img src={it.image || star} alt={it.name} className="card-image" onError={(e)=>{e.target.src=star}} />
-            <h3>{it.name}</h3>
-            <div className="card-footer">
-              <span className="role-tag">{it.type || it.HsrRelicType?.name}</span>
-              <span className="role-tag">{it.setName}</span>
-              <span className="role-tag">{it.part}</span>
+      <div className="filter-container">
+        <DynamicFilterGroup
+          title="类型"
+          values={filters.hsrRelics.type}
+          options={normalizeArray(hsr.relicTypes).map((item) => ({
+            label: item.name,
+            value: item.name,
+          }))}
+          onReset={() => handleFilterChange('hsrRelics', 'type', [])}
+          onToggle={(option) => handleFilterChange(
+            'hsrRelics',
+            'type',
+            toggleValue(filters.hsrRelics.type, option),
+          )}
+        />
+        <DynamicFilterGroup
+          title="部位"
+          values={filters.hsrRelics.part}
+          options={normalizeArray(hsr.relicParts).map((item) => ({
+            label: item,
+            value: item,
+          }))}
+          onReset={() => handleFilterChange('hsrRelics', 'part', [])}
+          onToggle={(option) => handleFilterChange(
+            'hsrRelics',
+            'part',
+            toggleValue(filters.hsrRelics.part, option),
+          )}
+        />
+      </div>
+    );
+  };
+
+  const renderCards = () => {
+    if (listState.items.length === 0) {
+      return (
+        <div className="wiki-status-panel">
+          <p>{TAB_CONFIG[activeTab].emptyMessage}</p>
+        </div>
+      );
+    }
+
+    if (activeTab === 'hsrCharacters') {
+      return listState.items.map((item) => (
+        <article key={item.id} className="wiki-card">
+          <div className="wiki-card-image">
+            <img
+              src={characterImage(item)}
+              alt={item.name}
+              onError={(event) => {
+                event.currentTarget.src = star;
+              }}
+            />
+          </div>
+          <div className="wiki-card-body">
+            <div className="wiki-card-heading">
+              <h3>{item.name}</h3>
+              <span className="rarity-badge" data-rarity={item.rarity}>
+                {item.rarity}
+              </span>
+            </div>
+            <p>元素、命途和稀有度信息在列表里直接完成首轮筛选。</p>
+            <div className="wiki-card-tags">
+              <span className="role-tag">{item.element}</span>
+              <span className="role-tag">{item.path}</span>
             </div>
           </div>
-        ))}
+        </article>
+      ));
+    }
+
+    if (activeTab === 'hsrCones') {
+      return listState.items.map((item) => (
+        <article key={item.id} className="wiki-card">
+          <div className="wiki-card-image">
+            <img
+              src={coneImage(item)}
+              alt={item.name}
+              onError={(event) => {
+                event.currentTarget.src = star;
+              }}
+            />
+          </div>
+          <div className="wiki-card-body">
+            <div className="wiki-card-heading">
+              <h3>{item.name}</h3>
+              <span className="rarity-badge" data-rarity={item.rarity}>
+                {item.rarity}
+              </span>
+            </div>
+            <p>按照命途和稀有度快速定位目标光锥。</p>
+            <div className="wiki-card-tags">
+              <span className="role-tag">{item.path}</span>
+            </div>
+          </div>
+        </article>
+      ));
+    }
+
+    return listState.items.map((item) => (
+      <article key={item.id} className="wiki-card">
+        <div className="wiki-card-image">
+          <img
+            src={relicImage(item)}
+            alt={item.name}
+            onError={(event) => {
+              event.currentTarget.src = star;
+            }}
+          />
+        </div>
+        <div className="wiki-card-body">
+          <div className="wiki-card-heading">
+            <h3>{item.name}</h3>
+          </div>
+          <p>把套装、类型和部位信息压到更适合扫读的卡片结构里。</p>
+          <div className="wiki-card-tags">
+            <span className="role-tag">{item.type}</span>
+            {item.setName ? <span className="role-tag">{item.setName}</span> : null}
+            {item.part ? <span className="role-tag">{item.part}</span> : null}
+          </div>
+        </div>
+      </article>
+    ));
+  };
+
+  if (loading) {
+    return (
+      <div className="wiki-shell theme-hsr">
+        <div className="wiki-status-panel">
+          <p>加载中...</p>
+        </div>
       </div>
-    )
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="wiki-shell theme-hsr">
+        <div className="wiki-status-panel">
+          <p>加载失败：{error}</p>
+        </div>
+      </div>
+    );
   }
 
   return (
-    <div className="wiki-container">
-      <div className="sidebar open fixed-sidebar">
-        <div className="sidebar-header">
-          <Link to="/" className="home-link"><h2 className="wiki-title">HengHSR</h2></Link>
-        </div>
-        <nav className="sidebar-nav">
-          <ul>
-            <li className={activeTab==='hsrCharacters'?'active':''} onClick={()=>setActiveTab('hsrCharacters')}>角色</li>
-            <li className={activeTab==='hsrCones'?'active':''} onClick={()=>setActiveTab('hsrCones')}>光锥</li>
-            <li className={activeTab==='hsrRelics'?'active':''} onClick={()=>setActiveTab('hsrRelics')}>遗器</li>
-          </ul>
-        </nav>
-      </div>
-      <div className="main-content">
-        {loading ? (<div className="loading-container"><p>加载中...</p></div>) : (error ? (<div className="error-container"><p>加载失败: {error}</p></div>) : (
-          <div className="content-section">
-            <h2 className="section-title">崩坏：星穹铁道</h2>
-            {renderFilters()}
-            {renderList()}
+    <div className="wiki-shell theme-hsr">
+      <div className="wiki-backdrop" />
+      <div className="wiki-frame">
+        <header className="wiki-topbar">
+          <Link to="/" className="wiki-brand">HengBeGer</Link>
+          <div className="wiki-topbar-actions">
+            <Link to="/zzz-wiki" className="ghost-action">切到 ZZZ</Link>
+            <Link to="/hsr-wiki/admin" className="solid-action">内容后台</Link>
           </div>
-        ))}
+        </header>
+
+        <section className="wiki-hero">
+          <div className="wiki-hero-copy">
+            <p className="wiki-kicker">Honkai: Star Rail Archive</p>
+            <h1>HengHSR</h1>
+            <p className="wiki-description">{TAB_CONFIG[activeTab].heroCopy}</p>
+          </div>
+          <div className="wiki-stat-grid">
+            {heroStats.map((item) => (
+              <article
+                key={item.label}
+                className="wiki-stat-card"
+                data-accent={item.accent}
+                data-kind={item.kind}
+              >
+                <span className="wiki-stat-label">{item.label}</span>
+                {item.status ? (
+                  <span className="wiki-stat-pill">{item.status}</span>
+                ) : null}
+                <strong>{item.value}</strong>
+                <p className="wiki-stat-detail">{item.detail}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="wiki-toolbar">
+          <div className="wiki-chip-nav">
+            {Object.entries(TAB_CONFIG).map(([tabKey, config]) => (
+              <button
+                key={tabKey}
+                type="button"
+                className={`wiki-chip ${activeTab === tabKey ? 'active' : ''}`}
+                onClick={() => {
+                  startTransition(() => {
+                    setActiveTab(tabKey);
+                  });
+                }}
+              >
+                {config.title}
+              </button>
+            ))}
+          </div>
+          <p className="wiki-toolbar-copy">
+            当前页共 {listState.total} 条，支持分页浏览与条件组合。
+          </p>
+        </section>
+
+        <section className="wiki-surface">
+          {renderFilters()}
+        </section>
+
+        <section className="wiki-grid">
+          {renderCards()}
+        </section>
+
+        <PaginationControls
+          page={listState.page}
+          totalPages={listState.totalPages}
+          total={listState.total}
+          canPrev={listState.canPrev}
+          canNext={listState.canNext}
+          disabled={listState.loading}
+          onPrev={listState.prevPage}
+          onNext={listState.nextPage}
+        />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default memo(HsrWiki)
+export default memo(HsrWiki);

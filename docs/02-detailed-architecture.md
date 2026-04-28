@@ -1,5 +1,7 @@
 # HengBeGer 详细架构分析
 
+> 注意：这份文档属于历史分析稿，部分命名和模块边界没有完全跟上当前代码。当前可执行流程请优先阅读 `README.md`、`docs/11-admin-workflow.md` 和 `docs/14-implementation-roadmap.md`。
+
 ## 项目概述
 
 HengBeGer 是一个基于 React 19 + Express.js + MySQL 的全栈绝区零游戏图鉴应用，采用前后端分离架构，实现了代理人、音擎、邦布、驱动盘等游戏数据的展示和管理功能。项目具有双存储架构、响应式设计、完整的CRUD操作等特色。

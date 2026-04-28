@@ -1,51 +1,120 @@
-// api.js - 数据库API服务
 import defineAgent from './models/agent.js';
-import defineSoundEngine from './models/soundengine.js';
 import defineBumbo from './models/bumbo.js';
 import defineDriveDisk from './models/drivedisk.js';
 import defineFaction from './models/faction.js';
 import defineRole from './models/role.js';
 import defineRarity from './models/rarity.js';
+import defineSoundEngine from './models/soundengine.js';
+import defineHsrCharacter from './models/hsr/character.js';
+import defineHsrCone from './models/hsr/cone.js';
+import defineHsrElement from './models/hsr/element.js';
+import defineHsrPath from './models/hsr/path.js';
+import defineHsrRarity from './models/hsr/rarity.js';
+import defineHsrRelic from './models/hsr/relic.js';
+import defineHsrRelicType from './models/hsr/relicType.js';
 import { sequelize as defaultSequelize } from './config.js';
-// HSR models
-import defineHsrElement from './models/hsr/element.js'
-import defineHsrPath from './models/hsr/path.js'
-import defineHsrRarity from './models/hsr/rarity.js'
-import defineHsrRelicType from './models/hsr/relicType.js'
-import defineHsrCharacter from './models/hsr/character.js'
-import defineHsrCone from './models/hsr/cone.js'
-import defineHsrRelic from './models/hsr/relic.js'
+import { Op } from 'sequelize';
+import dualStorageManager from './dualStorageManager.js';
+import storageManager from './storageManager.js';
+import { createSerialTaskQueue } from '../utils/serialTaskQueue.js';
 
-// 全局变量存储当前使用的sequelize实例
-let currentSequelize = defaultSequelize;
-let Agent, SoundEngine, Bumbo, DriveDisk, Faction, Role, Rarity;
-// HSR
-let HsrElement, HsrPath, HsrRarity, HsrRelicType, HsrCharacter, HsrCone, HsrRelic;
+let currentSequelize = null;
+let modelsInitialized = false;
 
-// 初始化模型的函数
-function initializeModels(sequelizeInstance = defaultSequelize) {
-  currentSequelize = sequelizeInstance;
-  Agent = defineAgent(sequelizeInstance);
-  SoundEngine = defineSoundEngine(sequelizeInstance);
-  Bumbo = defineBumbo(sequelizeInstance);
-  DriveDisk = defineDriveDisk(sequelizeInstance);
-  Faction = defineFaction(sequelizeInstance);
-  Role = defineRole(sequelizeInstance);
-  Rarity = defineRarity(sequelizeInstance);
-  // HSR
-  HsrElement = defineHsrElement(sequelizeInstance);
-  HsrPath = defineHsrPath(sequelizeInstance);
-  HsrRarity = defineHsrRarity(sequelizeInstance);
-  HsrRelicType = defineHsrRelicType(sequelizeInstance);
-  HsrCharacter = defineHsrCharacter(sequelizeInstance);
-  HsrCone = defineHsrCone(sequelizeInstance);
-  HsrRelic = defineHsrRelic(sequelizeInstance);
-  
-  // 设置模型关联
-  setupAssociations();
-}
+let Agent;
+let Bumbo;
+let DriveDisk;
+let Faction;
+let Role;
+let Rarity;
+let SoundEngine;
+let HsrCharacter;
+let HsrCone;
+let HsrElement;
+let HsrPath;
+let HsrRarity;
+let HsrRelic;
+let HsrRelicType;
 
-// 设置模型关联的函数
+const DEFAULT_ZZZ_IMAGE = '/assets/zzz.jpg';
+const DEFAULT_HSR_IMAGE = '/assets/hsr.jpg';
+const DEFAULT_PUBLIC_PAGE_SIZE = 12;
+const MAX_PUBLIC_PAGE_SIZE = 100;
+const enqueueStorageSync = createSerialTaskQueue();
+
+const ensureModelsInitialized = () => {
+  if (!modelsInitialized) {
+    throw new Error('Database models have not been initialized.');
+  }
+};
+
+const ensureSequelizeReady = () => {
+  ensureModelsInitialized();
+  if (!currentSequelize) {
+    throw new Error('Database connection is not available.');
+  }
+};
+
+const buildQueryOptions = (options = {}) => (
+  options.transaction ? { transaction: options.transaction } : {}
+);
+
+const normalizeListLimit = (value) => {
+  const parsed = Number(value);
+  if (!Number.isInteger(parsed) || parsed <= 0) {
+    return DEFAULT_PUBLIC_PAGE_SIZE;
+  }
+
+  return Math.min(parsed, MAX_PUBLIC_PAGE_SIZE);
+};
+
+const normalizeListOffset = (value) => {
+  const parsed = Number(value);
+  if (!Number.isInteger(parsed) || parsed < 0) {
+    return 0;
+  }
+
+  return parsed;
+};
+
+const buildInFilter = (values = []) => (
+  Array.isArray(values) && values.length > 0 ? { [Op.in]: values } : undefined
+);
+
+const toPlain = (record) => (
+  typeof record?.get === 'function' ? record.get({ plain: true }) : record
+);
+
+const normalizeOptionalId = (value) => {
+  if (value === undefined || value === null || value === '') {
+    return undefined;
+  }
+
+  const id = Number(value);
+  return Number.isInteger(id) && id > 0 ? id : undefined;
+};
+
+const resolveImage = (value, fallback) => (
+  typeof value === 'string' && value.trim() ? value : fallback
+);
+
+const buildCreatePayload = (payload, fields) => {
+  const id = normalizeOptionalId(payload.id);
+  const result = {};
+
+  if (id) {
+    result.id = id;
+  }
+
+  for (const field of fields) {
+    if (payload[field] !== undefined) {
+      result[field] = payload[field];
+    }
+  }
+
+  return result;
+};
+
 function setupAssociations() {
   Agent.belongsTo(Faction, { foreignKey: 'factionId' });
   Agent.belongsTo(Role, { foreignKey: 'roleId' });
@@ -62,611 +131,1217 @@ function setupAssociations() {
   Rarity.hasMany(Agent, { foreignKey: 'rarityId' });
   Rarity.hasMany(SoundEngine, { foreignKey: 'rarityId' });
   Rarity.hasMany(Bumbo, { foreignKey: 'rarityId' });
-  // HSR associations
-  HsrCharacter.belongsTo(HsrElement, { foreignKey: 'elementId' })
-  HsrCharacter.belongsTo(HsrPath, { foreignKey: 'pathId' })
-  HsrCharacter.belongsTo(HsrRarity, { foreignKey: 'rarityId' })
-  HsrCone.belongsTo(HsrPath, { foreignKey: 'pathId' })
-  HsrCone.belongsTo(HsrRarity, { foreignKey: 'rarityId' })
-  HsrRelic.belongsTo(HsrRelicType, { foreignKey: 'typeId' })
+
+  HsrCharacter.belongsTo(HsrElement, { foreignKey: 'elementId' });
+  HsrCharacter.belongsTo(HsrPath, { foreignKey: 'pathId' });
+  HsrCharacter.belongsTo(HsrRarity, { foreignKey: 'rarityId' });
+
+  HsrCone.belongsTo(HsrPath, { foreignKey: 'pathId' });
+  HsrCone.belongsTo(HsrRarity, { foreignKey: 'rarityId' });
+
+  HsrRelic.belongsTo(HsrRelicType, { foreignKey: 'typeId' });
 }
 
-// 默认初始化
-initializeModels();
-
-// 导入存储管理器
-import storageManager from './storageManager.js';
-
-// 从数据库同步数据到存储文件
-export const syncDatabaseToStorage = async () => {
-  try {
-    console.log('🔄 正在从数据库同步数据到存储文件...');
-    
-    // 获取所有代理人数据
-    const agents = await getAllAgents();
-    const soundEngines = await getAllSoundEngines();
-    const bumbos = await getAllBumbos();
-    const driveDisks = await getAllDriveDisks();
-    const hsrCharacters = await getAllHsrCharacters();
-    const hsrCones = await getAllHsrCones();
-    const hsrRelics = await getAllHsrRelics();
-    
-    // 保存到存储文件
-    await storageManager.saveToStorage('agents', {
-      count: agents.length,
-      data: agents,
-      lastUpdated: new Date().toISOString(),
-      source: 'database'
-    });
-    
-    await storageManager.saveToStorage('soundEngines', {
-      count: soundEngines.length,
-      data: soundEngines,
-      lastUpdated: new Date().toISOString(),
-      source: 'database'
-    });
-    
-    await storageManager.saveToStorage('bumbos', {
-      count: bumbos.length,
-      data: bumbos,
-      lastUpdated: new Date().toISOString(),
-      source: 'database'
-    });
-    
-    await storageManager.saveToStorage('driveDisks', {
-      count: driveDisks.length,
-      data: driveDisks,
-      lastUpdated: new Date().toISOString(),
-      source: 'database'
-    });
-    await storageManager.saveToStorage('hsrCharacters', {
-      count: hsrCharacters.length,
-      data: hsrCharacters,
-      lastUpdated: new Date().toISOString(),
-      source: 'database'
-    })
-    await storageManager.saveToStorage('hsrCones', {
-      count: hsrCones.length,
-      data: hsrCones,
-      lastUpdated: new Date().toISOString(),
-      source: 'database'
-    })
-    await storageManager.saveToStorage('hsrRelics', {
-      count: hsrRelics.length,
-      data: hsrRelics,
-      lastUpdated: new Date().toISOString(),
-      source: 'database'
-    })
-    
-    console.log('✅ 数据库数据已同步到存储文件');
-  } catch (error) {
-    console.error('❌ 同步数据库到存储文件失败:', error);
-    throw error;
-  }
-};
-
-// 导出模型获取函数
-export const getModels = () => ({ Agent, SoundEngine, Bumbo, DriveDisk, Faction, Role, Rarity, HsrElement, HsrPath, HsrRarity, HsrRelicType, HsrCharacter, HsrCone, HsrRelic });
-export { Agent, SoundEngine, Bumbo, DriveDisk, Faction, Role, Rarity, HsrElement, HsrPath, HsrRarity, HsrRelicType, HsrCharacter, HsrCone, HsrRelic, initializeModels };
-
-// 获取所有代理人
-export const getAllAgents = async () => {
-  try {
-    return await Agent.findAll({
-      include: [Faction, Role, Rarity]
-    });
-  } catch (error) {
-    console.error('获取代理人数据失败:', error);
-    return [];
-  }
-};
-
-// HSR — 获取
-export const getAllHsrCharacters = async () => {
-  try {
-    return await HsrCharacter.findAll({ include: [HsrElement, HsrPath, HsrRarity] })
-  } catch (e) { console.error('获取HSR角色失败:', e); return [] }
-}
-export const getAllHsrCones = async () => {
-  try { return await HsrCone.findAll({ include: [HsrPath, HsrRarity] }) } catch (e) { console.error('获取HSR光锥失败:', e); return [] }
-}
-export const getAllHsrRelics = async () => {
-  try { return await HsrRelic.findAll({ include: [HsrRelicType] }) } catch (e) { console.error('获取HSR遗器失败:', e); return [] }
-}
-
-// HSR — 添加
-export const addHsrCharacter = async (payload) => {
-  try {
-    const created = await HsrCharacter.create({
-      name: payload.name,
-      elementId: payload.elementId || (await HsrElement.findOne({ where: { name: payload.element } }))?.id,
-      pathId: payload.pathId || (await HsrPath.findOne({ where: { name: payload.path } }))?.id,
-      rarityId: payload.rarityId || (await HsrRarity.findOne({ where: { name: payload.rarity } }))?.id,
-      image: payload.image || '/assets/hsr.jpg'
-    })
-    await syncDatabaseToStorage();
-    return created
-  } catch (error) { console.error('添加HSR角色失败:', error); throw error }
-}
-
-export const addHsrCone = async (payload) => {
-  try {
-    const created = await HsrCone.create({
-      name: payload.name,
-      pathId: payload.pathId || (await HsrPath.findOne({ where: { name: payload.path } }))?.id,
-      rarityId: payload.rarityId || (await HsrRarity.findOne({ where: { name: payload.rarity } }))?.id,
-      image: payload.image || '/assets/hsr.jpg'
-    })
-    await syncDatabaseToStorage();
-    return created
-  } catch (error) { console.error('添加HSR光锥失败:', error); throw error }
-}
-
-export const addHsrRelic = async (payload) => {
-  try {
-    const created = await HsrRelic.create({
-      name: payload.name,
-      typeId: payload.typeId || (await HsrRelicType.findOne({ where: { name: payload.type } }))?.id,
-      setName: payload.setName,
-      part: payload.part,
-      image: payload.image || '/assets/hsr.jpg'
-    })
-    await syncDatabaseToStorage();
-    return created
-  } catch (error) { console.error('添加HSR遗器失败:', error); throw error }
-}
-
-// HSR — 更新
-export const updateHsrCharacter = async (id, payload) => {
-  try {
-    const model = await HsrCharacter.findByPk(id); if (!model) return null
-    if (payload.elementId) model.elementId = payload.elementId; else if (payload.element) { const e = await HsrElement.findOne({ where: { name: payload.element } }); if (e) model.elementId = e.id }
-    if (payload.pathId) model.pathId = payload.pathId; else if (payload.path) { const p = await HsrPath.findOne({ where: { name: payload.path } }); if (p) model.pathId = p.id }
-    if (payload.rarityId) model.rarityId = payload.rarityId; else if (payload.rarity) { const r = await HsrRarity.findOne({ where: { name: payload.rarity } }); if (r) model.rarityId = r.id }
-    model.name = payload.name || model.name
-    model.image = payload.image || model.image
-    await model.save(); await syncDatabaseToStorage(); return model
-  } catch (error) { console.error('更新HSR角色失败:', error); throw error }
-}
-
-export const updateHsrCone = async (id, payload) => {
-  try {
-    const model = await HsrCone.findByPk(id); if (!model) return null
-    if (payload.pathId) model.pathId = payload.pathId; else if (payload.path) { const p = await HsrPath.findOne({ where: { name: payload.path } }); if (p) model.pathId = p.id }
-    if (payload.rarityId) model.rarityId = payload.rarityId; else if (payload.rarity) { const r = await HsrRarity.findOne({ where: { name: payload.rarity } }); if (r) model.rarityId = r.id }
-    model.name = payload.name || model.name
-    model.image = payload.image || model.image
-    await model.save(); await syncDatabaseToStorage(); return model
-  } catch (error) { console.error('更新HSR光锥失败:', error); throw error }
-}
-
-export const updateHsrRelic = async (id, payload) => {
-  try {
-    const model = await HsrRelic.findByPk(id); if (!model) return null
-    if (payload.typeId) model.typeId = payload.typeId; else if (payload.type) { const t = await HsrRelicType.findOne({ where: { name: payload.type } }); if (t) model.typeId = t.id }
-    model.name = payload.name || model.name
-    model.setName = payload.setName || model.setName
-    model.part = payload.part || model.part
-    model.image = payload.image || model.image
-    await model.save(); await syncDatabaseToStorage(); return model
-  } catch (error) { console.error('更新HSR遗器失败:', error); throw error }
-}
-
-// HSR — 删除
-export const deleteHsrCharacter = async (id) => { try { const m = await HsrCharacter.findByPk(id); if (!m) return false; await m.destroy(); await syncDatabaseToStorage(); return true } catch (e) { console.error('删除HSR角色失败:', e); throw e } }
-export const deleteHsrCone = async (id) => { try { const m = await HsrCone.findByPk(id); if (!m) return false; await m.destroy(); await syncDatabaseToStorage(); return true } catch (e) { console.error('删除HSR光锥失败:', e); throw e } }
-export const deleteHsrRelic = async (id) => { try { const m = await HsrRelic.findByPk(id); if (!m) return false; await m.destroy(); await syncDatabaseToStorage(); return true } catch (e) { console.error('删除HSR遗器失败:', e); throw e } }
-
-// 添加代理人
-export const addAgent = async (agentData) => {
-  try {
-    let factionId, roleId, rarityId;
-
-    // 支持通过名称或ID查找关联数据
-    if (agentData.factionId) {
-      factionId = agentData.factionId;
-    } else if (agentData.faction) {
-      console.log('查找阵营:', agentData.faction, '长度:', agentData.faction.length);
-      const faction = await Faction.findOne({ where: { name: agentData.faction } });
-      console.log('找到的阵营:', faction);
-      if (!faction) throw new Error('阵营不存在');
-      factionId = faction.id;
-    } else {
-      throw new Error('必须提供factionId或faction');
-    }
-
-    if (agentData.roleId) {
-      roleId = agentData.roleId;
-    } else if (agentData.role || agentData.profession) {
-      const roleName = agentData.role || agentData.profession;
-      const role = await Role.findOne({ where: { name: roleName } });
-      if (!role) throw new Error('职业不存在');
-      roleId = role.id;
-    } else {
-      throw new Error('必须提供roleId、role或profession');
-    }
-
-    if (agentData.rarityId) {
-      rarityId = agentData.rarityId;
-    } else if (agentData.rarity) {
-      const rarity = await Rarity.findOne({ where: { name: agentData.rarity } });
-      if (!rarity) throw new Error('稀有度不存在');
-      rarityId = rarity.id;
-    } else {
-      throw new Error('必须提供rarityId或rarity');
-    }
-
-    const newAgent = await Agent.create({
-      name: agentData.name,
-      element: agentData.element,
-      factionId: factionId,
-      roleId: roleId,
-      rarityId: rarityId,
-      image: agentData.image || '/assets/zzz.jpg'
-    });
-
-    // 同步数据到存储文件
-    await syncDatabaseToStorage();
-    console.log('✅ 代理人添加成功，已同步到存储文件');
-
-    return newAgent;
-  } catch (error) {
-    console.error('添加代理人失败:', error);
-    throw error;
-  }
-};
-
-// 更新代理人
-export const updateAgent = async (id, agentData) => {
-  try {
-    const agent = await Agent.findByPk(id);
-    if (!agent) return null;
-
-    // 查找关联模型的ID
-    if (agentData.factionId) {
-      agent.factionId = agentData.factionId;
-    } else if (agentData.faction) {
-      const faction = await Faction.findOne({ where: { name: agentData.faction } });
-      if (faction) agent.factionId = faction.id;
-    }
-
-    if (agentData.roleId) {
-      agent.roleId = agentData.roleId;
-    } else if (agentData.role) {
-      const role = await Role.findOne({ where: { name: agentData.role } });
-      if (role) agent.roleId = role.id;
-    }
-
-    if (agentData.rarityId) {
-      agent.rarityId = agentData.rarityId;
-    } else if (agentData.rarity) {
-      const rarity = await Rarity.findOne({ where: { name: agentData.rarity } });
-      if (rarity) agent.rarityId = rarity.id;
-    }
-
-    // 更新其他字段
-    agent.name = agentData.name || agent.name;
-    agent.element = agentData.element || agent.element;
-    agent.image = agentData.image || agent.image;
-
-    await agent.save();
-    
-    // 同步数据到存储文件
-    await syncDatabaseToStorage();
-    
-    return agent;
-  } catch (error) {
-    console.error('更新代理人失败:', error);
-    throw error;
-  }
-};
-
-// 删除代理人
-export const deleteAgent = async (id) => {
-  try {
-    const agent = await Agent.findByPk(id);
-    if (!agent) return false;
-
-    await agent.destroy();
-    await syncDatabaseToStorage();
-    return true;
-  } catch (error) {
-    console.error('删除代理人失败:', error);
-    throw error;
-  }
-};
-
-// 获取所有音擎
-export const getAllSoundEngines = async () => {
-  try {
-    return await SoundEngine.findAll({
-      include: [Rarity, Role]
-    });
-  } catch (error) {
-    console.error('获取音擎数据失败:', error);
-    return [];
-  }
-};
-
-// 添加音擎
-export const addSoundEngine = async (engineData) => {
-  try {
-    let rarityId;
-    let roleId;
-    if (engineData.rarityId) {
-      rarityId = engineData.rarityId;
-    } else {
-      const rarity = await Rarity.findOne({ where: { name: engineData.rarity } });
-      if (!rarity) throw new Error('稀有度不存在');
-      rarityId = rarity.id;
-    }
-    if (engineData.roleId) {
-      roleId = engineData.roleId;
-    } else {
-      const role = await Role.findOne({ where: { name: engineData.role } });
-      if (!role) throw new Error('职业不存在');
-      roleId = role.id;
-    }
-    const created = await SoundEngine.create({
-      name: engineData.name,
-      rarityId,
-      roleId,
-      image: engineData.image || '/assets/zzz.jpg'
-    });
-    await syncDatabaseToStorage();
-    return created;
-  } catch (error) {
-    console.error('添加音擎失败:', error);
-    throw error;
-  }
-};
-
-// 更新音擎
-export const updateSoundEngine = async (id, engineData) => {
-  try {
-    const engine = await SoundEngine.findByPk(id);
-    if (!engine) return null;
-
-  // 查找关联模型的ID
-  if (engineData.rarityId) {
-    engine.rarityId = engineData.rarityId;
-  } else if (engineData.rarity) {
-    const rarity = await Rarity.findOne({ where: { name: engineData.rarity } });
-    if (rarity) engine.rarityId = rarity.id;
-  }
-
-  if (engineData.roleId) {
-    engine.roleId = engineData.roleId;
-  } else if (engineData.role) {
-    const role = await Role.findOne({ where: { name: engineData.role } });
-    if (role) engine.roleId = role.id;
-  }
-
-    // 更新其他字段
-    engine.name = engineData.name || engine.name;
-    engine.image = engineData.image || engine.image;
-
-    await engine.save();
-    await syncDatabaseToStorage();
-    return engine;
-  } catch (error) {
-    console.error('更新音擎失败:', error);
-    throw error;
-  }
-};
-
-// 删除音擎
-export const deleteSoundEngine = async (id) => {
-  try {
-    const engine = await SoundEngine.findByPk(id);
-    if (!engine) return false;
-
-    await engine.destroy();
-    await syncDatabaseToStorage();
-    return true;
-  } catch (error) {
-    console.error('删除音擎失败:', error);
-    throw error;
-  }
-};
-
-// 获取所有邦布
-export const getAllBumbos = async () => {
-  try {
-    return await Bumbo.findAll({
-      include: [Rarity]
-    });
-  } catch (error) {
-    console.error('获取邦布数据失败:', error);
-    return [];
-  }
-};
-
-// 添加邦布
-export const addBumbo = async (bumboData) => {
-  try {
-    let rarityId;
-    if (bumboData.rarityId) {
-      rarityId = bumboData.rarityId;
-    } else {
-      const rarity = await Rarity.findOne({ where: { name: bumboData.rarity } });
-      if (!rarity) throw new Error('稀有度不存在');
-      rarityId = rarity.id;
-    }
-    const created = await Bumbo.create({
-      name: bumboData.name,
-      rarityId,
-      image: bumboData.image || '/assets/zzz.jpg'
-    });
-    await syncDatabaseToStorage();
-    return created;
-  } catch (error) {
-    console.error('添加邦布失败:', error);
-    throw error;
-  }
-};
-
-// 更新邦布
-export const updateBumbo = async (id, bumboData) => {
-  try {
-    const bumbo = await Bumbo.findByPk(id);
-    if (!bumbo) return null;
-
-  // 查找关联模型的ID
-  if (bumboData.rarityId) {
-    bumbo.rarityId = bumboData.rarityId;
-  } else if (bumboData.rarity) {
-    const rarity = await Rarity.findOne({ where: { name: bumboData.rarity } });
-    if (rarity) bumbo.rarityId = rarity.id;
-  }
-
-    // 更新其他字段
-    bumbo.name = bumboData.name || bumbo.name;
-    bumbo.image = bumboData.image || bumbo.image;
-
-    await bumbo.save();
-    await syncDatabaseToStorage();
-    return bumbo;
-  } catch (error) {
-    console.error('更新邦布失败:', error);
-    throw error;
-  }
-};
-
-// 删除邦布
-export const deleteBumbo = async (id) => {
-  try {
-    const bumbo = await Bumbo.findByPk(id);
-    if (!bumbo) return false;
-
-    await bumbo.destroy();
-    await syncDatabaseToStorage();
-    return true;
-  } catch (error) {
-    console.error('删除邦布失败:', error);
-    throw error;
-  }
-};
-
-// 获取所有驱动盘
-export const getAllDriveDisks = async () => {
-  try {
-    return await DriveDisk.findAll();
-  } catch (error) {
-    console.error('获取驱动盘数据失败:', error);
-    return [];
-  }
-};
-
-// 添加驱动盘
-export const addDriveDisk = async (diskData) => {
-  try {
-    const created = await DriveDisk.create({
-      name: diskData.name,
-      description: diskData.description,
-      image: diskData.image || '/assets/zzz.jpg'
-    });
-    await syncDatabaseToStorage();
-    return created;
-  } catch (error) {
-    console.error('添加驱动盘失败:', error);
-    throw error;
-  }
-};
-
-// 更新驱动盘
-export const updateDriveDisk = async (id, diskData) => {
-  try {
-    const disk = await DriveDisk.findByPk(id);
-    if (!disk) return null;
-
-    // 更新字段
-    disk.name = diskData.name || disk.name;
-    disk.description = diskData.description || disk.description;
-    disk.image = diskData.image || disk.image;
-
-    await disk.save();
-    await syncDatabaseToStorage();
-    return disk;
-  } catch (error) {
-    console.error('更新驱动盘失败:', error);
-    throw error;
-  }
-};
-
-// 删除驱动盘
-export const deleteDriveDisk = async (id) => {
-  try {
-    const disk = await DriveDisk.findByPk(id);
-    if (!disk) return false;
-
-    await disk.destroy();
-    await syncDatabaseToStorage();
-    return true;
-  } catch (error) {
-    console.error('删除驱动盘失败:', error);
-    throw error;
-  }
-};
-
-// 同步数据库数据到前端
-export const syncData = async () => {
-  try {
-    const agents = await getAllAgents();
-    const soundEngines = await getAllSoundEngines();
-    const bumbos = await getAllBumbos();
-    const driveDisks = await getAllDriveDisks();
-    
-    // 获取基础数据
-    const factions = await Faction.findAll();
-    const roles = await Role.findAll();
-    const rarities = await Rarity.findAll();
-
-    return {
-      agents: agents.map(agent => ({
-        id: agent.id,
-        name: agent.name,
-        faction: agent.Faction?.name || '',
-        role: agent.Role?.name || '',
-        rarity: agent.Rarity?.name || '',
-        element: agent.element,
-        image: agent.image
-      })),
-      soundEngines: soundEngines.map(engine => ({
-        id: engine.id,
-        name: engine.name,
-        rarity: engine.Rarity?.name || '',
-        role: engine.Role?.name || '',
-        image: engine.image
-      })),
-      bumbos: bumbos.map(bumbo => ({
-        id: bumbo.id,
-        name: bumbo.name,
-        rarity: bumbo.Rarity?.name || '',
-        image: bumbo.image
-      })),
-      driveDisks: driveDisks.map(disk => ({
-        id: disk.id,
-        name: disk.name,
-        description: disk.description,
-        image: disk.image
-      })),
-      // 添加基础数据
-      factions: factions.map(faction => ({
-        id: faction.id,
-        name: faction.name
-      })),
-      roles: roles.map(role => ({
-        id: role.id,
-        name: role.name
-      })),
-      rarities: rarities.map(rarity => ({
-        id: rarity.id,
-        name: rarity.name
-      }))
-    };
-  } catch (error) {
-    console.error('同步数据失败:', error);
+export function initializeModels(sequelizeInstance = defaultSequelize) {
+  if (!sequelizeInstance) {
     return null;
   }
+
+  currentSequelize = sequelizeInstance;
+  Agent = defineAgent(sequelizeInstance);
+  SoundEngine = defineSoundEngine(sequelizeInstance);
+  Bumbo = defineBumbo(sequelizeInstance);
+  DriveDisk = defineDriveDisk(sequelizeInstance);
+  Faction = defineFaction(sequelizeInstance);
+  Role = defineRole(sequelizeInstance);
+  Rarity = defineRarity(sequelizeInstance);
+
+  HsrElement = defineHsrElement(sequelizeInstance);
+  HsrPath = defineHsrPath(sequelizeInstance);
+  HsrRarity = defineHsrRarity(sequelizeInstance);
+  HsrRelicType = defineHsrRelicType(sequelizeInstance);
+  HsrCharacter = defineHsrCharacter(sequelizeInstance);
+  HsrCone = defineHsrCone(sequelizeInstance);
+  HsrRelic = defineHsrRelic(sequelizeInstance);
+
+  setupAssociations();
+  modelsInitialized = true;
+
+  return getModels();
+}
+
+export const getModels = () => ({
+  Agent,
+  SoundEngine,
+  Bumbo,
+  DriveDisk,
+  Faction,
+  Role,
+  Rarity,
+  HsrElement,
+  HsrPath,
+  HsrRarity,
+  HsrRelicType,
+  HsrCharacter,
+  HsrCone,
+  HsrRelic,
+});
+
+const serializeAgent = (record) => {
+  const plain = toPlain(record);
+  return {
+    id: plain.id,
+    name: plain.name,
+    element: plain.element,
+    image: resolveImage(plain.image, DEFAULT_ZZZ_IMAGE),
+    factionId: plain.factionId ?? plain.Faction?.id ?? null,
+    roleId: plain.roleId ?? plain.Role?.id ?? null,
+    rarityId: plain.rarityId ?? plain.Rarity?.id ?? null,
+    faction: plain.faction ?? plain.Faction?.name ?? '',
+    role: plain.role ?? plain.Role?.name ?? '',
+    rarity: plain.rarity ?? plain.Rarity?.name ?? '',
+  };
+};
+
+const serializeSoundEngine = (record) => {
+  const plain = toPlain(record);
+  return {
+    id: plain.id,
+    name: plain.name,
+    image: resolveImage(plain.image, DEFAULT_ZZZ_IMAGE),
+    rarityId: plain.rarityId ?? plain.Rarity?.id ?? null,
+    roleId: plain.roleId ?? plain.Role?.id ?? null,
+    rarity: plain.rarity ?? plain.Rarity?.name ?? '',
+    role: plain.role ?? plain.Role?.name ?? '',
+  };
+};
+
+const serializeBumbo = (record) => {
+  const plain = toPlain(record);
+  return {
+    id: plain.id,
+    name: plain.name,
+    image: resolveImage(plain.image, DEFAULT_ZZZ_IMAGE),
+    rarityId: plain.rarityId ?? plain.Rarity?.id ?? null,
+    rarity: plain.rarity ?? plain.Rarity?.name ?? '',
+  };
+};
+
+const serializeDriveDisk = (record) => {
+  const plain = toPlain(record);
+  return {
+    id: plain.id,
+    name: plain.name,
+    description: plain.description || '',
+    image: resolveImage(plain.image, DEFAULT_ZZZ_IMAGE),
+  };
+};
+
+const serializeHsrCharacter = (record) => {
+  const plain = toPlain(record);
+  return {
+    id: plain.id,
+    name: plain.name,
+    image: resolveImage(plain.image, DEFAULT_HSR_IMAGE),
+    elementId: plain.elementId ?? plain.HsrElement?.id ?? null,
+    pathId: plain.pathId ?? plain.HsrPath?.id ?? null,
+    rarityId: plain.rarityId ?? plain.HsrRarity?.id ?? null,
+    element: plain.element ?? plain.HsrElement?.name ?? '',
+    path: plain.path ?? plain.HsrPath?.name ?? '',
+    rarity: plain.rarity ?? plain.HsrRarity?.name ?? '',
+  };
+};
+
+const serializeHsrCone = (record) => {
+  const plain = toPlain(record);
+  return {
+    id: plain.id,
+    name: plain.name,
+    image: resolveImage(plain.image, DEFAULT_HSR_IMAGE),
+    pathId: plain.pathId ?? plain.HsrPath?.id ?? null,
+    rarityId: plain.rarityId ?? plain.HsrRarity?.id ?? null,
+    path: plain.path ?? plain.HsrPath?.name ?? '',
+    rarity: plain.rarity ?? plain.HsrRarity?.name ?? '',
+  };
+};
+
+const serializeHsrRelic = (record) => {
+  const plain = toPlain(record);
+  return {
+    id: plain.id,
+    name: plain.name,
+    image: resolveImage(plain.image, DEFAULT_HSR_IMAGE),
+    typeId: plain.typeId ?? plain.HsrRelicType?.id ?? null,
+    type: plain.type ?? plain.HsrRelicType?.name ?? '',
+    setName: plain.setName || '',
+    part: plain.part || '',
+  };
+};
+
+const resolveRelationId = async (model, payloadId, payloadName, label, options = {}) => {
+  const id = normalizeOptionalId(payloadId);
+  if (id) {
+    return id;
+  }
+
+  if (typeof payloadName !== 'string' || !payloadName.trim()) {
+    throw new Error(`Missing ${label}.`);
+  }
+
+  const record = await model.findOne({
+    where: { name: payloadName.trim() },
+    ...buildQueryOptions(options),
+  });
+  if (!record) {
+    throw new Error(`${label} "${payloadName}" was not found.`);
+  }
+
+  return record.id;
+};
+
+export const getAllAgents = async (options = {}) => {
+  ensureModelsInitialized();
+  return Agent.findAll({
+    include: [Faction, Role, Rarity],
+    order: [['id', 'ASC']],
+    ...buildQueryOptions(options),
+  });
+};
+
+export const getAllSoundEngines = async (options = {}) => {
+  ensureModelsInitialized();
+  return SoundEngine.findAll({
+    include: [Rarity, Role],
+    order: [['id', 'ASC']],
+    ...buildQueryOptions(options),
+  });
+};
+
+export const getAllBumbos = async (options = {}) => {
+  ensureModelsInitialized();
+  return Bumbo.findAll({
+    include: [Rarity],
+    order: [['id', 'ASC']],
+    ...buildQueryOptions(options),
+  });
+};
+
+export const getAllDriveDisks = async (options = {}) => {
+  ensureModelsInitialized();
+  return DriveDisk.findAll({
+    order: [['id', 'ASC']],
+    ...buildQueryOptions(options),
+  });
+};
+
+export const getAllHsrCharacters = async (options = {}) => {
+  ensureModelsInitialized();
+  return HsrCharacter.findAll({
+    include: [HsrElement, HsrPath, HsrRarity],
+    order: [['id', 'ASC']],
+    ...buildQueryOptions(options),
+  });
+};
+
+export const getAllHsrCones = async (options = {}) => {
+  ensureModelsInitialized();
+  return HsrCone.findAll({
+    include: [HsrPath, HsrRarity],
+    order: [['id', 'ASC']],
+    ...buildQueryOptions(options),
+  });
+};
+
+export const getAllHsrRelics = async (options = {}) => {
+  ensureModelsInitialized();
+  return HsrRelic.findAll({
+    include: [HsrRelicType],
+    order: [['id', 'ASC']],
+    ...buildQueryOptions(options),
+  });
+};
+
+const findPaginatedRecords = async ({
+  model,
+  serializer,
+  include = [],
+  where = {},
+  order = [['id', 'ASC']],
+  limit,
+  offset,
+  options = {},
+}) => {
+  ensureModelsInitialized();
+
+  const normalizedLimit = normalizeListLimit(limit);
+  const normalizedOffset = normalizeListOffset(offset);
+  const result = await model.findAndCountAll({
+    where,
+    include,
+    order,
+    limit: normalizedLimit,
+    offset: normalizedOffset,
+    ...buildQueryOptions(options),
+  });
+
+  return {
+    items: result.rows.map(serializer),
+    total: result.count,
+    limit: normalizedLimit,
+    offset: normalizedOffset,
+    hasMore: normalizedOffset + result.rows.length < result.count,
+  };
+};
+
+export const listAgents = async (filters = {}, options = {}) => {
+  const where = {};
+
+  const factionFilter = buildInFilter(filters.factionIds);
+  if (factionFilter) {
+    where.factionId = factionFilter;
+  }
+
+  const roleFilter = buildInFilter(filters.roleIds);
+  if (roleFilter) {
+    where.roleId = roleFilter;
+  }
+
+  const rarityFilter = buildInFilter(filters.rarityIds);
+  if (rarityFilter) {
+    where.rarityId = rarityFilter;
+  }
+
+  const elementFilter = buildInFilter(filters.elements);
+  if (elementFilter) {
+    where.element = elementFilter;
+  }
+
+  return findPaginatedRecords({
+    model: Agent,
+    serializer: serializeAgent,
+    include: [Faction, Role, Rarity],
+    where,
+    limit: filters.limit,
+    offset: filters.offset,
+    options,
+  });
+};
+
+export const listSoundEngines = async (filters = {}, options = {}) => {
+  const where = {};
+
+  const roleFilter = buildInFilter(filters.roleIds);
+  if (roleFilter) {
+    where.roleId = roleFilter;
+  }
+
+  const rarityFilter = buildInFilter(filters.rarityIds);
+  if (rarityFilter) {
+    where.rarityId = rarityFilter;
+  }
+
+  return findPaginatedRecords({
+    model: SoundEngine,
+    serializer: serializeSoundEngine,
+    include: [Rarity, Role],
+    where,
+    limit: filters.limit,
+    offset: filters.offset,
+    options,
+  });
+};
+
+export const listBumbos = async (filters = {}, options = {}) => {
+  const where = {};
+
+  const rarityFilter = buildInFilter(filters.rarityIds);
+  if (rarityFilter) {
+    where.rarityId = rarityFilter;
+  }
+
+  return findPaginatedRecords({
+    model: Bumbo,
+    serializer: serializeBumbo,
+    include: [Rarity],
+    where,
+    limit: filters.limit,
+    offset: filters.offset,
+    options,
+  });
+};
+
+export const listDriveDisks = async (filters = {}, options = {}) => (
+  findPaginatedRecords({
+    model: DriveDisk,
+    serializer: serializeDriveDisk,
+    limit: filters.limit,
+    offset: filters.offset,
+    options,
+  })
+);
+
+export const listHsrCharacters = async (filters = {}, options = {}) => {
+  const where = {};
+
+  const elementFilter = buildInFilter(filters.elementIds);
+  if (elementFilter) {
+    where.elementId = elementFilter;
+  }
+
+  const pathFilter = buildInFilter(filters.pathIds);
+  if (pathFilter) {
+    where.pathId = pathFilter;
+  }
+
+  const rarityFilter = buildInFilter(filters.rarityIds);
+  if (rarityFilter) {
+    where.rarityId = rarityFilter;
+  }
+
+  return findPaginatedRecords({
+    model: HsrCharacter,
+    serializer: serializeHsrCharacter,
+    include: [HsrElement, HsrPath, HsrRarity],
+    where,
+    limit: filters.limit,
+    offset: filters.offset,
+    options,
+  });
+};
+
+export const listHsrCones = async (filters = {}, options = {}) => {
+  const where = {};
+
+  const pathFilter = buildInFilter(filters.pathIds);
+  if (pathFilter) {
+    where.pathId = pathFilter;
+  }
+
+  const rarityFilter = buildInFilter(filters.rarityIds);
+  if (rarityFilter) {
+    where.rarityId = rarityFilter;
+  }
+
+  return findPaginatedRecords({
+    model: HsrCone,
+    serializer: serializeHsrCone,
+    include: [HsrPath, HsrRarity],
+    where,
+    limit: filters.limit,
+    offset: filters.offset,
+    options,
+  });
+};
+
+export const listHsrRelics = async (filters = {}, options = {}) => {
+  const where = {};
+
+  const typeFilter = buildInFilter(filters.typeIds);
+  if (typeFilter) {
+    where.typeId = typeFilter;
+  }
+
+  const partFilter = buildInFilter(filters.parts);
+  if (partFilter) {
+    where.part = partFilter;
+  }
+
+  return findPaginatedRecords({
+    model: HsrRelic,
+    serializer: serializeHsrRelic,
+    include: [HsrRelicType],
+    where,
+    limit: filters.limit,
+    offset: filters.offset,
+    options,
+  });
+};
+
+const buildSnapshot = async (options = {}) => {
+  const [
+    agents,
+    soundEngines,
+    bumbos,
+    driveDisks,
+    hsrCharacters,
+    hsrCones,
+    hsrRelics,
+  ] = await Promise.all([
+    getAllAgents(options),
+    getAllSoundEngines(options),
+    getAllBumbos(options),
+    getAllDriveDisks(options),
+    getAllHsrCharacters(options),
+    getAllHsrCones(options),
+    getAllHsrRelics(options),
+  ]);
+
+  return {
+    agents: agents.map(serializeAgent),
+    soundEngines: soundEngines.map(serializeSoundEngine),
+    bumbos: bumbos.map(serializeBumbo),
+    driveDisks: driveDisks.map(serializeDriveDisk),
+    hsrCharacters: hsrCharacters.map(serializeHsrCharacter),
+    hsrCones: hsrCones.map(serializeHsrCone),
+    hsrRelics: hsrRelics.map(serializeHsrRelic),
+  };
+};
+
+const performStorageSync = async () => {
+  const snapshot = await buildSnapshot();
+  await storageManager.saveAllData(snapshot);
+  await dualStorageManager.syncRootToWeb(snapshot);
+  return snapshot;
+};
+
+export const syncDatabaseToStorage = async () => {
+  ensureModelsInitialized();
+  return enqueueStorageSync(performStorageSync);
+};
+
+export const syncData = async () => {
+  ensureModelsInitialized();
+  return buildSnapshot();
+};
+
+export const addAgent = async (agentData, options = {}) => {
+  ensureModelsInitialized();
+  const queryOptions = buildQueryOptions(options);
+
+  const factionId = await resolveRelationId(
+    Faction,
+    agentData.factionId,
+    agentData.faction,
+    'faction',
+    options,
+  );
+  const roleId = await resolveRelationId(
+    Role,
+    agentData.roleId,
+    agentData.role || agentData.profession,
+    'role',
+    options,
+  );
+  const rarityId = await resolveRelationId(
+    Rarity,
+    agentData.rarityId,
+    agentData.rarity,
+    'rarity',
+    options,
+  );
+
+  const created = await Agent.create({
+    ...buildCreatePayload(agentData, []),
+    name: agentData.name,
+    element: agentData.element,
+    image: resolveImage(agentData.image, DEFAULT_ZZZ_IMAGE),
+    factionId,
+    roleId,
+    rarityId,
+  }, queryOptions);
+
+  if (options.syncStorage !== false) {
+    await syncDatabaseToStorage();
+  }
+
+  return created;
+};
+
+export const updateAgent = async (id, agentData, options = {}) => {
+  ensureModelsInitialized();
+  const queryOptions = buildQueryOptions(options);
+  const agent = await Agent.findByPk(id, queryOptions);
+  if (!agent) {
+    return null;
+  }
+
+  if (agentData.name !== undefined) {
+    agent.name = agentData.name;
+  }
+  if (agentData.element !== undefined) {
+    agent.element = agentData.element;
+  }
+  if (agentData.image !== undefined) {
+    agent.image = resolveImage(agentData.image, DEFAULT_ZZZ_IMAGE);
+  }
+
+  if (agentData.factionId !== undefined || agentData.faction !== undefined) {
+    agent.factionId = await resolveRelationId(
+      Faction,
+      agentData.factionId,
+      agentData.faction,
+      'faction',
+      options,
+    );
+  }
+  if (agentData.roleId !== undefined || agentData.role !== undefined || agentData.profession !== undefined) {
+    agent.roleId = await resolveRelationId(
+      Role,
+      agentData.roleId,
+      agentData.role || agentData.profession,
+      'role',
+      options,
+    );
+  }
+  if (agentData.rarityId !== undefined || agentData.rarity !== undefined) {
+    agent.rarityId = await resolveRelationId(
+      Rarity,
+      agentData.rarityId,
+      agentData.rarity,
+      'rarity',
+      options,
+    );
+  }
+
+  await agent.save(queryOptions);
+
+  if (options.syncStorage !== false) {
+    await syncDatabaseToStorage();
+  }
+
+  return agent;
+};
+
+export const deleteAgent = async (id, options = {}) => {
+  ensureModelsInitialized();
+  const queryOptions = buildQueryOptions(options);
+  const agent = await Agent.findByPk(id, queryOptions);
+  if (!agent) {
+    return false;
+  }
+
+  await agent.destroy(queryOptions);
+  if (options.syncStorage !== false) {
+    await syncDatabaseToStorage();
+  }
+  return true;
+};
+
+export const addSoundEngine = async (engineData, options = {}) => {
+  ensureModelsInitialized();
+  const queryOptions = buildQueryOptions(options);
+
+  const rarityId = await resolveRelationId(
+    Rarity,
+    engineData.rarityId,
+    engineData.rarity,
+    'rarity',
+    options,
+  );
+  const roleId = await resolveRelationId(
+    Role,
+    engineData.roleId,
+    engineData.role,
+    'role',
+    options,
+  );
+
+  const created = await SoundEngine.create({
+    ...buildCreatePayload(engineData, []),
+    name: engineData.name,
+    image: resolveImage(engineData.image, DEFAULT_ZZZ_IMAGE),
+    rarityId,
+    roleId,
+  }, queryOptions);
+
+  if (options.syncStorage !== false) {
+    await syncDatabaseToStorage();
+  }
+
+  return created;
+};
+
+export const updateSoundEngine = async (id, engineData, options = {}) => {
+  ensureModelsInitialized();
+  const queryOptions = buildQueryOptions(options);
+  const engine = await SoundEngine.findByPk(id, queryOptions);
+  if (!engine) {
+    return null;
+  }
+
+  if (engineData.name !== undefined) {
+    engine.name = engineData.name;
+  }
+  if (engineData.image !== undefined) {
+    engine.image = resolveImage(engineData.image, DEFAULT_ZZZ_IMAGE);
+  }
+  if (engineData.rarityId !== undefined || engineData.rarity !== undefined) {
+    engine.rarityId = await resolveRelationId(
+      Rarity,
+      engineData.rarityId,
+      engineData.rarity,
+      'rarity',
+      options,
+    );
+  }
+  if (engineData.roleId !== undefined || engineData.role !== undefined) {
+    engine.roleId = await resolveRelationId(
+      Role,
+      engineData.roleId,
+      engineData.role,
+      'role',
+      options,
+    );
+  }
+
+  await engine.save(queryOptions);
+
+  if (options.syncStorage !== false) {
+    await syncDatabaseToStorage();
+  }
+
+  return engine;
+};
+
+export const deleteSoundEngine = async (id, options = {}) => {
+  ensureModelsInitialized();
+  const queryOptions = buildQueryOptions(options);
+  const engine = await SoundEngine.findByPk(id, queryOptions);
+  if (!engine) {
+    return false;
+  }
+
+  await engine.destroy(queryOptions);
+  if (options.syncStorage !== false) {
+    await syncDatabaseToStorage();
+  }
+  return true;
+};
+
+export const addBumbo = async (bumboData, options = {}) => {
+  ensureModelsInitialized();
+  const queryOptions = buildQueryOptions(options);
+
+  const rarityId = await resolveRelationId(
+    Rarity,
+    bumboData.rarityId,
+    bumboData.rarity,
+    'rarity',
+    options,
+  );
+
+  const created = await Bumbo.create({
+    ...buildCreatePayload(bumboData, []),
+    name: bumboData.name,
+    image: resolveImage(bumboData.image, DEFAULT_ZZZ_IMAGE),
+    rarityId,
+  }, queryOptions);
+
+  if (options.syncStorage !== false) {
+    await syncDatabaseToStorage();
+  }
+
+  return created;
+};
+
+export const updateBumbo = async (id, bumboData, options = {}) => {
+  ensureModelsInitialized();
+  const queryOptions = buildQueryOptions(options);
+  const bumbo = await Bumbo.findByPk(id, queryOptions);
+  if (!bumbo) {
+    return null;
+  }
+
+  if (bumboData.name !== undefined) {
+    bumbo.name = bumboData.name;
+  }
+  if (bumboData.image !== undefined) {
+    bumbo.image = resolveImage(bumboData.image, DEFAULT_ZZZ_IMAGE);
+  }
+  if (bumboData.rarityId !== undefined || bumboData.rarity !== undefined) {
+    bumbo.rarityId = await resolveRelationId(
+      Rarity,
+      bumboData.rarityId,
+      bumboData.rarity,
+      'rarity',
+      options,
+    );
+  }
+
+  await bumbo.save(queryOptions);
+
+  if (options.syncStorage !== false) {
+    await syncDatabaseToStorage();
+  }
+
+  return bumbo;
+};
+
+export const deleteBumbo = async (id, options = {}) => {
+  ensureModelsInitialized();
+  const queryOptions = buildQueryOptions(options);
+  const bumbo = await Bumbo.findByPk(id, queryOptions);
+  if (!bumbo) {
+    return false;
+  }
+
+  await bumbo.destroy(queryOptions);
+  if (options.syncStorage !== false) {
+    await syncDatabaseToStorage();
+  }
+  return true;
+};
+
+export const addDriveDisk = async (diskData, options = {}) => {
+  ensureModelsInitialized();
+  const queryOptions = buildQueryOptions(options);
+
+  const created = await DriveDisk.create({
+    ...buildCreatePayload(diskData, []),
+    name: diskData.name,
+    description: diskData.description || '',
+    image: resolveImage(diskData.image, DEFAULT_ZZZ_IMAGE),
+  }, queryOptions);
+
+  if (options.syncStorage !== false) {
+    await syncDatabaseToStorage();
+  }
+
+  return created;
+};
+
+export const updateDriveDisk = async (id, diskData, options = {}) => {
+  ensureModelsInitialized();
+  const queryOptions = buildQueryOptions(options);
+  const disk = await DriveDisk.findByPk(id, queryOptions);
+  if (!disk) {
+    return null;
+  }
+
+  if (diskData.name !== undefined) {
+    disk.name = diskData.name;
+  }
+  if (diskData.description !== undefined) {
+    disk.description = diskData.description;
+  }
+  if (diskData.image !== undefined) {
+    disk.image = resolveImage(diskData.image, DEFAULT_ZZZ_IMAGE);
+  }
+
+  await disk.save(queryOptions);
+
+  if (options.syncStorage !== false) {
+    await syncDatabaseToStorage();
+  }
+
+  return disk;
+};
+
+export const deleteDriveDisk = async (id, options = {}) => {
+  ensureModelsInitialized();
+  const queryOptions = buildQueryOptions(options);
+  const disk = await DriveDisk.findByPk(id, queryOptions);
+  if (!disk) {
+    return false;
+  }
+
+  await disk.destroy(queryOptions);
+  if (options.syncStorage !== false) {
+    await syncDatabaseToStorage();
+  }
+  return true;
+};
+
+export const addHsrCharacter = async (payload, options = {}) => {
+  ensureModelsInitialized();
+  const queryOptions = buildQueryOptions(options);
+
+  const elementId = await resolveRelationId(
+    HsrElement,
+    payload.elementId,
+    payload.element,
+    'element',
+    options,
+  );
+  const pathId = await resolveRelationId(
+    HsrPath,
+    payload.pathId,
+    payload.path,
+    'path',
+    options,
+  );
+  const rarityId = await resolveRelationId(
+    HsrRarity,
+    payload.rarityId,
+    payload.rarity,
+    'rarity',
+    options,
+  );
+
+  const created = await HsrCharacter.create({
+    ...buildCreatePayload(payload, []),
+    name: payload.name,
+    image: resolveImage(payload.image, DEFAULT_HSR_IMAGE),
+    elementId,
+    pathId,
+    rarityId,
+  }, queryOptions);
+
+  if (options.syncStorage !== false) {
+    await syncDatabaseToStorage();
+  }
+
+  return created;
+};
+
+export const updateHsrCharacter = async (id, payload, options = {}) => {
+  ensureModelsInitialized();
+  const queryOptions = buildQueryOptions(options);
+  const character = await HsrCharacter.findByPk(id, queryOptions);
+  if (!character) {
+    return null;
+  }
+
+  if (payload.name !== undefined) {
+    character.name = payload.name;
+  }
+  if (payload.image !== undefined) {
+    character.image = resolveImage(payload.image, DEFAULT_HSR_IMAGE);
+  }
+  if (payload.elementId !== undefined || payload.element !== undefined) {
+    character.elementId = await resolveRelationId(
+      HsrElement,
+      payload.elementId,
+      payload.element,
+      'element',
+      options,
+    );
+  }
+  if (payload.pathId !== undefined || payload.path !== undefined) {
+    character.pathId = await resolveRelationId(
+      HsrPath,
+      payload.pathId,
+      payload.path,
+      'path',
+      options,
+    );
+  }
+  if (payload.rarityId !== undefined || payload.rarity !== undefined) {
+    character.rarityId = await resolveRelationId(
+      HsrRarity,
+      payload.rarityId,
+      payload.rarity,
+      'rarity',
+      options,
+    );
+  }
+
+  await character.save(queryOptions);
+
+  if (options.syncStorage !== false) {
+    await syncDatabaseToStorage();
+  }
+
+  return character;
+};
+
+export const deleteHsrCharacter = async (id, options = {}) => {
+  ensureModelsInitialized();
+  const queryOptions = buildQueryOptions(options);
+  const character = await HsrCharacter.findByPk(id, queryOptions);
+  if (!character) {
+    return false;
+  }
+
+  await character.destroy(queryOptions);
+  if (options.syncStorage !== false) {
+    await syncDatabaseToStorage();
+  }
+  return true;
+};
+
+export const addHsrCone = async (payload, options = {}) => {
+  ensureModelsInitialized();
+  const queryOptions = buildQueryOptions(options);
+
+  const pathId = await resolveRelationId(
+    HsrPath,
+    payload.pathId,
+    payload.path,
+    'path',
+    options,
+  );
+  const rarityId = await resolveRelationId(
+    HsrRarity,
+    payload.rarityId,
+    payload.rarity,
+    'rarity',
+    options,
+  );
+
+  const created = await HsrCone.create({
+    ...buildCreatePayload(payload, []),
+    name: payload.name,
+    image: resolveImage(payload.image, DEFAULT_HSR_IMAGE),
+    pathId,
+    rarityId,
+  }, queryOptions);
+
+  if (options.syncStorage !== false) {
+    await syncDatabaseToStorage();
+  }
+
+  return created;
+};
+
+export const updateHsrCone = async (id, payload, options = {}) => {
+  ensureModelsInitialized();
+  const queryOptions = buildQueryOptions(options);
+  const cone = await HsrCone.findByPk(id, queryOptions);
+  if (!cone) {
+    return null;
+  }
+
+  if (payload.name !== undefined) {
+    cone.name = payload.name;
+  }
+  if (payload.image !== undefined) {
+    cone.image = resolveImage(payload.image, DEFAULT_HSR_IMAGE);
+  }
+  if (payload.pathId !== undefined || payload.path !== undefined) {
+    cone.pathId = await resolveRelationId(
+      HsrPath,
+      payload.pathId,
+      payload.path,
+      'path',
+      options,
+    );
+  }
+  if (payload.rarityId !== undefined || payload.rarity !== undefined) {
+    cone.rarityId = await resolveRelationId(
+      HsrRarity,
+      payload.rarityId,
+      payload.rarity,
+      'rarity',
+      options,
+    );
+  }
+
+  await cone.save(queryOptions);
+
+  if (options.syncStorage !== false) {
+    await syncDatabaseToStorage();
+  }
+
+  return cone;
+};
+
+export const deleteHsrCone = async (id, options = {}) => {
+  ensureModelsInitialized();
+  const queryOptions = buildQueryOptions(options);
+  const cone = await HsrCone.findByPk(id, queryOptions);
+  if (!cone) {
+    return false;
+  }
+
+  await cone.destroy(queryOptions);
+  if (options.syncStorage !== false) {
+    await syncDatabaseToStorage();
+  }
+  return true;
+};
+
+export const addHsrRelic = async (payload, options = {}) => {
+  ensureModelsInitialized();
+  const queryOptions = buildQueryOptions(options);
+
+  const typeId = await resolveRelationId(
+    HsrRelicType,
+    payload.typeId,
+    payload.type,
+    'relic type',
+    options,
+  );
+
+  const created = await HsrRelic.create({
+    ...buildCreatePayload(payload, []),
+    name: payload.name,
+    image: resolveImage(payload.image, DEFAULT_HSR_IMAGE),
+    typeId,
+    setName: payload.setName || '',
+    part: payload.part || '',
+  }, queryOptions);
+
+  if (options.syncStorage !== false) {
+    await syncDatabaseToStorage();
+  }
+
+  return created;
+};
+
+export const updateHsrRelic = async (id, payload, options = {}) => {
+  ensureModelsInitialized();
+  const queryOptions = buildQueryOptions(options);
+  const relic = await HsrRelic.findByPk(id, queryOptions);
+  if (!relic) {
+    return null;
+  }
+
+  if (payload.name !== undefined) {
+    relic.name = payload.name;
+  }
+  if (payload.image !== undefined) {
+    relic.image = resolveImage(payload.image, DEFAULT_HSR_IMAGE);
+  }
+  if (payload.typeId !== undefined || payload.type !== undefined) {
+    relic.typeId = await resolveRelationId(
+      HsrRelicType,
+      payload.typeId,
+      payload.type,
+      'relic type',
+      options,
+    );
+  }
+  if (payload.setName !== undefined) {
+    relic.setName = payload.setName;
+  }
+  if (payload.part !== undefined) {
+    relic.part = payload.part;
+  }
+
+  await relic.save(queryOptions);
+
+  if (options.syncStorage !== false) {
+    await syncDatabaseToStorage();
+  }
+
+  return relic;
+};
+
+export const deleteHsrRelic = async (id, options = {}) => {
+  ensureModelsInitialized();
+  const queryOptions = buildQueryOptions(options);
+  const relic = await HsrRelic.findByPk(id, queryOptions);
+  if (!relic) {
+    return false;
+  }
+
+  await relic.destroy(queryOptions);
+  if (options.syncStorage !== false) {
+    await syncDatabaseToStorage();
+  }
+  return true;
+};
+
+const REPLACE_HANDLERS = {
+  agents: {
+    getAll: getAllAgents,
+    create: addAgent,
+    update: updateAgent,
+    remove: deleteAgent,
+  },
+  soundEngines: {
+    getAll: getAllSoundEngines,
+    create: addSoundEngine,
+    update: updateSoundEngine,
+    remove: deleteSoundEngine,
+  },
+  bumbos: {
+    getAll: getAllBumbos,
+    create: addBumbo,
+    update: updateBumbo,
+    remove: deleteBumbo,
+  },
+  driveDisks: {
+    getAll: getAllDriveDisks,
+    create: addDriveDisk,
+    update: updateDriveDisk,
+    remove: deleteDriveDisk,
+  },
+  hsrCharacters: {
+    getAll: getAllHsrCharacters,
+    create: addHsrCharacter,
+    update: updateHsrCharacter,
+    remove: deleteHsrCharacter,
+  },
+  hsrCones: {
+    getAll: getAllHsrCones,
+    create: addHsrCone,
+    update: updateHsrCone,
+    remove: deleteHsrCone,
+  },
+  hsrRelics: {
+    getAll: getAllHsrRelics,
+    create: addHsrRelic,
+    update: updateHsrRelic,
+    remove: deleteHsrRelic,
+  },
+};
+
+const replaceRecordsForType = async (type, items = [], options = {}) => {
+  const handler = REPLACE_HANDLERS[type];
+  if (!handler) {
+    throw new Error(`Unsupported record type: ${type}`);
+  }
+
+  const incomingItems = Array.isArray(items) ? items : [];
+  const existingRecords = await handler.getAll(options);
+  const existingIds = new Set(existingRecords.map((record) => Number(toPlain(record).id)));
+  const incomingIds = new Set(
+    incomingItems
+      .map((item) => normalizeOptionalId(item.id))
+      .filter((id) => id !== undefined),
+  );
+
+  for (const item of incomingItems) {
+    const id = normalizeOptionalId(item.id);
+    if (id && existingIds.has(id)) {
+      await handler.update(id, item, { ...options, syncStorage: false });
+      continue;
+    }
+
+    await handler.create(item, { ...options, syncStorage: false });
+  }
+
+  for (const existingRecord of existingRecords) {
+    const existingId = Number(toPlain(existingRecord).id);
+    if (!incomingIds.has(existingId)) {
+      await handler.remove(existingId, { ...options, syncStorage: false });
+    }
+  }
+};
+
+export const replaceMultipleRecordSets = async (dataMap = {}) => {
+  ensureSequelizeReady();
+
+  const touchedTypes = Object.keys(dataMap);
+  if (touchedTypes.length === 0) {
+    return syncData();
+  }
+
+  for (const type of touchedTypes) {
+    if (!REPLACE_HANDLERS[type]) {
+      throw new Error(`Unsupported record type: ${type}`);
+    }
+  }
+
+  await currentSequelize.transaction(async (transaction) => {
+    for (const type of touchedTypes) {
+      await replaceRecordsForType(type, dataMap[type], { transaction });
+    }
+  });
+
+  return syncDatabaseToStorage();
+};
+
+export const replaceAllRecords = async (type, items = []) => (
+  replaceMultipleRecordSets({ [type]: items })
+);
+
+export {
+  Agent,
+  SoundEngine,
+  Bumbo,
+  DriveDisk,
+  Faction,
+  Role,
+  Rarity,
+  HsrElement,
+  HsrPath,
+  HsrRarity,
+  HsrRelicType,
+  HsrCharacter,
+  HsrCone,
+  HsrRelic,
+  currentSequelize,
 };

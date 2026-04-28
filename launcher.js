@@ -46,7 +46,6 @@ function checkNodeVersion() {
 
 function checkDependencies() {
   const nodeModulesExists = fs.existsSync('node_modules');
-  const packageLockExists = fs.existsSync('package-lock.json');
   
   if (!nodeModulesExists) {
     colorLog('yellow', '📦 需要安装依赖');
@@ -98,7 +97,7 @@ function checkMySQLService() {
     const isWindows = os.platform() === 'win32';
     const command = isWindows ? 'sc query mysql' : 'systemctl is-active mysql';
     
-    exec(command, (error, stdout, stderr) => {
+    exec(command, (error, stdout) => {
       if (error) {
         colorLog('yellow', '⚠️  MySQL 服务状态未知或未运行');
         colorLog('cyan', '提示: 请确保MySQL已安装并启动服务');

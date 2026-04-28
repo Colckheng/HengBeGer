@@ -9,7 +9,7 @@ export const LogLevel = {
   ERROR: 'ERROR',
   WARN: 'WARN',
   INFO: 'INFO',
-  DEBUG: 'DEBUG'
+  DEBUG: 'DEBUG',
 };
 
 /**
@@ -246,7 +246,18 @@ class Logger {
     this.error(`安全事件: ${event}`, {
       type: 'security',
       event,
-      ...details
+      ...details,
+    });
+  }
+
+  /**
+   * 审计日志
+   */
+  auditTrail(event, details = {}) {
+    this.info(`审计事件: ${event}`, {
+      type: 'audit',
+      event,
+      ...details,
     });
   }
 }
@@ -295,6 +306,10 @@ export const logAPI = (req, res, startTime) => {
   logger.api(req.method, req.path, res.statusCode, duration, {
     userAgent: req.get('User-Agent'),
     ip: req.ip,
-    requestId: req.requestId
+    requestId: req.requestId,
   });
+};
+
+export const logAudit = (event, details = {}) => {
+  logger.auditTrail(event, details);
 };

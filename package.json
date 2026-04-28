@@ -18,8 +18,10 @@
     "setup-password": "node setup-mysql-password.js",
     "security-check": "node security-check.js",
     "generate-password": "node security-check.js --generate-password",
+    "restore-storage": "node scripts/restore-storage-backup.js",
+    "cleanup-storage-backups": "node scripts/cleanup-storage-backups.js",
     "test:backend": "cross-env NODE_ENV=test NODE_OPTIONS=--experimental-vm-modules jest",
-    "test:frontend": "vitest run src/**/*.test.{js,jsx,ts,tsx} --environment jsdom",
+    "test:frontend": "vitest run src --environment jsdom",
     "test": "npm run test:backend && npm run test:frontend"
   },
   "dependencies": {

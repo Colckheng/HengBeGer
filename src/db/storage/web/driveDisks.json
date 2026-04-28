@@ -1,80 +1,64 @@
 {
-  "version": "1.0.0",
-  "lastUpdated": "2025-12-02T15:47:59.029Z",
+  "version": "2.0.0",
+  "lastUpdated": "2026-04-08T01:47:56.494Z",
   "dataType": "driveDisks",
-  "count": 10,
+  "count": 9,
   "source": "web",
   "data": [
     {
       "id": 1,
       "name": "啄木鸟电音",
-      "image": "/assets/zzz.jpg",
-      "createdAt": "2025-11-17T07:02:18.000Z",
-      "updatedAt": "2025-11-17T07:02:18.000Z"
+      "description": "",
+      "image": "/assets/zzz.jpg"
     },
     {
       "id": 2,
       "name": "河豚电音",
-      "image": "/assets/zzz.jpg",
-      "createdAt": "2025-11-17T07:02:18.000Z",
-      "updatedAt": "2025-11-17T07:02:18.000Z"
+      "description": "",
+      "image": "/assets/zzz.jpg"
     },
     {
       "id": 3,
       "name": "激素朋克",
-      "image": "/assets/zzz.jpg",
-      "createdAt": "2025-11-17T07:02:18.000Z",
-      "updatedAt": "2025-11-17T07:02:18.000Z"
+      "description": "",
+      "image": "/assets/zzz.jpg"
     },
     {
       "id": 4,
       "name": "摇摆爵士",
-      "image": "/assets/zzz.jpg",
-      "createdAt": "2025-11-17T07:02:18.000Z",
-      "updatedAt": "2025-11-17T07:02:18.000Z"
+      "description": "",
+      "image": "/assets/zzz.jpg"
     },
     {
       "id": 5,
       "name": "震星迪斯科",
-      "image": "/assets/zzz.jpg",
-      "createdAt": "2025-11-17T07:02:18.000Z",
-      "updatedAt": "2025-11-17T07:02:18.000Z"
+      "description": "",
+      "image": "/assets/zzz.jpg"
     },
     {
       "id": 6,
       "name": "混沌重金属",
-      "image": "/assets/zzz.jpg",
-      "createdAt": "2025-11-17T07:02:18.000Z",
-      "updatedAt": "2025-11-17T07:02:18.000Z"
+      "description": "",
+      "image": "/assets/zzz.jpg"
     },
     {
       "id": 7,
       "name": "獠牙重金属",
-      "image": "/assets/zzz.jpg",
-      "createdAt": "2025-11-17T07:02:18.000Z",
-      "updatedAt": "2025-11-17T07:02:18.000Z"
+      "description": "",
+      "image": "/assets/zzz.jpg"
     },
     {
       "id": 8,
       "name": "雷暴重金属",
-      "image": "/assets/zzz.jpg",
-      "createdAt": "2025-11-17T07:02:18.000Z",
-      "updatedAt": "2025-11-17T07:02:18.000Z"
+      "description": "",
+      "image": "/assets/zzz.jpg"
     },
     {
       "id": 9,
       "name": "炎狱重金属",
-      "image": "/assets/zzz.jpg",
-      "createdAt": "2025-11-17T07:02:18.000Z",
-      "updatedAt": "2025-11-17T07:02:18.000Z"
-    },
-    {
-      "id": 10,
-      "name": "测试驱动盘Q",
-      "image": "/assets/zzz.jpg",
-      "createdAt": "2025-11-17T08:15:54.000Z",
-      "updatedAt": "2025-11-17T08:15:54.000Z"
+      "description": "",
+      "image": "/assets/zzz.jpg"
     }
   ],
-  "lastSyncFromAdmin": "2025-12-02T15:47:59.029Z"
+  "lastSyncFromRoot": "2026-04-08T01:47:56.494Z"
 }

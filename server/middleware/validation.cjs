@@ -236,7 +236,7 @@ const validateId = (req, res, next) => {
 // 数据类型验证中间件
 const validateDataType = (req, res, next) => {
   try {
-    const allowedTypes = ['agents', 'factions', 'soundEngines', 'bumbos', 'driveDisks', 'hsrCharacters', 'hsrCones', 'hsrRelics'];
+    const allowedTypes = ['agents', 'soundEngines', 'bumbos', 'driveDisks', 'hsrCharacters', 'hsrCones', 'hsrRelics'];
     const type = validators.isEnum(req.params.type, allowedTypes, '数据类型');
     req.params.type = type;
     next();

@@ -50,6 +50,7 @@ Thumbs.db
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
+.vs/
 .idea
 *.suo
 *.ntvs*
@@ -62,6 +63,7 @@ pids
 *.pid
 *.seed
 *.pid.lock
+backup_storage/
 
 # Coverage directory used by tools like istanbul
 coverage

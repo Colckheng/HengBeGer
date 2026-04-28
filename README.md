@@ -1,484 +1,200 @@
-# HengBeGer 绝区零图鉴应用
+# HengBeGer
 
-<div align="center">
+HengBeGer 是一个 React + Express + MySQL 的游戏资料站项目，当前包含两套公开 Wiki 和一套管理员能力：
 
-![React](https://img.shields.io/badge/React-19.0-blue?logo=react)
-![Node.js](https://img.shields.io/badge/Node.js-16+-green?logo=node.js)
-![MySQL](https://img.shields.io/badge/MySQL-5.7+-orange?logo=mysql)
-![Express](https://img.shields.io/badge/Express-4.x-lightgrey?logo=express)
-![Vite](https://img.shields.io/badge/Vite-5.x-purple?logo=vite)
+- 绝区零（ZZZ）资料页与管理页
+- 崩坏：星穹铁道（HSR）资料页与管理页
+- 管理员登录、鉴权、数据写入、公开数据同步
 
-**一个现代化的绝区零游戏图鉴管理系统**
+当前代码以 MySQL 为唯一事实源。管理员写操作直接落数据库，再串行刷新 root storage 和 web storage；公开列表页优先走分页 API，详情页和管理链路仍可读取快照数据。
 
-[功能特性](#功能特性) • [快速开始](#快速开始) • [技术架构](#技术栈) • [API文档](#api设计) • [部署指南](#部署指南)
+## 当前状态
 
-</div>
+- 前端：Vite + React 19
+- 后端：Express 5
+- 数据库：MySQL + Sequelize
+- 鉴权：管理员密码登录，支持 Cookie 会话与签名 Session Token
+- 公开列表：ZZZ / HSR 都已接入分页与筛选 API
+- 管理链路：已补齐同步串行队列、备份恢复、备份清理、统一错误提示、上传图片校验
+- 可追踪性：管理员登录、退出、CRUD、staging 发布、storage 重建都会记录审计事件
+- 健康检查：
+  - `GET /health/live`
+  - `GET /health/ready`
 
-## 项目介绍
+## 主要入口
 
-HengBeGer 是一个基于 **React 19 + Express.js + MySQL** 的全栈绝区零游戏图鉴应用。采用现代化的前后端分离架构，提供代理人、音擎、邦布和驱动盘等游戏元素的**展示、管理、筛选**功能。
-
-### 🎯 核心亮点
-- **双存储架构**: 管理员端与用户端数据分离，确保数据安全
-- **智能关联**: 自动处理阵营、职业、稀有度等关联数据
-- **响应式设计**: 完美适配桌面端、平板、手机等多种设备
-- **实时同步**: 数据库与文件存储双重保障，操作即时生效
-
-## 功能特性
-
-### 🎮 游戏数据管理
-- **代理人管理**: 支持添加、编辑、删除代理人信息（属性、阵营、职业、稀有度）
-- **音擎管理**: 音擎数据的完整CRUD操作，支持职业适配
-- **邦布管理**: 邦布信息管理，稀有度分类
-- **驱动盘管理**: 驱动盘数据维护
-
-### 🔍 智能筛选系统
-- **多维度筛选**: 按职业（攻击/防御/异常/支援/穿透）、属性（物理/火/冰/电/以太）、阵营、稀有度筛选
-- **组合筛选**: 支持多条件组合筛选，精确定位目标数据
-- **实时过滤**: 筛选条件变更即时生效，无需刷新页面
-
-### 💻 用户体验
-- **📱 响应式设计**: 移动端、平板、桌面端完美适配
-- **🎨 现代化UI**: 简洁美观的界面设计，符合现代审美
-- **⚡ 快速响应**: 优化的数据加载和渲染性能
-- **🔄 实时更新**: 数据变更即时反映到界面
-
-### 🛡️ 数据安全
-- **双存储机制**: 数据库 + 文件存储双重保障
-- **自动备份**: 关键操作自动创建数据备份
-- **权限分离**: 管理员端与用户端数据隔离
-- **错误恢复**: 完善的错误处理和数据恢复机制
-
-## 技术栈
-- **前端**: React 19 + Vite + React Router
-- **后端**: Node.js + Express
-- **数据库**: MySQL + Sequelize ORM
-- **样式**: CSS3 + 响应式设计
-- **开发工具**: ESLint + 热重载
-
-## 环境要求
-- Node.js (>=16.0.0)
-- MySQL (>=5.7.0)
-- npm 或 yarn
+- 首页：`/`
+- ZZZ Wiki：`/zzz-wiki`
+- ZZZ 管理页：`/zzz-wiki/admin`
+- HSR Wiki：`/hsr-wiki`
+- HSR 管理页：`/hsr-wiki/admin`
 
 ## 快速开始
 
-### 📋 环境要求
-- **Node.js**: >= 16.0.0
-- **MySQL**: >= 5.7.0
-- **npm**: >= 7.0.0 或 yarn >= 1.22.0
-
-### 🚀 一键启动（推荐）
+### 1. 安装依赖
 
 ```bash
-# 1. 克隆项目
-git clone https://github.com/yourusername/HengBeGer.git
-cd HengBeGer
-
-# 2. 智能启动器（自动处理依赖安装、环境配置、数据库初始化）
-npm run launch
-```
-
-**智能启动器特性**:
-- ✅ 自动检查 Node.js 版本
-- ✅ 自动安装项目依赖
-- ✅ 自动创建环境配置文件
-- ✅ 自动检查 MySQL 服务状态
-- ✅ 自动初始化数据库
-- ✅ 同时启动前后端服务
-
-### 🔧 手动安装（高级用户）
-
-<details>
-<summary>点击展开手动安装步骤</summary>
-
-#### 1. 克隆项目
-```bash
-git clone https://github.com/yourusername/HengBeGer.git
-cd HengBeGer
-```
-
-#### 2. 安装依赖
-```bash
-# 使用 npm
 npm install
-
-# 或使用 yarn
-yarn install
-
-# 如果遇到依赖冲突，使用
-npm install --legacy-peer-deps
 ```
 
-#### 3. 配置环境变量
-```bash
-# 复制环境变量模板
-cp .env.example .env
+### 2. 配置环境变量
 
-# 编辑 .env 文件，设置MySQL密码
-# DB_PASSWORD=your_mysql_password_here
+复制 `.env.example` 为 `.env`，至少补齐下面几项：
+
+```env
+DB_HOST=localhost
+DB_PORT=3306
+DB_USER=root
+DB_PASSWORD=your_mysql_password
+DB_NAME=hengbeger
+
+ADMIN_PASSWORD=change_this_admin_password
+AUTH_SECRET=change_this_auth_secret
+
+PORT=3001
+NODE_ENV=development
+INIT_DB=false
+DB_AUTO_ALTER=false
+CORS_ORIGINS=http://localhost:5173
+VITE_API_BASE_URL=/api
 ```
 
-#### 4. 数据库设置
-```bash
-# 确保MySQL服务运行
-# Windows: net start mysql
-# macOS: brew services start mysql
-# Linux: sudo systemctl start mysql
+说明：
 
-# 创建数据库
-mysql -u root -p -e "CREATE DATABASE HengBeGer;"
-```
+- `DB_PASSWORD` 必填，项目已经移除了隐式 SQLite 回退。
+- `ADMIN_PASSWORD` 和 `AUTH_SECRET` 必填，否则管理员登录不可用。
+- `DB_AUTO_ALTER=true` 只建议在本地开发环境临时开启，用于修补历史表结构漂移。
+- `VITE_API_BASE_URL=/api` 适合同源或 Vite 代理开发模式。
 
-#### 5. 初始化数据库
+### 3. 初始化数据库
+
 ```bash
 npm run init-db
 ```
 
-#### 6. 启动服务
+### 4. 启动项目
+
 ```bash
-# 方式一：同时启动前后端
 npm start
-
-# 方式二：分别启动
-npm run server  # 后端服务 (端口 3001)
-npm run dev     # 前端服务 (端口 5173)
 ```
 
-</details>
+或分别启动：
 
-### 🌐 访问应用
-
-启动成功后，在浏览器中访问：
-
-- **前端应用**: http://localhost:5173
-- **后端API**: http://localhost:3001
-- **健康检查**: http://localhost:3001/health
-
-### 📱 功能导航
-
-- **首页** (`/`): 浏览所有游戏数据，支持筛选和搜索
-- **管理面板** (`/zzz-wiki/admin`): 添加、编辑、删除游戏数据（管理员功能）
-
-## 数据库连接问题故障排除
-
-如果您遇到数据库连接问题，特别是`Access denied for user 'root'@'localhost'`错误，请尝试以下解决方案：
-
-### 1. 检查MySQL服务器状态
-确保MySQL服务器正在运行：
 ```bash
-# Windows
-net start mysql
-
-# macOS
-brew services start mysql
-
-# Linux
-sudo systemctl status mysql
+npm run server
+npm run dev
 ```
 
-### 2. 检查root用户权限
-登录MySQL并检查root用户的权限：
+默认端口：
+
+- 前端：`5173`
+- 后端：`3001`
+
+如果 `5173` 被占用，可以手动换端口：
+
 ```bash
-mysql -u root -p
-
-# 查看用户权限
-SELECT user, host FROM mysql.user;
-# 确保有'root'@'localhost'用户存在
+npm run dev -- --port 5174
 ```
 
-### 3. 重置root密码
-如果您忘记了root密码，可以重置它：
+## 常用命令
+
 ```bash
-# 停止MySQL服务
-# Windows
-net stop mysql
-
-# 以安全模式启动
-mysqld --skip-grant-tables
-
-# 另开一个终端窗口
-mysql -u root
-
-# 更新密码
-USE mysql;
-ALTER USER 'root'@'localhost' IDENTIFIED BY 'new_password';
-FLUSH PRIVILEGES;
-
-# 重启MySQL服务
+npm run dev
+npm run server
+npm run init-db
+npm run lint
+npm test
+npm run build
+npm run setup-password
+npm run security-check
+npm run restore-storage -- --type agents --file src/db/storage/backup/agents_xxx.json
+npm run cleanup-storage-backups -- --dry-run
 ```
 
-### 4. 创建新用户
-如果root用户无法访问，可以创建一个新用户并授予权限：
-```bash
-mysql -u root -p
+说明：
 
-# 创建新用户
-CREATE USER 'hengbeger'@'localhost' IDENTIFIED BY 'your_password';
+- `restore-storage` 只恢复 storage 快照，不会回滚 MySQL 数据。
+- 当前建议只在 root storage 文件损坏、丢失或误覆盖时使用。
+- `cleanup-storage-backups` 默认按备份前缀分组，每组保留最近 10 份；建议先用 `--dry-run` 预演。
 
-# 授予权限
-GRANT ALL PRIVILEGES ON HengBeGer.* TO 'hengbeger'@'localhost';
-FLUSH PRIVILEGES;
-```
+## 管理员工作流
 
-然后修改`src/db/config.js`文件，使用新创建的用户：
-```javascript
-export const dbConfig = {
-  database: 'HengBeGer',
-  username: 'hengbeger', // 使用新用户名
-  password: process.env.DB_PASSWORD || 'your_password', // 使用新密码
-  host: 'localhost',
-  dialect: 'mysql',
-  port: 3306,
-};
-```
+### 登录
 
-## 📁 项目结构
+前端管理页会请求：
 
-```
-HengBeGer/
-├── 📂 src/                     # 前端源码
-│   ├── 📂 components/          # React 组件
-│   │   ├── 🎮 ZZZWiki.jsx     # 主展示组件 - 游戏数据展示
-│   │   ├── 🔍 Filter.jsx      # 筛选组件 - 多维度筛选
-│   │   └── ⚙️ AdminPanel.jsx  # 管理面板 - CRUD 操作
-│   ├── 📂 context/
-│   │   └── 🔄 DataContext.jsx # 全局数据上下文
-│   ├── 📂 db/                  # 数据库层
-│   │   ├── 🌐 api.js          # API 接口层
-│   │   ├── 💾 dualStorageManager.js # 双存储管理器
-│   │   ├── 📂 models/         # Sequelize 数据模型
-│   │   │   ├── agent.js       # 代理人模型
-│   │   │   ├── soundEngine.js # 音擎模型
-│   │   │   ├── bumbo.js       # 邦布模型
-│   │   │   ├── driveDisk.js   # 驱动盘模型
-│   │   │   ├── faction.js     # 阵营模型
-│   │   │   ├── role.js        # 角色模型
-│   │   │   └── rarity.js      # 稀有度模型
-│   │   └── ⚙️ config.js       # 数据库配置
-│   ├── 📂 styles/             # 样式文件
-│   │   └── index.css          # 全局样式
-│   ├── 🚀 main.jsx            # 应用入口
-│   └── 📱 App.jsx             # 根组件
-├── 📂 server/                  # 后端服务
-│   └── 🖥️ index.js            # Express 服务器
-├── 📂 public/                  # 静态资源
-│   ├── 🖼️ images/             # 游戏图片资源
-│   └── 📄 index.html          # HTML 模板
-├── 📂 scripts/                 # 工具脚本
-│   ├── 🔧 launcher.js         # 智能启动器
-│   ├── 💾 initDatabase.js     # 数据库初始化
-│   └── 📊 seedData.js         # 种子数据
-├── 📄 .env.example            # 环境变量模板
-├── 📄 package.json            # 项目配置
-├── 📄 vite.config.js          # Vite 配置
-├── 📚 README.md               # 项目说明
-├── 📂 docs/                   # 项目文档目录
-│   ├── 01-architecture.md     # 架构文档
-│   ├── 02-detailed-architecture.md # 详细架构分析
-│   ├── 03-project-analysis.md # 项目分析
-│   ├── 04-quick-start.md      # 快速开始
-│   ├── 05-startup-guide.md    # 启动指南
-│   ├── 06-deployment.md       # 部署指南
-│   ├── 07-troubleshooting.md  # 故障排除
-│   ├── 08-storage-implementation.md # 存储实现
-│   ├── 09-code-review-findings.md   # 代码评审记录
-│   └── 09-improvements-summary.md   # 改进总结
-```
+- `GET /api/auth/session`
+- `POST /api/auth/session`
+- `DELETE /api/auth/session`
 
-### 🔍 核心目录说明
+登录成功后：
 
-| 目录/文件 | 功能描述 | 技术栈 |
-|-----------|----------|--------|
-| `src/components/` | React 组件库 | React 19, JSX |
-| `src/context/` | 全局状态管理 | React Context API |
-| `src/db/` | 数据访问层 | Sequelize ORM, MySQL |
-| `server/` | 后端 API 服务 | Express.js, Node.js |
-| `scripts/` | 自动化脚本 | Node.js |
-| `public/images/` | 游戏资源文件 | 静态文件服务 |
+- 同源部署优先使用 HttpOnly Cookie
+- 分域部署可回退使用签名 Session Token
 
-## 🎯 功能说明
+### 数据流
 
-### 🎮 游戏数据管理
+1. 管理员在管理页新增、编辑、删除内容
+2. 后端先写入 MySQL
+3. 同步任务进入单进程序列队列
+4. 后端重建 root storage 和 web storage
+5. 公开 Wiki 详情页或兼容链路可从 `GET /api/dual-storage/web/data` 读取快照
 
-| 数据类型 | 功能特性 | 支持操作 |
-|----------|----------|----------|
-| **代理人 (Agents)** | 角色信息、技能描述、阵营归属 | 查看、筛选、CRUD |
-| **音擎 (Sound Engines)** | 装备属性、稀有度分级 | 查看、筛选、CRUD |
-| **邦布 (Bumbos)** | 宠物信息、技能效果 | 查看、筛选、CRUD |
-| **驱动盘 (Drive Disks)** | 装备套装、属性加成 | 查看、筛选、CRUD |
+兼容性的 legacy staging 接口仍然保留，但发布动作现在也会通过数据库事务完成，不再允许只改 JSON 不改数据库。
 
-### 🔍 智能筛选系统
+## 公开与管理 API
 
-- **多维度筛选**: 阵营、角色、稀有度、类型等
-- **实时搜索**: 支持名称模糊匹配
-- **组合筛选**: 多个条件同时生效
-- **筛选状态保持**: 页面刷新后保持筛选状态
+### 健康检查
 
-### 👤 用户体验
+- `GET /health/live`
+- `GET /health/ready`
 
-- **响应式设计**: 完美适配桌面端、平板、手机
-- **现代化UI**: Material Design 风格界面
-- **流畅动画**: 平滑的页面切换和数据加载
-- **直观操作**: 简洁明了的用户界面
+### 管理员会话
 
-### 🔒 数据安全
+- `GET /api/auth/session`
+- `POST /api/auth/session`
+- `DELETE /api/auth/session`
 
-- **双存储架构**: 网页端和管理员端数据分离
-- **自动备份**: 数据修改时自动创建备份
-- **版本控制**: 支持数据版本管理
-- **权限控制**: 管理功能需要特定权限
+### 公开读取
 
-## ⚠️ 注意事项
+- `GET /api/base-data`
+- `GET /api/hsr/base-data`
+- `GET /api/dual-storage/web/data`
+- `GET /api/agents/list`
+- `GET /api/sound-engines/list`
+- `GET /api/bumbos/list`
+- `GET /api/drive-disks/list`
+- `GET /api/hsr/characters/list`
+- `GET /api/hsr/cones/list`
+- `GET /api/hsr/relics/list`
 
-### 🔧 环境配置
-- **MySQL 密码**: 确保 `.env` 文件中正确设置数据库密码
-- **端口冲突**: 默认端口 3001(后端) 和 5173(前端)，如有冲突请修改配置
-- **Node.js 版本**: 建议使用 Node.js 16+ 版本
+分页接口统一支持 `limit` / `offset`，并按业务类型支持多值筛选参数，例如 `factionIds`、`roleIds`、`rarityIds`、`elementIds`、`pathIds`、`typeIds`、`parts`。
 
-#### 环境变量补充
-- **静音安全提示**: 如需在开发环境关闭弱密码提示，设置 `SECURITY_SILENCE=true`
-- **初始化门禁**: 仅在开发或显式设置 `INIT_DB=true` 时执行破坏性初始化；生产使用非破坏性 `sync({ alter: true })`
+### 写接口
 
-### 📁 文件管理
-- **图片资源**: 游戏图片应放置在 `public/images/` 目录
-- **数据备份**: 系统会自动备份，也建议手动定期备份
-- **日志文件**: 查看 `logs/` 目录了解系统运行状态
+以下写接口都要求管理员认证：
 
-### 🚀 性能优化
-- **首次启动**: 初次运行可能需要较长时间进行数据库初始化
-- **图片加载**: 大量图片可能影响加载速度，建议优化图片大小
-- **数据量**: 大数据量时建议启用分页功能
+- `/api/agents`
+- `/api/sound-engines`
+- `/api/bumbos`
+- `/api/drive-disks`
+- `/api/hsr/characters`
+- `/api/hsr/cones`
+- `/api/hsr/relics`
+- `/api/storage/*`
+- `/api/dual-storage/admin/*`
+- `/api/dual-storage/sync`
 
-### 📜 使用条款
-- 本项目仅供学习和交流使用
-- 请勿将本项目用于商业用途
-- 图片资源默认使用`zzz.jpg`，请根据实际情况替换
+## 文档导航
 
-## 📜 开发脚本
+- [文档索引](./docs/README.md)
+- [快速开始](./docs/04-quick-start.md)
+- [管理员工作流](./docs/11-admin-workflow.md)
+- [实施路线图](./docs/14-implementation-roadmap.md)
+- [无用文件审计](./docs/13-unused-files-audit.md)
 
-### 🚀 启动命令
-```bash
-# 🎯 智能启动器（推荐）
-npm run launch          # 自动检查环境并启动所有服务
+## 注意事项
 
-# 🔄 标准启动
-npm start              # 同时启动前后端服务
-npm run dev            # 仅启动前端开发服务器
-npm run server         # 仅启动后端 API 服务
-```
-
-### 🛠️ 开发工具
-```bash
-# 📦 依赖管理
-npm install            # 安装项目依赖
-npm update             # 更新依赖包
-npm audit fix          # 修复安全漏洞
-
-# 🏗️ 构建部署
-npm run build          # 生产环境构建
-npm run preview        # 预览生产构建
-```
-
-### 💾 数据库操作
-```bash
-# 🔧 数据库管理
-npm run init-db        # 初始化数据库结构
-npm run seed-data      # 导入种子数据
-npm run reset-db       # 重置数据库（谨慎使用）
-
-# 📊 数据备份
-npm run backup-db      # 手动备份数据库
-npm run restore-db     # 从备份恢复数据库
-```
-
-### 🧪 测试与检查
-```bash
-# ✅ 代码质量
-npm run lint           # 代码风格检查
-npm run test           # 运行单元测试
-npm run test:coverage  # 测试覆盖率报告
-
-# 🔍 系统检查
-npm run health-check   # 系统健康检查
-npm run check-deps     # 依赖版本检查
-```
-
-## 📚 项目文档
-
-### 📖 完整文档列表
-
-| 序号 | 文档名称 | 描述 | 适合人群 |
-|------|----------|------|----------|
-| 01 | [架构文档](./docs/01-architecture.md) | 系统技术架构和设计说明 | 技术负责人、架构师 |
-| 02 | [详细架构分析](./docs/02-detailed-architecture.md) | 深入的代码架构和数据流分析 | 开发者、架构师 |
-| 03 | [项目分析报告](./docs/03-project-analysis.md) | 项目问题分析和解决方案 | 项目经理、开发者 |
-| 04 | [快速开始指南](./docs/04-quick-start.md) | 项目快速上手教程 | 新手用户 |
-| 05 | [启动指南](./docs/05-startup-guide.md) | 详细的项目启动说明 | 所有用户 |
-| 06 | [部署指南](./docs/06-deployment.md) | 生产环境部署说明 | 运维人员、开发者 |
-| 07 | [故障排除](./docs/07-troubleshooting.md) | 常见问题和解决方案（含数据显示修复） | 所有用户 |
-| 08 | [存储实现](./docs/08-storage-implementation.md) | 双存储系统实现细节 | 开发者 |
-| 09 | [改进总结](./docs/09-improvements-summary.md) | 项目改进和优化记录 | 项目经理、开发者 |
-
-### 📋 文档分类
-
-#### 🚀 快速上手
-- **[快速开始指南](./docs/04-quick-start.md)** - 5分钟快速体验项目
-- **[启动指南](./docs/05-startup-guide.md)** - 详细的安装和启动步骤
-
-#### 🏗️ 技术架构
-- **[架构文档](./docs/01-architecture.md)** - 系统整体架构设计
-- **[详细架构分析](./docs/02-detailed-architecture.md)** - 代码层面的深入分析
-- **[存储实现](./docs/08-storage-implementation.md)** - 双存储系统技术细节
-
-#### 📊 项目管理
-- **[项目分析报告](./docs/03-project-analysis.md)** - 项目现状和问题分析
-- **[改进总结](./docs/09-improvements-summary.md)** - 项目优化和改进记录
-
-#### 🛠️ 运维部署
-- **[部署指南](./docs/06-deployment.md)** - 生产环境部署流程
-- **[故障排除](./docs/07-troubleshooting.md)** - 常见问题解决方案和数据显示修复指南
-
-#### 👩‍💻 管理员工作流
-- **[管理员工作流](./docs/11-admin-workflow.md)** - 双存储与“添加/删除→自动同步”说明
-- **[开发规范](./docs/10-dev-guidelines.md)** - 项目开发规范与最佳实践
-
-#### 🔍 代码评估
-- **[代码评估报告](./docs/12-code-review.md)** - 问题清单与改进建议（P0/P1/P2）
-
-## 🤝 贡献指南
-
-我们欢迎任何形式的贡献！请遵循以下步骤：
-
-1. **Fork** 本仓库
-2. **创建** 功能分支 (`git checkout -b feature/AmazingFeature`)
-3. **提交** 更改 (`git commit -m 'Add some AmazingFeature'`)
-4. **推送** 到分支 (`git push origin feature/AmazingFeature`)
-5. **创建** Pull Request
-
-### 🐛 问题反馈
-
-如果您发现了 bug 或有功能建议，请：
-- 查看 [Issues](https://github.com/yourusername/HengBeGer/issues) 是否已有相关问题
-- 创建新的 Issue 并详细描述问题
-- 提供复现步骤和环境信息
-
-## 📄 许可证
-
-本项目采用 MIT 许可证 - 查看 [LICENSE](LICENSE) 文件了解详情
-
-## 🙏 致谢
-
-- 感谢 [绝区零](https://zzz.mihoyo.com/) 提供的游戏内容
-- 感谢所有贡献者的努力
-- 感谢开源社区的支持
-
----
-
-<div align="center">
-
-**⭐ 如果这个项目对您有帮助，请给我们一个 Star！⭐**
-
-[🏠 首页](https://github.com/yourusername/HengBeGer) • [📖 文档](./docs/02-detailed-architecture.md) • [🐛 问题反馈](https://github.com/yourusername/HengBeGer/issues) • [💬 讨论](https://github.com/yourusername/HengBeGer/discussions)
-
-</div>
+- 生产环境不要默认开启 `DB_AUTO_ALTER=true`
+- 生产环境必须显式配置 `CORS_ORIGINS`
+- 本仓库内的 `src/db/storage/backup/`、`backup_storage/`、`dist/` 都属于生成产物或历史备份，提交前建议检查

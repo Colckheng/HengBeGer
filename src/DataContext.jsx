@@ -1,431 +1,290 @@
-import React, { createContext, useState, useContext, useEffect } from 'react';
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
+import { useLocation } from 'react-router-dom';
 
-// 创建数据上下文
-const DataContext = createContext();
+import apiClient from './api/client.js';
+import { getApiErrorMessage } from './utils/apiError.js';
 
-// API基础URL - 在开发环境中使用相对路径以利用Vite代理
-const API_BASE_URL = import.meta.env.DEV ? '/api' : 'http://localhost:3001/api';
+const DataContext = createContext(undefined);
 
-// API服务函数
-const apiService = {
-  // 获取所有数据
-  fetchData: async () => {
-    try {
-      const response = await fetch(`${API_BASE_URL}/dual-storage/web/data`);
-      if (!response.ok) throw new Error('网络响应异常');
-      const result = await response.json();
-      if (result.success) {
-        const normalize = (v) => {
-          if (!v) return [];
-          if (Array.isArray(v)) return v;
-          if (typeof v === 'object' && Array.isArray(v.data)) return v.data;
-          return [];
-        };
-        const flattenedData = {
-          agents: normalize(result.data.agents),
-          soundEngines: normalize(result.data.soundEngines),
-          bumbos: normalize(result.data.bumbos),
-          driveDisks: normalize(result.data.driveDisks),
-          hsrCharacters: normalize(result.data.hsrCharacters),
-          hsrCones: normalize(result.data.hsrCones),
-          hsrRelics: normalize(result.data.hsrRelics)
-        };
-        return flattenedData;
-      } else {
-        throw new Error(result.message || '获取数据失败');
-      }
-    } catch (error) {
-      throw error;
-    }
+const ERROR_MESSAGES = {
+  loadData: '\u52a0\u8f7d\u6570\u636e\u5931\u8d25\u3002',
+  addAgent: '\u6dfb\u52a0\u4ee3\u7406\u4eba\u5931\u8d25\u3002',
+  updateAgent: '\u66f4\u65b0\u4ee3\u7406\u4eba\u5931\u8d25\u3002',
+  deleteAgent: '\u5220\u9664\u4ee3\u7406\u4eba\u5931\u8d25\u3002',
+  addSoundEngine: '\u6dfb\u52a0\u97f3\u64ce\u5931\u8d25\u3002',
+  updateSoundEngine: '\u66f4\u65b0\u97f3\u64ce\u5931\u8d25\u3002',
+  deleteSoundEngine: '\u5220\u9664\u97f3\u64ce\u5931\u8d25\u3002',
+  addBumbo: '\u6dfb\u52a0\u90a6\u5e03\u5931\u8d25\u3002',
+  updateBumbo: '\u66f4\u65b0\u90a6\u5e03\u5931\u8d25\u3002',
+  deleteBumbo: '\u5220\u9664\u90a6\u5e03\u5931\u8d25\u3002',
+  addDriveDisk: '\u6dfb\u52a0\u9a71\u52a8\u76d8\u5931\u8d25\u3002',
+  updateDriveDisk: '\u66f4\u65b0\u9a71\u52a8\u76d8\u5931\u8d25\u3002',
+  deleteDriveDisk: '\u5220\u9664\u9a71\u52a8\u76d8\u5931\u8d25\u3002',
+  addHsrCharacter: '\u6dfb\u52a0\u89d2\u8272\u5931\u8d25\u3002',
+  updateHsrCharacter: '\u66f4\u65b0\u89d2\u8272\u5931\u8d25\u3002',
+  deleteHsrCharacter: '\u5220\u9664\u89d2\u8272\u5931\u8d25\u3002',
+  addHsrCone: '\u6dfb\u52a0\u5149\u9525\u5931\u8d25\u3002',
+  updateHsrCone: '\u66f4\u65b0\u5149\u9525\u5931\u8d25\u3002',
+  deleteHsrCone: '\u5220\u9664\u5149\u9525\u5931\u8d25\u3002',
+  addHsrRelic: '\u6dfb\u52a0\u9057\u5668\u5931\u8d25\u3002',
+  updateHsrRelic: '\u66f4\u65b0\u9057\u5668\u5931\u8d25\u3002',
+  deleteHsrRelic: '\u5220\u9664\u9057\u5668\u5931\u8d25\u3002',
+};
+
+const createEmptyData = () => ({
+  agents: [],
+  soundEngines: [],
+  bumbos: [],
+  driveDisks: [],
+  hsrCharacters: [],
+  hsrCones: [],
+  hsrRelics: [],
+});
+
+const createEmptyBaseData = () => ({
+  factions: [],
+  roles: [],
+  rarities: [],
+  hsr: {
+    elements: [],
+    paths: [],
+    rarities: [],
+    relicTypes: [],
+    relicParts: [],
   },
+});
 
-  // 获取基础数据（factions、roles、rarities）
-  fetchBaseData: async () => {
-    try {
-      const zzzResp = await fetch(`${API_BASE_URL}/base-data`)
-      if (!zzzResp.ok) throw new Error('获取ZZZ基础数据失败')
-      let hsr = { elements: [], paths: [], rarities: [], relicTypes: [], relicParts: [] }
-      try {
-        const hsrResp = await fetch(`${API_BASE_URL}/hsr/base-data`)
-        if (hsrResp.ok) hsr = await hsrResp.json()
-      } catch {}
-      const zzz = await zzzResp.json()
-      return { ...zzz, hsr }
-    } catch (error) {
-      throw error;
-    }
-  },
-
-  // 代理人相关API
-  addAgent: async (agent) => {
-    try {
-      const response = await fetch(`${API_BASE_URL}/agents`, {
-        method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json; charset=utf-8'
-        },
-        body: JSON.stringify(agent)
-      });
-      
-      if (!response.ok) {
-        throw new Error(`添加代理人失败: ${response.status} ${response.statusText}`);
-      }
-      
-      const result = await response.json();
-      return result;
-    } catch (error) {
-      throw error;
-    }
-  },
-
-  updateAgent: async (id, agent) => {
-    try {
-      const response = await fetch(`${API_BASE_URL}/agents/${id}`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(agent)
-      });
-      if (!response.ok) throw new Error('更新代理人失败');
-      return await response.json();
-    } catch (error) {
-      throw error;
-    }
-  },
-
-  deleteAgent: async (id) => {
-    try {
-      const response = await fetch(`${API_BASE_URL}/agents/${id}`, {
-        method: 'DELETE'
-      });
-      if (!response.ok) {
-        const text = await response.text();
-        throw new Error(`删除代理人失败: ${response.status} ${text}`);
-      }
-      return true;
-    } catch (error) {
-      throw error;
-    }
-  },
-
-  // 音擎相关API
-  addSoundEngine: async (engine) => {
-    try {
-      const response = await fetch(`${API_BASE_URL}/sound-engines`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(engine)
-      });
-      if (!response.ok) throw new Error('添加音擎失败');
-      return await response.json();
-    } catch (error) {
-      throw error;
-    }
-  },
-
-  updateSoundEngine: async (id, engine) => {
-    try {
-      const response = await fetch(`${API_BASE_URL}/sound-engines/${id}`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(engine)
-      });
-      if (!response.ok) throw new Error('更新音擎失败');
-      return await response.json();
-    } catch (error) {
-      throw error;
-    }
-  },
-
-  deleteSoundEngine: async (id) => {
-    try {
-      const response = await fetch(`${API_BASE_URL}/sound-engines/${id}`, {
-        method: 'DELETE'
-      });
-      if (!response.ok) throw new Error('删除音擎失败');
-      return true;
-    } catch (error) {
-      throw error;
-    }
-  },
-
-  // 邦布相关API
-  addBumbo: async (bumbo) => {
-    try {
-      const response = await fetch(`${API_BASE_URL}/bumbos`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(bumbo)
-      });
-      if (!response.ok) throw new Error('添加邦布失败');
-      return await response.json();
-    } catch (error) {
-      throw error;
-    }
-  },
-
-  updateBumbo: async (id, bumbo) => {
-    try {
-      const response = await fetch(`${API_BASE_URL}/bumbos/${id}`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(bumbo)
-      });
-      if (!response.ok) throw new Error('更新邦布失败');
-      return await response.json();
-    } catch (error) {
-      throw error;
-    }
-  },
-
-  deleteBumbo: async (id) => {
-    try {
-      const response = await fetch(`${API_BASE_URL}/bumbos/${id}`, {
-        method: 'DELETE'
-      });
-      if (!response.ok) throw new Error('删除邦布失败');
-      return true;
-    } catch (error) {
-      throw error;
-    }
-  },
-
-  // 驱动盘相关API
-  addDriveDisk: async (disk) => {
-    try {
-      const response = await fetch(`${API_BASE_URL}/drive-disks`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(disk)
-      });
-      if (!response.ok) throw new Error('添加驱动盘失败');
-      return await response.json();
-    } catch (error) {
-      throw error;
-    }
-  },
-
-  updateDriveDisk: async (id, disk) => {
-    try {
-      const response = await fetch(`${API_BASE_URL}/drive-disks/${id}`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(disk)
-      });
-      if (!response.ok) throw new Error('更新驱动盘失败');
-      return await response.json();
-    } catch (error) {
-      throw error;
-    }
-  },
-
-  deleteDriveDisk: async (id) => {
-    try {
-      const response = await fetch(`${API_BASE_URL}/drive-disks/${id}`, {
-        method: 'DELETE'
-      });
-      if (!response.ok) throw new Error('删除驱动盘失败');
-      return true;
-    } catch (error) {
-      throw error;
-    }
+const normalizeCollection = (value) => {
+  if (Array.isArray(value)) {
+    return value;
   }
-}
 
-// 数据提供者组件
+  if (value && typeof value === 'object' && Array.isArray(value.data)) {
+    return value.data;
+  }
+
+  return [];
+};
+
+const shouldPrefetchMainData = (pathname = '') => (
+  pathname.startsWith('/zzz-wiki/admin')
+  || pathname.startsWith('/hsr-wiki/admin')
+  || pathname.startsWith('/zzz-wiki/agent/')
+  || pathname.startsWith('/data-test')
+);
+
+const fetchMainData = async () => {
+  const response = await apiClient.get('/dual-storage/web/data');
+  const payload = response.data?.data || {};
+
+  return {
+    agents: normalizeCollection(payload.agents),
+    soundEngines: normalizeCollection(payload.soundEngines),
+    bumbos: normalizeCollection(payload.bumbos),
+    driveDisks: normalizeCollection(payload.driveDisks),
+    hsrCharacters: normalizeCollection(payload.hsrCharacters),
+    hsrCones: normalizeCollection(payload.hsrCones),
+    hsrRelics: normalizeCollection(payload.hsrRelics),
+  };
+};
+
+const fetchBaseData = async () => {
+  const [zzzResponse, hsrResponse] = await Promise.all([
+    apiClient.get('/base-data'),
+    apiClient.get('/hsr/base-data'),
+  ]);
+
+  return {
+    factions: Array.isArray(zzzResponse.data?.factions) ? zzzResponse.data.factions : [],
+    roles: Array.isArray(zzzResponse.data?.roles) ? zzzResponse.data.roles : [],
+    rarities: Array.isArray(zzzResponse.data?.rarities) ? zzzResponse.data.rarities : [],
+    hsr: {
+      elements: Array.isArray(hsrResponse.data?.elements) ? hsrResponse.data.elements : [],
+      paths: Array.isArray(hsrResponse.data?.paths) ? hsrResponse.data.paths : [],
+      rarities: Array.isArray(hsrResponse.data?.rarities) ? hsrResponse.data.rarities : [],
+      relicTypes: Array.isArray(hsrResponse.data?.relicTypes) ? hsrResponse.data.relicTypes : [],
+      relicParts: Array.isArray(hsrResponse.data?.relicParts) ? hsrResponse.data.relicParts : [],
+    },
+  };
+};
+
 const DataProvider = ({ children }) => {
-  const [data, setData] = useState({ agents: [], soundEngines: [], bumbos: [], driveDisks: [], hsrCharacters: [], hsrCones: [], hsrRelics: [] });
-  const [baseData, setBaseData] = useState({ factions: [], roles: [], rarities: [], hsr: { elements: [], paths: [], rarities: [], relicTypes: [], relicParts: [] } });
+  const { pathname } = useLocation();
+  const [data, setData] = useState(createEmptyData);
+  const [baseData, setBaseData] = useState(createEmptyBaseData);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // 初始化数据
+  const refreshData = async () => {
+    setLoading(true);
+    setError(null);
+
+    try {
+      const [mainData, baseDataResult] = await Promise.all([
+        fetchMainData(),
+        fetchBaseData(),
+      ]);
+
+      setData(mainData);
+      setBaseData(baseDataResult);
+    } catch (refreshError) {
+      setError(getApiErrorMessage(refreshError, ERROR_MESSAGES.loadData));
+      throw refreshError;
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
-    const initData = async () => {
+    let cancelled = false;
+
+    const loadForRoute = async () => {
+      setLoading(true);
+      setError(null);
+
       try {
-        setLoading(true);
-        setError(null);
-        // 同时加载主数据和基础数据
-        const [mainData, baseDataResult] = await Promise.all([
-          apiService.fetchData(),
-          apiService.fetchBaseData()
-        ]);
-        setData(mainData);
+        const baseDataResult = await fetchBaseData();
+        if (cancelled) {
+          return;
+        }
+
         setBaseData(baseDataResult);
-        setLoading(false);
-      } catch (err) {
-        setError('加载数据失败: ' + err.message);
-        setLoading(false);
+
+        if (shouldPrefetchMainData(pathname)) {
+          const mainData = await fetchMainData();
+          if (cancelled) {
+            return;
+          }
+
+          setData(mainData);
+        } else {
+          setData(createEmptyData());
+        }
+      } catch (loadError) {
+        if (!cancelled) {
+          setError(getApiErrorMessage(loadError, ERROR_MESSAGES.loadData));
+        }
+      } finally {
+        if (!cancelled) {
+          setLoading(false);
+        }
       }
     };
 
-    initData();
-  }, []);
+    void loadForRoute();
 
-  // 刷新数据（从API重新加载）
-  const refreshData = async () => {
-    try {
-      setLoading(true);
-      setError(null);
-      // 同时刷新主数据和基础数据
-      const [mainData, baseDataResult] = await Promise.all([
-        apiService.fetchData(),
-        apiService.fetchBaseData()
-      ]);
-      setData(mainData);
-      setBaseData(baseDataResult);
-      setLoading(false);
-    } catch (err) {
-      setError('刷新数据失败: ' + err.message);
-      setLoading(false);
-    }
-  };
+    return () => {
+      cancelled = true;
+    };
+  }, [pathname]);
 
-  // 特定类型的CRUD函数 - 这些函数会调用API并刷新本地状态
-  const handleAddAgent = async (agent) => {
+  const mutateAndRefresh = async (request, fallbackMessage) => {
     try {
-      await apiService.addAgent(agent);
+      const result = await request();
       await refreshData();
-    } catch (err) {
-      setError('添加代理人失败: ' + err.message);
-      throw err; // 重新抛出错误以便AdminPanel可以捕获
+      return result?.data ?? result;
+    } catch (mutationError) {
+      setError(getApiErrorMessage(mutationError, fallbackMessage));
+      throw mutationError;
     }
   };
-
-  const handleUpdateAgent = async (id, agent) => {
-    try {
-      await apiService.updateAgent(id, agent);
-      await refreshData();
-    } catch (err) {
-      setError('更新代理人失败: ' + err.message);
-      throw err;
-    }
-  };
-
-  const handleDeleteAgent = async (id) => {
-    try {
-      await apiService.deleteAgent(id);
-      await refreshData();
-    } catch (err) {
-      setError('删除代理人失败: ' + err.message);
-      throw err;
-    }
-  };
-
-  const handleAddSoundEngine = async (engine) => {
-    try {
-      await apiService.addSoundEngine(engine);
-      await refreshData();
-    } catch (err) {
-      setError('添加音擎失败: ' + err.message);
-      throw err;
-    }
-  };
-
-  const handleUpdateSoundEngine = async (id, engine) => {
-    try {
-      await apiService.updateSoundEngine(id, engine);
-      await refreshData();
-    } catch (err) {
-      setError('更新音擎失败: ' + err.message);
-      throw err;
-    }
-  };
-
-  const handleDeleteSoundEngine = async (id) => {
-    try {
-      await apiService.deleteSoundEngine(id);
-      await refreshData();
-    } catch (err) {
-      setError('删除音擎失败: ' + err.message);
-      throw err;
-    }
-  };
-
-  const handleAddBumbo = async (bumbo) => {
-    try {
-      await apiService.addBumbo(bumbo);
-      await refreshData();
-    } catch (err) {
-      setError('添加邦布失败: ' + err.message);
-      throw err;
-    }
-  };
-
-  const handleUpdateBumbo = async (id, bumbo) => {
-    try {
-      await apiService.updateBumbo(id, bumbo);
-      await refreshData();
-    } catch (err) {
-      setError('更新邦布失败: ' + err.message);
-      throw err;
-    }
-  };
-
-  const handleDeleteBumbo = async (id) => {
-    try {
-      await apiService.deleteBumbo(id);
-      await refreshData();
-    } catch (err) {
-      setError('删除邦布失败: ' + err.message);
-      throw err;
-    }
-  };
-
-  const handleAddDriveDisk = async (disk) => {
-    try {
-      await apiService.addDriveDisk(disk);
-      await refreshData();
-    } catch (err) {
-      setError('添加驱动盘失败: ' + err.message);
-      throw err;
-    }
-  };
-
-  const handleUpdateDriveDisk = async (id, disk) => {
-    try {
-      await apiService.updateDriveDisk(id, disk);
-      await refreshData();
-    } catch (err) {
-      setError('更新驱动盘失败: ' + err.message);
-      throw err;
-    }
-  };
-
-  const handleDeleteDriveDisk = async (id) => {
-    try {
-      await apiService.deleteDriveDisk(id);
-      await refreshData();
-    } catch (err) {
-      setError('删除驱动盘失败: ' + err.message);
-      throw err;
-    }
-  };
-
-  // 管理员界面点击更新数据时调用
-  const handleUpdateData = async () => {
-    await refreshData();
-  };
-
 
   const contextValue = {
     data,
     baseData,
     loading,
     error,
-    handleAddAgent,
-    handleUpdateAgent,
-    handleDeleteAgent,
-    handleAddSoundEngine,
-    handleUpdateSoundEngine,
-    handleDeleteSoundEngine,
-    handleAddBumbo,
-    handleUpdateBumbo,
-    handleDeleteBumbo,
-    handleAddDriveDisk,
-    handleUpdateDriveDisk,
-    handleDeleteDriveDisk,
-    handleUpdateData,
-    refreshData
+    refreshData,
+    handleUpdateData: refreshData,
+    handleAddAgent: (payload) => mutateAndRefresh(
+      () => apiClient.post('/agents', payload),
+      ERROR_MESSAGES.addAgent,
+    ),
+    handleUpdateAgent: (id, payload) => mutateAndRefresh(
+      () => apiClient.put(`/agents/${id}`, payload),
+      ERROR_MESSAGES.updateAgent,
+    ),
+    handleDeleteAgent: (id) => mutateAndRefresh(
+      () => apiClient.delete(`/agents/${id}`),
+      ERROR_MESSAGES.deleteAgent,
+    ),
+    handleAddSoundEngine: (payload) => mutateAndRefresh(
+      () => apiClient.post('/sound-engines', payload),
+      ERROR_MESSAGES.addSoundEngine,
+    ),
+    handleUpdateSoundEngine: (id, payload) => mutateAndRefresh(
+      () => apiClient.put(`/sound-engines/${id}`, payload),
+      ERROR_MESSAGES.updateSoundEngine,
+    ),
+    handleDeleteSoundEngine: (id) => mutateAndRefresh(
+      () => apiClient.delete(`/sound-engines/${id}`),
+      ERROR_MESSAGES.deleteSoundEngine,
+    ),
+    handleAddBumbo: (payload) => mutateAndRefresh(
+      () => apiClient.post('/bumbos', payload),
+      ERROR_MESSAGES.addBumbo,
+    ),
+    handleUpdateBumbo: (id, payload) => mutateAndRefresh(
+      () => apiClient.put(`/bumbos/${id}`, payload),
+      ERROR_MESSAGES.updateBumbo,
+    ),
+    handleDeleteBumbo: (id) => mutateAndRefresh(
+      () => apiClient.delete(`/bumbos/${id}`),
+      ERROR_MESSAGES.deleteBumbo,
+    ),
+    handleAddDriveDisk: (payload) => mutateAndRefresh(
+      () => apiClient.post('/drive-disks', payload),
+      ERROR_MESSAGES.addDriveDisk,
+    ),
+    handleUpdateDriveDisk: (id, payload) => mutateAndRefresh(
+      () => apiClient.put(`/drive-disks/${id}`, payload),
+      ERROR_MESSAGES.updateDriveDisk,
+    ),
+    handleDeleteDriveDisk: (id) => mutateAndRefresh(
+      () => apiClient.delete(`/drive-disks/${id}`),
+      ERROR_MESSAGES.deleteDriveDisk,
+    ),
+    handleAddHsrCharacter: (payload) => mutateAndRefresh(
+      () => apiClient.post('/hsr/characters', payload),
+      ERROR_MESSAGES.addHsrCharacter,
+    ),
+    handleUpdateHsrCharacter: (id, payload) => mutateAndRefresh(
+      () => apiClient.put(`/hsr/characters/${id}`, payload),
+      ERROR_MESSAGES.updateHsrCharacter,
+    ),
+    handleDeleteHsrCharacter: (id) => mutateAndRefresh(
+      () => apiClient.delete(`/hsr/characters/${id}`),
+      ERROR_MESSAGES.deleteHsrCharacter,
+    ),
+    handleAddHsrCone: (payload) => mutateAndRefresh(
+      () => apiClient.post('/hsr/cones', payload),
+      ERROR_MESSAGES.addHsrCone,
+    ),
+    handleUpdateHsrCone: (id, payload) => mutateAndRefresh(
+      () => apiClient.put(`/hsr/cones/${id}`, payload),
+      ERROR_MESSAGES.updateHsrCone,
+    ),
+    handleDeleteHsrCone: (id) => mutateAndRefresh(
+      () => apiClient.delete(`/hsr/cones/${id}`),
+      ERROR_MESSAGES.deleteHsrCone,
+    ),
+    handleAddHsrRelic: (payload) => mutateAndRefresh(
+      () => apiClient.post('/hsr/relics', payload),
+      ERROR_MESSAGES.addHsrRelic,
+    ),
+    handleUpdateHsrRelic: (id, payload) => mutateAndRefresh(
+      () => apiClient.put(`/hsr/relics/${id}`, payload),
+      ERROR_MESSAGES.updateHsrRelic,
+    ),
+    handleDeleteHsrRelic: (id) => mutateAndRefresh(
+      () => apiClient.delete(`/hsr/relics/${id}`),
+      ERROR_MESSAGES.deleteHsrRelic,
+    ),
   };
 
   return (
@@ -435,16 +294,16 @@ const DataProvider = ({ children }) => {
   );
 };
 
-// 自定义钩子，用于访问数据上下文
 export const useDataContext = () => {
   const context = useContext(DataContext);
-  if (context === undefined) {
+
+  if (!context) {
     throw new Error('useDataContext must be used within a DataProvider');
   }
+
   return context;
 };
 
-// 为了向后兼容，导出useData别名
 export const useData = useDataContext;
 
 export { DataProvider };

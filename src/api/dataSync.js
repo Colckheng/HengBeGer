@@ -1,468 +1,304 @@
-// 数据同步API - 管理员界面数据更新接口
-import storageManager from '../db/storageManager.js';
-import { createSequelizeInstance } from '../db/config.js';
-import { 
-  addAgent, updateAgent, deleteAgent,
-  addSoundEngine, updateSoundEngine, deleteSoundEngine,
-  addBumbo, updateBumbo, deleteBumbo,
-  addDriveDisk, updateDriveDisk, deleteDriveDisk,
-  getAllAgents, getAllSoundEngines, getAllBumbos, getAllDriveDisks
+import {
+  replaceAllRecords,
+  replaceMultipleRecordSets,
+  syncDatabaseToStorage,
 } from '../db/api.js';
-import { logger, logDatabase } from '../utils/logger.js';
-import { catchAsync, AppError } from '../utils/errorHandler.js';
+import storageManager, { STORAGE_TYPES } from '../db/storageManager.js';
+import { logAdminAudit } from '../utils/adminAudit.js';
+import { logger } from '../utils/logger.js';
 
-/**
- * 数据同步控制器
- * 处理管理员界面的数据更新请求
- */
+const REQUIRED_FIELDS = {
+  agents: ['name', 'element'],
+  soundEngines: ['name'],
+  bumbos: ['name'],
+  driveDisks: ['name'],
+  hsrCharacters: ['name'],
+  hsrCones: ['name'],
+  hsrRelics: ['name'],
+};
+
+const TYPE_SPECIFIC_VALIDATORS = {
+  agents: (item, errors, index) => {
+    if (!item.factionId && !item.faction) {
+      errors.push(`agents[${index}] is missing faction or factionId.`);
+    }
+    if (!item.roleId && !item.role && !item.profession) {
+      errors.push(`agents[${index}] is missing role or roleId.`);
+    }
+    if (!item.rarityId && !item.rarity) {
+      errors.push(`agents[${index}] is missing rarity or rarityId.`);
+    }
+  },
+  soundEngines: (item, errors, index) => {
+    if (!item.roleId && !item.role) {
+      errors.push(`soundEngines[${index}] is missing role or roleId.`);
+    }
+    if (!item.rarityId && !item.rarity) {
+      errors.push(`soundEngines[${index}] is missing rarity or rarityId.`);
+    }
+  },
+  bumbos: (item, errors, index) => {
+    if (!item.rarityId && !item.rarity) {
+      errors.push(`bumbos[${index}] is missing rarity or rarityId.`);
+    }
+  },
+  hsrCharacters: (item, errors, index) => {
+    if (!item.elementId && !item.element) {
+      errors.push(`hsrCharacters[${index}] is missing element or elementId.`);
+    }
+    if (!item.pathId && !item.path) {
+      errors.push(`hsrCharacters[${index}] is missing path or pathId.`);
+    }
+    if (!item.rarityId && !item.rarity) {
+      errors.push(`hsrCharacters[${index}] is missing rarity or rarityId.`);
+    }
+  },
+  hsrCones: (item, errors, index) => {
+    if (!item.pathId && !item.path) {
+      errors.push(`hsrCones[${index}] is missing path or pathId.`);
+    }
+    if (!item.rarityId && !item.rarity) {
+      errors.push(`hsrCones[${index}] is missing rarity or rarityId.`);
+    }
+  },
+  hsrRelics: (item, errors, index) => {
+    if (!item.typeId && !item.type) {
+      errors.push(`hsrRelics[${index}] is missing type or typeId.`);
+    }
+  },
+};
+
+const validateType = (type) => {
+  if (!STORAGE_TYPES.includes(type)) {
+    throw new Error(`Unsupported data type: ${type}`);
+  }
+};
+
+const validateItems = (type, items) => {
+  if (!Array.isArray(items)) {
+    return [`${type} payload must be an array.`];
+  }
+
+  const errors = [];
+  const requiredFields = REQUIRED_FIELDS[type] || [];
+  const typeValidator = TYPE_SPECIFIC_VALIDATORS[type];
+
+  items.forEach((item, index) => {
+    if (!item || typeof item !== 'object' || Array.isArray(item)) {
+      errors.push(`${type}[${index}] must be an object.`);
+      return;
+    }
+
+    for (const field of requiredFields) {
+      if (!item[field]) {
+        errors.push(`${type}[${index}] is missing ${field}.`);
+      }
+    }
+
+    typeValidator?.(item, errors, index);
+  });
+
+  return errors;
+};
+
 class DataSyncController {
-  /**
-   * 获取所有数据
-   */
   static async getAllData(req, res) {
     try {
-      logger.info('获取所有数据');
       const data = await storageManager.getAllStorageData();
-      
       res.json({
         success: true,
-        message: '数据获取成功',
-        data: data,
-        timestamp: new Date().toISOString()
+        message: 'Storage data loaded successfully.',
+        data,
+        timestamp: new Date().toISOString(),
       });
     } catch (error) {
-      logger.error('获取数据失败', { message: error.message, stack: error.stack });
+      logger.error('Failed to load storage data', {
+        message: error.message,
+        stack: error.stack,
+      });
       res.status(500).json({
         success: false,
-        message: '获取数据失败',
-        error: error.message
+        message: 'Failed to load storage data.',
+        error: error.message,
       });
     }
   }
 
-  /**
-   * 获取特定类型的数据
-   */
   static async getDataByType(req, res) {
     try {
-      const { type } = req.params;
-      logger.info(`获取 ${type} 数据`);
-      
-      const validTypes = ['agents', 'soundEngines', 'bumbos', 'driveDisks'];
-      if (!validTypes.includes(type)) {
-        return res.status(400).json({
-          success: false,
-          message: '无效的数据类型',
-          validTypes: validTypes
-        });
-      }
-      
-      const data = await storageManager.readFromStorage(type);
-      
+      validateType(req.params.type);
+      const data = await storageManager.readFromStorage(req.params.type);
       res.json({
         success: true,
-        message: `${type} 数据获取成功`,
-        data: data,
+        message: `${req.params.type} data loaded successfully.`,
+        data,
         count: data.length,
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toISOString(),
       });
     } catch (error) {
-      logger.error(`获取 ${req.params.type} 数据失败`, { message: error.message, stack: error.stack });
+      logger.error('Failed to load storage data by type', {
+        type: req.params.type,
+        message: error.message,
+      });
       res.status(500).json({
         success: false,
-        message: '获取数据失败',
-        error: error.message
+        message: 'Failed to load storage data.',
+        error: error.message,
       });
     }
   }
 
-  /**
-   * 更新特定类型的数据
-   * 管理员界面调用此接口更新数据
-   */
   static async updateDataByType(req, res) {
     try {
       const { type } = req.params;
       const { data } = req.body;
-      
-      logger.info(`更新 ${type} 数据`, { count: data.length });
-      
-      const validTypes = ['agents', 'soundEngines', 'bumbos', 'driveDisks'];
-      if (!validTypes.includes(type)) {
+
+      validateType(type);
+      const validationErrors = validateItems(type, data);
+      if (validationErrors.length > 0) {
         return res.status(400).json({
           success: false,
-          message: '无效的数据类型',
-          validTypes: validTypes
+          message: 'Validation failed.',
+          errors: validationErrors,
         });
       }
-      
-      if (!Array.isArray(data)) {
-        return res.status(400).json({
-          success: false,
-          message: '数据格式错误，应为数组格式'
-        });
-      }
-      
-      // 验证数据格式
-      const validationResult = DataSyncController.validateData(type, data);
-      if (!validationResult.valid) {
-        return res.status(400).json({
-          success: false,
-          message: '数据验证失败',
-          errors: validationResult.errors
-        });
-      }
-      
-      // 保存到存储系统
-      const saveResult = await storageManager.saveToStorage(type, data);
-      if (!saveResult) {
-        return res.status(500).json({
-          success: false,
-          message: '保存到存储系统失败'
-        });
-      }
-      
-      // 同步数据到数据库
-      const syncResult = await DataSyncController.syncToDatabase(type, data);
-      if (!syncResult) {
-        logger.warn('数据库同步失败，但存储系统更新成功', { type, count: data.length });
-      }
-      
-      logger.info(`${type} 数据更新成功`, { count: data.length, syncResult });
-      
+
+      const snapshot = await replaceAllRecords(type, data);
+      logAdminAudit(req, 'storage.replaceByType', {
+        storageType: type,
+        count: snapshot[type]?.length || 0,
+      });
       res.json({
         success: true,
-        message: `${type} 数据更新成功`,
-        count: data.length,
-        timestamp: new Date().toISOString()
+        message: `${type} data replaced successfully.`,
+        count: snapshot[type]?.length || 0,
+        timestamp: new Date().toISOString(),
       });
     } catch (error) {
-      logger.error(`更新 ${req.params.type} 数据失败`, { message: error.message, stack: error.stack });
-      res.status(500).json({
-        success: false,
-        message: '更新数据失败',
-        error: error.message
-      });
-    }
-  }
-
-  /**
-   * 批量更新所有数据
-   */
-  static async updateAllData(req, res) {
-    try {
-      const { data } = req.body;
-      
-      logger.info('批量更新所有数据');
-      
-      if (!data || typeof data !== 'object') {
-        return res.status(400).json({
-          success: false,
-          message: '数据格式错误'
-        });
-      }
-      
-      const validTypes = ['agents', 'soundEngines', 'bumbos', 'driveDisks'];
-      const results = {};
-      
-      for (const type of validTypes) {
-        if (data[type] && Array.isArray(data[type])) {
-          // 验证数据
-          const validationResult = DataSyncController.validateData(type, data[type]);
-          if (!validationResult.valid) {
-            return res.status(400).json({
-              success: false,
-              message: `${type} 数据验证失败`,
-              errors: validationResult.errors
-            });
-          }
-          
-          // 保存数据
-          const saveResult = await storageManager.saveToStorage(type, data[type]);
-          results[type] = {
-            success: saveResult,
-            count: data[type].length
-          };
-        }
-      }
-      
-      logger.info('批量数据更新完成', { results });
-      
-      res.json({
-        success: true,
-        message: '批量数据更新成功',
-        results: results,
-        timestamp: new Date().toISOString()
-      });
-    } catch (error) {
-      logger.error('批量更新数据失败', { message: error.message, stack: error.stack });
-      res.status(500).json({
-        success: false,
-        message: '批量更新数据失败',
-        error: error.message
-      });
-    }
-  }
-
-  /**
-   * 获取存储系统状态
-   */
-  static async getStorageStatus(req, res) {
-    try {
-      logger.info('获取存储系统状态');
-      const status = await storageManager.getStorageStatus();
-      
-      res.json({
-        success: true,
-        message: '存储系统状态获取成功',
-        status: status,
-        timestamp: new Date().toISOString()
-      });
-    } catch (error) {
-      logger.error('获取存储系统状态失败', { message: error.message, stack: error.stack });
-      res.status(500).json({
-        success: false,
-        message: '获取存储系统状态失败',
-        error: error.message
-      });
-    }
-  }
-
-  /**
-   * 重置存储系统
-   */
-  static async resetStorage(req, res) {
-    try {
-      logger.info('重置存储系统');
-      const resetResult = await storageManager.resetStorage();
-      
-      if (resetResult) {
-        res.json({
-          success: true,
-          message: '存储系统重置成功',
-          timestamp: new Date().toISOString()
-        });
-      } else {
-        res.status(500).json({
-          success: false,
-          message: '存储系统重置失败'
-        });
-      }
-    } catch (error) {
-      logger.error('重置存储系统失败', { message: error.message, stack: error.stack });
-      res.status(500).json({
-        success: false,
-        message: '重置存储系统失败',
-        error: error.message
-      });
-    }
-  }
-
-  /**
-   * 数据验证函数
-   */
-  static validateData(type, data) {
-    const errors = [];
-    
-    if (!Array.isArray(data)) {
-      return { valid: false, errors: ['数据必须是数组格式'] };
-    }
-    
-    data.forEach((item, index) => {
-      if (!item.id || !item.name) {
-        errors.push(`第 ${index + 1} 项缺少必要字段 id 或 name`);
-      }
-      
-      switch (type) {
-        case 'agents':
-          if (!item.faction || !item.role || !item.rarity || !item.element) {
-            errors.push(`第 ${index + 1} 项代理人缺少必要字段`);
-          }
-          if (item.rarity && !['S', 'A'].includes(item.rarity)) {
-            errors.push(`第 ${index + 1} 项代理人等级必须是 S 或 A`);
-          }
-          break;
-          
-        case 'soundEngines':
-          if (!item.rarity || !item.role) {
-            errors.push(`第 ${index + 1} 项音擎缺少必要字段`);
-          }
-          if (item.rarity && !['S', 'A', 'B'].includes(item.rarity)) {
-            errors.push(`第 ${index + 1} 项音擎等级必须是 S、A 或 B`);
-          }
-          break;
-          
-        case 'bumbos':
-          if (!item.rarity) {
-            errors.push(`第 ${index + 1} 项邦布缺少等级字段`);
-          }
-          if (item.rarity && !['S', 'A'].includes(item.rarity)) {
-            errors.push(`第 ${index + 1} 项邦布等级必须是 S 或 A`);
-          }
-          break;
-          
-        case 'driveDisks':
-          if (!item.description) {
-            errors.push(`第 ${index + 1} 项驱动盘缺少描述字段`);
-          }
-          break;
-      }
-    });
-    
-    return {
-      valid: errors.length === 0,
-      errors: errors
-    };
-  }
-
-  /**
-   * 同步数据到数据库
-   */
-  static async syncToDatabase(type, data) {
-    try {
-      logger.info(`开始同步 ${type} 数据到数据库`, { count: data.length });
-      
-      // 根据数据类型选择对应的同步策略
-      switch (type) {
-        case 'agents':
-          return await DataSyncController.syncAgents(data);
-        case 'soundEngines':
-          return await DataSyncController.syncSoundEngines(data);
-        case 'bumbos':
-          return await DataSyncController.syncBumbos(data);
-        case 'driveDisks':
-          return await DataSyncController.syncDriveDisks(data);
-        default:
-          throw new AppError(`不支持的数据类型: ${type}`, 400);
-      }
-    } catch (error) {
-      logger.error(`同步 ${type} 数据到数据库失败`, {
+      logger.error('Failed to replace data by type', {
+        type: req.params.type,
         message: error.message,
         stack: error.stack,
-        type,
-        dataCount: data?.length || 0
       });
-      return false;
+      res.status(500).json({
+        success: false,
+        message: 'Failed to replace data.',
+        error: error.message,
+      });
     }
   }
 
-  /**
-   * 同步代理人数据
-   */
-  static async syncAgents(agents) {
+  static async updateAllData(req, res) {
     try {
-      const existingAgents = await getAllAgents();
-      const existingIds = new Set(existingAgents.map(agent => agent.id));
-      
-      let syncCount = 0;
-      for (const agent of agents) {
-        try {
-          if (existingIds.has(agent.id)) {
-            await updateAgent(agent.id, agent);
-          } else {
-            await addAgent(agent);
-          }
-          syncCount++;
-        } catch (error) {
-          logger.warn(`同步代理人失败`, { agentId: agent.id, error: error.message });
+      const payload = req.body?.data;
+      if (!payload || typeof payload !== 'object' || Array.isArray(payload)) {
+        return res.status(400).json({
+          success: false,
+          message: 'Payload data must be an object keyed by storage type.',
+        });
+      }
+
+      const touchedTypes = STORAGE_TYPES.filter((type) =>
+        Object.prototype.hasOwnProperty.call(payload, type),
+      );
+
+      for (const type of touchedTypes) {
+        const validationErrors = validateItems(type, payload[type]);
+        if (validationErrors.length > 0) {
+          return res.status(400).json({
+            success: false,
+            message: `Validation failed for ${type}.`,
+            errors: validationErrors,
+          });
         }
       }
-      
-      logDatabase('代理人同步', { status: 'success', syncCount, totalCount: agents.length });
-      return true;
+
+      const snapshot = await replaceMultipleRecordSets(
+        touchedTypes.reduce((result, type) => {
+          result[type] = payload[type];
+          return result;
+        }, {}),
+      );
+      const results = touchedTypes.reduce((result, type) => {
+        result[type] = {
+          success: true,
+          count: snapshot[type]?.length || 0,
+        };
+        return result;
+      }, {});
+      logAdminAudit(req, 'storage.replaceBatch', {
+        results: Object.fromEntries(
+          touchedTypes.map((type) => [type, snapshot[type]?.length || 0]),
+        ),
+      });
+
+      res.json({
+        success: true,
+        message: 'All provided data sets were replaced successfully.',
+        results,
+        timestamp: new Date().toISOString(),
+      });
     } catch (error) {
-      logger.error('代理人数据同步失败', { message: error.message });
-      return false;
+      logger.error('Failed to replace all storage data', {
+        message: error.message,
+        stack: error.stack,
+      });
+      res.status(500).json({
+        success: false,
+        message: 'Failed to replace all storage data.',
+        error: error.message,
+      });
     }
   }
 
-  /**
-   * 同步音擎数据
-   */
-  static async syncSoundEngines(soundEngines) {
+  static async getStorageStatus(req, res) {
     try {
-      const existingSoundEngines = await getAllSoundEngines();
-      const existingIds = new Set(existingSoundEngines.map(engine => engine.id));
-      
-      let syncCount = 0;
-      for (const engine of soundEngines) {
-        try {
-          if (existingIds.has(engine.id)) {
-            await updateSoundEngine(engine.id, engine);
-          } else {
-            await addSoundEngine(engine);
-          }
-          syncCount++;
-        } catch (error) {
-          logger.warn(`同步音擎失败`, { engineId: engine.id, error: error.message });
-        }
-      }
-      
-      logDatabase('音擎同步', { status: 'success', syncCount, totalCount: soundEngines.length });
-      return true;
+      const status = await storageManager.getStorageStatus();
+      res.json({
+        success: true,
+        message: 'Storage status loaded successfully.',
+        status,
+        timestamp: new Date().toISOString(),
+      });
     } catch (error) {
-      logger.error('音擎数据同步失败', { message: error.message });
-      return false;
+      logger.error('Failed to load storage status', {
+        message: error.message,
+        stack: error.stack,
+      });
+      res.status(500).json({
+        success: false,
+        message: 'Failed to load storage status.',
+        error: error.message,
+      });
     }
   }
 
-  /**
-   * 同步邦布数据
-   */
-  static async syncBumbos(bumbos) {
+  static async resetStorage(req, res) {
     try {
-      const existingBumbos = await getAllBumbos();
-      const existingIds = new Set(existingBumbos.map(bumbo => bumbo.id));
-      
-      let syncCount = 0;
-      for (const bumbo of bumbos) {
-        try {
-          if (existingIds.has(bumbo.id)) {
-            await updateBumbo(bumbo.id, bumbo);
-          } else {
-            await addBumbo(bumbo);
-          }
-          syncCount++;
-        } catch (error) {
-          logger.warn(`同步邦布失败`, { bumboId: bumbo.id, error: error.message });
-        }
-      }
-      
-      logDatabase('邦布同步', { status: 'success', syncCount, totalCount: bumbos.length });
-      return true;
+      const snapshot = await syncDatabaseToStorage();
+      logAdminAudit(req, 'storage.rebuildFromDatabase', {
+        counts: Object.fromEntries(
+          Object.entries(snapshot).map(([type, items]) => [type, items.length]),
+        ),
+      });
+      res.json({
+        success: true,
+        message: 'Storage rebuilt from the database.',
+        counts: Object.fromEntries(
+          Object.entries(snapshot).map(([type, items]) => [type, items.length]),
+        ),
+        timestamp: new Date().toISOString(),
+      });
     } catch (error) {
-      logger.error('邦布数据同步失败', { message: error.message });
-      return false;
-    }
-  }
-
-  /**
-   * 同步驱动盘数据
-   */
-  static async syncDriveDisks(driveDisks) {
-    try {
-      const existingDriveDisks = await getAllDriveDisks();
-      const existingIds = new Set(existingDriveDisks.map(disk => disk.id));
-      
-      let syncCount = 0;
-      for (const disk of driveDisks) {
-        try {
-          if (existingIds.has(disk.id)) {
-            await updateDriveDisk(disk.id, disk);
-          } else {
-            await addDriveDisk(disk);
-          }
-          syncCount++;
-        } catch (error) {
-          logger.warn(`同步驱动盘失败`, { diskId: disk.id, error: error.message });
-        }
-      }
-      
-      logDatabase('驱动盘同步', { status: 'success', syncCount, totalCount: driveDisks.length });
-      return true;
-    } catch (error) {
-      logger.error('驱动盘数据同步失败', { message: error.message });
-      return false;
+      logger.error('Failed to rebuild storage from database', {
+        message: error.message,
+        stack: error.stack,
+      });
+      res.status(500).json({
+        success: false,
+        message: 'Failed to rebuild storage from database.',
+        error: error.message,
+      });
     }
   }
 }

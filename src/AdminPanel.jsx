@@ -1,1055 +1,726 @@
-import React, { useState, useRef, memo, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useData } from './DataContext';
-import axios from 'axios';
-const API_BASE_URL = import.meta?.env?.DEV ? '/api' : '/api';
+import {
+  memo,
+  useDeferredValue,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
+import { Link } from 'react-router-dom';
+
+import { useData } from './DataContext.jsx';
+import logoutAdminSession from './utils/adminLogout.js';
+import { getApiErrorMessage } from './utils/apiError.js';
+import { validateAdminImageFile } from './utils/imageUpload.js';
 import './ZZZWiki.css';
 
-const AdminPanel = () => {
-  const { data, baseData, loading, error, handleAddAgent, handleUpdateAgent, handleDeleteAgent, handleAddSoundEngine, handleUpdateSoundEngine, handleDeleteSoundEngine, handleAddBumbo, handleUpdateBumbo, handleDeleteBumbo, handleAddDriveDisk, handleUpdateDriveDisk, handleDeleteDriveDisk, handleUpdateData } = useData();
-  const [activeTab, setActiveTab] = useState('agents');
-  const [activeSubTab, setActiveSubTab] = useState('add'); // 'add' 或 'list'
-  const [editingItem, setEditingItem] = useState(null);
-  const [formData, setFormData] = useState({});
-  const [imagePreview, setImagePreview] = useState(null);
-  const fileInputRef = useRef(null);
-  const navigate = useNavigate();
-  
-  // 双存储系统相关状态
-  const [adminData, setAdminData] = useState({});
-  const [dualStorageStatus, setDualStorageStatus] = useState({
-    initialized: false,
-    adminSessionActive: false,
-    lastSync: null,
-    dataCount: 0
-  });
-  const [syncLoading, setSyncLoading] = useState(false);
-  const [hasAdminChanges, setHasAdminChanges] = useState(false);
-  const [sessionInitialized, setSessionInitialized] = useState(false);
-  const [storageData, setStorageData] = useState({});
-  const [storageStatus, setStorageStatus] = useState({});
-  
-  // 编辑弹窗状态
-  const [showEditModal, setShowEditModal] = useState(false);
-  const [editModalData, setEditModalData] = useState({});
+const EMPTY_FORM = {};
 
-  // 初始化管理员会话
-  useEffect(() => {
-    const initializeAdminSession = async () => {
-      try {
-        // 1. 首先初始化双存储系统
-        const initResponse = await axios.post(`${API_BASE_URL}/dual-storage/initialize`);
-        
-        // 2. 初始化管理员会话（复制网页端数据到管理员端）
-        const sessionResponse = await axios.post(`${API_BASE_URL}/dual-storage/admin/session`);
-        if (sessionResponse.data.success) {
-          setSessionInitialized(true);
-          
-          // 3. 加载管理员端数据
-          await loadAdminData();
-          
-          // 4. 加载双存储系统状态
-          await loadDualStorageStatus();
-        }
-      } catch (error) {
-        // 即使初始化失败，也尝试加载现有数据
-        await loadAdminData();
-      }
-    };
-    
-    initializeAdminSession();
-  }, []);
+const buildFileReader = (file, onLoad) => {
+  const reader = new FileReader();
+  reader.onloadend = () => onLoad(reader.result);
+  reader.readAsDataURL(file);
+};
 
-  // 处理表单变化
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-    setHasAdminChanges(true); // 标记有管理员端修改
-  };
+const normalizeIdValue = (value) => {
+  if (value === undefined || value === null || value === '') {
+    return '';
+  }
 
-  // 处理文件上传
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      // 保存base64格式的图片数据
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setFormData(prev => ({ ...prev, image: reader.result }));
-        setImagePreview(reader.result);
+  return String(value);
+};
+
+const normalizeItemForForm = (tab, item) => {
+  if (!item) {
+    return EMPTY_FORM;
+  }
+
+  switch (tab) {
+    case 'agents':
+      return {
+        name: item.name || '',
+        element: item.element || '',
+        factionId: normalizeIdValue(item.factionId),
+        roleId: normalizeIdValue(item.roleId),
+        rarityId: normalizeIdValue(item.rarityId),
+        description: item.description || '',
+        image: item.image || '',
       };
-      reader.readAsDataURL(file);
-    } else {
-      setImagePreview(null);
-    }
-  };
+    case 'soundEngines':
+      return {
+        name: item.name || '',
+        roleId: normalizeIdValue(item.roleId),
+        rarityId: normalizeIdValue(item.rarityId),
+        image: item.image || '',
+      };
+    case 'bumbos':
+      return {
+        name: item.name || '',
+        rarityId: normalizeIdValue(item.rarityId),
+        image: item.image || '',
+      };
+    case 'driveDisks':
+      return {
+        name: item.name || '',
+        description: item.description || '',
+        image: item.image || '',
+      };
+    default:
+      return EMPTY_FORM;
+  }
+};
 
-  // 选择要编辑的项目 - 打开编辑弹窗
-  const handleEdit = (item) => {
-    setEditModalData(item);
-    setShowEditModal(true);
-  };
-  
-  // 关闭编辑弹窗
-  const closeEditModal = () => {
-    setShowEditModal(false);
-    setEditModalData({});
-  };
-  
-  // 保存编辑
-  const saveEdit = async (updatedData) => {
-    try {
+const preparePayload = (tab, formData) => {
+  const payload = { ...formData };
 
-      
-      if (!editModalData || !editModalData.id) {
-        throw new Error('编辑数据无效，缺少ID');
-      }
-      
-      // 确保数字字段的类型正确
-      const processedData = { ...updatedData };
-      if (activeTab === 'agents') {
-        if (processedData.factionId) processedData.factionId = parseInt(processedData.factionId);
-        if (processedData.roleId) processedData.roleId = parseInt(processedData.roleId);
-        if (processedData.rarityId) processedData.rarityId = parseInt(processedData.rarityId);
-      }
+  if (tab === 'agents') {
+    payload.factionId = Number(payload.factionId);
+    payload.roleId = Number(payload.roleId);
+    payload.rarityId = Number(payload.rarityId);
+  }
 
-      
-      let result;
-      
-      switch (activeTab) {
-        case 'agents':
-          await handleUpdateAgent(editModalData.id, processedData);
-          break;
-        case 'soundEngines':
-          await handleUpdateSoundEngine(editModalData.id, processedData);
-          break;
-        case 'bumbos':
-          await handleUpdateBumbo(editModalData.id, processedData);
-          break;
-        case 'driveDisks':
-          await handleUpdateDriveDisk(editModalData.id, processedData);
-          break;
-        default:
-          throw new Error('未知的activeTab: ' + activeTab);
-      }
-      
+  if (tab === 'soundEngines') {
+    payload.roleId = Number(payload.roleId);
+    payload.rarityId = Number(payload.rarityId);
+  }
 
-      
-      // 读取最新存储数组，保存到管理员端并同步到网页端
-      const storageResp = await axios.get(`${API_BASE_URL}/storage/data`);
-      const storageData = storageResp.data?.data || {};
-      const pick = (t) => Array.isArray(storageData[t]?.data) ? storageData[t].data : [];
-      if (sessionInitialized) {
-        if (activeTab === 'agents') result = pick('agents');
-        if (activeTab === 'soundEngines') result = pick('soundEngines');
-        if (activeTab === 'bumbos') result = pick('bumbos');
-        if (activeTab === 'driveDisks') result = pick('driveDisks');
-        await saveAdminData(activeTab, result);
-        try {
-          const syncResp = await axios.post(`${API_BASE_URL}/dual-storage/sync`);
-          if (syncResp.data?.success) {
-            await handleUpdateData();
-            await loadDualStorageStatus();
-          }
-        } catch {}
-      }
-      
-      closeEditModal();
-      alert('修改保存成功！');
-    } catch (error) {
-      alert('保存失败: ' + error.message);
-    }
-  };
+  if (tab === 'bumbos') {
+    payload.rarityId = Number(payload.rarityId);
+  }
 
-  // 取消编辑
-  const handleCancelEdit = () => {
+  return payload;
+};
+
+const matchesSearch = (item, query) => {
+  if (!query) {
+    return true;
+  }
+
+  const haystack = [
+    item.name,
+    item.element,
+    item.faction,
+    item.role,
+    item.description,
+  ]
+    .filter(Boolean)
+    .join(' ')
+    .toLowerCase();
+
+  return haystack.includes(query.toLowerCase());
+};
+
+const AdminPanel = () => {
+  const {
+    data,
+    baseData,
+    loading,
+    error,
+    refreshData,
+    handleAddAgent,
+    handleUpdateAgent,
+    handleDeleteAgent,
+    handleAddSoundEngine,
+    handleUpdateSoundEngine,
+    handleDeleteSoundEngine,
+    handleAddBumbo,
+    handleUpdateBumbo,
+    handleDeleteBumbo,
+    handleAddDriveDisk,
+    handleUpdateDriveDisk,
+    handleDeleteDriveDisk,
+  } = useData();
+
+  const [activeTab, setActiveTab] = useState('agents');
+  const [editingItem, setEditingItem] = useState(null);
+  const [formData, setFormData] = useState(EMPTY_FORM);
+  const [imagePreview, setImagePreview] = useState(null);
+  const [submitting, setSubmitting] = useState(false);
+  const [statusMessage, setStatusMessage] = useState('');
+  const [searchTerm, setSearchTerm] = useState('');
+  const [editorOpen, setEditorOpen] = useState(true);
+  const deferredSearchTerm = useDeferredValue(searchTerm);
+  const imageInputId = `${activeTab}-image-upload`;
+
+  useEffect(() => {
     setEditingItem(null);
-    setFormData({});
+    setFormData(EMPTY_FORM);
     setImagePreview(null);
+    setStatusMessage('');
+    setSearchTerm('');
+    setEditorOpen(true);
+  }, [activeTab]);
+
+  const tabConfig = useMemo(() => ({
+    agents: {
+      label: '代理人',
+      summary: '阵营、职业和属性信息集中在同一条维护链路里。',
+      items: Array.isArray(data.agents) ? data.agents : [],
+      add: handleAddAgent,
+      update: handleUpdateAgent,
+      remove: handleDeleteAgent,
+    },
+    soundEngines: {
+      label: '音擎',
+      summary: '保留职业与稀有度关联，方便快速做配装录入。',
+      items: Array.isArray(data.soundEngines) ? data.soundEngines : [],
+      add: handleAddSoundEngine,
+      update: handleUpdateSoundEngine,
+      remove: handleDeleteSoundEngine,
+    },
+    bumbos: {
+      label: '邦布',
+      summary: '用更轻量的表格和抽屉维护邦布资料。',
+      items: Array.isArray(data.bumbos) ? data.bumbos : [],
+      add: handleAddBumbo,
+      update: handleUpdateBumbo,
+      remove: handleDeleteBumbo,
+    },
+    driveDisks: {
+      label: '驱动盘',
+      summary: '描述类条目保留更大的编辑区域和更清晰的列表预览。',
+      items: Array.isArray(data.driveDisks) ? data.driveDisks : [],
+      add: handleAddDriveDisk,
+      update: handleUpdateDriveDisk,
+      remove: handleDeleteDriveDisk,
+    },
+  }), [
+    data.agents,
+    data.bumbos,
+    data.driveDisks,
+    data.soundEngines,
+    handleAddAgent,
+    handleAddBumbo,
+    handleAddDriveDisk,
+    handleAddSoundEngine,
+    handleDeleteAgent,
+    handleDeleteBumbo,
+    handleDeleteDriveDisk,
+    handleDeleteSoundEngine,
+    handleUpdateAgent,
+    handleUpdateBumbo,
+    handleUpdateDriveDisk,
+    handleUpdateSoundEngine,
+  ]);
+
+  const activeConfig = tabConfig[activeTab];
+  const currentItems = activeConfig.items;
+  const filteredItems = useMemo(
+    () => currentItems.filter((item) => matchesSearch(item, deferredSearchTerm)),
+    [currentItems, deferredSearchTerm],
+  );
+
+  const hasActiveSearch = Boolean(searchTerm.trim());
+  const totalCount = tabConfig.agents.items.length
+    + tabConfig.soundEngines.items.length
+    + tabConfig.bumbos.items.length
+    + tabConfig.driveDisks.items.length;
+
+  const metrics = [
+    {
+      key: 'active-tab',
+      label: '当前分类',
+      value: activeConfig.label,
+      helper: '当前正在维护的内容模块',
+      tone: 'accent',
+      badge: 'LIVE',
+    },
+    {
+      key: 'total-count',
+      label: '总条目',
+      value: totalCount,
+      helper: `代理人 ${tabConfig.agents.items.length} · 音擎 ${tabConfig.soundEngines.items.length} · 邦布 ${tabConfig.bumbos.items.length} · 驱动盘 ${tabConfig.driveDisks.items.length}`,
+      tone: 'default',
+    },
+    {
+      key: 'filter-state',
+      label: '筛选条件',
+      value: hasActiveSearch ? '已筛选' : '未筛选',
+      helper: hasActiveSearch ? `关键词：${searchTerm}` : '当前显示全部数据',
+      tone: hasActiveSearch ? 'active' : 'muted',
+      compact: true,
+    },
+    {
+      key: 'visible-count',
+      label: '当前可见',
+      value: filteredItems.length,
+      helper: `${activeConfig.label} 列表当前可见的记录数`,
+      tone: 'default',
+      badge: `${activeConfig.items.length} 原始`,
+    },
+  ];
+
+  const topbarFacts = [
+    { label: '模块', value: activeConfig.label },
+    { label: '可见', value: `${filteredItems.length} 条` },
+    { label: '搜索', value: hasActiveSearch ? '已启用' : '未启用' },
+  ];
+
+  const factionOptions = baseData?.factions || [];
+  const roleOptions = baseData?.roles || [];
+  const rarityOptions = baseData?.rarities || [];
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((current) => ({ ...current, [name]: value }));
   };
 
-  // 提交表单（添加或更新）
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      let updatedData;
-      
-      if (editingItem) {
-        switch (activeTab) {
-          case 'agents':
-            await handleUpdateAgent(editingItem.id, formData);
-            updatedData = data.agents;
-            break;
-          case 'soundEngines':
-            await handleUpdateSoundEngine(editingItem.id, formData);
-            updatedData = data.soundEngines;
-            break;
-          case 'bumbos':
-            await handleUpdateBumbo(editingItem.id, formData);
-            updatedData = data.bumbos;
-            break;
-          case 'driveDisks':
-            await handleUpdateDriveDisk(editingItem.id, formData);
-            updatedData = data.driveDisks;
-            break;
-          default:
-            break;
-        }
-      } else {
-        switch (activeTab) {
-          case 'agents':
-            await handleAddAgent(formData);
-            break;
-          case 'soundEngines':
-            await handleAddSoundEngine(formData);
-            break;
-          case 'bumbos':
-            await handleAddBumbo(formData);
-            break;
-          case 'driveDisks':
-            await handleAddDriveDisk(formData);
-            break;
-          default:
-            break;
-        }
-        const storageResp = await axios.get(`${API_BASE_URL}/storage/data`);
-        const storageData = storageResp.data?.data || {};
-        const pick = (t) => Array.isArray(storageData[t]?.data) ? storageData[t].data : [];
-        if (activeTab === 'agents') updatedData = pick('agents');
-        if (activeTab === 'soundEngines') updatedData = pick('soundEngines');
-        if (activeTab === 'bumbos') updatedData = pick('bumbos');
-        if (activeTab === 'driveDisks') updatedData = pick('driveDisks');
-      }
-
-      // 保存到管理员端存储
-      if (updatedData && sessionInitialized) {
-        await saveAdminData(activeTab, updatedData);
-        try {
-          const syncResp = await axios.post(`${API_BASE_URL}/dual-storage/sync`);
-          if (syncResp.data?.success) {
-            await handleUpdateData();
-            await loadDualStorageStatus();
-          }
-        } catch {}
-      }
-
-      // 重置表单
-      setEditingItem(null);
-      setFormData({});
+  const handleFileChange = (event) => {
+    const file = event.target.files?.[0];
+    if (!file) {
       setImagePreview(null);
-      
-      // 如果是添加操作，自动切换到列表视图
-      if (!editingItem) {
-        setActiveSubTab('list');
-      }
-    } catch (error) {
-      alert('操作失败: ' + error.message);
-    }
-  };
-
-  // 删除项目函数
-  const deleteItem = async (type, id) => {
-    if (window.confirm('确定要删除这个项目吗？')) {
-      try {
-
-        
-        if (!id) {
-          throw new Error('删除失败：缺少项目ID');
-        }
-        
-        let updatedData;
-        
-        switch (type) {
-          case 'agents':
-            await handleDeleteAgent(id);
-            break;
-          case 'soundEngines':
-            await handleDeleteSoundEngine(id);
-            break;
-          case 'bumbos':
-            await handleDeleteBumbo(id);
-            break;
-          case 'driveDisks':
-            await handleDeleteDriveDisk(id);
-            break;
-          default:
-            throw new Error('未知的删除类型: ' + type);
-        }
-        
-
-        
-        // 从根存储拉取最新数组，保存到管理员端并同步到网页端
-        const storageResp = await axios.get(`${API_BASE_URL}/storage/data`);
-        const storageData = storageResp.data?.data || {};
-        const pick = (t) => Array.isArray(storageData[t]?.data) ? storageData[t].data : [];
-        if (sessionInitialized) {
-          const arr = pick(type);
-          await saveAdminData(type, arr);
-          try {
-            const syncResp = await axios.post(`${API_BASE_URL}/dual-storage/sync`);
-            if (syncResp.data?.success) {
-              await handleUpdateData();
-              await loadDualStorageStatus();
-            }
-          } catch {}
-        }
-        
-        alert('删除成功！');
-      } catch (error) {
-          try {
-            const storageResp = await axios.get(`${API_BASE_URL}/storage/data`);
-            const storageData = storageResp.data?.data || {};
-            const pick = (t) => Array.isArray(storageData[t]?.data) ? storageData[t].data : [];
-            const arr = pick(type).filter(item => Number(item.id) !== Number(id));
-            if (sessionInitialized) {
-              await saveAdminData(type, arr);
-              const syncResp = await axios.post(`${API_BASE_URL}/dual-storage/sync`);
-              if (syncResp.data?.success) {
-                await handleUpdateData();
-                await loadDualStorageStatus();
-                alert('后端删除失败，已从网页端数据移除并同步');
-                return;
-              }
-            }
-          } catch {}
-          alert('删除失败: ' + error.message);
-        }
-    }
-  };
-
-  // 处理删除 - 使用deleteItem函数
-  const handleDelete = async (id) => {
-    await deleteItem(activeTab, id);
-  };
-
-  // 加载管理员端数据
-  const loadAdminData = async () => {
-    try {
-      const response = await axios.get(`${API_BASE_URL}/dual-storage/admin/data`);
-      if (response.data.success) {
-        setAdminData(response.data.data);
-      }
-    } catch (error) {
-      // 静默处理错误
-    }
-  };
-
-  // 加载双存储系统状态
-  const loadDualStorageStatus = async () => {
-    try {
-      const response = await axios.get(`${API_BASE_URL}/dual-storage/status`);
-      if (response.data.success) {
-        const status = response.data.status;
-        setDualStorageStatus({
-          initialized: status.initialized,
-          adminSessionActive: sessionInitialized,
-          lastSync: status.web?.agents?.lastUpdated || null,
-          dataCount: Object.values(status.admin || {}).reduce((sum, item) => sum + (item.count || 0), 0)
-        });
-      }
-    } catch (error) {
-      // 静默处理错误
-    }
-  };
-
-  // 保存管理员端数据
-  const saveAdminData = async (type, data) => {
-    try {
-      const response = await axios.put(`${API_BASE_URL}/dual-storage/admin/${type}`, { data });
-      if (response.data.success) {
-        setHasAdminChanges(true);
-        return true;
-      } else {
-        return false;
-      }
-    } catch (error) {
-      return false;
-    }
-  };
-
-  // 统一更新数据函数 - 将管理员端数据同步到网页端
-  const handleUnifiedUpdate = async () => {
-    if (!window.confirm('确定要更新数据吗？这将把管理员端的修改同步到网页端显示。')) {
+      setStatusMessage('');
       return;
     }
-    setSyncLoading(true);
+
+    const validationResult = validateAdminImageFile(file);
+    if (!validationResult.valid) {
+      setFormData((current) => ({ ...current, image: '' }));
+      setImagePreview(null);
+      setStatusMessage(validationResult.error);
+      event.target.value = '';
+      return;
+    }
+
+    buildFileReader(file, (result) => {
+      setFormData((current) => ({ ...current, image: result }));
+      setImagePreview(result);
+      setStatusMessage('');
+    });
+  };
+
+  const closeEditor = () => {
+    setEditingItem(null);
+    setFormData(EMPTY_FORM);
+    setImagePreview(null);
+    setEditorOpen(false);
+  };
+
+  const openCreateEditor = () => {
+    setEditingItem(null);
+    setFormData(EMPTY_FORM);
+    setImagePreview(null);
+    setStatusMessage('');
+    setEditorOpen(true);
+  };
+
+  const handleEdit = (item) => {
+    setEditingItem(item);
+    setFormData(normalizeItemForForm(activeTab, item));
+    setImagePreview(item.image || null);
+    setStatusMessage('');
+    setEditorOpen(true);
+  };
+
+  const handleDelete = async (id) => {
+    if (!window.confirm('确定要删除这条数据吗？')) {
+      return;
+    }
+
+    setSubmitting(true);
+    setStatusMessage('');
+
     try {
-      // 1. 同步管理员端数据到网页端
-      const syncResponse = await axios.post(`${API_BASE_URL}/dual-storage/sync`);
-      if (syncResponse.data.success) {
-        // 2. 刷新前端显示的数据（从网页端重新加载）
-        await handleUpdateData();
-        
-        // 3. 更新双存储系统状态
-        await loadDualStorageStatus();
-        
-        alert('数据更新成功！管理员端的修改已同步到网页端。');
-        setHasAdminChanges(false);
-      } else {
-        throw new Error(syncResponse.data.message || '同步失败');
-      }
-    } catch (error) {
-      alert('更新数据失败: ' + error.message);
+      await activeConfig.remove(id);
+      setStatusMessage(`${activeConfig.label}已删除。`);
+    } catch (deleteError) {
+      setStatusMessage(getApiErrorMessage(deleteError, '删除失败。'));
     } finally {
-      setSyncLoading(false);
+      setSubmitting(false);
     }
   };
 
-  // 存储系统相关函数
-  const loadStorageData = async (type = null) => {
-    try {
-      const url = type ? `${API_BASE_URL}/storage/${type}` : `${API_BASE_URL}/storage/data`;
-      const response = await axios.get(url);
-      if (response.data.success) {
-        if (type) {
-          setStorageData(prev => ({ ...prev, [type]: response.data.data }));
-        } else {
-          setStorageData(response.data.data);
-        }
-      }
-    } catch (error) {
-      // 静默处理错误
-    }
+  const handleLogout = async () => {
+    await logoutAdminSession();
   };
 
-  const loadStorageStatus = async () => {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setSubmitting(true);
+    setStatusMessage('');
+
     try {
-      const response = await axios.get(`${API_BASE_URL}/storage/status`);
-      if (response.data.success) {
-        const status = response.data.status;
-        // 转换API返回的复杂状态为前端期望的简单格式
-        const totalCount = Object.values(status.files || {}).reduce((sum, file) => {
-          return sum + (file.count || 0);
-        }, 0);
-        
-        const lastSync = Object.values(status.files || {}).reduce((latest, file) => {
-          if (file.lastUpdated && (!latest || new Date(file.lastUpdated) > new Date(latest))) {
-            return file.lastUpdated;
-          }
-          return latest;
-        }, null);
-        
-        setStorageStatus({
-          connected: status.initialized || false,
-          lastSync: lastSync,
-          dataCount: totalCount
-        });
+      const payload = preparePayload(activeTab, formData);
+      if (editingItem) {
+        await activeConfig.update(editingItem.id, payload);
+        setStatusMessage(`${activeConfig.label}已更新。`);
       } else {
-        console.error('加载存储状态失败:', response.data.message);
-        setStorageStatus({
-          connected: false,
-          lastSync: null,
-          dataCount: 0
-        });
+        await activeConfig.add(payload);
+        setStatusMessage(`${activeConfig.label}已创建。`);
       }
-    } catch (error) {
-      console.error('加载存储状态失败:', error);
-      setStorageStatus({
-        connected: false,
-        lastSync: null,
-        dataCount: 0
-      });
-    }
-  };
 
-  const saveStorageData = async (type, data) => {
-    setSyncLoading(true);
-    try {
-      await axios.put(`http://localhost:3001/api/storage/${type}`, data);
-      setHasStorageChanges(false);
-      alert('数据保存到存储系统成功！');
-      await loadStorageStatus();
-    } catch (error) {
-      console.error('保存存储数据失败:', error);
-      alert('保存数据失败: ' + error.message);
+      setEditingItem(null);
+      setFormData(EMPTY_FORM);
+      setImagePreview(null);
+      setEditorOpen(true);
+    } catch (submitError) {
+      setStatusMessage(getApiErrorMessage(submitError, '保存失败。'));
+      setEditorOpen(true);
     } finally {
-      setSyncLoading(false);
+      setSubmitting(false);
     }
   };
 
-  // 原有的同步和重置函数已被handleUnifiedUpdate替代
-
-  // 组件挂载时加载存储数据和状态
-  useEffect(() => {
-    loadStorageData();
-    loadStorageStatus();
-  }, []);
-
-
-  // 渲染表单
   const renderForm = () => {
-    switch(activeTab) {
+    switch (activeTab) {
       case 'agents':
         return (
-          <form onSubmit={handleSubmit} className="admin-form card shadow-lg">
-            <h3 className="form-title">{editingItem ? '编辑代理人' : '添加代理人'}</h3>
+          <>
             <div className="form-group">
-              <label>名称:</label>
-              <input type="text" name="name" value={formData.name || ''} onChange={handleInputChange} required className="agent-name-input" style={{width: '250px', minWidth: '250px', maxWidth: '250px', boxSizing: 'border-box'}} />
+              <label>名称</label>
+              <input name="name" value={formData.name || ''} onChange={handleInputChange} required />
             </div>
             <div className="form-group">
-              <label>职业:</label>
-              <select name="roleId" value={formData.roleId || ''} onChange={handleInputChange} required>
-                <option value="">选择职业</option>
-                {baseData?.roles?.map(role => (
-                  <option key={role.id} value={role.id}>{role.name}</option>
+              <label>属性</label>
+              <select name="element" value={formData.element || ''} onChange={handleInputChange} required>
+                <option value="">请选择属性</option>
+                {['物理', '火', '冰', '电', '以太'].map((element) => (
+                  <option key={element} value={element}>{element}</option>
                 ))}
               </select>
             </div>
-            
             <div className="form-group">
-              <label>阵营:</label>
+              <label>阵营</label>
               <select name="factionId" value={formData.factionId || ''} onChange={handleInputChange} required>
-                <option value="">选择阵营</option>
-                {baseData?.factions?.map(faction => (
+                <option value="">请选择阵营</option>
+                {factionOptions.map((faction) => (
                   <option key={faction.id} value={faction.id}>{faction.name}</option>
                 ))}
               </select>
             </div>
-            
             <div className="form-group">
-              <label>属性:</label>
-              <select name="element" value={formData.element || ''} onChange={handleInputChange} required>
-                <option value="">选择属性</option>
-                <option value="物理">物理</option>
-                <option value="火">火</option>
-                <option value="冰">冰</option>
-                <option value="电">电</option>
-                <option value="以太">以太</option>
+              <label>职业</label>
+              <select name="roleId" value={formData.roleId || ''} onChange={handleInputChange} required>
+                <option value="">请选择职业</option>
+                {roleOptions.map((role) => (
+                  <option key={role.id} value={role.id}>{role.name}</option>
+                ))}
               </select>
             </div>
-            
             <div className="form-group">
-              <label>图片:</label>
-              <input type="file" name="imageFile" onChange={handleFileChange} accept="image/*" />
-              <input type="hidden" name="image" value={formData.image || ''} />
-            </div>
-            <div className="form-group">
-              <label>稀有度:</label>
+              <label>稀有度</label>
               <select name="rarityId" value={formData.rarityId || ''} onChange={handleInputChange} required>
-                <option value="">选择稀有度</option>
-                {baseData?.rarities?.filter(rarity => rarity.name === 'S' || rarity.name === 'A').map(rarity => (
+                <option value="">请选择稀有度</option>
+                {rarityOptions.map((rarity) => (
                   <option key={rarity.id} value={rarity.id}>{rarity.name}</option>
                 ))}
               </select>
             </div>
-            
-            <div className="form-actions">
-              <button type="submit" className="btn-primary">{editingItem ? '更新' : '添加'}</button>
-              {editingItem && <button type="button" onClick={handleCancelEdit} className="btn-secondary">取消</button>}
+            <div className="form-group">
+              <label>描述</label>
+              <textarea
+                name="description"
+                value={formData.description || ''}
+                onChange={handleInputChange}
+                rows={4}
+              />
             </div>
-          </form>
+          </>
         );
       case 'soundEngines':
         return (
-          <form onSubmit={handleSubmit} className="admin-form card shadow-lg">
-            <h3 className="form-title">{editingItem ? '编辑音擎' : '添加音擎'}</h3>
+          <>
             <div className="form-group">
-              <label>名称:</label>
-              <input type="text" name="name" value={formData.name || ''} onChange={handleInputChange} required className="agent-name-input" style={{width: '250px', minWidth: '250px', maxWidth: '250px', boxSizing: 'border-box'}} />
+              <label>名称</label>
+              <input name="name" value={formData.name || ''} onChange={handleInputChange} required />
             </div>
             <div className="form-group">
-              <label>职业:</label>
-              <select name="role" value={formData.role || ''} onChange={handleInputChange} required>
-                <option value="">选择职业</option>
-                {baseData?.roles?.map(role => (
-                  <option key={role.id} value={role.name}>{role.name}</option>
+              <label>职业</label>
+              <select name="roleId" value={formData.roleId || ''} onChange={handleInputChange} required>
+                <option value="">请选择职业</option>
+                {roleOptions.map((role) => (
+                  <option key={role.id} value={role.id}>{role.name}</option>
                 ))}
               </select>
             </div>
             <div className="form-group">
-              <label>图片:</label>
-              <input type="file" name="imageFile" onChange={handleFileChange} accept="image/*" />
-              <input type="hidden" name="image" value={formData.image || ''} />
-            </div>
-            <div className="form-group">
-              <label>稀有度:</label>
+              <label>稀有度</label>
               <select name="rarityId" value={formData.rarityId || ''} onChange={handleInputChange} required>
-                <option value="">选择稀有度</option>
-                {baseData?.rarities?.map(rarity => (
+                <option value="">请选择稀有度</option>
+                {rarityOptions.map((rarity) => (
                   <option key={rarity.id} value={rarity.id}>{rarity.name}</option>
                 ))}
               </select>
             </div>
-            <div className="form-actions">
-              <button type="submit" className="btn-primary">{editingItem ? '更新' : '添加'}</button>
-              {editingItem && <button type="button" onClick={handleCancelEdit} className="btn-secondary">取消</button>}
-            </div>
-          </form>
+          </>
         );
       case 'bumbos':
         return (
-          <form onSubmit={handleSubmit} className="admin-form card shadow-lg">
-            <h3 className="form-title">{editingItem ? '编辑邦布' : '添加邦布'}</h3>
+          <>
             <div className="form-group">
-              <label>名称:</label>
-              <input type="text" name="name" value={formData.name || ''} onChange={handleInputChange} required className="agent-name-input" style={{width: '250px', minWidth: '250px', maxWidth: '250px', boxSizing: 'border-box'}} />
-            </div>
-
-            <div className="form-group">
-              <label>图片:</label>
-              <input type="file" name="imageFile" onChange={handleFileChange} accept="image/*" />
-              <input type="hidden" name="image" value={formData.image || ''} />
+              <label>名称</label>
+              <input name="name" value={formData.name || ''} onChange={handleInputChange} required />
             </div>
             <div className="form-group">
-              <label>稀有度:</label>
+              <label>稀有度</label>
               <select name="rarityId" value={formData.rarityId || ''} onChange={handleInputChange} required>
-                <option value="">选择稀有度</option>
-                {baseData?.rarities?.filter(rarity => rarity.name === 'S' || rarity.name === 'A').map(rarity => (
+                <option value="">请选择稀有度</option>
+                {rarityOptions.filter((item) => item.name !== 'B').map((rarity) => (
                   <option key={rarity.id} value={rarity.id}>{rarity.name}</option>
                 ))}
               </select>
             </div>
-            <div className="form-actions">
-              <button type="submit" className="btn-primary">{editingItem ? '更新' : '添加'}</button>
-              {editingItem && <button type="button" onClick={handleCancelEdit} className="btn-secondary">取消</button>}
-            </div>
-          </form>
+          </>
         );
       case 'driveDisks':
-        return (
-          <form onSubmit={handleSubmit} className="admin-form card shadow-lg">
-            <h3 className="form-title">{editingItem ? '编辑驱动盘' : '添加驱动盘'}</h3>
-            <div className="form-group">
-              <label>名称:</label>
-              <input type="text" name="name" value={formData.name || ''} onChange={handleInputChange} required className="agent-name-input" style={{width: '250px', minWidth: '250px', maxWidth: '250px', boxSizing: 'border-box'}} />
-            </div>
-            <div className="form-group">
-              <label>图片:</label>
-              <input type="file" name="imageFile" onChange={handleFileChange} accept="image/*" />
-              {imagePreview && <img src={imagePreview} alt="预览" className="image-preview" />}
-              <input type="hidden" name="image" value={formData.image || ''} />
-            </div>
-            <div className="form-actions">
-              <button type="submit" className="btn-primary">{editingItem ? '更新' : '添加'}</button>
-              {editingItem && <button type="button" onClick={handleCancelEdit} className="btn-secondary">取消</button>}
-            </div>
-          </form>
-        );
       default:
-        return null;
+        return (
+          <>
+            <div className="form-group">
+              <label>名称</label>
+              <input name="name" value={formData.name || ''} onChange={handleInputChange} required />
+            </div>
+            <div className="form-group">
+              <label>描述</label>
+              <textarea
+                name="description"
+                value={formData.description || ''}
+                onChange={handleInputChange}
+                rows={5}
+              />
+            </div>
+          </>
+        );
     }
   };
 
-  // 渲染列表
-  const renderList = () => {
-    switch(activeTab) {
-      case 'agents':
-        return (
-          <div className="admin-list-section">
-            <h3 className="section-title">代理人列表</h3>
-            <div className="content-grid">
-              {Array.isArray(data.agents) ? data.agents.map(item => (
-                <div key={item.id} className="card shadow-md">
-                  <img src={item.image} alt={item.name} className="card-image" />
-                  <div className="card-content">
-                    <h3 className="card-title">{item.name}</h3>
-                    <p className="card-subtitle">{item.role || item.Role?.name || '未知职业'}</p>
-                    <div className="card-footer">
-                      <span className="rarity-badge" data-rarity={item.rarity || item.Rarity?.name}>{item.rarity || item.Rarity?.name || 'B'}</span>
-                      <span className="faction-tag">{item.faction || item.Faction?.name || '未知阵营'}</span>
-                    </div>
-                  </div>
-                  <div className="card-actions">
-                    <button onClick={(e) => { e.stopPropagation(); handleEdit(item); }} className="btn-edit">编辑</button>
-                    <button onClick={(e) => { e.stopPropagation(); deleteItem('agents', item.id); }} className="btn-delete">删除</button>
-                  </div>
-                </div>
-              )) : <div>暂无数据</div>}
-            </div>
-          </div>
-        );
-      case 'soundEngines':
-        return (
-          <div className="admin-list-section">
-            <h3 className="section-title">音擎列表</h3>
-            <div className="content-grid">
-              {Array.isArray(data.soundEngines) ? data.soundEngines.map(item => (
-                <div key={item.id} className="card shadow-md">
-                  <img src={item.image} alt={item.name} className="card-image" />
-                  <div className="card-content">
-                    <h3 className="card-title">{item.name}</h3>
-                    <p className="card-subtitle">类型: {item.type}</p>
-                    <div className="card-meta">
-                      <span className="rarity-badge" data-rarity={item.rarity || item.Rarity?.name}>{item.rarity || item.Rarity?.name || 'B'}</span>
-                    </div>
-                  </div>
-                  <div className="card-actions">
-                    <button onClick={(e) => { e.stopPropagation(); handleEdit(item); }} className="btn-edit">编辑</button>
-                    <button onClick={(e) => { e.stopPropagation(); deleteItem('soundEngines', item.id); }} className="btn-delete">删除</button>
-                  </div>
-                </div>
-              )) : <div>暂无数据</div>}
-            </div>
-          </div>
-        );
-      case 'bumbos':
-        return (
-          <div className="admin-list-section">
-            <h3 className="section-title">邦布列表</h3>
-            <div className="content-grid">
-              {Array.isArray(data.bumbos) ? data.bumbos.map(item => (
-                <div key={item.id} className="card shadow-md">
-                  <img src={item.image} alt={item.name} className="card-image" />
-                  <div className="card-content">
-                    <h3 className="card-title">{item.name}</h3>
-                    <p className="card-subtitle">元素: {item.element}</p>
-                    <div className="card-meta">
-                      <span className="rarity-badge" data-rarity={item.rarity || item.Rarity?.name}>{item.rarity || item.Rarity?.name || 'A'}</span>
-                      <span className="element-tag" data-element={item.element}>{item.element}</span>
-                    </div>
-                  </div>
-                  <div className="card-actions">
-                    <button onClick={(e) => { e.stopPropagation(); handleEdit(item); }} className="btn-edit">编辑</button>
-                    <button onClick={(e) => { e.stopPropagation(); deleteItem('bumbos', item.id); }} className="btn-delete">删除</button>
-                  </div>
-                </div>
-              )) : <div>暂无数据</div>}
-            </div>
-          </div>
-        );
-      case 'driveDisks':
-        return (
-          <div className="admin-list-section">
-            <h3 className="section-title">驱动盘列表</h3>
-            <div className="content-grid">
-              {Array.isArray(data.driveDisks) ? data.driveDisks.map(item => (
-                <div key={item.id} className="card shadow-md">
-                  <img src={item.image} alt={item.name} className="card-image" />
-                  <div className="card-content">
-                    <h3 className="card-title">{item.name}</h3>
-                    <p className="card-description">{item.effect}</p>
-                    <div className="card-meta">
-                      <span className="rarity-badge" data-rarity={item.rarity}>{item.rarity}</span>
-                    </div>
-                  </div>
-                  <div className="card-actions">
-                    <button onClick={(e) => { e.stopPropagation(); handleEdit(item); }} className="btn-edit">编辑</button>
-                    <button onClick={(e) => { e.stopPropagation(); deleteItem('driveDisks', item.id); }} className="btn-delete">删除</button>
-                  </div>
-                </div>
-              )) : <div>暂无数据</div>}
-            </div>
-          </div>
-        );
-      default:
-        return null;
-    }
-  };
-
-  // 编辑弹窗组件
-  const EditModal = () => {
-    const [modalFormData, setModalFormData] = useState({...editModalData});
-    const [modalImagePreview, setModalImagePreview] = useState(editModalData?.image || null);
-    
-    useEffect(() => {
-      setModalFormData({...editModalData});
-      setModalImagePreview(editModalData?.image || null);
-    }, [editModalData]);
-    
-    const handleModalInputChange = (e) => {
-      const { name, value } = e.target;
-      setModalFormData(prev => ({ ...prev, [name]: value }));
-    };
-
-    const handleModalFileChange = (e) => {
-      const file = e.target.files?.[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setModalFormData(prev => ({ ...prev, image: reader.result }));
-        setModalImagePreview(reader.result);
-      };
-      reader.readAsDataURL(file);
-    };
-    
-    const handleModalSave = () => {
-      console.log('Modal save clicked, modalFormData:', modalFormData);
-      console.log('editModalData:', editModalData);
-      saveEdit(modalFormData);
-    };
-    
-    if (!showEditModal) return null;
-    
-    return (
-      <div className="modal-overlay" onClick={closeEditModal}>
-        <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-          <div className="modal-header">
-            <h3>编辑{activeTab === 'agents' ? '代理人' : activeTab === 'soundEngines' ? '音擎' : activeTab === 'bumbos' ? '邦布' : '驱动盘'}</h3>
-            <button className="modal-close" onClick={closeEditModal}>×</button>
-          </div>
-          <div className="modal-body">
-            {activeTab === 'agents' && (
-              <>
-                <div className="form-group">
-                  <label>名称:</label>
-                  <input 
-                    type="text" 
-                    name="name" 
-                    value={modalFormData.name || ''} 
-                    onChange={handleModalInputChange} 
-                  />
-                </div>
-                <div className="form-group">
-                  <label>图片:</label>
-                  <input type="file" name="imageFile" onChange={handleModalFileChange} accept="image/*" />
-                  {modalImagePreview && <img src={modalImagePreview} alt="预览" className="image-preview" />}
-                </div>
-                <div className="form-group">
-                  <label>等级:</label>
-                  <select name="rarityId" value={modalFormData.rarityId || ''} onChange={handleModalInputChange}>
-                    <option value="">选择等级</option>
-                    {baseData?.rarities?.map(rarity => (
-                      <option key={rarity.id} value={rarity.id}>{rarity.name}</option>
-                    ))}
-                  </select>
-                </div>
-                <div className="form-group">
-                  <label>阵营:</label>
-                  <select name="factionId" value={modalFormData.factionId || ''} onChange={handleModalInputChange}>
-                    <option value="">选择阵营</option>
-                    {baseData?.factions?.map(faction => (
-                      <option key={faction.id} value={faction.id}>{faction.name}</option>
-                    ))}
-                  </select>
-                </div>
-                <div className="form-group">
-                  <label>职业:</label>
-                  <select name="roleId" value={modalFormData.roleId || ''} onChange={handleModalInputChange}>
-                    <option value="">选择职业</option>
-                    {baseData?.roles?.map(role => (
-                      <option key={role.id} value={role.id}>{role.name}</option>
-                    ))}
-                  </select>
-                </div>
-              </>
-            )}
-            {activeTab === 'soundEngines' && (
-              <>
-                <div className="form-group">
-                  <label>名称:</label>
-                  <input 
-                    type="text" 
-                    name="name" 
-                    value={modalFormData.name || ''} 
-                    onChange={handleModalInputChange} 
-                  />
-                </div>
-                <div className="form-group">
-                  <label>图片:</label>
-                  <input type="file" name="imageFile" onChange={handleModalFileChange} accept="image/*" />
-                  {modalImagePreview && <img src={modalImagePreview} alt="预览" className="image-preview" />}
-                </div>
-                <div className="form-group">
-                  <label>类型:</label>
-                  <select name="type" value={modalFormData.type || ''} onChange={handleModalInputChange}>
-                    <option value="">选择类型</option>
-                    <option value="攻击">攻击</option>
-                    <option value="防御">防御</option>
-                    <option value="辅助">辅助</option>
-                  </select>
-                </div>
-              </>
-            )}
-            {activeTab === 'bumbos' && (
-              <>
-                <div className="form-group">
-                  <label>名称:</label>
-                  <input 
-                    type="text" 
-                    name="name" 
-                    value={modalFormData.name || ''} 
-                    onChange={handleModalInputChange} 
-                  />
-                </div>
-                <div className="form-group">
-                  <label>图片:</label>
-                  <input type="file" name="imageFile" onChange={handleModalFileChange} accept="image/*" />
-                  {modalImagePreview && <img src={modalImagePreview} alt="预览" className="image-preview" />}
-                </div>
-              </>
-            )}
-            {activeTab === 'driveDisks' && (
-              <>
-                <div className="form-group">
-                  <label>名称:</label>
-                  <input 
-                    type="text" 
-                    name="name" 
-                    value={modalFormData.name || ''} 
-                    onChange={handleModalInputChange} 
-                  />
-                </div>
-                <div className="form-group">
-                  <label>图片:</label>
-                  <input type="file" name="imageFile" onChange={handleModalFileChange} accept="image/*" />
-                  {modalImagePreview && <img src={modalImagePreview} alt="预览" className="image-preview" />}
-                </div>
-              </>
-            )}
-          </div>
-          <div className="modal-footer">
-            <button className="btn-secondary" onClick={closeEditModal}>取消</button>
-            <button className="btn-primary" onClick={handleModalSave}>保存</button>
-          </div>
+  const renderTableBody = () => {
+    if (!filteredItems.length) {
+      return (
+        <div className="admin-empty-state">
+          暂无符合条件的数据。
         </div>
+      );
+    }
+
+    return (
+      <div className="admin-table">
+        <table>
+          <thead>
+            <tr>
+              <th>名称</th>
+              <th>信息</th>
+              <th>标签</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredItems.map((item) => {
+              const metaTags = [];
+              if (activeTab === 'agents') {
+                metaTags.push(item.faction, item.element, item.role, item.rarity);
+              } else if (activeTab === 'soundEngines') {
+                metaTags.push(item.role, item.rarity);
+              } else if (activeTab === 'bumbos') {
+                metaTags.push(item.rarity);
+              } else {
+                metaTags.push(item.description);
+              }
+
+              return (
+                <tr key={item.id}>
+                  <td>
+                    <div className="admin-item-name">
+                      <strong>{item.name}</strong>
+                      <span>ID #{item.id}</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="admin-item-name">
+                      <strong>{activeConfig.label}</strong>
+                      <span>{item.description || activeConfig.summary}</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="admin-row-tags">
+                      {metaTags.filter(Boolean).slice(0, 3).map((tag) => (
+                        <span key={`${item.id}-${tag}`} className="admin-badge">{tag}</span>
+                      ))}
+                    </div>
+                  </td>
+                  <td>
+                    <div className="admin-row-actions">
+                      <button type="button" className="btn-edit" onClick={() => handleEdit(item)}>
+                        编辑
+                      </button>
+                      <button
+                        type="button"
+                        className="btn-delete"
+                        onClick={() => handleDelete(item.id)}
+                        disabled={submitting}
+                      >
+                        删除
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       </div>
     );
   };
 
+  if (loading) {
+    return (
+      <div className="loading-container">
+        <p>加载中...</p>
+      </div>
+    );
+  }
+
   return (
-    <div className="third-div">
-      <EditModal />
-      <div className="sidebar">
-        <div className="sidebar-header">
-          <Link to="/zzz-wiki" className="home-link"><h2 className="wiki-title">HengZZZ</h2></Link>
-        </div>
-        <nav className="sidebar-nav">
-          <ul className="nav-menu">
-            <li className="nav-item has-submenu">
-              <button
-                className={`nav-link ${activeTab === 'agents' ? 'active' : ''}`}
-                onClick={() => {setActiveTab('agents'); setActiveSubTab('add');}}
-              >
-                代理人
-                <span className="arrow-icon">&#9660;</span>
-              </button>
-              {activeTab === 'agents' && (
-                <ul className="submenu">
-                  <li
-                    className={activeSubTab === 'add' ? 'active' : ''}
-                    onClick={(e) => {e.stopPropagation(); setActiveSubTab('add');}}
-                  >
-                    添加
-                  </li>
-                  <li
-                    className={activeSubTab === 'list' ? 'active' : ''}
-                    onClick={(e) => {e.stopPropagation(); setActiveSubTab('list');}}
-                  >
-                    列表
-                  </li>
-                </ul>
-              )}
-            </li>
-            <li className="nav-item has-submenu">
-              <button
-                className={`nav-link ${activeTab === 'soundEngines' ? 'active' : ''}`}
-                onClick={() => {setActiveTab('soundEngines'); setActiveSubTab('add');}}
-              >
-                音擎
-                <span className="arrow-icon">&#9660;</span>
-              </button>
-              {activeTab === 'soundEngines' && (
-                <ul className="submenu">
-                  <li
-                    className={activeSubTab === 'add' ? 'active' : ''}
-                    onClick={(e) => {e.stopPropagation(); setActiveSubTab('add');}}
-                  >
-                    添加
-                  </li>
-                  <li
-                    className={activeSubTab === 'list' ? 'active' : ''}
-                    onClick={(e) => {e.stopPropagation(); setActiveSubTab('list');}}
-                  >
-                    列表
-                  </li>
-                </ul>
-              )}
-            </li>
-            <li className="nav-item has-submenu">
-              <button
-                className={`nav-link ${activeTab === 'bumbos' ? 'active' : ''}`}
-                onClick={() => {setActiveTab('bumbos'); setActiveSubTab('add');}}
-              >
-                邦布
-                <span className="arrow-icon">&#9660;</span>
-              </button>
-              {activeTab === 'bumbos' && (
-                <ul className="submenu">
-                  <li
-                    className={activeSubTab === 'add' ? 'active' : ''}
-                    onClick={(e) => {e.stopPropagation(); setActiveSubTab('add');}}
-                  >
-                    添加
-                  </li>
-                  <li
-                    className={activeSubTab === 'list' ? 'active' : ''}
-                    onClick={(e) => {e.stopPropagation(); setActiveSubTab('list');}}
-                  >
-                    列表
-                  </li>
-                </ul>
-              )}
-            </li>
-            <li className="nav-item has-submenu">
-              <button
-                className={`nav-link ${activeTab === 'driveDisks' ? 'active' : ''}`}
-                onClick={() => {setActiveTab('driveDisks'); setActiveSubTab('add');}}
-              >
-                驱动盘
-                <span className="arrow-icon">&#9660;</span>
-              </button>
-              {activeTab === 'driveDisks' && (
-                <ul className="submenu">
-                  <li
-                    className={activeSubTab === 'add' ? 'active' : ''}
-                    onClick={(e) => {e.stopPropagation(); setActiveSubTab('add');}}
-                  >
-                    添加
-                  </li>
-                  <li
-                    className={activeSubTab === 'list' ? 'active' : ''}
-                    onClick={(e) => {e.stopPropagation(); setActiveSubTab('list');}}
-                  >
-                    列表
-                  </li>
-                </ul>
-              )}
-            </li>
-          </ul>
-        </nav>
-        <div className="update-button-container">
-          <div className="sync-buttons">
+    <div className="admin-shell theme-zzz-admin">
+      <aside className="admin-sidebar">
+        <Link to="/zzz-wiki" className="admin-sidebar-brand">
+          <h2>HengZZZ</h2>
+          <p>Pixso 风格后台已映射到现有管理员工作流。</p>
+        </Link>
+
+        <nav className="admin-sidebar-nav">
+          {Object.entries(tabConfig).map(([key, config]) => (
             <button
-              className={`update-button ${hasAdminChanges ? 'primary urgent' : 'primary'}`}
-              onClick={handleUnifiedUpdate}
-              disabled={syncLoading || !sessionInitialized}
-              title={!sessionInitialized ? '请等待管理员会话初始化完成' : '将管理员端修改同步到网页端'}
+              key={key}
+              type="button"
+              className={`admin-sidebar-link ${activeTab === key ? 'active' : ''}`}
+              onClick={() => setActiveTab(key)}
             >
-              {syncLoading ? '同步中...' : hasAdminChanges ? '同步修改到网页端' : '同步数据'}
+              <strong>{config.label}</strong>
+              <span>{config.summary}</span>
             </button>
-            
-            <button
-              className="update-button secondary"
-              onClick={loadDualStorageStatus}
-              disabled={syncLoading}
-              title="刷新存储系统状态"
-            >
-              🔄 刷新状态
+          ))}
+        </nav>
+
+        <div className="admin-sidebar-footer">
+          <p>当前工作流直接写入数据库，并自动刷新公开快照。</p>
+        </div>
+      </aside>
+
+      <main className="admin-main">
+        <header className="admin-topbar">
+          <div className="admin-topbar-title">
+            <p className="wiki-kicker">Zenless Zone Zero Admin</p>
+            <h1>ZZZ 管理面板</h1>
+            <p>当前维护：{activeConfig.label}</p>
+            <div className="admin-topbar-meta">
+              {topbarFacts.map((fact) => (
+                <span key={fact.label} className="admin-topbar-chip">
+                  <strong>{fact.label}</strong>
+                  <span>{fact.value}</span>
+                </span>
+              ))}
+            </div>
+          </div>
+          <div className="admin-actions">
+            <button type="button" className="admin-action secondary" onClick={refreshData}>
+              刷新数据
+            </button>
+            <button type="button" className="admin-action secondary" onClick={handleLogout}>
+              退出登录
+            </button>
+            <button type="button" className="admin-action primary" onClick={openCreateEditor}>
+              新增 {activeConfig.label}
             </button>
           </div>
-        </div>
-      </div>
-      <div className="main-content">
-        <div className="admin-header-full">
-          <h2>管理员面板</h2>
-        </div>
-        <div className="admin-main-content-full">
-          {activeSubTab === 'add' ? (
-            <div className="admin-form-full-page">
-              {renderForm()}
+        </header>
+
+        {statusMessage ? (
+          <div className={`status-banner ${statusMessage.includes('失败') ? 'error' : ''}`}>
+            {statusMessage}
+          </div>
+        ) : null}
+        {error ? <div className="status-banner error">{error}</div> : null}
+
+        <section className="admin-metric-grid">
+          {metrics.map((metric) => (
+            <article
+              key={metric.key}
+              className="admin-metric-card"
+              data-tone={metric.tone}
+            >
+              <div className="admin-metric-head">
+                <span className="admin-metric-label">{metric.label}</span>
+                {metric.badge ? <span className="admin-metric-badge">{metric.badge}</span> : null}
+              </div>
+              <strong className={`admin-metric-value ${metric.compact ? 'is-compact' : ''}`}>
+                {metric.value}
+              </strong>
+              <p className="admin-metric-copy">{metric.helper}</p>
+            </article>
+          ))}
+        </section>
+
+        <section className="admin-surface">
+          <div className="admin-surface-header">
+            <div className="admin-surface-title">
+              <h3>{activeConfig.label} 列表</h3>
+              <p>当前共 {filteredItems.length} 条可见数据。</p>
             </div>
-          ) : (
-            <div className="admin-list-full">
-              <div className="admin-list-container">
-                {renderList()}
+            <div className="admin-surface-tools">
+              <div className="admin-toolbar-stat">
+                {hasActiveSearch ? `已匹配 ${filteredItems.length} 条` : `显示全部 ${filteredItems.length} 条`}
+              </div>
+              <div className="admin-search-wrap">
+                <input
+                  className="admin-search-input"
+                  type="search"
+                  value={searchTerm}
+                  onChange={(event) => setSearchTerm(event.target.value)}
+                  placeholder={`搜索${activeConfig.label}...`}
+                />
               </div>
             </div>
-          )}
-        </div>
-      </div>
+          </div>
+          {renderTableBody()}
+        </section>
+      </main>
+
+      {editorOpen ? (
+        <>
+          <button type="button" className="admin-drawer-backdrop" onClick={closeEditor} aria-label="关闭编辑器" />
+          <aside className="admin-drawer">
+            <div className="admin-drawer-header">
+              <div>
+                <h3>{editingItem ? `编辑${activeConfig.label}` : `新增${activeConfig.label}`}</h3>
+                <p>{editingItem ? '修改现有内容并同步公开数据。' : '创建后会自动刷新公开快照。'}</p>
+              </div>
+              <button type="button" className="btn-secondary" onClick={closeEditor}>
+                关闭
+              </button>
+            </div>
+
+            <div className="admin-drawer-body">
+              <form onSubmit={handleSubmit} className="admin-form">
+                {renderForm()}
+                <div className="form-group">
+                  <label htmlFor={imageInputId}>图片</label>
+                  <div className="image-dropzone">
+                    <input id={imageInputId} type="file" accept="image/*" onChange={handleFileChange} />
+                    {imagePreview ? <img src={imagePreview} alt="预览" className="image-preview" /> : null}
+                  </div>
+                  <input type="hidden" name="image" value={formData.image || ''} />
+                </div>
+              </form>
+            </div>
+
+            <div className="admin-drawer-footer">
+              <p>{activeConfig.summary}</p>
+              <div className="form-actions">
+                {editingItem ? (
+                  <button type="button" className="btn-secondary" onClick={openCreateEditor}>
+                    切换到新增
+                  </button>
+                ) : null}
+                <button type="button" className="btn-primary" onClick={handleSubmit} disabled={submitting}>
+                  {submitting ? '保存中...' : (editingItem ? '保存修改' : '新增')}
+                </button>
+              </div>
+            </div>
+          </aside>
+        </>
+      ) : null}
     </div>
   );
-}
+};
 
 export default memo(AdminPanel);
