@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo 1 · 经典 iOS 风</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --blue: #007AFF;
+    --bg: #F2F2F7;
+    --card: #FFFFFF;
+    --label: #000000;
+    --label2: #3C3C4399;
+    --label3: #3C3C434D;
+    --sep: #C6C6C8;
+    --fill: #7878801F;
+    --fill2: #78788014;
+  }
+  html { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Segoe UI", system-ui, sans-serif; }
+  body {
+    background: var(--bg);
+    color: var(--label);
+    -webkit-font-smoothing: antialiased;
+    padding-bottom: 48px;
+  }
+
+  /* ── 导航栏：毛玻璃 + 大标题 ── */
+  .navbar {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(249, 249, 249, 0.82);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 0.5px solid var(--sep);
+  }
+  .navbar-inner {
+    max-width: 1120px; margin: 0 auto;
+    height: 52px; padding: 0 20px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .brand { font-size: 17px; font-weight: 700; letter-spacing: 0.12em; }
+  .nav-actions { display: flex; gap: 10px; }
+  .nav-btn {
+    height: 34px; padding: 0 16px;
+    display: inline-flex; align-items: center; gap: 6px;
+    border-radius: 999px; border: none;
+    background: var(--fill); color: var(--blue);
+    font-size: 15px; font-weight: 600; cursor: pointer;
+  }
+  .nav-btn.primary { background: var(--blue); color: #fff; }
+
+  .large-title { max-width: 1120px; margin: 0 auto; padding: 20px 20px 0; }
+  .kicker {
+    font-size: 13px; font-weight: 600; letter-spacing: 0.08em;
+    color: var(--blue); text-transform: uppercase;
+  }
+  h1 { font-size: 34px; line-height: 41px; font-weight: 800; letter-spacing: -0.02em; margin-top: 2px; }
+  .subtitle { font-size: 15px; color: var(--label2); margin-top: 6px; max-width: 640px; }
+
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+
+  /* ── 搜索框 ── */
+  .search {
+    margin-top: 18px;
+    display: flex; align-items: center; gap: 8px;
+    background: var(--fill); border-radius: 12px;
+    height: 40px; padding: 0 12px;
+    color: var(--label3);
+  }
+  .search input {
+    border: none; outline: none; background: transparent;
+    font-size: 17px; flex: 1; color: var(--label);
+  }
+  .search input::placeholder { color: var(--label3); }
+
+  /* ── 分段控件 ── */
+  .segmented {
+    margin-top: 16px;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    background: var(--fill2); border-radius: 9px; padding: 2px; gap: 2px;
+  }
+  .segmented button {
+    height: 34px; border: none; background: transparent;
+    font-size: 14px; font-weight: 600; color: var(--label);
+    border-radius: 7px; cursor: pointer;
+  }
+  .segmented button.active {
+    background: #fff; box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0,0,0,0.04);
+  }
+
+  /* ── 分组卡（inset grouped） ── */
+  .group {
+    margin-top: 20px; background: var(--card);
+    border-radius: 12px; overflow: hidden;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  }
+  .group-title {
+    font-size: 13px; font-weight: 600; letter-spacing: 0.06em;
+    color: var(--label2); text-transform: uppercase;
+    margin: 24px 0 8px; padding: 0 4px;
+  }
+  .row { padding: 12px 16px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .row + .row { border-top: 0.5px solid var(--sep); }
+  .row-label { font-size: 15px; font-weight: 600; width: 48px; color: var(--label); }
+
+  /* ── 筛选 chips ── */
+  .chip {
+    height: 32px; padding: 0 14px;
+    display: inline-flex; align-items: center;
+    border-radius: 999px; border: none;
+    background: var(--fill); color: var(--label);
+    font-size: 14px; font-weight: 500; cursor: pointer;
+  }
+  .chip.active { background: var(--blue); color: #fff; }
+
+  /* ── 统计条 ── */
+  .stats {
+    margin-top: 16px; display: flex; align-items: center; justify-content: space-between;
+    font-size: 14px; color: var(--label2);
+  }
+  .pager { display: flex; gap: 8px; }
+  .pager button {
+    width: 32px; height: 32px; border-radius: 999px;
+    border: none; background: var(--fill); color: var(--blue);
+    font-size: 15px; font-weight: 600; cursor: pointer;
+  }
+
+  /* ── 角色卡片网格 ── */
+  .grid {
+    margin-top: 14px;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+  }
+  .card {
+    background: var(--card); border-radius: 12px; overflow: hidden;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+    position: relative; display: block; cursor: pointer;
+  }
+  .card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.10); }
+  .thumb { position: relative; aspect-ratio: 4/3; overflow: hidden; background: #111; }
+  .thumb img { width: 100%; height: 100%; object-fit: cover; }
+  .rarity {
+    position: absolute; top: 10px; right: 10px;
+    width: 26px; height: 26px; border-radius: 999px;
+    background: linear-gradient(135deg, #FFC700, #FF9500);
+    color: #fff; font-size: 14px; font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  }
+  .card-body { padding: 12px 14px 14px; }
+  .name-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .name { font-size: 16px; font-weight: 700; letter-spacing: -0.01em; }
+  .chev { color: var(--label3); font-size: 15px; }
+  .role { font-size: 13px; color: var(--label2); margin-top: 3px; }
+  .tags { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
+  .tag {
+    font-size: 12px; font-weight: 600; padding: 3px 9px;
+    border-radius: 999px; background: var(--fill2); color: var(--label2);
+  }
+  .tag.el-冰 { background: #64B5F618; color: #1E88E5; }
+  .tag.el-火 { background: #FF704318; color: #E64A19; }
+  .tag.el-电 { background: #FFB30018; color: #C77800; }
+  .tag.el-以太 { background: #B388FF18; color: #7C4DFF; }
+  .tag.el-物理 { background: #90A4AE18; color: #546E7A; }
+</style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <span class="brand">HENGEBEGER</span>
+      <div class="nav-actions">
+        <button class="nav-btn">切到 HSR</button>
+        <button class="nav-btn primary">内容后台</button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="large-title">
+    <div class="kicker">Zenless Zone Zero Archive</div>
+    <h1>代理人</h1>
+    <p class="subtitle">阵营、属性与职业信息统一收口到一套更适合浏览的角色资料页。</p>
+  </header>
+
+  <main class="wrap">
+    <div class="search">
+      <span>🔍</span><input placeholder="搜索代理人、阵营或属性">
+    </div>
+
+    <div class="segmented">
+      <button class="active">代理人</button><button>音擎</button><button>邦布</button><button>驱动盘</button>
+    </div>
+
+    <p class="group-title">筛选</p>
+    <div class="group">
+      <div class="row">
+        <span class="row-label">职业</span>
+        <button class="chip active">全部</button><button class="chip">强攻</button><button class="chip">异常</button><button class="chip">击破</button><button class="chip">防护</button><button class="chip">支援</button><button class="chip">命破</button>
+      </div>
+      <div class="row">
+        <span class="row-label">属性</span>
+        <button class="chip active">全部</button><button class="chip">电</button><button class="chip">火</button><button class="chip">冰</button><button class="chip">以太</button><button class="chip">物理</button>
+      </div>
+      <div class="row">
+        <span class="row-label">阵营</span>
+        <button class="chip active">全部</button><button class="chip">狡兔屋</button><button class="chip">刑侦特勤组</button><button class="chip">对空六课</button><button class="chip">白祇重工</button><button class="chip">卡吕冬之子</button>
+      </div>
+    </div>
+
+    <div class="stats">
+      <span>共 43 条 · 当前第 1 / 3 页</span>
+      <div class="pager"><button>‹</button><button>›</button></div>
+    </div>
+
+    <section class="grid">
+      <a class="card"><div class="thumb"><img src="../src/assets/zzz.jpg" alt=""><span class="rarity">S</span></div><div class="card-body"><div class="name-row"><span class="name">伊德海莉</span><span class="chev">›</span></div><div class="role">命破 · 怪啖屋</div><div class="tags"><span class="tag">怪啖屋</span><span class="tag el-冰">冰</span></div></div></a>
+      <a class="card"><div class="thumb"><img src="../src/assets/zzz.jpg" alt=""><span class="rarity">S</span></div><div class="card-body"><div class="name-row"><span class="name">卢西娅</span><span class="chev">›</span></div><div class="role">支援 · 怪啖屋</div><div class="tags"><span class="tag">怪啖屋</span><span class="tag el-以太">以太</span></div></div></a>
+      <a class="card"><div class="thumb"><img src="../src/assets/zzz.jpg" alt=""><span class="rarity">S</span></div><div class="card-body"><div class="name-row"><span class="name">奥菲丝 &amp;「鬼火」</span><span class="chev">›</span></div><div class="role">强攻 · 奥波勒斯小队</div><div class="tags"><span class="tag">奥波勒斯小队</span><span class="tag el-火">火</span></div></div></a>
+      <a class="card"><div class="thumb"><img src="../src/assets/zzz.jpg" alt=""><span class="rarity">S</span></div><div class="card-body"><div class="name-row"><span class="name">「席德」</span><span class="chev">›</span></div><div class="role">强攻 · 奥波勒斯小队</div><div class="tags"><span class="tag">奥波勒斯小队</span><span class="tag el-电">电</span></div></div></a>
+      <a class="card"><div class="thumb"><img src="../src/assets/zzz.jpg" alt=""><span class="rarity">S</span></div><div class="card-body"><div class="name-row"><span class="name">星见雅</span><span class="chev">›</span></div><div class="role">强攻 · 对空六课</div><div class="tags"><span class="tag">对空六课</span><span class="tag el-冰">冰</span></div></div></a>
+      <a class="card"><div class="thumb"><img src="../src/assets/zzz.jpg" alt=""><span class="rarity">S</span></div><div class="card-body"><div class="name-row"><span class="name">月城柳</span><span class="chev">›</span></div><div class="role">异常 · 对空六课</div><div class="tags"><span class="tag">对空六课</span><span class="tag el-电">电</span></div></div></a>
+      <a class="card"><div class="thumb"><img src="../src/assets/zzz.jpg" alt=""><span class="rarity">S</span></div><div class="card-body"><div class="name-row"><span class="name">莱特</span><span class="chev">›</span></div><div class="role">击破 · 白祇重工</div><div class="tags"><span class="tag">白祇重工</span><span class="tag el-火">火</span></div></div></a>
+      <a class="card"><div class="thumb"><img src="../src/assets/zzz.jpg" alt=""><span class="rarity" style="background:linear-gradient(135deg,#B0BEC5,#78909C)">A</span></div><div class="card-body"><div class="name-row"><span class="name">青衣</span><span class="chev">›</span></div><div class="role">击破 · 刑侦特勤组</div><div class="tags"><span class="tag">刑侦特勤组</span><span class="tag el-物理">物理</span></div></div></a>
+    </section>
+  </main>
+</body>
+</html>
