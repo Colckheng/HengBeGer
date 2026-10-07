@@ -1,0 +1,111 @@
+{
+  "id": "20261007-1521",
+  "createdAt": "2026-10-07T07:21:11.568Z",
+  "gitCommit": "73bc10995974f9c542287aba8a2bf2931fea7c8c",
+  "treeHash": "f055f2c045beb53c6806d3bb65f16a617c5ccbff7003f48446acdf6d0c74b6a7",
+  "files": {
+    "added": [],
+    "modified": [
+      "zzz/gacha/1_「红月初升」.md",
+      "zzz/gacha/2_「猩红渴望」.md",
+      "zzz/gacha/6_「视线定格公理」.md",
+      "zzz/gacha/7_「霓虹妄想」.md",
+      "zzz/gacha/state.json"
+    ],
+    "deleted": []
+  },
+  "details": {
+    "zzz/gacha/1_「红月初升」.md": {
+      "frontMatter": [
+        {
+          "key": "last_crawled_at",
+          "from": "\"2026-10-07T06:36:51.623Z\"",
+          "to": "\"2026-10-07T07:21:11.057Z\""
+        },
+        {
+          "key": "version",
+          "from": "\"unknown\"",
+          "to": "\"3.2上半\""
+        }
+      ],
+      "body": {
+        "linesAdded": 0,
+        "linesRemoved": 0,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "zzz/gacha/2_「猩红渴望」.md": {
+      "frontMatter": [
+        {
+          "key": "last_crawled_at",
+          "from": "\"2026-10-07T06:36:51.624Z\"",
+          "to": "\"2026-10-07T07:21:11.060Z\""
+        },
+        {
+          "key": "version",
+          "from": "\"unknown\"",
+          "to": "\"3.2上半\""
+        }
+      ],
+      "body": {
+        "linesAdded": 0,
+        "linesRemoved": 0,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "zzz/gacha/6_「视线定格公理」.md": {
+      "frontMatter": [
+        {
+          "key": "last_crawled_at",
+          "from": "\"2026-10-07T06:36:51.624Z\"",
+          "to": "\"2026-10-07T07:21:11.060Z\""
+        },
+        {
+          "key": "version",
+          "from": "\"unknown\"",
+          "to": "\"3.2上半\""
+        }
+      ],
+      "body": {
+        "linesAdded": 0,
+        "linesRemoved": 0,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "zzz/gacha/7_「霓虹妄想」.md": {
+      "frontMatter": [
+        {
+          "key": "last_crawled_at",
+          "from": "\"2026-10-07T06:36:51.625Z\"",
+          "to": "\"2026-10-07T07:21:11.060Z\""
+        },
+        {
+          "key": "version",
+          "from": "\"unknown\"",
+          "to": "\"3.2上半\""
+        }
+      ],
+      "body": {
+        "linesAdded": 0,
+        "linesRemoved": 0,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "zzz/gacha/state.json": {
+      "frontMatter": [],
+      "body": {
+        "linesAdded": 1,
+        "linesRemoved": 1,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    }
+  },
+  "anomalies": [],
+  "confirmed": false,
+  "syncCommand": "npm run sync -- --report 20261007-1521"
+}
