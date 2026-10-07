@@ -1,0 +1,12 @@
+{
+  "type": "gacha",
+  "block": "hsr",
+  "seed_source": "D:\\github\\hsr.nanoka.cc",
+  "seed_version": "4.6.51 (checked 2026-10-01 21:30)",
+  "last_crawled_at": null,
+  "primary_source": null,
+  "counts": {
+    "files": 0,
+    "indexed": 0
+  }
+}
