@@ -36,6 +36,7 @@ import {
   entryFilename,
   categoryConfig,
 } from './crawler/currency-writer.js';
+import { enemySourceUrl, refreshEnemyFm, syncBossBodyDates } from './crawler/enemy-writer.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DATA_ROOT = path.join(ROOT, 'data');
@@ -309,7 +310,8 @@ const RUNNERS = {
   'zzz-skill': runCheckZzzSkill,
 };
 
-const WRITE_CLASSES = ['role', 'trait', 'item', 'strategy', 'environment'];
+const CURRENCY_CLASSES = ['role', 'trait', 'item', 'strategy', 'environment'];
+const WRITE_CLASSES = [...CURRENCY_CLASSES, 'monster', 'boss'];
 const CAT_JSON = { item: 'item.json', strategy: 'augment.json', environment: 'buff.json' };
 
 function listMdFiles(dir) {
@@ -406,6 +408,59 @@ function writeCategory(ctx, category) {
   }
 }
 
+async function writeEnemies(ctx, src, kinds) {
+  const dir = path.join(DATA_ROOT, 'zzz', 'enemies');
+  const ver = ctx.zzzVersion;
+  const monsterList = kinds.has('monster') ? await src.list('zzz', 'monster.json') : null;
+  const bossList = kinds.has('boss') ? await src.list('zzz', 'boss.json') : null;
+  if (kinds.has('monster')) {
+    for (const id of Object.keys(monsterList)) {
+      const found = findEnemyFile(id);
+      if (!found) {
+        ctx.anomalies.push(`monster: 源条目在 data 中无文件 id=${id} ${monsterList[id].zh || ''}`);
+        continue;
+      }
+      const detail = await src.detail('zzz', 'monster', id);
+      const fields = parseZzzMonster(detail) || {};
+      const { fm, body, raw } = readEntityFile(found.path);
+      const merged = refreshEnemyFm({
+        existingFm: fm,
+        fields,
+        sourceUrl: enemySourceUrl(ver, `zh/monster/${id}.json`),
+        version: ver,
+        now: ctx.now,
+      });
+      pushOp(ctx, dir, path.basename(found.path), merged, renderDoc(merged, [], body), raw);
+    }
+  }
+  if (kinds.has('boss')) {
+    for (const id of Object.keys(bossList)) {
+      const found = findEnemyFile(id);
+      if (!found) {
+        ctx.anomalies.push(`boss: 源条目在 data 中无文件 id=${id} ${bossList[id].zh || ''}`);
+        continue;
+      }
+      const parsed = parseZzzBoss(bossList[id], id);
+      const { fm, body, raw } = readEntityFile(found.path);
+      const merged = refreshEnemyFm({
+        existingFm: fm,
+        fields: { name: parsed.name },
+        sourceUrl: enemySourceUrl(ver, 'boss.json'),
+        version: ver,
+        now: ctx.now,
+      });
+      pushOp(ctx, dir, path.basename(found.path), merged, renderDoc(merged, [], syncBossBodyDates(body, parsed)), raw);
+    }
+  }
+  if (monsterList && bossList) {
+    const srcIds = new Set([...Object.keys(monsterList), ...Object.keys(bossList)]);
+    for (const f of listMdFiles(dir)) {
+      const id = path.basename(f).split('_')[0];
+      if (/^\d+$/.test(id) && !srcIds.has(id)) ctx.anomalies.push(`enemies: data 文件在源中已不存在 id=${id} ${f}`);
+    }
+  }
+}
+
 async function runWrite(src, args) {
   const only = String(args.only || '')
     .split(',')
@@ -414,12 +469,14 @@ async function runWrite(src, args) {
   const selected = only.length ? only : WRITE_CLASSES;
   const unknown = selected.filter((c) => !WRITE_CLASSES.includes(c));
   if (unknown.length) throw new Error(`--only 含未知类别: ${unknown.join(',')}（可用: ${WRITE_CLASSES.join(',')}）`);
-  const version = await src.version('hsr');
   const now = new Date().toISOString();
-  const ctx = { version, now, anomalies: [], ops: [], dirs: new Set(), tableDeletes: [], lists: {} };
+  const ctx = { version: null, now, anomalies: [], ops: [], dirs: new Set(), tableDeletes: [], lists: {}, zzzVersion: null };
+  if (selected.some((c) => CURRENCY_CLASSES.includes(c))) ctx.version = await src.version('hsr');
+  const enemyKinds = new Set(selected.filter((c) => c === 'monster' || c === 'boss'));
+  if (enemyKinds.size) ctx.zzzVersion = await src.version('zzz');
   const before = snapshot(DATA_ROOT);
 
-  if (selected.includes('role') || selected.includes('trait')) {
+  if (ctx.version && (selected.includes('role') || selected.includes('trait'))) {
     ctx.lists['role.json'] = await src.list('hsr', 'zh/currency/role.json');
     ctx.lists['trait.json'] = await src.list('hsr', 'zh/currency/trait.json');
   }
@@ -433,6 +490,7 @@ async function runWrite(src, args) {
   for (const cat of ['item', 'strategy', 'environment']) {
     if (selected.includes(cat)) writeCategory(ctx, cat);
   }
+  if (enemyKinds.size) await writeEnemies(ctx, src, enemyKinds);
 
   let bad = 0;
   let warn = 0;
@@ -484,8 +542,8 @@ async function main() {
     console.log('  --check 目标: role | trait | item | augment | buff | monster | boss | hsr-skill | zzz-skill');
     console.log('  选择器可用名字或数字 ID（角色/羁绊/怪物/Boss/技能按 data 文件解析）');
     console.log('  --versions: 输出两站当前数据版本');
-    console.log('  --write: 拉取货币战争五类写回 data/ 并生成报告（items/strategies/environments 首次自动拆条目）');
-    console.log('  --only: role | trait | item | strategy | environment（默认全部）');
+    console.log('  --write: 拉取货币战争五类 + ZZZ 怪物/Boss 写回 data/ 并生成报告（items/strategies/environments 首次自动拆条目）');
+    console.log('  --only: role | trait | item | strategy | environment | monster | boss（默认全部）');
     console.log('  示例: node scripts/crawl-nanoka.js --check role:三月七,monster:提尔锋,zzz-skill:安比');
     process.exit(1);
   }

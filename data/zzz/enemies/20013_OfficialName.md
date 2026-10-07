@@ -3,10 +3,13 @@ game: "zzz"
 type: "monster"
 tags: [zzz, monster]
 id: 20013
-name: "OfficialName"
+name: "OfficialName_"
 阵营: "侵蚀体"
 评级: "B"
-source: "nanoka-seed"
+source: "nanoka"
+source_url: "https://static.nanoka.cc/zzz/3.3.4+19304006/zh/monster/20013.json"
+version: "3.3.4+19304006"
+last_crawled_at: "2026-10-07T11:28:13.891Z"
 ---
 
 # OfficialName_
