@@ -31,6 +31,7 @@
     "crawl:gamekee": "node scripts/crawl-gamekee.js",
     "crawl:tools": "node scripts/crawl-tools.js",
     "crawl:nanoka": "node scripts/crawl-nanoka.js",
+    "crawl:images": "node scripts/crawl-images.js",
     "test:backend": "cross-env NODE_ENV=test NODE_OPTIONS=--experimental-vm-modules jest",
     "test:backend:coverage": "cross-env NODE_ENV=test NODE_OPTIONS=--experimental-vm-modules jest --coverage",
     "test:frontend": "vitest run src --environment jsdom",

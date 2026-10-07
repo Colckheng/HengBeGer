@@ -1,0 +1,39 @@
+{
+  "retcode": 0,
+  "message": "OK",
+  "data": {
+    "list": [
+      {
+        "list": [
+          {
+            "content_id": 379,
+            "title": "安比·德玛拉",
+            "alias_name": "安比",
+            "icon": "https://act-upload.mihoyo.com/nap/agent-anby.png",
+            "ext": "{\"c\":{\"filter\":{\"picture\":{\"list\":[\"https://act-upload.mihoyo.com/nap/agent-anby-art.png\"]}}}}",
+            "corner_mark": "",
+            "summary": ""
+          },
+          {
+            "content_id": 999,
+            "title": "零号·安比",
+            "alias_name": "",
+            "icon": "https://act-upload.mihoyo.com/nap/zerobyte-anby.png",
+            "ext": "{}",
+            "corner_mark": "",
+            "summary": ""
+          },
+          {
+            "content_id": 48,
+            "title": "三月七",
+            "alias_name": "",
+            "icon": "https://act-upload.mihoyo.com/sr/march7th.png",
+            "ext": "{}",
+            "corner_mark": "",
+            "summary": ""
+          }
+        ]
+      }
+    ]
+  }
+}
