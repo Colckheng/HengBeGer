@@ -1,0 +1,69 @@
+{
+  "id": "20261007-1606",
+  "createdAt": "2026-10-07T08:06:53.399Z",
+  "gitCommit": "4c272dcdc29a4863ea17b136f645ae8ab77fc190",
+  "treeHash": "32c36a2ee4e7bfd0951a4054a77c0c781e405ae81094200f955414e2f49456ba",
+  "files": {
+    "added": [],
+    "modified": [
+      "hsr/gacha/125_沧海萃珠.md",
+      "hsr/gacha/126_韶艾裁英.md",
+      "hsr/gacha/state.json"
+    ],
+    "deleted": []
+  },
+  "details": {
+    "hsr/gacha/125_沧海萃珠.md": {
+      "frontMatter": [
+        {
+          "key": "last_crawled_at",
+          "from": "\"2026-10-07T06:36:52.642Z\"",
+          "to": "\"2026-10-07T08:06:52.917Z\""
+        },
+        {
+          "key": "version",
+          "from": "\"unknown\"",
+          "to": "\"4.6上半\""
+        }
+      ],
+      "body": {
+        "linesAdded": 0,
+        "linesRemoved": 0,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/gacha/126_韶艾裁英.md": {
+      "frontMatter": [
+        {
+          "key": "last_crawled_at",
+          "from": "\"2026-10-07T06:36:52.643Z\"",
+          "to": "\"2026-10-07T08:06:52.919Z\""
+        },
+        {
+          "key": "version",
+          "from": "\"unknown\"",
+          "to": "\"4.6上半\""
+        }
+      ],
+      "body": {
+        "linesAdded": 0,
+        "linesRemoved": 0,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/gacha/state.json": {
+      "frontMatter": [],
+      "body": {
+        "linesAdded": 1,
+        "linesRemoved": 1,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    }
+  },
+  "anomalies": [],
+  "confirmed": false,
+  "syncCommand": "npm run sync -- --report 20261007-1606"
+}
