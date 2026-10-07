@@ -1,4 +1,4 @@
-import fs from 'node:fs';
+﻿import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createFetcher } from './crawler/fetcher.js';
@@ -192,7 +192,7 @@ async function main() {
       const report = buildReport(ROOT, { diff, snapshotBefore: before, snapshotAfter: after });
       console.log(`\n已写入 ${texts.length} 个文件`);
       console.log(`报告: ${report && report.id ? report.id : path.join(ROOT, 'reports', '*.md')}`);
-      console.log('确认后执行: npm run sync -- --report <报告id>');
+      console.log(`确认后执行: npm run sync -- --report ${report ? report.id : '<报告id>'}`);
     }
   }
 
