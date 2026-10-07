@@ -1,0 +1,8143 @@
+{
+  "id": "20261007-1955",
+  "createdAt": "2026-10-07T11:55:33.317Z",
+  "gitCommit": "062d8d3a6d3a4a8b093ec516e2887dabd7d89315",
+  "treeHash": "df53853a93de555fa656258cd514ab8c0da7d8f643a898f982b3eb81cc593e68",
+  "files": {
+    "added": [],
+    "modified": [
+      "hsr/characters/1001_三月七.md",
+      "hsr/characters/1002_丹恒.md",
+      "hsr/characters/1003_姬子.md",
+      "hsr/characters/1004_瓦尔特.md",
+      "hsr/characters/1005_卡芙卡.md",
+      "hsr/characters/1006_银狼.md",
+      "hsr/characters/1008_阿兰.md",
+      "hsr/characters/1009_艾丝妲.md",
+      "hsr/characters/1013_黑塔.md",
+      "hsr/characters/1014_Saber.md",
+      "hsr/characters/1015_Archer.md",
+      "hsr/characters/1101_布洛妮娅.md",
+      "hsr/characters/1102_希儿.md",
+      "hsr/characters/1103_希露瓦.md",
+      "hsr/characters/1104_杰帕德.md",
+      "hsr/characters/1105_娜塔莎.md",
+      "hsr/characters/1106_佩拉.md",
+      "hsr/characters/1107_克拉拉.md",
+      "hsr/characters/1108_桑博.md",
+      "hsr/characters/1109_虎克.md",
+      "hsr/characters/1110_玲可.md",
+      "hsr/characters/1111_卢卡.md",
+      "hsr/characters/1112_托帕&账账.md",
+      "hsr/characters/1201_青雀.md",
+      "hsr/characters/1202_停云.md",
+      "hsr/characters/1203_罗刹.md",
+      "hsr/characters/1204_景元.md",
+      "hsr/characters/1205_刃.md",
+      "hsr/characters/1206_素裳.md",
+      "hsr/characters/1207_驭空.md",
+      "hsr/characters/1208_符玄.md",
+      "hsr/characters/1209_彦卿.md",
+      "hsr/characters/1210_桂乃芬.md",
+      "hsr/characters/1211_白露.md",
+      "hsr/characters/1212_镜流.md",
+      "hsr/characters/1213_丹恒•饮月.md",
+      "hsr/characters/1214_雪衣.md",
+      "hsr/characters/1215_寒鸦.md",
+      "hsr/characters/1217_藿藿.md",
+      "hsr/characters/1218_椒丘.md",
+      "hsr/characters/1220_飞霄.md",
+      "hsr/characters/1221_云璃.md",
+      "hsr/characters/1222_灵砂.md",
+      "hsr/characters/1223_貊泽.md",
+      "hsr/characters/1225_忘归人.md",
+      "hsr/characters/1301_加拉赫.md",
+      "hsr/characters/1302_银枝.md",
+      "hsr/characters/1303_阮•梅.md",
+      "hsr/characters/1304_砂金.md",
+      "hsr/characters/1305_真理医生.md",
+      "hsr/characters/1306_花火.md",
+      "hsr/characters/1307_黑天鹅.md",
+      "hsr/characters/1308_黄泉.md",
+      "hsr/characters/1309_知更鸟.md",
+      "hsr/characters/1310_流萤.md",
+      "hsr/characters/1312_米沙.md",
+      "hsr/characters/1313_星期日.md",
+      "hsr/characters/1314_翡翠.md",
+      "hsr/characters/1315_波提欧.md",
+      "hsr/characters/1317_乱破.md",
+      "hsr/characters/1321_大丽花.md",
+      "hsr/characters/1401_大黑塔.md",
+      "hsr/characters/1402_阿格莱雅.md",
+      "hsr/characters/1403_缇宝.md",
+      "hsr/characters/1404_万敌.md",
+      "hsr/characters/1405_那刻夏.md",
+      "hsr/characters/1406_赛飞儿.md",
+      "hsr/characters/1407_遐蝶.md",
+      "hsr/characters/1408_白厄.md",
+      "hsr/characters/1409_风堇.md",
+      "hsr/characters/1410_海瑟音.md",
+      "hsr/characters/1412_刻律德菈.md",
+      "hsr/characters/1413_长夜月.md",
+      "hsr/characters/1414_丹恒•腾荒.md",
+      "hsr/characters/1415_昔涟.md",
+      "hsr/characters/1501_火花.md",
+      "hsr/characters/1502_爻光.md",
+      "hsr/characters/1503_真珠.md",
+      "hsr/characters/1504_不死途.md",
+      "hsr/characters/1505_绯英.md",
+      "hsr/characters/1506_银狼LV.999.md",
+      "hsr/characters/1507_千冶•刃.md",
+      "hsr/characters/1508_远坂凛.md",
+      "hsr/characters/1509_吉尔伽美什.md",
+      "hsr/characters/1510_姬子•启行.md",
+      "hsr/characters/1511_星神★阿哈.md",
+      "hsr/characters/1512_知更鸟•晴歌.md",
+      "hsr/characters/1513_砂金•戏浪.md",
+      "hsr/characters/8001_开拓者.md",
+      "hsr/characters/state.json",
+      "hsr/gacha/125_沧海萃珠.md",
+      "hsr/gacha/126_韶艾裁英.md",
+      "hsr/gacha/state.json",
+      "zzz/agents/1021_猫又.md",
+      "zzz/agents/1031_妮可.md",
+      "zzz/agents/1041_「11号」.md",
+      "zzz/agents/1051_伊德海莉.md",
+      "zzz/agents/1061_可琳.md",
+      "zzz/agents/1071_凯撒.md",
+      "zzz/agents/1081_比利.md",
+      "zzz/agents/1091_雅.md",
+      "zzz/agents/1101_珂蕾妲.md",
+      "zzz/agents/1111_安东.md",
+      "zzz/agents/1121_本.md",
+      "zzz/agents/1131_苍角.md",
+      "zzz/agents/1141_莱卡恩.md",
+      "zzz/agents/1151_露西.md",
+      "zzz/agents/1161_莱特.md",
+      "zzz/agents/1171_柏妮思.md",
+      "zzz/agents/1181_格莉丝.md",
+      "zzz/agents/1191_艾莲.md",
+      "zzz/agents/1201_悠真.md",
+      "zzz/agents/1211_丽娜.md",
+      "zzz/agents/1221_柳.md",
+      "zzz/agents/1241_朱鸢.md",
+      "zzz/agents/1251_青衣.md",
+      "zzz/agents/1261_简.md",
+      "zzz/agents/1271_赛斯.md",
+      "zzz/agents/1281_派派.md",
+      "zzz/agents/1291_雨果.md",
+      "zzz/agents/1301_奥菲丝&「鬼火」.md",
+      "zzz/agents/1311_耀嘉音.md",
+      "zzz/agents/1321_伊芙琳.md",
+      "zzz/agents/1331_薇薇安.md",
+      "zzz/agents/1341_照.md",
+      "zzz/agents/1351_波可娜.md",
+      "zzz/agents/1361_「扳机」.md",
+      "zzz/agents/1371_仪玄.md",
+      "zzz/agents/1381_零号·安比.md",
+      "zzz/agents/1391_橘福福.md",
+      "zzz/agents/1401_爱丽丝.md",
+      "zzz/agents/1411_柚叶.md",
+      "zzz/agents/1421_潘引壶.md",
+      "zzz/agents/1431_叶瞬光.md",
+      "zzz/agents/1441_真斗.md",
+      "zzz/agents/1451_卢西娅.md",
+      "zzz/agents/1461_「席德」.md",
+      "zzz/agents/1471_般岳.md",
+      "zzz/agents/1481_琉音.md",
+      "zzz/agents/1491_千夏.md",
+      "zzz/agents/1501_爱芮.md",
+      "zzz/agents/1511_南宫羽.md",
+      "zzz/agents/1521_希希芙.md",
+      "zzz/agents/1531_星徽·比利.md",
+      "zzz/agents/1541_普罗米娅.md",
+      "zzz/agents/1551_佩洛伊斯.md",
+      "zzz/agents/1561_维琳娜.md",
+      "zzz/agents/1571_诺姆.md",
+      "zzz/agents/1581_蕾米埃尔.md",
+      "zzz/agents/1591_希格莉德.md",
+      "zzz/agents/1611_克拉蕾.md",
+      "zzz/agents/1621_洛克茜.md",
+      "zzz/agents/1631_赛维里安.md",
+      "zzz/agents/1641_菲欧妮.md",
+      "zzz/agents/state.json",
+      "zzz/gacha/1_「红月初升」.md",
+      "zzz/gacha/2_「猩红渴望」.md",
+      "zzz/gacha/6_「视线定格公理」.md",
+      "zzz/gacha/7_「霓虹妄想」.md",
+      "zzz/gacha/state.json"
+    ],
+    "deleted": []
+  },
+  "details": {
+    "hsr/characters/1001_三月七.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"仙舟三月七\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "\"2026-10-07T06:36:50.607Z\"",
+          "to": "\"2026-10-07T11:55:19.200Z\""
+        },
+        {
+          "key": "source_url",
+          "from": "\"https://www.miyoushe.com/sr/wiki/content/48/detail\"",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/3121/detail\""
+        },
+        {
+          "key": "version",
+          "from": "\"83\"",
+          "to": "\"33\""
+        },
+        {
+          "key": "命途",
+          "from": "\"存护\"",
+          "to": "\"巡猎\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "69",
+          "to": "76"
+        },
+        {
+          "key": "基础速度",
+          "from": "101",
+          "to": "102"
+        },
+        {
+          "key": "基础防御力",
+          "from": "78",
+          "to": "60"
+        },
+        {
+          "key": "属性",
+          "from": "\"冰\"",
+          "to": "\"虚数\""
+        }
+      ],
+      "body": {
+        "linesAdded": 310,
+        "linesRemoved": 315,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1002_丹恒.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1002",
+          "to": "\"1002\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:28.927Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/406/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"54\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "547",
+          "to": "74"
+        },
+        {
+          "key": "基础生命值",
+          "from": "882",
+          "to": "120"
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "54"
+        }
+      ],
+      "body": {
+        "linesAdded": 640,
+        "linesRemoved": 20,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1003_姬子.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1003",
+          "to": "\"1003\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:14.607Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/407/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"59\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "757",
+          "to": "102"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1048",
+          "to": "142"
+        },
+        {
+          "key": "基础防御力",
+          "from": "437",
+          "to": "59"
+        }
+      ],
+      "body": {
+        "linesAdded": 646,
+        "linesRemoved": 21,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1004_瓦尔特.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1004",
+          "to": "\"1004\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:53.961Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/560/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"63\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "621",
+          "to": "84"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1125",
+          "to": "153"
+        },
+        {
+          "key": "基础防御力",
+          "from": "509",
+          "to": "69"
+        }
+      ],
+      "body": {
+        "linesAdded": 660,
+        "linesRemoved": 22,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1005_卡芙卡.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1005",
+          "to": "\"1005\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:02.100Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/1298/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"77\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "679",
+          "to": "92"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1087",
+          "to": "147"
+        },
+        {
+          "key": "基础防御力",
+          "from": "485",
+          "to": "66"
+        }
+      ],
+      "body": {
+        "linesAdded": 616,
+        "linesRemoved": 23,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1006_银狼.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1006",
+          "to": "\"1006\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:01.164Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/1085/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"70\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "640",
+          "to": "87"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1048",
+          "to": "142"
+        },
+        {
+          "key": "基础防御力",
+          "from": "461",
+          "to": "62"
+        }
+      ],
+      "body": {
+        "linesAdded": 615,
+        "linesRemoved": 26,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1008_阿兰.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1008",
+          "to": "\"1008\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:28.401Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/380/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"48\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "600",
+          "to": "81"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1200",
+          "to": "163"
+        },
+        {
+          "key": "基础防御力",
+          "from": "331",
+          "to": "45"
+        }
+      ],
+      "body": {
+        "linesAdded": 611,
+        "linesRemoved": 22,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1009_艾丝妲.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1009",
+          "to": "\"1009\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:27.854Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/52/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"64\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "512",
+          "to": "69"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1023",
+          "to": "139"
+        },
+        {
+          "key": "基础防御力",
+          "from": "463",
+          "to": "63"
+        }
+      ],
+      "body": {
+        "linesAdded": 642,
+        "linesRemoved": 20,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1013_黑塔.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1013",
+          "to": "\"1013\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:27.384Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/49/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"58\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "582",
+          "to": "79"
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "129"
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "54"
+        }
+      ],
+      "body": {
+        "linesAdded": 618,
+        "linesRemoved": 21,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1014_Saber.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1014",
+          "to": "\"1014\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:03.320Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/5339/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"27\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "602",
+          "to": "81"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1242",
+          "to": "169"
+        },
+        {
+          "key": "基础防御力",
+          "from": "655",
+          "to": "89"
+        },
+        {
+          "key": "阵营",
+          "from": "(absent)",
+          "to": "\"异界\""
+        }
+      ],
+      "body": {
+        "linesAdded": 621,
+        "linesRemoved": 23,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1015_Archer.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1015",
+          "to": "\"1015\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:03.828Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/5338/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"17\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "621",
+          "to": "84"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1164",
+          "to": "158"
+        },
+        {
+          "key": "基础防御力",
+          "from": "485",
+          "to": "66"
+        },
+        {
+          "key": "阵营",
+          "from": "(absent)",
+          "to": "\"异界\""
+        }
+      ],
+      "body": {
+        "linesAdded": 593,
+        "linesRemoved": 21,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1101_布洛妮娅.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1101",
+          "to": "\"1101\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:14.106Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/453/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"57\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "582",
+          "to": "79"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1242",
+          "to": "168"
+        },
+        {
+          "key": "基础防御力",
+          "from": "534",
+          "to": "72"
+        }
+      ],
+      "body": {
+        "linesAdded": 611,
+        "linesRemoved": 22,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1102_希儿.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1102",
+          "to": "\"1102\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:53.398Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/317/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"67\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "640",
+          "to": "87"
+        },
+        {
+          "key": "基础生命值",
+          "from": "931",
+          "to": "126"
+        },
+        {
+          "key": "基础防御力",
+          "from": "364",
+          "to": "49"
+        }
+      ],
+      "body": {
+        "linesAdded": 605,
+        "linesRemoved": 22,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1103_希露瓦.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1103",
+          "to": "\"1103\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:26.857Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/423/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"56\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "653",
+          "to": "88"
+        },
+        {
+          "key": "基础生命值",
+          "from": "917",
+          "to": "124"
+        },
+        {
+          "key": "基础防御力",
+          "from": "375",
+          "to": "51"
+        }
+      ],
+      "body": {
+        "linesAdded": 614,
+        "linesRemoved": 23,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1104_杰帕德.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1104",
+          "to": "\"1104\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:13.585Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/424/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"72\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "543",
+          "to": "73"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1397",
+          "to": "190"
+        },
+        {
+          "key": "基础防御力",
+          "from": "655",
+          "to": "89"
+        }
+      ],
+      "body": {
+        "linesAdded": 604,
+        "linesRemoved": 21,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1105_娜塔莎.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1105",
+          "to": "\"1105\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:26.335Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/46/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"57\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "476",
+          "to": "64"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1164",
+          "to": "158"
+        },
+        {
+          "key": "基础防御力",
+          "from": "507",
+          "to": "69"
+        }
+      ],
+      "body": {
+        "linesAdded": 633,
+        "linesRemoved": 20,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1106_佩拉.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1106",
+          "to": "\"1106\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:25.857Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/422/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"57\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "547",
+          "to": "74"
+        },
+        {
+          "key": "基础生命值",
+          "from": "988",
+          "to": "134"
+        },
+        {
+          "key": "基础防御力",
+          "from": "463",
+          "to": "63"
+        }
+      ],
+      "body": {
+        "linesAdded": 633,
+        "linesRemoved": 24,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1107_克拉拉.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1107",
+          "to": "\"1107\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:13.068Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/414/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"61\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "737",
+          "to": "100"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1242",
+          "to": "168"
+        },
+        {
+          "key": "基础防御力",
+          "from": "485",
+          "to": "66"
+        }
+      ],
+      "body": {
+        "linesAdded": 607,
+        "linesRemoved": 23,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1108_桑博.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1108",
+          "to": "\"1108\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:25.360Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/386/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"52\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "617",
+          "to": "84"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1023",
+          "to": "139"
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "54"
+        }
+      ],
+      "body": {
+        "linesAdded": 635,
+        "linesRemoved": 21,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1109_虎克.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1109",
+          "to": "\"1109\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:24.872Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/76/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"54\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "617",
+          "to": "84"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1341",
+          "to": "182"
+        },
+        {
+          "key": "基础防御力",
+          "from": "353",
+          "to": "48"
+        }
+      ],
+      "body": {
+        "linesAdded": 635,
+        "linesRemoved": 21,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1110_玲可.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1110",
+          "to": "\"1110\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:24.318Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/1543/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"46\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "494",
+          "to": "67"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1058",
+          "to": "144"
+        },
+        {
+          "key": "基础防御力",
+          "from": "551",
+          "to": "75"
+        }
+      ],
+      "body": {
+        "linesAdded": 600,
+        "linesRemoved": 21,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1111_卢卡.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1111",
+          "to": "\"1111\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:23.929Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/1325/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"36\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "582",
+          "to": "79"
+        },
+        {
+          "key": "基础生命值",
+          "from": "917",
+          "to": "124"
+        },
+        {
+          "key": "基础防御力",
+          "from": "485",
+          "to": "66"
+        }
+      ],
+      "body": {
+        "linesAdded": 652,
+        "linesRemoved": 20,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1112_托帕&账账.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1112",
+          "to": "\"1112\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:12.574Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/1709/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"66\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "621",
+          "to": "84"
+        },
+        {
+          "key": "基础生命值",
+          "from": "931",
+          "to": "126"
+        },
+        {
+          "key": "基础防御力",
+          "from": "412",
+          "to": "56"
+        }
+      ],
+      "body": {
+        "linesAdded": 656,
+        "linesRemoved": 25,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1201_青雀.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1201",
+          "to": "\"1201\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:23.341Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/497/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"51\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "653",
+          "to": "88"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1023",
+          "to": "139"
+        },
+        {
+          "key": "基础防御力",
+          "from": "441",
+          "to": "60"
+        }
+      ],
+      "body": {
+        "linesAdded": 679,
+        "linesRemoved": 23,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1202_停云.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1202",
+          "to": "\"1202\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:22.831Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/561/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"61\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "529",
+          "to": "72"
+        },
+        {
+          "key": "基础生命值",
+          "from": "847",
+          "to": "115"
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "54"
+        }
+      ],
+      "body": {
+        "linesAdded": 645,
+        "linesRemoved": 20,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1203_罗刹.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1203",
+          "to": "\"1203\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:12.063Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/1188/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"49\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "757",
+          "to": "102"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1281",
+          "to": "174"
+        },
+        {
+          "key": "基础防御力",
+          "from": "364",
+          "to": "49"
+        },
+        {
+          "key": "阵营",
+          "from": "\"仙舟「罗浮」\"",
+          "to": "\"仙舟联盟\""
+        }
+      ],
+      "body": {
+        "linesAdded": 623,
+        "linesRemoved": 21,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1204_景元.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1204",
+          "to": "\"1204\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:08.451Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/389/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"77\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "699",
+          "to": "95"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1164",
+          "to": "158"
+        },
+        {
+          "key": "基础防御力",
+          "from": "485",
+          "to": "66"
+        }
+      ],
+      "body": {
+        "linesAdded": 674,
+        "linesRemoved": 20,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1205_刃.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1205",
+          "to": "\"1205\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:02.795Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/1214/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"74\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "543",
+          "to": "73"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1358",
+          "to": "184"
+        },
+        {
+          "key": "基础防御力",
+          "from": "485",
+          "to": "66"
+        }
+      ],
+      "body": {
+        "linesAdded": 652,
+        "linesRemoved": 21,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1206_素裳.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1206",
+          "to": "\"1206\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:22.270Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/412/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"57\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "564",
+          "to": "76"
+        },
+        {
+          "key": "基础生命值",
+          "from": "917",
+          "to": "124"
+        },
+        {
+          "key": "基础防御力",
+          "from": "419",
+          "to": "57"
+        }
+      ],
+      "body": {
+        "linesAdded": 671,
+        "linesRemoved": 21,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1207_驭空.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1207",
+          "to": "\"1207\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:21.770Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/1187/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"48\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "600",
+          "to": "81"
+        },
+        {
+          "key": "基础生命值",
+          "from": "917",
+          "to": "124"
+        },
+        {
+          "key": "基础防御力",
+          "from": "375",
+          "to": "51"
+        }
+      ],
+      "body": {
+        "linesAdded": 654,
+        "linesRemoved": 20,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1208_符玄.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1208",
+          "to": "\"1208\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:11.568Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/1646/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"64\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "466",
+          "to": "63"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1475",
+          "to": "200"
+        },
+        {
+          "key": "基础防御力",
+          "from": "606",
+          "to": "82"
+        },
+        {
+          "key": "阵营",
+          "from": "\"仙舟「罗浮」\"",
+          "to": "\"仙舟联盟\""
+        }
+      ],
+      "body": {
+        "linesAdded": 651,
+        "linesRemoved": 21,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1209_彦卿.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1209",
+          "to": "\"1209\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:11.062Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/565/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"58\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "679",
+          "to": "92"
+        },
+        {
+          "key": "基础生命值",
+          "from": "893",
+          "to": "121"
+        },
+        {
+          "key": "基础防御力",
+          "from": "412",
+          "to": "56"
+        },
+        {
+          "key": "阵营",
+          "from": "\"仙舟「罗浮」\"",
+          "to": "\"仙舟联盟\""
+        }
+      ],
+      "body": {
+        "linesAdded": 657,
+        "linesRemoved": 23,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1210_桂乃芬.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1210",
+          "to": "\"1210\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:21.243Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/1710/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"47\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "582",
+          "to": "79"
+        },
+        {
+          "key": "基础生命值",
+          "from": "882",
+          "to": "120"
+        },
+        {
+          "key": "基础防御力",
+          "from": "441",
+          "to": "60"
+        }
+      ],
+      "body": {
+        "linesAdded": 618,
+        "linesRemoved": 21,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1211_白露.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1211",
+          "to": "\"1211\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:10.537Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/564/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"66\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "563",
+          "to": "76"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1319",
+          "to": "176"
+        },
+        {
+          "key": "基础防御力",
+          "from": "485",
+          "to": "66"
+        }
+      ],
+      "body": {
+        "linesAdded": 665,
+        "linesRemoved": 20,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1212_镜流.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1212",
+          "to": "\"1212\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:02.300Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/1708/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"68\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "679",
+          "to": "92"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1436",
+          "to": "195"
+        },
+        {
+          "key": "基础防御力",
+          "from": "485",
+          "to": "66"
+        },
+        {
+          "key": "阵营",
+          "from": "\"仙舟「罗浮」\"",
+          "to": "\"仙舟联盟\""
+        }
+      ],
+      "body": {
+        "linesAdded": 642,
+        "linesRemoved": 21,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1213_丹恒•饮月.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1213",
+          "to": "\"1213\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:08.972Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/1472/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"72\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "699",
+          "to": "95"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1242",
+          "to": "168"
+        },
+        {
+          "key": "基础防御力",
+          "from": "364",
+          "to": "49"
+        }
+      ],
+      "body": {
+        "linesAdded": 632,
+        "linesRemoved": 23,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1214_雪衣.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1214",
+          "to": "\"1214\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:20.770Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/1872/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"38\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "600",
+          "to": "81"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1058",
+          "to": "144"
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "54"
+        }
+      ],
+      "body": {
+        "linesAdded": 625,
+        "linesRemoved": 22,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1215_寒鸦.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1215",
+          "to": "\"1215\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:20.220Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/1717/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"38\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "564",
+          "to": "76"
+        },
+        {
+          "key": "基础生命值",
+          "from": "917",
+          "to": "124"
+        },
+        {
+          "key": "基础防御力",
+          "from": "353",
+          "to": "48"
+        }
+      ],
+      "body": {
+        "linesAdded": 625,
+        "linesRemoved": 21,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1217_藿藿.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1217",
+          "to": "\"1217\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:52.935Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/1712/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"76\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "602",
+          "to": "69"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1358",
+          "to": "184"
+        },
+        {
+          "key": "基础防御力",
+          "from": "509",
+          "to": "81"
+        }
+      ],
+      "body": {
+        "linesAdded": 641,
+        "linesRemoved": 21,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1218_椒丘.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1218",
+          "to": "\"1218\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:04.918Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/3058/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"25\""
+        }
+      ],
+      "body": {
+        "linesAdded": 3,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1220_飞霄.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1220",
+          "to": "\"1220\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:50.400Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/3501/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"36\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "602",
+          "to": "81"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1048",
+          "to": "142"
+        },
+        {
+          "key": "基础防御力",
+          "from": "388",
+          "to": "52"
+        },
+        {
+          "key": "阵营",
+          "from": "(absent)",
+          "to": "\"仙舟联盟\""
+        }
+      ],
+      "body": {
+        "linesAdded": 697,
+        "linesRemoved": 25,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1221_云璃.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1221",
+          "to": "\"1221\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:05.949Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/3056/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"32\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "679",
+          "to": "92"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1358",
+          "to": "184"
+        },
+        {
+          "key": "基础防御力",
+          "from": "461",
+          "to": "62"
+        },
+        {
+          "key": "阵营",
+          "from": "(absent)",
+          "to": "\"仙舟「朱明」\""
+        }
+      ],
+      "body": {
+        "linesAdded": 685,
+        "linesRemoved": 23,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1222_灵砂.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1222",
+          "to": "\"1222\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:59.099Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/3502/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"34\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "679",
+          "to": "92"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1358",
+          "to": "184"
+        },
+        {
+          "key": "基础防御力",
+          "from": "437",
+          "to": "59"
+        },
+        {
+          "key": "阵营",
+          "from": "(absent)",
+          "to": "\"仙舟联盟\""
+        }
+      ],
+      "body": {
+        "linesAdded": 680,
+        "linesRemoved": 21,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1223_貊泽.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1223",
+          "to": "\"1223\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:19.746Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/3505/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"23\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "600",
+          "to": "81"
+        },
+        {
+          "key": "基础生命值",
+          "from": "811",
+          "to": "110"
+        },
+        {
+          "key": "基础防御力",
+          "from": "353",
+          "to": "48"
+        },
+        {
+          "key": "阵营",
+          "from": "(absent)",
+          "to": "\"仙舟「曜青」\""
+        }
+      ],
+      "body": {
+        "linesAdded": 636,
+        "linesRemoved": 23,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1225_忘归人.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1225",
+          "to": "\"1225\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:58.579Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/4175/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"29\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "582",
+          "to": "79"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1125",
+          "to": "153"
+        },
+        {
+          "key": "基础防御力",
+          "from": "558",
+          "to": "75"
+        },
+        {
+          "key": "阵营",
+          "from": "(absent)",
+          "to": "\"仙舟「罗浮」\""
+        }
+      ],
+      "body": {
+        "linesAdded": 652,
+        "linesRemoved": 22,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1301_加拉赫.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1301",
+          "to": "\"1301\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:18.685Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/2304/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"32\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "529",
+          "to": "72"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1305",
+          "to": "177"
+        },
+        {
+          "key": "基础防御力",
+          "from": "441",
+          "to": "60"
+        }
+      ],
+      "body": {
+        "linesAdded": 624,
+        "linesRemoved": 20,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1302_银枝.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1302",
+          "to": "\"1302\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:10.018Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/1714/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"49\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "737",
+          "to": "100"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1048",
+          "to": "142"
+        },
+        {
+          "key": "基础防御力",
+          "from": "364",
+          "to": "49"
+        }
+      ],
+      "body": {
+        "linesAdded": 611,
+        "linesRemoved": 20,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1303_阮•梅.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1303",
+          "to": "\"1303\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:09.530Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/1874/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"58\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "660",
+          "to": "89"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1087",
+          "to": "147"
+        },
+        {
+          "key": "基础防御力",
+          "from": "485",
+          "to": "66"
+        }
+      ],
+      "body": {
+        "linesAdded": 632,
+        "linesRemoved": 21,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1304_砂金.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1304",
+          "to": "\"1304\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:45.305Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/2302/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"46\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "446",
+          "to": "60"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1203",
+          "to": "163"
+        },
+        {
+          "key": "基础防御力",
+          "from": "655",
+          "to": "89"
+        }
+      ],
+      "body": {
+        "linesAdded": 667,
+        "linesRemoved": 21,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1305_真理医生.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1305",
+          "to": "\"1305\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:04.362Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/1873/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"56\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "776",
+          "to": "105"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1048",
+          "to": "142"
+        },
+        {
+          "key": "基础防御力",
+          "from": "461",
+          "to": "62"
+        }
+      ],
+      "body": {
+        "linesAdded": 621,
+        "linesRemoved": 25,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1306_花火.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1306",
+          "to": "\"1306\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:56.511Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/2087/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"60\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "524",
+          "to": "71"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1397",
+          "to": "190"
+        },
+        {
+          "key": "基础防御力",
+          "from": "485",
+          "to": "66"
+        }
+      ],
+      "body": {
+        "linesAdded": 640,
+        "linesRemoved": 21,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1307_黑天鹅.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1307",
+          "to": "\"1307\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:57.041Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/2082/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"61\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "660",
+          "to": "89"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1087",
+          "to": "147"
+        },
+        {
+          "key": "基础防御力",
+          "from": "485",
+          "to": "66"
+        }
+      ],
+      "body": {
+        "linesAdded": 689,
+        "linesRemoved": 25,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1308_黄泉.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1308",
+          "to": "\"1308\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:05.393Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/2300/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"55\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "699",
+          "to": "95"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1125",
+          "to": "153"
+        },
+        {
+          "key": "基础防御力",
+          "from": "437",
+          "to": "59"
+        },
+        {
+          "key": "阵营",
+          "from": "\"自灭者\"",
+          "to": "\"巡海游侠/自灭者\""
+        }
+      ],
+      "body": {
+        "linesAdded": 651,
+        "linesRemoved": 22,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1309_知更鸟.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1309",
+          "to": "\"1309\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:06.455Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/2524/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"46\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "640",
+          "to": "87"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1281",
+          "to": "174"
+        },
+        {
+          "key": "基础防御力",
+          "from": "485",
+          "to": "66"
+        },
+        {
+          "key": "阵营",
+          "from": "(absent)",
+          "to": "\"匹诺康尼\""
+        }
+      ],
+      "body": {
+        "linesAdded": 641,
+        "linesRemoved": 24,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1310_流萤.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1310",
+          "to": "\"1310\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:52.418Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/2674/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"50\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "524",
+          "to": "71"
+        },
+        {
+          "key": "基础生命值",
+          "from": "815",
+          "to": "110"
+        },
+        {
+          "key": "基础防御力",
+          "from": "776",
+          "to": "105"
+        },
+        {
+          "key": "阵营",
+          "from": "(absent)",
+          "to": "\"星核猎手\""
+        }
+      ],
+      "body": {
+        "linesAdded": 712,
+        "linesRemoved": 24,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1312_米沙.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1312",
+          "to": "\"1312\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:18.197Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/2086/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"29\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "600",
+          "to": "81"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1270",
+          "to": "172"
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "54"
+        }
+      ],
+      "body": {
+        "linesAdded": 611,
+        "linesRemoved": 21,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1313_星期日.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1313",
+          "to": "\"1313\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:49.824Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/4174/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"45\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "640",
+          "to": "87"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1242",
+          "to": "168"
+        },
+        {
+          "key": "基础防御力",
+          "from": "534",
+          "to": "72"
+        },
+        {
+          "key": "阵营",
+          "from": "(absent)",
+          "to": "\"星穹列车\""
+        }
+      ],
+      "body": {
+        "linesAdded": 704,
+        "linesRemoved": 20,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1314_翡翠.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1314",
+          "to": "\"1314\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:07.934Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/2675/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"30\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "660",
+          "to": "89"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1087",
+          "to": "147"
+        },
+        {
+          "key": "基础防御力",
+          "from": "509",
+          "to": "69"
+        },
+        {
+          "key": "阵营",
+          "from": "(absent)",
+          "to": "\"星际和平公司\""
+        }
+      ],
+      "body": {
+        "linesAdded": 646,
+        "linesRemoved": 23,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1315_波提欧.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1315",
+          "to": "\"1315\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:55.519Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/2526/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"43\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "621",
+          "to": "84"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1203",
+          "to": "163"
+        },
+        {
+          "key": "基础防御力",
+          "from": "437",
+          "to": "59"
+        },
+        {
+          "key": "阵营",
+          "from": "(absent)",
+          "to": "\"巡海游侠\""
+        }
+      ],
+      "body": {
+        "linesAdded": 698,
+        "linesRemoved": 22,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1317_乱破.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1317",
+          "to": "\"1317\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:55.972Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/3732/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"45\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "718",
+          "to": "97"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1087",
+          "to": "147"
+        },
+        {
+          "key": "基础防御力",
+          "from": "461",
+          "to": "62"
+        },
+        {
+          "key": "阵营",
+          "from": "(absent)",
+          "to": "\"巡海游侠\""
+        }
+      ],
+      "body": {
+        "linesAdded": 638,
+        "linesRemoved": 21,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1321_大丽花.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1321",
+          "to": "\"1321\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:51.369Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/6025/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"13\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "679",
+          "to": "92"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1087",
+          "to": "148"
+        },
+        {
+          "key": "基础防御力",
+          "from": "606",
+          "to": "82"
+        },
+        {
+          "key": "阵营",
+          "from": "(absent)",
+          "to": "\"焚化工\""
+        }
+      ],
+      "body": {
+        "linesAdded": 670,
+        "linesRemoved": 25,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1401_大黑塔.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1401",
+          "to": "\"1401\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:00.650Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/4439/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"33\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "679",
+          "to": "92"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1164",
+          "to": "158"
+        },
+        {
+          "key": "基础防御力",
+          "from": "485",
+          "to": "66"
+        },
+        {
+          "key": "阵营",
+          "from": "(absent)",
+          "to": "\"空间站「黑塔」\""
+        }
+      ],
+      "body": {
+        "linesAdded": 652,
+        "linesRemoved": 22,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1402_阿格莱雅.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1402",
+          "to": "\"1402\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:58.175Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/4440/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"73\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "699",
+          "to": "95"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1242",
+          "to": "169"
+        },
+        {
+          "key": "基础防御力",
+          "from": "485",
+          "to": "66"
+        }
+      ],
+      "body": {
+        "linesAdded": 728,
+        "linesRemoved": 23,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1403_缇宝.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1403",
+          "to": "\"1403\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:49.469Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/4608/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"90\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "524",
+          "to": "71"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1048",
+          "to": "142"
+        },
+        {
+          "key": "基础防御力",
+          "from": "728",
+          "to": "99"
+        }
+      ],
+      "body": {
+        "linesAdded": 757,
+        "linesRemoved": 25,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1404_万敌.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1404",
+          "to": "\"1404\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:00.155Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/4609/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"62\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "427",
+          "to": "58"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1552",
+          "to": "211"
+        },
+        {
+          "key": "基础防御力",
+          "from": "194",
+          "to": "26"
+        }
+      ],
+      "body": {
+        "linesAdded": 748,
+        "linesRemoved": 21,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1405_那刻夏.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1405",
+          "to": "\"1405\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:44.795Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/4917/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"59\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "757",
+          "to": "102"
+        },
+        {
+          "key": "基础生命值",
+          "from": "970",
+          "to": "132"
+        },
+        {
+          "key": "基础防御力",
+          "from": "558",
+          "to": "75"
+        }
+      ],
+      "body": {
+        "linesAdded": 738,
+        "linesRemoved": 21,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1406_赛飞儿.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1406",
+          "to": "\"1406\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:59.671Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/5109/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"69\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "640",
+          "to": "87"
+        },
+        {
+          "key": "基础生命值",
+          "from": "931",
+          "to": "127"
+        },
+        {
+          "key": "基础防御力",
+          "from": "509",
+          "to": "69"
+        }
+      ],
+      "body": {
+        "linesAdded": 710,
+        "linesRemoved": 25,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1407_遐蝶.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1407",
+          "to": "\"1407\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:51.935Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/4916/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"81\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "524",
+          "to": "71"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1630",
+          "to": "222"
+        },
+        {
+          "key": "基础防御力",
+          "from": "485",
+          "to": "66"
+        }
+      ],
+      "body": {
+        "linesAdded": 763,
+        "linesRemoved": 23,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1408_白厄.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1408",
+          "to": "\"1408\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:47.897Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/5107/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"94\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "582",
+          "to": "79"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1436",
+          "to": "195"
+        },
+        {
+          "key": "基础防御力",
+          "from": "703",
+          "to": "95"
+        }
+      ],
+      "body": {
+        "linesAdded": 800,
+        "linesRemoved": 26,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1409_风堇.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1409",
+          "to": "\"1409\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:42.211Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/5108/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"75\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "388",
+          "to": "53"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1087",
+          "to": "148"
+        },
+        {
+          "key": "基础防御力",
+          "from": "631",
+          "to": "86"
+        }
+      ],
+      "body": {
+        "linesAdded": 717,
+        "linesRemoved": 22,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1410_海瑟音.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1410",
+          "to": "\"1410\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:57.902Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/5582/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"40\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "602",
+          "to": "81"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1203",
+          "to": "164"
+        },
+        {
+          "key": "基础防御力",
+          "from": "485",
+          "to": "66"
+        }
+      ],
+      "body": {
+        "linesAdded": 690,
+        "linesRemoved": 22,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1412_刻律德菈.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1412",
+          "to": "\"1412\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:44.248Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/5583/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"34\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "621",
+          "to": "84"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1358",
+          "to": "185"
+        },
+        {
+          "key": "基础防御力",
+          "from": "485",
+          "to": "66"
+        }
+      ],
+      "body": {
+        "linesAdded": 697,
+        "linesRemoved": 23,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1413_长夜月.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1413",
+          "to": "\"1413\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:46.797Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/5736/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"41\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "543",
+          "to": "73"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1319",
+          "to": "180"
+        },
+        {
+          "key": "基础防御力",
+          "from": "582",
+          "to": "79"
+        }
+      ],
+      "body": {
+        "linesAdded": 796,
+        "linesRemoved": 22,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1414_丹恒•腾荒.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1414",
+          "to": "\"1414\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:46.292Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/5737/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"34\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "582",
+          "to": "79"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1048",
+          "to": "143"
+        },
+        {
+          "key": "基础防御力",
+          "from": "776",
+          "to": "105"
+        }
+      ],
+      "body": {
+        "linesAdded": 807,
+        "linesRemoved": 25,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1415_昔涟.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1415",
+          "to": "\"1415\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:47.358Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/5851/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"27\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "446",
+          "to": "61"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1397",
+          "to": "190"
+        },
+        {
+          "key": "基础防御力",
+          "from": "582",
+          "to": "79"
+        }
+      ],
+      "body": {
+        "linesAdded": 971,
+        "linesRemoved": 24,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1501_火花.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1501",
+          "to": "\"1501\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:45.764Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/6747/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"24\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "640",
+          "to": "87"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1048",
+          "to": "143"
+        },
+        {
+          "key": "基础防御力",
+          "from": "461",
+          "to": "63"
+        },
+        {
+          "key": "阵营",
+          "from": "(absent)",
+          "to": "\"假面愚者\""
+        }
+      ],
+      "body": {
+        "linesAdded": 767,
+        "linesRemoved": 27,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1502_爻光.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1502",
+          "to": "\"1502\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:48.885Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/6746/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"19\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "466",
+          "to": "63"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1242",
+          "to": "169"
+        },
+        {
+          "key": "基础防御力",
+          "from": "655",
+          "to": "89"
+        },
+        {
+          "key": "阵营",
+          "from": "(absent)",
+          "to": "\"仙舟「玉阙」\""
+        }
+      ],
+      "body": {
+        "linesAdded": 777,
+        "linesRemoved": 29,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1503_真珠.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1503",
+          "to": "\"1503\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:39.086Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/7935/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"14\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "466",
+          "to": "63"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1203",
+          "to": "164"
+        },
+        {
+          "key": "基础防御力",
+          "from": "728",
+          "to": "99"
+        },
+        {
+          "key": "阵营",
+          "from": "(absent)",
+          "to": "\"星际和平公司\""
+        }
+      ],
+      "body": {
+        "linesAdded": 814,
+        "linesRemoved": 31,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1504_不死途.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1504",
+          "to": "\"1504\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:41.336Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/6814/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"19\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "776",
+          "to": "105"
+        },
+        {
+          "key": "基础生命值",
+          "from": "854",
+          "to": "116"
+        },
+        {
+          "key": "基础防御力",
+          "from": "388",
+          "to": "52"
+        },
+        {
+          "key": "阵营",
+          "from": "(absent)",
+          "to": "\"巡海游侠\""
+        }
+      ],
+      "body": {
+        "linesAdded": 765,
+        "linesRemoved": 22,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1505_绯英.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1505",
+          "to": "\"1505\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:39.675Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/7045/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"21\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "737",
+          "to": "100"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1048",
+          "to": "142"
+        },
+        {
+          "key": "基础防御力",
+          "from": "461",
+          "to": "62"
+        },
+        {
+          "key": "阵营",
+          "from": "(absent)",
+          "to": "\"二相乐园\""
+        }
+      ],
+      "body": {
+        "linesAdded": 738,
+        "linesRemoved": 26,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1506_银狼LV.999.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1506",
+          "to": "\"1506\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:50.939Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/7044/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"17\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "388",
+          "to": "52"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1048",
+          "to": "142"
+        },
+        {
+          "key": "基础防御力",
+          "from": "655",
+          "to": "89"
+        },
+        {
+          "key": "阵营",
+          "from": "(absent)",
+          "to": "\"星核猎手\""
+        }
+      ],
+      "body": {
+        "linesAdded": 838,
+        "linesRemoved": 28,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1507_千冶•刃.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1507",
+          "to": "\"1507\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:48.339Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/7155/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"8\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "543",
+          "to": "73"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1358",
+          "to": "185"
+        },
+        {
+          "key": "基础防御力",
+          "from": "485",
+          "to": "66"
+        },
+        {
+          "key": "阵营",
+          "from": "(absent)",
+          "to": "\"星核猎手\""
+        }
+      ],
+      "body": {
+        "linesAdded": 798,
+        "linesRemoved": 23,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1508_远坂凛.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1508",
+          "to": "\"1508\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:42.632Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/7500/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"10\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "699",
+          "to": "95"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1048",
+          "to": "143"
+        },
+        {
+          "key": "基础防御力",
+          "from": "461",
+          "to": "62"
+        },
+        {
+          "key": "阵营",
+          "from": "(absent)",
+          "to": "\"异界\""
+        }
+      ],
+      "body": {
+        "linesAdded": 676,
+        "linesRemoved": 22,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1509_吉尔伽美什.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1509",
+          "to": "\"1509\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:43.258Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/7499/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"9\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "718",
+          "to": "97"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1125",
+          "to": "153"
+        },
+        {
+          "key": "基础防御力",
+          "from": "509",
+          "to": "69"
+        },
+        {
+          "key": "阵营",
+          "from": "(absent)",
+          "to": "\"异界\""
+        }
+      ],
+      "body": {
+        "linesAdded": 678,
+        "linesRemoved": 22,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1510_姬子•启行.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1510",
+          "to": "\"1510\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:43.790Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/7484/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"10\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "757",
+          "to": "102"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1125",
+          "to": "153"
+        },
+        {
+          "key": "基础防御力",
+          "from": "485",
+          "to": "66"
+        },
+        {
+          "key": "阵营",
+          "from": "(absent)",
+          "to": "\"星穹列车\""
+        }
+      ],
+      "body": {
+        "linesAdded": 800,
+        "linesRemoved": 28,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1511_星神★阿哈.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1511",
+          "to": "\"1511\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:40.441Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/8099/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1\""
+        },
+        {
+          "key": "基础速度",
+          "from": "94",
+          "to": "0"
+        },
+        {
+          "key": "基础防御力",
+          "from": "509",
+          "to": "0"
+        },
+        {
+          "key": "阵营",
+          "from": "(absent)",
+          "to": "\"二相乐园\""
+        }
+      ],
+      "body": {
+        "linesAdded": 220,
+        "linesRemoved": 33,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1512_知更鸟•晴歌.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1512",
+          "to": "\"1512\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:41.655Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/7726/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"10\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "602",
+          "to": "81"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1203",
+          "to": "164"
+        },
+        {
+          "key": "基础防御力",
+          "from": "485",
+          "to": "66"
+        },
+        {
+          "key": "阵营",
+          "from": "(absent)",
+          "to": "\"匹诺康尼\""
+        }
+      ],
+      "body": {
+        "linesAdded": 777,
+        "linesRemoved": 23,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1513_砂金•戏浪.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1513",
+          "to": "\"1513\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:40.691Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/7725/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"8\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "485",
+          "to": "66"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1164",
+          "to": "158"
+        },
+        {
+          "key": "基础防御力",
+          "from": "606",
+          "to": "82"
+        },
+        {
+          "key": "阵营",
+          "from": "(absent)",
+          "to": "\"星际和平公司\""
+        }
+      ],
+      "body": {
+        "linesAdded": 726,
+        "linesRemoved": 25,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/8001_开拓者.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"开拓者·毁灭\""
+        },
+        {
+          "key": "id",
+          "from": "8001",
+          "to": "\"8001\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:55:17.711Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/3128/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"23\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "621",
+          "to": "84"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1203",
+          "to": "163"
+        },
+        {
+          "key": "基础防御力",
+          "from": "461",
+          "to": "62"
+        }
+      ],
+      "body": {
+        "linesAdded": 661,
+        "linesRemoved": 21,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/state.json": {
+      "frontMatter": [],
+      "body": {
+        "linesAdded": 1,
+        "linesRemoved": 1,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/gacha/125_沧海萃珠.md": {
+      "frontMatter": [
+        {
+          "key": "last_crawled_at",
+          "from": "\"2026-10-07T08:06:52.917Z\"",
+          "to": "\"2026-10-07T11:55:31.453Z\""
+        },
+        {
+          "key": "version",
+          "from": "\"4.6上半\"",
+          "to": "\"unknown\""
+        }
+      ],
+      "body": {
+        "linesAdded": 0,
+        "linesRemoved": 0,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/gacha/126_韶艾裁英.md": {
+      "frontMatter": [
+        {
+          "key": "last_crawled_at",
+          "from": "\"2026-10-07T08:06:52.919Z\"",
+          "to": "\"2026-10-07T11:55:31.454Z\""
+        },
+        {
+          "key": "version",
+          "from": "\"4.6上半\"",
+          "to": "\"unknown\""
+        }
+      ],
+      "body": {
+        "linesAdded": 0,
+        "linesRemoved": 0,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/gacha/state.json": {
+      "frontMatter": [],
+      "body": {
+        "linesAdded": 1,
+        "linesRemoved": 1,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "zzz/agents/1021_猫又.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"猫宫 又奈\""
+        },
+        {
+          "key": "id",
+          "from": "1021",
+          "to": "\"1021\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:29.495Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/378/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1785926798\""
+        }
+      ],
+      "body": {
+        "linesAdded": 659,
+        "linesRemoved": 277,
+        "tableRowsBefore": 30,
+        "tableRowsAfter": 461
+      }
+    },
+    "zzz/agents/1031_妮可.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"妮可·德玛拉\""
+        },
+        {
+          "key": "id",
+          "from": "1031",
+          "to": "\"1031\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:35.136Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/80/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1781792819\""
+        }
+      ],
+      "body": {
+        "linesAdded": 588,
+        "linesRemoved": 326,
+        "tableRowsBefore": 51,
+        "tableRowsAfter": 425
+      }
+    },
+    "zzz/agents/1041_「11号」.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"11号\""
+        },
+        {
+          "key": "id",
+          "from": "1041",
+          "to": "\"1041\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:29.954Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/73/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1778153484\""
+        },
+        {
+          "key": "阵营",
+          "from": "\"New Eridu Defense Force\"",
+          "to": "\"奥波勒斯小队\""
+        }
+      ],
+      "body": {
+        "linesAdded": 722,
+        "linesRemoved": 310,
+        "tableRowsBefore": 44,
+        "tableRowsAfter": 525
+      }
+    },
+    "zzz/agents/1051_伊德海莉.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"伊德海莉·墨菲\""
+        },
+        {
+          "key": "id",
+          "from": "1051",
+          "to": "\"1051\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:16.644Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/1538/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1789310715\""
+        },
+        {
+          "key": "阵营",
+          "from": "\"Spook Shack\"",
+          "to": "\"怪啖屋\""
+        }
+      ],
+      "body": {
+        "linesAdded": 710,
+        "linesRemoved": 331,
+        "tableRowsBefore": 34,
+        "tableRowsAfter": 520
+      }
+    },
+    "zzz/agents/1061_可琳.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"可琳·威克斯\""
+        },
+        {
+          "key": "id",
+          "from": "1061",
+          "to": "\"1061\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:37.580Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/179/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1767587415\""
+        },
+        {
+          "key": "阵营",
+          "from": "\"Victoria Housekeeping Co.\"",
+          "to": "\"维多利亚家政\""
+        }
+      ],
+      "body": {
+        "linesAdded": 547,
+        "linesRemoved": 272,
+        "tableRowsBefore": 34,
+        "tableRowsAfter": 392
+      }
+    },
+    "zzz/agents/1071_凯撒.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"凯撒·金\""
+        },
+        {
+          "key": "id",
+          "from": "1071",
+          "to": "\"1071\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:26.385Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/801/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1778483016\""
+        }
+      ],
+      "body": {
+        "linesAdded": 662,
+        "linesRemoved": 299,
+        "tableRowsBefore": 27,
+        "tableRowsAfter": 520
+      }
+    },
+    "zzz/agents/1081_比利.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"比利·奇德\""
+        },
+        {
+          "key": "id",
+          "from": "1081",
+          "to": "\"1081\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:35.515Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/371/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1767587868\""
+        }
+      ],
+      "body": {
+        "linesAdded": 497,
+        "linesRemoved": 225,
+        "tableRowsBefore": 18,
+        "tableRowsAfter": 376
+      }
+    },
+    "zzz/agents/1091_雅.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"星见 雅\""
+        },
+        {
+          "key": "id",
+          "from": "1091",
+          "to": "\"1091\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:24.347Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/996/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1785335630\""
+        },
+        {
+          "key": "阵营",
+          "from": "\"对空洞特别行动部第六课\"",
+          "to": "\"H.S.O.S.6\""
+        }
+      ],
+      "body": {
+        "linesAdded": 561,
+        "linesRemoved": 256,
+        "tableRowsBefore": 26,
+        "tableRowsAfter": 424
+      }
+    },
+    "zzz/agents/1101_珂蕾妲.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"珂蕾妲·贝洛伯格\""
+        },
+        {
+          "key": "id",
+          "from": "1101",
+          "to": "\"1101\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:31.026Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/318/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1789112892\""
+        }
+      ],
+      "body": {
+        "linesAdded": 826,
+        "linesRemoved": 214,
+        "tableRowsBefore": 26,
+        "tableRowsAfter": 622
+      }
+    },
+    "zzz/agents/1111_安东.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"安东·伊万诺夫\""
+        },
+        {
+          "key": "id",
+          "from": "1111",
+          "to": "\"1111\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:38.121Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/147/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1767765358\""
+        }
+      ],
+      "body": {
+        "linesAdded": 661,
+        "linesRemoved": 288,
+        "tableRowsBefore": 23,
+        "tableRowsAfter": 520
+      }
+    },
+    "zzz/agents/1121_本.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"本·比格\""
+        },
+        {
+          "key": "id",
+          "from": "1121",
+          "to": "\"1121\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:36.016Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/158/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1767587567\""
+        }
+      ],
+      "body": {
+        "linesAdded": 514,
+        "linesRemoved": 235,
+        "tableRowsBefore": 21,
+        "tableRowsAfter": 393
+      }
+    },
+    "zzz/agents/1131_苍角.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1131",
+          "to": "\"1131\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:36.685Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/227/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1767587647\""
+        },
+        {
+          "key": "阵营",
+          "from": "\"对空洞特别行动部第六课\"",
+          "to": "\"H.S.O.S.6\""
+        }
+      ],
+      "body": {
+        "linesAdded": 622,
+        "linesRemoved": 284,
+        "tableRowsBefore": 26,
+        "tableRowsAfter": 488
+      }
+    },
+    "zzz/agents/1141_莱卡恩.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"冯·莱卡恩\""
+        },
+        {
+          "key": "id",
+          "from": "1141",
+          "to": "\"1141\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:28.925Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/65/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1784879800\""
+        }
+      ],
+      "body": {
+        "linesAdded": 545,
+        "linesRemoved": 263,
+        "tableRowsBefore": 30,
+        "tableRowsAfter": 398
+      }
+    },
+    "zzz/agents/1151_露西.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"露西亚娜·德·蒙特夫\""
+        },
+        {
+          "key": "id",
+          "from": "1151",
+          "to": "\"1151\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:34.117Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/493/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1785293863\""
+        }
+      ],
+      "body": {
+        "linesAdded": 610,
+        "linesRemoved": 282,
+        "tableRowsBefore": 25,
+        "tableRowsAfter": 473
+      }
+    },
+    "zzz/agents/1161_莱特.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1161",
+          "to": "\"1161\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:24.765Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/950/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1778483066\""
+        }
+      ],
+      "body": {
+        "linesAdded": 514,
+        "linesRemoved": 264,
+        "tableRowsBefore": 31,
+        "tableRowsAfter": 373
+      }
+    },
+    "zzz/agents/1171_柏妮思.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"柏妮思·怀特\""
+        },
+        {
+          "key": "id",
+          "from": "1171",
+          "to": "\"1171\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:25.813Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/840/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1788252617\""
+        }
+      ],
+      "body": {
+        "linesAdded": 631,
+        "linesRemoved": 282,
+        "tableRowsBefore": 26,
+        "tableRowsAfter": 462
+      }
+    },
+    "zzz/agents/1181_格莉丝.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"格莉丝·霍华德\""
+        },
+        {
+          "key": "id",
+          "from": "1181",
+          "to": "\"1181\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:31.520Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/150/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1778051178\""
+        }
+      ],
+      "body": {
+        "linesAdded": 540,
+        "linesRemoved": 238,
+        "tableRowsBefore": 18,
+        "tableRowsAfter": 381
+      }
+    },
+    "zzz/agents/1191_艾莲.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"艾莲·乔\""
+        },
+        {
+          "key": "id",
+          "from": "1191",
+          "to": "\"1191\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:28.367Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/317/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1781774133\""
+        }
+      ],
+      "body": {
+        "linesAdded": 699,
+        "linesRemoved": 334,
+        "tableRowsBefore": 28,
+        "tableRowsAfter": 525
+      }
+    },
+    "zzz/agents/1201_悠真.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"浅羽 悠真\""
+        },
+        {
+          "key": "id",
+          "from": "1201",
+          "to": "\"1201\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:23.747Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/997/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1788923491\""
+        },
+        {
+          "key": "阵营",
+          "from": "\"对空洞特别行动部第六课\"",
+          "to": "\"H.S.O.S.6\""
+        }
+      ],
+      "body": {
+        "linesAdded": 674,
+        "linesRemoved": 328,
+        "tableRowsBefore": 27,
+        "tableRowsAfter": 509
+      }
+    },
+    "zzz/agents/1211_丽娜.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"亚历山德丽娜·莎芭丝缇安\""
+        },
+        {
+          "key": "id",
+          "from": "1211",
+          "to": "\"1211\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:30.440Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/316/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1785926836\""
+        }
+      ],
+      "body": {
+        "linesAdded": 583,
+        "linesRemoved": 259,
+        "tableRowsBefore": 20,
+        "tableRowsAfter": 446
+      }
+    },
+    "zzz/agents/1221_柳.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"月城 柳\""
+        },
+        {
+          "key": "id",
+          "from": "1221",
+          "to": "\"1221\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:25.359Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/916/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1778483051\""
+        },
+        {
+          "key": "阵营",
+          "from": "\"对空洞特别行动部第六课\"",
+          "to": "\"H.S.O.S.6\""
+        }
+      ],
+      "body": {
+        "linesAdded": 547,
+        "linesRemoved": 256,
+        "tableRowsBefore": 25,
+        "tableRowsAfter": 425
+      }
+    },
+    "zzz/agents/1241_朱鸢.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1241",
+          "to": "\"1241\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:27.927Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/634/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1778482981\""
+        },
+        {
+          "key": "阵营",
+          "from": "\"新艾利都治安局\"",
+          "to": "\"刑侦特勤组\""
+        }
+      ],
+      "body": {
+        "linesAdded": 569,
+        "linesRemoved": 259,
+        "tableRowsBefore": 23,
+        "tableRowsAfter": 440
+      }
+    },
+    "zzz/agents/1251_青衣.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1251",
+          "to": "\"1251\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:27.484Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/680/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1778483139\""
+        },
+        {
+          "key": "阵营",
+          "from": "\"新艾利都治安局\"",
+          "to": "\"刑侦特勤组\""
+        }
+      ],
+      "body": {
+        "linesAdded": 593,
+        "linesRemoved": 271,
+        "tableRowsBefore": 25,
+        "tableRowsAfter": 457
+      }
+    },
+    "zzz/agents/1261_简.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"简·杜\""
+        },
+        {
+          "key": "id",
+          "from": "1261",
+          "to": "\"1261\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:26.922Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/759/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1788063783\""
+        },
+        {
+          "key": "阵营",
+          "from": "\"新艾利都治安局\"",
+          "to": "\"刑侦特勤组\""
+        }
+      ],
+      "body": {
+        "linesAdded": 752,
+        "linesRemoved": 297,
+        "tableRowsBefore": 28,
+        "tableRowsAfter": 590
+      }
+    },
+    "zzz/agents/1271_赛斯.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"赛斯·洛威尔\""
+        },
+        {
+          "key": "id",
+          "from": "1271",
+          "to": "\"1271\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:33.488Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/758/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1767587731\""
+        },
+        {
+          "key": "阵营",
+          "from": "\"新艾利都治安局\"",
+          "to": "\"刑侦特勤组\""
+        }
+      ],
+      "body": {
+        "linesAdded": 559,
+        "linesRemoved": 253,
+        "tableRowsBefore": 21,
+        "tableRowsAfter": 425
+      }
+    },
+    "zzz/agents/1281_派派.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"派派·韦尔\""
+        },
+        {
+          "key": "id",
+          "from": "1281",
+          "to": "\"1281\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:34.555Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/485/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1785335877\""
+        }
+      ],
+      "body": {
+        "linesAdded": 592,
+        "linesRemoved": 265,
+        "tableRowsBefore": 22,
+        "tableRowsAfter": 457
+      }
+    },
+    "zzz/agents/1291_雨果.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"雨果·维拉德\""
+        },
+        {
+          "key": "id",
+          "from": "1291",
+          "to": "\"1291\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:20.760Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/1290/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1778482954\""
+        }
+      ],
+      "body": {
+        "linesAdded": 566,
+        "linesRemoved": 263,
+        "tableRowsBefore": 27,
+        "tableRowsAfter": 424
+      }
+    },
+    "zzz/agents/1301_奥菲丝&「鬼火」.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"奥菲丝·马格努森&「鬼火」\""
+        },
+        {
+          "key": "id",
+          "from": "1301",
+          "to": "\"1301\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:17.615Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/1501/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1789310722\""
+        },
+        {
+          "key": "阵营",
+          "from": "\"新艾利都防卫军\"",
+          "to": "\"奥波勒斯小队\""
+        }
+      ],
+      "body": {
+        "linesAdded": 662,
+        "linesRemoved": 284,
+        "tableRowsBefore": 24,
+        "tableRowsAfter": 520
+      }
+    },
+    "zzz/agents/1311_耀嘉音.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1311",
+          "to": "\"1311\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:23.320Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/1109/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1788063761\""
+        }
+      ],
+      "body": {
+        "linesAdded": 624,
+        "linesRemoved": 277,
+        "tableRowsBefore": 19,
+        "tableRowsAfter": 473
+      }
+    },
+    "zzz/agents/1321_伊芙琳.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"伊芙琳·舒瓦利耶\""
+        },
+        {
+          "key": "id",
+          "from": "1321",
+          "to": "\"1321\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:22.795Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/1158/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1788063722\""
+        }
+      ],
+      "body": {
+        "linesAdded": 684,
+        "linesRemoved": 264,
+        "tableRowsBefore": 24,
+        "tableRowsAfter": 500
+      }
+    },
+    "zzz/agents/1331_薇薇安.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"薇薇安·班希\""
+        },
+        {
+          "key": "id",
+          "from": "1331",
+          "to": "\"1331\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:21.265Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/1276/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1781774238\""
+        }
+      ],
+      "body": {
+        "linesAdded": 624,
+        "linesRemoved": 266,
+        "tableRowsBefore": 21,
+        "tableRowsAfter": 473
+      }
+    },
+    "zzz/agents/1341_照.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1341",
+          "to": "\"1341\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:15.125Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/1686/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1789310698\""
+        }
+      ],
+      "body": {
+        "linesAdded": 625,
+        "linesRemoved": 257,
+        "tableRowsBefore": 23,
+        "tableRowsAfter": 489
+      }
+    },
+    "zzz/agents/1351_波可娜.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"波可娜·费雷尼\""
+        },
+        {
+          "key": "id",
+          "from": "1351",
+          "to": "\"1351\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:33.002Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/1191/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1776254370\""
+        }
+      ],
+      "body": {
+        "linesAdded": 562,
+        "linesRemoved": 230,
+        "tableRowsBefore": 17,
+        "tableRowsAfter": 441
+      }
+    },
+    "zzz/agents/1361_「扳机」.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"扳机\""
+        },
+        {
+          "key": "id",
+          "from": "1361",
+          "to": "\"1361\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:21.769Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/1230/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1782902567\""
+        },
+        {
+          "key": "阵营",
+          "from": "\"新艾利都防卫军\"",
+          "to": "\"奥波勒斯小队\""
+        }
+      ],
+      "body": {
+        "linesAdded": 624,
+        "linesRemoved": 281,
+        "tableRowsBefore": 24,
+        "tableRowsAfter": 489
+      }
+    },
+    "zzz/agents/1371_仪玄.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1371",
+          "to": "\"1371\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:20.220Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/1299/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1789311731\""
+        }
+      ],
+      "body": {
+        "linesAdded": 745,
+        "linesRemoved": 332,
+        "tableRowsBefore": 27,
+        "tableRowsAfter": 584
+      }
+    },
+    "zzz/agents/1381_零号·安比.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1381",
+          "to": "\"1381\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:22.249Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/1190/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1778483350\""
+        },
+        {
+          "key": "阵营",
+          "from": "\"新艾利都防卫军\"",
+          "to": "\"防卫军·白银小队\""
+        }
+      ],
+      "body": {
+        "linesAdded": 689,
+        "linesRemoved": 227,
+        "tableRowsBefore": 23,
+        "tableRowsAfter": 525
+      }
+    },
+    "zzz/agents/1391_橘福福.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1391",
+          "to": "\"1391\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:19.737Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/1301/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1776254279\""
+        }
+      ],
+      "body": {
+        "linesAdded": 696,
+        "linesRemoved": 291,
+        "tableRowsBefore": 22,
+        "tableRowsAfter": 552
+      }
+    },
+    "zzz/agents/1401_爱丽丝.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"爱丽丝·泰姆菲尔德\""
+        },
+        {
+          "key": "id",
+          "from": "1401",
+          "to": "\"1401\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:18.667Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/1385/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1781774219\""
+        }
+      ],
+      "body": {
+        "linesAdded": 592,
+        "linesRemoved": 261,
+        "tableRowsBefore": 24,
+        "tableRowsAfter": 457
+      }
+    },
+    "zzz/agents/1411_柚叶.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"浮波 柚叶\""
+        },
+        {
+          "key": "id",
+          "from": "1411",
+          "to": "\"1411\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:19.260Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/1386/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1788923474\""
+        }
+      ],
+      "body": {
+        "linesAdded": 765,
+        "linesRemoved": 333,
+        "tableRowsBefore": 26,
+        "tableRowsAfter": 600
+      }
+    },
+    "zzz/agents/1421_潘引壶.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1421",
+          "to": "\"1421\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:32.487Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/1300/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1781774116\""
+        }
+      ],
+      "body": {
+        "linesAdded": 549,
+        "linesRemoved": 244,
+        "tableRowsBefore": 20,
+        "tableRowsAfter": 424
+      }
+    },
+    "zzz/agents/1431_叶瞬光.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1431",
+          "to": "\"1431\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:14.601Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/1687/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1789311761\""
+        }
+      ],
+      "body": {
+        "linesAdded": 1039,
+        "linesRemoved": 432,
+        "tableRowsBefore": 36,
+        "tableRowsAfter": 840
+      }
+    },
+    "zzz/agents/1441_真斗.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"狛野 真斗\""
+        },
+        {
+          "key": "id",
+          "from": "1441",
+          "to": "\"1441\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:32.018Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/1536/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1789310736\""
+        }
+      ],
+      "body": {
+        "linesAdded": 571,
+        "linesRemoved": 257,
+        "tableRowsBefore": 28,
+        "tableRowsAfter": 440
+      }
+    },
+    "zzz/agents/1451_卢西娅.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"卢西娅·艾洛温\""
+        },
+        {
+          "key": "id",
+          "from": "1451",
+          "to": "\"1451\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:17.179Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/1533/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1789311182\""
+        }
+      ],
+      "body": {
+        "linesAdded": 522,
+        "linesRemoved": 249,
+        "tableRowsBefore": 27,
+        "tableRowsAfter": 393
+      }
+    },
+    "zzz/agents/1461_「席德」.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"席德\""
+        },
+        {
+          "key": "id",
+          "from": "1461",
+          "to": "\"1461\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:18.248Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/1499/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1789311737\""
+        },
+        {
+          "key": "阵营",
+          "from": "\"新艾利都防卫军\"",
+          "to": "\"奥波勒斯小队\""
+        }
+      ],
+      "body": {
+        "linesAdded": 633,
+        "linesRemoved": 300,
+        "tableRowsBefore": 21,
+        "tableRowsAfter": 488
+      }
+    },
+    "zzz/agents/1471_般岳.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1471",
+          "to": "\"1471\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:15.694Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/1626/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1767586196\""
+        }
+      ],
+      "body": {
+        "linesAdded": 892,
+        "linesRemoved": 364,
+        "tableRowsBefore": 30,
+        "tableRowsAfter": 696
+      }
+    },
+    "zzz/agents/1481_琉音.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1481",
+          "to": "\"1481\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:16.114Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/1624/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1789311174\""
+        }
+      ],
+      "body": {
+        "linesAdded": 669,
+        "linesRemoved": 294,
+        "tableRowsBefore": 23,
+        "tableRowsAfter": 519
+      }
+    },
+    "zzz/agents/1491_千夏.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1491",
+          "to": "\"1491\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:14.087Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/1791/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1789374685\""
+        }
+      ],
+      "body": {
+        "linesAdded": 578,
+        "linesRemoved": 259,
+        "tableRowsBefore": 22,
+        "tableRowsAfter": 441
+      }
+    },
+    "zzz/agents/1501_爱芮.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1501",
+          "to": "\"1501\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:13.593Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/1793/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1791269931\""
+        }
+      ],
+      "body": {
+        "linesAdded": 628,
+        "linesRemoved": 276,
+        "tableRowsBefore": 25,
+        "tableRowsAfter": 489
+      }
+    },
+    "zzz/agents/1511_南宫羽.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1511",
+          "to": "\"1511\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:13.125Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/1852/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1790741386\""
+        }
+      ],
+      "body": {
+        "linesAdded": 566,
+        "linesRemoved": 238,
+        "tableRowsBefore": 21,
+        "tableRowsAfter": 425
+      }
+    },
+    "zzz/agents/1521_希希芙.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1521",
+          "to": "\"1521\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:12.619Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/1861/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1789310660\""
+        },
+        {
+          "key": "阵营",
+          "from": "\"新艾利都治安局\"",
+          "to": "\"都市秩序部\""
+        }
+      ],
+      "body": {
+        "linesAdded": 590,
+        "linesRemoved": 251,
+        "tableRowsBefore": 21,
+        "tableRowsAfter": 457
+      }
+    },
+    "zzz/agents/1531_星徽·比利.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"星徽·比利·奇德\""
+        },
+        {
+          "key": "id",
+          "from": "1531",
+          "to": "\"1531\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:12.019Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/1927/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1789310711\""
+        }
+      ],
+      "body": {
+        "linesAdded": 686,
+        "linesRemoved": 254,
+        "tableRowsBefore": 22,
+        "tableRowsAfter": 552
+      }
+    },
+    "zzz/agents/1541_普罗米娅.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1541",
+          "to": "\"1541\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:08.478Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/1926/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1790914175\""
+        }
+      ],
+      "body": {
+        "linesAdded": 662,
+        "linesRemoved": 290,
+        "tableRowsBefore": 25,
+        "tableRowsAfter": 505
+      }
+    },
+    "zzz/agents/1551_佩洛伊斯.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1551",
+          "to": "\"1551\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:11.534Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/1958/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1789136408\""
+        }
+      ],
+      "body": {
+        "linesAdded": 548,
+        "linesRemoved": 287,
+        "tableRowsBefore": 24,
+        "tableRowsAfter": 404
+      }
+    },
+    "zzz/agents/1561_维琳娜.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"维琳娜·艾嘉德\""
+        },
+        {
+          "key": "id",
+          "from": "1561",
+          "to": "\"1561\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:11.040Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/1960/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1789310040\""
+        },
+        {
+          "key": "阵营",
+          "from": "\"罗斯凯利法\"",
+          "to": "\"外务筹策局\""
+        }
+      ],
+      "body": {
+        "linesAdded": 668,
+        "linesRemoved": 277,
+        "tableRowsBefore": 24,
+        "tableRowsAfter": 521
+      }
+    },
+    "zzz/agents/1571_诺姆.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"诺姆·霍洛维尔\""
+        },
+        {
+          "key": "id",
+          "from": "1571",
+          "to": "\"1571\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:10.522Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/1962/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1789310027\""
+        },
+        {
+          "key": "阵营",
+          "from": "\"罗斯凯利法\"",
+          "to": "\"外务筹策局\""
+        }
+      ],
+      "body": {
+        "linesAdded": 631,
+        "linesRemoved": 296,
+        "tableRowsBefore": 27,
+        "tableRowsAfter": 489
+      }
+    },
+    "zzz/agents/1581_蕾米埃尔.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"蕾米埃尔·丹\""
+        },
+        {
+          "key": "id",
+          "from": "1581",
+          "to": "\"1581\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:10.045Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/2076/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1790832569\""
+        },
+        {
+          "key": "属性",
+          "from": "\"300\"",
+          "to": "\"流明\""
+        }
+      ],
+      "body": {
+        "linesAdded": 701,
+        "linesRemoved": 307,
+        "tableRowsBefore": 22,
+        "tableRowsAfter": 552
+      }
+    },
+    "zzz/agents/1591_希格莉德.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"希格莉德·德拉叙尔\""
+        },
+        {
+          "key": "id",
+          "from": "1591",
+          "to": "\"1591\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:09.546Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/2079/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1791370941\""
+        },
+        {
+          "key": "阵营",
+          "from": "\"罗斯凯利法\"",
+          "to": "\"空域巡戍局\""
+        }
+      ],
+      "body": {
+        "linesAdded": 597,
+        "linesRemoved": 285,
+        "tableRowsBefore": 21,
+        "tableRowsAfter": 456
+      }
+    },
+    "zzz/agents/1611_克拉蕾.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"克拉蕾·弗林特\""
+        },
+        {
+          "key": "id",
+          "from": "1611",
+          "to": "\"1611\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:09.002Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/2145/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1790914138\""
+        },
+        {
+          "key": "阵营",
+          "from": "\"罗斯凯利法\"",
+          "to": "\"弗林特工坊\""
+        }
+      ],
+      "body": {
+        "linesAdded": 806,
+        "linesRemoved": 359,
+        "tableRowsBefore": 30,
+        "tableRowsAfter": 648
+      }
+    },
+    "zzz/agents/1621_洛克茜.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"洛克茜·伊芙莉塔·普莱斯\""
+        },
+        {
+          "key": "id",
+          "from": "1621",
+          "to": "\"1621\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:07.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/2152/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1790914688\""
+        },
+        {
+          "key": "阵营",
+          "from": "\"罗斯凯利法\"",
+          "to": "\"弗林特工坊\""
+        }
+      ],
+      "body": {
+        "linesAdded": 659,
+        "linesRemoved": 294,
+        "tableRowsBefore": 24,
+        "tableRowsAfter": 519
+      }
+    },
+    "zzz/agents/1631_赛维里安.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"赛维里安·洛威尔\""
+        },
+        {
+          "key": "id",
+          "from": "1631",
+          "to": "\"1631\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:07.468Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/2217/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1789187429\""
+        },
+        {
+          "key": "阵营",
+          "from": "\"新艾利都治安局\"",
+          "to": "\"都市秩序部\""
+        }
+      ],
+      "body": {
+        "linesAdded": 15,
+        "linesRemoved": 8,
+        "tableRowsBefore": 22,
+        "tableRowsAfter": 22
+      }
+    },
+    "zzz/agents/1641_菲欧妮.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"菲欧妮·蕾法爱菈\""
+        },
+        {
+          "key": "id",
+          "from": "1641",
+          "to": "\"1641\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T11:54:07.925Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/2216/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1789185747\""
+        }
+      ],
+      "body": {
+        "linesAdded": 15,
+        "linesRemoved": 8,
+        "tableRowsBefore": 23,
+        "tableRowsAfter": 23
+      }
+    },
+    "zzz/agents/state.json": {
+      "frontMatter": [],
+      "body": {
+        "linesAdded": 1,
+        "linesRemoved": 1,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "zzz/gacha/1_「红月初升」.md": {
+      "frontMatter": [
+        {
+          "key": "last_crawled_at",
+          "from": "\"2026-10-07T07:21:11.057Z\"",
+          "to": "\"2026-10-07T11:55:30.440Z\""
+        },
+        {
+          "key": "version",
+          "from": "\"3.2上半\"",
+          "to": "\"unknown\""
+        }
+      ],
+      "body": {
+        "linesAdded": 0,
+        "linesRemoved": 0,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "zzz/gacha/2_「猩红渴望」.md": {
+      "frontMatter": [
+        {
+          "key": "last_crawled_at",
+          "from": "\"2026-10-07T07:21:11.060Z\"",
+          "to": "\"2026-10-07T11:55:30.442Z\""
+        },
+        {
+          "key": "version",
+          "from": "\"3.2上半\"",
+          "to": "\"unknown\""
+        }
+      ],
+      "body": {
+        "linesAdded": 0,
+        "linesRemoved": 0,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "zzz/gacha/6_「视线定格公理」.md": {
+      "frontMatter": [
+        {
+          "key": "last_crawled_at",
+          "from": "\"2026-10-07T07:21:11.060Z\"",
+          "to": "\"2026-10-07T11:55:30.443Z\""
+        },
+        {
+          "key": "version",
+          "from": "\"3.2上半\"",
+          "to": "\"unknown\""
+        }
+      ],
+      "body": {
+        "linesAdded": 0,
+        "linesRemoved": 0,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "zzz/gacha/7_「霓虹妄想」.md": {
+      "frontMatter": [
+        {
+          "key": "last_crawled_at",
+          "from": "\"2026-10-07T07:21:11.060Z\"",
+          "to": "\"2026-10-07T11:55:30.445Z\""
+        },
+        {
+          "key": "version",
+          "from": "\"3.2上半\"",
+          "to": "\"unknown\""
+        }
+      ],
+      "body": {
+        "linesAdded": 0,
+        "linesRemoved": 0,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "zzz/gacha/state.json": {
+      "frontMatter": [],
+      "body": {
+        "linesAdded": 1,
+        "linesRemoved": 1,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    }
+  },
+  "anomalies": [],
+  "confirmed": false,
+  "syncCommand": "npm run sync -- --report 20261007-1955"
+}

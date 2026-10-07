@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { renderDoc, splitSections, sanitizeFilename } from './writer.js';
+import { renderDoc, splitSections, sanitizeFilename, stripCrawlTime } from './writer.js';
 import { normDesc, renderCurrencyDesc } from './sources/nanoka.js';
 
 const HSR_CDN = 'https://static.nanoka.cc/hsr';
@@ -45,9 +45,7 @@ export function sectionText(body, heading) {
   return s ? s.lines.join('\n').trim() : '';
 }
 
-export function stripCrawlTime(text) {
-  return String(text).replace(/^last_crawled_at:.*$/m, 'last_crawled_at: -');
-}
+export { stripCrawlTime };
 
 function assignAnomalies(category, label, unmatchedRows, unusedIds) {
   const out = [];

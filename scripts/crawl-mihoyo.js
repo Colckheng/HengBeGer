@@ -17,9 +17,11 @@ import {
   touchState,
   sanitizeFilename,
   normalizeName,
+  isUnchangedText,
 } from './crawler/writer.js';
 import { snapshot, diffSnapshots } from './crawler/diff.js';
 import { buildReport } from './crawler/report.js';
+import { resolveBatchDir } from './crawler/batch-assign.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DATA_ROOT = path.join(ROOT, 'data');
@@ -90,15 +92,15 @@ function findExistingByTitleOrId(dir, names, contentId) {
   return null;
 }
 
-async function crawlCharacter(src, target, sel, args) {
-  const items = await src.listChannel(target.game, target.channel);
-  const selector = sel ? (/^\d+$/.test(sel) ? { id: sel } : { name: sel }) : { id: args.id, name: args.name };
-  const item = pickListItem(items, selector);
-  const contentId = selector.id || (item && item.content_id);
-  if (!contentId) throw new Error(`--target ${target.game}-character 需要 :id/:name 选择器或 --id/--name`);
+async function crawlOne(src, target, item, opts = {}) {
   const dir = path.join(DATA_ROOT, ...target.dir);
-  const existingPath = findExistingByTitleOrId(dir, [item && item.title, item && item.alias, selector.name], contentId);
+  const contentId = (item && item.content_id) || opts.contentId;
+  const existingPath =
+    opts.existingPath !== undefined
+      ? opts.existingPath
+      : findExistingByTitleOrId(dir, [item && item.title, item && item.alias, opts.selectorName].filter(Boolean), contentId);
   const existing = existingPath ? readEntityFile(existingPath) : null;
+  if (!existing && opts.batch) return null;
   const localId = (existing && existing.fm && existing.fm.id) || contentId;
   const page = target.transform === 'zzz' ? await src.getZzzEntry(contentId) : await src.getHsrContent(contentId);
   const { fm, sections } =
@@ -113,7 +115,37 @@ async function crawlCharacter(src, target, sel, args) {
   const filename = existingPath
     ? path.basename(existingPath)
     : `${localId}_${sanitizeFilename(mergedFm.name)}.md`;
-  return { kind: 'character', dir, filename, fm: mergedFm, text, existed: Boolean(existingPath), contentId };
+  return { kind: 'character', dir, filename, fm: mergedFm, text, existed: Boolean(existingPath), contentId, prevRaw: existing && existing.raw };
+}
+
+async function crawlCharacter(src, target, sel, args, anomalies) {
+  const items = await src.listChannel(target.game, target.channel);
+  const dir = path.join(DATA_ROOT, ...target.dir);
+  const { assignments, orphans } = resolveBatchDir(items, dir);
+  if (orphans.length) {
+    console.log(`提示: ${path.relative(ROOT, dir)} 有 ${orphans.length} 个本地文件未被源条目匹配（保持不动）: ${orphans.join(', ')}`);
+  }
+  const hasSelector = Boolean(sel || args.id || args.name);
+  if (!hasSelector) {
+    const out = [];
+    for (const item of items) {
+      const existingPath = assignments.get(String(item.content_id));
+      if (!existingPath) {
+        anomalies.push(`${target.dir.join('/')}: 源条目在 data 中无文件 content_id=${item.content_id} ${item.title}`);
+        continue;
+      }
+      const r = await crawlOne(src, target, item, { batch: true, existingPath });
+      if (r) out.push(r);
+    }
+    return out;
+  }
+  const selector = sel ? (/^\d+$/.test(sel) ? { id: sel } : { name: sel }) : { id: args.id, name: args.name };
+  const item = pickListItem(items, selector);
+  const contentId = selector.id || (item && item.content_id);
+  if (!contentId) throw new Error(`--target ${target.game}-character 需要 :id/:name 选择器或 --id/--name`);
+  const opts = { selectorName: selector.name, contentId };
+  if (item) opts.existingPath = assignments.get(String(item.content_id)) || null;
+  return [await crawlOne(src, target, item, opts)];
 }
 
 async function crawlGacha(src, args) {
@@ -140,7 +172,7 @@ async function crawlGacha(src, args) {
         ? renderDoc(mergedFm, [], mergeBodies(preamble, sections, existing.body))
         : renderDoc(mergedFm, sections, preamble);
       const filename = existingPath ? path.basename(existingPath) : `${pool.id}_${sanitizeFilename(mergedFm.name)}.md`;
-      results.push({ kind: 'gacha', dir, filename, fm: mergedFm, text, existed: Boolean(existingPath), contentId: pool.id });
+      results.push({ kind: 'gacha', dir, filename, fm: mergedFm, text, existed: Boolean(existingPath), contentId: pool.id, prevRaw: existing && existing.raw });
     }
   }
   return results;
@@ -168,13 +200,14 @@ async function main() {
     .filter(Boolean);
   if (!specs.length || specs.some((s) => !TARGETS[s.split(':')[0]])) {
     console.log('用法: node scripts/crawl-mihoyo.js --target <名称[:选择器]>[,...] [--id N | --name 名字] [--game zzz|hsr] [--write] [--print]');
-    console.log('  目标: zzz-agent | hsr-character | gacha；选择器: content_id 或 名字');
-    console.log('  示例: --target zzz-agent:安比,hsr-character:48,gacha --write');
+    console.log('  目标: zzz-agent | hsr-character | gacha；选择器: content_id 或 名字；省略选择器 = 该目标全量批量');
+    console.log('  示例: --target zzz-agent:安比,hsr-character:48,gacha --write；全量: --target zzz-agent,hsr-character,gacha --write');
     process.exit(1);
   }
   const write = Boolean(args.write);
   const fetcher = createFetcher({ rateLimitMs: 500, backoffMs: 500, proxy: process.env.http_proxy || null });
   const src = createMihoyoSource(fetcher);
+  const anomalies = [];
 
   const results = [];
   let gachaDone = false;
@@ -189,14 +222,19 @@ async function main() {
       gachaDone = true;
       results.push(...(await crawlGacha(src, args)));
     } else {
-      results.push(await crawlCharacter(src, target, sel, args));
+      results.push(...(await crawlCharacter(src, target, sel, args, anomalies)));
     }
   }
 
-  const bad = validateResults(results);
+  const toWrite = results.filter((r) => !isUnchangedText(r.prevRaw, r.text));
+  const bad = validateResults(toWrite);
   if (bad) {
     console.log(`校验失败（${bad} 个文件有错误），未写入`);
     process.exit(2);
+  }
+  if (anomalies.length) {
+    console.log('异常:');
+    for (const a of anomalies) console.log(`  - ${a}`);
   }
 
   if (!write) {
@@ -206,24 +244,29 @@ async function main() {
         console.log(r.text);
       }
     } else {
-      console.log(`预览模式：共 ${results.length} 个文件可生成，加 --write 落盘并生成报告`);
+      console.log(`预览模式：共 ${results.length} 个条目（本次实际变更 ${toWrite.length}），加 --write 落盘并生成报告`);
     }
-    return;
+    process.exit(anomalies.length ? 1 : 0);
   }
 
   const before = snapshot(DATA_ROOT);
   const touchedDirs = new Set();
-  for (const r of results) {
+  for (const r of toWrite) {
     writeEntityFile(r.dir, r.filename, r.fm, r.text);
     touchedDirs.add(r.dir);
   }
   for (const d of touchedDirs) touchState(d, { primary_source: 'mihoyo-api' });
   const after = snapshot(DATA_ROOT);
   const diff = diffSnapshots(before, after);
-  const report = buildReport(ROOT, { diff, snapshotBefore: before, snapshotAfter: after });
-  console.log(`\n已写入 ${results.length} 个文件`);
+  if (!diff.added.length && !diff.modified.length && !diff.deleted.length) {
+    console.log('无变更（data/ 与源一致）');
+    process.exit(anomalies.length ? 1 : 0);
+  }
+  const report = buildReport(ROOT, { diff, snapshotBefore: before, snapshotAfter: after, anomalies });
+  console.log(`\n已写入 ${toWrite.length} 个文件（共 ${results.length} 个条目）`);
   console.log(`报告: ${report && report.id ? report.id : path.join(ROOT, 'reports', '*.md')}`);
   console.log(`确认后执行: npm run sync -- --report ${report ? report.id : '<报告id>'}`);
+  process.exit(anomalies.length ? 1 : 0);
 }
 
 main().catch((err) => {

@@ -114,6 +114,15 @@ export function validateRendered(text) {
   return validateFile(text);
 }
 
+export function stripCrawlTime(text) {
+  return String(text).replace(/^last_crawled_at:.*$/m, 'last_crawled_at: -');
+}
+
+export function isUnchangedText(prevRaw, text) {
+  if (prevRaw === undefined || prevRaw === null) return false;
+  return stripCrawlTime(text) === stripCrawlTime(prevRaw);
+}
+
 export function touchState(dirPath, patch = {}) {
   const statePath = path.join(dirPath, 'state.json');
   let state = {};
@@ -144,6 +153,8 @@ export default {
   writeEntityFile,
   readEntityFile,
   validateRendered,
+  stripCrawlTime,
+  isUnchangedText,
   touchState,
   normalizeName,
 };

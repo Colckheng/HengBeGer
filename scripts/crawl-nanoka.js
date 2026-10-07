@@ -20,14 +20,13 @@ import {
   zzzSkillValueAt,
 } from './crawler/sources/nanoka.js';
 import { compareFields, STATUS_LABEL, pad } from './crawler/compare.js';
-import { findExistingFile, readEntityFile, normalizeName, renderDoc, writeEntityFile, validateRendered, touchState } from './crawler/writer.js';
+import { findExistingFile, readEntityFile, normalizeName, renderDoc, writeEntityFile, validateRendered, touchState, isUnchangedText } from './crawler/writer.js';
 import { snapshot, diffSnapshots } from './crawler/diff.js';
 import { buildReport } from './crawler/report.js';
 import {
   sourceUrl,
   readSeasonRows,
   sectionText,
-  stripCrawlTime,
   assignItems,
   assignByName,
   buildEntryDoc,
@@ -320,7 +319,7 @@ function listMdFiles(dir) {
 }
 
 function pushOp(ctx, dir, filename, fm, text, raw) {
-  if (raw !== undefined && stripCrawlTime(text) === stripCrawlTime(raw)) return false;
+  if (isUnchangedText(raw, text)) return false;
   ctx.ops.push({ dir, filename, fm, text, rel: path.relative(ROOT, path.join(dir, filename)) });
   ctx.dirs.add(dir);
   return true;

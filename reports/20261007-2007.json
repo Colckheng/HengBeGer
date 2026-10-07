@@ -1,0 +1,104 @@
+{
+  "id": "20261007-2007",
+  "createdAt": "2026-10-07T12:07:09.951Z",
+  "gitCommit": "062d8d3a6d3a4a8b093ec516e2887dabd7d89315",
+  "treeHash": "cf5e177ecaf5a1a0b94e4f631dfd20e06ce1c499f89f4e38163a549795bc83a5",
+  "files": {
+    "added": [],
+    "modified": [
+      "hsr/characters/1001_三月七.md",
+      "hsr/characters/8001_开拓者.md",
+      "hsr/characters/state.json"
+    ],
+    "deleted": []
+  },
+  "details": {
+    "hsr/characters/1001_三月七.md": {
+      "frontMatter": [
+        {
+          "key": "last_crawled_at",
+          "from": "\"2026-10-07T11:57:14.801Z\"",
+          "to": "\"2026-10-07T12:06:56.461Z\""
+        },
+        {
+          "key": "source_url",
+          "from": "\"https://www.miyoushe.com/sr/wiki/content/48/detail\"",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/3121/detail\""
+        },
+        {
+          "key": "version",
+          "from": "\"83\"",
+          "to": "\"33\""
+        },
+        {
+          "key": "命途",
+          "from": "\"存护\"",
+          "to": "\"巡猎\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "69",
+          "to": "76"
+        },
+        {
+          "key": "基础速度",
+          "from": "101",
+          "to": "102"
+        },
+        {
+          "key": "基础防御力",
+          "from": "78",
+          "to": "60"
+        },
+        {
+          "key": "属性",
+          "from": "\"冰\"",
+          "to": "\"虚数\""
+        }
+      ],
+      "body": {
+        "linesAdded": 310,
+        "linesRemoved": 315,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/8001_开拓者.md": {
+      "frontMatter": [
+        {
+          "key": "last_crawled_at",
+          "from": "\"2026-10-07T11:57:02.533Z\"",
+          "to": "\"2026-10-07T12:06:54.940Z\""
+        },
+        {
+          "key": "source_url",
+          "from": "\"https://www.miyoushe.com/sr/wiki/content/3124/detail\"",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/3128/detail\""
+        },
+        {
+          "key": "version",
+          "from": "\"26\"",
+          "to": "\"23\""
+        }
+      ],
+      "body": {
+        "linesAdded": 184,
+        "linesRemoved": 181,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/state.json": {
+      "frontMatter": [],
+      "body": {
+        "linesAdded": 1,
+        "linesRemoved": 1,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    }
+  },
+  "anomalies": [],
+  "confirmed": false,
+  "syncCommand": "npm run sync -- --report 20261007-2007"
+}

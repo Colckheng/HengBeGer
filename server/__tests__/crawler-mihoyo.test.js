@@ -12,6 +12,7 @@ import {
   findExistingFile,
   validateRendered,
   splitSections,
+  isUnchangedText,
 } from '../../scripts/crawler/writer.js';
 import { stripHtml, cellText } from '../../scripts/crawler/html.js';
 
@@ -177,6 +178,21 @@ describe('writer merge helpers', () => {
     expect(hit.endsWith('1011_安比.md')).toBe(true);
     expect(findExistingFile(dir, ['完全没有的名字'])).toBeNull();
     fs.rmSync(dir, { recursive: true, force: true });
+  });
+
+  test('isUnchangedText skips crawl-time-only diffs for idempotent reruns', () => {
+    const prev = '---\nname: "x"\nsource: "mihoyo-api"\nlast_crawled_at: "2026-10-07T06:00:00.000Z"\n---\n# x\n正文\n';
+    const next = '---\nname: "x"\nsource: "mihoyo-api"\nlast_crawled_at: "2026-10-07T09:00:00.000Z"\n---\n# x\n正文\n';
+    expect(isUnchangedText(prev, next)).toBe(true);
+    expect(isUnchangedText(prev, prev)).toBe(true);
+  });
+
+  test('isUnchangedText detects real content changes and missing prev', () => {
+    const prev = '---\nname: "x"\nlast_crawled_at: "t1"\n---\n# x\n旧\n';
+    const changed = '---\nname: "y"\nlast_crawled_at: "t2"\n---\n# y\n新\n';
+    expect(isUnchangedText(prev, changed)).toBe(false);
+    expect(isUnchangedText(undefined, prev)).toBe(false);
+    expect(isUnchangedText(null, prev)).toBe(false);
   });
 });
 

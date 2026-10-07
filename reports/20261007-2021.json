@@ -1,0 +1,759 @@
+{
+  "id": "20261007-2021",
+  "createdAt": "2026-10-07T12:21:08.520Z",
+  "gitCommit": "062d8d3a6d3a4a8b093ec516e2887dabd7d89315",
+  "treeHash": "90e58a67a798e9e9a7c26c36934b24c58cf56c3987781222bf15c4443d4b51c0",
+  "files": {
+    "added": [],
+    "modified": [
+      "hsr/characters/1001_三月七.md",
+      "hsr/characters/1224_三月七.md",
+      "hsr/characters/8001_开拓者.md",
+      "hsr/characters/8002_开拓者.md",
+      "hsr/characters/8003_开拓者.md",
+      "hsr/characters/8004_开拓者.md",
+      "hsr/characters/8005_开拓者.md",
+      "hsr/characters/8006_开拓者.md",
+      "hsr/characters/8007_开拓者.md",
+      "hsr/characters/8008_开拓者.md",
+      "hsr/characters/8009_开拓者.md",
+      "hsr/characters/8010_开拓者.md",
+      "hsr/characters/state.json"
+    ],
+    "deleted": []
+  },
+  "details": {
+    "hsr/characters/1001_三月七.md": {
+      "frontMatter": [
+        {
+          "key": "last_crawled_at",
+          "from": "\"2026-10-07T12:06:56.461Z\"",
+          "to": "\"2026-10-07T12:21:05.107Z\""
+        },
+        {
+          "key": "source_url",
+          "from": "\"https://www.miyoushe.com/sr/wiki/content/3121/detail\"",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/48/detail\""
+        },
+        {
+          "key": "version",
+          "from": "\"33\"",
+          "to": "\"83\""
+        },
+        {
+          "key": "命途",
+          "from": "\"巡猎\"",
+          "to": "\"存护\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "76",
+          "to": "69"
+        },
+        {
+          "key": "基础速度",
+          "from": "102",
+          "to": "101"
+        },
+        {
+          "key": "基础防御力",
+          "from": "60",
+          "to": "78"
+        },
+        {
+          "key": "属性",
+          "from": "\"虚数\"",
+          "to": "\"冰\""
+        }
+      ],
+      "body": {
+        "linesAdded": 315,
+        "linesRemoved": 310,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/1224_三月七.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"仙舟三月七\""
+        },
+        {
+          "key": "id",
+          "from": "1224",
+          "to": "\"1224\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T12:20:54.998Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/3121/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"33\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "564",
+          "to": "76"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1058",
+          "to": "144"
+        },
+        {
+          "key": "基础防御力",
+          "from": "441",
+          "to": "60"
+        },
+        {
+          "key": "阵营",
+          "from": "(absent)",
+          "to": "\"星穹列车\""
+        }
+      ],
+      "body": {
+        "linesAdded": 785,
+        "linesRemoved": 21,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/8001_开拓者.md": {
+      "frontMatter": [
+        {
+          "key": "last_crawled_at",
+          "from": "\"2026-10-07T12:06:54.940Z\"",
+          "to": "\"2026-10-07T12:20:52.914Z\""
+        },
+        {
+          "key": "source_url",
+          "from": "\"https://www.miyoushe.com/sr/wiki/content/3128/detail\"",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/3124/detail\""
+        },
+        {
+          "key": "version",
+          "from": "\"23\"",
+          "to": "\"26\""
+        }
+      ],
+      "body": {
+        "linesAdded": 181,
+        "linesRemoved": 184,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/8002_开拓者.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"开拓者·毁灭\""
+        },
+        {
+          "key": "id",
+          "from": "8002",
+          "to": "\"8002\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T12:20:53.411Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/3128/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"23\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "621",
+          "to": "84"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1203",
+          "to": "163"
+        },
+        {
+          "key": "基础防御力",
+          "from": "461",
+          "to": "62"
+        }
+      ],
+      "body": {
+        "linesAdded": 661,
+        "linesRemoved": 21,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/8003_开拓者.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"开拓者•存护\""
+        },
+        {
+          "key": "id",
+          "from": "8003",
+          "to": "\"8003\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T12:20:52.402Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/3123/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"23\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "602",
+          "to": "82"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1242",
+          "to": "168"
+        },
+        {
+          "key": "基础防御力",
+          "from": "606",
+          "to": "81"
+        },
+        {
+          "key": "阵营",
+          "from": "(absent)",
+          "to": "\"星穹列车\""
+        }
+      ],
+      "body": {
+        "linesAdded": 656,
+        "linesRemoved": 20,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/8004_开拓者.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"开拓者•存护\""
+        },
+        {
+          "key": "id",
+          "from": "8004",
+          "to": "\"8004\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T12:20:51.871Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/3127/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"25\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "602",
+          "to": "81"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1242",
+          "to": "168"
+        },
+        {
+          "key": "基础防御力",
+          "from": "606",
+          "to": "82"
+        },
+        {
+          "key": "阵营",
+          "from": "(absent)",
+          "to": "\"星穹列车\""
+        }
+      ],
+      "body": {
+        "linesAdded": 658,
+        "linesRemoved": 20,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/8005_开拓者.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"开拓者•同谐\""
+        },
+        {
+          "key": "id",
+          "from": "8005",
+          "to": "\"8005\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T12:20:50.863Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/411/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"83\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "446",
+          "to": "60"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1087",
+          "to": "147"
+        },
+        {
+          "key": "基础防御力",
+          "from": "679",
+          "to": "92"
+        },
+        {
+          "key": "阵营",
+          "from": "(absent)",
+          "to": "\"星穹列车\""
+        }
+      ],
+      "body": {
+        "linesAdded": 650,
+        "linesRemoved": 20,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/8006_开拓者.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"开拓者•同谐\""
+        },
+        {
+          "key": "id",
+          "from": "8006",
+          "to": "\"8006\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T12:20:51.456Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/872/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"69\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "446",
+          "to": "60"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1087",
+          "to": "147"
+        },
+        {
+          "key": "基础防御力",
+          "from": "679",
+          "to": "92"
+        },
+        {
+          "key": "阵营",
+          "from": "(absent)",
+          "to": "\"星穹列车\""
+        }
+      ],
+      "body": {
+        "linesAdded": 650,
+        "linesRemoved": 20,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/8007_开拓者.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"开拓者•记忆\""
+        },
+        {
+          "key": "id",
+          "from": "8007",
+          "to": "\"8007\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T12:20:43.176Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/4441/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"49\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "543",
+          "to": "73"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1048",
+          "to": "142"
+        },
+        {
+          "key": "基础防御力",
+          "from": "631",
+          "to": "85"
+        },
+        {
+          "key": "阵营",
+          "from": "(absent)",
+          "to": "\"星穹列车\""
+        }
+      ],
+      "body": {
+        "linesAdded": 686,
+        "linesRemoved": 20,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/8008_开拓者.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"开拓者•记忆\""
+        },
+        {
+          "key": "id",
+          "from": "8008",
+          "to": "\"8008\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T12:20:42.717Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/4442/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"48\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "543",
+          "to": "73"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1048",
+          "to": "142"
+        },
+        {
+          "key": "基础防御力",
+          "from": "631",
+          "to": "85"
+        },
+        {
+          "key": "阵营",
+          "from": "(absent)",
+          "to": "\"星穹列车\""
+        }
+      ],
+      "body": {
+        "linesAdded": 686,
+        "linesRemoved": 20,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/8009_开拓者.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"开拓者•欢愉\""
+        },
+        {
+          "key": "id",
+          "from": "8009",
+          "to": "\"8009\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T12:20:30.876Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/7046/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"13\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "466",
+          "to": "63"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1087",
+          "to": "148"
+        },
+        {
+          "key": "基础防御力",
+          "from": "631",
+          "to": "85"
+        },
+        {
+          "key": "阵营",
+          "from": "(absent)",
+          "to": "\"星穹列车\""
+        }
+      ],
+      "body": {
+        "linesAdded": 756,
+        "linesRemoved": 21,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/8010_开拓者.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"开拓者•欢愉\""
+        },
+        {
+          "key": "id",
+          "from": "8010",
+          "to": "\"8010\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T12:20:30.388Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/7047/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"15\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "466",
+          "to": "63"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1087",
+          "to": "148"
+        },
+        {
+          "key": "基础防御力",
+          "from": "631",
+          "to": "85"
+        },
+        {
+          "key": "阵营",
+          "from": "(absent)",
+          "to": "\"星穹列车\""
+        }
+      ],
+      "body": {
+        "linesAdded": 756,
+        "linesRemoved": 21,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/state.json": {
+      "frontMatter": [],
+      "body": {
+        "linesAdded": 1,
+        "linesRemoved": 1,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    }
+  },
+  "anomalies": [],
+  "confirmed": false,
+  "syncCommand": "npm run sync -- --report 20261007-2021"
+}
