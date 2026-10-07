@@ -1,0 +1,1509 @@
+{
+  "101": {
+    "id": 101,
+    "name": "火药味",
+    "desc": "开局时获得#1个简易武装箱。",
+    "icon_path": "SpriteOutput/GridFight/Portal/101.png",
+    "param_list": [
+      2
+    ],
+    "bonus": {
+      "40017": {
+        "combination_bonus_list": [
+          207
+        ],
+        "bonus_number_list": [
+          20000
+        ]
+      }
+    }
+  },
+  "102": {
+    "id": 102,
+    "name": "特权阶级",
+    "desc": "第二位面开始时，获得#1个特权武装箱。",
+    "icon_path": "SpriteOutput/GridFight/Portal/102.png",
+    "param_list": [
+      1
+    ],
+    "bonus": {}
+  },
+  "103": {
+    "id": 103,
+    "name": "增发货币",
+    "desc": "第一/二/三位面开始时，获得一个#1/#2/#3金币的晶矿。",
+    "icon_path": "SpriteOutput/GridFight/Portal/103.png",
+    "param_list": [
+      6,
+      8,
+      12
+    ],
+    "bonus": {}
+  },
+  "104": {
+    "id": 104,
+    "name": "深井角斗场",
+    "desc": "本局首次达成#1连胜时，获得【财富宝钻】。",
+    "icon_path": "SpriteOutput/GridFight/Portal/104.png",
+    "param_list": [
+      5
+    ],
+    "bonus": {}
+  },
+  "105": {
+    "id": 105,
+    "name": "经济过热",
+    "desc": "本局的全部奖励节点替换为次元扑满主题，次元扑满会掉落更多战利品。",
+    "icon_path": "SpriteOutput/GridFight/Portal/105.png",
+    "param_list": [],
+    "bonus": {}
+  },
+  "106": {
+    "id": 106,
+    "name": "二手市场",
+    "desc": "商店刷新#1次后，获得#2金币和【员工投影仪】。",
+    "icon_path": "SpriteOutput/GridFight/Portal/106.png",
+    "param_list": [
+      20,
+      30
+    ],
+    "bonus": {}
+  },
+  "107": {
+    "id": 107,
+    "name": "人身意外险",
+    "desc": "所有首领节点前都加入一个额外补给阶段。",
+    "icon_path": "SpriteOutput/GridFight/Portal/107.png",
+    "param_list": [],
+    "bonus": {}
+  },
+  "108": {
+    "id": 108,
+    "name": "过剩经费",
+    "desc": "补给阶段中，角色会携带两件装备。",
+    "icon_path": "SpriteOutput/GridFight/Portal/108.png",
+    "param_list": [
+      2
+    ],
+    "bonus": {}
+  },
+  "109": {
+    "id": 109,
+    "name": "人才引进",
+    "desc": "开局拥有#1个随机<color=#927fe7>4费角色</color>。",
+    "icon_path": "SpriteOutput/GridFight/Portal/109.png",
+    "param_list": [
+      1
+    ],
+    "bonus": {}
+  },
+  "110": {
+    "id": 110,
+    "name": "彩虹时代",
+    "desc": "这局的投资策略均为棱彩品质。",
+    "icon_path": "SpriteOutput/GridFight/Portal/110.png",
+    "param_list": [],
+    "bonus": {}
+  },
+  "111": {
+    "id": 111,
+    "name": "黄金时代",
+    "desc": "这局的投资策略均为黄金品质。",
+    "icon_path": "SpriteOutput/GridFight/Portal/111.png",
+    "param_list": [],
+    "bonus": {}
+  },
+  "112": {
+    "id": 112,
+    "name": "白银时代",
+    "desc": "这局的投资策略均为白银品质，因此敌人难度不会由于选择高品质投资策略而提高。",
+    "icon_path": "SpriteOutput/GridFight/Portal/112.png",
+    "param_list": [],
+    "bonus": {}
+  },
+  "113": {
+    "id": 113,
+    "name": "蓝海",
+    "desc": "进入到一个随机投资环境中，开局额外获得#1金币。",
+    "icon_path": "SpriteOutput/GridFight/Portal/113.png",
+    "param_list": [
+      6
+    ],
+    "bonus": {}
+  },
+  "114": {
+    "id": 114,
+    "name": "轮岗",
+    "desc": "备战阶段开始时，使一个随机费用的刷新概率翻倍，每个备战阶段重新随机。",
+    "icon_path": "SpriteOutput/GridFight/Portal/114.png",
+    "param_list": [],
+    "bonus": {}
+  },
+  "115": {
+    "id": 115,
+    "name": "三星佩佩",
+    "desc": "获得一个穿戴三个随机星徽的佩佩。",
+    "icon_path": "SpriteOutput/GridFight/Portal/115.png",
+    "param_list": [],
+    "bonus": {}
+  },
+  "116": {
+    "id": 116,
+    "name": "粗星佩佩",
+    "desc": "获得一个穿戴三个随机星徽的佩佩，粗心的佩佩有时候会把星徽落在你的物品栏。",
+    "icon_path": "SpriteOutput/GridFight/Portal/116.png",
+    "param_list": [],
+    "bonus": {}
+  },
+  "117": {
+    "id": 117,
+    "name": "战争边疆",
+    "desc": "第三位面的所有战斗节点都替换为遭遇节点。",
+    "icon_path": "SpriteOutput/GridFight/Portal/117.png",
+    "param_list": [],
+    "bonus": {}
+  },
+  "118": {
+    "id": 118,
+    "name": "劳务派遣合同",
+    "desc": "获得随机星徽，每次进入首领节点时，获得对应羁绊的随机角色。",
+    "icon_path": "SpriteOutput/GridFight/Portal/118.png",
+    "param_list": [
+      6,
+      8,
+      25
+    ],
+    "bonus": {}
+  },
+  "119": {
+    "id": 119,
+    "name": "经济严重过热",
+    "desc": "本局的全部奖励节点替换为超级次元扑满主题！超级次元扑满会掉落超多战利品！！但它们跑得超快！！！",
+    "icon_path": "SpriteOutput/GridFight/Portal/119.png",
+    "param_list": [],
+    "bonus": {}
+  },
+  "120": {
+    "id": 120,
+    "name": "长线利好",
+    "desc": "花费金币进行#1次刷新后，获得#2金币，之后在本局游戏中，只需要1金币就能刷新。",
+    "icon_path": "SpriteOutput/GridFight/Portal/120.png",
+    "param_list": [
+      30,
+      20
+    ],
+    "bonus": {}
+  },
+  "121": {
+    "id": 121,
+    "name": "人才下沉",
+    "desc": "商店中有概率出现2星角色。",
+    "icon_path": "SpriteOutput/GridFight/Portal/121.png",
+    "param_list": [
+      0.08,
+      0.01
+    ],
+    "bonus": {}
+  },
+  "122": {
+    "id": 122,
+    "name": "联席决策",
+    "desc": "在2-6节点进行一次额外的投资策略三选一。",
+    "icon_path": "SpriteOutput/GridFight/Portal/122.png",
+    "param_list": [],
+    "bonus": {}
+  },
+  "123": {
+    "id": 123,
+    "name": "头彩",
+    "desc": "第一个投资策略是棱彩品质。",
+    "icon_path": "SpriteOutput/GridFight/Portal/123.png",
+    "param_list": [],
+    "bonus": {}
+  },
+  "124": {
+    "id": 124,
+    "name": "尾彩",
+    "desc": "第三个投资策略是棱彩品质。",
+    "icon_path": "SpriteOutput/GridFight/Portal/124.png",
+    "param_list": [],
+    "bonus": {}
+  },
+  "125": {
+    "id": 125,
+    "name": "量子同频契约",
+    "desc": "花火和缇宝升星时，随机获得<color=#927fe7>【符玄】</color>或<color=#7196ff>【希儿】</color>。",
+    "icon_path": "SpriteOutput/GridFight/Portal/125.png",
+    "param_list": [
+      21024
+    ],
+    "bonus": {}
+  },
+  "126": {
+    "id": 126,
+    "name": "公司契约",
+    "desc": "获得<color=#b4b4b4>【翡翠】</color>和<color=#6cce9f>【砂金】</color>，累计获得<unbreak>#1[i]</unbreak>利息后，获得<color=#ffd471>【托帕&账账】</color>。",
+    "icon_path": "SpriteOutput/GridFight/Portal/126.png",
+    "param_list": [
+      40,
+      0,
+      40024
+    ],
+    "bonus": {
+      "40024": {
+        "combination_bonus_list": [
+          1314,
+          1304
+        ],
+        "bonus_number_list": [
+          10000,
+          10000
+        ]
+      }
+    }
+  },
+  "127": {
+    "id": 127,
+    "name": "持续伤害契约",
+    "desc": "获得<color=#b4b4b4>【椒丘】</color>和<color=#6cce9f>【卡芙卡】</color>。敌人被消灭时，每陷入一个不同的持续伤害状态，获得1点计数。计数达到<unbreak>#1[i]</unbreak>时，获得<color=#ffd471>【黑天鹅】</color>。",
+    "icon_path": "SpriteOutput/GridFight/Portal/127.png",
+    "param_list": [
+      180
+    ],
+    "bonus": {
+      "40025": {
+        "combination_bonus_list": [
+          1108,
+          1005
+        ],
+        "bonus_number_list": [
+          10000,
+          10000
+        ]
+      }
+    }
+  },
+  "128": {
+    "id": 128,
+    "name": "战技点契约",
+    "desc": "获得<color=#6cce9f>【丹恒•饮月】</color>和<color=#6cce9f>【花火】</color>。打开#1个晶矿后，获得<color=#927fe7>【火花】</color>和1个随机战技点羁绊角色；之后每打开#2个晶矿，都可重复获得一次角色奖励。",
+    "icon_path": "SpriteOutput/GridFight/Portal/128.png",
+    "param_list": [
+      20,
+      10
+    ],
+    "bonus": {
+      "40026": {
+        "combination_bonus_list": [
+          1306,
+          1213
+        ],
+        "bonus_number_list": [
+          10000,
+          10000
+        ]
+      }
+    }
+  },
+  "129": {
+    "id": 129,
+    "name": "星核猎手契约",
+    "desc": "获得<color=#6cce9f>【卡芙卡】</color>。当<color=#b4b4b4>【刃】</color>或<color=#6cce9f>【千冶•刃】</color>、<color=#6cce9f>【卡芙卡】</color>、<color=#7196ff>【银狼LV.<unbreak>999</unbreak>】</color>或<color=#927fe7>【银狼】</color>一起参与一次战斗后，获得<color=#ffd471>【流萤】</color>，在#1个节点后才能将其上场。",
+    "icon_path": "SpriteOutput/GridFight/Portal/129.png",
+    "param_list": [
+      2
+    ],
+    "bonus": 1005
+  },
+  "1001": {
+    "id": 1001,
+    "name": "追击概念股",
+    "desc": "开局时获得【追击】角色和初始简易装备，【追击】角色的刷新概率提高。",
+    "icon_path": "SpriteOutput/GridFight/Portal/1001.png",
+    "param_list": [
+      40001,
+      2001,
+      40
+    ],
+    "bonus": {
+      "40001": {
+        "combination_bonus_list": [
+          1,
+          1220,
+          350201,
+          1305,
+          101
+        ],
+        "bonus_number_list": [
+          40000,
+          10000,
+          10000,
+          10000,
+          20000
+        ]
+      }
+    }
+  },
+  "1002": {
+    "id": 1002,
+    "name": "燃血概念股",
+    "desc": "开局时获得【燃血】角色和初始简易装备，【燃血】角色的刷新概率提高。",
+    "icon_path": "SpriteOutput/GridFight/Portal/1002.png",
+    "param_list": [
+      40002,
+      2006,
+      40
+    ],
+    "bonus": {
+      "40002": {
+        "combination_bonus_list": [
+          1,
+          1409,
+          350205,
+          1507,
+          101
+        ],
+        "bonus_number_list": [
+          50000,
+          10000,
+          10000,
+          10000,
+          20000
+        ]
+      }
+    }
+  },
+  "1003": {
+    "id": 1003,
+    "name": "能量概念股",
+    "desc": "开局时获得【能量】角色和初始简易装备，【能量】角色的刷新概率提高。",
+    "icon_path": "SpriteOutput/GridFight/Portal/1003.png",
+    "param_list": [
+      40003,
+      2004,
+      40
+    ],
+    "bonus": {
+      "40003": {
+        "combination_bonus_list": [
+          1,
+          1402,
+          350208,
+          1217,
+          101
+        ],
+        "bonus_number_list": [
+          60000,
+          10000,
+          10000,
+          10000,
+          20000
+        ]
+      }
+    }
+  },
+  "1004": {
+    "id": 1004,
+    "name": "列车同行概念股",
+    "desc": "开局时获得【列车同行】角色和初始简易装备，【列车同行】角色的刷新概率提高。",
+    "icon_path": "SpriteOutput/GridFight/Portal/1004.png",
+    "param_list": [
+      40004,
+      1001,
+      40
+    ],
+    "bonus": {
+      "40004": {
+        "combination_bonus_list": [
+          1,
+          1001,
+          1510,
+          350204,
+          101
+        ],
+        "bonus_number_list": [
+          40000,
+          10000,
+          10000,
+          10000,
+          20000
+        ]
+      }
+    }
+  },
+  "1005": {
+    "id": 1005,
+    "name": "银河学者概念股",
+    "desc": "开局时获得【银河学者】角色和初始简易装备，【银河学者】角色的刷新概率提高。",
+    "icon_path": "SpriteOutput/GridFight/Portal/1005.png",
+    "param_list": [
+      40005,
+      1003,
+      40
+    ],
+    "bonus": {
+      "40005": {
+        "combination_bonus_list": [
+          1,
+          1009,
+          1303,
+          350208,
+          101
+        ],
+        "bonus_number_list": [
+          50000,
+          10000,
+          10000,
+          10000,
+          20000
+        ]
+      }
+    }
+  },
+  "1006": {
+    "id": 1006,
+    "name": "贝洛伯格概念股",
+    "desc": "开局时获得【贝洛伯格】角色和初始简易装备，【贝洛伯格】角色的刷新概率提高。",
+    "icon_path": "SpriteOutput/GridFight/Portal/1006.png",
+    "param_list": [
+      40006,
+      1005,
+      40
+    ],
+    "bonus": {
+      "40006": {
+        "combination_bonus_list": [
+          1,
+          1105,
+          1102,
+          350206,
+          101
+        ],
+        "bonus_number_list": [
+          20000,
+          10000,
+          10000,
+          10000,
+          20000
+        ]
+      }
+    }
+  },
+  "1007": {
+    "id": 1007,
+    "name": "星间旅人概念股",
+    "desc": "开局时获得【星间旅人】角色和初始简易装备，【星间旅人】角色的刷新概率提高。",
+    "icon_path": "SpriteOutput/GridFight/Portal/1007.png",
+    "param_list": [
+      40007,
+      1006,
+      40
+    ],
+    "bonus": {
+      "40007": {
+        "combination_bonus_list": [
+          1,
+          1302,
+          1305,
+          350207,
+          101
+        ],
+        "bonus_number_list": [
+          30000,
+          10000,
+          10000,
+          10000,
+          20000
+        ]
+      }
+    }
+  },
+  "1008": {
+    "id": 1008,
+    "name": "仙舟概念股",
+    "desc": "开局时获得【仙舟】角色和初始简易装备，【仙舟】角色的刷新概率提高。",
+    "icon_path": "SpriteOutput/GridFight/Portal/1008.png",
+    "param_list": [
+      40008,
+      1007,
+      40
+    ],
+    "bonus": {
+      "40008": {
+        "combination_bonus_list": [
+          1,
+          1213,
+          1217,
+          350202,
+          101
+        ],
+        "bonus_number_list": [
+          50000,
+          10000,
+          10000,
+          10000,
+          20000
+        ]
+      }
+    }
+  },
+  "1009": {
+    "id": 1009,
+    "name": "狼狩概念股",
+    "desc": "开局时获得【狼狩】角色和初始简易装备，【狼狩】角色的刷新概率提高。",
+    "icon_path": "SpriteOutput/GridFight/Portal/1009.png",
+    "param_list": [
+      40009,
+      1008,
+      40
+    ],
+    "bonus": {
+      "40009": {
+        "combination_bonus_list": [
+          1,
+          1218,
+          1222,
+          350205,
+          101
+        ],
+        "bonus_number_list": [
+          50000,
+          10000,
+          10000,
+          10000,
+          20000
+        ]
+      }
+    }
+  },
+  "1010": {
+    "id": 1010,
+    "name": "昼之半神概念股",
+    "desc": "开局时获得【昼之半神】角色和初始简易装备，【昼之半神】角色的刷新概率提高。",
+    "icon_path": "SpriteOutput/GridFight/Portal/1010.png",
+    "param_list": [
+      40010,
+      1011,
+      40
+    ],
+    "bonus": {
+      "40010": {
+        "combination_bonus_list": [
+          1,
+          1402,
+          1403,
+          350201,
+          101
+        ],
+        "bonus_number_list": [
+          50000,
+          10000,
+          10000,
+          10000,
+          20000
+        ]
+      }
+    }
+  },
+  "1011": {
+    "id": 1011,
+    "name": "夜之半神概念股",
+    "desc": "开局时获得【夜之半神】角色和初始简易装备，【夜之半神】角色的刷新概率提高。",
+    "icon_path": "SpriteOutput/GridFight/Portal/1011.png",
+    "param_list": [
+      40011,
+      1012,
+      40
+    ],
+    "bonus": {
+      "40011": {
+        "combination_bonus_list": [
+          1,
+          1406,
+          1412,
+          350203,
+          101
+        ],
+        "bonus_number_list": [
+          40000,
+          10000,
+          10000,
+          10000,
+          20000
+        ]
+      }
+    }
+  },
+  "1012": {
+    "id": 1012,
+    "name": "击破概念股",
+    "desc": "开局时获得【击破】角色和初始简易装备，【击破】角色的刷新概率提高。",
+    "icon_path": "SpriteOutput/GridFight/Portal/1012.png",
+    "param_list": [
+      40012,
+      2002,
+      40
+    ],
+    "bonus": {
+      "40012": {
+        "combination_bonus_list": [
+          1,
+          1317,
+          1225,
+          350207,
+          101
+        ],
+        "bonus_number_list": [
+          40000,
+          10000,
+          10000,
+          10000,
+          20000
+        ]
+      }
+    }
+  },
+  "1013": {
+    "id": 1013,
+    "name": "群攻概念股",
+    "desc": "开局时获得【群攻】角色和初始简易装备，【群攻】角色的刷新概率提高。",
+    "icon_path": "SpriteOutput/GridFight/Portal/1013.png",
+    "param_list": [
+      40013,
+      2003,
+      40
+    ],
+    "bonus": {
+      "40013": {
+        "combination_bonus_list": [
+          1,
+          1013,
+          1405,
+          350204,
+          101
+        ],
+        "bonus_number_list": [
+          40000,
+          10000,
+          10000,
+          10000,
+          20000
+        ]
+      }
+    }
+  },
+  "1014": {
+    "id": 1014,
+    "name": "减益概念股",
+    "desc": "开局时获得【减益】角色和初始简易装备，【减益】角色的刷新概率提高。",
+    "icon_path": "SpriteOutput/GridFight/Portal/1014.png",
+    "param_list": [
+      40014,
+      2007,
+      40
+    ],
+    "bonus": {
+      "40014": {
+        "combination_bonus_list": [
+          1,
+          1507,
+          1308,
+          350203,
+          101
+        ],
+        "bonus_number_list": [
+          30000,
+          10000,
+          10000,
+          10000,
+          20000
+        ]
+      }
+    }
+  },
+  "1015": {
+    "id": 1015,
+    "name": "群攻概念股",
+    "desc": "开局时获得【群攻】角色，【群攻】角色的刷新概率提高。",
+    "icon_path": "SpriteOutput/GridFight/Portal/1013.png",
+    "param_list": [
+      40015,
+      2003,
+      30
+    ],
+    "bonus": {
+      "40016": {
+        "combination_bonus_list": [
+          1,
+          1013,
+          1403
+        ],
+        "bonus_number_list": [
+          40000,
+          10000,
+          10000
+        ]
+      }
+    }
+  },
+  "1016": {
+    "id": 1016,
+    "name": "战技点概念股",
+    "desc": "开局时获得【战技点】角色和初始简易装备，【战技点】角色的刷新概率提高。",
+    "icon_path": "SpriteOutput/GridFight/Portal/1015.png",
+    "param_list": [
+      40027,
+      2011,
+      40
+    ],
+    "bonus": {
+      "40027": {
+        "combination_bonus_list": [
+          1,
+          1306,
+          1213,
+          350202,
+          101
+        ],
+        "bonus_number_list": [
+          40000,
+          10000,
+          10000,
+          10000,
+          20000
+        ]
+      }
+    }
+  },
+  "1101": {
+    "id": 1101,
+    "name": "列车同行邀请",
+    "desc": "获得一个【列车同行星徽】。",
+    "icon_path": "SpriteOutput/GridFight/Portal/1101.png",
+    "param_list": [
+      35051001
+    ],
+    "bonus": 35051001
+  },
+  "1102": {
+    "id": 1102,
+    "name": "银河学者邀请",
+    "desc": "获得一个【银河学者星徽】。",
+    "icon_path": "SpriteOutput/GridFight/Portal/1102.png",
+    "param_list": [
+      35051003
+    ],
+    "bonus": 35051003
+  },
+  "1103": {
+    "id": 1103,
+    "name": "贝洛伯格邀请",
+    "desc": "获得一个【贝洛伯格星徽】。",
+    "icon_path": "SpriteOutput/GridFight/Portal/1103.png",
+    "param_list": [
+      35051005
+    ],
+    "bonus": 35051005
+  },
+  "1104": {
+    "id": 1104,
+    "name": "星间旅人邀请",
+    "desc": "获得一个【星间旅人星徽】。",
+    "icon_path": "SpriteOutput/GridFight/Portal/1104.png",
+    "param_list": [
+      35051006
+    ],
+    "bonus": 35051006
+  },
+  "1105": {
+    "id": 1105,
+    "name": "仙舟邀请",
+    "desc": "获得一个【仙舟星徽】。",
+    "icon_path": "SpriteOutput/GridFight/Portal/1105.png",
+    "param_list": [
+      35051007
+    ],
+    "bonus": 35051007
+  },
+  "1106": {
+    "id": 1106,
+    "name": "狼狩邀请",
+    "desc": "获得一个【狼狩星徽】。",
+    "icon_path": "SpriteOutput/GridFight/Portal/1106.png",
+    "param_list": [
+      35051008
+    ],
+    "bonus": 35051008
+  },
+  "1107": {
+    "id": 1107,
+    "name": "盛会之星邀请",
+    "desc": "获得一个【盛会之星星徽】。",
+    "icon_path": "SpriteOutput/GridFight/Portal/1107.png",
+    "param_list": [
+      35051010
+    ],
+    "bonus": 35051010
+  },
+  "1108": {
+    "id": 1108,
+    "name": "昼之半神邀请",
+    "desc": "获得一个【昼之半神星徽】。",
+    "icon_path": "SpriteOutput/GridFight/Portal/1108.png",
+    "param_list": [
+      35051011
+    ],
+    "bonus": 35051011
+  },
+  "1109": {
+    "id": 1109,
+    "name": "夜之半神邀请",
+    "desc": "获得一个【夜之半神星徽】。",
+    "icon_path": "SpriteOutput/GridFight/Portal/1109.png",
+    "param_list": [
+      35051012
+    ],
+    "bonus": 35051012
+  },
+  "1110": {
+    "id": 1110,
+    "name": "追击邀请",
+    "desc": "获得一个【追击星徽】。",
+    "icon_path": "SpriteOutput/GridFight/Portal/1110.png",
+    "param_list": [
+      35052001
+    ],
+    "bonus": 35052001
+  },
+  "1111": {
+    "id": 1111,
+    "name": "击破邀请",
+    "desc": "获得一个【击破星徽】。",
+    "icon_path": "SpriteOutput/GridFight/Portal/1111.png",
+    "param_list": [
+      35052002
+    ],
+    "bonus": 35052002
+  },
+  "1112": {
+    "id": 1112,
+    "name": "群攻邀请",
+    "desc": "获得一个【群攻星徽】。",
+    "icon_path": "SpriteOutput/GridFight/Portal/1112.png",
+    "param_list": [
+      35052003
+    ],
+    "bonus": 35052003
+  },
+  "1113": {
+    "id": 1113,
+    "name": "能量邀请",
+    "desc": "获得一个【能量星徽】。",
+    "icon_path": "SpriteOutput/GridFight/Portal/1113.png",
+    "param_list": [
+      35052004
+    ],
+    "bonus": 35052004
+  },
+  "1114": {
+    "id": 1114,
+    "name": "燃血邀请",
+    "desc": "获得一个【燃血星徽】。",
+    "icon_path": "SpriteOutput/GridFight/Portal/1114.png",
+    "param_list": [
+      35052006
+    ],
+    "bonus": 35052006
+  },
+  "1115": {
+    "id": 1115,
+    "name": "减益邀请",
+    "desc": "获得一个【减益星徽】。",
+    "icon_path": "SpriteOutput/GridFight/Portal/1115.png",
+    "param_list": [
+      35052007
+    ],
+    "bonus": 35052007
+  },
+  "1116": {
+    "id": 1116,
+    "name": "持续伤害邀请",
+    "desc": "获得一个【持续伤害星徽】。",
+    "icon_path": "SpriteOutput/GridFight/Portal/1116.png",
+    "param_list": [
+      35052008
+    ],
+    "bonus": 35052008
+  },
+  "1117": {
+    "id": 1117,
+    "name": "量子同频邀请",
+    "desc": "获得一个【量子同频星徽】。",
+    "icon_path": "SpriteOutput/GridFight/Portal/1117.png",
+    "param_list": [
+      35052009
+    ],
+    "bonus": 35052009
+  },
+  "1118": {
+    "id": 1118,
+    "name": "战技点邀请",
+    "desc": "获得一个【战技点星徽】。",
+    "icon_path": "SpriteOutput/GridFight/Portal/1118.png",
+    "param_list": [
+      35052011
+    ],
+    "bonus": 35052011
+  },
+  "1119": {
+    "id": 1119,
+    "name": "欢愉邀请",
+    "desc": "获得一个【欢愉星徽】。",
+    "icon_path": "SpriteOutput/GridFight/Portal/1119.png",
+    "param_list": [
+      35052012
+    ],
+    "bonus": {}
+  },
+  "1120": {
+    "id": 1120,
+    "name": "命运圣杯邀请",
+    "desc": "获得1个【命运圣杯星徽】。",
+    "icon_path": "SpriteOutput/GridFight/Portal/1120.png",
+    "param_list": [
+      35051013
+    ],
+    "bonus": {}
+  },
+  "1201": {
+    "id": 1201,
+    "name": "欢愉契约",
+    "desc": "获得<gridfightcolor type=role id=15061 savedid=Portal1201_SavedValue01>【银狼LV.<unbreak>999</unbreak>】</gridfightcolor>，她每次触发独立羁绊【头号玩家】选项时，获得<color=#927fe7>【火花】</color>或<color=#927fe7>【开拓者•欢愉】</color>。",
+    "icon_path": "SpriteOutput/GridFight/Portal/1201.png",
+    "param_list": [],
+    "bonus": {}
+  },
+  "1202": {
+    "id": 1202,
+    "name": "命运圣杯契约",
+    "desc": "获得<color=#b4b4b4>【远坂凛】</color>、<color=#6cce9f>【吉尔伽美什】</color>，完成两次圣杯试炼后，获得<color=#ffd471>【Archer】</color>。",
+    "icon_path": "SpriteOutput/GridFight/Portal/1202.png",
+    "param_list": [],
+    "bonus": {}
+  },
+  "131": {
+    "id": 131,
+    "name": "红钻贵族",
+    "desc": "开局时拥有【红钻】和一个【简易武装箱】。",
+    "icon_path": "SpriteOutput/GridFight/Portal/131.png",
+    "param_list": [],
+    "bonus": {}
+  },
+  "132": {
+    "id": 132,
+    "name": "蓝钻贵族",
+    "desc": "开局时拥有【蓝钻】和一个【简易武装箱】。",
+    "icon_path": "SpriteOutput/GridFight/Portal/132.png",
+    "param_list": [],
+    "bonus": {}
+  },
+  "133": {
+    "id": 133,
+    "name": "英雄登场",
+    "desc": "获得1个2星<color=#ffd471>5费角色</color>，#1个节点后才能将其上场。战斗完胜后，上场节点额外提前1点。",
+    "icon_path": "SpriteOutput/GridFight/Portal/133.png",
+    "param_list": [
+      19
+    ],
+    "bonus": {}
+  },
+  "134": {
+    "id": 134,
+    "name": "命运礼物",
+    "desc": "立刻获得一个【惊喜盒】，倒计时#1个节点后礼盒打开，战斗完胜后，倒计时额外减少1点。",
+    "icon_path": "SpriteOutput/GridFight/Portal/134.png",
+    "param_list": [
+      12
+    ],
+    "bonus": {}
+  },
+  "135": {
+    "id": 135,
+    "name": "银•金•彩",
+    "desc": "本局在固定节点进行投资策略选择时，左、中、右的选项分别为银金彩品质，并且投资策略刷新次数+#1。",
+    "icon_path": "SpriteOutput/GridFight/Portal/135.png",
+    "param_list": [
+      2
+    ],
+    "bonus": {}
+  },
+  "136": {
+    "id": 136,
+    "name": "战力提升",
+    "desc": "获得1个随机#1星1费的输出角色，进入新节点时，这位角色永久获得随机属性加成。",
+    "icon_path": "SpriteOutput/GridFight/Portal/136.png",
+    "param_list": [
+      2
+    ],
+    "bonus": {}
+  },
+  "137": {
+    "id": 137,
+    "name": "战力飙升",
+    "desc": "获得1个随机#1星<color=#6cce9f>2费角色</color>，进入新节点时，这位角色永久获得随机属性加成。",
+    "icon_path": "SpriteOutput/GridFight/Portal/137.png",
+    "param_list": [
+      2
+    ],
+    "bonus": {}
+  },
+  "138": {
+    "id": 138,
+    "name": "成功经验",
+    "desc": "在你升到#1级后，进入接下来#2个节点时，获得#3经验。",
+    "icon_path": "SpriteOutput/GridFight/Portal/138.png",
+    "param_list": [
+      8,
+      3,
+      12
+    ],
+    "bonus": {}
+  },
+  "139": {
+    "id": 139,
+    "name": "专家研讨会",
+    "desc": "获得#1个【专家邀请函】和#2个【简易武装箱】。",
+    "icon_path": "SpriteOutput/GridFight/Portal/139.png",
+    "param_list": [
+      1,
+      1
+    ],
+    "bonus": {}
+  },
+  "141": {
+    "id": 141,
+    "name": "特邀专家：停云",
+    "desc": "获得专家顾问<color=#b4b4b4>【停云】</color>，并使其在本局游戏中加入商店。停云施放终结技时，使目标队员获得等同于停云<unbreak>#1[i]%</unbreak>后台强度的前台强度，该效果仅对最新目标队员生效。",
+    "icon_path": "SpriteOutput/GridFight/Portal/141.png",
+    "param_list": [
+      0.6
+    ],
+    "bonus": {}
+  },
+  "142": {
+    "id": 142,
+    "name": "特邀专家：加拉赫",
+    "desc": "获得专家顾问<color=#b4b4b4>【加拉赫】</color>，并使其在本局游戏中加入商店。激活2/4/6/9击破羁绊时，获得#1件【以太钻头】。",
+    "icon_path": "SpriteOutput/GridFight/Portal/142.png",
+    "param_list": [
+      1
+    ],
+    "bonus": {}
+  },
+  "143": {
+    "id": 143,
+    "name": "特邀专家：银狼",
+    "desc": "当你首次获得<color=#7196ff>【银狼LV.<unbreak>999</unbreak>】</color>时，获得专家顾问<color=#927fe7>【银狼】</color>，并使其在本局游戏中加入商店。",
+    "icon_path": "SpriteOutput/GridFight/Portal/143.png",
+    "param_list": [],
+    "bonus": {}
+  },
+  "144": {
+    "id": 144,
+    "name": "人才储备",
+    "desc": "开局补给替换为3个随机<color=#7196ff>3费角色</color>。<color=#7196ff>3费角色</color>升至2/3星时，获得<unbreak>#1[i]%</unbreak>/<unbreak>#2[i]%</unbreak>速度增幅、<unbreak>#3[i]%</unbreak>/<unbreak>#4[i]%</unbreak>伤害增幅。",
+    "icon_path": "SpriteOutput/GridFight/Portal/144.png",
+    "param_list": [
+      0.11,
+      0.33,
+      0.22,
+      0.66
+    ],
+    "bonus": {}
+  },
+  "145": {
+    "id": 145,
+    "name": "进化算法",
+    "desc": "进入新节点时，所有场上角色获得<unbreak>#1[i]%</unbreak>前后台强度和<unbreak>#2[i]%</unbreak>伤害减免，该效果可叠加。",
+    "icon_path": "SpriteOutput/GridFight/Portal/145.png",
+    "param_list": [
+      0.04,
+      0.02
+    ],
+    "bonus": {}
+  },
+  "146": {
+    "id": 146,
+    "name": "敌后破坏",
+    "desc": "开局时，使一个已生成的敌人词缀失效。<removedaffix>本局失效： <name></removedaffix>",
+    "icon_path": "SpriteOutput/GridFight/Portal/146.png",
+    "param_list": [],
+    "bonus": {}
+  },
+  "147": {
+    "id": 147,
+    "name": "策略大师",
+    "desc": "获取投资策略时，获得（<unbreak>#1[i]</unbreak>*已拥有投资策略数）的金币。在3-5节点额外获得一个投资策略。",
+    "icon_path": "SpriteOutput/GridFight/Portal/147.png",
+    "param_list": [
+      2
+    ],
+    "bonus": {}
+  },
+  "148": {
+    "id": 148,
+    "name": "特邀专家：桑博",
+    "desc": "获得专家顾问<color=#b4b4b4>【桑博】</color>，并使其在本局游戏中加入商店。进入新节点时，老桑博会给你带来小礼物！登场的<color=#b4b4b4>【桑博】</color>星级越高，礼物越好！",
+    "icon_path": "SpriteOutput/GridFight/Portal/148.png",
+    "param_list": [],
+    "bonus": {}
+  },
+  "2101": {
+    "id": 2101,
+    "name": "仙舟舰队邀请",
+    "desc": "获得一个【仙舟舰队星徽】。",
+    "icon_path": "SpriteOutput/GridFight/Portal/2101.png",
+    "param_list": [
+      355100102
+    ],
+    "bonus": 3505100102
+  },
+  "2102": {
+    "id": 2102,
+    "name": "奇兽花园邀请",
+    "desc": "获得一个【奇兽花园星徽】。",
+    "icon_path": "SpriteOutput/GridFight/Portal/2102.png",
+    "param_list": [
+      355100202
+    ],
+    "bonus": 3505100202
+  },
+  "2103": {
+    "id": 2103,
+    "name": "幻月游戏邀请",
+    "desc": "获得一个【幻月游戏星徽】。",
+    "icon_path": "SpriteOutput/GridFight/Portal/2103.png",
+    "param_list": [
+      355100302
+    ],
+    "bonus": 3505100302
+  },
+  "2104": {
+    "id": 2104,
+    "name": "星间旅人邀请",
+    "desc": "获得一个【星间旅人星徽】。",
+    "icon_path": "SpriteOutput/GridFight/Portal/2104.png",
+    "param_list": [
+      355100402
+    ],
+    "bonus": 3505100402
+  },
+  "2105": {
+    "id": 2105,
+    "name": "开拓银轨邀请",
+    "desc": "获得一个【开拓银轨星徽】。",
+    "icon_path": "SpriteOutput/GridFight/Portal/2105.png",
+    "param_list": [
+      355100502
+    ],
+    "bonus": 3505100502
+  },
+  "2107": {
+    "id": 2107,
+    "name": "星核猎手邀请",
+    "desc": "获得一个【星核猎手星徽】。",
+    "icon_path": "SpriteOutput/GridFight/Portal/2107.png",
+    "param_list": [
+      355100802
+    ],
+    "bonus": 3505100802
+  },
+  "2108": {
+    "id": 2108,
+    "name": "小小巨人邀请",
+    "desc": "获得一个【小小巨人星徽】。",
+    "icon_path": "SpriteOutput/GridFight/Portal/2108.png",
+    "param_list": [
+      355100902
+    ],
+    "bonus": 3505100902
+  },
+  "2109": {
+    "id": 2109,
+    "name": "梦境交织邀请",
+    "desc": "获得一个【梦境交织星徽】。",
+    "icon_path": "SpriteOutput/GridFight/Portal/2109.png",
+    "param_list": [
+      355101002
+    ],
+    "bonus": 3505101002
+  },
+  "2110": {
+    "id": 2110,
+    "name": "黄金大饭店邀请",
+    "desc": "获得一个【黄金大饭店星徽】。",
+    "icon_path": "SpriteOutput/GridFight/Portal/2110.png",
+    "param_list": [
+      355101202
+    ],
+    "bonus": 3505101202
+  },
+  "2111": {
+    "id": 2111,
+    "name": "追击邀请",
+    "desc": "获得一个【追击星徽】。",
+    "icon_path": "SpriteOutput/GridFight/Portal/2111.png",
+    "param_list": [
+      355200102
+    ],
+    "bonus": 3505200102
+  },
+  "2112": {
+    "id": 2112,
+    "name": "持续伤害邀请",
+    "desc": "获得一个【持续伤害星徽】。",
+    "icon_path": "SpriteOutput/GridFight/Portal/2112.png",
+    "param_list": [
+      355200202
+    ],
+    "bonus": 3505200202
+  },
+  "2113": {
+    "id": 2113,
+    "name": "群攻邀请",
+    "desc": "获得一个【群攻星徽】。",
+    "icon_path": "SpriteOutput/GridFight/Portal/2113.png",
+    "param_list": [
+      355200302
+    ],
+    "bonus": 3505200302
+  },
+  "2114": {
+    "id": 2114,
+    "name": "连击邀请",
+    "desc": "获得一个【连击星徽】。",
+    "icon_path": "SpriteOutput/GridFight/Portal/2114.png",
+    "param_list": [
+      355200402
+    ],
+    "bonus": 3505200402
+  },
+  "2115": {
+    "id": 2115,
+    "name": "击破邀请",
+    "desc": "获得一个【击破星徽】。",
+    "icon_path": "SpriteOutput/GridFight/Portal/2115.png",
+    "param_list": [
+      355200502
+    ],
+    "bonus": 3505200502
+  },
+  "2116": {
+    "id": 2116,
+    "name": "召唤邀请",
+    "desc": "获得一个【召唤星徽】。",
+    "icon_path": "SpriteOutput/GridFight/Portal/2116.png",
+    "param_list": [
+      355200602
+    ],
+    "bonus": 3505200602
+  },
+  "2117": {
+    "id": 2117,
+    "name": "欢愉邀请",
+    "desc": "获得一个【欢愉星徽】。",
+    "icon_path": "SpriteOutput/GridFight/Portal/2117.png",
+    "param_list": [
+      355200702
+    ],
+    "bonus": 3505200702
+  },
+  "2118": {
+    "id": 2118,
+    "name": "反击邀请",
+    "desc": "获得一个【反击星徽】。",
+    "icon_path": "SpriteOutput/GridFight/Portal/2118.png",
+    "param_list": [
+      355200802
+    ],
+    "bonus": 3505200802
+  },
+  "2119": {
+    "id": 2119,
+    "name": "能量邀请",
+    "desc": "获得一个【能量星徽】。",
+    "icon_path": "SpriteOutput/GridFight/Portal/2119.png",
+    "param_list": [
+      355200902
+    ],
+    "bonus": 3505200902
+  },
+  "2201": {
+    "id": 2201,
+    "name": "仙舟舰队概念股",
+    "desc": "开局时获得【仙舟舰队】角色和初始简易装备,【仙舟舰队】角色的刷新概率提高。",
+    "icon_path": "SpriteOutput/GridFight/Portal/2201.png",
+    "param_list": [
+      42001,
+      100102,
+      40
+    ],
+    "bonus": {}
+  },
+  "2202": {
+    "id": 2202,
+    "name": "奇兽花园概念股",
+    "desc": "开局时获得【奇兽花园】角色和初始简易装备,【奇兽花园】角色的刷新概率提高。",
+    "icon_path": "SpriteOutput/GridFight/Portal/2202.png",
+    "param_list": [
+      42002,
+      100202,
+      40
+    ],
+    "bonus": {}
+  },
+  "2203": {
+    "id": 2203,
+    "name": "幻月游戏概念股",
+    "desc": "开局时获得【幻月游戏】角色和初始简易装备,【幻月游戏】角色的刷新概率提高。",
+    "icon_path": "SpriteOutput/GridFight/Portal/2203.png",
+    "param_list": [
+      42003,
+      100302,
+      40
+    ],
+    "bonus": {}
+  },
+  "2204": {
+    "id": 2204,
+    "name": "开拓银轨概念股",
+    "desc": "开局时获得【开拓银轨】角色和初始简易装备,【开拓银轨】角色的刷新概率提高。",
+    "icon_path": "SpriteOutput/GridFight/Portal/2204.png",
+    "param_list": [
+      42004,
+      100502,
+      40
+    ],
+    "bonus": {}
+  },
+  "2205": {
+    "id": 2205,
+    "name": "千星商会概念股",
+    "desc": "开局时获得【千星商会】角色和初始简易装备,【千星商会】角色的刷新概率提高。",
+    "icon_path": "SpriteOutput/GridFight/Portal/2205.png",
+    "param_list": [
+      42005,
+      100602,
+      40
+    ],
+    "bonus": {}
+  },
+  "2206": {
+    "id": 2206,
+    "name": "追击概念股",
+    "desc": "开局时获得【追击】角色和初始简易装备,【追击】角色的刷新概率提高。",
+    "icon_path": "SpriteOutput/GridFight/Portal/2206.png",
+    "param_list": [
+      42006,
+      200102,
+      40
+    ],
+    "bonus": {}
+  },
+  "2207": {
+    "id": 2207,
+    "name": "持续伤害概念股",
+    "desc": "开局时获得【持续伤害】角色和初始简易装备,【持续伤害】角色的刷新概率提高。",
+    "icon_path": "SpriteOutput/GridFight/Portal/2207.png",
+    "param_list": [
+      42007,
+      200202,
+      40
+    ],
+    "bonus": {}
+  },
+  "2208": {
+    "id": 2208,
+    "name": "群攻概念股",
+    "desc": "开局时获得【群攻】角色和初始简易装备,【群攻】角色的刷新概率提高。",
+    "icon_path": "SpriteOutput/GridFight/Portal/2208.png",
+    "param_list": [
+      42008,
+      200302,
+      40
+    ],
+    "bonus": {}
+  },
+  "2209": {
+    "id": 2209,
+    "name": "连击概念股",
+    "desc": "开局时获得【连击】角色和初始简易装备,【连击】角色的刷新概率提高。",
+    "icon_path": "SpriteOutput/GridFight/Portal/2209.png",
+    "param_list": [
+      42009,
+      200402,
+      40
+    ],
+    "bonus": {}
+  },
+  "2210": {
+    "id": 2210,
+    "name": "击破概念股",
+    "desc": "开局时获得【击破】角色和初始简易装备,【击破】角色的刷新概率提高。",
+    "icon_path": "SpriteOutput/GridFight/Portal/2210.png",
+    "param_list": [
+      42010,
+      200502,
+      40
+    ],
+    "bonus": {}
+  },
+  "2211": {
+    "id": 2211,
+    "name": "召唤概念股",
+    "desc": "开局时获得【召唤】角色和初始简易装备,【召唤】角色的刷新概率提高。",
+    "icon_path": "SpriteOutput/GridFight/Portal/2211.png",
+    "param_list": [
+      42011,
+      200602,
+      40
+    ],
+    "bonus": {}
+  },
+  "2212": {
+    "id": 2212,
+    "name": "欢愉概念股",
+    "desc": "开局时获得【欢愉】角色和初始简易装备,【欢愉】角色的刷新概率提高。",
+    "icon_path": "SpriteOutput/GridFight/Portal/2212.png",
+    "param_list": [
+      42012,
+      200702,
+      40
+    ],
+    "bonus": {}
+  },
+  "2213": {
+    "id": 2213,
+    "name": "反击概念股",
+    "desc": "开局时获得【反击】角色和初始简易装备,【反击】角色的刷新概率提高。",
+    "icon_path": "SpriteOutput/GridFight/Portal/2213.png",
+    "param_list": [
+      42013,
+      200802,
+      40
+    ],
+    "bonus": {}
+  },
+  "2214": {
+    "id": 2214,
+    "name": "能量概念股",
+    "desc": "开局时获得【能量】角色和初始简易装备,【能量】角色的刷新概率提高。",
+    "icon_path": "SpriteOutput/GridFight/Portal/2214.png",
+    "param_list": [
+      42014,
+      200902,
+      40
+    ],
+    "bonus": {}
+  }
+}

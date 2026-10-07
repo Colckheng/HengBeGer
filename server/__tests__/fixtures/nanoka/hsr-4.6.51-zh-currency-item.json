@@ -1,0 +1,8282 @@
+{
+  "350101": {
+    "type": "Consumable",
+    "name": "拆装扳手",
+    "desc": "拖动到一个角色上使用，可以取下该角色穿戴的所有装备。\\n该道具使用后消失。",
+    "param_list": [],
+    "icon_path": "SpriteOutput/GridFight/Equipment/350101.png",
+    "consumable_rule": "",
+    "if_stack": true,
+    "if_consume": true
+  },
+  "350102": {
+    "type": "Consumable",
+    "name": "精密拆装扳手",
+    "desc": "拖动到一个角色上使用，可以取下该角色穿戴的所有装备，可无限次使用。\\n拥有该道具后，再获得拆装扳手时，改为获得1金币。\\n\\n<color=#b4b4b4><i>「武装到牙齿？那就连牙一起拔掉。」</i></color>",
+    "param_list": [],
+    "icon_path": "SpriteOutput/GridFight/Equipment/350102.png",
+    "consumable_rule": "",
+    "if_stack": false,
+    "if_consume": false
+  },
+  "350103": {
+    "type": "Consumable",
+    "name": "冶金炉",
+    "desc": "拖动到一件装备上使用，使其变为同类型的随机装备。\\n拖动到一个角色上使用，取下所有装备并使其变为同类型的随机装备。\\n该道具使用后消失。",
+    "param_list": [],
+    "icon_path": "SpriteOutput/GridFight/Equipment/350103.png",
+    "consumable_rule": "Roll",
+    "if_stack": true,
+    "if_consume": true
+  },
+  "350104": {
+    "type": "Consumable",
+    "name": "特权赋予卡",
+    "desc": "拖动到一件进阶装备上使用，使其变为对应的特权装备。\\n拖动到一个角色上使用，从角色已穿戴的进阶装备中选择一件变为特权装备。\\n该道具使用后消失。\\n\\n<color=#b4b4b4><i>「卡片抽换！装备进化！」</i></color>",
+    "param_list": [],
+    "icon_path": "SpriteOutput/GridFight/Equipment/350104.png",
+    "consumable_rule": "Upgrade",
+    "if_stack": false,
+    "if_consume": true
+  },
+  "350105": {
+    "type": "Consumable",
+    "name": "员工投影仪",
+    "desc": "拖动到一个<color=#7196ff>3费</color>及以下的角色上使用，在备战席创造一个该角色的1星复制。\\n该道具使用后消失。\\n\\n<color=#b4b4b4><i>「人力资源部的最爱，极大缓解了劳动力短缺问题。」</i></color>",
+    "param_list": [
+      3,
+      1
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/350105.png",
+    "consumable_rule": "Copy",
+    "if_stack": true,
+    "if_consume": true
+  },
+  "350106": {
+    "type": "Consumable",
+    "name": "完美投影仪",
+    "desc": "拖动到一个任意角色上使用，在备战席创造一个该角色的1星复制。\\n该道具使用后消失。\\n\\n<color=#b4b4b4><i>「人力资源部的最爱，极大缓解了劳动力短缺问题。」</i></color>",
+    "param_list": [
+      5,
+      1
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/350106.png",
+    "consumable_rule": "Copy",
+    "if_stack": true,
+    "if_consume": true
+  },
+  "350201": {
+    "type": "Equipment",
+    "name": "轮滑鞋",
+    "desc": null,
+    "param_list": [
+      0.05
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/350201.png",
+    "tag_list": [
+      6
+    ],
+    "category": "Basic",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.05,
+        "name": "速度增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "350202": {
+    "type": "Equipment",
+    "name": "折叠小刀",
+    "desc": null,
+    "param_list": [
+      0.1
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/350202.png",
+    "tag_list": [
+      4
+    ],
+    "category": "Basic",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.1,
+        "name": "前台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "350203": {
+    "type": "Equipment",
+    "name": "和平手枪",
+    "desc": null,
+    "param_list": [
+      0.1
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/350203.png",
+    "tag_list": [
+      5
+    ],
+    "category": "Basic",
+    "general_property_list": [
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.1,
+        "name": "后台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "350204": {
+    "type": "Equipment",
+    "name": "幸运星",
+    "desc": null,
+    "param_list": [
+      0.05
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/350204.png",
+    "tag_list": [
+      8
+    ],
+    "category": "Basic",
+    "general_property_list": [
+      {
+        "property_type": "ExtraLuckChance",
+        "value": 0.05,
+        "name": "幸运一击率"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "350205": {
+    "type": "Equipment",
+    "name": "生命之花",
+    "desc": null,
+    "param_list": [
+      0.05
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/350205.png",
+    "tag_list": [
+      2
+    ],
+    "category": "Basic",
+    "general_property_list": [
+      {
+        "property_type": "ExtraHPAddedRatio1",
+        "value": 0.05,
+        "name": "生命增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "350206": {
+    "type": "Equipment",
+    "name": "量产型装甲",
+    "desc": null,
+    "param_list": [
+      0.05
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/350206.png",
+    "tag_list": [
+      2
+    ],
+    "category": "Basic",
+    "general_property_list": [
+      {
+        "property_type": "ExtraAllDamageReduce",
+        "value": 0.05,
+        "name": "伤害减免"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "350207": {
+    "type": "Equipment",
+    "name": "以太钻头",
+    "desc": null,
+    "param_list": [
+      0.1
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/350207.png",
+    "tag_list": [
+      10
+    ],
+    "category": "Basic",
+    "general_property_list": [
+      {
+        "property_type": "StanceBreakAddedRatio",
+        "value": 0.1,
+        "name": "击破效率"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "350208": {
+    "type": "Equipment",
+    "name": "光能电池",
+    "desc": null,
+    "param_list": [
+      15
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/350208.png",
+    "tag_list": [
+      7
+    ],
+    "category": "Basic",
+    "general_property_list": [
+      {
+        "property_type": "ExtraInitSP",
+        "value": 15,
+        "name": "初始能量"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "35100001": {
+    "type": "Equipment",
+    "name": "白昼·光速螺旋桨",
+    "desc": "战斗中，装备者每有<unbreak>#3[i]</unbreak>点速度，获得<unbreak>#4[i]%</unbreak>前台强度，<unbreak>#5[i]%</unbreak>后台强度。\\n仅供【昼之半神】羁绊队员穿戴。",
+    "param_list": [
+      0.1,
+      0.25,
+      10,
+      0.02,
+      0.01,
+      0
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030107.png",
+    "tag_list": [
+      6,
+      1
+    ],
+    "category": "TraitSpecial",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.1,
+        "name": "速度增幅"
+      },
+      {
+        "property_type": "StanceBreakAddedRatio",
+        "value": 0.25,
+        "name": "击破效率"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "35100002": {
+    "type": "Equipment",
+    "name": "白昼·武器大师",
+    "desc": "我方小队前/后台强度提高<unbreak>#2[i]%</unbreak>。\\n仅供【昼之半神】羁绊队员穿戴。",
+    "param_list": [
+      0.2,
+      0.25,
+      0
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030203.png",
+    "tag_list": [
+      3
+    ],
+    "category": "TraitSpecial",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.2,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.2,
+        "name": "后台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "35100003": {
+    "type": "Equipment",
+    "name": "白昼·斩首行动",
+    "desc": "装备者对精英和首领敌人的伤害增幅提高<unbreak>#3[i]%</unbreak>，弱点击破效率提高<unbreak>#4[i]%</unbreak>。\\n仅供【昼之半神】羁绊队员穿戴。",
+    "param_list": [
+      0.2,
+      0.25,
+      0.4,
+      0.25,
+      0.1
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030307.png",
+    "tag_list": [
+      18,
+      1
+    ],
+    "category": "TraitSpecial",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.2,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.2,
+        "name": "后台强度"
+      },
+      {
+        "property_type": "StanceBreakAddedRatio",
+        "value": 0.25,
+        "name": "击破效率"
+      },
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.1,
+        "name": "速度增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "35100011": {
+    "type": "Equipment",
+    "name": "极·白昼·光速螺旋桨",
+    "desc": "战斗中，装备者每有<unbreak>#3[i]</unbreak>点速度，获得<unbreak>#4[i]%</unbreak>前台强度，<unbreak>#5[i]%</unbreak>后台强度，<unbreak>#6[i]%</unbreak>伤害增幅。\\n仅供【昼之半神】羁绊队员穿戴。",
+    "param_list": [
+      0.2,
+      0.5,
+      10,
+      0.04,
+      0.02,
+      0.01
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030107.png",
+    "tag_list": [
+      6,
+      1
+    ],
+    "category": "TraitSpecial",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.15,
+        "name": "速度增幅"
+      },
+      {
+        "property_type": "StanceBreakAddedRatio",
+        "value": 0.25,
+        "name": "击破效率"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "35100012": {
+    "type": "Equipment",
+    "name": "极·白昼·武器大师",
+    "desc": "我方小队前/后台强度提高<unbreak>#2[i]%</unbreak>，伤害增幅提高<unbreak>#3[i]%</unbreak>。\\n仅供【昼之半神】羁绊队员穿戴。",
+    "param_list": [
+      0.4,
+      0.5,
+      0.1
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030203.png",
+    "tag_list": [
+      3
+    ],
+    "category": "TraitSpecial",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.4,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.4,
+        "name": "后台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "35100013": {
+    "type": "Equipment",
+    "name": "极·白昼·斩首行动",
+    "desc": "装备者对精英和首领敌人的伤害增幅提高<unbreak>#3[i]%</unbreak>，弱点击破效率提高<unbreak>#4[i]%</unbreak>。\\n仅供【昼之半神】羁绊队员穿戴。",
+    "param_list": [
+      0.4,
+      0.5,
+      1,
+      0.75,
+      0.2
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030307.png",
+    "tag_list": [
+      18,
+      1
+    ],
+    "category": "TraitSpecial",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.4,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.4,
+        "name": "后台强度"
+      },
+      {
+        "property_type": "StanceBreakAddedRatio",
+        "value": 0.5,
+        "name": "击破效率"
+      },
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.2,
+        "name": "速度增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "350601": {
+    "type": "Equipment",
+    "name": "红钻",
+    "desc": "用于合成阵营星徽。\\n\\n<color=#b4b4b4><i>「再次印证了一个古老法则——自古红蓝出CP。」</i></color>",
+    "param_list": [],
+    "icon_path": "SpriteOutput/GridFight/Equipment/350601.png",
+    "tag_list": [
+      24
+    ],
+    "category": "Material",
+    "general_property_list": [],
+    "craft": [],
+    "recommend": []
+  },
+  "350602": {
+    "type": "Equipment",
+    "name": "蓝钻",
+    "desc": "用于合成流派星徽。\\n\\n<color=#b4b4b4><i>「再次印证了一个古老法则——自古红蓝出CP。」</i></color>",
+    "param_list": [],
+    "icon_path": "SpriteOutput/GridFight/Equipment/350602.png",
+    "tag_list": [
+      24
+    ],
+    "category": "Material",
+    "general_property_list": [],
+    "craft": [],
+    "recommend": []
+  },
+  "350701": {
+    "type": "Equipment",
+    "name": "财富宝钻",
+    "desc": "拥有宝钻可以使团队规模上限+1，无论是否被角色穿戴。装备者每<unbreak>#1[i]</unbreak>个备战阶段提供<unbreak>#2[i]</unbreak>金币。\\n\\n<color=#b4b4b4><i>「拥有财富宝钻就等于拥有了最强超能力——创造财富的能力。」</i></color>",
+    "param_list": [
+      3,
+      1
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/350701.png",
+    "tag_list": [
+      24
+    ],
+    "category": "Crown",
+    "general_property_list": [],
+    "craft": [
+      350601,
+      350601
+    ],
+    "recommend": []
+  },
+  "35051001": {
+    "type": "Equipment",
+    "name": "列车同行星徽",
+    "desc": "装备者加入【列车同行】羁绊。",
+    "param_list": [],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35051001.png",
+    "tag_list": [
+      25,
+      24
+    ],
+    "category": "Emblem",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.1,
+        "name": "速度增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "35051003": {
+    "type": "Equipment",
+    "name": "银河学者星徽",
+    "desc": "装备者加入【银河学者】羁绊。",
+    "param_list": [],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35051003.png",
+    "tag_list": [
+      25,
+      24
+    ],
+    "category": "Emblem",
+    "general_property_list": [
+      {
+        "property_type": "ExtraInitSP",
+        "value": 30,
+        "name": "初始能量"
+      }
+    ],
+    "craft": [
+      350601,
+      350208
+    ],
+    "recommend": []
+  },
+  "35051005": {
+    "type": "Equipment",
+    "name": "贝洛伯格星徽",
+    "desc": "装备者加入【贝洛伯格】羁绊。",
+    "param_list": [],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35051005.png",
+    "tag_list": [
+      25,
+      24
+    ],
+    "category": "Emblem",
+    "general_property_list": [
+      {
+        "property_type": "ExtraAllDamageReduce",
+        "value": 0.1,
+        "name": "伤害减免"
+      }
+    ],
+    "craft": [
+      350601,
+      350206
+    ],
+    "recommend": []
+  },
+  "35051006": {
+    "type": "Equipment",
+    "name": "星间旅人星徽",
+    "desc": "装备者加入【星间旅人】羁绊。",
+    "param_list": [],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35051006.png",
+    "tag_list": [
+      25,
+      24
+    ],
+    "category": "Emblem",
+    "general_property_list": [
+      {
+        "property_type": "StanceBreakAddedRatio",
+        "value": 0.25,
+        "name": "击破效率"
+      }
+    ],
+    "craft": [
+      350601,
+      350207
+    ],
+    "recommend": []
+  },
+  "35051007": {
+    "type": "Equipment",
+    "name": "仙舟星徽",
+    "desc": "装备者加入【仙舟】羁绊。",
+    "param_list": [],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35051007.png",
+    "tag_list": [
+      25,
+      24
+    ],
+    "category": "Emblem",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.2,
+        "name": "前台强度"
+      }
+    ],
+    "craft": [
+      350601,
+      350202
+    ],
+    "recommend": []
+  },
+  "35051008": {
+    "type": "Equipment",
+    "name": "狼狩星徽",
+    "desc": "装备者加入【狼狩】羁绊。",
+    "param_list": [],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35051008.png",
+    "tag_list": [
+      25,
+      24
+    ],
+    "category": "Emblem",
+    "general_property_list": [
+      {
+        "property_type": "ExtraHPAddedRatio1",
+        "value": 0.1,
+        "name": "生命增幅"
+      }
+    ],
+    "craft": [
+      350601,
+      350205
+    ],
+    "recommend": []
+  },
+  "35051010": {
+    "type": "Equipment",
+    "name": "盛会之星星徽",
+    "desc": "装备者加入【盛会之星】羁绊。",
+    "param_list": [],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35051010.png",
+    "tag_list": [
+      25,
+      24
+    ],
+    "category": "Emblem",
+    "general_property_list": [
+      {
+        "property_type": "ExtraLuckChance",
+        "value": 0.1,
+        "name": "幸运一击率"
+      }
+    ],
+    "craft": [
+      350601,
+      350204
+    ],
+    "recommend": []
+  },
+  "35051011": {
+    "type": "Equipment",
+    "name": "昼之半神星徽",
+    "desc": "装备者加入【昼之半神】羁绊。",
+    "param_list": [],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35051011.png",
+    "tag_list": [
+      25,
+      24
+    ],
+    "category": "Emblem",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.1,
+        "name": "速度增幅"
+      }
+    ],
+    "craft": [
+      350601,
+      350201
+    ],
+    "recommend": []
+  },
+  "35051012": {
+    "type": "Equipment",
+    "name": "夜之半神星徽",
+    "desc": "装备者加入【夜之半神】羁绊。",
+    "param_list": [],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35051012.png",
+    "tag_list": [
+      25,
+      24
+    ],
+    "category": "Emblem",
+    "general_property_list": [
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.2,
+        "name": "后台强度"
+      }
+    ],
+    "craft": [
+      350601,
+      350203
+    ],
+    "recommend": []
+  },
+  "35052001": {
+    "type": "Equipment",
+    "name": "追击星徽",
+    "desc": "装备者加入【追击】羁绊，造成的所有伤害视为追击伤害，行动后行动提前<unbreak>#1[i]%</unbreak>。",
+    "param_list": [
+      0.1
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35052001.png",
+    "tag_list": [
+      25,
+      24
+    ],
+    "category": "Emblem",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.1,
+        "name": "速度增幅"
+      }
+    ],
+    "craft": [
+      350602,
+      350201
+    ],
+    "recommend": []
+  },
+  "35052002": {
+    "type": "Equipment",
+    "name": "击破星徽",
+    "desc": "装备者加入【击破】羁绊，击破特攻提高<unbreak>#2[i]%</unbreak>。",
+    "param_list": [
+      0.25,
+      1.5
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35052002.png",
+    "tag_list": [
+      25,
+      24
+    ],
+    "category": "Emblem",
+    "general_property_list": [
+      {
+        "property_type": "StanceBreakAddedRatio",
+        "value": 0.25,
+        "name": "击破效率"
+      },
+      {
+        "property_type": "BreakDamageAddedRatioBase",
+        "value": 1.5,
+        "name": "击破特攻"
+      }
+    ],
+    "craft": [
+      350602,
+      350207
+    ],
+    "recommend": []
+  },
+  "35052003": {
+    "type": "Equipment",
+    "name": "群攻星徽",
+    "desc": "装备者加入【群攻】羁绊，场上每存在1名敌人，装备者的前/后台强度提高<unbreak>#1[i]%</unbreak>。",
+    "param_list": [
+      0.08
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35052003.png",
+    "tag_list": [
+      25,
+      24
+    ],
+    "category": "Emblem",
+    "general_property_list": [
+      {
+        "property_type": "ExtraLuckChance",
+        "value": 0.1,
+        "name": "幸运一击率"
+      }
+    ],
+    "craft": [
+      350602,
+      350204
+    ],
+    "recommend": []
+  },
+  "35052004": {
+    "type": "Equipment",
+    "name": "能量星徽",
+    "desc": "装备者加入【能量】羁绊，造成的所有伤害视为终结技伤害，施放终结技后固定恢复<unbreak>#1[i]</unbreak>点能量。",
+    "param_list": [
+      10
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35052004.png",
+    "tag_list": [
+      25,
+      24
+    ],
+    "category": "Emblem",
+    "general_property_list": [
+      {
+        "property_type": "ExtraInitSP",
+        "value": 30,
+        "name": "初始能量"
+      }
+    ],
+    "craft": [
+      350602,
+      350208
+    ],
+    "recommend": []
+  },
+  "35052005": {
+    "type": "Equipment",
+    "name": "治疗星徽",
+    "desc": "装备者加入【治疗】羁绊，行动时为我方全体前台回复等同于装备者生命上限<unbreak>#1[i]%</unbreak>的生命。",
+    "param_list": [
+      0.1
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35052005.png",
+    "tag_list": [
+      25,
+      24
+    ],
+    "category": "Emblem",
+    "general_property_list": [
+      {
+        "property_type": "ExtraAllDamageReduce",
+        "value": 0.1,
+        "name": "伤害减免"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "35052006": {
+    "type": "Equipment",
+    "name": "燃血星徽",
+    "desc": "装备者加入【燃血】羁绊，攻击时消耗当前生命值的<unbreak>#1[i]%</unbreak>，并获得<unbreak>#2[i]%</unbreak>前/后台强度，持续至此次攻击结束。",
+    "param_list": [
+      0.2,
+      0.4
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35052006.png",
+    "tag_list": [
+      25,
+      24
+    ],
+    "category": "Emblem",
+    "general_property_list": [
+      {
+        "property_type": "ExtraHPAddedRatio1",
+        "value": 0.1,
+        "name": "生命增幅"
+      }
+    ],
+    "craft": [
+      350602,
+      350205
+    ],
+    "recommend": []
+  },
+  "35052007": {
+    "type": "Equipment",
+    "name": "减益星徽",
+    "desc": "装备者加入【减益】羁绊，敌人每陷入1个负面状态，装备者对其造成的伤害提高<unbreak>#1[i]%</unbreak>，最多计入<unbreak>#2[i]</unbreak>个。",
+    "param_list": [
+      0.05,
+      5
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35052007.png",
+    "tag_list": [
+      25,
+      24
+    ],
+    "category": "Emblem",
+    "general_property_list": [
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.2,
+        "name": "后台强度"
+      }
+    ],
+    "craft": [
+      350602,
+      350203
+    ],
+    "recommend": []
+  },
+  "35052008": {
+    "type": "Equipment",
+    "name": "持续伤害星徽",
+    "desc": "装备者加入【持续伤害】羁绊，攻击后附加【业火】，使目标在回合开始时受到等同于装备者<unbreak>#1[i]%</unbreak>攻击力的火属性持续伤害。",
+    "param_list": [
+      3
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35052008.png",
+    "tag_list": [
+      25,
+      24
+    ],
+    "category": "Emblem",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.1,
+        "name": "速度增幅"
+      }
+    ],
+    "craft": [
+      350602,
+      350206
+    ],
+    "recommend": []
+  },
+  "35052009": {
+    "type": "Equipment",
+    "name": "量子同频星徽",
+    "desc": "装备者加入【量子同频】羁绊，每点【同频】额外提供<unbreak>#1[i]%</unbreak>量子属性穿透。",
+    "param_list": [
+      0.1
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35052009.png",
+    "tag_list": [
+      25,
+      24
+    ],
+    "category": "Emblem",
+    "general_property_list": [
+      {
+        "property_type": "ExtraLuckChance",
+        "value": 0.1,
+        "name": "幸运一击率"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "35052010": {
+    "type": "Equipment",
+    "name": "护盾星徽",
+    "desc": "装备者加入【护盾】羁绊，战斗开始时，为我方全体前台提供等同于装备者<unbreak>#1[i]%</unbreak>防御力的护盾。",
+    "param_list": [
+      1
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35052010.png",
+    "tag_list": [
+      25,
+      24
+    ],
+    "category": "Emblem",
+    "general_property_list": [
+      {
+        "property_type": "ExtraAllDamageReduce",
+        "value": 0.1,
+        "name": "伤害减免"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "35052011": {
+    "type": "Equipment",
+    "name": "战技点星徽",
+    "desc": "装备者加入【战技点】羁绊，施放战技或普攻造成的伤害无视敌人<unbreak>#1[i]%</unbreak>的防御力。",
+    "param_list": [
+      0.2
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35052011.png",
+    "tag_list": [
+      25,
+      24
+    ],
+    "category": "Emblem",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.2,
+        "name": "前台强度"
+      }
+    ],
+    "craft": [
+      350602,
+      350202
+    ],
+    "recommend": []
+  },
+  "99999": {
+    "type": "Forge",
+    "name": "简易武装箱",
+    "desc": "点击后开启简易武装箱，从四件简易装备中选择一件获得。\\n该道具使用后消失。",
+    "param_list": [
+      1
+    ],
+    "icon_path": "SpriteOutput/GridFight/GridItem/GridFight_WeaponBox1.png",
+    "equip_category": "Basic",
+    "func_type": "Equip",
+    "forge_type_desc": "武装箱"
+  },
+  "99998": {
+    "type": "Forge",
+    "name": "进阶武装箱",
+    "desc": "点击后开启进阶武装箱，从四件进阶装备中选择一件获得。\\n该道具使用后消失。",
+    "param_list": [
+      2
+    ],
+    "icon_path": "SpriteOutput/GridFight/GridItem/GridFight_WeaponBox2.png",
+    "equip_category": "Craftable",
+    "func_type": "Equip",
+    "forge_type_desc": "武装箱"
+  },
+  "99997": {
+    "type": "Forge",
+    "name": "特权武装箱",
+    "desc": "点击后开启特权武装箱，从四件特权装备中选择一件获得。\\n该道具使用后消失。",
+    "param_list": [
+      7
+    ],
+    "icon_path": "SpriteOutput/GridFight/GridItem/GridFight_WeaponBox3.png",
+    "equip_category": "Radiant",
+    "func_type": "Equip",
+    "forge_type_desc": "武装箱"
+  },
+  "99996": {
+    "type": "Forge",
+    "name": "1费聘用书",
+    "desc": "点击后进行角色招募，从四名<color=#b4b4b4>1费角色</color>中选择一名获得。\\n该道具使用后消失。",
+    "param_list": [
+      1,
+      1
+    ],
+    "icon_path": "SpriteOutput/GridFight/GridItem/GridFight_RoleBox1.png",
+    "equip_category": "Basic",
+    "func_type": "Role",
+    "forge_type_desc": "聘用书"
+  },
+  "99995": {
+    "type": "Forge",
+    "name": "2费聘用书",
+    "desc": "点击后进行角色招募，从四名<color=#6cce9f>2费角色</color>中选择一名获得。\\n该道具使用后消失。",
+    "param_list": [
+      2,
+      1
+    ],
+    "icon_path": "SpriteOutput/GridFight/GridItem/GridFight_RoleBox2.png",
+    "equip_category": "Basic",
+    "func_type": "Role",
+    "forge_type_desc": "聘用书"
+  },
+  "99994": {
+    "type": "Forge",
+    "name": "3费聘用书",
+    "desc": "点击后进行角色招募，从四名<color=#7196ff>3费角色</color>中选择一名获得。\\n该道具使用后消失。",
+    "param_list": [
+      3,
+      1
+    ],
+    "icon_path": "SpriteOutput/GridFight/GridItem/GridFight_RoleBox3.png",
+    "equip_category": "Basic",
+    "func_type": "Role",
+    "forge_type_desc": "聘用书"
+  },
+  "99993": {
+    "type": "Forge",
+    "name": "4费聘用书",
+    "desc": "点击后进行角色招募，从四名<color=#927fe7>4费角色</color>中选择一名获得。\\n该道具使用后消失。",
+    "param_list": [
+      4,
+      1
+    ],
+    "icon_path": "SpriteOutput/GridFight/GridItem/GridFight_RoleBox4.png",
+    "equip_category": "Basic",
+    "func_type": "Role",
+    "forge_type_desc": "聘用书"
+  },
+  "99992": {
+    "type": "Forge",
+    "name": "5费聘用书",
+    "desc": "点击后进行角色招募，从四名<color=#ffd471>5费角色</color>中选择一名获得。\\n该道具使用后消失。",
+    "param_list": [
+      5,
+      1
+    ],
+    "icon_path": "SpriteOutput/GridFight/GridItem/GridFight_RoleBox5.png",
+    "equip_category": "Basic",
+    "func_type": "Role",
+    "forge_type_desc": "聘用书"
+  },
+  "99991": {
+    "type": "Forge",
+    "name": "星徽秘典",
+    "desc": "点击后开启星徽秘典，从四件星徽中选择一件获得。\\n该道具使用后消失。",
+    "param_list": [
+      3
+    ],
+    "icon_path": "SpriteOutput/GridFight/GridItem/GridFight_StarBook.png",
+    "equip_category": "Emblem",
+    "func_type": "Equip",
+    "forge_type_desc": "秘典"
+  },
+  "350107": {
+    "type": "Consumable",
+    "name": "好运令牌",
+    "desc": "拖动到一个角色上使用，从该角色的四件推荐进阶装备中选择一件获得。\\n该道具使用后消失。",
+    "param_list": [
+      4
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/350107.png",
+    "consumable_rule": "GainRecommendEquip",
+    "if_stack": false,
+    "if_consume": true
+  },
+  "352101": {
+    "type": "Equipment",
+    "name": "垃圾袋",
+    "desc": "<color=#b4b4b4><i>「无污染，无公害，无用处。」</i></color>",
+    "param_list": [
+      0.03,
+      0.03,
+      0.03,
+      0.03,
+      0.03,
+      0.03
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352101.png",
+    "tag_list": [
+      27
+    ],
+    "category": "Trash",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.03,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.03,
+        "name": "速度增幅"
+      },
+      {
+        "property_type": "ExtraAllDamageTypeAddedRatio1",
+        "value": 0.03,
+        "name": "伤害增幅"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.03,
+        "name": "后台强度"
+      },
+      {
+        "property_type": "ExtraLuckChance",
+        "value": 0.03,
+        "name": "幸运一击率"
+      },
+      {
+        "property_type": "ExtraLuckDamage",
+        "value": 0.03,
+        "name": "幸运一击伤害"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "352201": {
+    "type": "Equipment",
+    "name": "金垃圾袋",
+    "desc": "<color=#b4b4b4><i>「任何道具，哪怕是垃圾袋，只要加上<color=#ffd471><unbreak>【金】</unbreak></color>前缀，立刻身价飙增。」</i></color>",
+    "param_list": [
+      0.3,
+      0.3,
+      0.3,
+      0.3,
+      0.3,
+      0.3
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352201.png",
+    "tag_list": [
+      27
+    ],
+    "category": "GoldTrash",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.3,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.3,
+        "name": "速度增幅"
+      },
+      {
+        "property_type": "ExtraAllDamageTypeAddedRatio1",
+        "value": 0.3,
+        "name": "伤害增幅"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.3,
+        "name": "后台强度"
+      },
+      {
+        "property_type": "ExtraLuckChance",
+        "value": 0.3,
+        "name": "幸运一击率"
+      },
+      {
+        "property_type": "ExtraLuckDamage",
+        "value": 0.3,
+        "name": "幸运一击伤害"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "99990": {
+    "type": "Forge",
+    "name": "专家邀请函",
+    "desc": "点击后开启专家邀请函，从至多四名【专家顾问】或【金币】中选择一个获得。\\n该道具使用后消失。",
+    "param_list": [
+      4,
+      4
+    ],
+    "icon_path": "SpriteOutput/GridFight/GridItem/GridFight_ExpertContract1.png",
+    "equip_category": "Emblem",
+    "func_type": "Expert",
+    "forge_type_desc": "邀请函"
+  },
+  "35052012": {
+    "type": "Equipment",
+    "name": "欢愉星徽",
+    "desc": "装备者加入【欢愉】羁绊，可以获得【阿哈】<unbreak>#1[i]%</unbreak>的属性提高效果。\\n获得欢愉技【极乐漩涡】，可对敌方全体造成<unbreak>#2[i]%</unbreak>的装备者属性欢愉伤害。",
+    "param_list": [
+      0.2,
+      1
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35052012.png",
+    "tag_list": [
+      25,
+      24
+    ],
+    "category": "Emblem",
+    "general_property_list": [
+      {
+        "property_type": "ExtraAllDamageTypeAddedRatio1",
+        "value": 0.1,
+        "name": "伤害增幅"
+      }
+    ],
+    "craft": [
+      350602,
+      352101
+    ],
+    "recommend": []
+  },
+  "352301": {
+    "type": "Equipment",
+    "name": "数据拷贝仪",
+    "desc": "装备者每参与#1场战斗，获得自身的一个1星复制。\\n任意方式获得装备者时，也有<unbreak>#3[i]%</unbreak>概率获得自身的一个1星复制。\\n当装备者为2星/3星时，伤害增幅提高<unbreak>#2[i]%</unbreak>/<unbreak>#4[i]%</unbreak>。",
+    "param_list": [
+      3,
+      0.2,
+      0.3,
+      0.5
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352301.png",
+    "tag_list": [
+      31
+    ],
+    "category": "Hack",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.3,
+        "name": "前台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "352302": {
+    "type": "Equipment",
+    "name": "病毒防火墙",
+    "desc": "所有敌人陷入【脆弱】：受到的伤害提高<unbreak>#1[i]%</unbreak>。",
+    "param_list": [
+      0.35
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352302.png",
+    "tag_list": [
+      31
+    ],
+    "category": "Hack",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.3,
+        "name": "前台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "352303": {
+    "type": "Equipment",
+    "name": "破解芯片",
+    "desc": "首次穿戴该装备时，会使多个节点变为弱化状态：敌人的生命上限降低<unbreak>#2[i]%</unbreak>，伤害降低<unbreak>#3[i]%</unbreak>，速度降低<unbreak>#4[i]%</unbreak>。",
+    "param_list": [
+      5,
+      0.1,
+      0.2,
+      0.1
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352303.png",
+    "tag_list": [
+      31
+    ],
+    "category": "Hack",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.3,
+        "name": "前台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "352401": {
+    "type": "Equipment",
+    "name": "数据拷贝仪Pro",
+    "desc": "装备者每参与#1场战斗，获得自身的一个1星复制。\\n任意方式获得装备者时，也有<unbreak>#3[i]%</unbreak>概率获得自身的一个1星复制。\\n当装备者为2星/3星时，伤害增幅提高<unbreak>#2[i]%</unbreak>/<unbreak>#4[i]%</unbreak>。",
+    "param_list": [
+      3,
+      0.2,
+      0.3,
+      0.5
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352301.png",
+    "tag_list": [
+      31
+    ],
+    "category": "Hack",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.4,
+        "name": "前台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "352402": {
+    "type": "Equipment",
+    "name": "欢愉卡带",
+    "desc": "装备者加入「欢愉」羁绊，若装备者已是「欢愉」羁绊内成员，则「欢愉」羁绊计数+1。",
+    "param_list": [],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352402.png",
+    "tag_list": [
+      31
+    ],
+    "category": "Hack",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.4,
+        "name": "前台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "352404": {
+    "type": "Equipment",
+    "name": "星核猎手卡带",
+    "desc": "「星核猎手」羁绊计数+1。",
+    "param_list": [],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352404.png",
+    "tag_list": [
+      31
+    ],
+    "category": "Hack",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.4,
+        "name": "前台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "352405": {
+    "type": "Equipment",
+    "name": "分身墨镜",
+    "desc": "获得时解锁并获得1星专家【银狼】。当【银狼LV.<unbreak>999</unbreak>】和【银狼】同时在场时，她们获得<unbreak>#1[i]%</unbreak>速度增幅和<unbreak>#2[i]%</unbreak>伤害增幅。",
+    "param_list": [
+      0.2,
+      0.2
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352405.png",
+    "tag_list": [
+      31
+    ],
+    "category": "Hack",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.4,
+        "name": "前台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "352406": {
+    "type": "Equipment",
+    "name": "扑满病毒Pro",
+    "desc": "在非首领节点战斗中，敌人有概率变成扑满，扑满被击杀后会掉落奖励。",
+    "param_list": [
+      0.15
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352304.png",
+    "tag_list": [
+      31
+    ],
+    "category": "Hack",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.4,
+        "name": "前台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "352501": {
+    "type": "Equipment",
+    "name": "数据拷贝仪Max",
+    "desc": "立即获得1个<color=#ffd471>银狼LV.<unbreak>999</unbreak></color>。装备者每参与#1场战斗后，获得自身的一个1星复制。\\n任意方式获得装备者时，也有<unbreak>#3[i]%</unbreak>概率获得自身的一个1星复制。\\n伤害增幅提高<unbreak>#2[i]%</unbreak>。",
+    "param_list": [
+      2,
+      0.5,
+      0.3
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352301.png",
+    "tag_list": [
+      31
+    ],
+    "category": "Hack",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.5,
+        "name": "前台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "352502": {
+    "type": "Equipment",
+    "name": "欢愉卡带Max",
+    "desc": "装备者加入「欢愉」羁绊，若装备者已是「欢愉」羁绊内成员，则「欢愉」羁绊计数+1。【银狼LV.<unbreak>999</unbreak>】装备时，欢愉技造成的伤害增幅提高<unbreak>#1[i]%</unbreak>，并且从阿哈获得的属性提高<unbreak>#2[i]%</unbreak>。",
+    "param_list": [
+      0.5,
+      0.5
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352402.png",
+    "tag_list": [
+      31
+    ],
+    "category": "Hack",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.5,
+        "name": "前台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "352503": {
+    "type": "Equipment",
+    "name": "星核猎手卡带Max",
+    "desc": "「星核猎手」羁绊计数+1。触发额外攻击需要的攻击次数-1。",
+    "param_list": [],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352404.png",
+    "tag_list": [
+      31
+    ],
+    "category": "Hack",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.5,
+        "name": "前台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "352504": {
+    "type": "Equipment",
+    "name": "分身墨镜Max",
+    "desc": "获得时解锁并获得2星专家【银狼】。当【银狼LV.<unbreak>999</unbreak>】和【银狼】同时在场时，她们获得<unbreak>#1[i]%</unbreak>速度增幅和<unbreak>#2[i]%</unbreak>伤害增幅。",
+    "param_list": [
+      0.3,
+      0.3
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352405.png",
+    "tag_list": [
+      31
+    ],
+    "category": "Hack",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.5,
+        "name": "前台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "352505": {
+    "type": "Equipment",
+    "name": "病毒防火墙Max",
+    "desc": "所有敌人陷入【超级脆弱】和【超级虚弱】：受到的伤害提高<unbreak>#1[i]%</unbreak>，造成的伤害降低<unbreak>#2[i]%</unbreak>。",
+    "param_list": [
+      0.6,
+      0.3
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352302.png",
+    "tag_list": [
+      31
+    ],
+    "category": "Hack",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.5,
+        "name": "前台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "352506": {
+    "type": "Equipment",
+    "name": "扑满病毒Max",
+    "desc": "非首领战斗中，敌人有高概率变成扑满，扑满被击杀后会掉落奖励。获得该改件时，立即获得1个棱彩晶矿。",
+    "param_list": [
+      0.25
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352304.png",
+    "tag_list": [
+      31
+    ],
+    "category": "Hack",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.5,
+        "name": "前台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "352304": {
+    "type": "Equipment",
+    "name": "扑满病毒",
+    "desc": "在非首领节点战斗中，敌人有概率变成扑满，扑满被击杀后会掉落奖励。",
+    "param_list": [
+      0.15
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352304.png",
+    "tag_list": [
+      31
+    ],
+    "category": "Hack",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.3,
+        "name": "前台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "352507": {
+    "type": "Equipment",
+    "name": "管理员手套ProMax",
+    "desc": "<color=#f29e38ff>打个响指，你将接管整场货币战争。</color>",
+    "param_list": [
+      0.99,
+      0.99,
+      0.99,
+      0.99,
+      0.99,
+      0.99
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352507.png",
+    "tag_list": [
+      31
+    ],
+    "category": "Hack",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.99,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.99,
+        "name": "速度增幅"
+      },
+      {
+        "property_type": "ExtraAllDamageTypeAddedRatio1",
+        "value": 0.99,
+        "name": "伤害增幅"
+      },
+      {
+        "property_type": "ExtraAllDamageReduce",
+        "value": 0.99,
+        "name": "伤害减免"
+      },
+      {
+        "property_type": "ExtraLuckChance",
+        "value": 0.99,
+        "name": "幸运一击率"
+      },
+      {
+        "property_type": "ExtraLuckDamage",
+        "value": 0.99,
+        "name": "幸运一击伤害"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "35030101": {
+    "type": "Equipment",
+    "name": "反重力皮靴",
+    "desc": "装备者的每个回合开始时，速度增幅提高<unbreak>#2[i]%</unbreak>，可叠加。",
+    "param_list": [
+      0.2,
+      0.15
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030101.png",
+    "tag_list": [
+      6,
+      11
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.2,
+        "name": "速度增幅"
+      }
+    ],
+    "craft": [
+      350201,
+      350201
+    ],
+    "recommend": []
+  },
+  "35030102": {
+    "type": "Equipment",
+    "name": "火力风暴潮",
+    "desc": "装备者每次攻击后，前/后台强度提高<unbreak>#3[i]%</unbreak>，可叠加。",
+    "param_list": [
+      0.1,
+      0.2,
+      0.08
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030102.png",
+    "tag_list": [
+      11,
+      1
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.1,
+        "name": "速度增幅"
+      },
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.2,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.2,
+        "name": "后台强度"
+      }
+    ],
+    "craft": [
+      350202,
+      350201
+    ],
+    "recommend": []
+  },
+  "35030103": {
+    "type": "Equipment",
+    "name": "电磁弹射器",
+    "desc": "装备者若位于后台，战斗开始时行动提前<unbreak>#3[i]%</unbreak>。",
+    "param_list": [
+      0.2,
+      0.3,
+      0.5
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030103.png",
+    "tag_list": [
+      5,
+      6
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.2,
+        "name": "速度增幅"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.3,
+        "name": "后台强度"
+      }
+    ],
+    "craft": [
+      350203,
+      350201
+    ],
+    "recommend": []
+  },
+  "35030104": {
+    "type": "Equipment",
+    "name": "追逐星辰",
+    "desc": "装备者施放攻击后，使攻击目标陷入【脆弱】：受到的伤害提高<unbreak>#3[i]%</unbreak>，持续<unbreak>#4[i]</unbreak>回合。",
+    "param_list": [
+      0.1,
+      0.1,
+      0.35,
+      2
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030104.png",
+    "tag_list": [
+      1,
+      13
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.1,
+        "name": "速度增幅"
+      },
+      {
+        "property_type": "ExtraLuckChance",
+        "value": 0.1,
+        "name": "幸运一击率"
+      }
+    ],
+    "craft": [
+      350204,
+      350201
+    ],
+    "recommend": [
+      132102,
+      141302,
+      121002,
+      800902,
+      111202,
+      131402
+    ]
+  },
+  "35030105": {
+    "type": "Equipment",
+    "name": "步步生花",
+    "desc": "战斗中，装备者若位于前台，当前生命值高于生命上限的<unbreak>#4[i]%</unbreak>时，伤害增幅提高<unbreak>#5[i]%</unbreak>。",
+    "param_list": [
+      0.1,
+      0.1,
+      0.15,
+      0.7,
+      0.3
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030105.png",
+    "tag_list": [
+      4,
+      1
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.1,
+        "name": "速度增幅"
+      },
+      {
+        "property_type": "ExtraHPAddedRatio1",
+        "value": 0.1,
+        "name": "生命增幅"
+      },
+      {
+        "property_type": "ExtraAllDamageTypeAddedRatio1",
+        "value": 0.15,
+        "name": "伤害增幅"
+      }
+    ],
+    "craft": [
+      350205,
+      350201
+    ],
+    "recommend": []
+  },
+  "35030106": {
+    "type": "Equipment",
+    "name": "流星飞翼",
+    "desc": "装备者施放终结技后，恢复<unbreak>#5[i]</unbreak>个战技点，并使我方全体速度增幅提高<unbreak>#3[i]%</unbreak>，持续<unbreak>#4[i]</unbreak>回合。",
+    "param_list": [
+      0.15,
+      0.1,
+      0.15,
+      2,
+      1
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030106.png",
+    "tag_list": [
+      3,
+      15
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.15,
+        "name": "速度增幅"
+      },
+      {
+        "property_type": "ExtraAllDamageReduce",
+        "value": 0.1,
+        "name": "伤害减免"
+      }
+    ],
+    "craft": [
+      350206,
+      350201
+    ],
+    "recommend": []
+  },
+  "35030107": {
+    "type": "Equipment",
+    "name": "光速螺旋桨",
+    "desc": "战斗中，装备者每有<unbreak>#3[i]</unbreak>点速度，获得<unbreak>#4[i]%</unbreak>前台强度，<unbreak>#5[i]%</unbreak>后台强度。",
+    "param_list": [
+      0.1,
+      0.25,
+      10,
+      0.02,
+      0.01
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030107.png",
+    "tag_list": [
+      6,
+      1
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.1,
+        "name": "速度增幅"
+      },
+      {
+        "property_type": "StanceBreakAddedRatio",
+        "value": 0.25,
+        "name": "击破效率"
+      }
+    ],
+    "craft": [
+      350207,
+      350201
+    ],
+    "recommend": [
+      130702,
+      131002,
+      110302,
+      131702,
+      150402
+    ]
+  },
+  "35030108": {
+    "type": "Equipment",
+    "name": "电光履",
+    "desc": "装备者的每个回合开始时，固定恢复等同于能量上限<unbreak>#3[i]%</unbreak>的能量。（唯一装备）",
+    "param_list": [
+      0.25,
+      30,
+      0.1
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030108.png",
+    "tag_list": [
+      7
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.25,
+        "name": "速度增幅"
+      },
+      {
+        "property_type": "ExtraInitSP",
+        "value": 30,
+        "name": "初始能量"
+      }
+    ],
+    "craft": [
+      350208,
+      350201
+    ],
+    "recommend": []
+  },
+  "35030202": {
+    "type": "Equipment",
+    "name": "碎星斩舰刀",
+    "desc": "大幅度提高前台强度。\\n\\n<color=#b4b4b4><i>「我四十公里长的大刀早已饥渴难耐」</i></color>",
+    "param_list": [
+      0.6,
+      0.15
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030202.png",
+    "tag_list": [
+      4,
+      1
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.6,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraAllDamageTypeAddedRatio1",
+        "value": 0.15,
+        "name": "伤害增幅"
+      }
+    ],
+    "craft": [
+      350202,
+      350202
+    ],
+    "recommend": []
+  },
+  "35030203": {
+    "type": "Equipment",
+    "name": "武器大师",
+    "desc": "我方小队前/后台强度提高<unbreak>#2[i]%</unbreak>。",
+    "param_list": [
+      0.2,
+      0.25
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030203.png",
+    "tag_list": [
+      3
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.2,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.2,
+        "name": "后台强度"
+      }
+    ],
+    "craft": [
+      350203,
+      350202
+    ],
+    "recommend": [
+      131302,
+      140302,
+      150702,
+      800902,
+      130602,
+      130902
+    ]
+  },
+  "35030204": {
+    "type": "Equipment",
+    "name": "高周波电锯",
+    "desc": "战斗开始时，装备者若位于前台，使装备者的幸运一击伤害提高<unbreak>#3[i]%</unbreak>。",
+    "param_list": [
+      0.3,
+      0.3,
+      0.1
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030204.png",
+    "tag_list": [
+      4,
+      8
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.3,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraLuckChance",
+        "value": 0.3,
+        "name": "幸运一击率"
+      }
+    ],
+    "craft": [
+      350204,
+      350202
+    ],
+    "recommend": [
+      100402,
+      110702,
+      111202,
+      120402,
+      121202,
+      121302
+    ]
+  },
+  "35030205": {
+    "type": "Equipment",
+    "name": "杀红眼",
+    "desc": "装备者消灭<unbreak>#3[i]</unbreak>个敌人后，伤害增幅提高<unbreak>#4[i]%</unbreak>。",
+    "param_list": [
+      0.3,
+      0.1,
+      1,
+      0.25
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030205.png",
+    "tag_list": [
+      16,
+      1
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.3,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.3,
+        "name": "后台强度"
+      },
+      {
+        "property_type": "ExtraHPAddedRatio1",
+        "value": 0.1,
+        "name": "生命增幅"
+      }
+    ],
+    "craft": [
+      350205,
+      350202
+    ],
+    "recommend": []
+  },
+  "35030206": {
+    "type": "Equipment",
+    "name": "信心注入器",
+    "desc": "装备者对我方目标施放技能时，使其前台强度提高<unbreak>#3[i]%</unbreak>，获得<unbreak>#4[i]%</unbreak>伤害减免，持续<unbreak>#5[i]</unbreak>回合。",
+    "param_list": [
+      0.3,
+      0.1,
+      0.3,
+      0.1,
+      2
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030206.png",
+    "tag_list": [
+      3,
+      20
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.3,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraAllDamageReduce",
+        "value": 0.1,
+        "name": "伤害减免"
+      }
+    ],
+    "craft": [
+      350206,
+      350202
+    ],
+    "recommend": [
+      130602,
+      110502,
+      121702,
+      141202,
+      131302,
+      141502
+    ]
+  },
+  "35030207": {
+    "type": "Equipment",
+    "name": "动能激发剑",
+    "desc": "装备者回合开始时恢复1个战技点，消耗战技点后，获得1个战技点，每回合最多恢复<unbreak>#3[i]</unbreak>点。",
+    "param_list": [
+      0.4,
+      0.25,
+      3
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030207.png",
+    "tag_list": [
+      15,
+      1
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.4,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "StanceBreakAddedRatio",
+        "value": 0.25,
+        "name": "击破效率"
+      }
+    ],
+    "craft": [
+      350207,
+      350202
+    ],
+    "recommend": []
+  },
+  "35030208": {
+    "type": "Equipment",
+    "name": "战场进化手册",
+    "desc": "装备者的每个星级提供<unbreak>#3[i]%</unbreak>速度增幅和<unbreak>#4[i]%</unbreak>伤害增幅。",
+    "param_list": [
+      0.2,
+      20,
+      0.1,
+      0.1
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030208.png",
+    "tag_list": [
+      17,
+      1
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.2,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.2,
+        "name": "后台强度"
+      },
+      {
+        "property_type": "ExtraInitSP",
+        "value": 20,
+        "name": "初始能量"
+      }
+    ],
+    "craft": [
+      350208,
+      350202
+    ],
+    "recommend": []
+  },
+  "35030303": {
+    "type": "Equipment",
+    "name": "天基轨道炮",
+    "desc": "大幅度提高后台强度。\\n\\n<color=#b4b4b4><i>「曾经在八百光年外一炮干掉了反物质军团的弓箭手」</i></color>",
+    "param_list": [
+      0.6,
+      0.15
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030303.png",
+    "tag_list": [
+      5,
+      1
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.6,
+        "name": "后台强度"
+      },
+      {
+        "property_type": "ExtraAllDamageTypeAddedRatio1",
+        "value": 0.15,
+        "name": "伤害增幅"
+      }
+    ],
+    "craft": [
+      350203,
+      350203
+    ],
+    "recommend": []
+  },
+  "35030304": {
+    "type": "Equipment",
+    "name": "反卫星狙击枪",
+    "desc": "战斗开始时，装备者若位于后台，使装备者的幸运一击伤害提高<unbreak>#3[i]%</unbreak>。",
+    "param_list": [
+      0.3,
+      0.3,
+      0.1
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030304.png",
+    "tag_list": [
+      5,
+      8
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.3,
+        "name": "后台强度"
+      },
+      {
+        "property_type": "ExtraLuckChance",
+        "value": 0.3,
+        "name": "幸运一击率"
+      }
+    ],
+    "craft": [
+      350204,
+      350203
+    ],
+    "recommend": [
+      100402,
+      110702,
+      111202,
+      120402,
+      121202,
+      122102
+    ]
+  },
+  "35030305": {
+    "type": "Equipment",
+    "name": "掩体生成枪",
+    "desc": "装备者回合开始时，为我方全体前台提供等同于装备者<unbreak>#3[i]%</unbreak>生命上限的护盾，持续<unbreak>#4[i]</unbreak>回合。",
+    "param_list": [
+      0.2,
+      0.1,
+      0.3,
+      2
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030305.png",
+    "tag_list": [
+      2,
+      19
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.2,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraHPAddedRatio1",
+        "value": 0.1,
+        "name": "生命增幅"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.2,
+        "name": "后台强度"
+      }
+    ],
+    "craft": [
+      350205,
+      350203
+    ],
+    "recommend": [
+      122202,
+      110502,
+      120302,
+      121702,
+      121802,
+      122402
+    ]
+  },
+  "35030306": {
+    "type": "Equipment",
+    "name": "自适应外骨骼",
+    "desc": "战斗开始时，装备者若位于前台，获得<unbreak>#3[i]%</unbreak>伤害减免且受到攻击的概率大幅提高。\\n装备者若位于后台，后台强度提高<unbreak>#5[i]%</unbreak>，速度增幅提高<unbreak>#6[i]%</unbreak>。",
+    "param_list": [
+      0.2,
+      0.1,
+      0.25,
+      20,
+      0.2,
+      0.2
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030306.png",
+    "tag_list": [
+      4,
+      5
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraAllDamageReduce",
+        "value": 0.1,
+        "name": "伤害减免"
+      },
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.2,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.2,
+        "name": "后台强度"
+      }
+    ],
+    "craft": [
+      350206,
+      350203
+    ],
+    "recommend": []
+  },
+  "35030307": {
+    "type": "Equipment",
+    "name": "斩首行动",
+    "desc": "装备者对精英和首领敌人的伤害增幅提高<unbreak>#3[i]%</unbreak>，弱点击破效率提高<unbreak>#4[i]%</unbreak>。",
+    "param_list": [
+      0.2,
+      0.25,
+      0.4,
+      0.25,
+      0.1
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030307.png",
+    "tag_list": [
+      18,
+      1
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.2,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.2,
+        "name": "后台强度"
+      },
+      {
+        "property_type": "StanceBreakAddedRatio",
+        "value": 0.25,
+        "name": "击破效率"
+      },
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.1,
+        "name": "速度增幅"
+      }
+    ],
+    "craft": [
+      350207,
+      350203
+    ],
+    "recommend": []
+  },
+  "35030308": {
+    "type": "Equipment",
+    "name": "蓄能帆",
+    "desc": "装备者经过的每点行动值，都会固定恢复<unbreak>#4[i]</unbreak>点能量。（唯一装备）",
+    "param_list": [
+      0.3,
+      0.3,
+      20,
+      2
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030308.png",
+    "tag_list": [
+      7
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.3,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.3,
+        "name": "后台强度"
+      },
+      {
+        "property_type": "ExtraInitSP",
+        "value": 20,
+        "name": "初始能量"
+      }
+    ],
+    "craft": [
+      350208,
+      350203
+    ],
+    "recommend": [
+      100402,
+      800902,
+      122502,
+      130602,
+      141002,
+      150202
+    ]
+  },
+  "35030404": {
+    "type": "Equipment",
+    "name": "随便骰子",
+    "desc": "在每个节点中，随便骰子都会随机为角色填充两件装备（需要空装备栏才能装备随便骰子）。",
+    "param_list": [
+      0.2,
+      0.2
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030404.png",
+    "tag_list": [
+      23
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraLuckChance",
+        "value": 0.2,
+        "name": "幸运一击率"
+      },
+      {
+        "property_type": "ExtraAllDamageReduce",
+        "value": 0.2,
+        "name": "伤害减免"
+      }
+    ],
+    "craft": [
+      350204,
+      350204
+    ],
+    "recommend": []
+  },
+  "35030405": {
+    "type": "Equipment",
+    "name": "热血沸腾拳",
+    "desc": "装备者生命上限大于<unbreak>#3[i]</unbreak>后，每<unbreak>1000</unbreak>生命值提高<unbreak>#4[i]%</unbreak>幸运一击率，最多<unbreak>#5[i]%</unbreak>。",
+    "param_list": [
+      0.1,
+      0.1,
+      5000,
+      0.02,
+      1
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030405.png",
+    "tag_list": [
+      21,
+      8
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraLuckChance",
+        "value": 0.1,
+        "name": "幸运一击率"
+      },
+      {
+        "property_type": "ExtraHPAddedRatio1",
+        "value": 0.1,
+        "name": "生命增幅"
+      }
+    ],
+    "craft": [
+      350205,
+      350204
+    ],
+    "recommend": [
+      120502,
+      140402,
+      140702,
+      140802,
+      141302,
+      121202
+    ]
+  },
+  "35030406": {
+    "type": "Equipment",
+    "name": "以牙还牙甲",
+    "desc": "战斗开始时，我方全体前台获得等同于装备者<unbreak>#5[i]%</unbreak>防御力的护盾。装备者受到攻击后，对攻击者造成等同于<unbreak>#4[i]%</unbreak>受攻击前护盾量的物理属性伤害，该伤害无法消灭敌方目标。",
+    "param_list": [
+      0.2,
+      0.1,
+      0.2,
+      2.5,
+      3
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030406.png",
+    "tag_list": [
+      19,
+      12
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraLuckChance",
+        "value": 0.2,
+        "name": "幸运一击率"
+      },
+      {
+        "property_type": "ExtraAllDamageReduce",
+        "value": 0.1,
+        "name": "伤害减免"
+      },
+      {
+        "property_type": "ExtraShieldAddedRatio",
+        "value": 0.2,
+        "name": "护盾强度"
+      }
+    ],
+    "craft": [
+      350206,
+      350204
+    ],
+    "recommend": []
+  },
+  "35030407": {
+    "type": "Equipment",
+    "name": "胜利之旗",
+    "desc": "我方小队幸运一击率提高<unbreak>#3[i]%</unbreak>，并可以抵抗<unbreak>#4[i]</unbreak>次控制类负面状态，该效果可叠加。",
+    "param_list": [
+      0.1,
+      0.25,
+      0.12,
+      4
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030407.png",
+    "tag_list": [
+      3,
+      8
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraLuckChance",
+        "value": 0.1,
+        "name": "幸运一击率"
+      },
+      {
+        "property_type": "StanceBreakAddedRatio",
+        "value": 0.25,
+        "name": "击破效率"
+      }
+    ],
+    "craft": [
+      350207,
+      350204
+    ],
+    "recommend": [
+      121502,
+      131302,
+      140302,
+      150702,
+      800902,
+      130902
+    ]
+  },
+  "35030408": {
+    "type": "Equipment",
+    "name": "冷笑话引擎",
+    "desc": "装备者施放终结技时，使装备者幸运一击率提高<unbreak>#3[i]%</unbreak>，最多叠加<unbreak>#4[i]</unbreak>层。",
+    "param_list": [
+      0.1,
+      60,
+      0.1,
+      5
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030408.png",
+    "tag_list": [
+      7,
+      8
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraLuckChance",
+        "value": 0.1,
+        "name": "幸运一击率"
+      },
+      {
+        "property_type": "ExtraInitSP",
+        "value": 60,
+        "name": "初始能量"
+      }
+    ],
+    "craft": [
+      350208,
+      350204
+    ],
+    "recommend": []
+  },
+  "35030505": {
+    "type": "Equipment",
+    "name": "生命之环",
+    "desc": "我方小队生命上限提高<unbreak>#3[i]%</unbreak>。",
+    "param_list": [
+      0.15,
+      0.2,
+      0.15
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030505.png",
+    "tag_list": [
+      2,
+      21
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraHPAddedRatio1",
+        "value": 0.15,
+        "name": "生命增幅"
+      },
+      {
+        "property_type": "ExtraHealAddedRatio",
+        "value": 0.2,
+        "name": "治疗强度"
+      }
+    ],
+    "craft": [
+      350205,
+      350205
+    ],
+    "recommend": [
+      110502,
+      120302,
+      120802,
+      121102,
+      121702,
+      121802
+    ]
+  },
+  "35030506": {
+    "type": "Equipment",
+    "name": "痛觉阻断芯片",
+    "desc": "装备者治疗我方目标或对其施加护盾后，使其获得<unbreak>#4[i]%</unbreak>伤害减免，持续<unbreak>#5[i]</unbreak>回合。",
+    "param_list": [
+      0.1,
+      0.2,
+      0.2,
+      0.15,
+      2
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030506.png",
+    "tag_list": [
+      2,
+      20
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraHPAddedRatio1",
+        "value": 0.1,
+        "name": "生命增幅"
+      },
+      {
+        "property_type": "ExtraHealAddedRatio",
+        "value": 0.2,
+        "name": "治疗强度"
+      },
+      {
+        "property_type": "ExtraShieldAddedRatio",
+        "value": 0.2,
+        "name": "护盾强度"
+      }
+    ],
+    "craft": [
+      350206,
+      350205
+    ],
+    "recommend": [
+      110502,
+      120302,
+      121702,
+      140902,
+      141402,
+      130402
+    ]
+  },
+  "35030507": {
+    "type": "Equipment",
+    "name": "物质分解液",
+    "desc": "装备者每回合首次施放攻击后，对随机1个攻击目标造成等同于其<unbreak>#8[i]%</unbreak>最大生命值的真实伤害。",
+    "param_list": [
+      0.1,
+      0.25,
+      0.15,
+      0,
+      0,
+      0,
+      0,
+      0.03
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030507.png",
+    "tag_list": [
+      1
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraHPAddedRatio1",
+        "value": 0.1,
+        "name": "生命增幅"
+      },
+      {
+        "property_type": "StanceBreakAddedRatio",
+        "value": 0.25,
+        "name": "击破效率"
+      },
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.15,
+        "name": "速度增幅"
+      }
+    ],
+    "craft": [
+      350207,
+      350205
+    ],
+    "recommend": [
+      140602,
+      130702,
+      140202,
+      140502
+    ]
+  },
+  "35030508": {
+    "type": "Equipment",
+    "name": "绝对热量",
+    "desc": "我方小队行动时回复等同于装备者<unbreak>#3[i]%</unbreak>生命上限的生命值，装备者施放终结技后，恢复<unbreak>#4[i]</unbreak>点能量。（唯一装备）",
+    "param_list": [
+      0.15,
+      20,
+      0.2,
+      10
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030508.png",
+    "tag_list": [
+      26,
+      7
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraHPAddedRatio1",
+        "value": 0.15,
+        "name": "生命增幅"
+      },
+      {
+        "property_type": "ExtraInitSP",
+        "value": 20,
+        "name": "初始能量"
+      }
+    ],
+    "craft": [
+      350208,
+      350205
+    ],
+    "recommend": []
+  },
+  "35030606": {
+    "type": "Equipment",
+    "name": "很硬的甲",
+    "desc": "我方小队获得<unbreak>#2[i]%</unbreak>伤害减免。",
+    "param_list": [
+      0.2,
+      0.18
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030606.png",
+    "tag_list": [
+      2,
+      20
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraAllDamageReduce",
+        "value": 0.2,
+        "name": "伤害减免"
+      }
+    ],
+    "craft": [
+      350206,
+      350206
+    ],
+    "recommend": [
+      120802,
+      121102,
+      130402,
+      150302,
+      110502,
+      120302
+    ]
+  },
+  "35030607": {
+    "type": "Equipment",
+    "name": "闪光手榴弹",
+    "desc": "敌人进入战斗后陷入【虚弱】：造成的伤害降低<unbreak>#3[i]%</unbreak>。",
+    "param_list": [
+      0.1,
+      0.25,
+      0.2,
+      2,
+      0.15
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030607.png",
+    "tag_list": [
+      14
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraAllDamageReduce",
+        "value": 0.1,
+        "name": "伤害减免"
+      },
+      {
+        "property_type": "StanceBreakAddedRatio",
+        "value": 0.1,
+        "name": "击破效率"
+      },
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.15,
+        "name": "速度增幅"
+      }
+    ],
+    "craft": [
+      350207,
+      350206
+    ],
+    "recommend": [
+      121802,
+      122202,
+      122502,
+      130402,
+      140302,
+      140602
+    ]
+  },
+  "35030608": {
+    "type": "Equipment",
+    "name": "光能盾牌",
+    "desc": "我方前台生命值降低至生命上限的<unbreak>#4[i]%</unbreak>以下时，装备者为目标提供等同于装备者<unbreak>#5[i]%</unbreak>防御力的护盾，持续<unbreak>#6[i]</unbreak>回合，该效果最多触发<unbreak>#7[i]</unbreak>次。我方前台持有护盾时，免疫行动延后效果。",
+    "param_list": [
+      0.1,
+      0.2,
+      30,
+      0.5,
+      3,
+      2,
+      5
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030608.png",
+    "tag_list": [
+      2,
+      19
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraAllDamageReduce",
+        "value": 0.1,
+        "name": "伤害减免"
+      },
+      {
+        "property_type": "ExtraShieldAddedRatio",
+        "value": 0.2,
+        "name": "护盾强度"
+      },
+      {
+        "property_type": "ExtraInitSP",
+        "value": 30,
+        "name": "初始能量"
+      }
+    ],
+    "craft": [
+      350208,
+      350206
+    ],
+    "recommend": [
+      130402,
+      141402
+    ]
+  },
+  "35030707": {
+    "type": "Equipment",
+    "name": "虫洞掘进钻头",
+    "desc": "大幅度提高弱点击破效率，击破特攻提高<unbreak>#2[i]%</unbreak>。\\n\\n<color=#b4b4b4><i>「他的钻头可是能突破天际的钻头啊！」</i></color>",
+    "param_list": [
+      0.5,
+      2.5
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030707.png",
+    "tag_list": [
+      10
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "StanceBreakAddedRatio",
+        "value": 0.5,
+        "name": "击破效率"
+      },
+      {
+        "property_type": "BreakDamageAddedRatioBase",
+        "value": 2.5,
+        "name": "击破特攻"
+      }
+    ],
+    "craft": [
+      350207,
+      350207
+    ],
+    "recommend": [
+      121402,
+      122502,
+      131502,
+      131702,
+      131002,
+      132102
+    ]
+  },
+  "35030708": {
+    "type": "Equipment",
+    "name": "行星钻地弹",
+    "desc": "装备者施放攻击后，使攻击目标陷入【脆弱】：受到的伤害提高<unbreak>#3[i]%</unbreak>，持续<unbreak>#4[i]</unbreak>回合。",
+    "param_list": [
+      0.25,
+      20,
+      0.35,
+      2
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030708.png",
+    "tag_list": [
+      1,
+      13
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "StanceBreakAddedRatio",
+        "value": 0.25,
+        "name": "击破效率"
+      },
+      {
+        "property_type": "ExtraInitSP",
+        "value": 15,
+        "name": "初始能量"
+      }
+    ],
+    "craft": [
+      350208,
+      350207
+    ],
+    "recommend": [
+      122502,
+      100502,
+      150702,
+      150202,
+      151102,
+      131402
+    ]
+  },
+  "35030808": {
+    "type": "Equipment",
+    "name": "永动机",
+    "desc": "进入战斗时，装备者激活终结技。每施放<unbreak>#1[i]</unbreak>个终结技后，再次激活终结技，通过该装备激活的终结技不会计入施放次数。",
+    "param_list": [
+      3,
+      0.2
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030808.png",
+    "tag_list": [
+      9
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.2,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.2,
+        "name": "后台强度"
+      }
+    ],
+    "craft": [
+      350208,
+      350208
+    ],
+    "recommend": [
+      122002,
+      141502,
+      150502,
+      151202,
+      122102,
+      130802
+    ]
+  },
+  "35040101": {
+    "type": "Equipment",
+    "name": "反重力皮靴·特权",
+    "desc": "装备者的每个回合开始时，速度增幅提高<unbreak>#2[i]%</unbreak>，可叠加。",
+    "param_list": [
+      0.4,
+      0.3,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030101.png",
+    "tag_list": [
+      6,
+      11
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.4,
+        "name": "速度增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "35040102": {
+    "type": "Equipment",
+    "name": "火力风暴潮·特权",
+    "desc": "装备者每次攻击后，前/后台强度提高<unbreak>#3[i]%</unbreak>，可叠加。",
+    "param_list": [
+      0.2,
+      0.4,
+      0.16,
+      0,
+      0,
+      0,
+      0
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030102.png",
+    "tag_list": [
+      11,
+      1
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.2,
+        "name": "速度增幅"
+      },
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.4,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.4,
+        "name": "后台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "35040103": {
+    "type": "Equipment",
+    "name": "电磁弹射器·特权",
+    "desc": "装备者若位于后台，战斗开始时行动提前<unbreak>#3[i]%</unbreak>。",
+    "param_list": [
+      0.4,
+      0.6,
+      0.5,
+      0,
+      0,
+      0,
+      0
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030103.png",
+    "tag_list": [
+      5,
+      6
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.4,
+        "name": "速度增幅"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.6,
+        "name": "后台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "35040104": {
+    "type": "Equipment",
+    "name": "追逐星辰·特权",
+    "desc": "装备者施放攻击后，使攻击目标陷入【脆弱】：受到的伤害提高<unbreak>#3[i]%</unbreak>，持续<unbreak>#4[i]</unbreak>回合。",
+    "param_list": [
+      0.2,
+      0.2,
+      0.7,
+      2,
+      0,
+      0,
+      0
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030104.png",
+    "tag_list": [
+      1,
+      13
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.2,
+        "name": "速度增幅"
+      },
+      {
+        "property_type": "ExtraLuckChance",
+        "value": 0.2,
+        "name": "幸运一击率"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      132102,
+      141302,
+      121002,
+      800902,
+      111202,
+      131402
+    ]
+  },
+  "35040105": {
+    "type": "Equipment",
+    "name": "步步生花·特权",
+    "desc": "战斗中，装备者若位于前台，当前生命值高于生命上限的<unbreak>#4[i]%</unbreak>时，伤害增幅提高<unbreak>#5[i]%</unbreak>。",
+    "param_list": [
+      0.2,
+      0.2,
+      0.3,
+      0.5,
+      0.6,
+      0,
+      0
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030105.png",
+    "tag_list": [
+      4,
+      1
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.2,
+        "name": "速度增幅"
+      },
+      {
+        "property_type": "ExtraHPAddedRatio1",
+        "value": 0.2,
+        "name": "生命增幅"
+      },
+      {
+        "property_type": "ExtraAllDamageTypeAddedRatio1",
+        "value": 0.3,
+        "name": "伤害增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "35040106": {
+    "type": "Equipment",
+    "name": "流星飞翼·特权",
+    "desc": "装备者施放终结技后，恢复<unbreak>#5[i]</unbreak>个战技点，并使我方全体速度增幅提高<unbreak>#3[i]%</unbreak>，持续<unbreak>#4[i]</unbreak>回合。",
+    "param_list": [
+      0.3,
+      0.2,
+      0.3,
+      2,
+      2,
+      0,
+      0
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030106.png",
+    "tag_list": [
+      3,
+      15
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.3,
+        "name": "速度增幅"
+      },
+      {
+        "property_type": "ExtraAllDamageReduce",
+        "value": 0.2,
+        "name": "伤害减免"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "35040107": {
+    "type": "Equipment",
+    "name": "光速螺旋桨·特权",
+    "desc": "战斗中，装备者每有<unbreak>#3[i]</unbreak>点速度，获得<unbreak>#4[i]%</unbreak>前台强度，<unbreak>#5[i]%</unbreak>后台强度。",
+    "param_list": [
+      0.2,
+      0.5,
+      10,
+      0.04,
+      0.02,
+      0,
+      0
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030107.png",
+    "tag_list": [
+      6,
+      1
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.2,
+        "name": "速度增幅"
+      },
+      {
+        "property_type": "StanceBreakAddedRatio",
+        "value": 0.5,
+        "name": "击破效率"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      130702,
+      131002,
+      110302,
+      121202,
+      131702,
+      150402
+    ]
+  },
+  "35040108": {
+    "type": "Equipment",
+    "name": "电光履·特权",
+    "desc": "装备者的每个回合开始时，固定恢复等同于能量上限<unbreak>#3[i]%</unbreak>的能量。（唯一装备）",
+    "param_list": [
+      0.5,
+      60,
+      0.2,
+      0,
+      0,
+      0,
+      0
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030108.png",
+    "tag_list": [
+      7
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.5,
+        "name": "速度增幅"
+      },
+      {
+        "property_type": "ExtraInitSP",
+        "value": 60,
+        "name": "初始能量"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "35040202": {
+    "type": "Equipment",
+    "name": "碎星斩舰刀·特权",
+    "desc": "大幅度提高前台强度。\\n\\n<color=#b4b4b4><i>「我四十公里长的大刀早已饥渴难耐」</i></color>",
+    "param_list": [
+      1.2,
+      0.3,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030202.png",
+    "tag_list": [
+      4,
+      1
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 1.2,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraAllDamageTypeAddedRatio1",
+        "value": 0.3,
+        "name": "伤害增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "35040203": {
+    "type": "Equipment",
+    "name": "武器大师·特权",
+    "desc": "我方小队前/后台强度提高<unbreak>#2[i]%</unbreak>。",
+    "param_list": [
+      0.4,
+      0.5,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030203.png",
+    "tag_list": [
+      3
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.4,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.4,
+        "name": "后台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      131302,
+      140302,
+      150702,
+      800902,
+      130602,
+      130902
+    ]
+  },
+  "35040204": {
+    "type": "Equipment",
+    "name": "高周波电锯·特权",
+    "desc": "战斗开始时，装备者若位于前台，使装备者的幸运一击伤害提高<unbreak>#3[i]%</unbreak>。",
+    "param_list": [
+      0.6,
+      0.6,
+      0.2,
+      0,
+      0,
+      0,
+      0
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030204.png",
+    "tag_list": [
+      4,
+      8
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.6,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraLuckChance",
+        "value": 0.6,
+        "name": "幸运一击率"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      100402,
+      110702,
+      111202,
+      120402,
+      121202,
+      121302
+    ]
+  },
+  "35040205": {
+    "type": "Equipment",
+    "name": "杀红眼·特权",
+    "desc": "装备者消灭<unbreak>#3[i]</unbreak>个敌人后，伤害增幅提高<unbreak>#4[i]%</unbreak>。",
+    "param_list": [
+      0.6,
+      0.2,
+      1,
+      0.5,
+      0,
+      0,
+      0
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030205.png",
+    "tag_list": [
+      16,
+      1
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.6,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.6,
+        "name": "后台强度"
+      },
+      {
+        "property_type": "ExtraHPAddedRatio1",
+        "value": 0.2,
+        "name": "生命增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "35040206": {
+    "type": "Equipment",
+    "name": "信心注入器·特权",
+    "desc": "装备者对我方目标施放技能时，使其前台强度提高<unbreak>#3[i]%</unbreak>，获得<unbreak>#4[i]%</unbreak>伤害减免，持续<unbreak>#5[i]</unbreak>回合。",
+    "param_list": [
+      0.6,
+      0.2,
+      0.6,
+      0.2,
+      2,
+      0,
+      0
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030206.png",
+    "tag_list": [
+      3,
+      20
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.6,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraAllDamageReduce",
+        "value": 0.2,
+        "name": "伤害减免"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      130602,
+      110502,
+      121702,
+      141202,
+      131302,
+      141502
+    ]
+  },
+  "35040207": {
+    "type": "Equipment",
+    "name": "动能激发剑·特权",
+    "desc": "装备者回合开始时恢复1个战技点，消耗战技点后，获得1个战技点，每回合最多恢复<unbreak>#3[i]</unbreak>点。",
+    "param_list": [
+      0.8,
+      0.5,
+      6,
+      0,
+      4,
+      0,
+      0
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030207.png",
+    "tag_list": [
+      15,
+      1
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.8,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "StanceBreakAddedRatio",
+        "value": 0.5,
+        "name": "击破效率"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "35040208": {
+    "type": "Equipment",
+    "name": "战场进化手册·特权",
+    "desc": "装备者的每个星级提供<unbreak>#3[i]%</unbreak>速度增幅和<unbreak>#4[i]%</unbreak>伤害增幅。",
+    "param_list": [
+      0.4,
+      40,
+      0.2,
+      0.2,
+      0,
+      0,
+      0
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030208.png",
+    "tag_list": [
+      17,
+      1
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.4,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.4,
+        "name": "后台强度"
+      },
+      {
+        "property_type": "ExtraInitSP",
+        "value": 40,
+        "name": "初始能量"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "35040303": {
+    "type": "Equipment",
+    "name": "天基轨道炮·特权",
+    "desc": "大幅度提高后台强度。\\n\\n<color=#b4b4b4><i>「曾经在八百光年外一炮干掉了反物质军团的弓箭手」</i></color>",
+    "param_list": [
+      1.2,
+      0.3,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030303.png",
+    "tag_list": [
+      5,
+      1
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 1.2,
+        "name": "后台强度"
+      },
+      {
+        "property_type": "ExtraAllDamageTypeAddedRatio1",
+        "value": 0.3,
+        "name": "伤害增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "35040304": {
+    "type": "Equipment",
+    "name": "反卫星狙击枪·特权",
+    "desc": "战斗开始时，装备者若位于后台，使装备者的幸运一击伤害提高<unbreak>#3[i]%</unbreak>。",
+    "param_list": [
+      0.6,
+      0.6,
+      0.2,
+      0,
+      0,
+      0,
+      0
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030304.png",
+    "tag_list": [
+      5,
+      8
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.6,
+        "name": "后台强度"
+      },
+      {
+        "property_type": "ExtraLuckChance",
+        "value": 0.6,
+        "name": "幸运一击率"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      100402,
+      110702,
+      111202,
+      120402,
+      121202,
+      122102
+    ]
+  },
+  "35040305": {
+    "type": "Equipment",
+    "name": "掩体生成枪·特权",
+    "desc": "装备者回合开始时，为我方全体前台提供等同于装备者<unbreak>#3[i]%</unbreak>生命上限的护盾，持续<unbreak>#4[i]</unbreak>回合。",
+    "param_list": [
+      0.4,
+      0.2,
+      0.6,
+      2,
+      0,
+      0,
+      0
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030305.png",
+    "tag_list": [
+      2,
+      19
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.4,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraHPAddedRatio1",
+        "value": 0.2,
+        "name": "生命增幅"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.4,
+        "name": "后台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      122202,
+      110502,
+      120302,
+      121702,
+      121802,
+      122402
+    ]
+  },
+  "35040306": {
+    "type": "Equipment",
+    "name": "自适应外骨骼·特权",
+    "desc": "战斗开始时，装备者若位于前台，获得<unbreak>#3[i]%</unbreak>伤害减免且受到攻击的概率大幅提高。\\n装备者若位于后台，后台强度提高<unbreak>#5[i]%</unbreak>，速度增幅提高<unbreak>#6[i]%</unbreak>。",
+    "param_list": [
+      0.4,
+      0.2,
+      0.5,
+      20,
+      0.4,
+      0.4,
+      0
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030306.png",
+    "tag_list": [
+      4,
+      5
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraAllDamageReduce",
+        "value": 0.2,
+        "name": "伤害减免"
+      },
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.4,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.4,
+        "name": "后台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "35040307": {
+    "type": "Equipment",
+    "name": "斩首行动·特权",
+    "desc": "装备者对精英和首领敌人的伤害增幅提高<unbreak>#3[i]%</unbreak>，弱点击破效率提高<unbreak>#4[i]%</unbreak>。",
+    "param_list": [
+      0.4,
+      0.5,
+      0.8,
+      0.5,
+      0.2,
+      0,
+      0
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030307.png",
+    "tag_list": [
+      18,
+      1
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.4,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.4,
+        "name": "后台强度"
+      },
+      {
+        "property_type": "StanceBreakAddedRatio",
+        "value": 0.5,
+        "name": "击破效率"
+      },
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.2,
+        "name": "速度增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "35040308": {
+    "type": "Equipment",
+    "name": "蓄能帆·特权",
+    "desc": "装备者经过的每点行动值，都会固定恢复<unbreak>#4[i]</unbreak>点能量。（唯一装备）",
+    "param_list": [
+      0.6,
+      0.6,
+      40,
+      4,
+      0,
+      0,
+      0
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030308.png",
+    "tag_list": [
+      7
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.6,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.6,
+        "name": "后台强度"
+      },
+      {
+        "property_type": "ExtraInitSP",
+        "value": 40,
+        "name": "初始能量"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      100402,
+      800902,
+      122502,
+      130602,
+      141002,
+      150202
+    ]
+  },
+  "35040404": {
+    "type": "Equipment",
+    "name": "随便骰子·特权",
+    "desc": "在每个节点中，随便骰子·特权都会随机为角色填充两件特权装备（需要空装备栏才能装备随便骰子·特权）。",
+    "param_list": [
+      0.4,
+      0.4,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030404.png",
+    "tag_list": [
+      23
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraLuckChance",
+        "value": 0.4,
+        "name": "幸运一击率"
+      },
+      {
+        "property_type": "ExtraAllDamageReduce",
+        "value": 0.4,
+        "name": "伤害减免"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "35040405": {
+    "type": "Equipment",
+    "name": "热血沸腾拳·特权",
+    "desc": "装备者生命上限大于<unbreak>#3[i]</unbreak>后，每<unbreak>1000</unbreak>生命值提高<unbreak>#4[i]%</unbreak>幸运一击率，最多<unbreak>#5[i]%</unbreak>。",
+    "param_list": [
+      0.2,
+      0.2,
+      5000,
+      0.04,
+      1,
+      0,
+      0
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030405.png",
+    "tag_list": [
+      21,
+      8
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraLuckChance",
+        "value": 0.2,
+        "name": "幸运一击率"
+      },
+      {
+        "property_type": "ExtraHPAddedRatio1",
+        "value": 0.2,
+        "name": "生命增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      120502,
+      140402,
+      140702,
+      140802,
+      141302,
+      121202
+    ]
+  },
+  "35040406": {
+    "type": "Equipment",
+    "name": "以牙还牙甲·特权",
+    "desc": "战斗开始时，我方全体前台获得等同于装备者<unbreak>#5[i]%</unbreak>防御力的护盾。装备者受到攻击后，对攻击者造成等同于<unbreak>#4[i]%</unbreak>受攻击前护盾量的物理属性伤害，该伤害无法消灭敌方目标。",
+    "param_list": [
+      0.4,
+      0.2,
+      0.4,
+      5,
+      6,
+      0,
+      0
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030406.png",
+    "tag_list": [
+      19,
+      12
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraLuckChance",
+        "value": 0.4,
+        "name": "幸运一击率"
+      },
+      {
+        "property_type": "ExtraAllDamageReduce",
+        "value": 0.2,
+        "name": "伤害减免"
+      },
+      {
+        "property_type": "ExtraShieldAddedRatio",
+        "value": 0.4,
+        "name": "护盾强度"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "35040407": {
+    "type": "Equipment",
+    "name": "胜利之旗·特权",
+    "desc": "我方小队幸运一击率提高<unbreak>#3[i]%</unbreak>，并可以抵抗<unbreak>#4[i]</unbreak>次控制类负面状态，该效果可叠加。",
+    "param_list": [
+      0.2,
+      0.5,
+      0.24,
+      8,
+      0,
+      0,
+      0
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030407.png",
+    "tag_list": [
+      3,
+      8
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraLuckChance",
+        "value": 0.2,
+        "name": "幸运一击率"
+      },
+      {
+        "property_type": "StanceBreakAddedRatio",
+        "value": 0.5,
+        "name": "击破效率"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      121502,
+      131302,
+      140302,
+      150702,
+      800902,
+      130902
+    ]
+  },
+  "35040408": {
+    "type": "Equipment",
+    "name": "冷笑话引擎·特权",
+    "desc": "装备者施放终结技时，使装备者幸运一击率提高<unbreak>#3[i]%</unbreak>，最多叠加<unbreak>#4[i]</unbreak>层。",
+    "param_list": [
+      0.2,
+      120,
+      0.2,
+      5,
+      0,
+      0,
+      0
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030408.png",
+    "tag_list": [
+      7,
+      8
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraLuckChance",
+        "value": 0.2,
+        "name": "幸运一击率"
+      },
+      {
+        "property_type": "ExtraInitSP",
+        "value": 120,
+        "name": "初始能量"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "35040505": {
+    "type": "Equipment",
+    "name": "生命之环·特权",
+    "desc": "我方小队生命上限提高<unbreak>#3[i]%</unbreak>。",
+    "param_list": [
+      0.3,
+      0.4,
+      0.3,
+      0,
+      0,
+      0,
+      0
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030505.png",
+    "tag_list": [
+      2,
+      21
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraHPAddedRatio1",
+        "value": 0.3,
+        "name": "生命增幅"
+      },
+      {
+        "property_type": "ExtraHealAddedRatio",
+        "value": 0.4,
+        "name": "治疗强度"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      110502,
+      120302,
+      120802,
+      121102,
+      121702,
+      121802
+    ]
+  },
+  "35040506": {
+    "type": "Equipment",
+    "name": "痛觉阻断芯片·特权",
+    "desc": "装备者治疗我方目标或对其施加护盾后，使其获得<unbreak>#4[i]%</unbreak>伤害减免，持续<unbreak>#5[i]</unbreak>回合。",
+    "param_list": [
+      0.2,
+      0.4,
+      0.4,
+      0.3,
+      2,
+      0,
+      0
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030506.png",
+    "tag_list": [
+      2,
+      20
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraHPAddedRatio1",
+        "value": 0.2,
+        "name": "生命增幅"
+      },
+      {
+        "property_type": "ExtraHealAddedRatio",
+        "value": 0.4,
+        "name": "治疗强度"
+      },
+      {
+        "property_type": "ExtraShieldAddedRatio",
+        "value": 0.4,
+        "name": "护盾强度"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      110502,
+      120302,
+      121702,
+      140902,
+      141402,
+      130402
+    ]
+  },
+  "35040507": {
+    "type": "Equipment",
+    "name": "物质分解液·特权",
+    "desc": "装备者每回合首次施放攻击后，对随机1个攻击目标造成等同于其<unbreak>#8[i]%</unbreak>最大生命值的真实伤害。",
+    "param_list": [
+      0.2,
+      0.5,
+      0.3,
+      0,
+      0,
+      0,
+      0,
+      0.06
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030507.png",
+    "tag_list": [
+      1
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraHPAddedRatio1",
+        "value": 0.2,
+        "name": "生命增幅"
+      },
+      {
+        "property_type": "StanceBreakAddedRatio",
+        "value": 0.5,
+        "name": "击破效率"
+      },
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.3,
+        "name": "速度增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      140602,
+      130702,
+      140202,
+      140502
+    ]
+  },
+  "35040508": {
+    "type": "Equipment",
+    "name": "绝对热量·特权",
+    "desc": "我方小队行动时回复等同于装备者<unbreak>#3[i]%</unbreak>生命上限的生命值，装备者施放终结技后，恢复<unbreak>#4[i]</unbreak>点能量。（唯一装备）",
+    "param_list": [
+      0.3,
+      40,
+      0.4,
+      20,
+      0,
+      0,
+      0
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030508.png",
+    "tag_list": [
+      26,
+      7
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraHPAddedRatio1",
+        "value": 0.3,
+        "name": "生命增幅"
+      },
+      {
+        "property_type": "ExtraInitSP",
+        "value": 40,
+        "name": "初始能量"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "35040606": {
+    "type": "Equipment",
+    "name": "很硬的甲·特权",
+    "desc": "我方小队获得<unbreak>#2[i]%</unbreak>伤害减免。",
+    "param_list": [
+      0.4,
+      0.36,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030606.png",
+    "tag_list": [
+      2,
+      20
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraAllDamageReduce",
+        "value": 0.4,
+        "name": "伤害减免"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      120802,
+      121102,
+      130402,
+      150302,
+      110502,
+      120302
+    ]
+  },
+  "35040607": {
+    "type": "Equipment",
+    "name": "闪光手榴弹·特权",
+    "desc": "敌人进入战斗后陷入【虚弱】：造成的伤害降低<unbreak>#3[i]%</unbreak>。",
+    "param_list": [
+      0.2,
+      0.5,
+      0.4,
+      2,
+      0.3,
+      0,
+      0
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030607.png",
+    "tag_list": [
+      14
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraAllDamageReduce",
+        "value": 0.2,
+        "name": "伤害减免"
+      },
+      {
+        "property_type": "StanceBreakAddedRatio",
+        "value": 0.2,
+        "name": "击破效率"
+      },
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.3,
+        "name": "速度增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      121802,
+      122202,
+      122502,
+      130402,
+      140302,
+      140602
+    ]
+  },
+  "35040608": {
+    "type": "Equipment",
+    "name": "光能盾牌·特权",
+    "desc": "我方前台生命值降低至生命上限的<unbreak>#4[i]%</unbreak>以下时，装备者为目标提供等同于装备者<unbreak>#5[i]%</unbreak>防御力的护盾，持续<unbreak>#6[i]</unbreak>回合，该效果最多触发<unbreak>#7[i]</unbreak>次。我方前台持有护盾时，免疫行动延后效果。",
+    "param_list": [
+      0.2,
+      0.4,
+      60,
+      0.5,
+      6,
+      2,
+      10
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030608.png",
+    "tag_list": [
+      2,
+      19
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraAllDamageReduce",
+        "value": 0.2,
+        "name": "伤害减免"
+      },
+      {
+        "property_type": "ExtraShieldAddedRatio",
+        "value": 0.4,
+        "name": "护盾强度"
+      },
+      {
+        "property_type": "ExtraInitSP",
+        "value": 60,
+        "name": "初始能量"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      130402,
+      141402
+    ]
+  },
+  "35040707": {
+    "type": "Equipment",
+    "name": "虫洞掘进钻头·特权",
+    "desc": "大幅度提高弱点击破效率，击破特攻提高<unbreak>#2[i]%</unbreak>。\\n\\n<color=#b4b4b4><i>「他的钻头可是能突破天际的钻头啊！」</i></color>",
+    "param_list": [
+      1,
+      5,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030707.png",
+    "tag_list": [
+      10
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "StanceBreakAddedRatio",
+        "value": 1,
+        "name": "击破效率"
+      },
+      {
+        "property_type": "BreakDamageAddedRatioBase",
+        "value": 5,
+        "name": "击破特攻"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      121402,
+      122502,
+      131502,
+      131702,
+      131002,
+      132102
+    ]
+  },
+  "35040708": {
+    "type": "Equipment",
+    "name": "行星钻地弹·特权",
+    "desc": "装备者施放攻击后，使攻击目标陷入【脆弱】：受到的伤害提高<unbreak>#3[i]%</unbreak>，持续<unbreak>#4[i]</unbreak>回合。",
+    "param_list": [
+      0.5,
+      40,
+      0.7,
+      2,
+      0,
+      0,
+      0
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030708.png",
+    "tag_list": [
+      1,
+      13
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "StanceBreakAddedRatio",
+        "value": 0.5,
+        "name": "击破效率"
+      },
+      {
+        "property_type": "ExtraInitSP",
+        "value": 30,
+        "name": "初始能量"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      122502,
+      100502,
+      150702,
+      150202,
+      151102,
+      131402
+    ]
+  },
+  "35040808": {
+    "type": "Equipment",
+    "name": "永动机·特权",
+    "desc": "进入战斗时，装备者激活终结技。每施放<unbreak>#1[i]</unbreak>个终结技后，再次激活终结技，通过该装备激活的终结技不会计入施放次数。",
+    "param_list": [
+      3,
+      0.4,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030808.png",
+    "tag_list": [
+      9
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.4,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.4,
+        "name": "后台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      122002,
+      141502,
+      150502,
+      151202,
+      122102,
+      130802
+    ]
+  },
+  "352601": {
+    "type": "Equipment",
+    "name": "宝石剑泽尔里奇",
+    "desc": "装备者每穿戴一个星徽/钻石装备，就使我方小队获得<unbreak>#1[i]%</unbreak>前后台强度提高。\\n【远坂凛】穿戴时，改为使我方小队获得<unbreak>#2[i]%</unbreak>前后台强度提高。",
+    "param_list": [
+      0.2,
+      0.3
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352601.png",
+    "tag_list": [
+      32
+    ],
+    "category": "FateEquip",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.3,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.3,
+        "name": "后台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "352602": {
+    "type": "Equipment",
+    "name": "天地乖离开辟之星",
+    "desc": "每拥有一点【星】，装备者获得<unbreak>#1[i]%</unbreak>伤害增幅。\\n【吉尔伽美什】穿戴时，改为获得<unbreak>#2[i]%</unbreak>伤害增幅。\\n当前【星】数量：<variable name=GP_Avatar_Gilgamesh_01>\\n\\n<color=#b4b4b4><i>不同的任务会以不同方式提供【星】</i></color>",
+    "param_list": [
+      0.01,
+      0.02
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352602.png",
+    "tag_list": [
+      32
+    ],
+    "category": "FateEquip",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.3,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.3,
+        "name": "后台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "352603": {
+    "type": "Equipment",
+    "name": "阿瓦隆",
+    "desc": "获得<unbreak>#1[i]%</unbreak>终结技伤害增幅，装备者的回合开始时恢复<unbreak>#2[i]%</unbreak>能量。装备者受到伤害或消耗生命值时，当前生命值最多降至1点。\\n【Saber】穿戴时，改为获得<unbreak>#3[i]%</unbreak>终结技伤害增幅，回合开始时恢复<unbreak>#4[i]%</unbreak>能量。",
+    "param_list": [
+      0.3,
+      0.1,
+      0.6,
+      0.12
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352603.png",
+    "tag_list": [
+      32
+    ],
+    "category": "FateEquip",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.3,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.3,
+        "name": "后台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "352604": {
+    "type": "Equipment",
+    "name": "干将莫邪",
+    "desc": "战斗开始时，为所有角色投影一件随机进阶装备。\\n【Archer】穿戴时，该装备会从角色推荐列表中选取。",
+    "param_list": [],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352604.png",
+    "tag_list": [
+      32
+    ],
+    "category": "FateEquip",
+    "general_property_list": [
+      {
+        "property_type": "ExtraAllDamageTypeAddedRatio1",
+        "value": 0.2,
+        "name": "伤害增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "352605": {
+    "type": "Equipment",
+    "name": "罪孽王冠",
+    "desc": "提供大量属性提升，<color=#eb4d3dff>但战败时会扣除双倍小队生命值，无论是否被角色穿戴。</color>\\n\\n<color=#b4b4b4><i>王不可败。</i></color>",
+    "param_list": [
+      0.3,
+      0.3,
+      0.3,
+      0.3,
+      0.3,
+      0.3
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352605.png",
+    "tag_list": [
+      32
+    ],
+    "category": "FateEquip",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.3,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.3,
+        "name": "速度增幅"
+      },
+      {
+        "property_type": "ExtraAllDamageTypeAddedRatio1",
+        "value": 0.3,
+        "name": "伤害增幅"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.3,
+        "name": "后台强度"
+      },
+      {
+        "property_type": "ExtraLuckChance",
+        "value": 0.3,
+        "name": "幸运一击率"
+      },
+      {
+        "property_type": "ExtraLuckDamage",
+        "value": 0.3,
+        "name": "幸运一击伤害"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "352606": {
+    "type": "Equipment",
+    "name": "圣杯",
+    "desc": "<color=#f29e38ff>赢下圣杯战争，就可以得到圣杯。</color>",
+    "param_list": [
+      0.99,
+      0.99,
+      0.99,
+      0.99,
+      0.99,
+      0.99
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352606.png",
+    "tag_list": [
+      32
+    ],
+    "category": "FateEquip",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.99,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.99,
+        "name": "速度增幅"
+      },
+      {
+        "property_type": "ExtraAllDamageTypeAddedRatio1",
+        "value": 0.99,
+        "name": "伤害增幅"
+      },
+      {
+        "property_type": "ExtraAllDamageReduce",
+        "value": 0.99,
+        "name": "伤害减免"
+      },
+      {
+        "property_type": "ExtraLuckChance",
+        "value": 0.99,
+        "name": "幸运一击率"
+      },
+      {
+        "property_type": "ExtraLuckDamage",
+        "value": 0.99,
+        "name": "幸运一击伤害"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "352607": {
+    "type": "Equipment",
+    "name": "穿刺死棘之枪",
+    "desc": "召唤速度为<unbreak>#1[i]</unbreak>的【穿刺死棘之枪】。行动时，对当前生命值最高的敌方目标造成等同于我方小队总幸运一击率*<unbreak>#2[i]%</unbreak>基础伤害的物理属性伤害。",
+    "param_list": [
+      400,
+      20
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352607.png",
+    "tag_list": [
+      32
+    ],
+    "category": "FateEquip",
+    "general_property_list": [
+      {
+        "property_type": "ExtraLuckChance",
+        "value": 0.2,
+        "name": "幸运一击率"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "352701": {
+    "type": "Equipment",
+    "name": "诅咒·宝石剑泽尔里奇",
+    "desc": "装备者每穿戴一个星徽/钻石装备，就使我方小队获得<unbreak>#1[i]%</unbreak>前后台强度提高。\\n【远坂凛】穿戴时，改为使我方小队获得<unbreak>#2[i]%</unbreak>前后台强度提高。\\n<color=#eb4d3dff>团队规模减少1，无论是否被角色穿戴。</color>",
+    "param_list": [
+      0.2,
+      0.3
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352601.png",
+    "tag_list": [
+      32
+    ],
+    "category": "FateEquip",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.3,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.3,
+        "name": "后台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "352702": {
+    "type": "Equipment",
+    "name": "诅咒·天地乖离开辟之星",
+    "desc": "每拥有一点【星】，装备者获得<unbreak>#1[i]%</unbreak>伤害增幅。\\n【吉尔伽美什】穿戴时，改为获得<unbreak>#2[i]%</unbreak>伤害增幅。\\n当前【星】数量：<variable name=GP_Avatar_Gilgamesh_01>\\n<color=#eb4d3dff>进入战斗前，穿戴者的星级临时降为1星。</color>\\n\\n<color=#b4b4b4><i>不同的任务会以不同方式提供【星】</i></color>",
+    "param_list": [
+      0.01,
+      0.02
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352602.png",
+    "tag_list": [
+      32
+    ],
+    "category": "FateEquip",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.3,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.3,
+        "name": "后台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "352703": {
+    "type": "Equipment",
+    "name": "诅咒·阿瓦隆",
+    "desc": "获得<unbreak>#1[i]%</unbreak>终结技伤害增幅，装备者的回合开始时恢复<unbreak>#2[i]%</unbreak>能量。装备者受到伤害或消耗生命值时，当前生命值最多降至1点。\\n【Saber】穿戴时，改为获得<unbreak>#3[i]%</unbreak>终结技伤害增幅，回合开始时恢复<unbreak>#4[i]%</unbreak>能量。\\n<color=#eb4d3dff>战斗结算时，减少<unbreak>#5[i]</unbreak>点小队生命值，无论是否被角色穿戴。</color>",
+    "param_list": [
+      0.3,
+      0.1,
+      0.6,
+      0.12,
+      6
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352603.png",
+    "tag_list": [
+      32
+    ],
+    "category": "FateEquip",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.3,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.3,
+        "name": "后台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "352704": {
+    "type": "Equipment",
+    "name": "诅咒·干将莫邪",
+    "desc": "战斗开始时，为所有角色投影一件随机进阶装备。\\n【Archer】穿戴时，该装备会从角色推荐列表中选取。\\n<color=#eb4d3dff>进入战斗前，随机把<unbreak>#1[i]</unbreak>件装备临时变为简易装备，无论是否被角色穿戴。</color>",
+    "param_list": [
+      3
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352604.png",
+    "tag_list": [
+      32
+    ],
+    "category": "FateEquip",
+    "general_property_list": [
+      {
+        "property_type": "ExtraAllDamageTypeAddedRatio1",
+        "value": 0.2,
+        "name": "伤害增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "352801": {
+    "type": "Equipment",
+    "name": "极·宝石剑泽尔里奇",
+    "desc": "装备者每穿戴一个星徽/钻石装备，就使我方小队获得<unbreak>#1[i]%</unbreak>前后台强度提高。\\n【远坂凛】穿戴时，改为使我方小队获得<unbreak>#2[i]%</unbreak>前后台强度提高。\\n<color=#f29e38ff>获得该宝具时，获得【财富宝钻】。</color>",
+    "param_list": [
+      0.4,
+      0.6
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352601.png",
+    "tag_list": [
+      32
+    ],
+    "category": "FateEquip",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.6,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.6,
+        "name": "后台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "352802": {
+    "type": "Equipment",
+    "name": "极·天地乖离开辟之星",
+    "desc": "每拥有一点【星】，装备者获得<unbreak>#1[i]%</unbreak>伤害增幅。\\n【吉尔伽美什】穿戴时，改为获得<unbreak>#2[i]%</unbreak>伤害增幅。\\n当前【星】数量：<variable name=GP_Avatar_Gilgamesh_01>\\n<color=#f29e38ff>获得该宝具时，获得<unbreak>#3[i]</unbreak>【星】计数。</color>\\n\\n<color=#b4b4b4><i>不同的任务会以不同方式提供【星】</i></color>",
+    "param_list": [
+      0.02,
+      0.04,
+      200
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352602.png",
+    "tag_list": [
+      32
+    ],
+    "category": "FateEquip",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.6,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.6,
+        "name": "后台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "352803": {
+    "type": "Equipment",
+    "name": "极·阿瓦隆",
+    "desc": "获得<unbreak>#1[i]%</unbreak>终结技伤害增幅，装备者的回合开始时恢复<unbreak>#2[i]%</unbreak>能量。装备者受到伤害或消耗生命值时，当前生命值最多降至1点。\\n【Saber】穿戴时，改为获得<unbreak>#3[i]%</unbreak>终结技伤害增幅，回合开始时恢复<unbreak>#4[i]%</unbreak>能量。\\n<color=#f29e38ff>获得该宝具时，获得<unbreak>#5[i]</unbreak>点小队生命值。</color>",
+    "param_list": [
+      0.6,
+      0.2,
+      1.2,
+      0.24,
+      50
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352603.png",
+    "tag_list": [
+      32
+    ],
+    "category": "FateEquip",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.6,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.6,
+        "name": "后台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "352804": {
+    "type": "Equipment",
+    "name": "极·干将莫邪",
+    "desc": "战斗开始时，为所有角色投影一件随机进阶装备，<unbreak>#1[i]%</unbreak>的概率改为投影<color=#f29e38ff>特权装备</color>。\\n【Archer】穿戴时，该装备会从角色推荐列表中选取。",
+    "param_list": [
+      0.7
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352604.png",
+    "tag_list": [
+      32
+    ],
+    "category": "FateEquip",
+    "general_property_list": [
+      {
+        "property_type": "ExtraAllDamageTypeAddedRatio1",
+        "value": 0.4,
+        "name": "伤害增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "352608": {
+    "type": "Equipment",
+    "name": "财富",
+    "desc": "进入新节点时，提供<unbreak>#1[i]</unbreak>金币。",
+    "param_list": [
+      4
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352608.png",
+    "tag_list": [
+      32
+    ],
+    "category": "FateEquip",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.1,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.1,
+        "name": "后台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "35051013": {
+    "type": "Equipment",
+    "name": "命运圣杯星徽",
+    "desc": "装备者加入【命运圣杯】羁绊。",
+    "param_list": [
+      0.2,
+      1
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35051013.png",
+    "tag_list": [
+      25,
+      24
+    ],
+    "category": "Emblem",
+    "general_property_list": [
+      {
+        "property_type": "ExtraAllDamageTypeAddedRatio1",
+        "value": 0.1,
+        "name": "伤害增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "352901": {
+    "type": "Equipment",
+    "name": "财富",
+    "desc": "狸财经理教你理财，好好学好好看。",
+    "param_list": [
+      20,
+      2,
+      20,
+      10
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352608.png",
+    "tag_list": [],
+    "category": "Other",
+    "general_property_list": [],
+    "craft": [],
+    "recommend": []
+  },
+  "352705": {
+    "type": "Equipment",
+    "name": "诅咒·圣杯",
+    "desc": "<color=#f29e38ff>世界定义为恶者，依然可以成为英雄。</color>",
+    "param_list": [
+      0.99,
+      0.99,
+      0.99,
+      0.99,
+      0.99,
+      0.99
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352606.png",
+    "tag_list": [
+      32
+    ],
+    "category": "FateEquip",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.99,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.99,
+        "name": "速度增幅"
+      },
+      {
+        "property_type": "ExtraAllDamageTypeAddedRatio1",
+        "value": 0.99,
+        "name": "伤害增幅"
+      },
+      {
+        "property_type": "ExtraAllDamageReduce",
+        "value": 0.99,
+        "name": "伤害减免"
+      },
+      {
+        "property_type": "ExtraLuckChance",
+        "value": 0.99,
+        "name": "幸运一击率"
+      },
+      {
+        "property_type": "ExtraLuckDamage",
+        "value": 0.99,
+        "name": "幸运一击伤害"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "352706": {
+    "type": "Equipment",
+    "name": "分裂·圣杯",
+    "desc": null,
+    "param_list": [
+      0.99,
+      0.99,
+      0.99,
+      0.99,
+      0.99,
+      0.99
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352606.png",
+    "tag_list": [
+      32
+    ],
+    "category": "FateEquip",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.99,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.99,
+        "name": "速度增幅"
+      },
+      {
+        "property_type": "ExtraAllDamageTypeAddedRatio1",
+        "value": 0.99,
+        "name": "伤害增幅"
+      },
+      {
+        "property_type": "ExtraAllDamageReduce",
+        "value": 0.99,
+        "name": "伤害减免"
+      },
+      {
+        "property_type": "ExtraLuckChance",
+        "value": 0.99,
+        "name": "幸运一击率"
+      },
+      {
+        "property_type": "ExtraLuckDamage",
+        "value": 0.99,
+        "name": "幸运一击伤害"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "35130999": {
+    "type": "Equipment",
+    "name": "翻飞之币",
+    "desc": "敌方目标被消灭后，获得<unbreak>#1[i]</unbreak>点【翻飞之币】充能以提高【赛飞儿】的伤害记录倍率。进入首领节点时，每拥有<unbreak>#4[i]</unbreak>点充能，获得<unbreak>#5[i]</unbreak>金币。",
+    "param_list": [
+      1,
+      10,
+      0.005,
+      15,
+      1
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35130999.png",
+    "tag_list": [
+      33
+    ],
+    "category": "Intrinsic",
+    "general_property_list": [
+      {
+        "property_type": "ExtraLuckChance",
+        "value": 0.05,
+        "name": "幸运一击率"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      140602
+    ]
+  },
+  "355100202": {
+    "type": "Equipment",
+    "name": "奇兽花园星徽",
+    "desc": "装备者加入【奇兽花园】羁绊。",
+    "param_list": [],
+    "icon_path": "SpriteOutput/GridFight/Equipment/355100202.png",
+    "tag_list": [
+      25,
+      24
+    ],
+    "category": "Emblem",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.15,
+        "name": "速度增幅"
+      }
+    ],
+    "craft": [
+      350601,
+      350201
+    ],
+    "recommend": [
+      151202,
+      141502,
+      140702,
+      120502,
+      140102,
+      130802
+    ]
+  },
+  "355100102": {
+    "type": "Equipment",
+    "name": "仙舟舰队星徽",
+    "desc": "装备者加入【仙舟舰队】羁绊。",
+    "param_list": [],
+    "icon_path": "SpriteOutput/GridFight/Equipment/355100102.png",
+    "tag_list": [
+      25,
+      24
+    ],
+    "category": "Emblem",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.3,
+        "name": "前台强度"
+      }
+    ],
+    "craft": [
+      350601,
+      350202
+    ],
+    "recommend": [
+      122502,
+      140502,
+      140202,
+      130402,
+      100402
+    ]
+  },
+  "355100302": {
+    "type": "Equipment",
+    "name": "幻月游戏星徽",
+    "desc": "装备者加入【幻月游戏】羁绊。",
+    "param_list": [],
+    "icon_path": "SpriteOutput/GridFight/Equipment/355100302.png",
+    "tag_list": [
+      25,
+      24
+    ],
+    "category": "Emblem",
+    "general_property_list": [
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.3,
+        "name": "后台强度"
+      }
+    ],
+    "craft": [
+      350601,
+      350203
+    ],
+    "recommend": [
+      150202,
+      100402,
+      130402,
+      131402,
+      140602
+    ]
+  },
+  "355100902": {
+    "type": "Equipment",
+    "name": "小小巨人星徽",
+    "desc": "装备者加入【小小巨人】羁绊。每点【身高】提高装备者<unbreak>#1[i]%</unbreak>前/后台强度。",
+    "param_list": [
+      0.2
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/355100902.png",
+    "tag_list": [
+      25,
+      24
+    ],
+    "category": "Emblem",
+    "general_property_list": [
+      {
+        "property_type": "ExtraLuckChance",
+        "value": 0.15,
+        "name": "幸运一击率"
+      }
+    ],
+    "craft": [
+      350601,
+      350204
+    ],
+    "recommend": [
+      150502,
+      110702,
+      121502,
+      150102,
+      122102
+    ]
+  },
+  "355101002": {
+    "type": "Equipment",
+    "name": "梦境交织星徽",
+    "desc": "装备者加入【梦境交织】羁绊。",
+    "param_list": [],
+    "icon_path": "SpriteOutput/GridFight/Equipment/355101002.png",
+    "tag_list": [
+      25,
+      24
+    ],
+    "category": "Emblem",
+    "general_property_list": [
+      {
+        "property_type": "ExtraHPAddedRatio1",
+        "value": 0.15,
+        "name": "生命增幅"
+      }
+    ],
+    "craft": [
+      350601,
+      350205
+    ],
+    "recommend": [
+      140602,
+      141002,
+      140902,
+      140302,
+      121402,
+      150102
+    ]
+  },
+  "355100802": {
+    "type": "Equipment",
+    "name": "星核猎手星徽",
+    "desc": "装备者加入【星核猎手】羁绊。",
+    "param_list": [],
+    "icon_path": "SpriteOutput/GridFight/Equipment/355100802.png",
+    "tag_list": [
+      25,
+      24
+    ],
+    "category": "Emblem",
+    "general_property_list": [
+      {
+        "property_type": "ExtraAllDamageReduce",
+        "value": 0.15,
+        "name": "伤害减免"
+      }
+    ],
+    "craft": [
+      350601,
+      350206
+    ],
+    "recommend": [
+      150502,
+      100402,
+      150102,
+      131302,
+      121402
+    ]
+  },
+  "355100402": {
+    "type": "Equipment",
+    "name": "星间旅人星徽",
+    "desc": "装备者加入【星间旅人】羁绊。",
+    "param_list": [],
+    "icon_path": "SpriteOutput/GridFight/Equipment/355100402.png",
+    "tag_list": [
+      25,
+      24
+    ],
+    "category": "Emblem",
+    "general_property_list": [
+      {
+        "property_type": "StanceBreakAddedRatio",
+        "value": 0.4,
+        "name": "击破效率"
+      }
+    ],
+    "craft": [
+      350601,
+      350207
+    ],
+    "recommend": [
+      122202,
+      120802,
+      121402,
+      122002,
+      121002,
+      131002
+    ]
+  },
+  "355100502": {
+    "type": "Equipment",
+    "name": "开拓银轨星徽",
+    "desc": "装备者加入【开拓银轨】羁绊。",
+    "param_list": [],
+    "icon_path": "SpriteOutput/GridFight/Equipment/355100502.png",
+    "tag_list": [
+      25,
+      24
+    ],
+    "category": "Emblem",
+    "general_property_list": [
+      {
+        "property_type": "ExtraInitSP",
+        "value": 45,
+        "name": "初始能量"
+      }
+    ],
+    "craft": [
+      350601,
+      350208
+    ],
+    "recommend": [
+      150502,
+      121202,
+      150402,
+      122202,
+      100502,
+      121702
+    ]
+  },
+  "355100602": {
+    "type": "Equipment",
+    "name": "千星商会星徽",
+    "desc": "装备者加入【千星商会】羁绊。",
+    "param_list": [],
+    "icon_path": "SpriteOutput/GridFight/Equipment/355100602.png",
+    "tag_list": [
+      25,
+      24
+    ],
+    "category": "Emblem",
+    "general_property_list": [
+      {
+        "property_type": "ExtraAllDamageTypeAddedRatio1",
+        "value": 0.15,
+        "name": "伤害增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      150102,
+      130402,
+      150502,
+      150402,
+      141302
+    ]
+  },
+  "355101202": {
+    "type": "Equipment",
+    "name": "黄金大饭店星徽",
+    "desc": "装备者加入【黄金大饭店】羁绊。",
+    "param_list": [],
+    "icon_path": "SpriteOutput/GridFight/Equipment/355101202.png",
+    "tag_list": [
+      25,
+      24
+    ],
+    "category": "Emblem",
+    "general_property_list": [
+      {
+        "property_type": "ExtraAllDamageTypeAddedRatio1",
+        "value": 0.15,
+        "name": "伤害增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      141302,
+      140902,
+      122102,
+      120402,
+      110702,
+      120502
+    ]
+  },
+  "355200102": {
+    "type": "Equipment",
+    "name": "追击星徽",
+    "desc": "装备者加入【追击】羁绊，攻击后造成等同于<unbreak>#1[i]%</unbreak>攻击力的附加伤害。消灭敌方目标后，行动提前<unbreak>#2[i]%</unbreak>。",
+    "param_list": [
+      1,
+      0.5
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/355200102.png",
+    "tag_list": [
+      25,
+      24
+    ],
+    "category": "Emblem",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.1,
+        "name": "速度增幅"
+      }
+    ],
+    "craft": [
+      350602,
+      350201
+    ],
+    "recommend": [
+      100402,
+      150502,
+      150102,
+      121002
+    ]
+  },
+  "355200402": {
+    "type": "Equipment",
+    "name": "连击星徽",
+    "desc": "装备者加入【连击】羁绊，获得<unbreak>#1[i]%</unbreak>基础【连击率】，在连击的额外回合中造成的伤害提高<unbreak>#2[i]%</unbreak>。",
+    "param_list": [
+      0.2,
+      0.5
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/355200402.png",
+    "tag_list": [
+      25,
+      24
+    ],
+    "category": "Emblem",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.2,
+        "name": "前台强度"
+      }
+    ],
+    "craft": [
+      350602,
+      350202
+    ],
+    "recommend": [
+      141002,
+      122002,
+      140302,
+      120402,
+      100402,
+      150402
+    ]
+  },
+  "355200802": {
+    "type": "Equipment",
+    "name": "反击星徽",
+    "desc": "装备者加入【反击】羁绊。\\n战斗开始时，装备者若位于前台：受到敌方目标攻击后，行动提前<unbreak>#1[i]%</unbreak>，造成的伤害提高<unbreak>#2[i]%</unbreak>，持续<unbreak>#3[i]</unbreak>回合，可叠加<unbreak>#4[i]</unbreak>层。\\n装备者若位于后台：使【反击王】攻击时，无视敌方目标<unbreak>#5[i]%</unbreak>的防御力。",
+    "param_list": [
+      0.1,
+      0.2,
+      1,
+      10,
+      0.3
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/355200802.png",
+    "tag_list": [
+      25,
+      24
+    ],
+    "category": "Emblem",
+    "general_property_list": [
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.2,
+        "name": "后台强度"
+      }
+    ],
+    "craft": [
+      350602,
+      350203
+    ],
+    "recommend": [
+      130402,
+      121202,
+      140302,
+      141002
+    ]
+  },
+  "355200302": {
+    "type": "Equipment",
+    "name": "群攻星徽",
+    "desc": "装备者加入【群攻】羁绊。施放攻击后，本次攻击每命中一个敌方目标，前/后台强度提高<unbreak>#1[i]%</unbreak>。该效果最多叠加<unbreak>#2[i]</unbreak>层。",
+    "param_list": [
+      0.02,
+      50
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/355200302.png",
+    "tag_list": [
+      25,
+      24
+    ],
+    "category": "Emblem",
+    "general_property_list": [
+      {
+        "property_type": "ExtraLuckChance",
+        "value": 0.1,
+        "name": "幸运一击率"
+      }
+    ],
+    "craft": [
+      350602,
+      350204
+    ],
+    "recommend": [
+      141302,
+      122102,
+      140402,
+      150402
+    ]
+  },
+  "355200602": {
+    "type": "Equipment",
+    "name": "召唤星徽",
+    "desc": "装备者加入【召唤】羁绊，每有1个友方目标，装备者及其忆灵造成的伤害提高<unbreak>#1[i]%</unbreak>。",
+    "param_list": [
+      0.08
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/355200602.png",
+    "tag_list": [
+      25,
+      24
+    ],
+    "category": "Emblem",
+    "general_property_list": [
+      {
+        "property_type": "ExtraHPAddedRatio1",
+        "value": 0.1,
+        "name": "生命增幅"
+      }
+    ],
+    "craft": [
+      350602,
+      350205
+    ],
+    "recommend": [
+      140402,
+      121202,
+      130802,
+      140202,
+      131402,
+      140802
+    ]
+  },
+  "355200202": {
+    "type": "Equipment",
+    "name": "持续伤害星徽",
+    "desc": "装备者加入【持续伤害】羁绊，攻击后使攻击目标陷入【冻伤】：防御力降低<unbreak>#2[i]%</unbreak>，并在自身回合开始时受到等同于装备者<unbreak>#1[i]%</unbreak>攻击力的冰属性持续伤害。",
+    "param_list": [
+      2,
+      0.2
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/355200202.png",
+    "tag_list": [
+      25,
+      24
+    ],
+    "category": "Emblem",
+    "general_property_list": [
+      {
+        "property_type": "ExtraAllDamageReduce",
+        "value": 0.1,
+        "name": "伤害减免"
+      }
+    ],
+    "craft": [
+      350602,
+      350206
+    ],
+    "recommend": [
+      122202,
+      120302,
+      140902,
+      130902
+    ]
+  },
+  "355200502": {
+    "type": "Equipment",
+    "name": "击破星徽",
+    "desc": "装备者加入【击破】羁绊，击破特攻提高<unbreak>#1[i]%</unbreak>。敌方目标首次被装备者击破时，受到等同于自身生命上限<unbreak>#2[i]%</unbreak>的真实伤害。",
+    "param_list": [
+      1,
+      0.08
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/355200502.png",
+    "tag_list": [
+      25,
+      24
+    ],
+    "category": "Emblem",
+    "general_property_list": [
+      {
+        "property_type": "StanceBreakAddedRatio",
+        "value": 0.2,
+        "name": "击破效率"
+      }
+    ],
+    "craft": [
+      350602,
+      350207
+    ],
+    "recommend": [
+      130402,
+      100502,
+      110502
+    ]
+  },
+  "355200902": {
+    "type": "Equipment",
+    "name": "能量星徽",
+    "desc": "装备者加入【能量】羁绊。施放终结技后，为我方全体恢复等同于各自能量上限<unbreak>#1[i]%</unbreak>的能量。该效果触发后，需经过<unbreak>#2[i]</unbreak>行动值才能再次触发。",
+    "param_list": [
+      0.2,
+      100
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/355200902.png",
+    "tag_list": [
+      25,
+      24
+    ],
+    "category": "Emblem",
+    "general_property_list": [
+      {
+        "property_type": "ExtraInitSP",
+        "value": 30,
+        "name": "初始能量"
+      }
+    ],
+    "craft": [
+      350602,
+      350208
+    ],
+    "recommend": [
+      131302,
+      140902,
+      150202,
+      130602,
+      150102,
+      150302
+    ]
+  },
+  "355200702": {
+    "type": "Equipment",
+    "name": "欢愉星徽",
+    "desc": "装备者加入【欢愉】羁绊，进入战斗时，使我方小队获得<unbreak>#1[i]%</unbreak>欢愉度。\\n获得欢愉技【极乐漩涡】，可对敌方全体造成<unbreak>#2[i]%</unbreak>的装备者属性欢愉伤害。",
+    "param_list": [
+      0.25,
+      1
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/355200702.png",
+    "tag_list": [
+      25,
+      24
+    ],
+    "category": "Emblem",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.1,
+        "name": "速度增幅"
+      }
+    ],
+    "craft": [
+      350602,
+      352101
+    ],
+    "recommend": [
+      150302,
+      150502,
+      131402
+    ]
+  },
+  "355201102": {
+    "type": "Equipment",
+    "name": "守护星徽",
+    "desc": "装备者加入【守护】羁绊，战斗开始时，为我方全体前台提供等同于装备者<unbreak>#1[i]%</unbreak>防御力的护盾。战斗中，装备者获得等同于自身护盾强度*<unbreak>#2[f1]%</unbreak>的伤害增幅。",
+    "param_list": [
+      2,
+      0.002
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/355201102.png",
+    "tag_list": [
+      25,
+      24
+    ],
+    "category": "Emblem",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.1,
+        "name": "速度增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      140302,
+      110702,
+      141202,
+      150202
+    ]
+  },
+  "355201002": {
+    "type": "Equipment",
+    "name": "治疗星徽",
+    "desc": "装备者加入【治疗】羁绊，行动时为我方全体前台回复等同于装备者生命上限<unbreak>#1[i]%</unbreak>的生命。",
+    "param_list": [
+      0.1
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/355201002.png",
+    "tag_list": [
+      25,
+      24
+    ],
+    "category": "Emblem",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.1,
+        "name": "速度增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      121002,
+      140602,
+      121802
+    ]
+  },
+  "350110": {
+    "type": "Consumable",
+    "name": "千星特权卡",
+    "desc": "拖动到一件进阶装备上使用，使其变为对应的特权装备。初始具有一定使用次数。\\n每刷新<unbreak>#2[i]</unbreak>次商店后增加1次使用次数。\\n<color=#b4b4b4><i>「抱歉，有特权真的可以为所欲为。」</i></color>",
+    "param_list": [
+      2,
+      15
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/350108.png",
+    "consumable_rule": "UpgradeByRefresh",
+    "if_stack": false,
+    "if_consume": false
+  },
+  "350108": {
+    "type": "Consumable",
+    "name": "实习生投影仪",
+    "desc": "拖动到一个<color=#b4b4b4>1费</color>角色上使用，在备战席创造一个该角色的1星复制。\\n该道具使用后消失。\\n\\n<color=#b4b4b4><i>「人力资源部的最爱，极大缓解了劳动力短缺问题。」</i></color>",
+    "param_list": [
+      1,
+      1
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/350110.png",
+    "consumable_rule": "Copy",
+    "if_stack": true,
+    "if_consume": true
+  },
+  "350111": {
+    "type": "Consumable",
+    "name": "幻月·主角光环",
+    "desc": "拖动到角色上使用，可以选择1次主角光环。\\n该道具使用后消失。\\n<color=#b4b4b4><i>「全体目光向我看齐！我宣布：我是主角！」</i></color>",
+    "param_list": [],
+    "icon_path": "SpriteOutput/GridFight/Equipment/350111.png",
+    "consumable_rule": "SpotLight",
+    "if_stack": false,
+    "if_consume": true
+  },
+  "47030103": {
+    "type": "Equipment",
+    "name": "电磁弹射器",
+    "desc": "战斗开始时，装备者行动提前<unbreak>#3[i]%</unbreak>",
+    "param_list": [
+      0.2,
+      0.3,
+      1
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030103.png",
+    "tag_list": [
+      6
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.2,
+        "name": "速度增幅"
+      },
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.3,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.3,
+        "name": "后台强度"
+      }
+    ],
+    "craft": [
+      350203,
+      350201
+    ],
+    "recommend": [
+      130902,
+      111202,
+      121702,
+      141202,
+      131302,
+      132102
+    ]
+  },
+  "47030105": {
+    "type": "Equipment",
+    "name": "反螺旋舞步",
+    "desc": "装备者每次施放普攻/战技后，伤害增幅提高<unbreak>#4[i]%</unbreak>，可叠加。",
+    "param_list": [
+      0.1,
+      0.1,
+      0.15,
+      0.05,
+      0.3
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/47030105.png",
+    "tag_list": [
+      37,
+      38
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.1,
+        "name": "速度增幅"
+      },
+      {
+        "property_type": "ExtraHPAddedRatio1",
+        "value": 0.1,
+        "name": "生命增幅"
+      },
+      {
+        "property_type": "ExtraAllDamageTypeAddedRatio1",
+        "value": 0.15,
+        "name": "伤害增幅"
+      }
+    ],
+    "craft": [
+      350205,
+      350201
+    ],
+    "recommend": [
+      140202,
+      140502,
+      151002,
+      140802,
+      122202,
+      131702
+    ]
+  },
+  "47030106": {
+    "type": "Equipment",
+    "name": "流星飞翼",
+    "desc": "使我方全体速度增幅提高<unbreak>#3[i]%</unbreak>，装备者施放终结技后，恢复<unbreak>#4[i]</unbreak>个战技点。",
+    "param_list": [
+      0.15,
+      0.1,
+      0.15,
+      1
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030106.png",
+    "tag_list": [
+      3,
+      15
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.15,
+        "name": "速度增幅"
+      },
+      {
+        "property_type": "ExtraAllDamageReduce",
+        "value": 0.1,
+        "name": "伤害减免"
+      }
+    ],
+    "craft": [
+      350206,
+      350201
+    ],
+    "recommend": [
+      140602,
+      140902,
+      800902,
+      121502,
+      130902,
+      131302
+    ]
+  },
+  "47030202": {
+    "type": "Equipment",
+    "name": "碎星斩舰刀",
+    "desc": "大幅度提高前台强度。装备者造成的伤害为原伤害的<unbreak>#2[i]%</unbreak>。\\n\\n<color=#b4b4b4><i>「我四十公里长的大刀早已饥渴难耐」</i></color>",
+    "param_list": [
+      0.6,
+      1.1
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030202.png",
+    "tag_list": [
+      4,
+      1
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.6,
+        "name": "前台强度"
+      }
+    ],
+    "craft": [
+      350202,
+      350202
+    ],
+    "recommend": [
+      141002,
+      111202,
+      120502,
+      150102,
+      100502,
+      120402
+    ]
+  },
+  "47030205": {
+    "type": "Equipment",
+    "name": "杀红眼",
+    "desc": "装备者消灭敌人后，获得<unbreak>#6[i]</unbreak>层【红眼】：提高<unbreak>#3[i]%</unbreak>伤害增幅和<unbreak>#4[i]%</unbreak>生命增幅。每场战斗中，初始拥有<unbreak>#5[i]</unbreak>层【红眼】。",
+    "param_list": [
+      0.3,
+      0.1,
+      0.08,
+      0.04,
+      3,
+      1
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030205.png",
+    "tag_list": [
+      21,
+      1
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.3,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.3,
+        "name": "后台强度"
+      }
+    ],
+    "craft": [
+      350205,
+      350202
+    ],
+    "recommend": [
+      140702,
+      131402,
+      130702,
+      120502,
+      140102,
+      141002
+    ]
+  },
+  "47030207": {
+    "type": "Equipment",
+    "name": "动能激发剑",
+    "desc": "装备者回合开始时恢复<unbreak>#4[i]</unbreak>个战技点，装备者每消耗1个战技点后，伤害增幅提高<unbreak>#3[i]%</unbreak>。",
+    "param_list": [
+      0.4,
+      0.25,
+      0.02,
+      2
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030207.png",
+    "tag_list": [
+      15,
+      1
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.4,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "StanceBreakAddedRatio",
+        "value": 0.25,
+        "name": "击破效率"
+      }
+    ],
+    "craft": [
+      350207,
+      350202
+    ],
+    "recommend": [
+      121302,
+      150102
+    ]
+  },
+  "47030208": {
+    "type": "Equipment",
+    "name": "战场进化手册",
+    "desc": "装备者获得<unbreak>#3[i]%</unbreak>速度增幅和<unbreak>#4[i]%</unbreak>伤害增幅。装备者为2/3星及以上时，上述增幅分别提高至原来的<unbreak>#5[i]</unbreak>/<unbreak>#6[i]</unbreak>倍。\\n\\n<color=#b4b4b4><i>「要在战争中学习战争！」</i></color>",
+    "param_list": [
+      0.2,
+      20,
+      0.07,
+      0.07,
+      3,
+      6
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030208.png",
+    "tag_list": [
+      17,
+      1
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.2,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.2,
+        "name": "后台强度"
+      },
+      {
+        "property_type": "ExtraInitSP",
+        "value": 20,
+        "name": "初始能量"
+      }
+    ],
+    "craft": [
+      350208,
+      350202
+    ],
+    "recommend": [
+      140502,
+      120502,
+      122402,
+      130802,
+      120402,
+      140802
+    ]
+  },
+  "47030303": {
+    "type": "Equipment",
+    "name": "天基轨道炮",
+    "desc": "大幅度提高后台强度，装备者造成的伤害为原伤害的<unbreak>#2[i]%</unbreak>。\\n\\n<color=#b4b4b4><i>「曾经在八百光年外一炮干掉了反物质军团的弓箭手」</i></color>",
+    "param_list": [
+      0.6,
+      1.1
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030303.png",
+    "tag_list": [
+      5,
+      1
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.6,
+        "name": "后台强度"
+      }
+    ],
+    "craft": [
+      350203,
+      350203
+    ],
+    "recommend": [
+      122402,
+      131702,
+      141002,
+      111202,
+      120502,
+      131402
+    ]
+  },
+  "47030306": {
+    "type": "Equipment",
+    "name": "未唱名面具",
+    "desc": "装备者根据命途获得加成：\\n记忆：装备者及其忆灵的前/后台强度提高<unbreak>#4[i]%</unbreak>\\n欢愉：欢愉度提高<unbreak>#5[i]%</unbreak>，欢愉伤害增幅提高<unbreak>#6[i]%</unbreak>。\\n其他：<unbreak>#7[i]%</unbreak>伤害减免。\\n（唯一装备）",
+    "param_list": [
+      0.2,
+      0.1,
+      0.25,
+      0.8,
+      0.4,
+      0.4,
+      0.35
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/47030306.png",
+    "tag_list": [
+      39
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraAllDamageReduce",
+        "value": 0.1,
+        "name": "伤害减免"
+      },
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.2,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.2,
+        "name": "后台强度"
+      }
+    ],
+    "craft": [
+      350206,
+      350203
+    ],
+    "recommend": [
+      140702,
+      150602,
+      151302,
+      130402,
+      130902
+    ]
+  },
+  "47030307": {
+    "type": "Equipment",
+    "name": "斩首行动",
+    "desc": "装备者的伤害增幅提高<unbreak>#3[i]%</unbreak>，在遭遇和首领节点额外获得<unbreak>#4[i]%</unbreak>。",
+    "param_list": [
+      0.2,
+      0.25,
+      0.3,
+      0.3,
+      0.1
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030307.png",
+    "tag_list": [
+      18,
+      1
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.2,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.2,
+        "name": "后台强度"
+      },
+      {
+        "property_type": "StanceBreakAddedRatio",
+        "value": 0.25,
+        "name": "击破效率"
+      },
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.1,
+        "name": "速度增幅"
+      }
+    ],
+    "craft": [
+      350207,
+      350203
+    ],
+    "recommend": [
+      130802,
+      141002,
+      122002,
+      130702,
+      120402,
+      121302
+    ]
+  },
+  "47030406": {
+    "type": "Equipment",
+    "name": "幻造巨铠",
+    "desc": "装备者受到敌方目标攻击或者消耗生命值后，获得<unbreak>#3[i]%</unbreak>前/后台强度。该效果可叠加，单次行动内只能生效1次。",
+    "param_list": [
+      0.2,
+      0.1,
+      0.06
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/47030406.png",
+    "tag_list": [
+      40,
+      1
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraLuckChance",
+        "value": 0.2,
+        "name": "幸运一击率"
+      },
+      {
+        "property_type": "ExtraAllDamageReduce",
+        "value": 0.1,
+        "name": "伤害减免"
+      }
+    ],
+    "craft": [
+      350206,
+      350204
+    ],
+    "recommend": [
+      120502,
+      140402,
+      110702,
+      122102,
+      140802
+    ]
+  },
+  "47030408": {
+    "type": "Equipment",
+    "name": "冷笑话引擎",
+    "desc": "装备者每次施放终结技时，使装备者的幸运一击率提高<unbreak>#3[i]%</unbreak>，提高<unbreak>#5[i]</unbreak>次后，后续施放改为使幸运一击伤害提高<unbreak>#4[i]%</unbreak>。",
+    "param_list": [
+      0.1,
+      60,
+      0.1,
+      0.08,
+      5
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030408.png",
+    "tag_list": [
+      7,
+      8
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraLuckChance",
+        "value": 0.1,
+        "name": "幸运一击率"
+      },
+      {
+        "property_type": "ExtraInitSP",
+        "value": 60,
+        "name": "初始能量"
+      }
+    ],
+    "craft": [
+      350208,
+      350204
+    ],
+    "recommend": [
+      150502,
+      130802,
+      122002,
+      100402,
+      140102,
+      151002
+    ]
+  },
+  "350112": {
+    "type": "Consumable",
+    "name": "开拓·实习生投影仪",
+    "desc": "拖动到一个<color=#7196ff>1费</color>【开拓银轨】角色上使用，在备战席创造一个该角色的1星复制。\\n该道具使用后消失。",
+    "param_list": [
+      1,
+      1,
+      100502
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/350110.png",
+    "consumable_rule": "Copy",
+    "if_stack": true,
+    "if_consume": true
+  },
+  "350113": {
+    "type": "Consumable",
+    "name": "开拓·员工投影仪",
+    "desc": "拖动到一个<color=#7196ff>3费</color>及以下的【开拓银轨】角色上使用，在备战席创造一个该角色的1星复制。\\n该道具使用后消失。",
+    "param_list": [
+      3,
+      1,
+      100502
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/350105.png",
+    "consumable_rule": "Copy",
+    "if_stack": true,
+    "if_consume": true
+  },
+  "350114": {
+    "type": "Consumable",
+    "name": "开拓·完美投影仪",
+    "desc": "拖动到一个任意【开拓银轨】角色上使用，在备战席创造一个该角色的1星复制。\\n该道具使用后消失。",
+    "param_list": [
+      5,
+      1,
+      100502
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/350106.png",
+    "consumable_rule": "Copy",
+    "if_stack": true,
+    "if_consume": true
+  },
+  "47040103": {
+    "type": "Equipment",
+    "name": "电磁弹射器·特权",
+    "desc": "战斗开始时，装备者行动提前<unbreak>#3[i]%</unbreak>",
+    "param_list": [
+      0.4,
+      0.6,
+      1
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030103.png",
+    "tag_list": [
+      5,
+      6
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.4,
+        "name": "速度增幅"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.6,
+        "name": "后台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      130902,
+      111202,
+      121702,
+      141202,
+      131302,
+      132102
+    ]
+  },
+  "47040105": {
+    "type": "Equipment",
+    "name": "反螺旋舞步·特权",
+    "desc": "装备者每次施放普攻/战技后，伤害增幅提高<unbreak>#4[i]%</unbreak>，可叠加。",
+    "param_list": [
+      0.2,
+      0.2,
+      0.3,
+      0.1,
+      0.6
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/47030105.png",
+    "tag_list": [
+      4,
+      1
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.2,
+        "name": "速度增幅"
+      },
+      {
+        "property_type": "ExtraHPAddedRatio1",
+        "value": 0.2,
+        "name": "生命增幅"
+      },
+      {
+        "property_type": "ExtraAllDamageTypeAddedRatio1",
+        "value": 0.3,
+        "name": "伤害增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      140202,
+      140502,
+      151002,
+      140802,
+      122202,
+      131702
+    ]
+  },
+  "47040106": {
+    "type": "Equipment",
+    "name": "流星飞翼·特权",
+    "desc": "使我方全体速度增幅提高<unbreak>#3[i]%</unbreak>，装备者施放终结技后，恢复<unbreak>#4[i]</unbreak>个战技点。",
+    "param_list": [
+      0.3,
+      0.2,
+      0.3,
+      1
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030106.png",
+    "tag_list": [
+      3,
+      15
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.3,
+        "name": "速度增幅"
+      },
+      {
+        "property_type": "ExtraAllDamageReduce",
+        "value": 0.2,
+        "name": "伤害减免"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      140602,
+      140902,
+      800902,
+      121502,
+      130902,
+      131302
+    ]
+  },
+  "47040202": {
+    "type": "Equipment",
+    "name": "碎星斩舰刀·特权",
+    "desc": "大幅度提高前台强度。装备者造成的伤害为原伤害的<unbreak>#2[i]%</unbreak>。\\n\\n<color=#b4b4b4><i>「我四十公里长的大刀早已饥渴难耐」</i></color>",
+    "param_list": [
+      1.2,
+      1.2
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030202.png",
+    "tag_list": [
+      4,
+      1
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 1.2,
+        "name": "前台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      141002,
+      111202,
+      120502,
+      150102,
+      100502,
+      120402
+    ]
+  },
+  "47040205": {
+    "type": "Equipment",
+    "name": "杀红眼·特权",
+    "desc": "装备者消灭敌人后，获得<unbreak>#6[i]</unbreak>层【红眼】：提高<unbreak>#3[i]%</unbreak>伤害增幅和<unbreak>#4[i]%</unbreak>生命增幅。每场战斗中，初始拥有<unbreak>#5[i]</unbreak>层【红眼】。",
+    "param_list": [
+      0.6,
+      0.2,
+      0.16,
+      0.08,
+      3,
+      1
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030205.png",
+    "tag_list": [
+      16,
+      1
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.6,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.6,
+        "name": "后台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      140702,
+      131402,
+      130702,
+      120502,
+      140102,
+      141002
+    ]
+  },
+  "47040207": {
+    "type": "Equipment",
+    "name": "动能激发剑·特权",
+    "desc": "装备者回合开始时恢复<unbreak>#4[i]</unbreak>个战技点，装备者每消耗1个战技点后，伤害增幅提高<unbreak>#3[i]%</unbreak>。",
+    "param_list": [
+      0.8,
+      0.5,
+      0.04,
+      3
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030207.png",
+    "tag_list": [
+      15,
+      1
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.8,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "StanceBreakAddedRatio",
+        "value": 0.5,
+        "name": "击破效率"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      121302,
+      150102
+    ]
+  },
+  "47040208": {
+    "type": "Equipment",
+    "name": "战场进化手册·特权",
+    "desc": "装备者获得<unbreak>#3[i]%</unbreak>速度增幅和<unbreak>#4[i]%</unbreak>伤害增幅。装备者为2/3星及以上时，上述增幅分别提高至原来的<unbreak>#5[i]</unbreak>/<unbreak>#6[i]</unbreak>倍。\\n\\n<color=#b4b4b4><i>「要在战争中学习战争！」</i></color>",
+    "param_list": [
+      0.4,
+      40,
+      0.14,
+      0.14,
+      3,
+      6
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030208.png",
+    "tag_list": [
+      17,
+      1
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.4,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.4,
+        "name": "后台强度"
+      },
+      {
+        "property_type": "ExtraInitSP",
+        "value": 40,
+        "name": "初始能量"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      140502,
+      120502,
+      122402,
+      130802,
+      120402,
+      140802
+    ]
+  },
+  "47040303": {
+    "type": "Equipment",
+    "name": "天基轨道炮·特权",
+    "desc": "大幅度提高后台强度，装备者造成的伤害为原伤害的<unbreak>#2[i]%</unbreak>。\\n\\n<color=#b4b4b4><i>「曾经在八百光年外一炮干掉了反物质军团的弓箭手」</i></color>",
+    "param_list": [
+      1.2,
+      1.2
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030303.png",
+    "tag_list": [
+      5,
+      1
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 1.2,
+        "name": "后台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      122402,
+      131702,
+      141002,
+      111202,
+      120502,
+      131402
+    ]
+  },
+  "47040306": {
+    "type": "Equipment",
+    "name": "未唱名面具·特权",
+    "desc": "装备者根据命途获得加成：\\n记忆：装备者及其忆灵的前/后台强度提高<unbreak>#4[i]%</unbreak>\\n欢愉：欢愉度提高<unbreak>#5[i]%</unbreak>，欢愉伤害增幅提高<unbreak>#6[i]%</unbreak>。\\n其他：<unbreak>#7[i]%</unbreak>伤害减免。\\n（唯一装备）",
+    "param_list": [
+      0.4,
+      0.2,
+      0.5,
+      1.6,
+      0.8,
+      0.8,
+      0.6
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/47030306.png",
+    "tag_list": [
+      4,
+      5
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraAllDamageReduce",
+        "value": 0.2,
+        "name": "伤害减免"
+      },
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.4,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.4,
+        "name": "后台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      140702,
+      150602,
+      151302,
+      130402,
+      130902
+    ]
+  },
+  "47040307": {
+    "type": "Equipment",
+    "name": "斩首行动·特权",
+    "desc": "装备者的伤害增幅提高<unbreak>#3[i]%</unbreak>，在遭遇和首领节点额外获得<unbreak>#4[i]%</unbreak>。",
+    "param_list": [
+      0.4,
+      0.5,
+      0.6,
+      0.6
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030307.png",
+    "tag_list": [
+      18,
+      1
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.4,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.4,
+        "name": "后台强度"
+      },
+      {
+        "property_type": "StanceBreakAddedRatio",
+        "value": 0.5,
+        "name": "击破效率"
+      },
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "name": "速度增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      130802,
+      141002,
+      122002,
+      130702,
+      120402,
+      121302
+    ]
+  },
+  "47040406": {
+    "type": "Equipment",
+    "name": "幻造巨铠·特权",
+    "desc": "装备者受到敌方目标攻击或者消耗生命值后，获得<unbreak>#3[i]%</unbreak>前/后台强度。该效果可叠加，单次行动内只能生效1次。",
+    "param_list": [
+      0.4,
+      0.2,
+      0.12,
+      0,
+      0
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/47030406.png",
+    "tag_list": [
+      19,
+      12
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraLuckChance",
+        "value": 0.4,
+        "name": "幸运一击率"
+      },
+      {
+        "property_type": "ExtraAllDamageReduce",
+        "value": 0.2,
+        "name": "伤害减免"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      120502,
+      140402,
+      110702,
+      122102,
+      140802
+    ]
+  },
+  "47040408": {
+    "type": "Equipment",
+    "name": "冷笑话引擎·特权",
+    "desc": "装备者每次施放终结技时，使装备者的幸运一击率提高<unbreak>#3[i]%</unbreak>，提高<unbreak>#5[i]</unbreak>次后，后续施放改为使幸运一击伤害提高<unbreak>#4[i]%</unbreak>。",
+    "param_list": [
+      0.2,
+      120,
+      0.2,
+      0.16,
+      5
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030408.png",
+    "tag_list": [
+      7,
+      8
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraLuckChance",
+        "value": 0.2,
+        "name": "幸运一击率"
+      },
+      {
+        "property_type": "ExtraInitSP",
+        "value": 120,
+        "name": "初始能量"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      150502,
+      130802,
+      122002,
+      100402,
+      140102,
+      151002
+    ]
+  },
+  "353001": {
+    "type": "Equipment",
+    "name": "改件·碎星斩舰刀",
+    "desc": "大幅度提高前台强度。装备者造成的伤害为原伤害的<unbreak>#2[i]%</unbreak>。\\n\\n<color=#b4b4b4><i>「我四十公里长的大刀早已饥渴难耐」</i></color>",
+    "param_list": [
+      0.6,
+      1.1
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030202.png",
+    "tag_list": [
+      41
+    ],
+    "category": "SpotLightEquip",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.6,
+        "name": "前台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "353002": {
+    "type": "Equipment",
+    "name": "改件·天基轨道炮",
+    "desc": "大幅度提高后台强度，装备者造成的伤害为原伤害的<unbreak>#2[i]%</unbreak>。\\n\\n<color=#b4b4b4><i>「曾经在八百光年外一炮干掉了反物质军团的弓箭手」</i></color>",
+    "param_list": [
+      0.6,
+      1.1
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030303.png",
+    "tag_list": [
+      41
+    ],
+    "category": "SpotLightEquip",
+    "general_property_list": [
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.6,
+        "name": "后台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "353003": {
+    "type": "Equipment",
+    "name": "改件·反重力皮靴",
+    "desc": "装备者的每个回合开始时，速度增幅提高<unbreak>#2[i]%</unbreak>，可叠加。",
+    "param_list": [
+      0.25,
+      0.12
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030101.png",
+    "tag_list": [
+      41
+    ],
+    "category": "SpotLightEquip",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.25,
+        "name": "速度增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "350115": {
+    "type": "Consumable",
+    "name": "阿哈·拆装扳手",
+    "desc": "拖动到阿哈指示器上使用，可以取下所有阿哈装备。\\n该道具使用后消失。",
+    "param_list": [],
+    "icon_path": "SpriteOutput/GridFight/Equipment/350101.png",
+    "consumable_rule": "",
+    "if_stack": true,
+    "if_consume": true
+  },
+  "350116": {
+    "type": "Consumable",
+    "name": "阿哈·冶金炉",
+    "desc": "拖动到阿哈指示器上使用，可选择一件阿哈装备将其重铸，并在四件同类型装备中选择一件作为重铸结果。\\n该道具使用后消失。",
+    "param_list": [],
+    "icon_path": "SpriteOutput/GridFight/Equipment/350103.png",
+    "consumable_rule": "Roll",
+    "if_stack": true,
+    "if_consume": true
+  },
+  "350117": {
+    "type": "Consumable",
+    "name": "阿哈·特权赋予卡",
+    "desc": "拖动到阿哈指示器上使用，可选择一件阿哈进阶装备，使其变为对应的特权装备。\\n该道具使用后消失。",
+    "param_list": [],
+    "icon_path": "SpriteOutput/GridFight/Equipment/350104.png",
+    "consumable_rule": "Upgrade",
+    "if_stack": false,
+    "if_consume": true
+  },
+  "99989": {
+    "type": "Forge",
+    "name": "阿哈·简易武装箱",
+    "desc": "点击后开启阿哈·简易武装箱，从四件简易装备中选择一件获得。\\n该道具使用后消失。",
+    "param_list": [
+      1
+    ],
+    "icon_path": "SpriteOutput/GridFight/GridItem/99989.png",
+    "equip_category": "Basic",
+    "func_type": "Equip",
+    "forge_type_desc": "武装箱"
+  },
+  "47030108": {
+    "type": "Equipment",
+    "name": "星航履",
+    "desc": "大幅度提高速度增幅。装备者的每个回合开始时，固定恢复等同于能量上限<unbreak>#3[i]%</unbreak>的能量。（唯一装备）",
+    "param_list": [
+      0.55,
+      30,
+      0.1
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030108_S2.png",
+    "tag_list": [
+      6,
+      7
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.55,
+        "name": "速度增幅"
+      },
+      {
+        "property_type": "ExtraInitSP",
+        "value": 30,
+        "name": "初始能量"
+      }
+    ],
+    "craft": [
+      350208,
+      350201
+    ],
+    "recommend": [
+      100502,
+      110302,
+      121002,
+      121502,
+      120402,
+      131002
+    ]
+  },
+  "47040108": {
+    "type": "Equipment",
+    "name": "星航履·特权",
+    "desc": "大幅度提高速度增幅。装备者的每个回合开始时，固定恢复等同于能量上限<unbreak>#3[i]%</unbreak>的能量。（唯一装备）",
+    "param_list": [
+      1.1,
+      60,
+      0.2,
+      0,
+      0,
+      0,
+      0
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030108_S2.png",
+    "tag_list": [
+      6,
+      7
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 1.1,
+        "name": "速度增幅"
+      },
+      {
+        "property_type": "ExtraInitSP",
+        "value": 60,
+        "name": "初始能量"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      100502,
+      110302,
+      121002,
+      121502,
+      120402,
+      131002
+    ]
+  },
+  "350118": {
+    "type": "Consumable",
+    "name": "奇美拉投影仪",
+    "desc": "拖动到奇兽花园上使用，选择1个角色专属奇美拉，获得它的1星复制。\\n该道具使用后消失。",
+    "param_list": [],
+    "icon_path": "SpriteOutput/GridFight/Equipment/350118.png",
+    "consumable_rule": "CopyChimera",
+    "if_stack": true,
+    "if_consume": true
+  },
+  "350119": {
+    "type": "Consumable",
+    "name": "奇巧零食",
+    "desc": "拖动到奇兽花园上使用，选择1个角色专属奇美拉，使其提升1星。\\n该道具使用后消失。",
+    "param_list": [],
+    "icon_path": "SpriteOutput/GridFight/Equipment/350119.png",
+    "consumable_rule": "UpgradeChimera",
+    "if_stack": true,
+    "if_consume": true
+  },
+  "353101": {
+    "type": "Equipment",
+    "name": "红烧狮子头",
+    "desc": "装备者受到攻击或消耗生命值后，该装备额外提供<unbreak>#2[i]</unbreak>点永久生命上限。\\n装备者的普攻/战技伤害增幅提高<unbreak>#3[i]%</unbreak>*【饭店星级】。\\n\\n<textswitch cond=traitlayer param=101202,4 type=graytohighlight>(4)黄金大饭店：永久成长生命值翻倍，当前已获得的成长值也会翻倍。</textswitch>",
+    "param_list": [
+      0.2,
+      5,
+      0.08
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/353101.png",
+    "tag_list": [
+      41,
+      21
+    ],
+    "category": "Food",
+    "general_property_list": [
+      {
+        "property_type": "ExtraHPAddedRatio1",
+        "value": 0.2,
+        "name": "生命增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      140402
+    ]
+  },
+  "353102": {
+    "type": "Equipment",
+    "name": "蝶豆糕",
+    "desc": "装备者及其忆灵获得<unbreak>#2[i]%</unbreak>+【饭店星级】*<unbreak>#3[i]%</unbreak>伤害增幅，并在消灭敌方目标后，为我方前台回复等同于自身生命上限<unbreak>#4[i]%</unbreak>的生命值。\\n\\n<textswitch cond=traitlayer param=101202,4 type=graytohighlight>(4)黄金大饭店：额外<unbreak>#5[i]%</unbreak>伤害增幅和<unbreak>#6[i]%</unbreak>生命上限回复。</textswitch>",
+    "param_list": [
+      0.2,
+      0.2,
+      0.06,
+      0.25,
+      0.6,
+      0.25
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/353102.png",
+    "tag_list": [
+      41
+    ],
+    "category": "Food",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.4,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.4,
+        "name": "后台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      140702
+    ]
+  },
+  "353103": {
+    "type": "Equipment",
+    "name": "迷境烤红薯",
+    "desc": "进入新节点时吃1口红薯，获得<unbreak>#2[i]</unbreak>经验并回复<unbreak>#3[i]</unbreak>点小队生命值，可吃<unbreak>#4[i]</unbreak>口，进入奖励节点时重置。\\n战斗中，装备者及其忆灵对我方目标施放技能时，使其获得<unbreak>#5[i]%</unbreak>+<unbreak>#6[i]%</unbreak>*【饭店星级】的伤害增幅，持续<unbreak>#9[i]</unbreak>回合。\\n\\n<textswitch cond=traitlayer param=101202,4 type=graytohighlight>(4)黄金大饭店：改为获得<unbreak>#7[i]</unbreak>经验和<unbreak>#8[i]</unbreak>小队生命值，红薯可以一直吃！</textswitch>",
+    "param_list": [
+      0.2,
+      2,
+      2,
+      3,
+      0.2,
+      0.04,
+      4,
+      4,
+      3
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/353103.png",
+    "tag_list": [
+      41,
+      3
+    ],
+    "category": "Food",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.2,
+        "name": "速度增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      141502
+    ]
+  },
+  "353104": {
+    "type": "Equipment",
+    "name": "救世烩面",
+    "desc": "装备者在前台时，获得<unbreak>#2[i]%</unbreak>+【饭店星级】*<unbreak>#3[i]%</unbreak>前台强度。\\n装备者在后台时，为我方小队提供<unbreak>#4[i]%</unbreak>+【饭店星级】*<unbreak>#5[i]%</unbreak>伤害增幅。\\n\\n<textswitch cond=traitlayer param=101202,4 type=graytohighlight>(4)黄金大饭店：装备效果乘以等同于装备者费用的倍数。</textswitch>",
+    "param_list": [
+      0.2,
+      0.2,
+      0.06,
+      0.08,
+      0.02
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/353104.png",
+    "tag_list": [
+      41,
+      43
+    ],
+    "category": "Food",
+    "general_property_list": [
+      {
+        "property_type": "ExtraLuckChance",
+        "value": 0.2,
+        "name": "幸运一击率"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      140802
+    ]
+  },
+  "353105": {
+    "type": "Equipment",
+    "name": "明星苏乐达",
+    "desc": "装备者获得<unbreak>#2[i]%</unbreak>+<unbreak>#3[i]%</unbreak>*【饭店星级】的伤害增幅。\\n若装备者为1/2费角色，进入新节点时有<unbreak>#4[i]%</unbreak>概率获得自身的1星复制。\\n\\n<textswitch cond=traitlayer param=101202,4 type=graytohighlight>(4)黄金大饭店：若装备者为3星角色，获得<unbreak>#5[i]%</unbreak>伤害增幅。</textswitch>",
+    "param_list": [
+      0.2,
+      0.2,
+      0.06,
+      0.5,
+      0.8
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/353105.png",
+    "tag_list": [
+      41,
+      44
+    ],
+    "category": "Food",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.2,
+        "name": "速度增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      140402
+    ]
+  },
+  "353106": {
+    "type": "Equipment",
+    "name": "欢聚套餐",
+    "desc": "装备者获得<unbreak>#2[i]%</unbreak>幸运一击率，我方小队获得<unbreak>#3[f1]%</unbreak>*【饭店星级】的幸运一击率。\\n\\n<textswitch cond=traitlayer param=101202,4 type=graytohighlight>(4)黄金大饭店：激活4人口及以上羁绊的我方角色，获得<unbreak>#4[i]%</unbreak>幸运一击伤害</textswitch>",
+    "param_list": [
+      0.2,
+      0.2,
+      0.025,
+      0.6
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/353106.png",
+    "tag_list": [
+      41,
+      8
+    ],
+    "category": "Food",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.2,
+        "name": "速度增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      140702,
+      140802,
+      140402,
+      141502
+    ]
+  },
+  "47030101": {
+    "type": "Equipment",
+    "name": "反重力皮靴",
+    "desc": "装备者的每个回合开始时，速度增幅提高<unbreak>#2[i]%</unbreak>，可叠加。",
+    "param_list": [
+      0.25,
+      0.12
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030101.png",
+    "tag_list": [
+      6,
+      11
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.25,
+        "name": "速度增幅"
+      }
+    ],
+    "craft": [
+      350201,
+      350201
+    ],
+    "recommend": [
+      140202,
+      150202,
+      151102,
+      131502,
+      110302,
+      131002
+    ]
+  },
+  "47030102": {
+    "type": "Equipment",
+    "name": "火力风暴潮",
+    "desc": "装备者每次攻击后，前/后台强度提高<unbreak>#3[i]%</unbreak>，可叠加。",
+    "param_list": [
+      0.1,
+      0.25,
+      0.06
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030102.png",
+    "tag_list": [
+      11,
+      1
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.1,
+        "name": "速度增幅"
+      },
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.25,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.25,
+        "name": "后台强度"
+      }
+    ],
+    "craft": [
+      350201,
+      350202
+    ],
+    "recommend": [
+      150402,
+      150602,
+      100502,
+      111202,
+      121402,
+      151302
+    ]
+  },
+  "47030508": {
+    "type": "Equipment",
+    "name": "绝对热量",
+    "desc": "我方小队行动时回复等同于装备者<unbreak>#3[i]%</unbreak>生命上限的生命值，装备者施放终结技后，恢复<unbreak>#4[i]</unbreak>点能量。（唯一装备）",
+    "param_list": [
+      0.15,
+      20,
+      0.12,
+      10
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030508.png",
+    "tag_list": [
+      26,
+      7
+    ],
+    "category": "Craftable",
+    "general_property_list": [
+      {
+        "property_type": "ExtraHPAddedRatio1",
+        "value": 0.15,
+        "name": "生命增幅"
+      },
+      {
+        "property_type": "ExtraInitSP",
+        "value": 20,
+        "name": "初始能量"
+      }
+    ],
+    "craft": [
+      350208,
+      350205
+    ],
+    "recommend": [
+      110502,
+      120302,
+      121702,
+      121802,
+      122202,
+      141402
+    ]
+  },
+  "47040101": {
+    "type": "Equipment",
+    "name": "反重力皮靴·特权",
+    "desc": "装备者的每个回合开始时，速度增幅提高<unbreak>#2[i]%</unbreak>，可叠加。",
+    "param_list": [
+      0.5,
+      0.24,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030101.png",
+    "tag_list": [
+      6,
+      11
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.5,
+        "name": "速度增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      1402,
+      1502,
+      151102,
+      131502,
+      110302,
+      131002
+    ]
+  },
+  "47040102": {
+    "type": "Equipment",
+    "name": "火力风暴潮·特权",
+    "desc": "装备者每次攻击后，前/后台强度提高<unbreak>#3[i]%</unbreak>，可叠加。",
+    "param_list": [
+      0.2,
+      0.5,
+      0.12,
+      0,
+      0,
+      0,
+      0
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030102.png",
+    "tag_list": [
+      11,
+      1
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.2,
+        "name": "速度增幅"
+      },
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.5,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.5,
+        "name": "后台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      150402,
+      150602,
+      100502,
+      111202,
+      121402,
+      151302
+    ]
+  },
+  "47040508": {
+    "type": "Equipment",
+    "name": "绝对热量·特权",
+    "desc": "我方小队行动时回复等同于装备者<unbreak>#3[i]%</unbreak>生命上限的生命值，装备者施放终结技后，恢复<unbreak>#4[i]</unbreak>点能量。（唯一装备）",
+    "param_list": [
+      0.3,
+      40,
+      0.24,
+      20,
+      0,
+      0,
+      0
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/35030508.png",
+    "tag_list": [
+      26,
+      7
+    ],
+    "category": "Radiant",
+    "general_property_list": [
+      {
+        "property_type": "ExtraHPAddedRatio1",
+        "value": 0.3,
+        "name": "生命增幅"
+      },
+      {
+        "property_type": "ExtraInitSP",
+        "value": 40,
+        "name": "初始能量"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      110502,
+      120302,
+      121702,
+      121802,
+      122202,
+      141402
+    ]
+  },
+  "353004": {
+    "type": "Equipment",
+    "name": "战技点奖券",
+    "desc": "消耗战技点时，该角色随机从以下效果中获得一项：\\n1）获得5%普攻/战技伤害增幅，持续1回合。\\n2）获得<unbreak>20%</unbreak>普攻/战技伤害增幅，持续1回合。\\n3）获得2战技点和1个额外回合。\\n4）获得1金币。",
+    "param_list": [
+      0.05,
+      0.2,
+      75,
+      20,
+      4,
+      1,
+      2
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/353004.png",
+    "tag_list": [
+      41
+    ],
+    "category": "SpotLightEquip",
+    "general_property_list": [],
+    "craft": [],
+    "recommend": []
+  },
+  "353005": {
+    "type": "Equipment",
+    "name": "坍缩奇点",
+    "desc": "提供大量属性提升，完美通关战斗后，提高<unbreak>#7[i]%</unbreak>属性加成；战斗失败后，降低<unbreak>#8[i]%</unbreak>属性加成。",
+    "param_list": [
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.02,
+      0.05
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/353005.png",
+    "tag_list": [
+      1
+    ],
+    "category": "Other",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.1,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.1,
+        "name": "速度增幅"
+      },
+      {
+        "property_type": "ExtraAllDamageTypeAddedRatio1",
+        "value": 0.1,
+        "name": "伤害增幅"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.1,
+        "name": "后台强度"
+      },
+      {
+        "property_type": "ExtraLuckChance",
+        "value": 0.1,
+        "name": "幸运一击率"
+      },
+      {
+        "property_type": "ExtraLuckDamage",
+        "value": 0.1,
+        "name": "幸运一击伤害"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "353201": {
+    "type": "Equipment",
+    "name": "超载能源模块",
+    "desc": "仅限帕姆王穿戴，用于造成真实伤害的伤害记录比例提高<unbreak>#2[i]%</unbreak>，并在行动后回复<unbreak>#3[i]</unbreak>点能量。\\n进入新节点时，根据【帕姆王】的星级获得<unbreak>#4[i]</unbreak>/<unbreak>#5[i]</unbreak>/<unbreak>#6[i]</unbreak>【开拓力】。",
+    "param_list": [
+      0.2,
+      0.2,
+      10,
+      10,
+      20,
+      100
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/353201.png",
+    "tag_list": [
+      41,
+      22
+    ],
+    "category": "Trailblaze",
+    "general_property_list": [
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.2,
+        "name": "后台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      604202
+    ]
+  },
+  "353202": {
+    "type": "Equipment",
+    "name": "进化改装模块",
+    "desc": "仅限帕姆王穿戴，进入战斗前，将穿戴的首件进阶装备临时变为特权装备。",
+    "param_list": [
+      0.2
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/353202.png",
+    "tag_list": [
+      41
+    ],
+    "category": "Trailblaze",
+    "general_property_list": [
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.2,
+        "name": "后台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      604202
+    ]
+  },
+  "353203": {
+    "type": "Equipment",
+    "name": "领航旗帜",
+    "desc": "装备者获得<unbreak>#2[i]%</unbreak>战技/终结技伤害增幅。施放战技后，装备者的终结技伤害增幅提高<unbreak>#3[i]%</unbreak>，最多<unbreak>#4[i]</unbreak>层，施放终结技后清空。",
+    "param_list": [
+      0.2,
+      0.3,
+      0.05,
+      6
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/353203.png",
+    "tag_list": [
+      41,
+      9
+    ],
+    "category": "Trailblaze",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.2,
+        "name": "前台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      151002
+    ]
+  },
+  "353204": {
+    "type": "Equipment",
+    "name": "击云掣电",
+    "desc": "装备者获得<unbreak>#2[i]%</unbreak>普攻伤害增幅，每消耗1个战技点，使下一次普攻额外获得<unbreak>#3[i]%</unbreak>幸运一击伤害，最多<unbreak>#4[i]%</unbreak>。",
+    "param_list": [
+      0.2,
+      0.3,
+      0.1,
+      0.3
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/353204.png",
+    "tag_list": [
+      41,
+      15
+    ],
+    "category": "Trailblaze",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.2,
+        "name": "前台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      121302
+    ]
+  },
+  "353205": {
+    "type": "Equipment",
+    "name": "无名的证明",
+    "desc": "大幅度提高前/后台强度，装备者的攻击可【斩杀】生命值百分比低于<unbreak>#2[i]%</unbreak>的敌方目标。",
+    "param_list": [
+      0.5,
+      0.12
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/353205.png",
+    "tag_list": [
+      41,
+      45
+    ],
+    "category": "Trailblaze",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.5,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraBackPowerAddedRatio1",
+        "value": 0.5,
+        "name": "后台强度"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      121302,
+      151002,
+      122402,
+      100402
+    ]
+  },
+  "353206": {
+    "type": "Equipment",
+    "name": "开拓的鸣笛",
+    "desc": "装备者施放终结技后，召唤【星穹列车】撞击敌方全体目标，造成基于当前列车等级的伤害。\\n【光轨】：使我方小队前/后台强度提高<unbreak>#3[i]%</unbreak>。\\n激活【光轨】机制：列车撞击后提供1层【光轨】。获得<unbreak>#2[i]</unbreak>层【光轨】上限，上限可与同类效果叠加。",
+    "param_list": [
+      0.1,
+      2,
+      0.3
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/353206.png",
+    "tag_list": [
+      41,
+      9
+    ],
+    "category": "Trailblaze",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.1,
+        "name": "速度增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      131302,
+      800902,
+      100402,
+      151002
+    ]
+  },
+  "353301": {
+    "type": "Equipment",
+    "name": "数据拷贝仪LV.1",
+    "desc": "装备者每参与#1场战斗，获得自身的一个1星复制。\\n任意方式获得装备者时，也有<unbreak>#3[i]%</unbreak>概率获得自身的一个1星复制。",
+    "param_list": [
+      3,
+      0,
+      0.3
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352301.png",
+    "tag_list": [
+      41,
+      44
+    ],
+    "category": "Hack",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.1,
+        "name": "速度增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      150602
+    ]
+  },
+  "353302": {
+    "type": "Equipment",
+    "name": "病毒防火墙LV.1",
+    "desc": "所有敌人陷入【脆弱】：受到的伤害提高<unbreak>#1[i]%</unbreak>。",
+    "param_list": [
+      0.35
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352302.png",
+    "tag_list": [
+      41,
+      13
+    ],
+    "category": "Hack",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.1,
+        "name": "速度增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      150602
+    ]
+  },
+  "353303": {
+    "type": "Equipment",
+    "name": "破解芯片LV.1",
+    "desc": "装备者每参与2场战斗，使1个后续随机非奖励节点变为弱化状态。\\n该效果可生效2次。",
+    "param_list": [
+      1,
+      0.1,
+      0.1,
+      0.1
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352303.png",
+    "tag_list": [
+      41,
+      46
+    ],
+    "category": "Hack",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.1,
+        "name": "速度增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      150602
+    ]
+  },
+  "353304": {
+    "type": "Equipment",
+    "name": "炫酷墨镜LV.1",
+    "desc": "解锁更高【隐藏分】档位上限。【隐藏分】达到#1/<unbreak>#2[i]</unbreak>点后，伤害增幅提高<unbreak>#4[i]%</unbreak>/<unbreak>#5[i]%</unbreak>。",
+    "param_list": [
+      180,
+      240,
+      300,
+      0.15,
+      0.3,
+      0.45
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352405.png",
+    "tag_list": [
+      41
+    ],
+    "category": "Hack",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.1,
+        "name": "速度增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      150602
+    ]
+  },
+  "353401": {
+    "type": "Equipment",
+    "name": "数据拷贝仪LV.2",
+    "desc": "装备者每参与#1场战斗，获得自身的一个1星复制。\\n任意方式获得装备者时，也有<unbreak>#3[i]%</unbreak>概率获得自身的一个1星复制。",
+    "param_list": [
+      3,
+      0.2,
+      0.45
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352301.png",
+    "tag_list": [
+      41,
+      44
+    ],
+    "category": "Hack",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.2,
+        "name": "速度增幅"
+      },
+      {
+        "property_type": "ExtraAllDamageTypeAddedRatio1",
+        "value": 0.2,
+        "name": "伤害增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      150602
+    ]
+  },
+  "353402": {
+    "type": "Equipment",
+    "name": "病毒防火墙LV.2",
+    "desc": "所有敌人陷入【超级脆弱】：受到的伤害提高<unbreak>#1[i]%</unbreak>。",
+    "param_list": [
+      0.6
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352302.png",
+    "tag_list": [
+      41,
+      13
+    ],
+    "category": "Hack",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.2,
+        "name": "速度增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      150602
+    ]
+  },
+  "353403": {
+    "type": "Equipment",
+    "name": "破解芯片LV.2",
+    "desc": "装备者每参与2场战斗，使1个后续随机非奖励节点变为弱化状态：敌人的生命上限降低<unbreak>#2[i]%</unbreak>，伤害降低<unbreak>#3[i]%</unbreak>，速度降低<unbreak>#4[i]%</unbreak>。",
+    "param_list": [
+      1,
+      0.15,
+      0.15,
+      0.15
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352303.png",
+    "tag_list": [
+      41,
+      46
+    ],
+    "category": "Hack",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.2,
+        "name": "速度增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      150602
+    ]
+  },
+  "353404": {
+    "type": "Equipment",
+    "name": "炫酷墨镜LV.2",
+    "desc": "解锁更高【隐藏分】档位上限。【隐藏分】达到#1/#2/<unbreak>#3[i]</unbreak>点后，伤害增幅提高<unbreak>#4[i]%</unbreak>/<unbreak>#5[i]%</unbreak>/<unbreak>#6[i]%</unbreak>。",
+    "param_list": [
+      180,
+      240,
+      300,
+      0.2,
+      0.4,
+      0.6
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352405.png",
+    "tag_list": [
+      41
+    ],
+    "category": "Hack",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.2,
+        "name": "速度增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      150602
+    ]
+  },
+  "353501": {
+    "type": "Equipment",
+    "name": "数据拷贝仪LV.3",
+    "desc": "装备者每参与#1场战斗，获得随机队友的一个1星复制。",
+    "param_list": [
+      1,
+      0.4
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352301.png",
+    "tag_list": [
+      41,
+      44
+    ],
+    "category": "Hack",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.4,
+        "name": "速度增幅"
+      },
+      {
+        "property_type": "ExtraAllDamageTypeAddedRatio1",
+        "value": 0.4,
+        "name": "伤害增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      150602
+    ]
+  },
+  "353502": {
+    "type": "Equipment",
+    "name": "病毒防火墙LV.3",
+    "desc": "所有敌人陷入【超级脆弱】和【超级虚弱】：受到的伤害提高<unbreak>#1[i]%</unbreak>，造成的伤害降低<unbreak>#2[i]%</unbreak>。",
+    "param_list": [
+      0.7,
+      0.3
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352302.png",
+    "tag_list": [
+      41,
+      47
+    ],
+    "category": "Hack",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.4,
+        "name": "速度增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      150602
+    ]
+  },
+  "353503": {
+    "type": "Equipment",
+    "name": "破解芯片LV.3",
+    "desc": "获得该改件时，会使所有节点变为弱化状态：敌人的生命上限降低<unbreak>#2[i]%</unbreak>，伤害降低<unbreak>#3[i]%</unbreak>，速度降低<unbreak>#4[i]%</unbreak>。",
+    "param_list": [
+      1,
+      0.25,
+      0.25,
+      0.25
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352303.png",
+    "tag_list": [
+      41,
+      46
+    ],
+    "category": "Hack",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.4,
+        "name": "速度增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      150602
+    ]
+  },
+  "353504": {
+    "type": "Equipment",
+    "name": "炫酷墨镜LV.3",
+    "desc": "解锁更高【隐藏分】档位上限。【隐藏分】达到#1/#2/<unbreak>#3[i]</unbreak>点后，伤害增幅提高<unbreak>#4[i]%</unbreak>/<unbreak>#5[i]%</unbreak>/<unbreak>#6[i]%</unbreak>。",
+    "param_list": [
+      180,
+      240,
+      300,
+      0.25,
+      0.5,
+      0.75
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352405.png",
+    "tag_list": [
+      41
+    ],
+    "category": "Hack",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.4,
+        "name": "速度增幅"
+      },
+      {
+        "property_type": "ExtraLuckDamage",
+        "value": 0.4,
+        "name": "幸运一击伤害"
+      }
+    ],
+    "craft": [],
+    "recommend": [
+      150602
+    ]
+  },
+  "353601": {
+    "type": "Equipment",
+    "name": "管理员手⬛？！",
+    "desc": "<color=#f29e38ff>打个响指，你将有限地接管（？）整场货币战争。</color>",
+    "param_list": [
+      0.99,
+      0.99,
+      0.99,
+      0.99,
+      0.99,
+      0.99
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352507.png",
+    "tag_list": [
+      41
+    ],
+    "category": "Hack",
+    "general_property_list": [
+      {
+        "property_type": "ExtraFrontPowerAddedRatio1",
+        "value": 0.99,
+        "name": "前台强度"
+      },
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.99,
+        "name": "速度增幅"
+      },
+      {
+        "property_type": "ExtraAllDamageTypeAddedRatio1",
+        "value": 0.99,
+        "name": "伤害增幅"
+      },
+      {
+        "property_type": "ExtraAllDamageReduce",
+        "value": 0.99,
+        "name": "伤害减免"
+      },
+      {
+        "property_type": "ExtraLuckChance",
+        "value": 0.99,
+        "name": "幸运一击率"
+      },
+      {
+        "property_type": "ExtraLuckDamage",
+        "value": 0.99,
+        "name": "幸运一击伤害"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "353405": {
+    "type": "Equipment",
+    "name": "扑满病毒",
+    "desc": "在非首领节点战斗中，敌人有概率变成扑满，扑满被击杀后会掉落奖励。",
+    "param_list": [
+      0.15
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352304.png",
+    "tag_list": [
+      41,
+      28
+    ],
+    "category": "Hack",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.2,
+        "name": "速度增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "353406": {
+    "type": "Equipment",
+    "name": "欢愉卡带",
+    "desc": "欢愉度提高<unbreak>#1[i]%</unbreak>，欢愉伤害增幅提高<unbreak>#2[i]%</unbreak>。",
+    "param_list": [
+      0.4,
+      0.2
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352402.png",
+    "tag_list": [
+      41,
+      1
+    ],
+    "category": "Hack",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.2,
+        "name": "速度增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "353407": {
+    "type": "Equipment",
+    "name": "幻月游戏卡带",
+    "desc": "装备者每参与2场战斗，获得1个随机3费及以下【幻月游戏】角色。",
+    "param_list": [],
+    "icon_path": "SpriteOutput/GridFight/Equipment/353407.png",
+    "tag_list": [
+      41,
+      28
+    ],
+    "category": "Hack",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.2,
+        "name": "速度增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "353408": {
+    "type": "Equipment",
+    "name": "星核猎手卡带",
+    "desc": "小队每穿戴1件【剧本装备】，银狼获得<unbreak>#1[i]%</unbreak>前台强度。",
+    "param_list": [
+      0.12
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352404.png",
+    "tag_list": [
+      41,
+      1
+    ],
+    "category": "Hack",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.2,
+        "name": "速度增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "353505": {
+    "type": "Equipment",
+    "name": "扑满病毒+",
+    "desc": "在非首领节点战斗中，敌人有更高概率变成扑满，扑满被击杀后会掉落奖励。",
+    "param_list": [
+      0.15,
+      0.15
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352304.png",
+    "tag_list": [
+      41,
+      28
+    ],
+    "category": "Hack",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.4,
+        "name": "速度增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "353506": {
+    "type": "Equipment",
+    "name": "欢愉卡带+",
+    "desc": "欢愉羁绊+1。欢愉度提高<unbreak>#1[i]%</unbreak>，欢愉伤害增幅提高<unbreak>#2[i]%</unbreak>。",
+    "param_list": [
+      0.6,
+      0.3
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352402.png",
+    "tag_list": [
+      41,
+      29
+    ],
+    "category": "Hack",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.4,
+        "name": "速度增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "353507": {
+    "type": "Equipment",
+    "name": "幻月游戏卡带+",
+    "desc": "幻月游戏羁绊+1。装备者每参与2场战斗，获得1个随机【幻月游戏】角色。",
+    "param_list": [],
+    "icon_path": "SpriteOutput/GridFight/Equipment/353407.png",
+    "tag_list": [
+      41,
+      29
+    ],
+    "category": "Hack",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.4,
+        "name": "速度增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  },
+  "353508": {
+    "type": "Equipment",
+    "name": "星核猎手卡带+",
+    "desc": "星核猎手羁绊+1。小队每穿戴1件【剧本装备】，银狼获得<unbreak>#1[i]%</unbreak>前台强度。",
+    "param_list": [
+      0.18
+    ],
+    "icon_path": "SpriteOutput/GridFight/Equipment/352404.png",
+    "tag_list": [
+      41,
+      29
+    ],
+    "category": "Hack",
+    "general_property_list": [
+      {
+        "property_type": "ExtraSpeedAddedRatio1",
+        "value": 0.4,
+        "name": "速度增幅"
+      }
+    ],
+    "craft": [],
+    "recommend": []
+  }
+}

@@ -1,0 +1,6264 @@
+{
+  "100101": {
+    "id": 100101,
+    "category_id": 1,
+    "quality": "Silver",
+    "name": "特战资金",
+    "desc": "进入首领节点时，获得<unbreak>#1[i]</unbreak>枚金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/100101.png",
+    "param_list": [
+      7
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "100102": {
+    "id": 100102,
+    "category_id": 1,
+    "quality": "Silver",
+    "name": "特战资金+",
+    "desc": "进入首领节点时，获得<unbreak>#1[i]</unbreak>枚金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/100101.png",
+    "param_list": [
+      11
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "100201": {
+    "id": 100201,
+    "category_id": 2,
+    "quality": "Silver",
+    "name": "经验到账",
+    "desc": "获得<unbreak>#1[i]</unbreak>经验值。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/100201.png",
+    "param_list": [
+      10
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "100301": {
+    "id": 100301,
+    "category_id": 3,
+    "quality": "Silver",
+    "name": "免费午餐",
+    "desc": "获得<unbreak>#1[i]</unbreak>次免费刷新。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/100301.png",
+    "param_list": [
+      11
+    ],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "100401": {
+    "id": 100401,
+    "category_id": 4,
+    "quality": "Silver",
+    "name": "二费援军",
+    "desc": "获得<unbreak>#1[i]</unbreak>个随机<color=#6cce9f>2费角色</color>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/100401.png",
+    "param_list": [
+      4
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "100402": {
+    "id": 100402,
+    "category_id": 4,
+    "quality": "Silver",
+    "name": "三费援军",
+    "desc": "获得<unbreak>#1[i]</unbreak>个随机<color=#7196ff>3费角色</color>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/100402.png",
+    "param_list": [
+      4
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "100403": {
+    "id": 100403,
+    "category_id": 4,
+    "quality": "Silver",
+    "name": "四费援军",
+    "desc": "获得<unbreak>#1[i]</unbreak>个随机<color=#927fe7>4费角色</color>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/100403.png",
+    "param_list": [
+      4
+    ],
+    "chapter_limit_list": [
+      3
+    ]
+  },
+  "100501": {
+    "id": 100501,
+    "category_id": 5,
+    "quality": "Silver",
+    "name": "存款回报",
+    "desc": "每次进入新节点时，如果在上个节点没有花费金币，则获得<unbreak>#1[i]</unbreak>次免费刷新。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/100501.png",
+    "param_list": [
+      2
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "100601": {
+    "id": 100601,
+    "category_id": 6,
+    "quality": "Silver",
+    "name": "尾款交付",
+    "desc": "进入最后一个补给阶段后，获得#1金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/100601.png",
+    "param_list": [
+      30
+    ],
+    "chapter_limit_list": [
+      1,
+      2
+    ]
+  },
+  "100701": {
+    "id": 100701,
+    "category_id": 7,
+    "quality": "Silver",
+    "name": "打捞人才库",
+    "desc": "每次进入补给阶段后，随机获得一个未被选择的角色及其携带的装备。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/100701.png",
+    "param_list": [],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "100702": {
+    "id": 100702,
+    "category_id": 8,
+    "quality": "Silver",
+    "name": "打捞人才库+",
+    "desc": "每次进入补给阶段后，随机获得一个未被选择的角色及其携带的装备。获得#1个随机简易装备和#2金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/100701.png",
+    "param_list": [
+      1,
+      4
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "100901": {
+    "id": 100901,
+    "category_id": 9,
+    "quality": "Silver",
+    "name": "胜利，还是胜利",
+    "desc": "使当前连胜数变为#1。获得#2金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/100901.png",
+    "param_list": [
+      4,
+      4
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "101001": {
+    "id": 101001,
+    "category_id": 10,
+    "quality": "Silver",
+    "name": "全队的希望",
+    "desc": "处在前台1号位的我方角色获得<unbreak>#1[i]%</unbreak>伤害增幅和<unbreak>#2[i]%</unbreak>生命增幅。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/101001.png",
+    "param_list": [
+      0.15,
+      0.15
+    ],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "101101": {
+    "id": 101101,
+    "category_id": 11,
+    "quality": "Silver",
+    "name": "黄金期货",
+    "desc": "#1个节点后，进行一次不能刷新的黄金投资策略三选一。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/101101.png",
+    "param_list": [
+      5
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "101201": {
+    "id": 101201,
+    "category_id": 12,
+    "quality": "Silver",
+    "name": "返利",
+    "desc": "每购买#1个<color=#ffd471>5费角色</color>，获得#2金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/101201.png",
+    "param_list": [
+      3,
+      3
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "101301": {
+    "id": 101301,
+    "category_id": 13,
+    "quality": "Silver",
+    "name": "规模效应",
+    "desc": "首次拥有#1个一样的角色时，获得#2个【<gridfightinfo type=item id=350106>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/101301.png",
+    "param_list": [
+      8,
+      1
+    ],
+    "chapter_limit_list": [
+      1,
+      2
+    ]
+  },
+  "101401": {
+    "id": 101401,
+    "category_id": 14,
+    "quality": "Silver",
+    "name": "军火贸易",
+    "desc": "获得#1个【<gridfightinfo type=item id=99999>】，获得#2金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/101401.png",
+    "param_list": [
+      1,
+      4
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "101402": {
+    "id": 101402,
+    "category_id": 14,
+    "quality": "Silver",
+    "name": "军火贸易+",
+    "desc": "获得#1个【<gridfightinfo type=item id=99999>】，获得#2金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/101401.png",
+    "param_list": [
+      1,
+      8
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "101601": {
+    "id": 101601,
+    "category_id": 15,
+    "quality": "Silver",
+    "name": "人才激励",
+    "desc": "获得#1个【<gridfightinfo type=item id=350105>】，#2个节点后，获得#3个【<gridfightinfo type=item id=350105>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/101601.png",
+    "param_list": [
+      1,
+      4,
+      1
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "101602": {
+    "id": 101602,
+    "category_id": 15,
+    "quality": "Silver",
+    "name": "人才激励+",
+    "desc": "获得#1个【<gridfightinfo type=item id=350105>】，#2个节点后，获得#3个【<gridfightinfo type=item id=350105>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/101601.png",
+    "param_list": [
+      1,
+      3,
+      1
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "101701": {
+    "id": 101701,
+    "category_id": 1,
+    "quality": "Silver",
+    "name": "成长基金",
+    "desc": "在你到达9级时，提供#1金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/101701.png",
+    "param_list": [
+      36
+    ],
+    "chapter_limit_list": [
+      1,
+      2
+    ]
+  },
+  "101801": {
+    "id": 101801,
+    "category_id": 1,
+    "quality": "Silver",
+    "name": "武力刷新",
+    "desc": "合成装备时，获得#1次刷新。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/101801.png",
+    "param_list": [
+      2
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "101901": {
+    "id": 101901,
+    "category_id": 1,
+    "quality": "Silver",
+    "name": "节省工位",
+    "desc": "在接下来#1个节点只有#2个备战席位置。随后，获得#2件简易装备。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/101901.png",
+    "param_list": [
+      3,
+      3,
+      2
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "102001": {
+    "id": 102001,
+    "category_id": 3,
+    "quality": "Silver",
+    "name": "躺平",
+    "desc": "你无法在商店购买角色和刷新，持续<unbreak>#1[i]</unbreak>个节点。在此之后，获得<unbreak>#2[i]</unbreak>金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/101901.png",
+    "param_list": [
+      3,
+      20
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "102101": {
+    "id": 102101,
+    "category_id": 4,
+    "quality": "Silver",
+    "name": "公司人才流动",
+    "desc": "每次进入新节点时，处在备战席最右侧3个位置的角色变为随机的同费用角色。获得#1金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/102101.png",
+    "param_list": [
+      2
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "102201": {
+    "id": 102201,
+    "category_id": 4,
+    "quality": "Silver",
+    "name": "市场干预",
+    "desc": "下一次和每#1次商店刷新都将是全<color=#7196ff>#2费角色</color>。获得#3次刷新。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/102201.png",
+    "param_list": [
+      4,
+      3,
+      5
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "102301": {
+    "id": 102301,
+    "category_id": 4,
+    "quality": "Silver",
+    "name": "恢复生机",
+    "desc": "最终首领战结束时，回复#1点小队生命值。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/102301.png",
+    "param_list": [
+      40
+    ],
+    "chapter_limit_list": [
+      3
+    ]
+  },
+  "102401": {
+    "id": 102401,
+    "category_id": 5,
+    "quality": "Silver",
+    "name": "扩充团队",
+    "desc": "获得#1个<color=#b4b4b4>1费角色</color>，#2个<color=#6cce9f>2费角色</color>和#3个<color=#7196ff>3费角色</color>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/102401.png",
+    "param_list": [
+      2,
+      2,
+      1
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "102501": {
+    "id": 102501,
+    "category_id": 6,
+    "quality": "Silver",
+    "name": "武装支援",
+    "desc": "获得#1件随机简易装备和#2个随机<color=#7196ff>3费角色</color>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/102501.png",
+    "param_list": [
+      1,
+      2
+    ],
+    "chapter_limit_list": [
+      1,
+      2
+    ]
+  },
+  "102502": {
+    "id": 102502,
+    "category_id": 7,
+    "quality": "Silver",
+    "name": "武装支援+",
+    "desc": "获得#1件随机简易装备和#2个随机<color=#927fe7>4费角色</color>，获得#3金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/102501.png",
+    "param_list": [
+      1,
+      1,
+      6
+    ],
+    "chapter_limit_list": [
+      3
+    ]
+  },
+  "102601": {
+    "id": 102601,
+    "category_id": 8,
+    "quality": "Silver",
+    "name": "爆晶矿•银",
+    "desc": "我方小队消灭敌方目标时，有<unbreak>#1[i]%</unbreak>概率获得一个战利品晶矿。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/102601.png",
+    "param_list": [
+      0.2,
+      21006,
+      21007,
+      21008
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "110101": {
+    "id": 110101,
+    "category_id": 9,
+    "quality": "Silver",
+    "name": "买彩票",
+    "desc": "获得<unbreak>#1[i]</unbreak>个随机星徽。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/110101.png",
+    "param_list": [
+      1
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "110102": {
+    "id": 110102,
+    "category_id": 10,
+    "quality": "Silver",
+    "name": "买彩票+",
+    "desc": "获得<unbreak>#1[i]</unbreak>个随机星徽和<unbreak>#2[i]</unbreak>个【<gridfightinfo type=item id=350103>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/110101.png",
+    "param_list": [
+      1,
+      1
+    ],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "130101": {
+    "id": 130101,
+    "category_id": 11,
+    "quality": "Silver",
+    "name": "公司军火更新•银",
+    "desc": "每次进入新节点时，你物品栏里的装备变为同品质的其他装备。获得#1件随机简易装备。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/130101.png",
+    "param_list": [
+      1
+    ],
+    "chapter_limit_list": [
+      1,
+      2
+    ]
+  },
+  "130201": {
+    "id": 130201,
+    "category_id": 12,
+    "quality": "Silver",
+    "name": "许诺特权",
+    "desc": "在进入<unbreak>#1[i]</unbreak>个节点后，获得<unbreak>#2[i]</unbreak>个【<gridfightinfo type=item id=99997>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/130201.png",
+    "param_list": [
+      7,
+      1
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "130301": {
+    "id": 130301,
+    "category_id": 13,
+    "quality": "Silver",
+    "name": "赌神•银",
+    "desc": "获得一个【<gridfightinfo type=item id=35030404>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/130301.png",
+    "param_list": [],
+    "chapter_limit_list": [
+      1,
+      2
+    ]
+  },
+  "150101": {
+    "id": 150101,
+    "category_id": 14,
+    "quality": "Silver",
+    "name": "团队力量•银",
+    "desc": "每有一个已激活的非独立羁绊，小队就会获得<unbreak>#1[i]%</unbreak>前/后台强度。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/150101.png",
+    "param_list": [
+      0.03
+    ],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "150201": {
+    "id": 150201,
+    "category_id": 1,
+    "quality": "Silver",
+    "name": "应援团",
+    "desc": "进入战斗时，如果后排至少有4个角色，我方小队速度增幅提高<unbreak>#2[i]%</unbreak>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/150201.png",
+    "param_list": [
+      35402002,
+      0.15
+    ],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "150301": {
+    "id": 150301,
+    "category_id": 1,
+    "quality": "Silver",
+    "name": "正能量",
+    "desc": "进入战斗时，我方小队恢复等同于能量上限<unbreak>#2[i]%</unbreak>的能量。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/150301.png",
+    "param_list": [
+      35402003,
+      0.2
+    ],
+    "chapter_limit_list": []
+  },
+  "200201": {
+    "id": 200201,
+    "category_id": 2,
+    "quality": "Gold",
+    "name": "孪生素数",
+    "desc": "获得本投资策略后，首次购买1/2/3/4/5费角色时，获得<unbreak>#1[i]</unbreak>/<unbreak>#2[i]</unbreak>/<unbreak>#3[i]</unbreak>/<unbreak>#4[i]</unbreak>/<unbreak>#5[i]</unbreak>点经验值。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/200201.png",
+    "param_list": [
+      2,
+      3,
+      5,
+      7,
+      11
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "200301": {
+    "id": 200301,
+    "category_id": 3,
+    "quality": "Gold",
+    "name": "加油站",
+    "desc": "现在及每次进入新节点时获得<unbreak>#1[i]</unbreak>次免费刷新，立刻获得<unbreak>#2[i]</unbreak>金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/200301.png",
+    "param_list": [
+      1,
+      8
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "200401": {
+    "id": 200401,
+    "category_id": 4,
+    "quality": "Gold",
+    "name": "价值投资•金",
+    "desc": "获得1个随机的2星<color=#b4b4b4>1费角色</color>。每次进入新节点时，获得1星的该角色，补给后额外获得#1个，持续至本局游戏结束。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/200401.png",
+    "param_list": [
+      2
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "200501": {
+    "id": 200501,
+    "category_id": 5,
+    "quality": "Gold",
+    "name": "枪在手",
+    "desc": "立刻获得<unbreak>#1[i]</unbreak>件随机简易装备，首领战后，获得<unbreak>#2[i]</unbreak>件随机简易装备。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/200501.png",
+    "param_list": [
+      1,
+      1
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "200601": {
+    "id": 200601,
+    "category_id": 6,
+    "quality": "Gold",
+    "name": "小复制",
+    "desc": "获得#1个【<gridfightinfo type=item id=350105>】。获得#2金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/200601.png",
+    "param_list": [
+      2,
+      7
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "200602": {
+    "id": 200602,
+    "category_id": 6,
+    "quality": "Gold",
+    "name": "小复制+",
+    "desc": "获得#1个【<gridfightinfo type=item id=350105>】。获得#2金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/200601.png",
+    "param_list": [
+      2,
+      13
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "200701": {
+    "id": 200701,
+    "category_id": 7,
+    "quality": "Gold",
+    "name": "延迟收益",
+    "desc": "在战斗开始<unbreak>#2[i]</unbreak>行动值后，我方小队伤害增幅提高<unbreak>#3[i]%</unbreak>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/200701.png",
+    "param_list": [
+      35402004,
+      60,
+      0.4
+    ],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "200801": {
+    "id": 200801,
+    "category_id": 8,
+    "quality": "Gold",
+    "name": "市场活力",
+    "desc": "商店中有概率出现2星的1费或<color=#6cce9f>2费角色</color>，出现概率随等级提升。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/200801.png",
+    "param_list": [
+      0.08,
+      0.02
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "200901": {
+    "id": 200901,
+    "category_id": 9,
+    "quality": "Gold",
+    "name": "不要小看我们的羁绊",
+    "desc": "当你激活#1个羁绊并完成一场战斗后，进入节点时获得#2个随机星徽。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/200901.png",
+    "param_list": [
+      8,
+      5
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "201001": {
+    "id": 201001,
+    "category_id": 10,
+    "quality": "Gold",
+    "name": "星级压制",
+    "desc": "我方小队获得<unbreak>#2[i]%</unbreak>速度增幅，攻击星级低于自身的敌人后，额外造成1次等同于原伤害<unbreak>#3[i]%</unbreak>的真实伤害。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/201001.png",
+    "param_list": [
+      35402005,
+      0.1,
+      0.2
+    ],
+    "chapter_limit_list": []
+  },
+  "201101": {
+    "id": 201101,
+    "category_id": 11,
+    "quality": "Gold",
+    "name": "彩虹期货",
+    "desc": "#1个节点后，进行一次不能刷新的棱彩投资策略三选一。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/101101.png",
+    "param_list": [
+      5
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "201201": {
+    "id": 201201,
+    "category_id": 12,
+    "quality": "Gold",
+    "name": "采购专员•金",
+    "desc": "每#1次刷新，商店会刷出5张费用相同的角色，费用为你备战席最左侧角色的费用。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/201201.png",
+    "param_list": [
+      7
+    ],
+    "chapter_limit_list": []
+  },
+  "201301": {
+    "id": 201301,
+    "category_id": 13,
+    "quality": "Gold",
+    "name": "长期主义",
+    "desc": "现在及接下来#1次进入新节点时，每次获得#2金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/201301.png",
+    "param_list": [
+      3,
+      7
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "201302": {
+    "id": 201302,
+    "category_id": 14,
+    "quality": "Gold",
+    "name": "长期主义+",
+    "desc": "现在及接下来#1次进入新节点时，每次获得#2金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/201301.png",
+    "param_list": [
+      3,
+      9
+    ],
+    "chapter_limit_list": [
+      3
+    ]
+  },
+  "201501": {
+    "id": 201501,
+    "category_id": 15,
+    "quality": "Gold",
+    "name": "砂里淘金",
+    "desc": "合成#1星<color=#6cce9f>2费角色</color>时，获得#3张<color=#6cce9f>【<gridfightinfo type=role id=1304 color=rarity><name></gridfightinfo>】</color>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/201501.png",
+    "param_list": [
+      2,
+      2,
+      1
+    ],
+    "chapter_limit_list": [
+      1,
+      2
+    ]
+  },
+  "201601": {
+    "id": 201601,
+    "category_id": 16,
+    "quality": "Gold",
+    "name": "星变",
+    "desc": "战斗开始时，使一个随机#1费角色变为#2星。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/201601.png",
+    "param_list": [
+      1,
+      3
+    ],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "201701": {
+    "id": 201701,
+    "category_id": 17,
+    "quality": "Gold",
+    "name": "嘴硬",
+    "desc": "战斗失败时，受到的小队生命值伤害提高#1点，但能维持原来的连胜数。获得#2金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/201701.png",
+    "param_list": [
+      5,
+      6
+    ],
+    "chapter_limit_list": [
+      1,
+      2
+    ]
+  },
+  "201801": {
+    "id": 201801,
+    "category_id": 17,
+    "quality": "Gold",
+    "name": "固定理财",
+    "desc": "现在以及每个位面开始时，获得#1经验值和#2次免费刷新。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/201801.png",
+    "param_list": [
+      4,
+      2
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "201802": {
+    "id": 201802,
+    "category_id": 17,
+    "quality": "Gold",
+    "name": "固定理财+",
+    "desc": "现在以及每个位面开始时，获得#1经验值和#2次免费刷新。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/201801.png",
+    "param_list": [
+      6,
+      3
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "201901": {
+    "id": 201901,
+    "category_id": 17,
+    "quality": "Gold",
+    "name": "市场混乱",
+    "desc": "在奖励节点的备战阶段，你的商店每<unbreak>#1[i]</unbreak>秒进行一次强制刷新，持续#2次。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/201901.png",
+    "param_list": [
+      4,
+      7
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "210101": {
+    "id": 210101,
+    "category_id": 6,
+    "quality": "Gold",
+    "name": "列车同行星徽",
+    "desc": "获得#2个【<gridfightinfo type=item id=35051001>】，和#4个<color=#6cce9f>【<gridfightinfo type=role id=1213>】</color>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/210101.png",
+    "param_list": [
+      35051001,
+      1,
+      1213,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "210301": {
+    "id": 210301,
+    "category_id": 8,
+    "quality": "Gold",
+    "name": "银河学者星徽",
+    "desc": "获得#2个【<gridfightinfo type=item id=35051003>】，和#4个<color=#b4b4b4>【<gridfightinfo type=role id=1009>】</color>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/210301.png",
+    "param_list": [
+      35051003,
+      1,
+      1009,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "210501": {
+    "id": 210501,
+    "category_id": 10,
+    "quality": "Gold",
+    "name": "贝洛伯格星徽",
+    "desc": "获得#2个【<gridfightinfo type=item id=35051005>】，和#4个<color=#7196ff>【<gridfightinfo type=role id=1102>】</color>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/210501.png",
+    "param_list": [
+      35051005,
+      1,
+      1102,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "210601": {
+    "id": 210601,
+    "category_id": 11,
+    "quality": "Gold",
+    "name": "星间旅人星徽",
+    "desc": "获得#2个【<gridfightinfo type=item id=35051006>】，和#4个<color=#6cce9f>【<gridfightinfo type=role id=1302>】</color>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/210601.png",
+    "param_list": [
+      35051006,
+      1,
+      1302,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "210701": {
+    "id": 210701,
+    "category_id": 12,
+    "quality": "Gold",
+    "name": "仙舟星徽",
+    "desc": "获得#2个【<gridfightinfo type=item id=35051007>】，和#4个<color=#b4b4b4>【<gridfightinfo type=role id=1217>】</color>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/210701.png",
+    "param_list": [
+      35051007,
+      1,
+      1217,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "210801": {
+    "id": 210801,
+    "category_id": 13,
+    "quality": "Gold",
+    "name": "狼狩星徽",
+    "desc": "获得#2个【<gridfightinfo type=item id=35051008>】，和#4个<color=#b4b4b4>【<gridfightinfo type=role id=1218>】</color>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/210801.png",
+    "param_list": [
+      35051008,
+      1,
+      1218,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "211001": {
+    "id": 211001,
+    "category_id": 15,
+    "quality": "Gold",
+    "name": "盛会之星星徽",
+    "desc": "获得#2个【<gridfightinfo type=item id=35051010>】，和#4个<color=#6cce9f>【<gridfightinfo type=role id=1306>】</color>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/211001.png",
+    "param_list": [
+      35051010,
+      1,
+      1306,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "211101": {
+    "id": 211101,
+    "category_id": 16,
+    "quality": "Gold",
+    "name": "昼之半神星徽",
+    "desc": "获得#2个【<gridfightinfo type=item id=35051011>】，和#4个<color=#6cce9f>【<gridfightinfo type=role id=1409>】</color>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/211101.png",
+    "param_list": [
+      35051011,
+      1,
+      1409,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "211201": {
+    "id": 211201,
+    "category_id": 17,
+    "quality": "Gold",
+    "name": "夜之半神星徽",
+    "desc": "获得#2个【<gridfightinfo type=item id=35051012>】，和#4个<color=#b4b4b4>【<gridfightinfo type=role id=1404>】</color>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/211201.png",
+    "param_list": [
+      35051012,
+      1,
+      1404,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "220101": {
+    "id": 220101,
+    "category_id": 6,
+    "quality": "Gold",
+    "name": "追击星徽",
+    "desc": "获得#2个【<gridfightinfo type=item id=35052001>】，和#4个<color=#b4b4b4>【<gridfightinfo type=role id=1220>】</color>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/220101.png",
+    "param_list": [
+      35052001,
+      1,
+      1220,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "220201": {
+    "id": 220201,
+    "category_id": 7,
+    "quality": "Gold",
+    "name": "击破星徽",
+    "desc": "获得#2个【<gridfightinfo type=item id=35052002>】，和#4个<color=#6cce9f>【<gridfightinfo type=role id=1303>】</color>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/220201.png",
+    "param_list": [
+      35052002,
+      1,
+      1303,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "220301": {
+    "id": 220301,
+    "category_id": 8,
+    "quality": "Gold",
+    "name": "群攻星徽",
+    "desc": "获得#2个【<gridfightinfo type=item id=35052003>】，和#4个<color=#b4b4b4>【<gridfightinfo type=role id=1314>】</color>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/220301.png",
+    "param_list": [
+      35052003,
+      1,
+      1314,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "220401": {
+    "id": 220401,
+    "category_id": 9,
+    "quality": "Gold",
+    "name": "能量星徽",
+    "desc": "获得#2个【<gridfightinfo type=item id=35052004>】，和#4个<color=#7196ff>【<gridfightinfo type=role id=1313>】</color>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/220401.png",
+    "param_list": [
+      35052004,
+      1,
+      1313,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "220501": {
+    "id": 220501,
+    "category_id": 10,
+    "quality": "Gold",
+    "name": "治疗星徽",
+    "desc": "获得#2个【<gridfightinfo type=item id=35052005>】，和#4个<color=#6cce9f>【<gridfightinfo type=role id=1409>】</color>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/220501.png",
+    "param_list": [
+      35052005,
+      1,
+      1409,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "220601": {
+    "id": 220601,
+    "category_id": 11,
+    "quality": "Gold",
+    "name": "燃血星徽",
+    "desc": "获得#2个【<gridfightinfo type=item id=35052006>】，和#4个<color=#b4b4b4>【<gridfightinfo type=role id=1404>】</color>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/220601.png",
+    "param_list": [
+      35052006,
+      1,
+      1404,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "220701": {
+    "id": 220701,
+    "category_id": 12,
+    "quality": "Gold",
+    "name": "减益星徽",
+    "desc": "获得#2个【<gridfightinfo type=item id=35052007>】，和#4个<color=#7196ff>【<gridfightinfo type=role id=1308>】</color>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/220701.png",
+    "param_list": [
+      35052007,
+      1,
+      1308,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "220801": {
+    "id": 220801,
+    "category_id": 13,
+    "quality": "Gold",
+    "name": "持续伤害星徽",
+    "desc": "获得#2个【<gridfightinfo type=item id=35052008>】，和#4个<color=#6cce9f>【<gridfightinfo type=role id=1005>】</color>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/220801.png",
+    "param_list": [
+      35052008,
+      1,
+      1005,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "220901": {
+    "id": 220901,
+    "category_id": 14,
+    "quality": "Gold",
+    "name": "量子同频星徽",
+    "desc": "获得#2个【<gridfightinfo type=item id=35052009>】，和#4个<color=#7196ff>【<gridfightinfo type=role id=1102>】</color>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/220901.png",
+    "param_list": [
+      35052009,
+      1,
+      1102,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "221001": {
+    "id": 221001,
+    "category_id": 15,
+    "quality": "Gold",
+    "name": "护盾星徽",
+    "desc": "获得#2个【<gridfightinfo type=item id=35052010>】，和#4个<color=#6cce9f>【<gridfightinfo type=role id=1304>】</color>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/221001.png",
+    "param_list": [
+      35052010,
+      1,
+      1304,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "221101": {
+    "id": 221101,
+    "category_id": 16,
+    "quality": "Gold",
+    "name": "战技点星徽",
+    "desc": "获得#2个【<gridfightinfo type=item id=35052011>】，和#4个<color=#6cce9f>【<gridfightinfo type=role id=1213>】</color>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/221101.png",
+    "param_list": [
+      35052011,
+      1,
+      1213,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "230101": {
+    "id": 230101,
+    "category_id": 17,
+    "quality": "Gold",
+    "name": "幸运星祝福",
+    "desc": "获得1个【<gridfightinfo type=item id=350204>】。我方小队获得<unbreak>#2[i]%</unbreak>幸运一击率和<unbreak>#3[i]%</unbreak>速度增幅。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/230101.png",
+    "param_list": [
+      350204,
+      0.15,
+      0.05
+    ],
+    "chapter_limit_list": []
+  },
+  "230201": {
+    "id": 230201,
+    "category_id": 18,
+    "quality": "Gold",
+    "name": "折叠小刀祝福",
+    "desc": "获得1个【<gridfightinfo type=item id=350202>】。我方小队获得<unbreak>#2[i]%</unbreak>前台强度和<unbreak>#3[i]%</unbreak>伤害增幅。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/230201.png",
+    "param_list": [
+      350202,
+      0.3,
+      0.05
+    ],
+    "chapter_limit_list": []
+  },
+  "230301": {
+    "id": 230301,
+    "category_id": 19,
+    "quality": "Gold",
+    "name": "和平手枪祝福",
+    "desc": "获得1个【<gridfightinfo type=item id=350203>】。我方小队获得<unbreak>#2[i]%</unbreak>后台强度和<unbreak>#3[i]</unbreak>初始能量。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/230301.png",
+    "param_list": [
+      350203,
+      0.3,
+      15
+    ],
+    "chapter_limit_list": []
+  },
+  "230401": {
+    "id": 230401,
+    "category_id": 20,
+    "quality": "Gold",
+    "name": "生命之花祝福",
+    "desc": "获得1个【<gridfightinfo type=item id=350205>】。我方小队获得<unbreak>#2[i]%</unbreak>生命增幅和<unbreak>#3[i]%</unbreak>治疗强度。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/230401.png",
+    "param_list": [
+      350205,
+      0.15,
+      0.05
+    ],
+    "chapter_limit_list": []
+  },
+  "230501": {
+    "id": 230501,
+    "category_id": 21,
+    "quality": "Gold",
+    "name": "量产型装甲祝福",
+    "desc": "获得1个【<gridfightinfo type=item id=350206>】。我方小队获得<unbreak>#2[i]%</unbreak>伤害减免和<unbreak>#3[i]%</unbreak>护盾强度。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/230501.png",
+    "param_list": [
+      350206,
+      0.15,
+      0.05
+    ],
+    "chapter_limit_list": []
+  },
+  "300101": {
+    "id": 300101,
+    "category_id": 1,
+    "quality": "Prismatic",
+    "name": "开源节流",
+    "desc": "获得<unbreak>#1[i]</unbreak>金币，利息上限提升至<unbreak>#2[i]</unbreak>。进入新节点时，如果上个节点你没有花费金币，则可获得最大利息的金币数。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/300101.png",
+    "param_list": [
+      10,
+      9
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "300201": {
+    "id": 300201,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "商业间谍",
+    "desc": "购买经验的花费减#1，升级时刷新商店，并偷取其中最贵的#2个角色。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/300201.png",
+    "param_list": [
+      1,
+      3
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "300401": {
+    "id": 300401,
+    "category_id": 3,
+    "quality": "Prismatic",
+    "name": "概率事件",
+    "desc": "刷新时有<unbreak>#1[i]%</unbreak>概率获得一次免费刷新。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/300401.png",
+    "param_list": [
+      0.5
+    ],
+    "chapter_limit_list": [
+      1,
+      2
+    ]
+  },
+  "300501": {
+    "id": 300501,
+    "category_id": 4,
+    "quality": "Prismatic",
+    "name": "天降救兵",
+    "desc": "获得一个随机3星<color=#b4b4b4>1费角色</color>，获得#1个【<gridfightinfo type=item id=99999>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/300501.png",
+    "param_list": [
+      1
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "300601": {
+    "id": 300601,
+    "category_id": 5,
+    "quality": "Prismatic",
+    "name": "被动收入",
+    "desc": "每次进入新节点时获得经验，数值等同于你备战席最左侧角色的基础费用。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/300601.png",
+    "param_list": [],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "300701": {
+    "id": 300701,
+    "category_id": 6,
+    "quality": "Prismatic",
+    "name": "及时雨",
+    "desc": "获得#1个随机2星<color=#927fe7>4费角色</color>和#2个【<gridfightinfo type=item id=350106>】，获得#3次免费刷新。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/300701.png",
+    "param_list": [
+      3,
+      1,
+      4
+    ],
+    "chapter_limit_list": [
+      3
+    ]
+  },
+  "300801": {
+    "id": 300801,
+    "category_id": 1,
+    "quality": "Prismatic",
+    "name": "利息上调",
+    "desc": "获得#1金币。你的最大利息提升至#2金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/300801.png",
+    "param_list": [
+      25,
+      10
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "300901": {
+    "id": 300901,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "买断制",
+    "desc": "你不再获得利息。即刻获得#1金币。每次进入新节点时，获得#2经验。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/300901.png",
+    "param_list": [
+      15,
+      4
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "301001": {
+    "id": 301001,
+    "category_id": 3,
+    "quality": "Prismatic",
+    "name": "本金充裕",
+    "desc": "获得#1金币。每次进入新节点时，若拥有超过#2金币，每额外<unbreak>10</unbreak>金币就会获得1次免费刷新(最多3次)。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/301001.png",
+    "param_list": [
+      26,
+      50
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "301002": {
+    "id": 301002,
+    "category_id": 4,
+    "quality": "Prismatic",
+    "name": "本金充裕+",
+    "desc": "获得#1金币。每次进入新节点时，若拥有超过#2金币，每额外<unbreak>10</unbreak>金币就会获得1次免费刷新(最多3次)。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/301001.png",
+    "param_list": [
+      45,
+      50
+    ],
+    "chapter_limit_list": [
+      3
+    ]
+  },
+  "301101": {
+    "id": 301101,
+    "category_id": 5,
+    "quality": "Prismatic",
+    "name": "节节高升",
+    "desc": "在你每次升级时获得1个2星角色和#1金币。这个角色的费用是你的等级减4(最小值：1费)。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/301101.png",
+    "param_list": [
+      1
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "301201": {
+    "id": 301201,
+    "category_id": 6,
+    "quality": "Prismatic",
+    "name": "彩虹矿",
+    "desc": "在下个奖励节点额外获取一个棱彩晶矿，里面装满了丰厚的战利品。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/301201.png",
+    "param_list": [
+      121009
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "301301": {
+    "id": 301301,
+    "category_id": 1,
+    "quality": "Prismatic",
+    "name": "晋升名额",
+    "desc": "购买经验时，使商店中的一个随机角色变为高1费的另一个随机角色。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/301301.png",
+    "param_list": [],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "301401": {
+    "id": 301401,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "公司严选",
+    "desc": "现在及每个位面开始时，开启一个由#1个独特<color=#927fe7>#2费角色</color>组成的商店，并获得#3金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/301401.png",
+    "param_list": [
+      5,
+      4,
+      3
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "301601": {
+    "id": 301601,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "淘金客",
+    "desc": "你每次消耗金币刷新商店，都会获得#1经验值。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/301601.png",
+    "param_list": [
+      2
+    ],
+    "chapter_limit_list": [
+      1,
+      2
+    ]
+  },
+  "310101": {
+    "id": 310101,
+    "category_id": 6,
+    "quality": "Prismatic",
+    "name": "列车同行星徽套组",
+    "desc": "获得#2个【<gridfightinfo type=item id=35051001>】，和#4个<color=#6cce9f>【<gridfightinfo type=role id=1213>】</color>，以及#5个【<gridfightinfo type=item id=35030204>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/210101.png",
+    "param_list": [
+      35051001,
+      1,
+      1213,
+      1,
+      1,
+      35030204
+    ],
+    "chapter_limit_list": []
+  },
+  "310301": {
+    "id": 310301,
+    "category_id": 8,
+    "quality": "Prismatic",
+    "name": "银河学者星徽套组",
+    "desc": "获得#2个【<gridfightinfo type=item id=35051003>】，和#4个<color=#b4b4b4>【<gridfightinfo type=role id=1009>】</color>，以及#5个【<gridfightinfo type=item id=35030407>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/210301.png",
+    "param_list": [
+      35051003,
+      1,
+      1009,
+      1,
+      1,
+      35030407
+    ],
+    "chapter_limit_list": []
+  },
+  "310501": {
+    "id": 310501,
+    "category_id": 10,
+    "quality": "Prismatic",
+    "name": "贝洛伯格星徽套组",
+    "desc": "获得#2个【<gridfightinfo type=item id=35051005>】，和#4个<color=#7196ff>【<gridfightinfo type=role id=1102>】</color>，以及#5个【<gridfightinfo type=item id=35030203>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/210501.png",
+    "param_list": [
+      35051005,
+      1,
+      1102,
+      1,
+      1,
+      35030203
+    ],
+    "chapter_limit_list": []
+  },
+  "310601": {
+    "id": 310601,
+    "category_id": 11,
+    "quality": "Prismatic",
+    "name": "星间旅人星徽套组",
+    "desc": "获得#2个【<gridfightinfo type=item id=35051006>】，和#4个<color=#6cce9f>【<gridfightinfo type=role id=1302>】</color>，以及#5个【<gridfightinfo type=item id=35030808>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/210601.png",
+    "param_list": [
+      35051006,
+      1,
+      1302,
+      1,
+      1,
+      35030808
+    ],
+    "chapter_limit_list": []
+  },
+  "310701": {
+    "id": 310701,
+    "category_id": 12,
+    "quality": "Prismatic",
+    "name": "仙舟星徽套组",
+    "desc": "获得#2个【<gridfightinfo type=item id=35051007>】，和#4个<color=#b4b4b4>【<gridfightinfo type=role id=1217 color=rarity><name></gridfightinfo>】</color>，以及#5个【<gridfightinfo type=item id=35030505>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/210701.png",
+    "param_list": [
+      35051007,
+      1,
+      1217,
+      1,
+      1,
+      35030505
+    ],
+    "chapter_limit_list": []
+  },
+  "310801": {
+    "id": 310801,
+    "category_id": 13,
+    "quality": "Prismatic",
+    "name": "狼狩星徽套组",
+    "desc": "获得#2个【<gridfightinfo type=item id=35051008>】，和#4个<color=#b4b4b4>【<gridfightinfo type=role id=1218 color=rarity><name></gridfightinfo>】</color>，以及#5个【<gridfightinfo type=item id=35030505>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/210801.png",
+    "param_list": [
+      35051008,
+      1,
+      1218,
+      1,
+      1,
+      35030505
+    ],
+    "chapter_limit_list": []
+  },
+  "311001": {
+    "id": 311001,
+    "category_id": 15,
+    "quality": "Prismatic",
+    "name": "盛会之星星徽套组",
+    "desc": "获得#2个【<gridfightinfo type=item id=35051010>】，和#4个<color=#6cce9f>【<gridfightinfo type=role id=1306 color=rarity><name></gridfightinfo>】</color>，以及#5个【<gridfightinfo type=item id=35030206>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/211001.png",
+    "param_list": [
+      35051010,
+      1,
+      1306,
+      1,
+      1,
+      35030206
+    ],
+    "chapter_limit_list": []
+  },
+  "311101": {
+    "id": 311101,
+    "category_id": 16,
+    "quality": "Prismatic",
+    "name": "昼之半神星徽套组",
+    "desc": "获得#2个【<gridfightinfo type=item id=35051011>】，和#4个<color=#6cce9f>【<gridfightinfo type=role id=1409 color=rarity><name></gridfightinfo>】</color>，以及#5个【<gridfightinfo type=item id=35030505>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/211101.png",
+    "param_list": [
+      35051011,
+      1,
+      1409,
+      1,
+      1,
+      35030505
+    ],
+    "chapter_limit_list": []
+  },
+  "311201": {
+    "id": 311201,
+    "category_id": 17,
+    "quality": "Prismatic",
+    "name": "夜之半神星徽套组",
+    "desc": "获得#2个【<gridfightinfo type=item id=35051012>】，和#4个<color=#b4b4b4>【<gridfightinfo type=role id=1404 color=rarity><name></gridfightinfo>】</color>，以及#5个【<gridfightinfo type=item id=35030205>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/211201.png",
+    "param_list": [
+      35051012,
+      1,
+      1404,
+      1,
+      1,
+      35030205
+    ],
+    "chapter_limit_list": []
+  },
+  "320101": {
+    "id": 320101,
+    "category_id": 6,
+    "quality": "Prismatic",
+    "name": "追击星徽套组",
+    "desc": "获得#2个【<gridfightinfo type=item id=35052001>】，和#4个<color=#b4b4b4>【<gridfightinfo type=role id=1220 color=rarity><name></gridfightinfo>】</color>，以及#5个【<gridfightinfo type=item id=35030808>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/220101.png",
+    "param_list": [
+      35052001,
+      1,
+      1220,
+      1,
+      1,
+      35030808
+    ],
+    "chapter_limit_list": []
+  },
+  "320201": {
+    "id": 320201,
+    "category_id": 7,
+    "quality": "Prismatic",
+    "name": "击破星徽套组",
+    "desc": "获得#2个【<gridfightinfo type=item id=35052002>】，和#4个<color=#6cce9f>【<gridfightinfo type=role id=1303>】</color>，以及#5个【<gridfightinfo type=item id=35030106>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/220201.png",
+    "param_list": [
+      35052002,
+      1,
+      1303,
+      1,
+      1,
+      35030106
+    ],
+    "chapter_limit_list": []
+  },
+  "320301": {
+    "id": 320301,
+    "category_id": 8,
+    "quality": "Prismatic",
+    "name": "群攻星徽套组",
+    "desc": "获得#2个【<gridfightinfo type=item id=35052003>】，和#4个<color=#b4b4b4>【<gridfightinfo type=role id=1314 color=rarity><name></gridfightinfo>】</color>，以及#5个【<gridfightinfo type=item id=35030304>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/220301.png",
+    "param_list": [
+      35052003,
+      1,
+      1314,
+      1,
+      1,
+      35030304
+    ],
+    "chapter_limit_list": []
+  },
+  "320401": {
+    "id": 320401,
+    "category_id": 9,
+    "quality": "Prismatic",
+    "name": "能量星徽套组",
+    "desc": "获得#2个【<gridfightinfo type=item id=35052004>】，和#4个<color=#7196ff>【<gridfightinfo type=role id=1313 color=rarity><name></gridfightinfo>】</color>，以及#5个【<gridfightinfo type=item id=35030407>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/220401.png",
+    "param_list": [
+      35052004,
+      1,
+      1313,
+      1,
+      1,
+      35030407
+    ],
+    "chapter_limit_list": []
+  },
+  "320501": {
+    "id": 320501,
+    "category_id": 10,
+    "quality": "Prismatic",
+    "name": "治疗星徽套组",
+    "desc": "获得#2个【<gridfightinfo type=item id=35052005>】，和#4个<color=#6cce9f>【<gridfightinfo type=role id=1409 color=rarity><name></gridfightinfo>】</color>，以及#5个【<gridfightinfo type=item id=35030505>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/220501.png",
+    "param_list": [
+      35052005,
+      1,
+      1409,
+      1,
+      1,
+      35030505
+    ],
+    "chapter_limit_list": []
+  },
+  "320601": {
+    "id": 320601,
+    "category_id": 11,
+    "quality": "Prismatic",
+    "name": "燃血星徽套组",
+    "desc": "获得#2个【<gridfightinfo type=item id=35052006>】，和#4个<color=#b4b4b4>【<gridfightinfo type=role id=1404 color=rarity><name></gridfightinfo>】</color>，以及#5个【<gridfightinfo type=item id=35030205>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/220601.png",
+    "param_list": [
+      35052006,
+      1,
+      1404,
+      1,
+      1,
+      35030205
+    ],
+    "chapter_limit_list": []
+  },
+  "320701": {
+    "id": 320701,
+    "category_id": 12,
+    "quality": "Prismatic",
+    "name": "减益星徽套组",
+    "desc": "获得#2个【<gridfightinfo type=item id=35052007>】，和#4个<color=#7196ff>【<gridfightinfo type=role id=1308 color=rarity><name></gridfightinfo>】</color>，以及#5个【<gridfightinfo type=item id=35030204>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/220701.png",
+    "param_list": [
+      35052007,
+      1,
+      1308,
+      1,
+      1,
+      35030204
+    ],
+    "chapter_limit_list": []
+  },
+  "320801": {
+    "id": 320801,
+    "category_id": 13,
+    "quality": "Prismatic",
+    "name": "持续伤害星徽套组",
+    "desc": "获得#2个【<gridfightinfo type=item id=35052008>】，和#4个<color=#6cce9f>【<gridfightinfo type=role id=1005 color=rarity><name></gridfightinfo>】</color>，以及#5个【<gridfightinfo type=item id=35030101>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/220801.png",
+    "param_list": [
+      35052008,
+      1,
+      1005,
+      1,
+      1,
+      35030101
+    ],
+    "chapter_limit_list": []
+  },
+  "320901": {
+    "id": 320901,
+    "category_id": 14,
+    "quality": "Prismatic",
+    "name": "量子同频星徽套组",
+    "desc": "获得#2个【<gridfightinfo type=item id=35052009>】，和#4个<color=#7196ff>【<gridfightinfo type=role id=1102>】</color>，以及#5个【<gridfightinfo type=item id=35030101>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/220901.png",
+    "param_list": [
+      35052009,
+      1,
+      1102,
+      1,
+      1,
+      35030101
+    ],
+    "chapter_limit_list": []
+  },
+  "321001": {
+    "id": 321001,
+    "category_id": 15,
+    "quality": "Prismatic",
+    "name": "护盾星徽套组",
+    "desc": "获得一个【<gridfightinfo type=item id=35052010>】，和#4个<color=#6cce9f>【<gridfightinfo type=role id=1304 color=rarity><name></gridfightinfo>】</color>，以及#5个【<gridfightinfo type=item id=35030306>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/221001.png",
+    "param_list": [
+      35052010,
+      1,
+      1304,
+      1,
+      1,
+      35030306
+    ],
+    "chapter_limit_list": []
+  },
+  "321101": {
+    "id": 321101,
+    "category_id": 16,
+    "quality": "Prismatic",
+    "name": "战技点星徽套组",
+    "desc": "获得#2个【<gridfightinfo type=item id=35052011>】，和#4个<color=#6cce9f>【<gridfightinfo type=role id=1213>】</color>，以及#5个【<gridfightinfo type=item id=35030204>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/221101.png",
+    "param_list": [
+      35052011,
+      1,
+      1213,
+      1,
+      1,
+      35030204
+    ],
+    "chapter_limit_list": []
+  },
+  "330101": {
+    "id": 330101,
+    "category_id": 4,
+    "quality": "Prismatic",
+    "name": "优势火力论",
+    "desc": "获得#1个【<gridfightinfo type=item id=350104>】和#2个【<gridfightinfo type=item id=99999>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/330101.png",
+    "param_list": [
+      1,
+      1
+    ],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "330201": {
+    "id": 330201,
+    "category_id": 5,
+    "quality": "Prismatic",
+    "name": "财富就是力量",
+    "desc": "获得1个【<gridfightinfo type=item id=350701>】，该装备额外提供<unbreak>#1[i]%</unbreak>前/后台强度和<unbreak>#2[i]%</unbreak>速度增幅。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/330201.png",
+    "param_list": [
+      0.3,
+      0.2
+    ],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "330301": {
+    "id": 330301,
+    "category_id": 6,
+    "quality": "Prismatic",
+    "name": "复印件",
+    "desc": "获得一个已经拥有的星徽的复制，获得#1点经验。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/330301.png",
+    "param_list": [
+      24
+    ],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "330401": {
+    "id": 330401,
+    "category_id": 1,
+    "quality": "Prismatic",
+    "name": "客制化服务",
+    "desc": "【<gridfightinfo type=item id=35030404>】会为你的角色随机出其推荐列表中的装备。获得<unbreak>#1[i]</unbreak>个【<gridfightinfo type=item id=350204>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/330401.png",
+    "param_list": [
+      3
+    ],
+    "chapter_limit_list": []
+  },
+  "330501": {
+    "id": 330501,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "军备供应链",
+    "desc": "获得#1个【<gridfightinfo type=item id=99999>】，接下来#2个节点开始时，获得#3个【<gridfightinfo type=item id=99999>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/330501.png",
+    "param_list": [
+      1,
+      5,
+      1
+    ],
+    "chapter_limit_list": [
+      1,
+      2
+    ]
+  },
+  "330601": {
+    "id": 330601,
+    "category_id": 3,
+    "quality": "Prismatic",
+    "name": "公司军火更新•彩",
+    "desc": "每次进入新节点时，物品栏里的装备变为同品质的其他装备。 获得1件随机特权装备。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/130101.png",
+    "param_list": [
+      1
+    ],
+    "chapter_limit_list": [
+      1,
+      2
+    ]
+  },
+  "330701": {
+    "id": 330701,
+    "category_id": 3,
+    "quality": "Prismatic",
+    "name": "手枪发烧友",
+    "desc": "获得#2个【<gridfightinfo type=item id=350203>】。【<gridfightinfo type=item id=350203>】提供<unbreak>#3[i]%</unbreak>幸运一击率。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/330701.png",
+    "param_list": [
+      350203,
+      5,
+      0.05
+    ],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "350101": {
+    "id": 350101,
+    "category_id": 4,
+    "quality": "Prismatic",
+    "name": "幸运之子",
+    "desc": "我方小队幸运一击率提高<unbreak>#2[i]%</unbreak>。进入战斗时，我方小队中幸运一击率达到<unbreak>100%</unbreak>的角色，自身与忆灵幸运一击伤害提高<unbreak>#3[i]%</unbreak>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/350101.png",
+    "param_list": [
+      35402006,
+      0.25,
+      0.6
+    ],
+    "chapter_limit_list": []
+  },
+  "350301": {
+    "id": 350301,
+    "category_id": 6,
+    "quality": "Prismatic",
+    "name": "超光速提拔",
+    "desc": "战斗开始时：1个随机的<color=#b4b4b4>1费角色</color>在这场战斗中升为4星，并获得<unbreak>#1[i]%</unbreak>前/后台强度。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/350301.png",
+    "param_list": [
+      0.05
+    ],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "350601": {
+    "id": 350601,
+    "category_id": 4,
+    "quality": "Prismatic",
+    "name": "佩佩驾到",
+    "desc": "获得1个携带着3个永久附着星徽的【佩佩】。获得#1金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/253001.png",
+    "param_list": [
+      8
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "101501": {
+    "id": 101501,
+    "category_id": 15,
+    "quality": "Silver",
+    "name": "以战养战",
+    "desc": "在遭遇节点战斗后，获得#1个【<gridfightinfo type=item id=99999>】。获得#2金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/101501.png",
+    "param_list": [
+      1,
+      6
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "102701": {
+    "id": 102701,
+    "category_id": 8,
+    "quality": "Silver",
+    "name": "全员晋升",
+    "desc": "场上的所有角色会永久升级成比自身高1费的随机角色(最大5费)。获得#1个【<gridfightinfo type=item id=350101>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/102701.png",
+    "param_list": [
+      3
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "102801": {
+    "id": 102801,
+    "category_id": 8,
+    "quality": "Silver",
+    "name": "人力重组",
+    "desc": "出售场上和备战席的所有角色。获得#1个随机的2星<color=#7196ff>3费角色</color>、#2个2星<color=#6cce9f>2费角色</color>和#3个2星<color=#b4b4b4>1费角色</color>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/102801.png",
+    "param_list": [
+      1,
+      2,
+      2
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "102901": {
+    "id": 102901,
+    "category_id": 8,
+    "quality": "Silver",
+    "name": "合并同类项",
+    "desc": "刷新商店时，若刷新的角色中出现2个相同的角色，获得#1金币。获得#2次免费刷新。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/102901.png",
+    "param_list": [
+      1,
+      4
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "103001": {
+    "id": 103001,
+    "category_id": 8,
+    "quality": "Silver",
+    "name": "无伤通关",
+    "desc": "战斗结束时，若此次战斗中没有角色陷入过无法战斗状态，获得#1金币。立即获得#2个【<gridfightinfo type=item id=350205>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/103001.png",
+    "param_list": [
+      1,
+      1
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "103101": {
+    "id": 103101,
+    "category_id": 8,
+    "quality": "Silver",
+    "name": "招聘资金",
+    "desc": "获得#1张<color=#7196ff><gridfightinfo type=item id=99994></color>，获得#2金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/103101.png",
+    "param_list": [
+      2,
+      4
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "103102": {
+    "id": 103102,
+    "category_id": 8,
+    "quality": "Silver",
+    "name": "招聘资金+",
+    "desc": "获得#1张<color=#927fe7><gridfightinfo type=item id=99993></color>，获得#2金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/100403.png",
+    "param_list": [
+      2,
+      5
+    ],
+    "chapter_limit_list": [
+      3
+    ]
+  },
+  "103201": {
+    "id": 103201,
+    "category_id": 8,
+    "quality": "Silver",
+    "name": "气氛组",
+    "desc": "战斗结束时，每有2名伤害统计中造成伤害为0的角色，获得#1经验。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/103201.png",
+    "param_list": [
+      1
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "103202": {
+    "id": 103202,
+    "category_id": 8,
+    "quality": "Silver",
+    "name": "气氛组+",
+    "desc": "战斗结束时，每有2名伤害统计中造成伤害为0的角色，获得#1经验。获得#2经验。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/103201.png",
+    "param_list": [
+      1,
+      8
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "103301": {
+    "id": 103301,
+    "category_id": 8,
+    "quality": "Silver",
+    "name": "健康充值",
+    "desc": "获得#1点小队生命和#1点小队生命上限。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/103301.png",
+    "param_list": [
+      30
+    ],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "103401": {
+    "id": 103401,
+    "category_id": 8,
+    "quality": "Silver",
+    "name": "溜佩佩",
+    "desc": "获得#1金币，什么都没带的佩佩会在你的后排逛街，让小队获得<unbreak>#2[i]%</unbreak>前/后台强度。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/103401.png",
+    "param_list": [
+      9,
+      0.01
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "103402": {
+    "id": 103402,
+    "category_id": 8,
+    "quality": "Silver",
+    "name": "溜佩佩+",
+    "desc": "获得#1金币，什么都没带的佩佩会在你的后排逛街，让小队获得<unbreak>#2[i]%</unbreak>前/后台强度。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/103401.png",
+    "param_list": [
+      15,
+      0.01
+    ],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "103501": {
+    "id": 103501,
+    "category_id": 8,
+    "quality": "Silver",
+    "name": "招财狗",
+    "desc": "获得一个佩佩。战斗胜利后，若未损失小队生命值，则每有一个佩佩就会为你提供1金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/103501.png",
+    "param_list": [],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "130401": {
+    "id": 130401,
+    "category_id": 13,
+    "quality": "Silver",
+    "name": "钻石商人",
+    "desc": "升到9级时，获得【<gridfightinfo type=item id=350701>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/130401.png",
+    "param_list": [],
+    "chapter_limit_list": [
+      1,
+      2
+    ]
+  },
+  "130501": {
+    "id": 130501,
+    "category_id": 13,
+    "quality": "Silver",
+    "name": "保险",
+    "desc": "每损失#1点小队生命值，获得#2金币和#3个随机简易装备。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/130501.png",
+    "param_list": [
+      20,
+      5,
+      1
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "130601": {
+    "id": 130601,
+    "category_id": 13,
+    "quality": "Silver",
+    "name": "自由市场",
+    "desc": "每当你将要获得一件简易装备时，改为获得1个【<gridfightinfo type=item id=99999>】。获得#1个随机的简易装备。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/130601.png",
+    "param_list": [
+      1
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "130701": {
+    "id": 130701,
+    "category_id": 13,
+    "quality": "Silver",
+    "name": "先亏后盈",
+    "desc": "损失#1点小队生命值，#2个节点后获得#3个【<gridfightinfo type=item id=99999>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/130701.png",
+    "param_list": [
+      10,
+      3,
+      2
+    ],
+    "chapter_limit_list": [
+      1,
+      2
+    ]
+  },
+  "150501": {
+    "id": 150501,
+    "category_id": 1,
+    "quality": "Silver",
+    "name": "完美开局",
+    "desc": "战斗中，关卡进度小于<unbreak>#3[i]%</unbreak>时，我方小队前/后台强度提高<unbreak>#2[i]%</unbreak>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/150501.png",
+    "param_list": [
+      35402024,
+      0.4,
+      0.5
+    ],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "150601": {
+    "id": 150601,
+    "category_id": 1,
+    "quality": "Silver",
+    "name": "效率员工奖",
+    "desc": "进入战斗时，速度最高的三名角色及其忆灵速度增幅提高<unbreak>#2[i]%</unbreak>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/150601.png",
+    "param_list": [
+      35402008,
+      0.1
+    ],
+    "chapter_limit_list": []
+  },
+  "150701": {
+    "id": 150701,
+    "category_id": 1,
+    "quality": "Silver",
+    "name": "基层贡献",
+    "desc": "你的场上每有一个<color=#b4b4b4>1费角色</color>，我方小队获得<unbreak>#1[i]%</unbreak>速度增幅和<unbreak>#2[i]%</unbreak>伤害减免。3星1费改为提供#3倍。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/150701.png",
+    "param_list": [
+      0.06,
+      0.04,
+      3
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "150801": {
+    "id": 150801,
+    "category_id": 1,
+    "quality": "Silver",
+    "name": "榜样的力量•银",
+    "desc": "战斗中，伤害统计排名第一的队员成为【榜样】，前/后台强度提高<unbreak>#2[i]%</unbreak>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/150801.png",
+    "param_list": [
+      35402023,
+      0.25
+    ],
+    "chapter_limit_list": []
+  },
+  "150901": {
+    "id": 150901,
+    "category_id": 1,
+    "quality": "Silver",
+    "name": "当头一棒",
+    "desc": "每个波次开始时，对生命上限最高的敌方目标造成<unbreak>#2[i]%</unbreak>基础伤害，并使其陷入【脆弱】：受到的伤害提高<unbreak>#3[i]%</unbreak>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/150901.png",
+    "param_list": [
+      35402009,
+      10,
+      0.3
+    ],
+    "chapter_limit_list": []
+  },
+  "151001": {
+    "id": 151001,
+    "category_id": 1,
+    "quality": "Silver",
+    "name": "简单模式",
+    "desc": "敌人难度降低#1，最多降低至0。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/151001.png",
+    "param_list": [
+      3
+    ],
+    "chapter_limit_list": [
+      1,
+      2
+    ]
+  },
+  "151101": {
+    "id": 151101,
+    "category_id": 1,
+    "quality": "Silver",
+    "name": "难度修改器",
+    "desc": "遭遇和首领节点的敌人难度降低#1，最多降低至0。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/151101.png",
+    "param_list": [
+      4
+    ],
+    "chapter_limit_list": [
+      1,
+      2
+    ]
+  },
+  "202001": {
+    "id": 202001,
+    "category_id": 17,
+    "quality": "Gold",
+    "name": "爆晶矿•金",
+    "desc": "我方小队消灭敌方目标时，有<unbreak>#1[i]%</unbreak>概率获得一个战利品晶矿。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/102601.png",
+    "param_list": [
+      0.3,
+      21006,
+      21007,
+      21008
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "202101": {
+    "id": 202101,
+    "category_id": 17,
+    "quality": "Gold",
+    "name": "大裁员",
+    "desc": "出售场上和备战席的所有角色，获得双倍价格的金币。获得#1次免费刷新。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/202101.png",
+    "param_list": [
+      9
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "202201": {
+    "id": 202201,
+    "category_id": 17,
+    "quality": "Gold",
+    "name": "四费晋升",
+    "desc": "你购买的下1个<color=#927fe7>4费角色</color>将立刻升到2星。获得#1金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/202201.png",
+    "param_list": [
+      12
+    ],
+    "chapter_limit_list": [
+      3
+    ]
+  },
+  "202301": {
+    "id": 202301,
+    "category_id": 17,
+    "quality": "Gold",
+    "name": "降本增效",
+    "desc": "出售场上和备战席的所有角色，获得双倍价格的金币。你接下来#1次购买角色是免费的。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/202301.png",
+    "param_list": [
+      6
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "202401": {
+    "id": 202401,
+    "category_id": 17,
+    "quality": "Gold",
+    "name": "空仓",
+    "desc": "获得#1件随机的简易装备。进入新节点时，如果物品栏和备战席没有任何装备(消耗品除外)，则获得#2经验值。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/202401.png",
+    "param_list": [
+      1,
+      2
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "202501": {
+    "id": 202501,
+    "category_id": 17,
+    "quality": "Gold",
+    "name": "超发货币",
+    "desc": "失去你现在所有的金币，并在#1个节点后，获得该金币数+#2的总金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/202501.png",
+    "param_list": [
+      5,
+      70
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "202601": {
+    "id": 202601,
+    "category_id": 17,
+    "quality": "Gold",
+    "name": "人才空洞",
+    "desc": "节点开始时，如果备战席角色小于等于#2名，则获得<unbreak>#1[i]</unbreak>经验。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/202601.png",
+    "param_list": [
+      3,
+      4
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "202701": {
+    "id": 202701,
+    "category_id": 17,
+    "quality": "Gold",
+    "name": "人才济济",
+    "desc": "节点开始时，如果备战席角色大于等于#2名，则获得<unbreak>#1[i]</unbreak>经验。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/202701.png",
+    "param_list": [
+      3,
+      8
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "202801": {
+    "id": 202801,
+    "category_id": 17,
+    "quality": "Gold",
+    "name": "剩余价值",
+    "desc": "战斗结束时，你每剩余#1行动值，就会在结算时获得1金币。最多获得#2金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/202801.png",
+    "param_list": [
+      30,
+      4
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "202901": {
+    "id": 202901,
+    "category_id": 17,
+    "quality": "Gold",
+    "name": "成本控制",
+    "desc": "战斗结束时，你每剩余<unbreak>#1[i]</unbreak>行动值，就会在结算时回复1点小队生命值。最多获得<unbreak>#2[i]</unbreak>小队生命值。立即获得<unbreak>#3[i]</unbreak>金币、<unbreak>#4[i]</unbreak>点小队生命值和<unbreak>#4[i]</unbreak>点生命上限。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/202901.png",
+    "param_list": [
+      10,
+      8,
+      8,
+      15
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "203001": {
+    "id": 203001,
+    "category_id": 17,
+    "quality": "Gold",
+    "name": "五百强",
+    "desc": "首次有我方队员在战斗中达到<unbreak>#2[i]</unbreak>前台或后台强度时，获得<unbreak>#3[i]</unbreak>金币。立即获得【<gridfightinfo type=item id=350202>】、【<gridfightinfo type=item id=350203>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/203001.png",
+    "param_list": [
+      35402012,
+      500,
+      30
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "203101": {
+    "id": 203101,
+    "category_id": 17,
+    "quality": "Gold",
+    "name": "大扩招",
+    "desc": "扣除你的金币，每损失4金币，获得一个随机<color=#927fe7>4费角色</color>，最多扣除#3金币。获得#1个【<gridfightinfo type=item id=350106>】和#2金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/203101.png",
+    "param_list": [
+      1,
+      10,
+      40
+    ],
+    "chapter_limit_list": [
+      3
+    ]
+  },
+  "203201": {
+    "id": 203201,
+    "category_id": 17,
+    "quality": "Gold",
+    "name": "白银投资",
+    "desc": "立刻进行一次白银投资策略三选一，选择有#1次刷新机会。#2个节点后，再获得一个。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/203201.png",
+    "param_list": [
+      3,
+      3
+    ],
+    "chapter_limit_list": [
+      1,
+      2
+    ]
+  },
+  "203301": {
+    "id": 203301,
+    "category_id": 17,
+    "quality": "Gold",
+    "name": "专家招募",
+    "desc": "获得#1个<color=#ffd471><gridfightinfo type=item id=99992></color>，获得#2金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/203301.png",
+    "param_list": [
+      2,
+      4
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "230601": {
+    "id": 230601,
+    "category_id": 15,
+    "quality": "Gold",
+    "name": "公司军火更新•金",
+    "desc": "每次进入新节点时，你物品栏里的装备变为同品质的其他装备。获得#1件随机简易装备。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/130101.png",
+    "param_list": [
+      2
+    ],
+    "chapter_limit_list": []
+  },
+  "230701": {
+    "id": 230701,
+    "category_id": 16,
+    "quality": "Gold",
+    "name": "回收计划",
+    "desc": "出售角色时，会将进阶装备拆分成简易装备。获得#1件进阶装备，并在#2个节点后获得#3件随机简易装备。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/230701.png",
+    "param_list": [
+      1,
+      5,
+      1
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "230801": {
+    "id": 230801,
+    "category_id": 17,
+    "quality": "Gold",
+    "name": "升级锅炉",
+    "desc": "对简易装备使用<gridfightinfo type=item id=350103>会使其变为随机进阶装备，获得#1个【<gridfightinfo type=item id=350103>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/230801.png",
+    "param_list": [
+      2
+    ],
+    "chapter_limit_list": [
+      1,
+      2
+    ]
+  },
+  "230901": {
+    "id": 230901,
+    "category_id": 18,
+    "quality": "Gold",
+    "name": "秘密典籍",
+    "desc": "获得#1个【<gridfightinfo type=item id=99991>】，获得#2金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/230901.png",
+    "param_list": [
+      1,
+      4
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "230902": {
+    "id": 230902,
+    "category_id": 18,
+    "quality": "Gold",
+    "name": "秘密典籍+",
+    "desc": "获得#1个【<gridfightinfo type=item id=99991>】，获得#2金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/230901.png",
+    "param_list": [
+      1,
+      8
+    ],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "231001": {
+    "id": 231001,
+    "category_id": 19,
+    "quality": "Gold",
+    "name": "全武行",
+    "desc": "获得#1个【<gridfightinfo type=item id=35030203>】，【<gridfightinfo type=item id=35030203>】额外提供<unbreak>#2[i]%</unbreak>幸运一击率，<unbreak>#3[i]%</unbreak>幸运一击伤害，<unbreak>#4[i]%</unbreak>速度增幅。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/231001.png",
+    "param_list": [
+      1,
+      0.05,
+      0.05,
+      0.05
+    ],
+    "chapter_limit_list": [
+      1,
+      2
+    ]
+  },
+  "231101": {
+    "id": 231101,
+    "category_id": 20,
+    "quality": "Gold",
+    "name": "这么大的钻石",
+    "desc": "佩佩携带【<gridfightinfo type=item id=350701>】出现，这么大的钻石，送给你！",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/231101.png",
+    "param_list": [],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "250101": {
+    "id": 250101,
+    "category_id": 16,
+    "quality": "Gold",
+    "name": "人海战术",
+    "desc": "我方小队的前/后台强度提高<unbreak>#4[i]%</unbreak>。战斗中，我方小队在场的角色与忆灵数量之和大于<unbreak>#2[i]</unbreak>时，我方小队的前/后台强度提高<unbreak>#3[i]%</unbreak>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/250101.png",
+    "param_list": [
+      35402010,
+      8,
+      0.25,
+      0.15
+    ],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "250201": {
+    "id": 250201,
+    "category_id": 16,
+    "quality": "Gold",
+    "name": "打通上下游•金",
+    "desc": "我方小队速度增幅提高<unbreak>#1[i]%</unbreak>。每个节点开始时，速度增幅额外提高<unbreak>#2[i]%</unbreak>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/250201.png",
+    "param_list": [
+      0.1,
+      0.01
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "250301": {
+    "id": 250301,
+    "category_id": 16,
+    "quality": "Gold",
+    "name": "现金为王",
+    "desc": "出售场上和备战席的所有角色，之后每场进入战斗时，为我方前台提供护盾，护盾量等同于该次出售角色所获得总金币数*#2。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/250301.png",
+    "param_list": [
+      35402011,
+      1000
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "250401": {
+    "id": 250401,
+    "category_id": 16,
+    "quality": "Gold",
+    "name": "独狼",
+    "desc": "若角色不具有已激活的非独立羁绊，使其获得<unbreak>#1[i]%</unbreak>前/后台强度和<unbreak>#2[i]%</unbreak>伤害减免。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/250401.png",
+    "param_list": [
+      1.2,
+      0.36
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "250501": {
+    "id": 250501,
+    "category_id": 16,
+    "quality": "Gold",
+    "name": "中产阶级",
+    "desc": "我方小队里每有1位2星角色，使小队获得<unbreak>#1[i]%</unbreak>伤害减免和<unbreak>#2[i]%</unbreak>前/后台强度。额外获得#3金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/250501.png",
+    "param_list": [
+      0.05,
+      0.15,
+      3
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "250601": {
+    "id": 250601,
+    "category_id": 16,
+    "quality": "Gold",
+    "name": "前段发力",
+    "desc": "我方小队在进入战斗时行动提前<unbreak>#2[i]%</unbreak>，前/后台强度提高<unbreak>#3[i]%</unbreak>，每经过1行动值，降低<unbreak>#4[i]%</unbreak>，最多降低至0。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/250601.png",
+    "param_list": [
+      35402013,
+      0.4,
+      0.6,
+      0.01
+    ],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "250701": {
+    "id": 250701,
+    "category_id": 16,
+    "quality": "Gold",
+    "name": "三三三",
+    "desc": "3星/<color=#7196ff>3费</color>/穿戴3件装备的角色，获得<unbreak>#1[i]%</unbreak>速度增幅和<unbreak>#2[i]%</unbreak>前/后台强度，满足不同条件的效果可叠加。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/250701.png",
+    "param_list": [
+      0.1,
+      0.25
+    ],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "250801": {
+    "id": 250801,
+    "category_id": 16,
+    "quality": "Gold",
+    "name": "创伤小组",
+    "desc": "我方小队伤害增幅提高<unbreak>#3[i]%</unbreak>，进入战斗时，生命上限降低<unbreak>#2[i]%</unbreak>，受到致命攻击时，行动值惩罚减少#4点。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/250801.png",
+    "param_list": [
+      35402018,
+      0.3,
+      0.15,
+      20
+    ],
+    "chapter_limit_list": []
+  },
+  "250901": {
+    "id": 250901,
+    "category_id": 16,
+    "quality": "Gold",
+    "name": "绕口令",
+    "desc": "进入战斗时，前台一号位角色及其忆灵获得等同于后台一号位角色<unbreak>#2[i]%</unbreak>后台强度的前台强度，后台一号位角色及其忆灵获得等同于前台一号位角色<unbreak>#3[i]%</unbreak>前台强度的后台强度。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/250901.png",
+    "param_list": [
+      35402014,
+      0.3,
+      0.3
+    ],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "251001": {
+    "id": 251001,
+    "category_id": 16,
+    "quality": "Gold",
+    "name": "风暴骑士",
+    "desc": "前台一号位角色获得<unbreak>#3[i]%</unbreak>速度增幅。进入战斗时，该角色回合开始时，受到等同于生命上限<unbreak>#2[i]%</unbreak>固定数值的风属性附加伤害。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/251001.png",
+    "param_list": [
+      35402015,
+      0.7,
+      1.5
+    ],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "251101": {
+    "id": 251101,
+    "category_id": 16,
+    "quality": "Gold",
+    "name": "幸运中的幸运",
+    "desc": "进入战斗时，我方队员幸运一击率若大于<unbreak>#2[i]%</unbreak>，则降低至<unbreak>#2[i]%</unbreak>，每通过该方式降低1%幸运一击率，使幸运一击伤害提高<unbreak>#3[i]%</unbreak>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/251101.png",
+    "param_list": [
+      35402016,
+      0.2,
+      0.02
+    ],
+    "chapter_limit_list": []
+  },
+  "251201": {
+    "id": 251201,
+    "category_id": 16,
+    "quality": "Gold",
+    "name": "榜样的力量•金",
+    "desc": "战斗中，伤害统计排名第一的队员成为【榜样】，前/后台强度提高<unbreak>#2[i]%</unbreak>。其他队员前/后台强度提高<unbreak>#3[i]%</unbreak>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/150801.png",
+    "param_list": [
+      35402017,
+      0.4,
+      0.1
+    ],
+    "chapter_limit_list": []
+  },
+  "251301": {
+    "id": 251301,
+    "category_id": 16,
+    "quality": "Gold",
+    "name": "OOTD•金",
+    "desc": "我方小队每穿戴一件不同的装备，获得<unbreak>#1[i]%</unbreak>生命提高，<unbreak>#2[i]%</unbreak>前/后台强度。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/251301.png",
+    "param_list": [
+      0.03,
+      0.06
+    ],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "251401": {
+    "id": 251401,
+    "category_id": 16,
+    "quality": "Gold",
+    "name": "打人就打脸•金",
+    "desc": "我方小队幸运一击率提高<unbreak>#4[i]%</unbreak>，造成幸运一击伤害后使受击目标陷入【脆弱】：受到的伤害提高<unbreak>#2[i]%</unbreak>，持续<unbreak>#3[i]</unbreak>回合。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/251401.png",
+    "param_list": [
+      35402031,
+      0.3,
+      1,
+      0.1
+    ],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "251501": {
+    "id": 251501,
+    "category_id": 16,
+    "quality": "Gold",
+    "name": "团队力量•金",
+    "desc": "每有一个已激活的羁绊，小队就会获得<unbreak>#1[i]%</unbreak>前/后台强度和<unbreak>#2[i]%</unbreak>生命增幅。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/150101.png",
+    "param_list": [
+      0.06,
+      0.04
+    ],
+    "chapter_limit_list": []
+  },
+  "251601": {
+    "id": 251601,
+    "category_id": 16,
+    "quality": "Gold",
+    "name": "钻石恒永久",
+    "desc": "获得#1个【<gridfightinfo type=item id=350601>】，角色每携带1件钻石或由钻石合成的装备，在进入新节点时会永久获得<unbreak>#2[i]%</unbreak>伤害增幅。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/251601.png",
+    "param_list": [
+      1,
+      0.03
+    ],
+    "chapter_limit_list": []
+  },
+  "202402": {
+    "id": 202402,
+    "category_id": 17,
+    "quality": "Gold",
+    "name": "空仓+",
+    "desc": "获得#1件随机的简易装备和#3经验值。进入新节点时，如果物品栏和备战席没有任何装备(消耗品除外)，则获得#2经验值。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/202401.png",
+    "param_list": [
+      1,
+      2,
+      10
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "301202": {
+    "id": 301202,
+    "category_id": 6,
+    "quality": "Prismatic",
+    "name": "彩虹矿+",
+    "desc": "在下个奖励节点额外获取一个棱彩晶矿，里面装满了丰厚的战利品。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/301201.png",
+    "param_list": [
+      121010
+    ],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "301501": {
+    "id": 301501,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "爆晶矿•彩",
+    "desc": "我方小队消灭敌方目标时，有<unbreak>#1[i]%</unbreak>概率获得一个战利品晶矿。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/102601.png",
+    "param_list": [
+      0.45,
+      21006,
+      21007,
+      21008
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "301701": {
+    "id": 301701,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "高效决策",
+    "desc": "获得#1次免费刷新，但是只持续#2s。持续时间结束时，移除你所有的免费刷新。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/301701.png",
+    "param_list": [
+      9999,
+      50
+    ],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "301801": {
+    "id": 301801,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "奋斗协议",
+    "desc": "购买经验值消耗#1点小队生命值而非金币。首领战斗结束时回复#2点小队生命值。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/301801.png",
+    "param_list": [
+      6,
+      50
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "301901": {
+    "id": 301901,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "临时工合约",
+    "desc": "获得#1个【<gridfightinfo type=item id=350105>】，进入下个节点时，所有未使用的【<gridfightinfo type=item id=350105>】都会消失。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/301901.png",
+    "param_list": [
+      8
+    ],
+    "chapter_limit_list": [
+      3
+    ]
+  },
+  "302001": {
+    "id": 302001,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "武装突入",
+    "desc": "遭遇节点的奖励变为<unbreak>#1[i]</unbreak>倍。获得<unbreak>#2[i]</unbreak>个【<gridfightinfo type=item id=99999>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/302001.png",
+    "param_list": [
+      2,
+      2
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "302101": {
+    "id": 302101,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "黄晶矿工",
+    "desc": "开启晶矿时，有#1%概率获得一个低一档的晶矿，有极低概率获得棱彩晶矿。立刻获得一个黄金晶矿。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/302101.png",
+    "param_list": [
+      50,
+      2,
+      1
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "302201": {
+    "id": 302201,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "黄金投资",
+    "desc": "立刻进行一次黄金品质投资策略三选一，选择有#1次刷新机会。#2个节点后，再获得一个。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/302201.png",
+    "param_list": [
+      3,
+      3
+    ],
+    "chapter_limit_list": [
+      1,
+      2
+    ]
+  },
+  "302301": {
+    "id": 302301,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "决议：娱乐星球",
+    "desc": "你受到的伤害加倍，进入战斗时，若拥有<unbreak>#1[i]</unbreak>枚金币，将本局游戏剩余的非首领节点替换为奖励节点。获得<unbreak>#2[i]</unbreak>金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/302301.png",
+    "param_list": [
+      180,
+      50,
+      3
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "302401": {
+    "id": 302401,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "伟大征服",
+    "desc": "连胜奖励变为#1倍，敌人难度+N，N为你的当前连胜数。获得#2经验。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/302401.png",
+    "param_list": [
+      3,
+      12
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "302501": {
+    "id": 302501,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "孪生姵姵",
+    "desc": "获得一个姵姵，它看起来和你的佩佩一模一样！",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/302501.png",
+    "param_list": [],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "302601": {
+    "id": 302601,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "价值投资•彩",
+    "desc": "获得1个随机的2星<color=#6cce9f>2费角色</color>。每次进入新节点时，获得1星的该角色，补给后额外获得#1个，持续至本局游戏结束。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/200401.png",
+    "param_list": [
+      2
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "302701": {
+    "id": 302701,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "节假日礼盒",
+    "desc": "获得随机的大笔奖励。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/302701.png",
+    "param_list": [
+      121011
+    ],
+    "chapter_limit_list": [
+      3
+    ]
+  },
+  "302801": {
+    "id": 302801,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "藏一手",
+    "desc": "我方小队生命值将降低至0时，免疫这次伤害并将生命值变为#1点，并获得#2点经验和#3金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/302801.png",
+    "param_list": [
+      40,
+      30,
+      80
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "302901": {
+    "id": 302901,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "控制规模",
+    "desc": "最大等级变为<unbreak>#1[i]</unbreak>级，获得【<gridfightinfo type=item id=350701>】和#2金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/302901.png",
+    "param_list": [
+      7,
+      32
+    ],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "303001": {
+    "id": 303001,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "星际和平保险",
+    "desc": "获得等同于你已损失生命数量的金币。战斗后恢复#1点小队生命值。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/303001.png",
+    "param_list": [
+      10
+    ],
+    "chapter_limit_list": [
+      3
+    ]
+  },
+  "350401": {
+    "id": 350401,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "战术义眼",
+    "desc": "我方小队消灭普通/精英及首领敌人时，恢复<unbreak>#2[i]%</unbreak>/<unbreak>#3[i]%</unbreak>能量。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/350401.png",
+    "param_list": [
+      35402021,
+      0.25,
+      0.75
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "350501": {
+    "id": 350501,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "榜样的力量•彩",
+    "desc": "战斗中，伤害统计排名第一的队员成为【榜样】，前/后台强度提高<unbreak>#2[i]%</unbreak>。其他队员施放攻击后，对攻击目标造成等同于【榜样】累计伤害<unbreak>#3[i]%</unbreak>的真实伤害。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/150801.png",
+    "param_list": [
+      35402022,
+      0.7,
+      0.01
+    ],
+    "chapter_limit_list": []
+  },
+  "350701": {
+    "id": 350701,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "万箭齐发",
+    "desc": "战斗开始时，发射风箭攻击随机敌方目标，箭矢数量等同于小队总星数+<unbreak>#3[i]</unbreak>，每根风箭造成等同于<unbreak>#2[i]%</unbreak>基础伤害的风属性伤害。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/350701.png",
+    "param_list": [
+      35402032,
+      16,
+      8
+    ],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "350801": {
+    "id": 350801,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "后勤超响应",
+    "desc": "角色的后台强度提高，其数值等同于后台总星数×<unbreak>#1[i]%</unbreak>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/350801.png",
+    "param_list": [
+      0.12
+    ],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "350901": {
+    "id": 350901,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "三五成群",
+    "desc": "后台角色数量达到3名/5名及以上时，你的小队获得<unbreak>#1[i]%</unbreak>/<unbreak>#2[i]%</unbreak>速度增幅和<unbreak>#3[i]%</unbreak>/<unbreak>#4[i]%</unbreak>前/后台强度。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/350901.png",
+    "param_list": [
+      0.05,
+      0.3,
+      0.15,
+      0.65
+    ],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "351001": {
+    "id": 351001,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "基本保障",
+    "desc": "至少携带1件装备的角色获得<unbreak>#1[i]%</unbreak>生命增幅和<unbreak>#2[i]%</unbreak>伤害增幅。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/351001.png",
+    "param_list": [
+      0.2,
+      0.16
+    ],
+    "chapter_limit_list": []
+  },
+  "351101": {
+    "id": 351101,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "更快，更幸运",
+    "desc": "进入战斗时，速度最高的角色及其忆灵速度增幅提高<unbreak>#2[i]%</unbreak>，幸运一击率提高<unbreak>#3[i]%</unbreak>。每经过<unbreak>#4[i]</unbreak>行动值，在另一名我方角色上重复此效果。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/351101.png",
+    "param_list": [
+      35402033,
+      0.08,
+      0.12,
+      20
+    ],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "351201": {
+    "id": 351201,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "鲜血阶梯",
+    "desc": "获得【<gridfightinfo type=item id=35030307>】。我方队员每消灭一名精英/首领敌人，我方小队在本局伤害增幅永久提高<unbreak>#2[i]%</unbreak>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/351201.png",
+    "param_list": [
+      35402034,
+      0.08
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "350403": {
+    "id": 350403,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "战术义眼++",
+    "desc": "我方小队消灭普通/精英及首领敌人时，恢复<unbreak>#2[i]%</unbreak>/<unbreak>#3[i]%</unbreak>能量。获得1个【<gridfightinfo type=item id=99998>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/350401.png",
+    "param_list": [
+      35402021,
+      0.25,
+      0.75
+    ],
+    "chapter_limit_list": [
+      3
+    ]
+  },
+  "351301": {
+    "id": 351301,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "打通上下游•彩",
+    "desc": "我方小队获得<unbreak>#1[i]%</unbreak>前/后台强度，每次进入新节点时，该加成提高<unbreak>#2[i]%</unbreak>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/351301.png",
+    "param_list": [
+      0.15,
+      0.04
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "351401": {
+    "id": 351401,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "野蛮成长",
+    "desc": "战斗开始时，随机两名前台角色获得<unbreak>#2[i]%</unbreak>前台强度提高，随机两名后台角色获得<unbreak>#3[i]%</unbreak>后台强度提高。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/351401.png",
+    "param_list": [
+      35402035,
+      1,
+      1
+    ],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "351501": {
+    "id": 351501,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "保守派",
+    "desc": "我方小队获得<unbreak>#3[i]%</unbreak>伤害减免。进入战斗时，生命上限最低的角色额外获得<unbreak>#2[i]%</unbreak>伤害减免。获得一件【<gridfightinfo type=item id=99998>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/351501.png",
+    "param_list": [
+      35402036,
+      0.12,
+      0.08
+    ],
+    "chapter_limit_list": []
+  },
+  "351601": {
+    "id": 351601,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "攻防一体",
+    "desc": "我方小队获得<unbreak>#2[i]%</unbreak>伤害减免，且获得等同于伤害减免的伤害增幅。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/351601.png",
+    "param_list": [
+      35402037,
+      0.33
+    ],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "351701": {
+    "id": 351701,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "幸运闪避EX",
+    "desc": "我方小队获得<unbreak>#3[i]%</unbreak>幸运一击率，受到敌人攻击时，有等同于<unbreak>#2[i]%</unbreak>幸运一击率的概率使受到的伤害变为1。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/351701.png",
+    "param_list": [
+      35402038,
+      0.3,
+      0.25
+    ],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "351801": {
+    "id": 351801,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "羁绊的力量",
+    "desc": "每有一个已激活的非独立羁绊，小队就会获得<unbreak>#1[i]%</unbreak>伤害增幅和<unbreak>#2[i]%</unbreak>伤害减免。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/351801.png",
+    "param_list": [
+      0.05,
+      0.03
+    ],
+    "chapter_limit_list": []
+  },
+  "330801": {
+    "id": 330801,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "多元化团队",
+    "desc": "获得<unbreak>#1[i]</unbreak>个【<gridfightinfo type=item id=350701>】，你的羁绊最多只能激活到<unbreak>#2[i]</unbreak>人口对应的效果。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/330801.png",
+    "param_list": [
+      2,
+      4
+    ],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "330901": {
+    "id": 330901,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "终身学习",
+    "desc": "现在以及每个位面开始时，获得【<gridfightinfo type=item id=99991>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/330901.png",
+    "param_list": [],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "331001": {
+    "id": 331001,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "佩佩客串",
+    "desc": "佩佩闪亮登场！每完美通关一个战斗节点，佩佩就会穿戴一件进阶装备，进入#1个节点后，阿兰接走佩佩们并留下所有装备。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/331001.png",
+    "param_list": [
+      5
+    ],
+    "chapter_limit_list": [
+      1,
+      2
+    ]
+  },
+  "331101": {
+    "id": 331101,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "装备方案A",
+    "desc": "获得【<gridfightinfo type=item id=35030107>】、【<gridfightinfo type=item id=35030101>】和【<gridfightinfo type=item id=350202>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/331101.png",
+    "param_list": [
+      35030107,
+      35030101,
+      350202
+    ],
+    "chapter_limit_list": []
+  },
+  "331201": {
+    "id": 331201,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "装备方案B",
+    "desc": "获得【<gridfightinfo type=item id=35030408>】、【<gridfightinfo type=item id=35030808>】和【<gridfightinfo type=item id=350203>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/331201.png",
+    "param_list": [
+      35030408,
+      35030808,
+      350203
+    ],
+    "chapter_limit_list": []
+  },
+  "331301": {
+    "id": 331301,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "入职礼包",
+    "desc": "进入战斗时：携带了<unbreak>#1[i]</unbreak>件装备的至多<unbreak>#2[i]</unbreak>个角色会获得一件处在推荐列表中的随机进阶装备。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/331301.png",
+    "param_list": [
+      2,
+      4
+    ],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "331401": {
+    "id": 331401,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "独家代言",
+    "desc": "从#1件进阶装备中选择一件获取。本局游戏中，你获得组成该装备的简易装备时，改为获得该进阶装备。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/331401.png",
+    "param_list": [
+      3
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "200101": {
+    "id": 200101,
+    "category_id": 2,
+    "quality": "Gold",
+    "name": "定期福利",
+    "desc": "立刻获得#1个金币，并且在每次进入新节点时，获得#2金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/200101.png",
+    "param_list": [
+      4,
+      2
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "230702": {
+    "id": 230702,
+    "category_id": 16,
+    "quality": "Gold",
+    "name": "回收计划+",
+    "desc": "出售角色时，会将进阶装备拆分成简易装备。获得#1件进阶装备，并在#2个节点后获得#3件随机简易装备。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/230701.png",
+    "param_list": [
+      1,
+      4,
+      1
+    ],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "101102": {
+    "id": 101102,
+    "category_id": 11,
+    "quality": "Silver",
+    "name": "黄金期货+",
+    "desc": "#1个节点后，进行一次不能刷新的黄金投资策略三选一。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/101101.png",
+    "param_list": [
+      4
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "101202": {
+    "id": 101202,
+    "category_id": 12,
+    "quality": "Silver",
+    "name": "返利+",
+    "desc": "每购买#1个<color=#ffd471>5费角色</color>，获得#2金币。立刻获得#3金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/101201.png",
+    "param_list": [
+      3,
+      3,
+      6
+    ],
+    "chapter_limit_list": [
+      3
+    ]
+  },
+  "200502": {
+    "id": 200502,
+    "category_id": 5,
+    "quality": "Gold",
+    "name": "枪在手+",
+    "desc": "立刻获得<unbreak>#1[i]</unbreak>件随机简易装备，首领战后，获得<unbreak>#2[i]</unbreak>件随机简易装备。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/200501.png",
+    "param_list": [
+      2,
+      1
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "201102": {
+    "id": 201102,
+    "category_id": 11,
+    "quality": "Gold",
+    "name": "彩虹期货+",
+    "desc": "#1个节点后，进行一次不能刷新的棱彩投资策略三选一。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/101101.png",
+    "param_list": [
+      4
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "203302": {
+    "id": 203302,
+    "category_id": 17,
+    "quality": "Gold",
+    "name": "专家招募+",
+    "desc": "获得#1个<color=#ffd471><gridfightinfo type=item id=99992></color>，获得#2金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/203301.png",
+    "param_list": [
+      2,
+      12
+    ],
+    "chapter_limit_list": [
+      3
+    ]
+  },
+  "350402": {
+    "id": 350402,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "战术义眼+",
+    "desc": "我方小队消灭普通/精英及首领敌人时，恢复<unbreak>#2[i]%</unbreak>/<unbreak>#3[i]%</unbreak>能量。获得1个【<gridfightinfo type=item id=99999>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/350401.png",
+    "param_list": [
+      35402021,
+      0.25,
+      0.75
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "303101": {
+    "id": 303101,
+    "category_id": 12,
+    "quality": "Prismatic",
+    "name": "采购专员•彩",
+    "desc": "每#1次刷新，商店会刷出5张费用相同的角色，费用为你备战席最左侧角色的费用。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/201201.png",
+    "param_list": [
+      5
+    ],
+    "chapter_limit_list": []
+  },
+  "231201": {
+    "id": 231201,
+    "category_id": 2,
+    "quality": "Gold",
+    "name": "红钻闪耀",
+    "desc": "获得#1个【<gridfightinfo type=item id=350601>】。进入#2个节点后，获得【<gridfightinfo type=item id=99999>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/231201.png",
+    "param_list": [
+      1,
+      3
+    ],
+    "chapter_limit_list": []
+  },
+  "231301": {
+    "id": 231301,
+    "category_id": 2,
+    "quality": "Gold",
+    "name": "蓝钻闪耀",
+    "desc": "获得#1个【<gridfightinfo type=item id=350602>】。进入#2个节点后，获得【<gridfightinfo type=item id=99999>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/231301.png",
+    "param_list": [
+      1,
+      3
+    ],
+    "chapter_limit_list": []
+  },
+  "130801": {
+    "id": 130801,
+    "category_id": 2,
+    "quality": "Silver",
+    "name": "精密拆装·银",
+    "desc": "获得#1个【<gridfightinfo type=item id=350102>】。获得#2个随机简易武装。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/231401.png",
+    "param_list": [
+      1,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "231401": {
+    "id": 231401,
+    "category_id": 2,
+    "quality": "Gold",
+    "name": "精密拆装·金",
+    "desc": "获得#1个【<gridfightinfo type=item id=350102>】，#2个【<gridfightinfo type=item id=350103>】和#3个随机简易武装。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/231401.png",
+    "param_list": [
+      1,
+      1,
+      2
+    ],
+    "chapter_limit_list": []
+  },
+  "331501": {
+    "id": 331501,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "精密拆装·彩",
+    "desc": "获得#1个【<gridfightinfo type=item id=350102>】和#1个【<gridfightinfo type=item id=35040404>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/231401.png",
+    "param_list": [
+      1,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "303201": {
+    "id": 303201,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "金币大使叽米",
+    "desc": "超稀有的叽米登场！爆出超多金币！！",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/303201.png",
+    "param_list": [],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "303301": {
+    "id": 303301,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "星徽大使叽米",
+    "desc": "超稀有的叽米登场！爆出超多星徽！！",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/303301.png",
+    "param_list": [],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "130901": {
+    "id": 130901,
+    "category_id": 2,
+    "quality": "Silver",
+    "name": "好运令牌·银",
+    "desc": "进入#1个节点后，获得#2个【<gridfightinfo type=item id=350107>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/231501.png",
+    "param_list": [
+      6,
+      1
+    ],
+    "chapter_limit_list": [
+      1,
+      2
+    ]
+  },
+  "231501": {
+    "id": 231501,
+    "category_id": 2,
+    "quality": "Gold",
+    "name": "好运令牌·金",
+    "desc": "获得#1个【<gridfightinfo type=item id=350107>】和#2金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/231501.png",
+    "param_list": [
+      1,
+      3
+    ],
+    "chapter_limit_list": []
+  },
+  "331601": {
+    "id": 331601,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "好运令牌·彩",
+    "desc": "获得#1个【<gridfightinfo type=item id=350107>】。每累计进入#2个节点后，获得#3个【<gridfightinfo type=item id=350107>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/231501.png",
+    "param_list": [
+      1,
+      4,
+      1
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "253101": {
+    "id": 253101,
+    "category_id": 2,
+    "quality": "Gold",
+    "name": "星魂升华",
+    "desc": "本局游戏中，我方前台角色的星魂提高#1阶",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/253101.png",
+    "param_list": [
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "131001": {
+    "id": 131001,
+    "category_id": 2,
+    "quality": "Silver",
+    "name": "全都要•银",
+    "desc": "本局游戏中，补给阶段的可选项减少#1个。下#2个补给阶段选择后，额外获得所有未选择的角色及装备。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/131001.png",
+    "param_list": [
+      2,
+      1
+    ],
+    "chapter_limit_list": [
+      1,
+      2
+    ]
+  },
+  "131101": {
+    "id": 131101,
+    "category_id": 2,
+    "quality": "Silver",
+    "name": "是钻石总会发光",
+    "desc": "#1个节点后，获得【<gridfightinfo type=item id=350601>】或【<gridfightinfo type=item id=350602>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/131101.png",
+    "param_list": [
+      2
+    ],
+    "chapter_limit_list": []
+  },
+  "151201": {
+    "id": 151201,
+    "category_id": 2,
+    "quality": "Silver",
+    "name": "幸运喷雾",
+    "desc": "我方小队的幸运一击伤害提高<unbreak>#1[i]%</unbreak>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/151201.png",
+    "param_list": [
+      0.25
+    ],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "203501": {
+    "id": 203501,
+    "category_id": 2,
+    "quality": "Gold",
+    "name": "全都要•金",
+    "desc": "本局游戏中，补给阶段的可选项减少#1个。下#2个补给阶段选择后，额外获得所有未选择的角色及装备。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/131001.png",
+    "param_list": [
+      2,
+      2
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "231601": {
+    "id": 231601,
+    "category_id": 2,
+    "quality": "Gold",
+    "name": "好运来",
+    "desc": "合成与获得进阶装备时，改为获得一个【<gridfightinfo type=item id=350107>】。获得#1件随机简易装备和#2金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/231601.png",
+    "param_list": [
+      1,
+      3
+    ],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "253301": {
+    "id": 253301,
+    "category_id": 2,
+    "quality": "Gold",
+    "name": "爆仓",
+    "desc": "我方小队攻击敌方目标后，若其生命值百分比少于<unbreak>#2[i]%</unbreak>，将其【斩杀】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/253301.png",
+    "param_list": [
+      35402042,
+      0.16
+    ],
+    "chapter_limit_list": [
+      1,
+      2
+    ]
+  },
+  "303401": {
+    "id": 303401,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "偶像经济",
+    "desc": "获得<color=#927fe7>【<gridfightinfo type=role id=1501 color=rarity><name></gridfightinfo>】</color>和一个【<gridfightinfo type=role id=1501>礼盒】，倒计时#1个节点后礼盒打开，提供大量奖励！战斗完胜时，额外减少1点倒计时。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/303401.png",
+    "param_list": [
+      10
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "331701": {
+    "id": 331701,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "全都要•彩",
+    "desc": "本局游戏中，补给阶段的可选项减少#1个。补给阶段选择后，额外获得所有未选择的角色及装备。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/131001.png",
+    "param_list": [
+      2,
+      99
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "331801": {
+    "id": 331801,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "分解万物",
+    "desc": "获得一个【<gridfightinfo type=item id=35030507>】，本局游戏中，你的所有进阶装备变成【<gridfightinfo type=item id=35030507>】。它将额外造成<unbreak>#3[i]</unbreak>次伤害，对普通/精英及首领敌人分别造成<unbreak>#1[i]%</unbreak>/<unbreak>#2[i]%</unbreak>生命上限百分比的真实伤害，并使我方小队获得<unbreak>#4[i]%</unbreak>伤害减免。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/331801.png",
+    "param_list": [
+      0.02,
+      0.01,
+      3,
+      0.04,
+      0.04,
+      0.02,
+      0.08
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "331901": {
+    "id": 331901,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "完美进化",
+    "desc": "获得一个【<gridfightinfo type=item id=35030208>】，进入战斗时，穿戴【<gridfightinfo type=item id=35030208>】的1星角色会变为2星。#1个节点后，获得一个【<gridfightinfo type=item id=35030208>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/331901.png",
+    "param_list": [
+      4
+    ],
+    "chapter_limit_list": []
+  },
+  "332001": {
+    "id": 332001,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "脱颖而出",
+    "desc": "穿戴#1件装备的角色在进入战斗时，会将其中随机一件变为特权装备，持续到战斗结束。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/332001.png",
+    "param_list": [
+      3
+    ],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "332101": {
+    "id": 332101,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "数值碾压",
+    "desc": "角色穿戴的简易装备额外提供#1倍的基础属性。获得#2件随机简易装备。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/332101.png",
+    "param_list": [
+      8,
+      2
+    ],
+    "chapter_limit_list": []
+  },
+  "332201": {
+    "id": 332201,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "轮回不止",
+    "desc": "获得<color=#7196ff>【<gridfightinfo type=role id=1408 color=rarity><name></gridfightinfo>】</color>和一件【轮回者】装备。进入第二/三位面时，再获得一次。\\n<gridfightcontext>当前【轮回者】装备：<equips></gridfightcontext>\\n\\n<color=#b4b4b4><i>本局游戏结束时，<color=#7196ff>【<gridfightinfo type=role id=1408 color=rarity><name></gridfightinfo>】</color>携带着装备成为新的【轮回者】。\\n若游戏结束时<color=#7196ff>【<gridfightinfo type=role id=1408 color=rarity><name></gridfightinfo>】</color>不在队伍中，【轮回者】的装备变为初始状态。</i></color>",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/332201.png",
+    "param_list": [
+      1
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "332301": {
+    "id": 332301,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "融合召唤",
+    "desc": "给角色穿戴2件相同进阶装备时，它们会合成为对应的特权装备。获得#1个【<gridfightinfo type=item id=99999>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/332301.png",
+    "param_list": [
+      1
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "351901": {
+    "id": 351901,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "定点爆破",
+    "desc": "每个波次开始时，【重锤】立即对当前生命值最高的敌人造成<unbreak>#2[i]%</unbreak>基础伤害，最多对首领敌人造成<unbreak>#3[i]%</unbreak>生命上限的伤害。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/351901.png",
+    "param_list": [
+      35402043,
+      9999.99,
+      0.5
+    ],
+    "chapter_limit_list": []
+  },
+  "260101": {
+    "id": 260101,
+    "category_id": 2,
+    "quality": "Gold",
+    "name": "摸个鱼吧 I",
+    "desc": "获得专家顾问<color=#b4b4b4>【<gridfightinfo type=role id=1201>】</color>，并使其在本局游戏中加入商店。获得#1金币。深思熟虑#2个节点后，<gridfightinfo type=role id=1201>会想出黄金投资策略！",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/260101.png",
+    "param_list": [
+      6,
+      5
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "260201": {
+    "id": 260201,
+    "category_id": 3,
+    "quality": "Gold",
+    "name": "摸个鱼吧 II",
+    "desc": "获得#1个<color=#b4b4b4>【<gridfightinfo type=role id=1201>】</color>和#2金币。深思熟虑#3个节点后，<gridfightinfo type=role id=1201>会想出棱彩投资策略！",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/260201.png",
+    "param_list": [
+      2,
+      6,
+      5
+    ],
+    "chapter_limit_list": []
+  },
+  "360101": {
+    "id": 360101,
+    "category_id": 4,
+    "quality": "Prismatic",
+    "name": "摸个鱼吧 III",
+    "desc": "摸到了！获得#1个<color=#b4b4b4>【<gridfightinfo type=role id=1201>】</color>和#2个【<gridfightinfo type=item id=350107>】！",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/360101.png",
+    "param_list": [
+      18,
+      2
+    ],
+    "chapter_limit_list": []
+  },
+  "260301": {
+    "id": 260301,
+    "category_id": 6,
+    "quality": "Gold",
+    "name": "加拉赫顾问",
+    "desc": "获得专家顾问<color=#b4b4b4>【<gridfightinfo type=role id=1301>】</color>，并使其在本局游戏中加入商店。获得【<gridfightinfo type=item id=350205>】和#1金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/260301.png",
+    "param_list": [
+      4
+    ],
+    "chapter_limit_list": []
+  },
+  "260401": {
+    "id": 260401,
+    "category_id": 7,
+    "quality": "Gold",
+    "name": "快请专家•金",
+    "desc": "获得#1个【<gridfightinfo type=item id=99990>】，#2个节点后，获得#3个【<gridfightinfo type=item id=350105>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/260401.png",
+    "param_list": [
+      1,
+      4,
+      2
+    ],
+    "chapter_limit_list": [
+      1,
+      2
+    ]
+  },
+  "360201": {
+    "id": 360201,
+    "category_id": 8,
+    "quality": "Prismatic",
+    "name": "快请专家•彩",
+    "desc": "获得#1个【<gridfightinfo type=item id=99990>】，#2个【<gridfightinfo type=item id=350107>】和#3个【<gridfightinfo type=item id=99998>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/360201.png",
+    "param_list": [
+      2,
+      1,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "360301": {
+    "id": 360301,
+    "category_id": 9,
+    "quality": "Prismatic",
+    "name": "琼玉专家：青雀",
+    "desc": "获得装备着3个随机星徽的专家顾问<color=#b4b4b4>【<gridfightinfo type=role id=1201>】</color>，并使其在本局游戏中加入商店。获得#1个【<gridfightinfo type=item id=350103>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/360301.png",
+    "param_list": [
+      2
+    ],
+    "chapter_limit_list": [
+      1,
+      2
+    ]
+  },
+  "360401": {
+    "id": 360401,
+    "category_id": 10,
+    "quality": "Prismatic",
+    "name": "贸易专家：停云",
+    "desc": "获得专家顾问<color=#b4b4b4>【<gridfightinfo type=role id=1202>】</color>，并使其在本局游戏中加入商店。并获得#1个【<gridfightinfo type=item id=99999>】、【<gridfightinfo type=item id=350102>】和#2金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/360401.png",
+    "param_list": [
+      4,
+      10
+    ],
+    "chapter_limit_list": []
+  },
+  "360501": {
+    "id": 360501,
+    "category_id": 11,
+    "quality": "Prismatic",
+    "name": "调饮专家：加拉赫",
+    "desc": "获得装备着【<gridfightinfo type=item id=35030508>】的专家顾问<color=#b4b4b4>【<gridfightinfo type=role id=1301>】</color>，并使其在本局游戏中加入商店。<gridfightinfo type=role id=1301>行动时，为我方全体恢复#2点能量并触发【<gridfightinfo type=item id=35030508>】的生命回复效果。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/360501.png",
+    "param_list": [
+      35402044,
+      3
+    ],
+    "chapter_limit_list": []
+  },
+  "260501": {
+    "id": 260501,
+    "category_id": 5,
+    "quality": "Gold",
+    "name": "停云顾问",
+    "desc": "获得专家顾问<color=#b4b4b4>【<gridfightinfo type=role id=1202>】</color>，并使其在本局游戏中加入商店。获得【<gridfightinfo type=item id=350208>】和#1金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/260501.png",
+    "param_list": [
+      4
+    ],
+    "chapter_limit_list": []
+  },
+  "103701": {
+    "id": 103701,
+    "category_id": 1,
+    "quality": "Silver",
+    "name": "成长的快乐",
+    "desc": "升到<unbreak>#1[i]</unbreak>级后，你购买经验所需的金币降低<unbreak>#2[i]</unbreak>金币。立刻获得<unbreak>#3[i]</unbreak>经验。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/103701.png",
+    "param_list": [
+      8,
+      1,
+      4
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "103802": {
+    "id": 103802,
+    "category_id": 1,
+    "quality": "Silver",
+    "name": "二极管",
+    "desc": "本场对局中，你的遭遇节点只有最低和最高两个难度；获得<unbreak>#1[i]</unbreak>小队生命值和生命上限，获得<unbreak>#2[i]</unbreak>金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/103801.png",
+    "param_list": [
+      10,
+      6
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "103901": {
+    "id": 103901,
+    "category_id": 1,
+    "quality": "Silver",
+    "name": "免费升舱",
+    "desc": "本场对局中，你的遭遇奖励提高<unbreak>#1[i]</unbreak>级（遭遇4也能获得额外奖励）。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/103901.png",
+    "param_list": [
+      1,
+      0
+    ],
+    "chapter_limit_list": [
+      1,
+      2,
+      3
+    ]
+  },
+  "131201": {
+    "id": 131201,
+    "category_id": 2,
+    "quality": "Silver",
+    "name": "无害垃圾",
+    "desc": "获得一个【<gridfightinfo type=item id=352101>】并获得<unbreak>#1[i]</unbreak>金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/131201.png",
+    "param_list": [
+      8
+    ],
+    "chapter_limit_list": [
+      1,
+      2
+    ]
+  },
+  "151301": {
+    "id": 151301,
+    "category_id": 2,
+    "quality": "Silver",
+    "name": "免战牌",
+    "desc": "进入战斗节点时，直接跳过战斗并进入下一个节点，可生效<unbreak>#1[i]</unbreak>次。获得<unbreak>#2[i]</unbreak>点经验。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/151301.png",
+    "param_list": [
+      2,
+      30
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "211301": {
+    "id": 211301,
+    "category_id": 17,
+    "quality": "Gold",
+    "name": "阿哈大悦",
+    "desc": "【欢愉】羁绊激活时，阿哈获得<unbreak>#1[i]%</unbreak>伤害增幅。从<unbreak>#2[i]</unbreak>件简易装备中为阿哈选择1件，祂的羁绊简易装备全部变为该简易装备，获得<unbreak>#3[i]</unbreak>个【<gridfightinfo type=item id=99999>】。\\n\\n<color=#b4b4b4><i>阿哈已合成的进阶装备会被拆散，你提供的那件简易装备会回到你的装备栏。</i></color>",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/211301.png",
+    "param_list": [
+      0.4,
+      4,
+      1,
+      2
+    ],
+    "chapter_limit_list": [
+      1,
+      2,
+      3
+    ]
+  },
+  "203601": {
+    "id": 203601,
+    "category_id": 2,
+    "quality": "Gold",
+    "name": "广聚天下英才",
+    "desc": "获得所有<unbreak>#1[i]</unbreak>费角色各一个。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/203601.png",
+    "param_list": [
+      2
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "203701": {
+    "id": 203701,
+    "category_id": 2,
+    "quality": "Gold",
+    "name": "欢愉星徽",
+    "desc": "获得#2个【<gridfightinfo type=item id=35052012>】，和#4个<color=#6cce9f>【<gridfightinfo type=role id=1505 color=rarity><name></gridfightinfo>】</color>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/203701.png",
+    "param_list": [
+      35052012,
+      1,
+      1505,
+      1
+    ],
+    "chapter_limit_list": [
+      1,
+      2,
+      3
+    ]
+  },
+  "231701": {
+    "id": 231701,
+    "category_id": 2,
+    "quality": "Gold",
+    "name": "黄金垃圾",
+    "desc": "获得一个【<gridfightinfo type=item id=352201>】，它提供大量属性和<unbreak>#1[i]</unbreak>金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/231701.png",
+    "param_list": [
+      15
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "260601": {
+    "id": 260601,
+    "category_id": 5,
+    "quality": "Gold",
+    "name": "退化",
+    "desc": "使最右侧的敌人词缀失效，并使敌人难度-<unbreak>#2[i]</unbreak>。获得<unbreak>#1[i]</unbreak>金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/260601.png",
+    "param_list": [
+      8,
+      5
+    ],
+    "chapter_limit_list": [
+      1,
+      2
+    ]
+  },
+  "260701": {
+    "id": 260701,
+    "category_id": 5,
+    "quality": "Gold",
+    "name": "愚者恶作剧",
+    "desc": "商店中出现的的<unbreak>#1[i]</unbreak>/<unbreak>#2[i]</unbreak>费卡有<unbreak>#3[i]%</unbreak>的概率变为<color=#6cce9f>【<gridfightinfo type=role id=1306 color=rarity><name></gridfightinfo>】</color>/<color=#927fe7>【<gridfightinfo type=role id=1501 color=rarity><name></gridfightinfo>】</color>，进入新节点时，备战席的1星<color=#6cce9f>【<gridfightinfo type=role id=1306 color=rarity><name></gridfightinfo>】</color>/<color=#927fe7>【<gridfightinfo type=role id=1501 color=rarity><name></gridfightinfo>】</color>会留下<unbreak>#1[i]</unbreak>/<unbreak>#2[i]</unbreak>金币并去别处找乐子。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/260701.png",
+    "param_list": [
+      2,
+      4,
+      0.2
+    ],
+    "chapter_limit_list": [
+      1,
+      2,
+      3
+    ]
+  },
+  "352101": {
+    "id": 352101,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "乱成一锅粥",
+    "desc": "每次进入新节点时，处在备战席最左侧<unbreak>#1[i]</unbreak>个位置的角色变为随机的同费用角色。立刻获得<unbreak>#2[i]</unbreak>次免费刷新和<unbreak>#3[i]</unbreak>金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/352101.png",
+    "param_list": [
+      6,
+      5,
+      10
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "352201": {
+    "id": 352201,
+    "category_id": 2,
+    "quality": "Gold",
+    "name": "白衣伙伴",
+    "desc": "你的<color=#7196ff>【<gridfightinfo type=role id=1408 color=rarity><name></gridfightinfo>】</color>/<color=#7196ff>【<gridfightinfo type=role id=1313 color=rarity><name></gridfightinfo>】</color>可以互相用于升星。首次获得<unbreak>#1[i]</unbreak>星<color=#7196ff>【<gridfightinfo type=role id=1408 color=rarity><name></gridfightinfo>】</color>/<color=#7196ff>【<gridfightinfo type=role id=1313 color=rarity><name></gridfightinfo>】</color>之一时，立即获得另一个的<unbreak>#1[i]</unbreak>星版本。获得<color=#7196ff>【<gridfightinfo type=role id=1408 color=rarity><name></gridfightinfo>】</color>，<unbreak>#2[i]</unbreak>个节点后获得<color=#7196ff>【<gridfightinfo type=role id=1313 color=rarity><name></gridfightinfo>】</color>。\\n\\n<color=#b4b4b4><i>升星结果取决于较多的那一方。比如，2星<color=#7196ff>【<gridfightinfo type=role id=1408 color=rarity><name></gridfightinfo>】</color>+2星<color=#7196ff>【<gridfightinfo type=role id=1408 color=rarity><name></gridfightinfo>】</color>+2星<color=#7196ff>【<gridfightinfo type=role id=1313 color=rarity><name></gridfightinfo>】</color>=3星<color=#7196ff>【<gridfightinfo type=role id=1408 color=rarity><name></gridfightinfo>】</color>。</i></color>",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/352201.png",
+    "param_list": [
+      3,
+      3
+    ],
+    "chapter_limit_list": [
+      1,
+      2
+    ]
+  },
+  "352301": {
+    "id": 352301,
+    "category_id": 2,
+    "quality": "Gold",
+    "name": "双龙会",
+    "desc": "你的<color=#6cce9f>【<gridfightinfo type=role id=1213>】</color>/<color=#6cce9f>【<gridfightinfo type=role id=1414 color=rarity><name></gridfightinfo>】</color>可以互相用于升星。首次获得<unbreak>#1[i]</unbreak>星<color=#6cce9f>【<gridfightinfo type=role id=1213>】</color>/<color=#6cce9f>【<gridfightinfo type=role id=1414 color=rarity><name></gridfightinfo>】</color>之一时，立即获得另一个的<unbreak>#1[i]</unbreak>星版本。获得<color=#6cce9f>【<gridfightinfo type=role id=1414 color=rarity><name></gridfightinfo>】</color>、<color=#6cce9f>【<gridfightinfo type=role id=1213>】</color>。\\n\\n<color=#b4b4b4><i>升星结果取决于较多的那一方。比如，2星<color=#6cce9f>【<gridfightinfo type=role id=1213>】</color>+2星<color=#6cce9f>【<gridfightinfo type=role id=1414 color=rarity><name></gridfightinfo>】</color>+2星<color=#6cce9f>【<gridfightinfo type=role id=1414 color=rarity><name></gridfightinfo>】</color>=3星<color=#6cce9f>【<gridfightinfo type=role id=1414 color=rarity><name></gridfightinfo>】</color>。</i></color>",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/352301.png",
+    "param_list": [
+      3
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "352401": {
+    "id": 352401,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "盗用身份",
+    "desc": "进入第二位面的首领节点时，获得一个穿着<unbreak>#1[i]</unbreak>个【<gridfightinfo type=item id=35030207>】和【<gridfightinfo type=item id=35051001>】的<color=#927fe7>【<gridfightinfo type=role id=1501 color=rarity><name></gridfightinfo>】</color>和<unbreak>#2[i]</unbreak>个<color=#927fe7>【<gridfightinfo type=role id=8009 color=rarity><name></gridfightinfo>】</color>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/352401.png",
+    "param_list": [
+      2,
+      1
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "253401": {
+    "id": 253401,
+    "category_id": 2,
+    "quality": "Gold",
+    "name": "骇客专家：银狼",
+    "desc": "获得专家顾问<color=#927fe7>【<gridfightinfo type=role id=1006>】</color>，并使其在本局游戏中加入商店。获得<unbreak>#1[i]</unbreak>个随机<unbreak>#2[i]</unbreak>费骇客改件。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/253401.png",
+    "param_list": [
+      1,
+      4
+    ],
+    "chapter_limit_list": [
+      1,
+      2,
+      3
+    ]
+  },
+  "253501": {
+    "id": 253501,
+    "category_id": 2,
+    "quality": "Gold",
+    "name": "潜行专家：貊泽",
+    "desc": "获得专家顾问<color=#b4b4b4>【<gridfightinfo type=role id=1223>】</color>，并使其在本局游戏中加入商店。他上场时不占用团队规模，赋能【雷霆一击】额外造成<unbreak>#2[i]%</unbreak>基础伤害。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/253501.png",
+    "param_list": [
+      35402046,
+      6
+    ],
+    "chapter_limit_list": [
+      1,
+      2,
+      3
+    ]
+  },
+  "253601": {
+    "id": 253601,
+    "category_id": 2,
+    "quality": "Gold",
+    "name": "迷之旅人",
+    "desc": "激活<unbreak>#1[i]</unbreak>【巡海游侠】时，其中<unbreak>#2[i]</unbreak>位巡海游侠会发生一次讨论，之后，你获得一个携带着【<gridfightinfo type=item id=35051006>】的<unbreak>#3[i]</unbreak>星<color=#7196ff>【<gridfightinfo type=role id=1308 color=rarity><name></gridfightinfo>】</color>。进入下一个奖励节点时，获得<color=#927fe7>【<gridfightinfo type=role id=1315 color=rarity><name></gridfightinfo>】</color>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/253601.png",
+    "param_list": [
+      4,
+      3,
+      2
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "303501": {
+    "id": 303501,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "武器批发商",
+    "desc": "下个首领节点后，获得所有类型的简易装备各<unbreak>#1[i]</unbreak>个。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/303501.png",
+    "param_list": [
+      1
+    ],
+    "chapter_limit_list": [
+      1,
+      2
+    ]
+  },
+  "303601": {
+    "id": 303601,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "远见",
+    "desc": "获得一个随机黄金投资策略和<unbreak>#1[i]</unbreak>金币。后续的投资策略节点改为获得随机<unbreak>#2[i]</unbreak>个棱彩投资策略（无法刷新），并且不增加敌人难度。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/303601.png",
+    "param_list": [
+      15,
+      1
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "303701": {
+    "id": 303701,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "搜打撤",
+    "desc": "每当你进入新节点时，获得1次免费刷新。通关下一个首领节点后，获得等同于场上和备战席所有角色价值的金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/303701.png",
+    "param_list": [
+      1
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "303801": {
+    "id": 303801,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "不等价交换",
+    "desc": "交换你的小队生命值和金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/303801.png",
+    "param_list": [],
+    "chapter_limit_list": [
+      1,
+      2,
+      3
+    ]
+  },
+  "303901": {
+    "id": 303901,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "着眼当下",
+    "desc": "你购买的下一个1/2/3/4/5费角色变成<unbreak>#1[i]</unbreak>星，随后，将其从商店中移除。立即获得<unbreak>#2[i]</unbreak>金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/303901.png",
+    "param_list": [
+      2,
+      5
+    ],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "332401": {
+    "id": 332401,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "环保大使叽米",
+    "desc": "获得超稀有的叽米！！获得超多【<gridfightinfo type=item id=352201>】！！",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/332401.png",
+    "param_list": [],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "103601": {
+    "id": 103601,
+    "category_id": 1,
+    "quality": "Silver",
+    "name": "经验就是财富",
+    "desc": "获得经验时，改为获取等量金币（购买经验除外）。获得<unbreak>#1[i]</unbreak>金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/103601.png",
+    "param_list": [
+      4
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "352501": {
+    "id": 352501,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "本姑娘就是罗刹",
+    "desc": "获得2星<color=#b4b4b4>【<gridfightinfo type=role id=1224 color=rarity><name></gridfightinfo>】</color>。每次进入新节点时，获得<color=#b4b4b4>【<gridfightinfo type=role id=1224 color=rarity><name></gridfightinfo>】</color>。进入战斗前，这位姑娘化身<color=#927fe7>【<gridfightinfo type=role id=1203 color=rarity><name></gridfightinfo>】</color>。战斗中，她会「治疗」敌方目标，造成等同于（<unbreak>#2[i]</unbreak>+<unbreak>#3[f1]</unbreak>*后台强度）%的基础伤害，每有<unbreak>#4[i]</unbreak>后台强度，还可在「急救」时造成<unbreak>#5[i]%</unbreak>最大生命值的真实伤害。\\n\\n<color=#b4b4b4><i>现在，本姑娘就是<gridfightinfo type=role id=1203>！</i></color>",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/352501.png",
+    "param_list": [
+      35402045,
+      200,
+      2,
+      100,
+      0.02
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "352102": {
+    "id": 352102,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "乱成一锅粥+",
+    "desc": "每次进入新节点时，处在备战席最左侧<unbreak>#1[i]</unbreak>个位置的角色变为随机的同费用角色。立刻获得<unbreak>#2[i]</unbreak>次免费刷新和<unbreak>#3[i]</unbreak>金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/352101.png",
+    "param_list": [
+      6,
+      7,
+      14
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "251801": {
+    "id": 251801,
+    "category_id": 16,
+    "quality": "Gold",
+    "name": "双人舞",
+    "desc": "上阵的星核猎手数量为2时，激活【猎星人】效果所需攻击数减少<unbreak>#2[i]</unbreak>，被激活的攻击造成<unbreak>#3[i]%</unbreak>原伤害。获得<color=#6cce9f>【<gridfightinfo type=role id=1507 color=rarity><name></gridfightinfo>】</color>和<color=#6cce9f>【<gridfightinfo type=role id=1005 color=rarity><name></gridfightinfo>】</color>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/251801.png",
+    "param_list": [
+      35402026,
+      1,
+      2,
+      1507,
+      1005
+    ],
+    "chapter_limit_list": []
+  },
+  "251901": {
+    "id": 251901,
+    "category_id": 16,
+    "quality": "Gold",
+    "name": "读博深造",
+    "desc": "战斗开始时，若银河学者羁绊处于激活状态，一名随机的1费或2费银河学者变成3星。获得<color=#b4b4b4>【<gridfightinfo type=role id=1009>】</color>和<color=#6cce9f>【<gridfightinfo type=role id=1303>】</color>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/251901.png",
+    "param_list": [
+      1009,
+      1303
+    ],
+    "chapter_limit_list": []
+  },
+  "252001": {
+    "id": 252001,
+    "category_id": 16,
+    "quality": "Gold",
+    "name": "钢铁美学",
+    "desc": "【造物引擎】造成<unbreak>#2[i]%</unbreak>原伤害，但是无法消灭目标。获得<color=#7196ff>【<gridfightinfo type=role id=1102>】</color>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/252001.png",
+    "param_list": [
+      35402027,
+      4,
+      1102
+    ],
+    "chapter_limit_list": []
+  },
+  "252101": {
+    "id": 252101,
+    "category_id": 16,
+    "quality": "Gold",
+    "name": "人在旅途",
+    "desc": "星间旅人若只有<unbreak>#2[i]</unbreak>名及以下登场，登场角色额外提供<unbreak>#3[i]%</unbreak>的星间旅人属性加成。获得<color=#6cce9f>【<gridfightinfo type=role id=1505 color=rarity><name></gridfightinfo>】</color>和<color=#6cce9f>【<gridfightinfo type=role id=1302>】</color>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/252101.png",
+    "param_list": [
+      0,
+      3,
+      2,
+      1505,
+      1302
+    ],
+    "chapter_limit_list": []
+  },
+  "252201": {
+    "id": 252201,
+    "category_id": 16,
+    "quality": "Gold",
+    "name": "装备党",
+    "desc": "激活狼狩羁绊时，狼狩角色们每穿戴一件装备，就获得<unbreak>#2[i]%</unbreak>伤害增幅和<unbreak>#3[i]%</unbreak>速度增幅。获得<color=#b4b4b4>【<gridfightinfo type=role id=1218 color=rarity><name></gridfightinfo>】</color>和<color=#b4b4b4>【<gridfightinfo type=role id=1220 color=rarity><name></gridfightinfo>】</color>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/252201.png",
+    "param_list": [
+      0,
+      0.04,
+      0.02,
+      1218,
+      1220
+    ],
+    "chapter_limit_list": []
+  },
+  "252301": {
+    "id": 252301,
+    "category_id": 16,
+    "quality": "Gold",
+    "name": "梦境大舞台",
+    "desc": "盛会之星羁绊激活时，战斗中首次激活<unbreak>#2[i]</unbreak>/<unbreak>#3[i]</unbreak>/<unbreak>#4[i]</unbreak>个不同的非独立羁绊后，获得【<gridfightinfo type=item id=35051010>】。获得<color=#6cce9f>【<gridfightinfo type=role id=1306 color=rarity><name></gridfightinfo>】</color>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/252301.png",
+    "param_list": [
+      0,
+      3,
+      7,
+      10,
+      1306
+    ],
+    "chapter_limit_list": []
+  },
+  "252401": {
+    "id": 252401,
+    "category_id": 16,
+    "quality": "Gold",
+    "name": "赞美太阳",
+    "desc": "每拥有一件【白昼装备】以及其原型装备，在进入新节点时就获得<unbreak>#1[i]</unbreak>点经验。角色每穿戴一件【白昼装备】，幸运一击率提高<unbreak>#2[i]%</unbreak>。获得<color=#7196ff>【<gridfightinfo type=role id=1405 color=rarity><name></gridfightinfo>】</color>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/252401.png",
+    "param_list": [
+      1,
+      0.1,
+      1405
+    ],
+    "chapter_limit_list": []
+  },
+  "252501": {
+    "id": 252501,
+    "category_id": 16,
+    "quality": "Gold",
+    "name": "月光宝盒",
+    "desc": "完美通关时，夜之半神获得的【月光精华】提高<unbreak>#1[i]%</unbreak>，领取夜之半神奖励时，也会获得一名夜之半神角色，【月色】层数越高，越可能领取到高费角色。获得<color=#b4b4b4>【<gridfightinfo type=role id=1406 color=rarity><name></gridfightinfo>】</color>和<color=#b4b4b4>【<gridfightinfo type=role id=1404 color=rarity><name></gridfightinfo>】</color>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/252501.png",
+    "param_list": [
+      1,
+      1406,
+      1404
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "252601": {
+    "id": 252601,
+    "category_id": 16,
+    "quality": "Gold",
+    "name": "借力打力",
+    "desc": "敌方目标被消灭后，【借力球】的伤害分摊比例永久提高<unbreak>#2[f2]%</unbreak>。获得<color=#b4b4b4>【<gridfightinfo type=role id=1013>】</color>和<color=#6cce9f>【<gridfightinfo type=role id=1403 color=rarity><name></gridfightinfo>】</color>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/252601.png",
+    "param_list": [
+      35402028,
+      0.0015,
+      1013,
+      1403
+    ],
+    "chapter_limit_list": []
+  },
+  "252701": {
+    "id": 252701,
+    "category_id": 16,
+    "quality": "Gold",
+    "name": "超充站",
+    "desc": "能量地块上的单位获得【超级电池】，施放终结技后消耗【超级电池】充满能量。激活3/5/7/<unbreak>10</unbreak>羁绊时，分别获得<unbreak>#2[i]</unbreak>/<unbreak>#3[i]</unbreak>/<unbreak>#4[i]</unbreak>/<unbreak>#5[i]</unbreak>层【超级电池】。获得<color=#b4b4b4>【<gridfightinfo type=role id=1402 color=rarity><name></gridfightinfo>】</color>和<color=#b4b4b4>【<gridfightinfo type=role id=1217 color=rarity><name></gridfightinfo>】</color>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/252701.png",
+    "param_list": [
+      35402029,
+      1,
+      1,
+      2,
+      3,
+      1402,
+      1217
+    ],
+    "chapter_limit_list": []
+  },
+  "252801": {
+    "id": 252801,
+    "category_id": 16,
+    "quality": "Gold",
+    "name": "燃起来了",
+    "desc": "【燃血角斗场】以<unbreak>#2[i]%</unbreak>上限开始战斗，且保留的充能提高<unbreak>#3[i]%</unbreak>。获得<color=#b4b4b4>【<gridfightinfo type=role id=1404 color=rarity><name></gridfightinfo>】</color>和<color=#6cce9f>【<gridfightinfo type=role id=1507 color=rarity><name></gridfightinfo>】</color>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/252801.png",
+    "param_list": [
+      35402030,
+      0.8,
+      0.2,
+      1507,
+      1404
+    ],
+    "chapter_limit_list": []
+  },
+  "252901": {
+    "id": 252901,
+    "category_id": 16,
+    "quality": "Gold",
+    "name": "量子力学",
+    "desc": "【量子同频】角色累计星数达<unbreak>#1[i]</unbreak>/<unbreak>#2[i]</unbreak>/<unbreak>#3[i]</unbreak>时，额外获得<unbreak>#4[i]</unbreak>/<unbreak>#5[i]</unbreak>/<unbreak>#6[i]</unbreak>层【同频】。获得<color=#7196ff>【<gridfightinfo type=role id=1102>】</color>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/252901.png",
+    "param_list": [
+      3,
+      6,
+      9,
+      1,
+      2,
+      3
+    ],
+    "chapter_limit_list": []
+  },
+  "203401": {
+    "id": 203401,
+    "category_id": 2,
+    "quality": "Gold",
+    "name": "按劳分配",
+    "desc": "战斗中每消耗#1个战技点，结算时获得1金币，每场战斗通过该策略最多获得#2金币。激活2/4/6/8战技点羁绊时，最多获得#3/#4/#5/#6金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/203401.png",
+    "param_list": [
+      10,
+      1,
+      2,
+      3,
+      4,
+      6
+    ],
+    "chapter_limit_list": []
+  },
+  "253201": {
+    "id": 253201,
+    "category_id": 2,
+    "quality": "Gold",
+    "name": "如有神助",
+    "desc": "【仙舟】羁绊召唤的【神君】造成<unbreak>#2[i]%</unbreak>原伤害。轮次开始时、倒计时归零时，【神君】伤害段数增加<unbreak>#3[i]</unbreak>并立即行动。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/253201.png",
+    "param_list": [
+      35402041,
+      1.2,
+      10
+    ],
+    "chapter_limit_list": []
+  },
+  "104001": {
+    "id": 104001,
+    "category_id": 1,
+    "quality": "Silver",
+    "name": "星星相印",
+    "desc": "每次合成3星角色时，获得<unbreak>#1[i]</unbreak>金币。立刻获得<unbreak>#2[i]</unbreak>个【<gridfightinfo type=item id=350105>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/104001.png",
+    "param_list": [
+      5,
+      1
+    ],
+    "chapter_limit_list": [
+      1,
+      2
+    ]
+  },
+  "203801": {
+    "id": 203801,
+    "category_id": 2,
+    "quality": "Gold",
+    "name": "艾丝妲的猛犬！",
+    "desc": "获得一个穿戴【穿刺死棘之枪】的【佩佩】。【穿刺死棘之枪】以<unbreak>#2[i]</unbreak>速度行动，造成我方总幸运一击率*<unbreak>#3[i]%</unbreak>的基础伤害。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/203801.png",
+    "param_list": [
+      35402052,
+      400,
+      20
+    ],
+    "chapter_limit_list": []
+  },
+  "203901": {
+    "id": 203901,
+    "category_id": 2,
+    "quality": "Gold",
+    "name": "步狸村之谜",
+    "desc": "获得一个穿戴【<gridfightinfo type=item id=35051008>】的【狸狸】和一个【<gridfightinfo type=item id=99999>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/203901.png",
+    "param_list": [],
+    "chapter_limit_list": []
+  },
+  "204001": {
+    "id": 204001,
+    "category_id": 2,
+    "quality": "Gold",
+    "name": "狸职手续",
+    "desc": "获得<unbreak>#1[i]</unbreak>个穿着<unbreak>#2[i]</unbreak>件简易装备的【狸狸】，每<unbreak>#3[i]</unbreak>个节点，随机<unbreak>#4[i]</unbreak>个【狸狸】会狸开并留下装备。\\n\\n<color=#b4b4b4><i>狸职狸会使不是狸职狸的狸也狸职。</i></color>",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/204001.png",
+    "param_list": [
+      3,
+      1,
+      2,
+      1
+    ],
+    "chapter_limit_list": [
+      1,
+      2
+    ]
+  },
+  "204101": {
+    "id": 204101,
+    "category_id": 2,
+    "quality": "Gold",
+    "name": "双手狸开键盘！",
+    "desc": "获得【Gemi狸】，它会帮你进行商店和战斗操作！进入新节点时，它会免费刷新商店<unbreak>#2[i]</unbreak>次，自动购买你场上拥有的角色。每买到<unbreak>#3[i]</unbreak>个角色，【Gemi狸】还会使我方全体获得<unbreak>#4[i]%</unbreak>幸运一击率。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/204101.png",
+    "param_list": [
+      35402054,
+      2,
+      1,
+      0.01
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "211401": {
+    "id": 211401,
+    "category_id": 2,
+    "quality": "Gold",
+    "name": "命运圣杯星徽",
+    "desc": "获得<unbreak>#1[i]</unbreak>个【<gridfightinfo type=item id=35051013>】，和<unbreak>#2[i]</unbreak>个<color=#b4b4b4>【<gridfightinfo type=role id=1508>】</color>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/211401.png",
+    "param_list": [
+      1,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "253701": {
+    "id": 253701,
+    "category_id": 2,
+    "quality": "Gold",
+    "name": "不虚此行",
+    "desc": "【列车同行】羁绊的【星穹列车】造成<unbreak>#2[i]%</unbreak>原伤害，【光轨】增益层数上限提高<unbreak>#3[i]</unbreak>层。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/253701.png",
+    "param_list": [
+      35402050,
+      3,
+      2
+    ],
+    "chapter_limit_list": []
+  },
+  "253801": {
+    "id": 253801,
+    "category_id": 2,
+    "quality": "Gold",
+    "name": "离火燎原",
+    "desc": "【减益】成员攻击时，【离火】的真实伤害效果变为原值的<unbreak>#2[i]%</unbreak>，【减益】成员施放终结技时，则变为<unbreak>#3[i]%</unbreak>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/253801.png",
+    "param_list": [
+      35402051,
+      1.5,
+      3
+    ],
+    "chapter_limit_list": []
+  },
+  "260801": {
+    "id": 260801,
+    "category_id": 2,
+    "quality": "Gold",
+    "name": "战术专家：佩拉",
+    "desc": "获得专家顾问<color=#6cce9f>【<gridfightinfo type=role id=1106>】</color>，并使其在本局游戏中加入商店。小队每有一名不同费用的角色，<color=#6cce9f>【<gridfightinfo type=role id=1106>】</color>的终结技就额外降低敌方目标<unbreak>#2[i]%</unbreak>防御力。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/260801.png",
+    "param_list": [
+      35402047,
+      0.12
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "260901": {
+    "id": 260901,
+    "category_id": 2,
+    "quality": "Gold",
+    "name": "领航专家：姬子",
+    "desc": "获得专家顾问<color=#7196ff>【<gridfightinfo type=role id=1003>】</color>，并使其在本局游戏中加入商店。战斗开始时，<gridfightinfo type=role id=1003>邀请大家品尝咖啡，根据她的星级使我方全体行动提前<unbreak>#2[i]%</unbreak>/<unbreak>#3[i]%</unbreak>/<unbreak>#4[i]%</unbreak>，获得<unbreak>#5[i]%</unbreak>/<unbreak>#6[i]%</unbreak>/<unbreak>#7[i]%</unbreak>速度增幅，所有前台角色损失<unbreak>#8[i]%</unbreak>当前生命值。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/260901.png",
+    "param_list": [
+      35402048,
+      0.4,
+      0.7,
+      1,
+      0.25,
+      0.5,
+      0.9,
+      0.4
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "304001": {
+    "id": 304001,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "狸财经狸",
+    "desc": "获得1个【狸狸】，它带着初始资金<unbreak>#1[i]</unbreak>【金币】来帮你理财，每回合获得利息+<unbreak>#2[i]</unbreak>金币。当你的金币少于<unbreak>#3[i]</unbreak>时，从狸狸那里取出<unbreak>#4[i]</unbreak>金币存款。进入第三位面首领节点时，取出所有存款。\\n\\n<color=#b4b4b4><i>一个月内花光十个亿，你就可以继承狸的财产！。</i></color>",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/304001.png",
+    "param_list": [
+      20,
+      2,
+      20,
+      10
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "304101": {
+    "id": 304101,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "龙虎兄弟狸",
+    "desc": "获得【狸小龙】和【狸小虎】和<unbreak>#2[i]</unbreak>个【<gridfightinfo type=item id=99999>】，它们都穿着【<gridfightinfo type=item id=35030404>】，进入新节点时，它们的装备和我方角色穿戴的装备每有一件相同，就使你获得<unbreak>#1[i]</unbreak>金币。\\n\\n<color=#b4b4b4><i>同名装备只计算1次，你的【<gridfightinfo type=item id=35030404>】本身一定能和狸狸的【<gridfightinfo type=item id=35030404>】配对！。</i></color>",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/304101.png",
+    "param_list": [
+      4,
+      2
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "304201": {
+    "id": 304201,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "狸狸的早晨",
+    "desc": "获得<unbreak>#1[i]</unbreak>个【狸狸】，进入新节点时，随机给这些狸狸员工穿戴<unbreak>#2[i]</unbreak>个随机星徽。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/304201.png",
+    "param_list": [
+      7,
+      2
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "304301": {
+    "id": 304301,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "大变活狸",
+    "desc": "你最右边的<unbreak>#1[i]</unbreak>个【狸狸】重新随机星徽，获得<unbreak>#2[i]</unbreak>个【<gridfightinfo type=item id=99991>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/304301.png",
+    "param_list": [
+      3,
+      2
+    ],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "352601": {
+    "id": 352601,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "黑塔纪元",
+    "desc": "获得<color=#927fe7>【<gridfightinfo type=role id=1401 color=rarity><name></gridfightinfo>】</color>并将<unbreak>#1[i]</unbreak>张<color=#b4b4b4>【<gridfightinfo type=role id=1013>】</color>加入商店，你获得3星<color=#b4b4b4>【<gridfightinfo type=role id=1013>】</color>时获得<color=#927fe7>【<gridfightinfo type=role id=1401 color=rarity><name></gridfightinfo>】</color>，且商店能继续刷新<color=#b4b4b4>【<gridfightinfo type=role id=1013>】</color>。出战时，你拥有的<color=#b4b4b4>【<gridfightinfo type=role id=1013>】</color>们每有1总金币价值，都使<color=#b4b4b4>【<gridfightinfo type=role id=1013>】</color>们追击时额外转一圈。你拥有的<color=#b4b4b4>【<gridfightinfo type=role id=1013>】</color>们每有1总金币价值，使<color=#b4b4b4>【<gridfightinfo type=role id=1013>】</color>/<color=#927fe7>【<gridfightinfo type=role id=1401 color=rarity><name></gridfightinfo>】</color>获得<unbreak>#2[i]%</unbreak>前后台强度。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/352601.png",
+    "param_list": [
+      216,
+      0.1
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "352701": {
+    "id": 352701,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "飞光•映月",
+    "desc": "获得<color=#7196ff>【<gridfightinfo type=role id=1212 color=rarity><name></gridfightinfo>】</color>和特殊的1费<color=#b4b4b4>【<gridfightinfo type=role id=1204 color=rarity><name></gridfightinfo>】</color>，他们获得【师徒】羁绊。<color=#7196ff>【<gridfightinfo type=role id=1212 color=rarity><name></gridfightinfo>】</color>2星时，<color=#7196ff>【<gridfightinfo type=role id=1204 color=rarity><name></gridfightinfo>】</color>变为3费。<color=#7196ff>【<gridfightinfo type=role id=1212 color=rarity><name></gridfightinfo>】</color>3星时，<color=#ffd471>【<gridfightinfo type=role id=1204 color=rarity><name></gridfightinfo>】</color>变为你认识的5费<color=#ffd471>【<gridfightinfo type=role id=1204 color=rarity><name></gridfightinfo>】</color>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/352701.png",
+    "param_list": [],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "352702": {
+    "id": 352702,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "飞光•传剑",
+    "desc": "获得<color=#927fe7>【<gridfightinfo type=role id=1209>】</color>和<gridfightcolor type=role id=1204 savedid=Augment352701_SavedValue01>【<gridfightinfo type=role id=1204>】</gridfightcolor>，他们获得【师徒】羁绊。<color=#927fe7>【<gridfightinfo type=role id=1209>】</color>的【天河泻】获得强化，造成战斗中【仙舟】神君和<gridfightcolor type=role id=1204 savedid=Augment352701_SavedValue01>【<gridfightinfo type=role id=1204>】</gridfightcolor>累计伤害值<unbreak>#2[i]%</unbreak>的伤害。两人同时在场上时，每进入一个新节点该值提高<unbreak>#3[i]%</unbreak>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/352702.png",
+    "param_list": [
+      35402053,
+      0.15,
+      0.04
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "352801": {
+    "id": 352801,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "都是这家伙的错！",
+    "desc": "获得【<gridfightinfo type=item id=35051013>】和<unbreak>#1[i]</unbreak>金币。若未完美通关战斗且有携带【<gridfightinfo type=item id=35051013>】的角色参与战斗，视为完美通关并出售1名携带【<gridfightinfo type=item id=35051013>】的上场角色，可生效<unbreak>#2[i]</unbreak>次。\\n\\n<color=#b4b4b4><i>“怪我咯？”</i></color>",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/352801.png",
+    "param_list": [
+      10,
+      3
+    ],
+    "chapter_limit_list": []
+  },
+  "360601": {
+    "id": 360601,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "锻冶专家：刃",
+    "desc": "获得专家顾问<color=#b4b4b4>【<gridfightinfo type=role id=1205 color=rarity><name></gridfightinfo>】</color>，并使其在本局游戏中加入商店。在<color=#b4b4b4>【<gridfightinfo type=role id=1205 color=rarity><name></gridfightinfo>】</color>的装备栏中合成进阶装备时，将其变为特权装备，该效果可生效<unbreak>#1[i]</unbreak>次。<color=#b4b4b4>【<gridfightinfo type=role id=1205 color=rarity><name></gridfightinfo>】</color>在场上或备战席时，每获得<unbreak>#2[i]</unbreak>件任意装备，额外可生效一次。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/360601.png",
+    "param_list": [
+      1,
+      10
+    ],
+    "chapter_limit_list": []
+  },
+  "211501": {
+    "id": 211501,
+    "category_id": 6,
+    "quality": "Gold",
+    "name": "仙舟舰队星徽",
+    "desc": "获得#2个【<gridfightinfo type=item id=355100102>】，和#4个【<gridfightinfo type=role id=1210 color=rarity><name></gridfightinfo>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/211501.png",
+    "param_list": [
+      355100102,
+      1,
+      1210,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "211601": {
+    "id": 211601,
+    "category_id": 6,
+    "quality": "Gold",
+    "name": "奇兽花园星徽",
+    "desc": "获得#2个【<gridfightinfo type=item id=355100202>】，和#4个【<gridfightinfo type=role id=1405 color=rarity><name></gridfightinfo>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/211601.png",
+    "param_list": [
+      355100202,
+      1,
+      1405,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "211701": {
+    "id": 211701,
+    "category_id": 6,
+    "quality": "Gold",
+    "name": "幻月游戏星徽",
+    "desc": "获得#2个【<gridfightinfo type=item id=355100302>】，和#4个【<gridfightinfo type=role id=1501 color=rarity><name></gridfightinfo>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/211701.png",
+    "param_list": [
+      355100302,
+      1,
+      1501,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "211801": {
+    "id": 211801,
+    "category_id": 6,
+    "quality": "Gold",
+    "name": "星间旅人星徽",
+    "desc": "获得#2个【<gridfightinfo type=item id=355100402>】，和#4个【<gridfightinfo type=role id=1225 color=rarity><name></gridfightinfo>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/211801.png",
+    "param_list": [
+      355100402,
+      1,
+      1225,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "211901": {
+    "id": 211901,
+    "category_id": 6,
+    "quality": "Gold",
+    "name": "开拓银轨星徽",
+    "desc": "获得#2个【<gridfightinfo type=item id=355100502>】，和#4个【<gridfightinfo type=role id=1004 color=rarity><name></gridfightinfo>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/211901.png",
+    "param_list": [
+      355100502,
+      1,
+      1004,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "212001": {
+    "id": 212001,
+    "category_id": 6,
+    "quality": "Gold",
+    "name": "千星商会星徽",
+    "desc": "获得#2个【<gridfightinfo type=item id=355100602>】，和#4个【<gridfightinfo type=role id=1112 color=rarity><name></gridfightinfo>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/212001.png",
+    "param_list": [
+      355100602,
+      1,
+      1112,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "212101": {
+    "id": 212101,
+    "category_id": 6,
+    "quality": "Gold",
+    "name": "星核猎手星徽",
+    "desc": "获得#2个【<gridfightinfo type=item id=355100802>】，和#4个【<gridfightinfo type=role id=1310 color=rarity><name></gridfightinfo>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/212101.png",
+    "param_list": [
+      355100802,
+      1,
+      1310,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "212201": {
+    "id": 212201,
+    "category_id": 6,
+    "quality": "Gold",
+    "name": "小小巨人星徽",
+    "desc": "获得#2个【<gridfightinfo type=item id=355100902>】，和#4个【<gridfightinfo type=role id=1412 color=rarity><name></gridfightinfo>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/212201.png",
+    "param_list": [
+      355100902,
+      1,
+      1412,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "212301": {
+    "id": 212301,
+    "category_id": 6,
+    "quality": "Gold",
+    "name": "梦境交织星徽",
+    "desc": "获得#2个【<gridfightinfo type=item id=355101002>】，和#4个【<gridfightinfo type=role id=1307 color=rarity><name></gridfightinfo>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/212301.png",
+    "param_list": [
+      355101002,
+      1,
+      1307,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "212401": {
+    "id": 212401,
+    "category_id": 6,
+    "quality": "Gold",
+    "name": "黄金大饭店星徽",
+    "desc": "获得#2个【<gridfightinfo type=item id=355101202>】，和#4个【<gridfightinfo type=role id=1404 color=rarity><name></gridfightinfo>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/212401.png",
+    "param_list": [
+      355101202,
+      1,
+      1404,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "221201": {
+    "id": 221201,
+    "category_id": 6,
+    "quality": "Gold",
+    "name": "追击星徽",
+    "desc": "获得#2个【<gridfightinfo type=item id=355200102>】，和#4个【<gridfightinfo type=role id=1112 color=rarity><name></gridfightinfo>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/221201.png",
+    "param_list": [
+      355200102,
+      1,
+      1112,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "221301": {
+    "id": 221301,
+    "category_id": 6,
+    "quality": "Gold",
+    "name": "持续伤害星徽",
+    "desc": "获得#2个【<gridfightinfo type=item id=355200202>】，和#4个【<gridfightinfo type=role id=1210 color=rarity><name></gridfightinfo>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/221301.png",
+    "param_list": [
+      355200202,
+      1,
+      1210,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "221401": {
+    "id": 221401,
+    "category_id": 6,
+    "quality": "Gold",
+    "name": "群攻星徽",
+    "desc": "获得#2个【<gridfightinfo type=item id=355200302>】，和#4个【<gridfightinfo type=role id=1004 color=rarity><name></gridfightinfo>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/221401.png",
+    "param_list": [
+      355200302,
+      1,
+      1004,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "221501": {
+    "id": 221501,
+    "category_id": 6,
+    "quality": "Gold",
+    "name": "连击星徽",
+    "desc": "获得#2个【<gridfightinfo type=item id=355200402>】，和#4个【<gridfightinfo type=role id=1405 color=rarity><name></gridfightinfo>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/221501.png",
+    "param_list": [
+      355200402,
+      1,
+      1405,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "221601": {
+    "id": 221601,
+    "category_id": 6,
+    "quality": "Gold",
+    "name": "击破星徽",
+    "desc": "获得#2个【<gridfightinfo type=item id=355200502>】，和#4个【<gridfightinfo type=role id=1225 color=rarity><name></gridfightinfo>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/221601.png",
+    "param_list": [
+      355200502,
+      1,
+      1225,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "221701": {
+    "id": 221701,
+    "category_id": 6,
+    "quality": "Gold",
+    "name": "召唤星徽",
+    "desc": "获得#2个【<gridfightinfo type=item id=355200602>】，和#4个【<gridfightinfo type=role id=1204 color=rarity><name></gridfightinfo>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/221701.png",
+    "param_list": [
+      355200602,
+      1,
+      1204,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "221801": {
+    "id": 221801,
+    "category_id": 6,
+    "quality": "Gold",
+    "name": "欢愉星徽",
+    "desc": "获得#2个【<gridfightinfo type=item id=355200702>】，和#4个【<gridfightinfo type=role id=1501 color=rarity><name></gridfightinfo>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/221801.png",
+    "param_list": [
+      355200702,
+      1,
+      1501,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "221901": {
+    "id": 221901,
+    "category_id": 6,
+    "quality": "Gold",
+    "name": "反击星徽",
+    "desc": "获得#2个【<gridfightinfo type=item id=355200802>】，和#4个【<gridfightinfo type=role id=1221 color=rarity><name></gridfightinfo>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/221901.png",
+    "param_list": [
+      355200802,
+      1,
+      1221,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "222001": {
+    "id": 222001,
+    "category_id": 6,
+    "quality": "Gold",
+    "name": "能量星徽",
+    "desc": "获得#2个【<gridfightinfo type=item id=355200902>】，和#4个【<gridfightinfo type=role id=1505 color=rarity><name></gridfightinfo>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/222001.png",
+    "param_list": [
+      355200902,
+      1,
+      1505,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "222101": {
+    "id": 222101,
+    "category_id": 6,
+    "quality": "Gold",
+    "name": "治疗星徽",
+    "desc": "获得#2个【<gridfightinfo type=item id=355201002>】，和#4个【<gridfightinfo type=role id=1222 color=rarity><name></gridfightinfo>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/222101.png",
+    "param_list": [
+      355201002,
+      1,
+      1222,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "222201": {
+    "id": 222201,
+    "category_id": 6,
+    "quality": "Gold",
+    "name": "守护星徽",
+    "desc": "获得#2个【<gridfightinfo type=item id=355201102>】，和#4个【<gridfightinfo type=role id=1503 color=rarity><name></gridfightinfo>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/222201.png",
+    "param_list": [
+      355201102,
+      1,
+      1503,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "311501": {
+    "id": 311501,
+    "category_id": 6,
+    "quality": "Prismatic",
+    "name": "仙舟舰队星徽套组",
+    "desc": "获得#2个【<gridfightinfo type=item id=355100102>】，和#4个【<gridfightinfo type=role id=1210 color=rarity><name></gridfightinfo>】，以及#5个【<gridfightinfo type=item id=47030108>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/311501.png",
+    "param_list": [
+      355100102,
+      1,
+      1210,
+      1,
+      1,
+      47030108
+    ],
+    "chapter_limit_list": []
+  },
+  "311601": {
+    "id": 311601,
+    "category_id": 6,
+    "quality": "Prismatic",
+    "name": "奇兽花园星徽套组",
+    "desc": "获得#2个【<gridfightinfo type=item id=355100202>】，和#4个【<gridfightinfo type=role id=1405 color=rarity><name></gridfightinfo>】，以及#5个【<gridfightinfo type=item id=35030204>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/311601.png",
+    "param_list": [
+      355100202,
+      1,
+      1405,
+      1,
+      1,
+      35030204
+    ],
+    "chapter_limit_list": []
+  },
+  "311701": {
+    "id": 311701,
+    "category_id": 6,
+    "quality": "Prismatic",
+    "name": "幻月游戏星徽套组",
+    "desc": "获得#2个【<gridfightinfo type=item id=355100302>】，和#4个【<gridfightinfo type=role id=1501 color=rarity><name></gridfightinfo>】，以及#5个【<gridfightinfo type=item id=35030204>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/311701.png",
+    "param_list": [
+      355100302,
+      1,
+      1501,
+      1,
+      1,
+      35030204
+    ],
+    "chapter_limit_list": []
+  },
+  "311801": {
+    "id": 311801,
+    "category_id": 6,
+    "quality": "Prismatic",
+    "name": "星间旅人星徽套组",
+    "desc": "获得#2个【<gridfightinfo type=item id=355100402>】，和#4个【<gridfightinfo type=role id=1225 color=rarity><name></gridfightinfo>】，以及#5个【<gridfightinfo type=item id=35030707>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/311801.png",
+    "param_list": [
+      355100402,
+      1,
+      1225,
+      1,
+      1,
+      35030707
+    ],
+    "chapter_limit_list": []
+  },
+  "311901": {
+    "id": 311901,
+    "category_id": 6,
+    "quality": "Prismatic",
+    "name": "开拓银轨星徽套组",
+    "desc": "获得#2个【<gridfightinfo type=item id=355100502>】，和#4个【<gridfightinfo type=role id=1004 color=rarity><name></gridfightinfo>】，以及#5个【<gridfightinfo type=item id=35030204>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/311901.png",
+    "param_list": [
+      355100502,
+      1,
+      1004,
+      1,
+      1,
+      35030204
+    ],
+    "chapter_limit_list": []
+  },
+  "312001": {
+    "id": 312001,
+    "category_id": 6,
+    "quality": "Prismatic",
+    "name": "千星商会星徽套组",
+    "desc": "获得#2个【<gridfightinfo type=item id=355100602>】，和#4个【<gridfightinfo type=role id=1112 color=rarity><name></gridfightinfo>】，以及#5个【<gridfightinfo type=item id=35030304>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/312001.png",
+    "param_list": [
+      355100602,
+      1,
+      1112,
+      1,
+      1,
+      35030304
+    ],
+    "chapter_limit_list": []
+  },
+  "312101": {
+    "id": 312101,
+    "category_id": 6,
+    "quality": "Prismatic",
+    "name": "星核猎手星徽套组",
+    "desc": "获得#2个【<gridfightinfo type=item id=355100802>】，和#4个【<gridfightinfo type=role id=1310 color=rarity><name></gridfightinfo>】，以及#5个【<gridfightinfo type=item id=35030707>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/312101.png",
+    "param_list": [
+      355100802,
+      1,
+      1310,
+      1,
+      1,
+      35030707
+    ],
+    "chapter_limit_list": []
+  },
+  "312201": {
+    "id": 312201,
+    "category_id": 6,
+    "quality": "Prismatic",
+    "name": "小小巨人星徽套组",
+    "desc": "获得#2个【<gridfightinfo type=item id=355100902>】，和#4个【<gridfightinfo type=role id=1412 color=rarity><name></gridfightinfo>】，以及#5个【<gridfightinfo type=item id=35030206>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/312201.png",
+    "param_list": [
+      355100902,
+      1,
+      1412,
+      1,
+      1,
+      35030206
+    ],
+    "chapter_limit_list": []
+  },
+  "312301": {
+    "id": 312301,
+    "category_id": 6,
+    "quality": "Prismatic",
+    "name": "梦境交织星徽套组",
+    "desc": "获得#2个【<gridfightinfo type=item id=355101002>】，和#4个【<gridfightinfo type=role id=1307 color=rarity><name></gridfightinfo>】，以及#5个【<gridfightinfo type=item id=35030107>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/312301.png",
+    "param_list": [
+      355101002,
+      1,
+      1307,
+      1,
+      1,
+      35030107
+    ],
+    "chapter_limit_list": []
+  },
+  "312401": {
+    "id": 312401,
+    "category_id": 6,
+    "quality": "Prismatic",
+    "name": "黄金大饭店星徽套组",
+    "desc": "获得#2个【<gridfightinfo type=item id=355101202>】，和#4个【<gridfightinfo type=role id=1404 color=rarity><name></gridfightinfo>】，以及#5个【<gridfightinfo type=item id=47030101>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/312401.png",
+    "param_list": [
+      355101202,
+      1,
+      1404,
+      1,
+      1,
+      47030101
+    ],
+    "chapter_limit_list": []
+  },
+  "321201": {
+    "id": 321201,
+    "category_id": 6,
+    "quality": "Prismatic",
+    "name": "追击星徽套组",
+    "desc": "获得#2个【<gridfightinfo type=item id=355200102>】，和#4个【<gridfightinfo type=role id=1112 color=rarity><name></gridfightinfo>】，以及#5个【<gridfightinfo type=item id=35030304>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/321201.png",
+    "param_list": [
+      355200102,
+      1,
+      1112,
+      1,
+      1,
+      35030304
+    ],
+    "chapter_limit_list": []
+  },
+  "321301": {
+    "id": 321301,
+    "category_id": 6,
+    "quality": "Prismatic",
+    "name": "持续伤害星徽套组",
+    "desc": "获得#2个【<gridfightinfo type=item id=355200202>】，和#4个【<gridfightinfo type=role id=1210 color=rarity><name></gridfightinfo>】，以及#5个【<gridfightinfo type=item id=47030108>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/321301.png",
+    "param_list": [
+      355200202,
+      1,
+      1210,
+      1,
+      1,
+      47030108
+    ],
+    "chapter_limit_list": []
+  },
+  "321401": {
+    "id": 321401,
+    "category_id": 6,
+    "quality": "Prismatic",
+    "name": "群攻星徽套组",
+    "desc": "获得#2个【<gridfightinfo type=item id=355200302>】，和#4个【<gridfightinfo type=role id=1004 color=rarity><name></gridfightinfo>】，以及#5个【<gridfightinfo type=item id=35030204>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/321401.png",
+    "param_list": [
+      355200302,
+      1,
+      1004,
+      1,
+      1,
+      35030204
+    ],
+    "chapter_limit_list": []
+  },
+  "321501": {
+    "id": 321501,
+    "category_id": 6,
+    "quality": "Prismatic",
+    "name": "连击星徽套组",
+    "desc": "获得#2个【<gridfightinfo type=item id=355200402>】，和#4个【<gridfightinfo type=role id=1405 color=rarity><name></gridfightinfo>】，以及#5个【<gridfightinfo type=item id=35030204>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/321501.png",
+    "param_list": [
+      355200402,
+      1,
+      1405,
+      1,
+      1,
+      35030204
+    ],
+    "chapter_limit_list": []
+  },
+  "321601": {
+    "id": 321601,
+    "category_id": 6,
+    "quality": "Prismatic",
+    "name": "击破星徽套组",
+    "desc": "获得#2个【<gridfightinfo type=item id=355200502>】，和#4个【<gridfightinfo type=role id=1225 color=rarity><name></gridfightinfo>】，以及#5个【<gridfightinfo type=item id=35030707>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/321601.png",
+    "param_list": [
+      355200502,
+      1,
+      1225,
+      1,
+      1,
+      35030707
+    ],
+    "chapter_limit_list": []
+  },
+  "321701": {
+    "id": 321701,
+    "category_id": 6,
+    "quality": "Prismatic",
+    "name": "召唤星徽套组",
+    "desc": "获得#2个【<gridfightinfo type=item id=355200602>】，和#4个【<gridfightinfo type=role id=1204 color=rarity><name></gridfightinfo>】，以及#5个【<gridfightinfo type=item id=35030204>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/321701.png",
+    "param_list": [
+      355200602,
+      1,
+      1204,
+      1,
+      1,
+      35030204
+    ],
+    "chapter_limit_list": []
+  },
+  "321801": {
+    "id": 321801,
+    "category_id": 6,
+    "quality": "Prismatic",
+    "name": "欢愉星徽套组",
+    "desc": "获得#2个【<gridfightinfo type=item id=355200702>】，和#4个【<gridfightinfo type=role id=1501 color=rarity><name></gridfightinfo>】，以及#5个【<gridfightinfo type=item id=35030204>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/321801.png",
+    "param_list": [
+      355200702,
+      1,
+      1501,
+      1,
+      1,
+      35030204
+    ],
+    "chapter_limit_list": []
+  },
+  "321901": {
+    "id": 321901,
+    "category_id": 6,
+    "quality": "Prismatic",
+    "name": "反击星徽套组",
+    "desc": "获得#2个【<gridfightinfo type=item id=355200802>】，和#4个【<gridfightinfo type=role id=1221 color=rarity><name></gridfightinfo>】，以及#5个【<gridfightinfo type=item id=35030204>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/321901.png",
+    "param_list": [
+      355200802,
+      1,
+      1221,
+      1,
+      1,
+      35030204
+    ],
+    "chapter_limit_list": []
+  },
+  "322001": {
+    "id": 322001,
+    "category_id": 6,
+    "quality": "Prismatic",
+    "name": "能量星徽套组",
+    "desc": "获得#2个【<gridfightinfo type=item id=355200902>】，和#4个【<gridfightinfo type=role id=1505 color=rarity><name></gridfightinfo>】，以及#5个【<gridfightinfo type=item id=35030808>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/322001.png",
+    "param_list": [
+      355200902,
+      1,
+      1505,
+      1,
+      1,
+      35030808
+    ],
+    "chapter_limit_list": []
+  },
+  "322101": {
+    "id": 322101,
+    "category_id": 6,
+    "quality": "Prismatic",
+    "name": "治疗星徽套组",
+    "desc": "获得#2个【<gridfightinfo type=item id=355201002>】，和#4个【<gridfightinfo type=role id=1222 color=rarity><name></gridfightinfo>】，以及#5个【<gridfightinfo type=item id=35030505>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/322101.png",
+    "param_list": [
+      355201002,
+      1,
+      1222,
+      1,
+      1,
+      35030505
+    ],
+    "chapter_limit_list": []
+  },
+  "322201": {
+    "id": 322201,
+    "category_id": 6,
+    "quality": "Prismatic",
+    "name": "守护星徽套组",
+    "desc": "获得#2个【<gridfightinfo type=item id=355201102>】，和#4个【<gridfightinfo type=role id=1503 color=rarity><name></gridfightinfo>】，以及#5个【<gridfightinfo type=item id=35030505>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/322201.png",
+    "param_list": [
+      355201102,
+      1,
+      1503,
+      1,
+      1,
+      35030505
+    ],
+    "chapter_limit_list": []
+  },
+  "204701": {
+    "id": 204701,
+    "category_id": 6,
+    "quality": "Gold",
+    "name": "双星馈赠",
+    "desc": "随机获得<unbreak>#1[i]</unbreak>个【星徽】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/204701.png",
+    "param_list": [
+      2
+    ],
+    "chapter_limit_list": []
+  },
+  "204801": {
+    "id": 204801,
+    "category_id": 6,
+    "quality": "Gold",
+    "name": "人才大礼包",
+    "desc": "发放<unbreak>12</unbreak>金币的角色，一定有1名<color=#7196ff>3费角色</color>！",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/204801.png",
+    "param_list": [
+      1,
+      1
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "204802": {
+    "id": 204802,
+    "category_id": 6,
+    "quality": "Gold",
+    "name": "人才大礼包+",
+    "desc": "发放<unbreak>18</unbreak>金币的角色，一定有1名<color=#927fe7>4费角色</color>！",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/204801.png",
+    "param_list": [
+      1,
+      1
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "204803": {
+    "id": 204803,
+    "category_id": 6,
+    "quality": "Gold",
+    "name": "人才大礼包++",
+    "desc": "发放<unbreak>26</unbreak>金币的角色，一定有1名<color=#ffd471>5费角色</color>！",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/204801.png",
+    "param_list": [
+      1,
+      1
+    ],
+    "chapter_limit_list": [
+      3
+    ]
+  },
+  "204901": {
+    "id": 204901,
+    "category_id": 6,
+    "quality": "Gold",
+    "name": "新人报到",
+    "desc": "每次战斗结束后，获得1个<color=#6cce9f>2费角色</color>或<color=#b4b4b4>1费角色</color>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/204901.png",
+    "param_list": [
+      0.3,
+      0.6,
+      0.9
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "205001": {
+    "id": 205001,
+    "category_id": 6,
+    "quality": "Gold",
+    "name": "换角开演",
+    "desc": "获得<unbreak>#1[i]</unbreak>次更换主角的机会，并获得<unbreak>#2[i]</unbreak>次免费主角光环刷新。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/205001.png",
+    "param_list": [
+      1,
+      10,
+      233
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "205101": {
+    "id": 205101,
+    "category_id": 6,
+    "quality": "Gold",
+    "name": "刷新连锁",
+    "desc": "刷新【主角光环】效果时，获得<unbreak>#1[i]</unbreak>次用于商店的免费刷新。获得<unbreak>#2[i]</unbreak>次免费主角光环刷新。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/205101.png",
+    "param_list": [
+      1,
+      3
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "205102": {
+    "id": 205102,
+    "category_id": 6,
+    "quality": "Gold",
+    "name": "刷新连锁+",
+    "desc": "刷新【主角光环】效果时，获得<unbreak>#1[i]</unbreak>次用于商店的免费刷新。获得<unbreak>#2[i]</unbreak>次免费主角光环刷新。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/205101.png",
+    "param_list": [
+      1,
+      6
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "304701": {
+    "id": 304701,
+    "category_id": 6,
+    "quality": "Prismatic",
+    "name": "装备变现",
+    "desc": "可以出售装备。立刻获得<unbreak>#1[i]</unbreak>个【<gridfightinfo type=item id=99999>】，每个位面开始时，获得<unbreak>#2[i]</unbreak>个随机简易装备。\\n\\n<color=#b4b4b4><i>可出售简易装备、进阶装备、特权装备、星徽和<gridfightinfo type=item id=350701>。</i></color>",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/304701.png",
+    "param_list": [
+      2,
+      1
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "304702": {
+    "id": 304702,
+    "category_id": 6,
+    "quality": "Prismatic",
+    "name": "装备变现+",
+    "desc": "可以出售装备。立刻获得<unbreak>#1[i]</unbreak>个【<gridfightinfo type=item id=99999>】，每个位面开始时，获得<unbreak>#2[i]</unbreak>个随机简易装备。\\n\\n<color=#b4b4b4><i>可出售简易装备、进阶装备、特权装备、星徽和<gridfightinfo type=item id=350701>。</i></color>",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/304701.png",
+    "param_list": [
+      3,
+      1
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "304901": {
+    "id": 304901,
+    "category_id": 6,
+    "quality": "Prismatic",
+    "name": "中坚接力",
+    "desc": "立即随机获得<unbreak>#1[i]</unbreak>个<color=#7196ff>3费角色</color>。进入新节点时，再随机获得<unbreak>#1[i]</unbreak>个<color=#7196ff>3费角色</color>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/304901.png",
+    "param_list": [
+      1
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "240101": {
+    "id": 240101,
+    "category_id": 6,
+    "quality": "Gold",
+    "name": "奇美成长记",
+    "desc": "商店升级时，获得<unbreak>#1[i]</unbreak>点【奇美能量】和<unbreak>#2[i]</unbreak>金币。获得<unbreak>#3[i]</unbreak>个【<gridfightinfo type=role id=1405 color=rarity><name></gridfightinfo>】和<unbreak>#4[i]</unbreak>个【奇美拉投影仪】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/240101.png",
+    "param_list": [
+      2,
+      6,
+      1,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "240201": {
+    "id": 240201,
+    "category_id": 6,
+    "quality": "Gold",
+    "name": "舰装焕新",
+    "desc": "【仙舟舰队】有<unbreak>#1[i]%</unbreak>概率将简易装备临时升级为特权装备，获得<unbreak>#2[i]</unbreak>个【<gridfightinfo type=item id=99999>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/240201.png",
+    "param_list": [
+      0.5,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "240301": {
+    "id": 240301,
+    "category_id": 6,
+    "quality": "Gold",
+    "name": "幻月集结",
+    "desc": "获得【幻月游戏】一半的成员，进入<unbreak>#1[i]</unbreak>个新节点后，获得另一半成员和【<gridfightinfo type=item id=99999>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/240301.png",
+    "param_list": [
+      3
+    ],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "240401": {
+    "id": 240401,
+    "category_id": 6,
+    "quality": "Gold",
+    "name": "全速开拓",
+    "desc": "现在以及每个位面开始时，获得<unbreak>#2[i]</unbreak>【开拓力】，列车造成<unbreak>#3[i]%</unbreak>原伤害。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/240401.png",
+    "param_list": [
+      35402055,
+      60,
+      2
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "240402": {
+    "id": 240402,
+    "category_id": 6,
+    "quality": "Gold",
+    "name": "全速开拓+",
+    "desc": "现在以及每个位面开始时，获得<unbreak>#2[i]</unbreak>【开拓力】，列车造成<unbreak>#3[i]%</unbreak>原伤害。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/240401.png",
+    "param_list": [
+      35402056,
+      80,
+      2.4
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "240601": {
+    "id": 240601,
+    "category_id": 6,
+    "quality": "Gold",
+    "name": "终结加演",
+    "desc": "【能量】羁绊的激活终结技效果可额外触发1次。获得【<gridfightinfo type=item id=350208>】和<unbreak>#3[i]</unbreak>金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/240601.png",
+    "param_list": [
+      35402057,
+      1,
+      5
+    ],
+    "chapter_limit_list": []
+  },
+  "240701": {
+    "id": 240701,
+    "category_id": 6,
+    "quality": "Gold",
+    "name": "伙伴总动员",
+    "desc": "获得1个可爱的佩佩，你的小队中每有1个非角色成员，【召唤】羁绊的【召唤力】提高<unbreak>#2[i]</unbreak>点。获得<unbreak>#3[i]</unbreak>经验。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/240701.png",
+    "param_list": [
+      1,
+      1,
+      12
+    ],
+    "chapter_limit_list": []
+  },
+  "240801": {
+    "id": 240801,
+    "category_id": 6,
+    "quality": "Gold",
+    "name": "愈挫愈烈",
+    "desc": "【反击王】每受到1次攻击，反伤倍率提高<unbreak>#2[i]%</unbreak>，持续至战斗结束，可叠加<unbreak>#3[i]</unbreak>层。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/240801.png",
+    "param_list": [
+      35402058,
+      0.05,
+      99
+    ],
+    "chapter_limit_list": []
+  },
+  "104101": {
+    "id": 104101,
+    "category_id": 6,
+    "quality": "Silver",
+    "name": "片场解散",
+    "desc": "你的主角们主角光环全部失效，并获得等同次数的更换主角机会。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/104101.png",
+    "param_list": [],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  },
+  "340101": {
+    "id": 340101,
+    "category_id": 6,
+    "quality": "Prismatic",
+    "name": "人脉网络",
+    "desc": "获得<unbreak>#1[i]</unbreak>个随机星徽和<unbreak>#2[i]</unbreak>金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/340101.png",
+    "param_list": [
+      3,
+      4
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "340102": {
+    "id": 340102,
+    "category_id": 6,
+    "quality": "Prismatic",
+    "name": "人脉网络+",
+    "desc": "获得<unbreak>#1[i]</unbreak>个随机星徽、<unbreak>#2[i]</unbreak>个【<gridfightinfo type=item id=350103>】和<unbreak>#3[i]</unbreak>金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/340101.png",
+    "param_list": [
+      3,
+      1,
+      4
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "332501": {
+    "id": 332501,
+    "category_id": 6,
+    "quality": "Prismatic",
+    "name": "跨界礼包",
+    "desc": "获得<unbreak>#1[i]</unbreak>个【<gridfightinfo type=item id=350601>】、<unbreak>#2[i]</unbreak>件随机简易装备和<unbreak>#3[i]</unbreak>金币。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/332501.png",
+    "param_list": [
+      1,
+      3,
+      5
+    ],
+    "chapter_limit_list": []
+  },
+  "352901": {
+    "id": 352901,
+    "category_id": 6,
+    "quality": "Prismatic",
+    "name": "扩张的代价",
+    "desc": "团队规模上限提高<unbreak>#1[i]</unbreak>，我方小队获得<unbreak>#2[i]%</unbreak>伤害减免。战斗失败时，受到的小队生命值伤害变为<unbreak>#3[i]</unbreak>倍。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/352901.png",
+    "param_list": [
+      2,
+      0.04,
+      2
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "340201": {
+    "id": 340201,
+    "category_id": 6,
+    "quality": "Prismatic",
+    "name": "扩编筹备",
+    "desc": "获得<unbreak>#1[i]</unbreak>个随机星徽。进入<unbreak>#2[i]</unbreak>个新节点后，获得<unbreak>#3[i]</unbreak>个【<gridfightinfo type=item id=350701>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/340201.png",
+    "param_list": [
+      1,
+      3,
+      1
+    ],
+    "chapter_limit_list": []
+  },
+  "340301": {
+    "id": 340301,
+    "category_id": 6,
+    "quality": "Prismatic",
+    "name": "人脉进阶",
+    "desc": "获得<unbreak>#1[i]</unbreak>个随机星徽。在一场战斗中激活2个非独立羁绊后，获得一份奖励。此后，每次达成目标，下一次领取奖励所需激活的羁绊数量增加，奖励也更加丰厚。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/340301.png",
+    "param_list": [
+      1
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "104201": {
+    "id": 104201,
+    "category_id": 6,
+    "quality": "Silver",
+    "name": "投资升级",
+    "desc": "你的下一个投资策略品质提高1级。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/104201.png",
+    "param_list": [],
+    "chapter_limit_list": [
+      1,
+      2
+    ]
+  },
+  "253901": {
+    "id": 253901,
+    "category_id": 6,
+    "quality": "Gold",
+    "name": "终身雇佣",
+    "desc": "前台或后台角色参与战斗后，无法再移回备战席或出售。每个节点开始时，我方小队生命增幅和前/后台强度各提高<unbreak>#1[i]%</unbreak>，可累积。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/253901.png",
+    "param_list": [
+      0.05
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "205301": {
+    "id": 205301,
+    "category_id": 6,
+    "quality": "Gold",
+    "name": "再议一次·金",
+    "desc": "获得1个【<gridfightinfo type=item id=99999>】。进入<unbreak>#1[i]</unbreak>个新节点后，进行一次不能刷新的黄金投资策略选择。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/205301.png",
+    "param_list": [
+      5
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "305001": {
+    "id": 305001,
+    "category_id": 6,
+    "quality": "Prismatic",
+    "name": "再议一次·彩",
+    "desc": "获得1个【<gridfightinfo type=item id=99999>】和3金币。进入4个新节点后，进行一次不能刷新的棱彩投资策略选择。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/305001.png",
+    "param_list": [
+      4
+    ],
+    "chapter_limit_list": [
+      2
+    ]
+  },
+  "305101": {
+    "id": 305101,
+    "category_id": 6,
+    "quality": "Prismatic",
+    "name": "分批扩招",
+    "desc": "获得<unbreak>#1[i]</unbreak>个随机<color=#927fe7>4费角色</color>。进入<unbreak>#2[i]</unbreak>个新节点后，再获得<unbreak>#1[i]</unbreak>个<color=#927fe7>4费角色</color>。进入首领节点时，再获得<unbreak>#1[i]</unbreak>个<color=#927fe7>4费角色</color>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/305101.png",
+    "param_list": [
+      3,
+      2
+    ],
+    "chapter_limit_list": [
+      3
+    ]
+  },
+  "104301": {
+    "id": 104301,
+    "category_id": 6,
+    "quality": "Silver",
+    "name": "实习生培养计划",
+    "desc": "获得<unbreak>#1[i]</unbreak>个【<gridfightinfo type=item id=350108>】。进入<unbreak>#2[i]</unbreak>个新节点后，再获得<unbreak>#4[i]</unbreak>个【<gridfightinfo type=item id=350108>】。我方<color=#b4b4b4>1费角色</color>的前/后台强度提高<unbreak>#3[i]%</unbreak>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/104301.png",
+    "param_list": [
+      1,
+      4,
+      0.08,
+      2
+    ],
+    "chapter_limit_list": [
+      1,
+      2
+    ]
+  },
+  "254001": {
+    "id": 254001,
+    "category_id": 6,
+    "quality": "Gold",
+    "name": "高端人才投资",
+    "desc": "每次进入新节点时，获得<unbreak>#1[i]</unbreak>点经验值。我方<color=#ffd471>5费角色</color>的前/后台强度和伤害增幅各提高<unbreak>#2[i]%</unbreak>。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/254001.png",
+    "param_list": [
+      2,
+      0.15
+    ],
+    "chapter_limit_list": [
+      1
+    ]
+  },
+  "340401": {
+    "id": 340401,
+    "category_id": 6,
+    "quality": "Prismatic",
+    "name": "独乐乐不如众乐乐",
+    "desc": "阿哈装备可以由角色穿戴，这些装备的售价提高<unbreak>#1[i]</unbreak>金币。获得3个随机欢愉角色。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/340401.png",
+    "param_list": [
+      2
+    ],
+    "chapter_limit_list": []
+  },
+  "254101": {
+    "id": 254101,
+    "category_id": 6,
+    "quality": "Gold",
+    "name": "超额幸运",
+    "desc": "我方小队幸运一击率提高<unbreak>#2[i]%</unbreak>。战斗中，超过<unbreak>#3[i]%</unbreak>的幸运一击率，每超出1%转化为<unbreak>#4[i]%</unbreak>的幸运一击伤害。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/254101.png",
+    "param_list": [
+      35402059,
+      0.12,
+      1,
+      0.03
+    ],
+    "chapter_limit_list": []
+  },
+  "240901": {
+    "id": 240901,
+    "category_id": 17,
+    "quality": "Gold",
+    "name": "阿哈大悦",
+    "desc": "【欢愉】羁绊激活时，阿哈获得<unbreak>#1[i]%</unbreak>伤害增幅。将阿哈的装备模板替换为N选1模板。获得<unbreak>#3[i]</unbreak>个【<gridfightinfo type=item id=99999>】。",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/211301.png",
+    "param_list": [
+      0.4,
+      4,
+      1,
+      2
+    ],
+    "chapter_limit_list": [
+      1,
+      2,
+      3
+    ]
+  },
+  "305201": {
+    "id": 305201,
+    "category_id": 2,
+    "quality": "Prismatic",
+    "name": "星徽大使叽米",
+    "desc": "超稀有的叽米登场！爆出超多星徽！！",
+    "icon_path": "SpriteOutput/GridFight/AugmentBig/303301.png",
+    "param_list": [],
+    "chapter_limit_list": [
+      2,
+      3
+    ]
+  }
+}

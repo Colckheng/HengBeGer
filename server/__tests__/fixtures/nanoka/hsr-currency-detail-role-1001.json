@@ -1,0 +1,759 @@
+{
+  "id": 1001,
+  "name": "三月七",
+  "front_back_type": "Back",
+  "rarity": 1,
+  "heal_or_shield_display": "Shield",
+  "charge_type": [
+    "Speed"
+  ],
+  "max_sp_icon": "",
+  "trait_list": [
+    1001,
+    2010
+  ],
+  "rank": {
+    "100101": {
+      "rank": 1,
+      "name": "记忆中的你",
+      "desc": "三月七的速度提高<unbreak>#1[i]%</unbreak>。",
+      "param_list": [
+        0.15
+      ],
+      "icon_path": "SpriteOutput/SkillIcons/Avatar/1001/SkillIcon_1001_Rank1.png",
+      "extra": {}
+    },
+    "100102": {
+      "rank": 2,
+      "name": "记忆中的它",
+      "desc": "进入战斗时，为当前生命值百分比最低的我方目标提供等同于三月七<unbreak>#1[i]%</unbreak>防御力+<unbreak>#3[i]</unbreak>的护盾，持续<unbreak>#2[i]</unbreak>回合。",
+      "param_list": [
+        0.24,
+        3,
+        320
+      ],
+      "icon_path": "SpriteOutput/SkillIcons/Avatar/1001/SkillIcon_1001_Rank2.png",
+      "extra": {}
+    },
+    "100103": {
+      "rank": 3,
+      "name": "记忆中的一切",
+      "desc": "我方小队的独立伤害增幅提高<unbreak>#1[i]%</unbreak>。",
+      "param_list": [
+        0.01
+      ],
+      "icon_path": "SpriteOutput/SkillIcons/Avatar/1001/SkillIcon_1001_Ultra.png",
+      "extra": {}
+    },
+    "100104": {
+      "rank": 4,
+      "name": "不愿再失去",
+      "desc": "我方小队造成的伤害提高<unbreak>#1[i]%</unbreak>，",
+      "param_list": [
+        0.08
+      ],
+      "icon_path": "SpriteOutput/SkillIcons/Avatar/1001/SkillIcon_1001_Rank4.png",
+      "extra": {}
+    },
+    "100105": {
+      "rank": 5,
+      "name": "不想再忘却",
+      "desc": "我方小队的独立伤害增幅提高<unbreak>#1[i]%</unbreak>。",
+      "param_list": [
+        0.01
+      ],
+      "icon_path": "SpriteOutput/SkillIcons/Avatar/1001/SkillIcon_1001_BP.png",
+      "extra": {}
+    },
+    "100106": {
+      "rank": 6,
+      "name": "就这样，一直…",
+      "desc": "在战技提供的护盾保护下的我方目标，每回合开始时回复等同于各自<unbreak>#1[i]%</unbreak>生命上限+<unbreak>#2[i]</unbreak>的生命值",
+      "param_list": [
+        0.04,
+        106
+      ],
+      "icon_path": "SpriteOutput/SkillIcons/Avatar/1001/SkillIcon_1001_Rank6.png",
+      "extra": {}
+    }
+  },
+  "equipment": {},
+  "star": {
+    "1": {
+      "star": 1,
+      "front_show_skill": {},
+      "back_show_skill": {
+        "10010201": {
+          "id": 10010201,
+          "name": "可爱即是正义",
+          "desc": "为当前血量百分比最低的前台目标提供能够抵消等同于三月七<color=#f29e38ff><unbreak>#2[i]%</unbreak></color>防御力+<color=#f29e38ff><unbreak>#4[i]</unbreak></color>伤害的护盾，并使相邻目标获得等同于该护盾值<color=#f29e38ff><unbreak>#3[i]%</unbreak></color>的护盾，持续<color=#f29e38ff><unbreak>#5[i]</unbreak></color>回合。\\n若该目标当前生命值百分比大于等于<color=#f29e38ff><unbreak>#6[i]%</unbreak></color>，被敌方目标攻击的概率大幅提高。",
+          "simple_desc": "为当前血量百分比最低的前台目标和其相邻目标提供护盾。\\n若该目标当前生命值百分比大于等于<color=#f29e38ff><unbreak>#6[i]%</unbreak></color>，被敌人攻击的概率大幅提高。",
+          "type": "战技",
+          "tag": "防御",
+          "show_stance_list": [
+            0,
+            0,
+            0
+          ],
+          "sp_add": null,
+          "sp_base": null,
+          "sp_need": null,
+          "sp_multiple_ratio": 0.5,
+          "bp_need": -1,
+          "bp_add": null,
+          "skill_need": null,
+          "delay_ratio": 1,
+          "param_list": [
+            2,
+            0.81,
+            0.6,
+            1080,
+            3,
+            0.3,
+            5
+          ],
+          "simple_param_list": [
+            2,
+            0.81,
+            0.6,
+            1080,
+            3,
+            0.3,
+            5
+          ],
+          "stance_damage_type": null,
+          "attack_type": "BPSkill",
+          "extra_desc": {
+            "desc": "行动时施放。三月七以<unbreak>#1[i]%</unbreak>的速度行动。",
+            "param_list": [
+              2,
+              0.81,
+              0.6,
+              1080,
+              3,
+              0.3,
+              5
+            ],
+            "simple_desc": "行动时施放。三月七以<unbreak>#1[i]%</unbreak>的速度行动。",
+            "simple_param_list": [
+              2,
+              0.81,
+              0.6,
+              1080,
+              3,
+              0.3,
+              5
+            ],
+            "extra": {}
+          }
+        },
+        "10019901": {
+          "id": 10019901,
+          "name": "无漏之诗",
+          "desc": "我方小队造成的伤害提高<color=#f29e38ff><unbreak>#1[i]%</unbreak></color>。",
+          "simple_desc": "我方小队造成的伤害提高。",
+          "type": "天赋",
+          "tag": "辅助",
+          "show_stance_list": [
+            0,
+            0,
+            0
+          ],
+          "sp_add": null,
+          "sp_base": null,
+          "sp_need": null,
+          "sp_multiple_ratio": 0.5,
+          "bp_need": -1,
+          "bp_add": null,
+          "skill_need": null,
+          "delay_ratio": 1,
+          "param_list": [
+            0.4
+          ],
+          "simple_param_list": [
+            0.4
+          ],
+          "stance_damage_type": null,
+          "attack_type": null,
+          "extra_desc": {
+            "desc": null,
+            "param_list": [
+              0.4
+            ],
+            "simple_desc": null,
+            "simple_param_list": [
+              0.4
+            ],
+            "extra": {}
+          }
+        }
+      },
+      "servant_show_skill": {},
+      "front_one_word_desc": null,
+      "back_one_word_desc": "我方小队造成的伤害提高。行动时为我方低血量目标施加护盾，并使相邻目标也获得护盾。",
+      "general_property_modify_list": [
+        {
+          "property_type": "ExtraAllDamageTypeAddedRatio4",
+          "name": "伤害增幅"
+        },
+        {
+          "property_type": "ExtraInitSP",
+          "value": 60,
+          "name": "初始能量"
+        },
+        {
+          "property_type": "ExtraHPAddedRatio2",
+          "name": "生命增幅"
+        },
+        {
+          "property_type": "ExtraSpeedAddedRatio2",
+          "name": "速度增幅"
+        }
+      ],
+      "show_stance_list": [
+        0,
+        60,
+        0
+      ],
+      "stance_damage_display": 20,
+      "back_speed_rewrite": null,
+      "back_speed_added_ratio": null,
+      "back_energy_bar": null,
+      "back_max_sp": null,
+      "back_initial_sp": null,
+      "back_initial_energy_bar": null,
+      "front_power_base": 100,
+      "back_power_base": 100,
+      "luck_chance": 0.05,
+      "luck_damage": 1,
+      "extra_heal_base": 60,
+      "extra_shield_base": 60
+    },
+    "2": {
+      "star": 2,
+      "front_show_skill": {},
+      "back_show_skill": {
+        "10010202": {
+          "id": 10010202,
+          "name": "可爱即是正义",
+          "desc": "为当前血量百分比最低的前台目标提供能够抵消等同于三月七<color=#f29e38ff><unbreak>#2[i]%</unbreak></color>防御力+<color=#f29e38ff><unbreak>#4[i]</unbreak></color>伤害的护盾，并使相邻目标获得等同于该护盾值<color=#f29e38ff><unbreak>#3[i]%</unbreak></color>的护盾，持续<color=#f29e38ff><unbreak>#5[i]</unbreak></color>回合。\\n若该目标当前生命值百分比大于等于<color=#f29e38ff><unbreak>#6[i]%</unbreak></color>，被敌方目标攻击的概率大幅提高。",
+          "simple_desc": "为当前血量百分比最低的前台目标和其相邻目标提供护盾。\\n若该目标当前生命值百分比大于等于<color=#f29e38ff><unbreak>#6[i]%</unbreak></color>，被敌人攻击的概率大幅提高。",
+          "type": "战技",
+          "tag": "防御",
+          "show_stance_list": [
+            0,
+            0,
+            0
+          ],
+          "sp_add": null,
+          "sp_base": null,
+          "sp_need": null,
+          "sp_multiple_ratio": 0.5,
+          "bp_need": -1,
+          "bp_add": null,
+          "skill_need": null,
+          "delay_ratio": 1,
+          "param_list": [
+            2.5,
+            1.215,
+            0.6,
+            1620,
+            3,
+            0.3,
+            5
+          ],
+          "simple_param_list": [
+            2.5,
+            1.215,
+            0.6,
+            1620,
+            3,
+            0.3,
+            5
+          ],
+          "stance_damage_type": null,
+          "attack_type": "BPSkill",
+          "extra_desc": {
+            "desc": "行动时施放。三月七以<unbreak>#1[i]%</unbreak>的速度行动。",
+            "param_list": [
+              2.5,
+              1.215,
+              0.6,
+              1620,
+              3,
+              0.3,
+              5
+            ],
+            "simple_desc": "行动时施放。三月七以<unbreak>#1[i]%</unbreak>的速度行动。",
+            "simple_param_list": [
+              2.5,
+              1.215,
+              0.6,
+              1620,
+              3,
+              0.3,
+              5
+            ],
+            "extra": {}
+          }
+        },
+        "10019902": {
+          "id": 10019902,
+          "name": "无漏之诗",
+          "desc": "我方小队造成的伤害提高<color=#f29e38ff><unbreak>#1[i]%</unbreak></color>。",
+          "simple_desc": "我方小队造成的伤害提高。",
+          "type": "天赋",
+          "tag": "辅助",
+          "show_stance_list": [
+            0,
+            0,
+            0
+          ],
+          "sp_add": null,
+          "sp_base": null,
+          "sp_need": null,
+          "sp_multiple_ratio": 0.5,
+          "bp_need": -1,
+          "bp_add": null,
+          "skill_need": null,
+          "delay_ratio": 1,
+          "param_list": [
+            0.5
+          ],
+          "simple_param_list": [
+            0.5
+          ],
+          "stance_damage_type": null,
+          "attack_type": null,
+          "extra_desc": {
+            "desc": null,
+            "param_list": [
+              0.5
+            ],
+            "simple_desc": null,
+            "simple_param_list": [
+              0.5
+            ],
+            "extra": {}
+          }
+        }
+      },
+      "servant_show_skill": {},
+      "front_one_word_desc": null,
+      "back_one_word_desc": "我方小队造成的伤害提高。行动时为我方低血量目标施加护盾，并使相邻目标也获得护盾。",
+      "general_property_modify_list": [
+        {
+          "property_type": "ExtraAllDamageTypeAddedRatio4",
+          "name": "伤害增幅"
+        },
+        {
+          "property_type": "ExtraInitSP",
+          "value": 60,
+          "name": "初始能量"
+        },
+        {
+          "property_type": "ExtraHPAddedRatio2",
+          "value": 0.3,
+          "name": "生命增幅"
+        },
+        {
+          "property_type": "ExtraSpeedAddedRatio2",
+          "value": 0.1,
+          "name": "速度增幅"
+        }
+      ],
+      "show_stance_list": [
+        0,
+        60,
+        0
+      ],
+      "stance_damage_display": 20,
+      "back_speed_rewrite": null,
+      "back_speed_added_ratio": null,
+      "back_energy_bar": null,
+      "back_max_sp": null,
+      "back_initial_sp": null,
+      "back_initial_energy_bar": null,
+      "front_power_base": 160,
+      "back_power_base": 160,
+      "luck_chance": 0.05,
+      "luck_damage": 1,
+      "extra_heal_base": 70,
+      "extra_shield_base": 70
+    },
+    "3": {
+      "star": 3,
+      "front_show_skill": {},
+      "back_show_skill": {
+        "10010203": {
+          "id": 10010203,
+          "name": "可爱即是正义",
+          "desc": "为当前血量百分比最低的前台目标提供能够抵消等同于三月七<color=#f29e38ff><unbreak>#2[i]%</unbreak></color>防御力+<color=#f29e38ff><unbreak>#4[i]</unbreak></color>伤害的护盾，并使相邻目标获得等同于该护盾值<color=#f29e38ff><unbreak>#3[i]%</unbreak></color>的护盾，持续<color=#f29e38ff><unbreak>#5[i]</unbreak></color>回合。\\n若该目标当前生命值百分比大于等于<color=#f29e38ff><unbreak>#6[i]%</unbreak></color>，被敌方目标攻击的概率大幅提高。",
+          "simple_desc": "为当前血量百分比最低的前台目标和其相邻目标提供护盾。\\n若该目标当前生命值百分比大于等于<color=#f29e38ff><unbreak>#6[i]%</unbreak></color>，被敌人攻击的概率大幅提高。",
+          "type": "战技",
+          "tag": "防御",
+          "show_stance_list": [
+            0,
+            0,
+            0
+          ],
+          "sp_add": null,
+          "sp_base": null,
+          "sp_need": null,
+          "sp_multiple_ratio": 0.5,
+          "bp_need": -1,
+          "bp_add": null,
+          "skill_need": null,
+          "delay_ratio": 1,
+          "param_list": [
+            3,
+            1.62,
+            0.6,
+            2160,
+            3,
+            0.3,
+            5
+          ],
+          "simple_param_list": [
+            3,
+            1.62,
+            0.6,
+            2160,
+            3,
+            0.3,
+            5
+          ],
+          "stance_damage_type": null,
+          "attack_type": "BPSkill",
+          "extra_desc": {
+            "desc": "行动时施放。三月七以<unbreak>#1[i]%</unbreak>的速度行动。",
+            "param_list": [
+              3,
+              1.62,
+              0.6,
+              2160,
+              3,
+              0.3,
+              5
+            ],
+            "simple_desc": "行动时施放。三月七以<unbreak>#1[i]%</unbreak>的速度行动。",
+            "simple_param_list": [
+              3,
+              1.62,
+              0.6,
+              2160,
+              3,
+              0.3,
+              5
+            ],
+            "extra": {}
+          }
+        },
+        "10019903": {
+          "id": 10019903,
+          "name": "无漏之诗",
+          "desc": "我方小队造成的伤害提高<color=#f29e38ff><unbreak>#1[i]%</unbreak></color>。",
+          "simple_desc": "我方小队造成的伤害提高。",
+          "type": "天赋",
+          "tag": "辅助",
+          "show_stance_list": [
+            0,
+            0,
+            0
+          ],
+          "sp_add": null,
+          "sp_base": null,
+          "sp_need": null,
+          "sp_multiple_ratio": 0.5,
+          "bp_need": -1,
+          "bp_add": null,
+          "skill_need": null,
+          "delay_ratio": 1,
+          "param_list": [
+            0.6
+          ],
+          "simple_param_list": [
+            0.6
+          ],
+          "stance_damage_type": null,
+          "attack_type": null,
+          "extra_desc": {
+            "desc": null,
+            "param_list": [
+              0.6
+            ],
+            "simple_desc": null,
+            "simple_param_list": [
+              0.6
+            ],
+            "extra": {}
+          }
+        }
+      },
+      "servant_show_skill": {},
+      "front_one_word_desc": null,
+      "back_one_word_desc": "我方小队造成的伤害提高。行动时为我方低血量目标施加护盾，并使相邻目标也获得护盾。",
+      "general_property_modify_list": [
+        {
+          "property_type": "ExtraAllDamageTypeAddedRatio4",
+          "name": "伤害增幅"
+        },
+        {
+          "property_type": "ExtraInitSP",
+          "value": 60,
+          "name": "初始能量"
+        },
+        {
+          "property_type": "ExtraHPAddedRatio2",
+          "value": 0.6,
+          "name": "生命增幅"
+        },
+        {
+          "property_type": "ExtraSpeedAddedRatio2",
+          "value": 0.2,
+          "name": "速度增幅"
+        }
+      ],
+      "show_stance_list": [
+        0,
+        60,
+        0
+      ],
+      "stance_damage_display": 20,
+      "back_speed_rewrite": null,
+      "back_speed_added_ratio": null,
+      "back_energy_bar": null,
+      "back_max_sp": null,
+      "back_initial_sp": null,
+      "back_initial_energy_bar": null,
+      "front_power_base": 220,
+      "back_power_base": 220,
+      "luck_chance": 0.05,
+      "luck_damage": 1,
+      "extra_heal_base": 80,
+      "extra_shield_base": 80
+    },
+    "4": {
+      "star": 4,
+      "front_show_skill": {},
+      "back_show_skill": {
+        "10010204": {
+          "id": 10010204,
+          "name": "可爱即是正义",
+          "desc": "为当前血量百分比最低的前台目标提供能够抵消等同于三月七<color=#f29e38ff><unbreak>#2[i]%</unbreak></color>防御力+<color=#f29e38ff><unbreak>#4[i]</unbreak></color>伤害的护盾，并使相邻目标获得等同于该护盾值<color=#f29e38ff><unbreak>#3[i]%</unbreak></color>的护盾，持续<color=#f29e38ff><unbreak>#5[i]</unbreak></color>回合。\\n若该目标当前生命值百分比大于等于<color=#f29e38ff><unbreak>#6[i]%</unbreak></color>，被敌方目标攻击的概率大幅提高。",
+          "simple_desc": "为当前血量百分比最低的前台目标和其相邻目标提供护盾。\\n若该目标当前生命值百分比大于等于<color=#f29e38ff><unbreak>#6[i]%</unbreak></color>，被敌人攻击的概率大幅提高。",
+          "type": "战技",
+          "tag": "防御",
+          "show_stance_list": [
+            0,
+            0,
+            0
+          ],
+          "sp_add": null,
+          "sp_base": null,
+          "sp_need": null,
+          "sp_multiple_ratio": 0.5,
+          "bp_need": -1,
+          "bp_add": null,
+          "skill_need": null,
+          "delay_ratio": 1,
+          "param_list": [
+            3,
+            2.025,
+            0.6,
+            2700,
+            3,
+            0.3,
+            5
+          ],
+          "simple_param_list": [
+            3,
+            2.025,
+            0.6,
+            2700,
+            3,
+            0.3,
+            5
+          ],
+          "stance_damage_type": null,
+          "attack_type": "BPSkill",
+          "extra_desc": {
+            "desc": "行动时施放。三月七以<unbreak>#1[i]%</unbreak>的速度行动。",
+            "param_list": [
+              3,
+              2.025,
+              0.6,
+              2700,
+              3,
+              0.3,
+              5
+            ],
+            "simple_desc": "行动时施放。三月七以<unbreak>#1[i]%</unbreak>的速度行动。",
+            "simple_param_list": [
+              3,
+              2.025,
+              0.6,
+              2700,
+              3,
+              0.3,
+              5
+            ],
+            "extra": {}
+          }
+        },
+        "10019904": {
+          "id": 10019904,
+          "name": "无漏之诗",
+          "desc": "我方小队造成的伤害提高<color=#f29e38ff><unbreak>#1[i]%</unbreak></color>。",
+          "simple_desc": "我方小队造成的伤害提高。",
+          "type": "天赋",
+          "tag": "辅助",
+          "show_stance_list": [
+            0,
+            0,
+            0
+          ],
+          "sp_add": null,
+          "sp_base": null,
+          "sp_need": null,
+          "sp_multiple_ratio": 0.5,
+          "bp_need": -1,
+          "bp_add": null,
+          "skill_need": null,
+          "delay_ratio": 1,
+          "param_list": [
+            0.7
+          ],
+          "simple_param_list": [
+            0.7
+          ],
+          "stance_damage_type": null,
+          "attack_type": null,
+          "extra_desc": {
+            "desc": null,
+            "param_list": [
+              0.7
+            ],
+            "simple_desc": null,
+            "simple_param_list": [
+              0.7
+            ],
+            "extra": {}
+          }
+        }
+      },
+      "servant_show_skill": {},
+      "front_one_word_desc": null,
+      "back_one_word_desc": "我方小队造成的伤害提高。行动时为我方低血量目标施加护盾，并使相邻目标也获得护盾。",
+      "general_property_modify_list": [
+        {
+          "property_type": "ExtraAllDamageTypeAddedRatio4",
+          "name": "伤害增幅"
+        },
+        {
+          "property_type": "ExtraInitSP",
+          "value": 60,
+          "name": "初始能量"
+        },
+        {
+          "property_type": "ExtraHPAddedRatio2",
+          "value": 0.9,
+          "name": "生命增幅"
+        },
+        {
+          "property_type": "ExtraSpeedAddedRatio2",
+          "value": 0.3,
+          "name": "速度增幅"
+        }
+      ],
+      "show_stance_list": [],
+      "stance_damage_display": null,
+      "back_speed_rewrite": null,
+      "back_speed_added_ratio": null,
+      "back_energy_bar": null,
+      "back_max_sp": null,
+      "back_initial_sp": null,
+      "back_initial_energy_bar": null,
+      "front_power_base": 280,
+      "back_power_base": 280,
+      "luck_chance": 0.05,
+      "luck_damage": 1,
+      "extra_heal_base": 80,
+      "extra_shield_base": 80
+    }
+  },
+  "recommend": {
+    "back": {
+      "first": [
+        {
+          "id": 35030203,
+          "name": "武器大师",
+          "icon_path": "SpriteOutput/GridFight/Equipment/35030203.png"
+        },
+        {
+          "id": 35030608,
+          "name": "光能盾牌",
+          "icon_path": "SpriteOutput/GridFight/Equipment/35030608.png"
+        },
+        {
+          "id": 35030508,
+          "name": "绝对热量",
+          "icon_path": "SpriteOutput/GridFight/Equipment/35030508.png"
+        }
+      ],
+      "second": [
+        {
+          "id": 35030506,
+          "name": "痛觉阻断芯片",
+          "icon_path": "SpriteOutput/GridFight/Equipment/35030506.png"
+        },
+        {
+          "id": 35030206,
+          "name": "信心注入器",
+          "icon_path": "SpriteOutput/GridFight/Equipment/35030206.png"
+        },
+        {
+          "id": 35030305,
+          "name": "掩体生成枪",
+          "icon_path": "SpriteOutput/GridFight/Equipment/35030305.png"
+        }
+      ]
+    },
+    "front": {
+      "first": [
+        {
+          "id": 35030203,
+          "name": "武器大师",
+          "icon_path": "SpriteOutput/GridFight/Equipment/35030203.png"
+        },
+        {
+          "id": 35030608,
+          "name": "光能盾牌",
+          "icon_path": "SpriteOutput/GridFight/Equipment/35030608.png"
+        },
+        {
+          "id": 35030508,
+          "name": "绝对热量",
+          "icon_path": "SpriteOutput/GridFight/Equipment/35030508.png"
+        }
+      ],
+      "second": [
+        {
+          "id": 35030506,
+          "name": "痛觉阻断芯片",
+          "icon_path": "SpriteOutput/GridFight/Equipment/35030506.png"
+        },
+        {
+          "id": 35030206,
+          "name": "信心注入器",
+          "icon_path": "SpriteOutput/GridFight/Equipment/35030206.png"
+        },
+        {
+          "id": 35030305,
+          "name": "掩体生成枪",
+          "icon_path": "SpriteOutput/GridFight/Equipment/35030305.png"
+        }
+      ]
+    }
+  }
+}

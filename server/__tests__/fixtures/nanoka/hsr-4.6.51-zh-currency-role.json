@@ -1,0 +1,2097 @@
+{
+  "1001": {
+    "id": 1001,
+    "name": "三月七",
+    "front_back_type": "Back",
+    "rarity": 1,
+    "heal_or_shield_display": "Shield",
+    "charge_type": [
+      "Speed"
+    ],
+    "max_sp_icon": "",
+    "trait_list": [
+      1001,
+      2010
+    ]
+  },
+  "1003": {
+    "id": 1003,
+    "name": "姬子",
+    "front_back_type": "Back",
+    "rarity": 3,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "EnergyBar",
+      "Speed"
+    ],
+    "max_sp_icon": "",
+    "trait_list": [
+      1001,
+      2002
+    ],
+    "is_expert": true
+  },
+  "1004": {
+    "id": 1004,
+    "name": "瓦尔特",
+    "front_back_type": "Front",
+    "rarity": 5,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      1001,
+      1006,
+      2007
+    ]
+  },
+  "1006": {
+    "id": 1006,
+    "name": "银狼",
+    "front_back_type": "Both",
+    "rarity": 4,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "Speed"
+    ],
+    "max_sp_icon": "",
+    "trait_list": [
+      1002,
+      2009
+    ],
+    "is_expert": true
+  },
+  "1009": {
+    "id": 1009,
+    "name": "艾丝妲",
+    "front_back_type": "Front",
+    "rarity": 1,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      1003,
+      2008
+    ]
+  },
+  "1013": {
+    "id": 1013,
+    "name": "黑塔",
+    "front_back_type": "Both",
+    "rarity": 1,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      1003,
+      2003
+    ]
+  },
+  "1014": {
+    "id": 1014,
+    "name": "Saber",
+    "front_back_type": "Both",
+    "rarity": 3,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxSP",
+      "Speed"
+    ],
+    "max_sp_icon": "SpriteOutput/GridFight/BattleIcon/BuffIcon/Icon_GridFight_1014Ultra.png",
+    "trait_list": [
+      1013,
+      2004
+    ]
+  },
+  "1015": {
+    "id": 1015,
+    "name": "Archer",
+    "front_back_type": "Front",
+    "rarity": 5,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      1013,
+      2011,
+      3003
+    ]
+  },
+  "11011": {
+    "id": 11011,
+    "name": "布洛妮娅",
+    "front_back_type": "Front",
+    "rarity": 5,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      1005,
+      3001
+    ]
+  },
+  "1102": {
+    "id": 1102,
+    "name": "希儿",
+    "front_back_type": "Front",
+    "rarity": 3,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      1005,
+      2009
+    ]
+  },
+  "1104": {
+    "id": 1104,
+    "name": "杰帕德",
+    "front_back_type": "Front",
+    "rarity": 4,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      1005,
+      2010
+    ]
+  },
+  "1105": {
+    "id": 1105,
+    "name": "娜塔莎",
+    "front_back_type": "Both",
+    "rarity": 3,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxSP"
+    ],
+    "max_sp_icon": "SpriteOutput/GridFight/BattleIcon/BuffIcon/Icon_GridFight_1105Ultra.png",
+    "trait_list": [
+      1005,
+      2005
+    ]
+  },
+  "1106": {
+    "id": 1106,
+    "name": "佩拉",
+    "front_back_type": "Back",
+    "rarity": 2,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxSP",
+      "Speed"
+    ],
+    "max_sp_icon": "SpriteOutput/GridFight/BattleIcon/BuffIcon/Icon_GridFight_1107Ultra.png",
+    "trait_list": [
+      1005,
+      2007
+    ],
+    "is_expert": true
+  },
+  "1108": {
+    "id": 1108,
+    "name": "桑博",
+    "front_back_type": "Both",
+    "rarity": 1,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      1005,
+      1006,
+      2008
+    ],
+    "is_expert": true
+  },
+  "1112": {
+    "id": 1112,
+    "name": "托帕&账账",
+    "front_back_type": "Back",
+    "rarity": 5,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "Speed"
+    ],
+    "max_sp_icon": "",
+    "trait_list": [
+      1004,
+      2001
+    ]
+  },
+  "1201": {
+    "id": 1201,
+    "name": "青雀",
+    "front_back_type": "Front",
+    "rarity": 1,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      1007,
+      2011
+    ],
+    "is_expert": true
+  },
+  "1202": {
+    "id": 1202,
+    "name": "停云",
+    "front_back_type": "Back",
+    "rarity": 1,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxSP"
+    ],
+    "max_sp_icon": "SpriteOutput/GridFight/BattleIcon/BuffIcon/Icon_GridFight_1202Ultra.png",
+    "trait_list": [
+      1007,
+      2004
+    ],
+    "is_expert": true
+  },
+  "1203": {
+    "id": 1203,
+    "name": "罗刹",
+    "front_back_type": "Back",
+    "rarity": 4,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "EnergyBar",
+      "Speed"
+    ],
+    "max_sp_icon": "",
+    "trait_list": [
+      1006,
+      2005
+    ]
+  },
+  "1204": {
+    "id": 1204,
+    "name": "景元",
+    "front_back_type": "Front",
+    "rarity": 5,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      1007,
+      2003
+    ]
+  },
+  "1205": {
+    "id": 1205,
+    "name": "刃",
+    "front_back_type": "Back",
+    "rarity": 1,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "EnergyBar",
+      "MaxHP"
+    ],
+    "max_sp_icon": "",
+    "trait_list": [
+      1002,
+      2006
+    ],
+    "is_expert": true
+  },
+  "1208": {
+    "id": 1208,
+    "name": "符玄",
+    "front_back_type": "Back",
+    "rarity": 4,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "EnergyBar"
+    ],
+    "max_sp_icon": "",
+    "trait_list": [
+      1007,
+      2005,
+      2009
+    ]
+  },
+  "1209": {
+    "id": 1209,
+    "name": "彦卿",
+    "front_back_type": "Back",
+    "rarity": 4,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxSP",
+      "Speed"
+    ],
+    "max_sp_icon": "SpriteOutput/GridFight/BattleIcon/BuffIcon/Icon_GridFight_1209Ultra.png",
+    "trait_list": [
+      1007,
+      1008,
+      2007
+    ]
+  },
+  "1212": {
+    "id": 1212,
+    "name": "镜流",
+    "front_back_type": "Back",
+    "rarity": 3,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxHP",
+      "Speed"
+    ],
+    "max_sp_icon": "",
+    "trait_list": [
+      1008,
+      2006
+    ]
+  },
+  "1213": {
+    "id": 1213,
+    "name": "丹恒•饮月",
+    "front_back_type": "Front",
+    "rarity": 2,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      1001,
+      1007,
+      2011
+    ]
+  },
+  "1217": {
+    "id": 1217,
+    "name": "藿藿",
+    "front_back_type": "Both",
+    "rarity": 1,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxSP"
+    ],
+    "max_sp_icon": "SpriteOutput/GridFight/BattleIcon/BuffIcon/Icon_GridFight_1217Ultra.png",
+    "trait_list": [
+      1007,
+      2004,
+      2005
+    ]
+  },
+  "1218": {
+    "id": 1218,
+    "name": "椒丘",
+    "front_back_type": "Front",
+    "rarity": 1,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      1008,
+      2007,
+      2008
+    ]
+  },
+  "1220": {
+    "id": 1220,
+    "name": "飞霄",
+    "front_back_type": "Front",
+    "rarity": 1,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      1008,
+      2001
+    ]
+  },
+  "1221": {
+    "id": 1221,
+    "name": "云璃",
+    "front_back_type": "Back",
+    "rarity": 5,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxSP",
+      "EnergyBar"
+    ],
+    "max_sp_icon": "SpriteOutput/GridFight/BattleIcon/BuffIcon/Icon_GridFight_1221Ultra.png",
+    "trait_list": [
+      1008,
+      2004
+    ]
+  },
+  "1222": {
+    "id": 1222,
+    "name": "灵砂",
+    "front_back_type": "Front",
+    "rarity": 2,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      1008,
+      2002,
+      2005
+    ]
+  },
+  "1223": {
+    "id": 1223,
+    "name": "貊泽",
+    "front_back_type": "Back",
+    "rarity": 1,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "EnergyBar"
+    ],
+    "max_sp_icon": "",
+    "trait_list": [
+      1008,
+      2001
+    ],
+    "is_expert": true
+  },
+  "1225": {
+    "id": 1225,
+    "name": "忘归人",
+    "front_back_type": "Back",
+    "rarity": 3,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxSP"
+    ],
+    "max_sp_icon": "SpriteOutput/GridFight/BattleIcon/BuffIcon/Icon_GridFight_1225Ultra.png",
+    "trait_list": [
+      1007,
+      2002
+    ]
+  },
+  "1301": {
+    "id": 1301,
+    "name": "加拉赫",
+    "front_back_type": "Both",
+    "rarity": 1,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "Speed"
+    ],
+    "max_sp_icon": "",
+    "trait_list": [
+      1010,
+      2002,
+      2005
+    ],
+    "is_expert": true
+  },
+  "1303": {
+    "id": 1303,
+    "name": "阮•梅",
+    "front_back_type": "Back",
+    "rarity": 2,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "Speed"
+    ],
+    "max_sp_icon": "",
+    "trait_list": [
+      1003,
+      2002
+    ]
+  },
+  "1304": {
+    "id": 1304,
+    "name": "砂金",
+    "front_back_type": "Front",
+    "rarity": 2,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      1004,
+      2001,
+      2010
+    ]
+  },
+  "1305": {
+    "id": 1305,
+    "name": "真理医生",
+    "front_back_type": "Front",
+    "rarity": 3,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      1003,
+      1006,
+      2001
+    ]
+  },
+  "1306": {
+    "id": 1306,
+    "name": "花火",
+    "front_back_type": "Back",
+    "rarity": 2,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxSP"
+    ],
+    "max_sp_icon": "SpriteOutput/GridFight/BattleIcon/BuffIcon/Icon_GridFight_1306Ultra.png",
+    "trait_list": [
+      1010,
+      2009,
+      2011
+    ]
+  },
+  "1307": {
+    "id": 1307,
+    "name": "黑天鹅",
+    "front_back_type": "Back",
+    "rarity": 5,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxSP",
+      "Speed"
+    ],
+    "max_sp_icon": "SpriteOutput/GridFight/BattleIcon/BuffIcon/Icon_GridFight_1307Ultra.png",
+    "trait_list": [
+      1010,
+      2008,
+      3002
+    ]
+  },
+  "1308": {
+    "id": 1308,
+    "name": "黄泉",
+    "front_back_type": "Front",
+    "rarity": 3,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      1009,
+      2007
+    ]
+  },
+  "1309": {
+    "id": 1309,
+    "name": "知更鸟",
+    "front_back_type": "Back",
+    "rarity": 4,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "Speed"
+    ],
+    "max_sp_icon": "",
+    "trait_list": [
+      1010,
+      2001
+    ]
+  },
+  "1310": {
+    "id": 1310,
+    "name": "流萤",
+    "front_back_type": "Front",
+    "rarity": 5,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      1002,
+      2002
+    ]
+  },
+  "1314": {
+    "id": 1314,
+    "name": "翡翠",
+    "front_back_type": "Back",
+    "rarity": 1,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "EnergyBar"
+    ],
+    "max_sp_icon": "",
+    "trait_list": [
+      1004,
+      2003
+    ]
+  },
+  "1315": {
+    "id": 1315,
+    "name": "波提欧",
+    "front_back_type": "Front",
+    "rarity": 4,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      1009,
+      2002
+    ]
+  },
+  "1317": {
+    "id": 1317,
+    "name": "乱破",
+    "front_back_type": "Front",
+    "rarity": 1,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      1009,
+      2002
+    ]
+  },
+  "1401": {
+    "id": 1401,
+    "name": "大黑塔",
+    "front_back_type": "Front",
+    "rarity": 4,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      1003,
+      2003
+    ]
+  },
+  "1402": {
+    "id": 1402,
+    "name": "阿格莱雅",
+    "front_back_type": "Front",
+    "rarity": 1,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      1011,
+      2004
+    ]
+  },
+  "1403": {
+    "id": 1403,
+    "name": "缇宝",
+    "front_back_type": "Both",
+    "rarity": 2,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "EnergyBar"
+    ],
+    "max_sp_icon": "",
+    "trait_list": [
+      1011,
+      2003,
+      2009
+    ]
+  },
+  "1404": {
+    "id": 1404,
+    "name": "万敌",
+    "front_back_type": "Both",
+    "rarity": 1,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxHP",
+      "EnergyBar"
+    ],
+    "max_sp_icon": "",
+    "trait_list": [
+      1012,
+      2006
+    ]
+  },
+  "1405": {
+    "id": 1405,
+    "name": "那刻夏",
+    "front_back_type": "Back",
+    "rarity": 3,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "Speed"
+    ],
+    "max_sp_icon": "",
+    "trait_list": [
+      1011,
+      2003
+    ]
+  },
+  "1407": {
+    "id": 1407,
+    "name": "遐蝶",
+    "front_back_type": "Front",
+    "rarity": 4,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      1012,
+      2006
+    ]
+  },
+  "1408": {
+    "id": 1408,
+    "name": "白厄",
+    "front_back_type": "Front",
+    "rarity": 3,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      3005
+    ]
+  },
+  "1409": {
+    "id": 1409,
+    "name": "风堇",
+    "front_back_type": "Front",
+    "rarity": 2,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      1011,
+      2005,
+      2006
+    ]
+  },
+  "1406": {
+    "id": 1406,
+    "name": "赛飞儿",
+    "front_back_type": "Front",
+    "rarity": 1,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      1012,
+      2001,
+      2007
+    ]
+  },
+  "1410": {
+    "id": 1410,
+    "name": "海瑟音",
+    "front_back_type": "Front",
+    "rarity": 4,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      1011,
+      2008
+    ]
+  },
+  "1412": {
+    "id": 1412,
+    "name": "刻律德菈",
+    "front_back_type": "Both",
+    "rarity": 3,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "EnergyBar",
+      "Speed"
+    ],
+    "max_sp_icon": "",
+    "trait_list": [
+      1012,
+      2011
+    ]
+  },
+  "1413": {
+    "id": 1413,
+    "name": "长夜月",
+    "front_back_type": "Both",
+    "rarity": 4,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "EnergyBar",
+      "MaxHP"
+    ],
+    "max_sp_icon": "",
+    "trait_list": [
+      1012,
+      2006
+    ]
+  },
+  "1414": {
+    "id": 1414,
+    "name": "丹恒•腾荒",
+    "front_back_type": "Back",
+    "rarity": 2,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      1012,
+      2010
+    ]
+  },
+  "8007": {
+    "id": 8007,
+    "name": "{NICKNAME}",
+    "front_back_type": "Front",
+    "rarity": 4,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      1001,
+      2004,
+      2012
+    ]
+  },
+  "11012": {
+    "id": 11012,
+    "name": "布洛妮娅",
+    "front_back_type": "Front",
+    "rarity": 5,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      2006,
+      3001
+    ]
+  },
+  "1415": {
+    "id": 1415,
+    "name": "昔涟",
+    "front_back_type": "Front",
+    "rarity": 5,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      1011,
+      1012,
+      3004
+    ]
+  },
+  "1501": {
+    "id": 1501,
+    "name": "火花",
+    "front_back_type": "Front",
+    "rarity": 4,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      1006,
+      2011,
+      2012
+    ]
+  },
+  "1502": {
+    "id": 1502,
+    "name": "爻光",
+    "front_back_type": "Both",
+    "rarity": 1,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxSP",
+      "Speed"
+    ],
+    "max_sp_icon": "SpriteOutput/GridFight/BattleIcon/BuffIcon/Icon_GridFight_1502Ultra.png",
+    "trait_list": [
+      1007,
+      2012
+    ]
+  },
+  "1302": {
+    "id": 1302,
+    "name": "银枝",
+    "front_back_type": "Both",
+    "rarity": 2,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxSP",
+      "Speed"
+    ],
+    "max_sp_icon": "SpriteOutput/GridFight/BattleIcon/BuffIcon/Icon_GridFight_1302Ultra.png",
+    "trait_list": [
+      1006,
+      2003
+    ]
+  },
+  "1321": {
+    "id": 1321,
+    "name": "大丽花",
+    "front_back_type": "Both",
+    "rarity": 1,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "Speed"
+    ],
+    "max_sp_icon": "",
+    "trait_list": [
+      1010,
+      2002
+    ]
+  },
+  "8009": {
+    "id": 8009,
+    "name": "{NICKNAME}",
+    "front_back_type": "Back",
+    "rarity": 4,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxSP",
+      "Speed"
+    ],
+    "max_sp_icon": "SpriteOutput/GridFight/BattleIcon/BuffIcon/Icon_GridFight_8009Ultra.png",
+    "trait_list": [
+      1001,
+      2004,
+      2012
+    ]
+  },
+  "1504": {
+    "id": 1504,
+    "name": "不死途",
+    "front_back_type": "Both",
+    "rarity": 2,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxSP",
+      "EnergyBar",
+      "Speed"
+    ],
+    "max_sp_icon": "SpriteOutput/GridFight/BattleIcon/BuffIcon/Icon_GridFight_1504Ultra.png",
+    "trait_list": [
+      1009,
+      2001
+    ]
+  },
+  "1505": {
+    "id": 1505,
+    "name": "绯英",
+    "front_back_type": "Both",
+    "rarity": 2,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxSP",
+      "EnergyBar",
+      "Speed"
+    ],
+    "max_sp_icon": "SpriteOutput/GridFight/BattleIcon/BuffIcon/Icon_GridFight_1505Ultra.png",
+    "trait_list": [
+      1006,
+      2012
+    ]
+  },
+  "1005": {
+    "id": 1005,
+    "name": "卡芙卡",
+    "front_back_type": "Both",
+    "rarity": 2,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxSP",
+      "Speed"
+    ],
+    "max_sp_icon": "SpriteOutput/GridFight/BattleIcon/BuffIcon/Icon_GridFight_1005Ultra.png",
+    "trait_list": [
+      1002,
+      2008
+    ]
+  },
+  "15061": {
+    "id": 15061,
+    "name": "银狼LV.<unbreak>999</unbreak>",
+    "front_back_type": "Front",
+    "rarity": 3,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      1002,
+      2012,
+      3006
+    ]
+  },
+  "15062": {
+    "id": 15062,
+    "name": "银狼LV.<unbreak>999</unbreak>",
+    "front_back_type": "Front",
+    "rarity": 4,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      1002,
+      2012,
+      3006
+    ]
+  },
+  "15063": {
+    "id": 15063,
+    "name": "银狼LV.<unbreak>999</unbreak>",
+    "front_back_type": "Front",
+    "rarity": 5,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      1002,
+      2012,
+      3006
+    ]
+  },
+  "100402": {
+    "id": 100402,
+    "name": "瓦尔特",
+    "front_back_type": "Both",
+    "rarity": 1,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxSP",
+      "Speed"
+    ],
+    "max_sp_icon": "SpriteOutput/BuffIcon/Inlevel/Avatar/Icon11004Ultra.png",
+    "trait_list": [
+      100502,
+      200302
+    ]
+  },
+  "100502": {
+    "id": 100502,
+    "name": "卡芙卡",
+    "front_back_type": "Front",
+    "rarity": 5,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      100802,
+      200202
+    ]
+  },
+  "110302": {
+    "id": 110302,
+    "name": "希露瓦",
+    "front_back_type": "Front",
+    "rarity": 4,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      101102,
+      200202
+    ]
+  },
+  "110502": {
+    "id": 110502,
+    "name": "娜塔莎",
+    "front_back_type": "Back",
+    "rarity": 2,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxSP",
+      "EnergyBar",
+      "Speed"
+    ],
+    "max_sp_icon": "SpriteOutput/GridFight/BattleIcon/BuffIcon/Icon_GridFight_1105Ultra.png",
+    "trait_list": [
+      100402,
+      200202,
+      201002
+    ]
+  },
+  "110702": {
+    "id": 110702,
+    "name": "克拉拉",
+    "front_back_type": "Both",
+    "rarity": 5,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxSP",
+      "EnergyBar",
+      "Speed"
+    ],
+    "max_sp_icon": "SpriteOutput/SkillIcons/Avatar/1107/SkillIcon_1107_Ultra.png",
+    "trait_list": [
+      100402,
+      200802,
+      300502
+    ]
+  },
+  "111202": {
+    "id": 111202,
+    "name": "托帕&账账",
+    "front_back_type": "Both",
+    "rarity": 1,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "Speed"
+    ],
+    "max_sp_icon": "",
+    "trait_list": [
+      100602,
+      200102
+    ]
+  },
+  "120302": {
+    "id": 120302,
+    "name": "罗刹",
+    "front_back_type": "Both",
+    "rarity": 3,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "EnergyBar",
+      "Speed"
+    ],
+    "max_sp_icon": "",
+    "trait_list": [
+      100402,
+      201002
+    ]
+  },
+  "120402": {
+    "id": 120402,
+    "name": "景元",
+    "front_back_type": "Both",
+    "rarity": 1,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxSP",
+      "EnergyBar",
+      "Speed"
+    ],
+    "max_sp_icon": "SpriteOutput/SkillIcons/Avatar/1204/SkillIcon_1204_Ultra.png",
+    "trait_list": [
+      100702,
+      200602
+    ]
+  },
+  "120502": {
+    "id": 120502,
+    "name": "刃",
+    "front_back_type": "Both",
+    "rarity": 4,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "EnergyBar",
+      "MaxHP",
+      "Speed"
+    ],
+    "max_sp_icon": "",
+    "trait_list": [
+      100702,
+      200802
+    ]
+  },
+  "120802": {
+    "id": 120802,
+    "name": "符玄",
+    "front_back_type": "Back",
+    "rarity": 3,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "EnergyBar",
+      "MaxSP"
+    ],
+    "max_sp_icon": "SpriteOutput/SkillIcons/Avatar/1208/SkillIcon_1208_Ultra_on.png",
+    "trait_list": [
+      100902,
+      200802,
+      201102
+    ]
+  },
+  "121002": {
+    "id": 121002,
+    "name": "桂乃芬",
+    "front_back_type": "Both",
+    "rarity": 1,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "Speed"
+    ],
+    "max_sp_icon": "",
+    "trait_list": [
+      100102,
+      200202
+    ]
+  },
+  "121102": {
+    "id": 121102,
+    "name": "白露",
+    "front_back_type": "Back",
+    "rarity": 2,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "EnergyBar",
+      "Speed"
+    ],
+    "max_sp_icon": "",
+    "trait_list": [
+      100702,
+      200402,
+      201002
+    ]
+  },
+  "121202": {
+    "id": 121202,
+    "name": "镜流",
+    "front_back_type": "Both",
+    "rarity": 3,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "Speed",
+      "EnergyBar"
+    ],
+    "max_sp_icon": "",
+    "trait_list": [
+      100702,
+      200402
+    ]
+  },
+  "121402": {
+    "id": 121402,
+    "name": "雪衣",
+    "front_back_type": "Front",
+    "rarity": 5,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      100102,
+      200502
+    ]
+  },
+  "121702": {
+    "id": 121702,
+    "name": "藿藿",
+    "front_back_type": "Back",
+    "rarity": 4,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxSP",
+      "Speed",
+      "EnergyBar"
+    ],
+    "max_sp_icon": "SpriteOutput/GridFight/BattleIcon/BuffIcon/Icon_GridFight_1217Ultra.png",
+    "trait_list": [
+      100902,
+      200902,
+      201002
+    ]
+  },
+  "121802": {
+    "id": 121802,
+    "name": "椒丘",
+    "front_back_type": "Front",
+    "rarity": 3,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      100102,
+      200202
+    ]
+  },
+  "122002": {
+    "id": 122002,
+    "name": "飞霄",
+    "front_back_type": "Front",
+    "rarity": 3,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      100102,
+      200102
+    ]
+  },
+  "122102": {
+    "id": 122102,
+    "name": "云璃",
+    "front_back_type": "Both",
+    "rarity": 2,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxSP",
+      "EnergyBar"
+    ],
+    "max_sp_icon": "SpriteOutput/GridFight/BattleIcon/BuffIcon/Icon_GridFight_1221Ultra.png",
+    "trait_list": [
+      100102,
+      200802
+    ]
+  },
+  "122202": {
+    "id": 122202,
+    "name": "灵砂",
+    "front_back_type": "Both",
+    "rarity": 1,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "Speed",
+      "MaxSP",
+      "EnergyBar"
+    ],
+    "max_sp_icon": "SpriteOutput/SkillIcons/Avatar/1222/SkillIcon_1222_Ultra_on.png",
+    "trait_list": [
+      100102,
+      200302,
+      201002
+    ]
+  },
+  "122402": {
+    "id": 122402,
+    "name": "三月七",
+    "front_back_type": "Back",
+    "rarity": 1,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "Speed"
+    ],
+    "max_sp_icon": "",
+    "trait_list": [
+      100502,
+      200102
+    ]
+  },
+  "122502": {
+    "id": 122502,
+    "name": "忘归人",
+    "front_back_type": "Both",
+    "rarity": 1,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "Speed"
+    ],
+    "max_sp_icon": "SpriteOutput/GridFight/BattleIcon/BuffIcon/Icon_GridFight_1225Ultra.png",
+    "trait_list": [
+      100402,
+      200502
+    ]
+  },
+  "130402": {
+    "id": 130402,
+    "name": "砂金",
+    "front_back_type": "Both",
+    "rarity": 4,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxSP",
+      "EnergyBar",
+      "Speed"
+    ],
+    "max_sp_icon": "SpriteOutput/SkillIcons/Avatar/1304/SkillIcon_1304_Ultra_on.png",
+    "trait_list": [
+      100402,
+      200102,
+      201102
+    ]
+  },
+  "130602": {
+    "id": 130602,
+    "name": "花火",
+    "front_back_type": "Front",
+    "rarity": 2,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      100902,
+      101002,
+      200702
+    ]
+  },
+  "130702": {
+    "id": 130702,
+    "name": "黑天鹅",
+    "front_back_type": "Back",
+    "rarity": 1,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "EnergyBar",
+      "Speed"
+    ],
+    "max_sp_icon": "",
+    "trait_list": [
+      101002,
+      200202
+    ]
+  },
+  "130802": {
+    "id": 130802,
+    "name": "黄泉",
+    "front_back_type": "Front",
+    "rarity": 4,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      101002,
+      200302
+    ]
+  },
+  "130902": {
+    "id": 130902,
+    "name": "知更鸟",
+    "front_back_type": "Front",
+    "rarity": 2,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      101102,
+      200102
+    ]
+  },
+  "131002": {
+    "id": 131002,
+    "name": "流萤",
+    "front_back_type": "Front",
+    "rarity": 2,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      100802,
+      200502
+    ]
+  },
+  "131302": {
+    "id": 131302,
+    "name": "星期日",
+    "front_back_type": "Both",
+    "rarity": 2,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxSP",
+      "EnergyBar",
+      "Speed"
+    ],
+    "max_sp_icon": "SpriteOutput/GridFight/BattleIcon/BuffIcon/Icon_GridFight_1313Ultra.png",
+    "trait_list": [
+      100302,
+      100502,
+      200402
+    ]
+  },
+  "131502": {
+    "id": 131502,
+    "name": "波提欧",
+    "front_back_type": "Front",
+    "rarity": 1,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      100402,
+      200502
+    ]
+  },
+  "131702": {
+    "id": 131702,
+    "name": "乱破",
+    "front_back_type": "Back",
+    "rarity": 3,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "Speed",
+      "EnergyBar"
+    ],
+    "max_sp_icon": "",
+    "trait_list": [
+      101102,
+      200502
+    ]
+  },
+  "132102": {
+    "id": 132102,
+    "name": "大丽花",
+    "front_back_type": "Both",
+    "rarity": 3,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxSP",
+      "Speed"
+    ],
+    "max_sp_icon": "SpriteOutput/BuffIcon/Inlevel/Avatar/Icon1321Ultra.png",
+    "trait_list": [
+      101002,
+      200502
+    ]
+  },
+  "140102": {
+    "id": 140102,
+    "name": "大黑塔",
+    "front_back_type": "Front",
+    "rarity": 2,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      100402,
+      200302
+    ]
+  },
+  "140202": {
+    "id": 140202,
+    "name": "阿格莱雅",
+    "front_back_type": "Front",
+    "rarity": 5,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      100202,
+      200402
+    ]
+  },
+  "140302": {
+    "id": 140302,
+    "name": "缇宝",
+    "front_back_type": "Both",
+    "rarity": 4,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxSP"
+    ],
+    "max_sp_icon": "SpriteOutput/BuffIcon/Inlevel/Avatar/Icon1403Ultra.png",
+    "trait_list": [
+      100902,
+      200102
+    ]
+  },
+  "140402": {
+    "id": 140402,
+    "name": "万敌",
+    "front_back_type": "Both",
+    "rarity": 2,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxHP",
+      "EnergyBar"
+    ],
+    "max_sp_icon": "",
+    "trait_list": [
+      100202,
+      101202,
+      200802
+    ]
+  },
+  "140502": {
+    "id": 140502,
+    "name": "那刻夏",
+    "front_back_type": "Front",
+    "rarity": 1,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      100202,
+      200402
+    ]
+  },
+  "140602": {
+    "id": 140602,
+    "name": "赛飞儿",
+    "front_back_type": "Back",
+    "rarity": 3,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxSP",
+      "EnergyBar",
+      "Speed"
+    ],
+    "max_sp_icon": "SpriteOutput/SkillIcons/Avatar/1406/SkillIcon_1406_Ultra_on.png",
+    "trait_list": [
+      100202,
+      200302
+    ]
+  },
+  "140702": {
+    "id": 140702,
+    "name": "遐蝶",
+    "front_back_type": "Both",
+    "rarity": 3,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxHP"
+    ],
+    "max_sp_icon": "SpriteOutput/SkillIcons/Avatar/1407/SkillIcon_1407_Ultra.png",
+    "trait_list": [
+      101202,
+      200602
+    ]
+  },
+  "140802": {
+    "id": 140802,
+    "name": "白厄",
+    "front_back_type": "Both",
+    "rarity": 5,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "Speed"
+    ],
+    "max_sp_icon": "",
+    "trait_list": [
+      101202,
+      300202
+    ]
+  },
+  "140902": {
+    "id": 140902,
+    "name": "风堇",
+    "front_back_type": "Both",
+    "rarity": 4,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxSP",
+      "Speed"
+    ],
+    "max_sp_icon": "SpriteOutput/SkillIcons/Avatar/1409/SkillIcon_1409_Ultra.png",
+    "trait_list": [
+      100202,
+      200602,
+      201002
+    ]
+  },
+  "141002": {
+    "id": 141002,
+    "name": "海瑟音",
+    "front_back_type": "Both",
+    "rarity": 2,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxSP",
+      "Speed"
+    ],
+    "max_sp_icon": "SpriteOutput/SkillIcons/Avatar/1410/SkillIcon_1410_Ultra.png",
+    "trait_list": [
+      100202,
+      200202
+    ]
+  },
+  "141202": {
+    "id": 141202,
+    "name": "刻律德菈",
+    "front_back_type": "Back",
+    "rarity": 1,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "EnergyBar",
+      "Speed"
+    ],
+    "max_sp_icon": "",
+    "trait_list": [
+      100902,
+      200402
+    ]
+  },
+  "141402": {
+    "id": 141402,
+    "name": "丹恒•腾荒",
+    "front_back_type": "Back",
+    "rarity": 5,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      300102
+    ]
+  },
+  "141502": {
+    "id": 141502,
+    "name": "昔涟",
+    "front_back_type": "Front",
+    "rarity": 4,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxSP"
+    ],
+    "max_sp_icon": "",
+    "trait_list": [
+      101202,
+      200602
+    ]
+  },
+  "150102": {
+    "id": 150102,
+    "name": "火花",
+    "front_back_type": "Both",
+    "rarity": 1,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      100302,
+      101102,
+      200702
+    ]
+  },
+  "150202": {
+    "id": 150202,
+    "name": "爻光",
+    "front_back_type": "Back",
+    "rarity": 3,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxSP",
+      "Speed"
+    ],
+    "max_sp_icon": "SpriteOutput/GridFight/BattleIcon/BuffIcon/Icon_GridFight_1502Ultra.png",
+    "trait_list": [
+      100602,
+      200702
+    ]
+  },
+  "150302": {
+    "id": 150302,
+    "name": "真珠",
+    "front_back_type": "Back",
+    "rarity": 1,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxSP",
+      "Speed"
+    ],
+    "max_sp_icon": "SpriteOutput/SkillIcons/Avatar/1503/SkillIcon_1503_Ultra.png",
+    "trait_list": [
+      100302,
+      100602,
+      201102
+    ]
+  },
+  "150402": {
+    "id": 150402,
+    "name": "不死途",
+    "front_back_type": "Back",
+    "rarity": 5,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxSP",
+      "EnergyBar",
+      "Speed"
+    ],
+    "max_sp_icon": "SpriteOutput/GridFight/BattleIcon/BuffIcon/Icon_GridFight_1504Ultra.png",
+    "trait_list": [
+      100302,
+      200102,
+      300302
+    ]
+  },
+  "150502": {
+    "id": 150502,
+    "name": "绯英",
+    "front_back_type": "Both",
+    "rarity": 2,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxSP",
+      "EnergyBar",
+      "Speed"
+    ],
+    "max_sp_icon": "SpriteOutput/GridFight/BattleIcon/BuffIcon/Icon_GridFight_1505Ultra.png",
+    "trait_list": [
+      100302,
+      200902
+    ]
+  },
+  "150602": {
+    "id": 150602,
+    "name": "银狼LV.<unbreak>999</unbreak>",
+    "front_back_type": "Front",
+    "rarity": 3,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      100302,
+      100802,
+      200702
+    ]
+  },
+  "150702": {
+    "id": 150702,
+    "name": "千冶•刃",
+    "front_back_type": "Both",
+    "rarity": 4,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxSP",
+      "EnergyBar",
+      "Speed"
+    ],
+    "max_sp_icon": "SpriteOutput/GridFight/BattleIcon/BuffIcon/Icon_GridFight_1507Ultra.png",
+    "trait_list": [
+      100302,
+      100802,
+      200302
+    ]
+  },
+  "151002": {
+    "id": 151002,
+    "name": "姬子•启行",
+    "front_back_type": "Front",
+    "rarity": 4,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      100502,
+      200902
+    ]
+  },
+  "151202": {
+    "id": 151202,
+    "name": "知更鸟•晴歌",
+    "front_back_type": "Both",
+    "rarity": 2,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxSP",
+      "EnergyBar",
+      "Speed"
+    ],
+    "max_sp_icon": "SpriteOutput/SkillIcons/Avatar/1512/SkillIcon_1512_Ultra.png",
+    "trait_list": [
+      100602,
+      200602,
+      200902
+    ]
+  },
+  "151302": {
+    "id": 151302,
+    "name": "砂金•戏浪",
+    "front_back_type": "Front",
+    "rarity": 4,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      100602,
+      200702
+    ]
+  },
+  "800902": {
+    "id": 800902,
+    "name": "{NICKNAME}",
+    "front_back_type": "Both",
+    "rarity": 3,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxSP",
+      "EnergyBar",
+      "Speed"
+    ],
+    "max_sp_icon": "SpriteOutput/GridFight/BattleIcon/BuffIcon/Icon_GridFight_8009Ultra.png",
+    "trait_list": [
+      100502,
+      100802,
+      200902
+    ]
+  },
+  "121502": {
+    "id": 121502,
+    "name": "寒鸦",
+    "front_back_type": "Back",
+    "rarity": 4,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxSP",
+      "Speed"
+    ],
+    "max_sp_icon": "SpriteOutput/SkillIcons/Avatar/1215/SkillIcon_1215_Ultra_on.png",
+    "trait_list": [
+      100102,
+      200402
+    ]
+  },
+  "131402": {
+    "id": 131402,
+    "name": "翡翠",
+    "front_back_type": "Back",
+    "rarity": 5,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxSP",
+      "EnergyBar"
+    ],
+    "max_sp_icon": "SpriteOutput/SkillIcons/Avatar/1314/SkillIcon_1314_Ultra_on.png",
+    "trait_list": [
+      100602,
+      200302,
+      300402
+    ]
+  },
+  "141302": {
+    "id": 141302,
+    "name": "长夜月",
+    "front_back_type": "Both",
+    "rarity": 1,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "EnergyBar",
+      "MaxHP"
+    ],
+    "max_sp_icon": "",
+    "trait_list": [
+      100202,
+      101002,
+      200602
+    ]
+  },
+  "1510": {
+    "id": 1510,
+    "name": "姬子•启行",
+    "front_back_type": "Front",
+    "rarity": 3,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      1001,
+      3007
+    ]
+  },
+  "1507": {
+    "id": 1507,
+    "name": "千冶•刃",
+    "front_back_type": "Back",
+    "rarity": 2,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxHP",
+      "EnergyBar"
+    ],
+    "max_sp_icon": "SpriteOutput/GridFight/BattleIcon/BuffIcon/Icon_GridFight_1507Ultra.png",
+    "trait_list": [
+      1002,
+      2006,
+      2007
+    ]
+  },
+  "1313": {
+    "id": 1313,
+    "name": "星期日",
+    "front_back_type": "Both",
+    "rarity": 3,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxSP",
+      "Speed",
+      "EnergyBar"
+    ],
+    "max_sp_icon": "SpriteOutput/GridFight/BattleIcon/BuffIcon/Icon_GridFight_1313Ultra.png",
+    "trait_list": [
+      1001,
+      1010,
+      2004
+    ]
+  },
+  "1508": {
+    "id": 1508,
+    "name": "远坂凛",
+    "front_back_type": "Both",
+    "rarity": 1,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxSP",
+      "EnergyBar",
+      "Speed"
+    ],
+    "max_sp_icon": "SpriteOutput/GridFight/BattleIcon/BuffIcon/Icon_GridFight_1508Ultra.png",
+    "trait_list": [
+      1013,
+      2011
+    ]
+  },
+  "1509": {
+    "id": 1509,
+    "name": "吉尔伽美什",
+    "front_back_type": "Both",
+    "rarity": 2,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxSP",
+      "EnergyBar",
+      "Speed"
+    ],
+    "max_sp_icon": "SpriteOutput/BuffIcon/Inlevel/Avatar/Icon1509Ultra.png",
+    "trait_list": [
+      1013,
+      2004
+    ]
+  },
+  "121302": {
+    "id": 121302,
+    "name": "丹恒•饮月",
+    "front_back_type": "Front",
+    "rarity": 5,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      100502,
+      100702,
+      300102
+    ]
+  },
+  "604202": {
+    "id": 604202,
+    "name": null,
+    "front_back_type": "Back",
+    "rarity": 5,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [
+      "MaxSP",
+      "EnergyBar",
+      "Speed"
+    ],
+    "max_sp_icon": "",
+    "trait_list": [
+      100502
+    ]
+  },
+  "151102": {
+    "id": 151102,
+    "name": "星神★阿哈",
+    "front_back_type": "Front",
+    "rarity": 3,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      200702,
+      300602
+    ]
+  },
+  "151112": {
+    "id": 151112,
+    "name": "星神★阿哈",
+    "front_back_type": "Front",
+    "rarity": 4,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      200702,
+      300602
+    ]
+  },
+  "151122": {
+    "id": 151122,
+    "name": "星神★阿哈",
+    "front_back_type": "Front",
+    "rarity": 5,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      200702,
+      300602
+    ]
+  },
+  "151132": {
+    "id": 151132,
+    "name": "星神★阿哈",
+    "front_back_type": "Front",
+    "rarity": 5,
+    "heal_or_shield_display": "Healer",
+    "charge_type": [],
+    "max_sp_icon": "",
+    "trait_list": [
+      200702,
+      300602
+    ]
+  }
+}

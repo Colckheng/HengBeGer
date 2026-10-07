@@ -1,0 +1,1156 @@
+{
+  "id": 69001,
+  "name": "试炼",
+  "priority": 9,
+  "boss_adjust": {
+    "1001": {
+      "hp": 1200,
+      "atk": -5000,
+      "points": 1000
+    },
+    "1002": {
+      "hp": 1200,
+      "atk": -3000,
+      "points": 1000
+    },
+    "1003": {
+      "hp": 1200,
+      "atk": -3000,
+      "points": 1000
+    },
+    "1004": {
+      "hp": 1200,
+      "atk": -3000,
+      "points": 1000
+    },
+    "1005": {
+      "hp": 1700,
+      "atk": -2500,
+      "points": 1200
+    },
+    "1006": {
+      "hp": 1700,
+      "atk": -2500,
+      "points": 1200
+    },
+    "1007": {
+      "hp": 1700,
+      "atk": -2000,
+      "points": 1200
+    },
+    "1008": {
+      "hp": 1700,
+      "atk": -2000,
+      "points": 1200
+    },
+    "1009": {
+      "hp": 2200,
+      "atk": -1000,
+      "points": 1800
+    },
+    "1010": {
+      "hp": 2200,
+      "atk": 0,
+      "points": 1800
+    },
+    "1011": {
+      "hp": 2200,
+      "atk": 800,
+      "points": 1800
+    },
+    "1012": {
+      "hp": 2200,
+      "atk": 1500,
+      "points": 1800
+    },
+    "1013": {
+      "hp": 2500,
+      "atk": 2000,
+      "points": 2400
+    },
+    "1014": {
+      "hp": 2500,
+      "atk": 2000,
+      "points": 2400
+    },
+    "1015": {
+      "hp": 2500,
+      "atk": 2000,
+      "points": 2400
+    },
+    "1016": {
+      "hp": 2500,
+      "atk": 2000,
+      "points": 2400
+    },
+    "1017": {
+      "hp": 3000,
+      "atk": 2500,
+      "points": 2600
+    },
+    "1018": {
+      "hp": 3000,
+      "atk": 2500,
+      "points": 2600
+    },
+    "1019": {
+      "hp": 3000,
+      "atk": 2500,
+      "points": 2600
+    },
+    "1020": {
+      "hp": 3000,
+      "atk": 2500,
+      "points": 2600
+    },
+    "1021": {
+      "hp": 5000,
+      "atk": 2500,
+      "points": 2600
+    },
+    "1022": {
+      "hp": 5000,
+      "atk": 2500,
+      "points": 2600
+    },
+    "1023": {
+      "hp": 5000,
+      "atk": 2500,
+      "points": 2600
+    },
+    "1024": {
+      "hp": 5000,
+      "atk": 2500,
+      "points": 2700
+    },
+    "1025": {
+      "hp": 5000,
+      "atk": 2500,
+      "points": 2700
+    },
+    "1026": {
+      "hp": 5000,
+      "atk": 2500,
+      "points": 2700
+    },
+    "1027": {
+      "hp": 5000,
+      "atk": 2500,
+      "points": 2700
+    },
+    "1028": {
+      "hp": 5000,
+      "atk": 2500,
+      "points": 2700
+    },
+    "1029": {
+      "hp": 5000,
+      "atk": 2500,
+      "points": 2700
+    },
+    "1301": {
+      "hp": 3600,
+      "atk": 0,
+      "points": 750
+    },
+    "1302": {
+      "hp": 3600,
+      "atk": 0,
+      "points": 750
+    },
+    "1303": {
+      "hp": 3600,
+      "atk": 0,
+      "points": 750
+    },
+    "1304": {
+      "hp": 3600,
+      "atk": 0,
+      "points": 750
+    },
+    "1305": {
+      "hp": 3600,
+      "atk": 1300,
+      "points": 1000
+    },
+    "1306": {
+      "hp": 3600,
+      "atk": 1300,
+      "points": 1000
+    },
+    "1307": {
+      "hp": 3600,
+      "atk": 1300,
+      "points": 1000
+    },
+    "1308": {
+      "hp": 3600,
+      "atk": 1300,
+      "points": 1000
+    },
+    "1309": {
+      "hp": 3600,
+      "atk": 1500,
+      "points": 1500
+    },
+    "1310": {
+      "hp": 3600,
+      "atk": 1500,
+      "points": 1500
+    },
+    "1311": {
+      "hp": 6000,
+      "atk": 1500,
+      "points": 3500
+    },
+    "1312": {
+      "hp": 6000,
+      "atk": 1500,
+      "points": 3500
+    },
+    "1313": {
+      "hp": 6000,
+      "atk": 2000,
+      "points": 3500
+    },
+    "1314": {
+      "hp": 6000,
+      "atk": 2000,
+      "points": 3500
+    },
+    "1315": {
+      "hp": 8000,
+      "atk": 2000,
+      "points": 3500
+    },
+    "1316": {
+      "hp": 10000,
+      "atk": 2000,
+      "points": 3500
+    },
+    "1317": {
+      "hp": 10000,
+      "atk": 2500,
+      "points": 3500
+    },
+    "1318": {
+      "hp": 10000,
+      "atk": 2500,
+      "points": 3500
+    },
+    "1319": {
+      "hp": 10000,
+      "atk": 2500,
+      "points": 3500
+    },
+    "1320": {
+      "hp": 10000,
+      "atk": 2500,
+      "points": 3500
+    },
+    "1321": {
+      "hp": 10000,
+      "atk": 2500,
+      "points": 3500
+    },
+    "1322": {
+      "hp": 10000,
+      "atk": 2500,
+      "points": 3500
+    },
+    "1323": {
+      "hp": 10000,
+      "atk": 2500,
+      "points": 4000
+    },
+    "1324": {
+      "hp": 10000,
+      "atk": 2500,
+      "points": 4000
+    },
+    "2001": {
+      "hp": 5000,
+      "atk": 8000,
+      "points": 200
+    },
+    "2002": {
+      "hp": 16000,
+      "atk": 11000,
+      "points": 200
+    },
+    "2010": {
+      "hp": 2500,
+      "atk": 0,
+      "points": 3000
+    },
+    "2011": {
+      "hp": 2500,
+      "atk": 0,
+      "points": 3000
+    },
+    "2012": {
+      "hp": 2500,
+      "atk": 0,
+      "points": 3000
+    },
+    "2013": {
+      "hp": 2500,
+      "atk": 0,
+      "points": 3000
+    },
+    "2014": {
+      "hp": 2500,
+      "atk": 0,
+      "points": 3000
+    },
+    "2015": {
+      "hp": 2500,
+      "atk": 0,
+      "points": 3000
+    },
+    "2016": {
+      "hp": 2500,
+      "atk": 0,
+      "points": 3000
+    },
+    "2017": {
+      "hp": 2500,
+      "atk": 0,
+      "points": 3000
+    },
+    "2018": {
+      "hp": 2500,
+      "atk": 0,
+      "points": 3000
+    },
+    "2019": {
+      "hp": 2500,
+      "atk": 0,
+      "points": 3000
+    },
+    "3011": {
+      "hp": 9000,
+      "atk": 0,
+      "points": 1500
+    },
+    "3012": {
+      "hp": 9000,
+      "atk": 0,
+      "points": 1500
+    },
+    "3013": {
+      "hp": 9000,
+      "atk": 0,
+      "points": 1500
+    },
+    "3014": {
+      "hp": 9000,
+      "atk": 0,
+      "points": 1500
+    },
+    "3015": {
+      "hp": 9000,
+      "atk": 0,
+      "points": 1500
+    },
+    "3016": {
+      "hp": 9000,
+      "atk": 0,
+      "points": 1500
+    },
+    "3017": {
+      "hp": 9000,
+      "atk": 0,
+      "points": 1500
+    },
+    "3018": {
+      "hp": 9000,
+      "atk": 0,
+      "points": 1500
+    },
+    "3019": {
+      "hp": 9000,
+      "atk": 0,
+      "points": 1500
+    },
+    "3020": {
+      "hp": 9000,
+      "atk": 0,
+      "points": 1500
+    },
+    "3021": {
+      "hp": 9000,
+      "atk": 0,
+      "points": 1500
+    },
+    "3022": {
+      "hp": 9000,
+      "atk": 0,
+      "points": 1500
+    },
+    "3023": {
+      "hp": 9000,
+      "atk": 0,
+      "points": 1500
+    },
+    "3024": {
+      "hp": 9000,
+      "atk": 0,
+      "points": 1500
+    },
+    "3025": {
+      "hp": 9000,
+      "atk": 0,
+      "points": 1500
+    },
+    "400101": {
+      "hp": 500,
+      "atk": 0,
+      "points": 5000
+    },
+    "400102": {
+      "hp": 500,
+      "atk": 0,
+      "points": 5000
+    },
+    "400103": {
+      "hp": 750,
+      "atk": 0,
+      "points": 7500
+    },
+    "400104": {
+      "hp": 750,
+      "atk": 0,
+      "points": 7500
+    },
+    "400105": {
+      "hp": 1000,
+      "atk": 0,
+      "points": 10000
+    },
+    "400106": {
+      "hp": 1000,
+      "atk": 0,
+      "points": 10000
+    },
+    "400107": {
+      "hp": 1250,
+      "atk": 0,
+      "points": 12500
+    },
+    "400108": {
+      "hp": 1250,
+      "atk": 0,
+      "points": 12500
+    },
+    "400109": {
+      "hp": 1500,
+      "atk": 0,
+      "points": 15000
+    },
+    "400110": {
+      "hp": 1500,
+      "atk": 0,
+      "points": 15000
+    },
+    "400201": {
+      "hp": 500,
+      "atk": 0,
+      "points": 5000
+    },
+    "400202": {
+      "hp": 500,
+      "atk": 0,
+      "points": 5000
+    },
+    "400203": {
+      "hp": 750,
+      "atk": 0,
+      "points": 7500
+    },
+    "400204": {
+      "hp": 750,
+      "atk": 0,
+      "points": 7500
+    },
+    "400205": {
+      "hp": 1000,
+      "atk": 0,
+      "points": 10000
+    },
+    "400206": {
+      "hp": 1000,
+      "atk": 0,
+      "points": 10000
+    },
+    "400207": {
+      "hp": 1250,
+      "atk": 0,
+      "points": 12500
+    },
+    "400208": {
+      "hp": 1250,
+      "atk": 0,
+      "points": 12500
+    },
+    "400209": {
+      "hp": 1500,
+      "atk": 0,
+      "points": 15000
+    },
+    "400210": {
+      "hp": 1500,
+      "atk": 0,
+      "points": 15000
+    },
+    "400301": {
+      "hp": 500,
+      "atk": 0,
+      "points": 5000
+    },
+    "400302": {
+      "hp": 500,
+      "atk": 0,
+      "points": 5000
+    },
+    "400303": {
+      "hp": 750,
+      "atk": 0,
+      "points": 7500
+    },
+    "400304": {
+      "hp": 750,
+      "atk": 0,
+      "points": 7500
+    },
+    "400305": {
+      "hp": 1000,
+      "atk": 0,
+      "points": 10000
+    },
+    "400306": {
+      "hp": 1000,
+      "atk": 0,
+      "points": 10000
+    },
+    "400307": {
+      "hp": 1250,
+      "atk": 0,
+      "points": 12500
+    },
+    "400308": {
+      "hp": 1250,
+      "atk": 0,
+      "points": 12500
+    },
+    "400309": {
+      "hp": 1500,
+      "atk": 0,
+      "points": 15000
+    },
+    "400310": {
+      "hp": 1500,
+      "atk": 0,
+      "points": 15000
+    },
+    "401101": {
+      "hp": 250,
+      "atk": 0,
+      "points": 5000
+    },
+    "401102": {
+      "hp": 250,
+      "atk": 0,
+      "points": 5000
+    },
+    "401103": {
+      "hp": 375,
+      "atk": 0,
+      "points": 7500
+    },
+    "401104": {
+      "hp": 375,
+      "atk": 0,
+      "points": 7500
+    },
+    "401105": {
+      "hp": 500,
+      "atk": 0,
+      "points": 10000
+    },
+    "401106": {
+      "hp": 500,
+      "atk": 0,
+      "points": 10000
+    },
+    "401107": {
+      "hp": 625,
+      "atk": 0,
+      "points": 12500
+    },
+    "401108": {
+      "hp": 625,
+      "atk": 0,
+      "points": 12500
+    },
+    "401109": {
+      "hp": 750,
+      "atk": 0,
+      "points": 15000
+    },
+    "401110": {
+      "hp": 750,
+      "atk": 0,
+      "points": 15000
+    },
+    "401111": {
+      "hp": 1000,
+      "atk": 0,
+      "points": 100000
+    },
+    "401112": {
+      "hp": 1000,
+      "atk": 0,
+      "points": 100000
+    },
+    "401113": {
+      "hp": 1000,
+      "atk": 0,
+      "points": 100000
+    },
+    "401114": {
+      "hp": 1000,
+      "atk": 0,
+      "points": 100000
+    },
+    "401115": {
+      "hp": 1000,
+      "atk": 0,
+      "points": 100000
+    },
+    "401201": {
+      "hp": 250,
+      "atk": 0,
+      "points": 5000
+    },
+    "401202": {
+      "hp": 250,
+      "atk": 0,
+      "points": 5000
+    },
+    "401203": {
+      "hp": 375,
+      "atk": 0,
+      "points": 7500
+    },
+    "401204": {
+      "hp": 375,
+      "atk": 0,
+      "points": 7500
+    },
+    "401205": {
+      "hp": 500,
+      "atk": 0,
+      "points": 10000
+    },
+    "401206": {
+      "hp": 500,
+      "atk": 0,
+      "points": 10000
+    },
+    "401207": {
+      "hp": 625,
+      "atk": 0,
+      "points": 12500
+    },
+    "401208": {
+      "hp": 625,
+      "atk": 0,
+      "points": 12500
+    },
+    "401209": {
+      "hp": 750,
+      "atk": 0,
+      "points": 15000
+    },
+    "401210": {
+      "hp": 750,
+      "atk": 0,
+      "points": 15000
+    },
+    "401211": {
+      "hp": 1000,
+      "atk": 0,
+      "points": 100000
+    },
+    "401212": {
+      "hp": 1000,
+      "atk": 0,
+      "points": 100000
+    },
+    "401213": {
+      "hp": 1000,
+      "atk": 0,
+      "points": 100000
+    },
+    "401214": {
+      "hp": 1000,
+      "atk": 0,
+      "points": 100000
+    },
+    "401215": {
+      "hp": 1000,
+      "atk": 0,
+      "points": 100000
+    },
+    "401301": {
+      "hp": 250,
+      "atk": 0,
+      "points": 5000
+    },
+    "401302": {
+      "hp": 250,
+      "atk": 0,
+      "points": 5000
+    },
+    "401303": {
+      "hp": 375,
+      "atk": 0,
+      "points": 7500
+    },
+    "401304": {
+      "hp": 375,
+      "atk": 0,
+      "points": 7500
+    },
+    "401305": {
+      "hp": 500,
+      "atk": 0,
+      "points": 10000
+    },
+    "401306": {
+      "hp": 500,
+      "atk": 0,
+      "points": 10000
+    },
+    "401307": {
+      "hp": 625,
+      "atk": 0,
+      "points": 12500
+    },
+    "401308": {
+      "hp": 625,
+      "atk": 0,
+      "points": 12500
+    },
+    "401309": {
+      "hp": 750,
+      "atk": 0,
+      "points": 15000
+    },
+    "401310": {
+      "hp": 750,
+      "atk": 0,
+      "points": 15000
+    },
+    "401311": {
+      "hp": 1000,
+      "atk": 0,
+      "points": 100000
+    },
+    "401312": {
+      "hp": 1000,
+      "atk": 0,
+      "points": 100000
+    },
+    "401313": {
+      "hp": 1000,
+      "atk": 0,
+      "points": 100000
+    },
+    "401314": {
+      "hp": 1000,
+      "atk": 0,
+      "points": 100000
+    },
+    "401315": {
+      "hp": 1000,
+      "atk": 0,
+      "points": 100000
+    },
+    "900101": {
+      "hp": 3000,
+      "atk": 0,
+      "points": 3000
+    },
+    "900102": {
+      "hp": 3000,
+      "atk": 0,
+      "points": 3000
+    },
+    "900103": {
+      "hp": 3000,
+      "atk": 0,
+      "points": 3000
+    },
+    "900104": {
+      "hp": 3000,
+      "atk": 0,
+      "points": 3000
+    },
+    "900105": {
+      "hp": 3000,
+      "atk": 0,
+      "points": 3000
+    },
+    "900106": {
+      "hp": 3000,
+      "atk": 0,
+      "points": 3000
+    },
+    "900107": {
+      "hp": 3000,
+      "atk": 0,
+      "points": 3000
+    },
+    "900108": {
+      "hp": 3000,
+      "atk": 0,
+      "points": 3000
+    },
+    "900109": {
+      "hp": 3000,
+      "atk": 0,
+      "points": 3000
+    },
+    "900110": {
+      "hp": 3000,
+      "atk": 0,
+      "points": 3000
+    },
+    "900111": {
+      "hp": 3000,
+      "atk": 0,
+      "points": 3000
+    },
+    "900112": {
+      "hp": 3000,
+      "atk": 0,
+      "points": 3000
+    },
+    "900113": {
+      "hp": 3000,
+      "atk": 0,
+      "points": 3000
+    },
+    "900114": {
+      "hp": 3000,
+      "atk": 0,
+      "points": 3000
+    },
+    "900115": {
+      "hp": 3000,
+      "atk": 0,
+      "points": 3000
+    },
+    "900116": {
+      "hp": 3000,
+      "atk": 0,
+      "points": 3000
+    },
+    "900117": {
+      "hp": 3000,
+      "atk": 0,
+      "points": 3000
+    },
+    "900118": {
+      "hp": 3000,
+      "atk": 0,
+      "points": 3000
+    },
+    "900119": {
+      "hp": 3000,
+      "atk": 0,
+      "points": 3000
+    },
+    "900120": {
+      "hp": 3000,
+      "atk": 0,
+      "points": 3000
+    },
+    "900121": {
+      "hp": 3000,
+      "atk": 0,
+      "points": 3000
+    },
+    "900122": {
+      "hp": 3000,
+      "atk": 0,
+      "points": 3000
+    },
+    "900123": {
+      "hp": 3000,
+      "atk": 0,
+      "points": 3000
+    },
+    "900124": {
+      "hp": 3000,
+      "atk": 0,
+      "points": 3000
+    },
+    "900125": {
+      "hp": 3000,
+      "atk": 0,
+      "points": 3000
+    },
+    "900126": {
+      "hp": 3000,
+      "atk": 0,
+      "points": 3000
+    },
+    "900127": {
+      "hp": 3000,
+      "atk": 0,
+      "points": 3000
+    },
+    "900128": {
+      "hp": 3000,
+      "atk": 0,
+      "points": 3000
+    },
+    "900129": {
+      "hp": 3000,
+      "atk": 0,
+      "points": 3000
+    },
+    "900130": {
+      "hp": 3000,
+      "atk": 0,
+      "points": 3000
+    },
+    "900201": {
+      "hp": 3300,
+      "atk": 0,
+      "points": 3300
+    },
+    "900202": {
+      "hp": 3300,
+      "atk": 0,
+      "points": 3300
+    },
+    "900203": {
+      "hp": 3400,
+      "atk": 0,
+      "points": 3400
+    }
+  },
+  "zone_type": 1001,
+  "modes": [
+    {
+      "id": 69001,
+      "zone_type": 1001,
+      "zone": {
+        "6900101": {
+          "name": "牲鬼·布林格",
+          "stage_num": 1,
+          "monster_level": 70,
+          "layer_buff": {
+            "69010104": {
+              "title": "",
+              "desc": "· 对首领敌人<color=#FFAF2C>施加属性异常或[紊乱]效果时</color>，全队获得1层<color=#FFFFFF>[心无旁骛]</color>，最多叠加6层，每层<color=#FFFFFF>[心无旁骛]</color>会使代理人的<color=#FFAF2C>暴击率提升5%</color>；拥有至少3层<color=#FFFFFF>[心无旁骛]</color>后，队伍中任意代理人对敌人<color=#FFAF2C>施加属性异常效果时，该效果的持续时间提升5秒</color>；牲鬼·布林格召唤「牲祭之刃」发动攻击时，全队<color=#FFFFFF>[心无旁骛]</color>层数将会被重置。"
+            },
+            "69010107": {
+              "title": "",
+              "desc": "· 成功<color=#FFAF2C>打断吟唱</color>时，可获得<color=#FFAF2C>2000操作得分</color>，最多获得5000操作得分。"
+            },
+            "69010110": {
+              "title": "",
+              "desc": ""
+            }
+          },
+          "layer_room": {
+            "69001011": {
+              "monster_icon": "Assets/NapResources/UI/Sprite/A1DynamicLoad/IconBossGeneral/UnPacker/IconMonster_SacrificeBringer.png",
+              "monster_list": {
+                "11818": {
+                  "id": 30024,
+                  "name": "牲鬼·布林格",
+                  "image": "UI/Sprite/A1DynamicLoad/BossCard/UnPacker/BossCardLv03/Monster_SacrificeBringer.png",
+                  "element": {
+                    "ice": 1,
+                    "fire": 0,
+                    "electric": 0,
+                    "ether": 0,
+                    "physical": -1,
+                    "wind": 0
+                  },
+                  "stats": {
+                    "hp": 8737162.92,
+                    "attack": 3948.5939393939398,
+                    "defence": 952.8000000000001,
+                    "stun": 16647.4,
+                    "attribute_infliction": 0.0
+                  }
+                }
+              },
+              "monster_weakness": {
+                "202": "冰属性"
+              },
+              "monster_resistance": {},
+              "waves_num": 1
+            }
+          },
+          "goal_type": 2,
+          "s_rank_goal": 20000,
+          "a_rank_goal": 14000,
+          "b_rank_goal": 6000,
+          "selectable_buff": {
+            "69010101": {
+              "title": "诛心",
+              "desc": "· 代理人的属性异常积蓄效率<color=#2BAD00>提升30%</color>，<color=#FFFFFF>[紊乱]</color>效果造成的伤害<color=#2BAD00>提升40%</color>。\n· 对敌人施加<color=#FFFFFF>[紊乱]</color>效果时，全队<color=#FFFFFF>回复10点能量</color>，代理人的攻击力<color=#FFFFFF>提升25%</color>，持续30秒，能量回复效果20秒内最多触发一次。"
+            },
+            "69010102": {
+              "title": "速决",
+              "desc": "· 代理人的攻击力<color=#2BAD00>提升20%</color>，喧响值获得效率<color=#2BAD00>提升20%</color>；发动<color=#FFFFFF>[终结技]</color>时，代理人的攻击力额外<color=#2BAD00>提升15%</color>，持续15秒。\n· <color=#FFFFFF>[终结技]</color>造成的伤害<color=#2BAD00>提升40%</color>，造成的失衡值<color=#2BAD00>提升20%</color>，累积的属性异常积蓄值<color=#2BAD00>提升20%</color>。"
+            },
+            "69010103": {
+              "title": "破招",
+              "desc": "· <color=#FFFFFF>[普通攻击]</color>、<color=#FFFFFF>[闪避反击]</color>、<color=#FFFFFF>[强化特殊技]</color>、<color=#FFFFFF>[冲刺攻击]</color>造成的伤害<color=#2BAD00>提升30%</color>。\n· 触发<color=#FFFFFF>[极限闪避]</color>或<color=#FFFFFF>[极限支援]</color>后，全队攻击力<color=#2BAD00>提升10%</color>，暴击伤害<color=#2BAD00>提升10%</color>，持续15秒，最多叠加3层，每层效果单独结算持续时间。"
+            }
+          }
+        },
+        "6900102": {
+          "name": "「霸主侵蚀体·庞培」",
+          "stage_num": 2,
+          "monster_level": 70,
+          "layer_buff": {
+            "69010105": {
+              "title": "",
+              "desc": "· 首领敌人每10秒获得1层<color=#FFFFFF>[愈战愈勇]</color>，使自身造成伤害提升20%，最多叠加3层；队伍中任意代理人<color=#FFAF2C>对敌人施加属性异常效果时</color>，将移除1层<color=#FFFFFF>[愈战愈勇]</color>并削弱目标，使其受到伤害提升15%，持续20秒。"
+            },
+            "69010108": {
+              "title": "",
+              "desc": "· 对敌人<color=#FFAF2C>施加属性异常效果</color>时，可获得<color=#FFAF2C>150操作得分</color>，最多获得5000操作得分。"
+            }
+          },
+          "layer_room": {
+            "69001021": {
+              "monster_icon": "Assets/NapResources/UI/Sprite/A1DynamicLoad/IconBossGeneral/UnPacker/IconMonster_TyrantPompey.png",
+              "monster_list": {
+                "11703": {
+                  "id": 30021,
+                  "name": "「霸主侵蚀体·庞培」",
+                  "image": "UI/Sprite/A1DynamicLoad/BossCard/UnPacker/BossCardLv03/Monster_TyrantPompey.png",
+                  "element": {
+                    "ice": 0,
+                    "fire": 1,
+                    "electric": -1,
+                    "ether": 0,
+                    "physical": 0,
+                    "wind": 0
+                  },
+                  "stats": {
+                    "hp": 6681359.88,
+                    "attack": 3948.5939393939398,
+                    "defence": 952.8000000000001,
+                    "stun": 16647.4,
+                    "attribute_infliction": 0.0
+                  }
+                }
+              },
+              "monster_weakness": {
+                "201": "火属性"
+              },
+              "monster_resistance": {},
+              "waves_num": 1
+            }
+          },
+          "goal_type": 2,
+          "s_rank_goal": 20000,
+          "a_rank_goal": 14000,
+          "b_rank_goal": 6000,
+          "selectable_buff": {
+            "69010101": {
+              "title": "诛心",
+              "desc": "· 代理人的属性异常积蓄效率<color=#2BAD00>提升30%</color>，<color=#FFFFFF>[紊乱]</color>效果造成的伤害<color=#2BAD00>提升40%</color>。\n· 对敌人施加<color=#FFFFFF>[紊乱]</color>效果时，全队<color=#FFFFFF>回复10点能量</color>，代理人的攻击力<color=#FFFFFF>提升25%</color>，持续30秒，能量回复效果20秒内最多触发一次。"
+            },
+            "69010102": {
+              "title": "速决",
+              "desc": "· 代理人的攻击力<color=#2BAD00>提升20%</color>，喧响值获得效率<color=#2BAD00>提升20%</color>；发动<color=#FFFFFF>[终结技]</color>时，代理人的攻击力额外<color=#2BAD00>提升15%</color>，持续15秒。\n· <color=#FFFFFF>[终结技]</color>造成的伤害<color=#2BAD00>提升40%</color>，造成的失衡值<color=#2BAD00>提升20%</color>，累积的属性异常积蓄值<color=#2BAD00>提升20%</color>。"
+            },
+            "69010103": {
+              "title": "破招",
+              "desc": "· <color=#FFFFFF>[普通攻击]</color>、<color=#FFFFFF>[闪避反击]</color>、<color=#FFFFFF>[强化特殊技]</color>、<color=#FFFFFF>[冲刺攻击]</color>造成的伤害<color=#2BAD00>提升30%</color>。\n· 触发<color=#FFFFFF>[极限闪避]</color>或<color=#FFFFFF>[极限支援]</color>后，全队攻击力<color=#2BAD00>提升10%</color>，暴击伤害<color=#2BAD00>提升10%</color>，持续15秒，最多叠加3层，每层效果单独结算持续时间。"
+            }
+          }
+        },
+        "6900103": {
+          "name": "恶名·冥宁芙",
+          "stage_num": 3,
+          "monster_level": 70,
+          "layer_buff": {
+            "69010106": {
+              "title": "",
+              "desc": "· 首领敌人造成伤害提升25%；<color=#FFAF2C>分身被击破</color>/<color=#FFAF2C>本体进入失衡状态</color>时，将对首领敌人施加1层/5层<color=#FFFFFF>[如履薄冰]</color>， 每层<color=#FFFFFF>[如履薄冰]</color>会使首领敌人造成的伤害降低5%，并使代理人对其造成的<color=#98EFF0>冰属性伤害</color>和<color=#2EB6FF>电属性伤害</color><color=#FFAF2C>提升10%</color>；敌人从失衡状态恢复时，<color=#FFFFFF>[如履薄冰]</color>层数将会被重置。"
+            },
+            "69010109": {
+              "title": "",
+              "desc": "· 成功<color=#FFAF2C>击破舞者分身</color>时，可获得<color=#FFAF2C>200操作得分</color>，最多获得5000操作得分。"
+            }
+          },
+          "layer_room": {
+            "69001031": {
+              "monster_icon": "Assets/NapResources/UI/Sprite/A1DynamicLoad/IconBossGeneral/UnPacker/IconMonster_NotoriousMarionette.png",
+              "monster_list": {
+                "11861": {
+                  "id": 300121,
+                  "name": "恶名·冥宁芙",
+                  "image": "UI/Sprite/A1DynamicLoad/BossCard/UnPacker/BossCardLv03/Monster_NotoriousMarionette.png",
+                  "element": {
+                    "ice": 1,
+                    "fire": 0,
+                    "electric": 0,
+                    "ether": 1,
+                    "physical": 0,
+                    "wind": 0
+                  },
+                  "stats": {
+                    "hp": 6641836.649999999,
+                    "attack": 3051.9272727272732,
+                    "defence": 952.8000000000001,
+                    "stun": 14327.95,
+                    "attribute_infliction": 0.0
+                  }
+                }
+              },
+              "monster_weakness": {
+                "202": "冰属性",
+                "205": "以太"
+              },
+              "monster_resistance": {},
+              "waves_num": 1
+            }
+          },
+          "goal_type": 2,
+          "s_rank_goal": 20000,
+          "a_rank_goal": 14000,
+          "b_rank_goal": 6000,
+          "selectable_buff": {
+            "69010101": {
+              "title": "诛心",
+              "desc": "· 代理人的属性异常积蓄效率<color=#2BAD00>提升30%</color>，<color=#FFFFFF>[紊乱]</color>效果造成的伤害<color=#2BAD00>提升40%</color>。\n· 对敌人施加<color=#FFFFFF>[紊乱]</color>效果时，全队<color=#FFFFFF>回复10点能量</color>，代理人的攻击力<color=#FFFFFF>提升25%</color>，持续30秒，能量回复效果20秒内最多触发一次。"
+            },
+            "69010102": {
+              "title": "速决",
+              "desc": "· 代理人的攻击力<color=#2BAD00>提升20%</color>，喧响值获得效率<color=#2BAD00>提升20%</color>；发动<color=#FFFFFF>[终结技]</color>时，代理人的攻击力额外<color=#2BAD00>提升15%</color>，持续15秒。\n· <color=#FFFFFF>[终结技]</color>造成的伤害<color=#2BAD00>提升40%</color>，造成的失衡值<color=#2BAD00>提升20%</color>，累积的属性异常积蓄值<color=#2BAD00>提升20%</color>。"
+            },
+            "69010103": {
+              "title": "破招",
+              "desc": "· <color=#FFFFFF>[普通攻击]</color>、<color=#FFFFFF>[闪避反击]</color>、<color=#FFFFFF>[强化特殊技]</color>、<color=#FFFFFF>[冲刺攻击]</color>造成的伤害<color=#2BAD00>提升30%</color>。\n· 触发<color=#FFFFFF>[极限闪避]</color>或<color=#FFFFFF>[极限支援]</color>后，全队攻击力<color=#2BAD00>提升10%</color>，暴击伤害<color=#2BAD00>提升10%</color>，持续15秒，最多叠加3层，每层效果单独结算持续时间。"
+            }
+          }
+        }
+      }
+    }
+  ]
+}
