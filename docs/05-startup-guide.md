@@ -9,8 +9,6 @@
 ```bash
 # 启动完整项目（前端 + 后端）
 npm run launch
-# 或者
-npm run quick-start
 
 # 仅启动前端开发服务器
 npm run launch:frontend

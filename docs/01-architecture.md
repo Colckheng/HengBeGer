@@ -55,7 +55,6 @@ HengBeGer/
 - 管理页：`/zzz-wiki/admin`、`/hsr-wiki/admin`
 - 数据事实源：MySQL
 - 公开读取源：`src/db/storage/web/*.json`
-- legacy staging：`src/db/storage/admin/*.json`
 
 ## 技术架构
 
@@ -238,18 +237,14 @@ PUT    /api/storage/:type
 PUT    /api/storage/batch/update
 POST   /api/storage/reset
 
-POST   /api/dual-storage/admin/session
-GET    /api/dual-storage/admin/data
-PUT    /api/dual-storage/admin/:type
-POST   /api/dual-storage/sync
-DELETE /api/dual-storage/admin/session
+GET    /api/dual-storage/status
 ```
 
 说明：
 
 - 公开站点当前主要读取 `GET /api/dual-storage/web/data`
 - 管理页默认走“直接写数据库并自动刷新 storage”的流程
-- legacy staging 接口仍保留，但已经不再是事实源
+- legacy staging 接口已整体下线，数据库是唯一事实源
 
 ## 数据流架构
 

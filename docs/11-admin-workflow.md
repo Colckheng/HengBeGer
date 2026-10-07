@@ -7,7 +7,6 @@
 - 数据库：唯一事实源
 - root storage：数据库快照
 - web storage：公开站点快照
-- admin storage：兼容 legacy staging 的临时区，不是事实源
 
 ## 管理员登录
 
@@ -45,30 +44,27 @@
 
 这意味着正常管理操作不需要再手动点击“同步到 web”。
 
-## Legacy staging 接口
+## Legacy staging（已下线）
 
-以下接口仍保留，主要用于兼容旧工作流或临时批量操作：
+原有的 admin staging 流程已于 2026-10-04 整体移除：
 
+- `POST /api/dual-storage/initialize`
 - `POST /api/dual-storage/admin/session`
 - `GET /api/dual-storage/admin/data`
 - `PUT /api/dual-storage/admin/:type`
 - `POST /api/dual-storage/sync`
 - `DELETE /api/dual-storage/admin/session`
 
-### 它们现在怎么工作
-
-- `admin/:type` 只写 admin staging
-- `dual-storage/sync` 会把 staging 数据通过数据库事务正式提交
-- 事务成功后才会刷新公开 storage
-
-也就是说，legacy 同步接口现在不会再出现“只改 JSON，不改 DB”的漂移问题。
+这些端点现在返回 404。需要批量导入或整批替换时改用 `/api/storage/*`（见下节）。
 
 ## 批量替换与事务
 
-`/api/storage/:type` 和 `/api/storage/batch/update` 现在都会走数据库事务：
+`/api/storage/:type` 和 `/api/storage/batch/update` 都会走数据库事务：
 
+- 提交前强制执行 mysqldump 备份（备份失败即中止，不碰数据）
 - 成功：整批提交，再刷新 storage
 - 失败：整批回滚，不留下半更新状态
+- 0 条替换 vs 数据库现有 N 条时返回 409，需显式 `confirm: true`
 
 这点对批量导入尤其重要。
 
@@ -94,7 +90,6 @@
 - `storage.replaceByType`
 - `storage.replaceBatch`
 - `storage.rebuildFromDatabase`
-- legacy staging 初始化、更新、发布、清理
 
 当前审计事件默认走应用日志输出，适合先做问题追踪与运维排查。
 
@@ -107,19 +102,8 @@
 - `http://localhost:5173/zzz-wiki/admin`
 - `http://localhost:5173/hsr-wiki/admin`
 
-### 需要 staging 的兼容场景
-
-仅在以下场景考虑使用 legacy staging：
-
-- 调试旧接口
-- 临时批量编辑 JSON 结构
-- 做兼容性验证
-
-默认开发与运营流程建议都走管理页直接 CRUD。
-
 ## 风险提示
 
-- 不要把 `admin storage` 当成长期真源
 - 不要在生产环境默认开启 `DB_AUTO_ALTER=true`
 - 如果是分域部署，务必同时检查：
   - `VITE_API_BASE_URL`

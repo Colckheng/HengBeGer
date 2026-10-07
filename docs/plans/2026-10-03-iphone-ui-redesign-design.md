@@ -58,9 +58,11 @@
 ## 4. 各页面
 
 ### 4.1 首页（`HomePage.jsx` 结构重做）
+
 白底极简：品牌行 → 28–34px/800 字重大标题 + 一行 subtitle → **两张大入口卡**（16px 玻璃卡，色点=语境色，hover 抬升，chevron 6px 方钮）：ZZZ wiki（橙）/ HengHSR（蓝）→ 第三张禁用卡「更多游戏 · 即将开放」→ 底部 12px 淡字。不做营销 hero、无入场动效。
 
 ### 4.2 列表页（ZZZWiki / HsrWiki，＝定稿 demo 翻译）
+
 工具栏 → **head 行**（kicker + 28px 标题 + 右侧「共 N 条 · 第 x/y 页」+ 分页方钮）→ 一行 subtitle → segmented（max-width 560px / 高 36px）→ 紧凑筛选组（row 9×14、chip 30px）→ result line → **4:5 卡片网格**（4 列）。
 
 - **删除现有 wiki-hero 三张大 stat 卡**（信息并入 head 行，卡片提前出现，y≈400）
@@ -68,9 +70,11 @@
 - 稀有度徽章：白底平涂方牌 `rgba(255,255,255,.96)`、细边 `--hairline-2`、`0 1px 3px` 轻影；S 字 `#D97706`、A 字 `#607D8B`（HSR 星级同规范）
 
 ### 4.3 详情页（换皮 + 小改）
+
 工具栏内「‹ 返回代理人/角色」文字钮 → 左 `detail-media` 包玻璃容器（4:5 图，16px）→ 右 `detail-body`：kicker → 标题 → 徽章/chips 行（tinted 浅底）→ 描述卡（surface）→ 属性改紧凑定义表（hairline 分隔行）。不加新功能。
 
 ### 4.4 管理后台（令牌对齐）
+
 现有已是浅色，只做对齐：白卡→玻璃卡、蓝按钮→`--tint` 平涂 6px、控件 6px、面板 16px、kicker/激活态 tinted 浅底；`AdminAuthGate` 登录门收窄成居中卡片。
 
 ## 5. 按钮与控件规范（禁"渐变果冻糖水感"）
@@ -88,28 +92,28 @@
 
 ## 7. 响应式（4 断点）
 
-| 断点 | 卡片列 | 其他 |
-|---|---|---|
-| ≥1200px | 4 | — |
-| 768–1199px | 3 | — |
-| <768px | 2 | 搜索框收进图标；head 行分页换行 |
-| <480px | 1 | 筛选组横向滚动 |
+| 断点         | 卡片列 | 其他                 |
+| ---------- | --- | ------------------ |
+| ≥1200px    | 4   | —                  |
+| 768–1199px | 3   | —                  |
+| <768px     | 2   | 搜索框收进图标；head 行分页换行 |
+| <480px     | 1   | 筛选组横向滚动            |
 
 详情页 <900px 单列（图上 body 下）。
 
 ## 8. 实施计划
 
-| 步 | 内容 | 文件 |
-|---|---|---|
-| 0 | 设计文档入库 + git 基线 | 本文件 |
-| 1 | 令牌层 | 新建 `src/styles/tokens.css`；改 `src/index.css` |
-| 2 | 全局框架（工具栏 / ThemeToggle / `data-tint` 路由） | `src/App.css`、`src/App.jsx`、新 `src/components/ThemeToggle.jsx` |
-| 3 | 列表页换皮（ZZZ/HSR 共用） | 重写 `src/ZZZWiki.css`；`src/hsr/HsrWiki.jsx` 样式并入 |
-| 4 | 首页重做 | `src/HomePage.jsx` + 新样式 |
-| 5 | 详情页 | `detail-*` 样式（`ZZZWiki.css` / `HsrWiki`） |
-| 6 | 后台令牌对齐 | `AdminPanel.jsx`、`hsr/HsrAdminPanel.jsx`、`components/AdminAuthGate.jsx` |
-| 7 | 暗色映射 + 响应式 + reduced-motion | `tokens.css` 尾部 |
-| 8 | 验证 | `npm run lint`、`npm test`、Edge 逐页截图对比（浅/暗、ZZZ/HSR） |
+| 步   | 内容                                       | 文件                                                                      |
+| --- | ---------------------------------------- | ----------------------------------------------------------------------- |
+| 0   | 设计文档入库 + git 基线                          | 本文件                                                                     |
+| 1   | 令牌层                                      | 新建 `src/styles/tokens.css`；改 `src/index.css`                            |
+| 2   | 全局框架（工具栏 / ThemeToggle / `data-tint` 路由） | `src/App.css`、`src/App.jsx`、新 `src/components/ThemeToggle.jsx`          |
+| 3   | 列表页换皮（ZZZ/HSR 共用）                        | 重写 `src/ZZZWiki.css`；`src/hsr/HsrWiki.jsx` 样式并入                         |
+| 4   | 首页重做                                     | `src/HomePage.jsx` + 新样式                                                |
+| 5   | 详情页                                      | `detail-*` 样式（`ZZZWiki.css` / `HsrWiki`）                                |
+| 6   | 后台令牌对齐                                   | `AdminPanel.jsx`、`hsr/HsrAdminPanel.jsx`、`components/AdminAuthGate.jsx` |
+| 7   | 暗色映射 + 响应式 + reduced-motion              | `tokens.css` 尾部                                                         |
+| 8   | 验证                                       | `npm run lint`、`npm test`、Edge 逐页截图对比（浅/暗、ZZZ/HSR）                      |
 
 ### 已知风险 / 待办
 
