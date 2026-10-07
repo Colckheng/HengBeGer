@@ -22,6 +22,7 @@ import {
 } from './crawler/writer.js';
 import { snapshot, diffSnapshots } from './crawler/diff.js';
 import { buildReport } from './crawler/report.js';
+import { STATUS_LABEL, pad } from './crawler/compare.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DATA_ROOT = path.join(ROOT, 'data');
@@ -39,14 +40,6 @@ const TARGETS = {
     map: mapHsrFields,
     fields: ['alias', '命途', '属性', '阵营'],
   },
-};
-
-const STATUS_LABEL = {
-  match: '一致',
-  diff: '差异',
-  'data-only': '仅data',
-  'bwiki-only': '仅BWIKI',
-  empty: '空',
 };
 
 function parseArgs(argv) {
@@ -74,15 +67,6 @@ function splitSpec(spec) {
   return i === -1 ? [spec, undefined] : [spec.slice(0, i), spec.slice(i + 1)];
 }
 
-function displayWidth(s) {
-  return [...String(s)].reduce((a, c) => a + (c.codePointAt(0) > 0x2e7f ? 2 : 1), 0);
-}
-
-function pad(s, n) {
-  const str = String(s);
-  return str + ' '.repeat(Math.max(1, n - displayWidth(str)));
-}
-
 async function runCheck(src, spec) {
   const [tname, sel] = splitSpec(spec);
   const target = TARGETS[tname];
@@ -106,7 +90,7 @@ async function runCheck(src, spec) {
   console.log(`[抽查] ${spec}  BWIKI页「${title}」  data: ${path.relative(ROOT, existingPath)}`);
   console.log(`  ${pad('字段', 10)}${pad('data', 18)}${pad('BWIKI', 18)}状态`);
   for (const r of rows) {
-    console.log(`  ${pad(r.field, 10)}${pad(r.data, 18)}${pad(r.bwiki, 18)}${STATUS_LABEL[r.status] || r.status}`);
+    console.log(`  ${pad(r.field, 10)}${pad(r.data, 18)}${pad(r.source, 18)}${STATUS_LABEL[r.status] || r.status}`);
   }
   const diffs = rows.filter((r) => r.status === 'diff').length;
   console.log(`  合计 ${rows.length} 项，差异 ${diffs} 项\n`);

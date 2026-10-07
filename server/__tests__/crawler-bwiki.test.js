@@ -51,16 +51,16 @@ describe('bwiki infobox parse', () => {
 });
 
 describe('bwiki compareFields', () => {
-  test('classifies match diff data-only bwiki-only', () => {
+  test('classifies match diff data-only source-only', () => {
     const rows = compareFields(
       { alias: '安比·德玛拉', 阵营: '狡兔屋', 属性: '电' },
       { alias: '安比', 阵营: '狡兔屋', 特性: '击破' },
     );
     expect(rows).toEqual([
-      { field: 'alias', data: '安比·德玛拉', bwiki: '安比', status: 'diff' },
-      { field: '阵营', data: '狡兔屋', bwiki: '狡兔屋', status: 'match' },
-      { field: '属性', data: '电', bwiki: '', status: 'data-only' },
-      { field: '特性', data: '', bwiki: '击破', status: 'bwiki-only' },
+      { field: 'alias', data: '安比·德玛拉', source: '安比', status: 'diff' },
+      { field: '阵营', data: '狡兔屋', source: '狡兔屋', status: 'match' },
+      { field: '属性', data: '电', source: '', status: 'data-only' },
+      { field: '特性', data: '', source: '击破', status: 'source-only' },
     ]);
   });
 

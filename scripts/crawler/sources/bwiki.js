@@ -1,5 +1,7 @@
 const BASE = 'https://wiki.biligame.com';
 
+export { compareFields } from '../compare.js';
+
 const VOID_TAGS = new Set(['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track', 'wbr']);
 const TAG_RE = /<!--[\s\S]*?-->|<\s*(\/?)([a-zA-Z][a-zA-Z0-9]*)((?:[^>"']|"[^"]*"|'[^']*')*)>/g;
 
@@ -168,25 +170,6 @@ export function mapHsrFields(infobox) {
   if (infobox['战斗属性']) out['属性'] = String(infobox['战斗属性']).replace(/战斗属性$/, '');
   if (infobox['阵营']) out['阵营'] = infobox['阵营'];
   return out;
-}
-
-export function compareFields(dataFm, bwikiFields) {
-  const keys = [...new Set([...Object.keys(dataFm), ...Object.keys(bwikiFields)])];
-  return keys.map((field) => {
-    const data = dataFm[field];
-    const bwiki = bwikiFields[field];
-    let status;
-    if (data !== undefined && data !== '' && bwiki !== undefined && bwiki !== '') {
-      status = String(data) === String(bwiki) ? 'match' : 'diff';
-    } else if (data !== undefined && data !== '') {
-      status = 'data-only';
-    } else if (bwiki !== undefined && bwiki !== '') {
-      status = 'bwiki-only';
-    } else {
-      status = 'empty';
-    }
-    return { field, data: data === undefined ? '' : String(data), bwiki: bwiki === undefined ? '' : String(bwiki), status };
-  });
 }
 
 export function parseGachaPeriods(html) {

@@ -28,6 +28,7 @@
     "cleanup-storage-backups": "node scripts/cleanup-storage-backups.js",
     "crawl:mihoyo": "node scripts/crawl-mihoyo.js",
     "crawl:bwiki": "node scripts/crawl-bwiki.js",
+    "crawl:gamekee": "node scripts/crawl-gamekee.js",
     "test:backend": "cross-env NODE_ENV=test NODE_OPTIONS=--experimental-vm-modules jest",
     "test:backend:coverage": "cross-env NODE_ENV=test NODE_OPTIONS=--experimental-vm-modules jest --coverage",
     "test:frontend": "vitest run src --environment jsdom",
