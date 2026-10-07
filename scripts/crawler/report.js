@@ -24,8 +24,12 @@ function ensureDir(root) {
 }
 
 export function buildReport(root, { diff, snapshotBefore, snapshotAfter, anomalies = [], now = new Date() }) {
-  const id = createReportId(now);
   const dir = ensureDir(root);
+  const base = createReportId(now);
+  let id = base;
+  for (let n = 2; fs.existsSync(path.join(dir, `${id}.md`)) || fs.existsSync(path.join(dir, `${id}.json`)); n += 1) {
+    id = `${base}-${n}`;
+  }
   const details = {};
   for (const rel of diff.modified) {
     const before = snapshotBefore.get(rel);

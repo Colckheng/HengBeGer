@@ -1,0 +1,107 @@
+{
+ "retcode": 0,
+ "message": "OK",
+ "data": {
+  "list": [
+   {
+    "id": 125,
+    "title": "沧海萃珠",
+    "activity_url": "https://www.miyoushe.com/sr/article/78448395",
+    "content_before_act": "即将开始",
+    "pool": [
+     {
+      "icon": "https://act-upload.mihoyo.com/sr-wiki/2026/09/28/5155626/e82ecdf145f64dada535968511a97c86_5796035488175735672.png",
+      "url": "https://bbs.mihoyo.com/sr/wiki/content/7935/detail?bbs_presentation_style=no_header",
+      "ext": ""
+     },
+     {
+      "icon": "https://act-upload.mihoyo.com/sr-wiki/2026/09/28/5155626/a927a215863b86cccca20450f0023fb2_7614352058317551122.png",
+      "url": "https://bbs.mihoyo.com/sr/wiki/content/497/detail?bbs_presentation_style=no_header",
+      "ext": ""
+     },
+     {
+      "icon": "https://act-upload.mihoyo.com/sr-wiki/2026/09/28/5155626/8b8e50756e3755445facc6839d476b35_2364362030922929938.png",
+      "url": "https://bbs.mihoyo.com/sr/wiki/content/1872/detail?bbs_presentation_style=no_header",
+      "ext": ""
+     },
+     {
+      "icon": "https://act-upload.mihoyo.com/sr-wiki/2026/09/28/5155626/ee5f375eacbee98b90467e14597b4ad4_4366523964389848259.png",
+      "url": "https://bbs.mihoyo.com/sr/wiki/content/2086/detail?bbs_presentation_style=no_header",
+      "ext": ""
+     }
+    ],
+    "voice_icon": "",
+    "voice_url": "",
+    "voice_status": 1,
+    "start_time": "2026-09-28 00:00:00",
+    "end_time": "2026-11-10 15:00:00"
+   },
+   {
+    "id": 126,
+    "title": "韶艾裁英",
+    "activity_url": "https://www.miyoushe.com/sr/article/78448395",
+    "content_before_act": "即将开始",
+    "pool": [
+     {
+      "icon": "https://act-upload.mihoyo.com/sr-wiki/2026/09/28/5155626/fa842436cd05ce999192374c40403d67_4172159752856516806.png",
+      "url": "https://bbs.mihoyo.com/sr/wiki/content/7045/detail?bbs_presentation_style=no_header",
+      "ext": ""
+     },
+     {
+      "icon": "https://act-upload.mihoyo.com/sr-wiki/2026/09/28/5155626/a927a215863b86cccca20450f0023fb2_8045936931133987760.png",
+      "url": "https://bbs.mihoyo.com/sr/wiki/content/497/detail?bbs_presentation_style=no_header",
+      "ext": ""
+     },
+     {
+      "icon": "https://act-upload.mihoyo.com/sr-wiki/2026/09/28/5155626/8b8e50756e3755445facc6839d476b35_3621168042536655904.png",
+      "url": "https://bbs.mihoyo.com/sr/wiki/content/1872/detail?bbs_presentation_style=no_header",
+      "ext": ""
+     },
+     {
+      "icon": "https://act-upload.mihoyo.com/sr-wiki/2026/09/28/5155626/ee5f375eacbee98b90467e14597b4ad4_8250264491017753276.png",
+      "url": "https://bbs.mihoyo.com/sr/wiki/content/2086/detail?bbs_presentation_style=no_header",
+      "ext": ""
+     }
+    ],
+    "voice_icon": "",
+    "voice_url": "",
+    "voice_status": 1,
+    "start_time": "2026-09-28 00:00:00",
+    "end_time": "2026-10-21 11:59:00"
+   },
+   {
+    "id": 98,
+    "title": "联动跃迁",
+    "activity_url": "https://www.miyoushe.com/sr/article/76423940",
+    "content_before_act": "长期开放",
+    "pool": [
+     {
+      "icon": "https://act-upload.mihoyo.com/sr-wiki/2025/07/11/283462834/aea90d9b37925dfb1b322d38ee0788a3_3827677183754952784.png",
+      "url": "https://bbs.mihoyo.com/sr/wiki/content/5339/detail?bbs_presentation_style=no_header",
+      "ext": ""
+     },
+     {
+      "icon": "https://act-upload.mihoyo.com/sr-wiki/2025/07/11/283462834/156ee408575a35448bbe959c81fbe5f1_3553641646278152776.png",
+      "url": "https://bbs.mihoyo.com/sr/wiki/content/5338/detail?bbs_presentation_style=no_header",
+      "ext": ""
+     },
+     {
+      "icon": "https://act-upload.mihoyo.com/sr-wiki/2026/07/24/5155626/71de46801c47ea6f16ac179db5033ebe_5839916217255567538.png",
+      "url": "https://bbs.mihoyo.com/sr/wiki/content/7500/detail?bbs_presentation_style=no_header",
+      "ext": ""
+     },
+     {
+      "icon": "https://act-upload.mihoyo.com/sr-wiki/2026/07/24/5155626/8cc0edde36d548f287c1dd9efa3a4763_5997558935183921116.png",
+      "url": "https://bbs.mihoyo.com/sr/wiki/content/7499/detail?bbs_presentation_style=no_header",
+      "ext": ""
+     }
+    ],
+    "voice_icon": "",
+    "voice_url": "",
+    "voice_status": 1,
+    "start_time": "2026-12-11 12:00:00",
+    "end_time": "2027-12-11 13:00:00"
+   }
+  ]
+ }
+}

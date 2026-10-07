@@ -30,6 +30,8 @@ export const TYPE_RULES = {
   'currency/item': ['赛季', '类型'],
   'currency/strategy': ['赛季', '类型'],
   'currency/environment': ['赛季', '类型'],
+  'zzz/gacha': ['start_time', 'end_time'],
+  'hsr/gacha': ['start_time', 'end_time'],
 };
 
 export function splitFrontMatter(text) {
@@ -51,7 +53,8 @@ export function validateFrontMatter(data, opts = {}) {
   if (!data) return { errors: ['no front-matter data'], warnings };
   for (const key of COMMON_KEYS) {
     if (data[key] === undefined || data[key] === null || data[key] === '') {
-      errors.push(`missing required key: ${key}`);
+      if (key === 'image') warnings.push('missing image (pending image collector)');
+      else errors.push(`missing required key: ${key}`);
     }
   }
   if (data.tags !== undefined && !Array.isArray(data.tags)) {

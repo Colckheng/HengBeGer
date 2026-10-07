@@ -1,0 +1,167 @@
+{
+  "id": "20261007-1436",
+  "createdAt": "2026-10-07T06:36:53.682Z",
+  "gitCommit": "a39256d7ff4d18877553f8d473fbe230ac5d5c88",
+  "treeHash": "4f8e7058e35639c57e836c2ce86cf259086849062bf04b72504e5c9660845aca",
+  "files": {
+    "added": [
+      "hsr/gacha/125_沧海萃珠.md",
+      "hsr/gacha/126_韶艾裁英.md",
+      "hsr/gacha/98_联动跃迁.md",
+      "zzz/gacha/1_「红月初升」.md",
+      "zzz/gacha/2_「猩红渴望」.md",
+      "zzz/gacha/6_「视线定格公理」.md",
+      "zzz/gacha/7_「霓虹妄想」.md"
+    ],
+    "modified": [
+      "hsr/characters/1001_三月七.md",
+      "hsr/characters/state.json",
+      "hsr/gacha/state.json",
+      "zzz/agents/1011_安比.md",
+      "zzz/agents/state.json",
+      "zzz/gacha/state.json"
+    ],
+    "deleted": []
+  },
+  "details": {
+    "hsr/characters/1001_三月七.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "1001",
+          "to": "\"1001\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T06:36:50.607Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/48/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"83\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "512",
+          "to": "69"
+        },
+        {
+          "key": "基础生命值",
+          "from": "1058",
+          "to": "144"
+        },
+        {
+          "key": "基础防御力",
+          "from": "573",
+          "to": "78"
+        }
+      ],
+      "body": {
+        "linesAdded": 732,
+        "linesRemoved": 173,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/characters/state.json": {
+      "frontMatter": [],
+      "body": {
+        "linesAdded": 2,
+        "linesRemoved": 2,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/gacha/state.json": {
+      "frontMatter": [],
+      "body": {
+        "linesAdded": 2,
+        "linesRemoved": 2,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "zzz/agents/1011_安比.md": {
+      "frontMatter": [
+        {
+          "key": "alias",
+          "from": "(absent)",
+          "to": "\"安比·德玛拉\""
+        },
+        {
+          "key": "id",
+          "from": "1011",
+          "to": "\"1011\""
+        },
+        {
+          "key": "image",
+          "from": "(absent)",
+          "to": "\"\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-07T06:36:49.625Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/zzz/wiki/content/379/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1767587851\""
+        }
+      ],
+      "body": {
+        "linesAdded": 569,
+        "linesRemoved": 331,
+        "tableRowsBefore": 27,
+        "tableRowsAfter": 422
+      }
+    },
+    "zzz/agents/state.json": {
+      "frontMatter": [],
+      "body": {
+        "linesAdded": 2,
+        "linesRemoved": 2,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "zzz/gacha/state.json": {
+      "frontMatter": [],
+      "body": {
+        "linesAdded": 2,
+        "linesRemoved": 2,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    }
+  },
+  "anomalies": [],
+  "confirmed": false,
+  "syncCommand": "npm run sync -- --report 20261007-1436"
+}

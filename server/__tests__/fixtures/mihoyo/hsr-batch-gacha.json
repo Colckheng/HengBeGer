@@ -1,0 +1,80 @@
+{
+ "retcode": 0,
+ "message": "OK",
+ "data": {
+  "list": [
+   {
+    "content_id": "7935",
+    "record_id": "0",
+    "title": "真珠",
+    "status": "ContentStatusOnline",
+    "version": "14",
+    "icon": "https://act-upload.mihoyo.com/sr-wiki/2026/09/20/276833758/960b14943e619d938e2edaaad4b88603_5619752529735310456.png"
+   },
+   {
+    "content_id": "497",
+    "record_id": "0",
+    "title": "青雀",
+    "status": "ContentStatusOnline",
+    "version": "51",
+    "icon": "https://act-upload.mihoyo.com/sr-wiki/2025/09/20/159300832/a927a215863b86cccca20450f0023fb2_6798206180991410226.png"
+   },
+   {
+    "content_id": "1872",
+    "record_id": "0",
+    "title": "雪衣",
+    "status": "ContentStatusOnline",
+    "version": "38",
+    "icon": "https://act-upload.mihoyo.com/sr-wiki/2025/09/20/159300832/8b8e50756e3755445facc6839d476b35_6736193734361553071.png"
+   },
+   {
+    "content_id": "2086",
+    "record_id": "0",
+    "title": "米沙",
+    "status": "ContentStatusOnline",
+    "version": "29",
+    "icon": "https://act-upload.mihoyo.com/sr-wiki/2025/09/20/159300832/ee5f375eacbee98b90467e14597b4ad4_8898033914676607690.png"
+   },
+   {
+    "content_id": "7045",
+    "record_id": "0",
+    "title": "绯英",
+    "status": "ContentStatusOnline",
+    "version": "21",
+    "icon": "https://act-upload.mihoyo.com/sr-wiki/2026/03/12/276833758/163eba256fa0841317907a9a988fb81e_3696879567499397282.png"
+   },
+   {
+    "content_id": "5339",
+    "record_id": "0",
+    "title": "Saber",
+    "status": "ContentStatusOnline",
+    "version": "27",
+    "icon": "https://act-upload.mihoyo.com/sr-wiki/2025/09/20/159300832/deb5a515e1acb8bbff9fa0b142698bfa_1227070409858232042.png"
+   },
+   {
+    "content_id": "5338",
+    "record_id": "0",
+    "title": "Archer",
+    "status": "ContentStatusOnline",
+    "version": "17",
+    "icon": "https://act-upload.mihoyo.com/sr-wiki/2025/09/20/159300832/e7c9aebf492c1ed26183afb6888f0516_4771869183919996024.png"
+   },
+   {
+    "content_id": "7500",
+    "record_id": "0",
+    "title": "远坂凛",
+    "status": "ContentStatusOnline",
+    "version": "10",
+    "icon": "https://act-upload.mihoyo.com/sr-wiki/2026/05/22/276833758/479d91f4abf5500736bd7eb2d6fd969e_7364513735168931666.png"
+   },
+   {
+    "content_id": "7499",
+    "record_id": "0",
+    "title": "吉尔伽美什",
+    "status": "ContentStatusOnline",
+    "version": "9",
+    "icon": "https://act-upload.mihoyo.com/sr-wiki/2026/05/22/276833758/34ad4badd27ce4e6d1f9ac2a038f92f4_8014401071461097469.png"
+   }
+  ]
+ }
+}

@@ -26,6 +26,7 @@
     "migrate:columns": "node scripts/add-description-columns.js",
     "restore-storage": "node scripts/restore-storage-backup.js",
     "cleanup-storage-backups": "node scripts/cleanup-storage-backups.js",
+    "crawl:mihoyo": "node scripts/crawl-mihoyo.js",
     "test:backend": "cross-env NODE_ENV=test NODE_OPTIONS=--experimental-vm-modules jest",
     "test:backend:coverage": "cross-env NODE_ENV=test NODE_OPTIONS=--experimental-vm-modules jest --coverage",
     "test:frontend": "vitest run src --environment jsdom",
