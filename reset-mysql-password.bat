@@ -31,10 +31,12 @@ echo 正在连接到MySQL并重置密码...
 echo 请在新打开的命令窗口中执行以下命令:
 echo.
 echo mysql -u root
-echo USE mysql;
-echo UPDATE user SET authentication_string=PASSWORD('') WHERE User='root';
 echo FLUSH PRIVILEGES;
+echo ALTER USER 'root'@'localhost' IDENTIFIED BY '你的新密码';
 echo EXIT;
+echo.
+echo 注意：请把"你的新密码"替换成一个强密码（字母+数字+符号，至少12位），
+echo 并同步更新项目 .env 文件中的 DB_PASSWORD=你的新密码
 echo.
 start cmd /k "mysql -u root"
 pause
@@ -47,6 +49,7 @@ net start MySQL80
 echo.
 echo ========================================
 echo 密码重置完成！
-echo 现在可以使用空密码连接MySQL
+echo 请使用你设置的新密码连接 MySQL
+echo 并确认 .env 中 DB_PASSWORD 已同步
 echo ========================================
 pause

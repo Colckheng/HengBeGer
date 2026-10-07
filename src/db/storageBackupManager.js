@@ -1,10 +1,12 @@
 import fs from 'fs';
 import path from 'path';
+import { fileURLToPath } from 'url';
 
 import { logger } from '../utils/logger.js';
 import { STORAGE_TYPES } from './storageManager.js';
 
 const STORAGE_VERSION = '2.0.0';
+const MODULE_DIR = path.dirname(fileURLToPath(import.meta.url));
 
 const ensureArrayPayload = (payload, label) => {
   if (!payload || typeof payload !== 'object' || Array.isArray(payload)) {
@@ -20,7 +22,7 @@ const BACKUP_FILE_PATTERN = /^(?<prefix>.+)_(?<timestamp>\d{4}-\d{2}-\d{2}T\d{2}
 
 class StorageBackupManager {
   constructor(options = {}) {
-    this.storagePath = options.storagePath || path.join(process.cwd(), 'src', 'db', 'storage');
+    this.storagePath = options.storagePath || path.join(MODULE_DIR, 'storage');
     this.backupPath = path.join(this.storagePath, 'backup');
     this.webStoragePath = path.join(this.storagePath, 'web');
     this.ensureDirectories();

@@ -70,6 +70,27 @@ const validators = {
     return str;
   },
 
+  // 验证图片字段：base64 数据（2MB 上限）或路径（500 字符上限）
+  validateImage: (value, fieldName) => {
+    const str = validators.isString(value, fieldName);
+    const dataUrlMatch = /^data:image\/(?:png|jpe?g|webp|gif);base64,([A-Za-z0-9+/]+={0,2})$/.exec(str);
+    if (dataUrlMatch) {
+      const payload = dataUrlMatch[1];
+      const padding = payload.endsWith('==') ? 2 : payload.endsWith('=') ? 1 : 0;
+      const byteLength = Math.floor(payload.length * 3 / 4) - padding;
+      if (byteLength > 2 * 1024 * 1024) {
+        throw new AppError(`${fieldName} 不能超过 2MB`, 400);
+      }
+      return str;
+    }
+
+    if (str.length <= 500 && /^[A-Za-z0-9/._~%:#?&=+\-]+$/.test(str)) {
+      return str;
+    }
+
+    throw new AppError(`${fieldName} 必须是图片 base64 数据或有效路径`, 400);
+  },
+
   // 清理HTML标签
   sanitizeHtml: (value) => {
     if (typeof value !== 'string') return value;
@@ -104,16 +125,18 @@ const validateAgentData = (data) => {
     cleaned.roleId = validators.isPositiveInteger(data.roleId, '职业ID');
   } else if (data.role || data.profession) {
     cleaned.role = validators.hasLength(data.role || data.profession, 1, 30, '职业');
+  } else {
+    throw new AppError('缺少职业：roleId 或 role/profession 至少提供一个', 400);
   }
   
   // 可选字段
-  if (data.description) {
+  if (data.description !== undefined) {
     cleaned.description = validators.hasLength(data.description, 0, 500, '描述');
     cleaned.description = validators.sanitizeHtml(cleaned.description);
   }
   
   if (data.image) {
-    cleaned.image = validators.hasLength(data.image, 0, 5000000, '图片数据');
+    cleaned.image = validators.validateImage(data.image, '图片数据');
   }
   
   if (data.skills && Array.isArray(data.skills)) {
@@ -168,7 +191,7 @@ const validateSoundEngineData = (data) => {
   }
   
   if (data.image) {
-    cleaned.image = validators.hasLength(data.image, 0, 5000000, '图片数据');
+    cleaned.image = validators.validateImage(data.image, '图片数据');
   }
   
   // 可选数值字段留空，由业务层决定
@@ -193,7 +216,7 @@ const validateBumboData = (data) => {
   }
   
   if (data.image) {
-    cleaned.image = validators.hasLength(data.image, 0, 5000000, '图片数据');
+    cleaned.image = validators.validateImage(data.image, '图片数据');
   }
   
   if (data.skills && Array.isArray(data.skills)) {
@@ -214,9 +237,13 @@ const validateDriveDiskData = (data) => {
   
   cleaned.name = validators.hasLength(data.name, 1, 50, '驱动盘名称');
   
-  if (data.description) {
+  if (data.description !== undefined) {
     cleaned.description = validators.hasLength(data.description, 0, 500, '描述');
     cleaned.description = validators.sanitizeHtml(cleaned.description);
+  }
+  
+  if (data.image) {
+    cleaned.image = validators.validateImage(data.image, '图片数据');
   }
   
   return cleaned;
@@ -255,7 +282,11 @@ const validateHsrCharacterData = (data) => {
   else cleaned.path = validators.hasLength(data.path || '', 1, 10, '角色命途')
   if (data.rarityId !== undefined) cleaned.rarityId = validators.isPositiveInteger(data.rarityId, '稀有度ID')
   else cleaned.rarity = validators.hasLength(data.rarity || '', 1, 5, '稀有度')
-  if (data.image) cleaned.image = validators.hasLength(data.image, 0, 5000000, '图片数据')
+  if (data.description !== undefined) {
+    cleaned.description = validators.hasLength(data.description, 0, 500, '描述')
+    cleaned.description = validators.sanitizeHtml(cleaned.description)
+  }
+  if (data.image) cleaned.image = validators.validateImage(data.image, '图片数据')
   return cleaned
 }
 
@@ -266,7 +297,7 @@ const validateHsrConeData = (data) => {
   else cleaned.path = validators.hasLength(data.path || '', 1, 10, '命途')
   if (data.rarityId !== undefined) cleaned.rarityId = validators.isPositiveInteger(data.rarityId, '稀有度ID')
   else cleaned.rarity = validators.hasLength(data.rarity || '', 1, 5, '稀有度')
-  if (data.image) cleaned.image = validators.hasLength(data.image, 0, 5000000, '图片数据')
+  if (data.image) cleaned.image = validators.validateImage(data.image, '图片数据')
   return cleaned
 }
 
@@ -277,7 +308,7 @@ const validateHsrRelicData = (data) => {
   else cleaned.type = validators.isEnum(data.type, ['隧洞遗器','位面饰品'], '遗器类型')
   if (data.setName) cleaned.setName = validators.hasLength(data.setName, 1, 50, '套装名')
   if (data.part) cleaned.part = validators.isEnum(data.part, ['头','手','身','脚','位面球','连结绳'], '部位')
-  if (data.image) cleaned.image = validators.hasLength(data.image, 0, 5000000, '图片数据')
+  if (data.image) cleaned.image = validators.validateImage(data.image, '图片数据')
   return cleaned
 }
 

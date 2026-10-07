@@ -101,11 +101,13 @@ describe('AdminPanel image validation', () => {
       this.onloadend();
     });
 
-    vi.stubGlobal('FileReader', vi.fn(() => ({
-      result: null,
-      onloadend: null,
-      readAsDataURL: mockReadAsDataURL,
-    })));
+    vi.stubGlobal('FileReader', vi.fn(function FileReaderMock() {
+      return {
+        result: null,
+        onloadend: null,
+        readAsDataURL: mockReadAsDataURL,
+      };
+    }));
 
     render(
       <MemoryRouter>

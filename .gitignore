@@ -1,5 +1,6 @@
 # Logs
 logs
+_logs
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -64,6 +65,7 @@ pids
 *.seed
 *.pid.lock
 backup_storage/
+db-backups/
 
 # Coverage directory used by tools like istanbul
 coverage
@@ -74,7 +76,6 @@ coverage
 
 # Storage data files (runtime)
 src/db/storage/**
-!src/db/storage/README.md
 
 # Local test pages
 test-data.html

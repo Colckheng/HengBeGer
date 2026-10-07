@@ -1,0 +1,144 @@
+/* ============================================================
+   Clean Glass 设计令牌 —— 浅色优先，双明暗套，语境主题色
+   引用顺序：index.css 最先 import（main.jsx → index.css）
+   属性宿主：<html data-tint="zzz|hsr|neutral" data-theme="light|dark">
+   ============================================================ */
+
+:root {
+  color-scheme: light;
+
+  /* ---- 语境主题色（默认 = 中性蓝，data-tint 覆盖） ---- */
+  --tint: #0a6cff;
+  --tint-soft: #edf4ff;
+  --tint-ink: #0a6cff;
+  --tint-press: #0a52cc;
+  --tint-a08: rgba(10, 108, 255, 0.08);
+  --tint-a16: rgba(10, 108, 255, 0.16);
+  --tint-a24: rgba(10, 108, 255, 0.24);
+
+  /* ---- 中性阶（浅色） ---- */
+  --bg: #ffffff;
+  --bg-elevated: #f6f7fb;
+  --surface: rgba(239, 241, 247, 0.78);
+  --surface-solid: #ffffff;
+  --surface-muted: rgba(243, 244, 249, 0.92);
+  --text: #0b0b10;
+  --text-2: rgba(11, 11, 16, 0.56);
+  --text-3: rgba(11, 11, 16, 0.32);
+  --hairline: rgba(11, 11, 16, 0.06);
+  --hairline-2: rgba(11, 11, 16, 0.1);
+  --edge: rgba(255, 255, 255, 0.9);
+  --ring: 0 0 0 1px rgba(11, 11, 16, 0.06);
+  --glass-inset: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  --scrim: rgba(11, 11, 16, 0.4);
+
+  /* ---- 圆角（方角基调） ---- */
+  --r-ctl: 6px;
+  --r-bar: 12px;
+  --r-panel: 16px;
+
+  /* ---- 阴影（全部中性，禁彩色投影） ---- */
+  --shadow-card: 0 16px 40px rgba(20, 24, 50, 0.15);
+  --shadow-card-hover: 0 24px 56px rgba(20, 24, 50, 0.18);
+  --shadow-ctl: 0 1px 3px rgba(20, 24, 50, 0.1);
+  --shadow-bar: 0 8px 28px rgba(20, 24, 50, 0.1);
+  --shadow-tint: 0 2px 8px var(--tint-a16);
+
+  /* ---- 字体（系统栈，无网络字体） ---- */
+  --font: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display',
+    'PingFang SC', 'Segoe UI', 'Microsoft YaHei', system-ui, sans-serif;
+
+  /* ---- 动效 ---- */
+  --ease: cubic-bezier(0.2, 0.7, 0.3, 1);
+  --dur-fast: 80ms;
+  --dur: 180ms;
+  --dur-swap: 300ms;
+}
+
+/* ============ 语境主题色 ============ */
+
+[data-tint='zzz'] {
+  --tint: #f0670c;
+  --tint-soft: #fff3ea;
+  --tint-ink: #d95a00;
+  --tint-press: #d95a00;
+  --tint-a08: rgba(240, 103, 12, 0.08);
+  --tint-a16: rgba(240, 103, 12, 0.16);
+  --tint-a24: rgba(240, 103, 12, 0.24);
+}
+
+[data-tint='hsr'] {
+  --tint: #0a6cff;
+  --tint-soft: #edf4ff;
+  --tint-ink: #0a6cff;
+  --tint-press: #0a52cc;
+  --tint-a08: rgba(10, 108, 255, 0.08);
+  --tint-a16: rgba(10, 108, 255, 0.16);
+  --tint-a24: rgba(10, 108, 255, 0.24);
+}
+
+/* ============ 暗色映射（同一套令牌换值） ============ */
+
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --bg: #000000;
+  --bg-elevated: #101116;
+  --surface: rgba(28, 30, 34, 0.72);
+  --surface-solid: #17181c;
+  --surface-muted: rgba(32, 34, 40, 0.92);
+  --text: #f5f6fa;
+  --text-2: rgba(245, 246, 250, 0.58);
+  --text-3: rgba(245, 246, 250, 0.34);
+  --hairline: rgba(255, 255, 255, 0.08);
+  --hairline-2: rgba(255, 255, 255, 0.14);
+  --edge: rgba(255, 255, 255, 0.07);
+  --ring: 0 0 0 1px rgba(255, 255, 255, 0.08);
+  --glass-inset: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  --scrim: rgba(0, 0, 0, 0.6);
+
+  --tint: #4c9aff;
+  --tint-soft: rgba(76, 154, 255, 0.16);
+  --tint-ink: #6db0ff;
+  --tint-press: #2f86ff;
+  --tint-a08: rgba(76, 154, 255, 0.1);
+  --tint-a16: rgba(76, 154, 255, 0.18);
+  --tint-a24: rgba(76, 154, 255, 0.28);
+
+  --shadow-card: 0 16px 40px rgba(0, 0, 0, 0.55);
+  --shadow-card-hover: 0 24px 56px rgba(0, 0, 0, 0.65);
+  --shadow-ctl: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-bar: 0 8px 28px rgba(0, 0, 0, 0.5);
+}
+
+/* 暗色 + 语境色组合（0,2,0 特异性，覆盖以上两者单开值） */
+
+[data-tint='zzz'][data-theme='dark'] {
+  --tint: #ff9a3d;
+  --tint-soft: rgba(255, 154, 61, 0.16);
+  --tint-ink: #ffb066;
+  --tint-press: #ff8620;
+  --tint-a08: rgba(255, 154, 61, 0.1);
+  --tint-a16: rgba(255, 154, 61, 0.18);
+  --tint-a24: rgba(255, 154, 61, 0.28);
+}
+
+[data-tint='hsr'][data-theme='dark'] {
+  --tint: #4c9aff;
+  --tint-soft: rgba(76, 154, 255, 0.16);
+  --tint-ink: #6db0ff;
+  --tint-press: #2f86ff;
+}
+
+/* 尊重系统「减弱动态效果」偏好 */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

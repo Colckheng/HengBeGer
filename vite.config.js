@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 5173,
-    host: true, // 允许外部访问
+    host: process.env.VITE_HOST || 'localhost',
     open: false, // 不自动打开浏览器
     proxy: {
       '/api': {
@@ -18,7 +18,7 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
-    sourcemap: true,
+    sourcemap: false,
     rollupOptions: {
       output: {
         manualChunks: {

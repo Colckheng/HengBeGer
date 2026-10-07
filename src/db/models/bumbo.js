@@ -14,7 +14,7 @@ export default function defineBumbo(sequelize) {
       allowNull: false
     },
     image: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT('long'),
       defaultValue: '/assets/zzz.jpg'
     },
     rarityId: {

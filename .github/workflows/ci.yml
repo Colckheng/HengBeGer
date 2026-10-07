@@ -19,7 +19,11 @@ jobs:
         run: npm ci
       - name: Lint
         run: npm run lint
-      - name: Backend tests
-        run: npm run test:backend
-      - name: Frontend tests
-        run: npm run test:frontend
+      - name: Backend tests (coverage gate)
+        run: npm run test:backend:coverage
+      - name: Frontend tests (coverage gate)
+        run: npm run test:frontend:coverage
+      - name: Production build
+        run: npm run build
+      - name: Production dependency audit
+        run: npm audit --omit=dev --audit-level=high --registry=https://registry.npmjs.org/

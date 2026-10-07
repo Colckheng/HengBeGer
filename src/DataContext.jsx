@@ -2,6 +2,7 @@ import React, {
   createContext,
   useContext,
   useEffect,
+  useRef,
   useState,
 } from 'react';
 import { useLocation } from 'react-router-dom';
@@ -78,8 +79,8 @@ const shouldPrefetchMainData = (pathname = '') => (
   || pathname.startsWith('/data-test')
 );
 
-const fetchMainData = async () => {
-  const response = await apiClient.get('/dual-storage/web/data');
+const fetchMainData = async (signal) => {
+  const response = await apiClient.get('/dual-storage/web/data', { signal });
   const payload = response.data?.data || {};
 
   return {
@@ -93,45 +94,104 @@ const fetchMainData = async () => {
   };
 };
 
-const fetchBaseData = async () => {
-  const [zzzResponse, hsrResponse] = await Promise.all([
-    apiClient.get('/base-data'),
-    apiClient.get('/hsr/base-data'),
+const fetchBaseData = async (signal) => {
+  const [zzzResult, hsrResult] = await Promise.allSettled([
+    apiClient.get('/base-data', { signal }),
+    apiClient.get('/hsr/base-data', { signal }),
   ]);
 
+  if (zzzResult.status === 'rejected' && hsrResult.status === 'rejected') {
+    if (isAbortError(zzzResult.reason) || isAbortError(hsrResult.reason)) {
+      throw zzzResult.reason;
+    }
+    console.warn('Base data load failed on both sides', zzzResult.reason, hsrResult.reason);
+    throw zzzResult.reason;
+  }
+
+  if (zzzResult.status === 'rejected') {
+    if (!isAbortError(zzzResult.reason)) {
+      console.warn('ZZZ base data load failed, degrading to empty', zzzResult.reason);
+    } else {
+      throw zzzResult.reason;
+    }
+  }
+  if (hsrResult.status === 'rejected') {
+    if (!isAbortError(hsrResult.reason)) {
+      console.warn('HSR base data load failed, degrading to empty', hsrResult.reason);
+    } else {
+      throw hsrResult.reason;
+    }
+  }
+
+  const zzzResponse = zzzResult.status === 'fulfilled' ? zzzResult.value : null;
+  const hsrResponse = hsrResult.status === 'fulfilled' ? hsrResult.value : null;
+  const degraded = !zzzResponse || !hsrResponse;
+
   return {
-    factions: Array.isArray(zzzResponse.data?.factions) ? zzzResponse.data.factions : [],
-    roles: Array.isArray(zzzResponse.data?.roles) ? zzzResponse.data.roles : [],
-    rarities: Array.isArray(zzzResponse.data?.rarities) ? zzzResponse.data.rarities : [],
-    hsr: {
-      elements: Array.isArray(hsrResponse.data?.elements) ? hsrResponse.data.elements : [],
-      paths: Array.isArray(hsrResponse.data?.paths) ? hsrResponse.data.paths : [],
-      rarities: Array.isArray(hsrResponse.data?.rarities) ? hsrResponse.data.rarities : [],
-      relicTypes: Array.isArray(hsrResponse.data?.relicTypes) ? hsrResponse.data.relicTypes : [],
-      relicParts: Array.isArray(hsrResponse.data?.relicParts) ? hsrResponse.data.relicParts : [],
+    degraded,
+    base: {
+      factions: Array.isArray(zzzResponse?.data?.factions) ? zzzResponse.data.factions : [],
+      roles: Array.isArray(zzzResponse?.data?.roles) ? zzzResponse.data.roles : [],
+      rarities: Array.isArray(zzzResponse?.data?.rarities) ? zzzResponse.data.rarities : [],
+      hsr: {
+        elements: Array.isArray(hsrResponse?.data?.elements) ? hsrResponse.data.elements : [],
+        paths: Array.isArray(hsrResponse?.data?.paths) ? hsrResponse.data.paths : [],
+        rarities: Array.isArray(hsrResponse?.data?.rarities) ? hsrResponse.data.rarities : [],
+        relicTypes: Array.isArray(hsrResponse?.data?.relicTypes) ? hsrResponse.data.relicTypes : [],
+        relicParts: Array.isArray(hsrResponse?.data?.relicParts) ? hsrResponse.data.relicParts : [],
+      },
     },
   };
 };
+
+const isAbortError = (loadError) => (
+  loadError?.code === 'ERR_CANCELED'
+  || loadError?.name === 'CanceledError'
+  || loadError?.name === 'AbortError'
+);
 
 const DataProvider = ({ children }) => {
   const { pathname } = useLocation();
   const [data, setData] = useState(createEmptyData);
   const [baseData, setBaseData] = useState(createEmptyBaseData);
+  const [baseDataDegraded, setBaseDataDegraded] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [refreshing, setRefreshing] = useState(false);
   const [error, setError] = useState(null);
+  const dataRef = useRef(data);
+  const baseDataRef = useRef(null);
+  const refreshSeqRef = useRef(0);
+
+  useEffect(() => {
+    dataRef.current = data;
+  }, [data]);
+
+  const loadAllData = async () => {
+    const seq = refreshSeqRef.current + 1;
+    refreshSeqRef.current = seq;
+
+    const [mainData, { base, degraded }] = await Promise.all([
+      fetchMainData(),
+      fetchBaseData(),
+    ]);
+
+    if (seq !== refreshSeqRef.current) {
+      return;
+    }
+
+    setData(mainData);
+    setBaseData(base);
+    setBaseDataDegraded(degraded);
+    baseDataRef.current = degraded ? null : base;
+  };
 
   const refreshData = async () => {
     setLoading(true);
     setError(null);
+    baseDataRef.current = null;
 
     try {
-      const [mainData, baseDataResult] = await Promise.all([
-        fetchMainData(),
-        fetchBaseData(),
-      ]);
-
-      setData(mainData);
-      setBaseData(baseDataResult);
+      await loadAllData();
     } catch (refreshError) {
       setError(getApiErrorMessage(refreshError, ERROR_MESSAGES.loadData));
       throw refreshError;
@@ -142,31 +202,41 @@ const DataProvider = ({ children }) => {
 
   useEffect(() => {
     let cancelled = false;
+    const controller = new AbortController();
 
     const loadForRoute = async () => {
-      setLoading(true);
+      const prefetchMain = shouldPrefetchMainData(pathname);
+      if (prefetchMain && dataRef.current.agents.length === 0) {
+        setLoading(true);
+      }
       setError(null);
 
       try {
-        const baseDataResult = await fetchBaseData();
-        if (cancelled) {
-          return;
-        }
-
-        setBaseData(baseDataResult);
-
-        if (shouldPrefetchMainData(pathname)) {
-          const mainData = await fetchMainData();
+        if (!baseDataRef.current) {
+          const { base, degraded } = await fetchBaseData(controller.signal);
           if (cancelled) {
             return;
           }
 
+          setBaseData(base);
+          setBaseDataDegraded(degraded);
+          if (!degraded) {
+            baseDataRef.current = base;
+          }
+        }
+
+        if (prefetchMain) {
+          const seq = refreshSeqRef.current + 1;
+          refreshSeqRef.current = seq;
+          const mainData = await fetchMainData(controller.signal);
+          if (cancelled || seq !== refreshSeqRef.current) {
+            return;
+          }
+
           setData(mainData);
-        } else {
-          setData(createEmptyData());
         }
       } catch (loadError) {
-        if (!cancelled) {
+        if (!cancelled && !isAbortError(loadError)) {
           setError(getApiErrorMessage(loadError, ERROR_MESSAGES.loadData));
         }
       } finally {
@@ -180,24 +250,40 @@ const DataProvider = ({ children }) => {
 
     return () => {
       cancelled = true;
+      controller.abort();
     };
   }, [pathname]);
 
   const mutateAndRefresh = async (request, fallbackMessage) => {
+    let result;
+
     try {
-      const result = await request();
-      await refreshData();
-      return result?.data ?? result;
+      result = await request();
     } catch (mutationError) {
       setError(getApiErrorMessage(mutationError, fallbackMessage));
       throw mutationError;
     }
+
+    setError(null);
+    setRefreshing(true);
+
+    try {
+      await loadAllData();
+    } catch (refreshError) {
+      console.warn('Data refresh failed after successful mutation', refreshError);
+    } finally {
+      setRefreshing(false);
+    }
+
+    return result?.data ?? result;
   };
 
   const contextValue = {
     data,
     baseData,
+    baseDataDegraded,
     loading,
+    refreshing,
     error,
     refreshData,
     handleUpdateData: refreshData,

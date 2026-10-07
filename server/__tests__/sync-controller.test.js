@@ -3,6 +3,7 @@ import { jest } from '@jest/globals';
 const replaceAllRecords = jest.fn();
 const replaceMultipleRecordSets = jest.fn();
 const syncDatabaseToStorage = jest.fn();
+const createDatabaseBackup = jest.fn();
 const storageManager = {
   getAllStorageData: jest.fn(),
   readFromStorage: jest.fn(),
@@ -31,6 +32,10 @@ jest.unstable_mockModule('../../src/db/api.js', () => ({
   syncDatabaseToStorage,
 }));
 
+jest.unstable_mockModule('../../src/db/databaseBackup.js', () => ({
+  createDatabaseBackup,
+}));
+
 jest.unstable_mockModule('../../src/db/storageManager.js', () => ({
   default: storageManager,
   STORAGE_TYPES,
@@ -55,6 +60,7 @@ const createResponse = () => {
 describe('DataSyncController sync flows', () => {
   beforeEach(() => {
     jest.clearAllMocks();
+    createDatabaseBackup.mockResolvedValue({ fileName: 'hengbeger-test.sql' });
   });
 
   it('rejects updateAllData payloads that are not keyed objects', async () => {
@@ -132,10 +138,13 @@ describe('DataSyncController sync flows', () => {
 
     await DataSyncController.updateAllData(req, res);
 
-    expect(replaceMultipleRecordSets).toHaveBeenCalledWith({
-      agents: req.body.data.agents,
-      hsrCharacters: req.body.data.hsrCharacters,
-    });
+    expect(replaceMultipleRecordSets).toHaveBeenCalledWith(
+      {
+        agents: req.body.data.agents,
+        hsrCharacters: req.body.data.hsrCharacters,
+      },
+      { allowEmptyWipe: false },
+    );
     expect(res.status).not.toHaveBeenCalled();
     expect(res.json).toHaveBeenCalledWith(
       expect.objectContaining({
@@ -146,6 +155,23 @@ describe('DataSyncController sync flows', () => {
           hsrCharacters: { success: true, count: 1 },
         },
       }),
+    );
+  });
+
+  it('forwards an explicit confirm flag as allowEmptyWipe', async () => {
+    replaceMultipleRecordSets.mockResolvedValue({ agents: [] });
+
+    const req = { body: { data: { agents: [] }, confirm: true } };
+    const res = createResponse();
+
+    await DataSyncController.updateAllData(req, res);
+
+    expect(replaceMultipleRecordSets).toHaveBeenCalledWith(
+      { agents: [] },
+      { allowEmptyWipe: true },
+    );
+    expect(res.json).toHaveBeenCalledWith(
+      expect.objectContaining({ success: true }),
     );
   });
 
@@ -195,7 +221,101 @@ describe('DataSyncController sync flows', () => {
     expect(res.json).toHaveBeenCalledWith({
       success: false,
       message: 'Failed to rebuild storage from database.',
-      error: 'sync exploded',
+      error: 'Internal server error.',
     });
+  });
+
+  it('preserves the 409 wipe guard when batch replacement refuses', async () => {
+    const guardError = new Error(
+      'Sync would delete all 43 existing "agents" records. '
+      + 'Re-stage the data, or resend with confirm: true if this is intentional.',
+    );
+    guardError.statusCode = 409;
+    replaceMultipleRecordSets.mockRejectedValue(guardError);
+
+    const req = { body: { data: { agents: [] } } };
+    const res = createResponse();
+
+    await DataSyncController.updateAllData(req, res);
+
+    expect(res.status).toHaveBeenCalledWith(409);
+    expect(res.json).toHaveBeenCalledWith(
+      expect.objectContaining({
+        success: false,
+        message: expect.stringContaining('Sync would delete all 43'),
+      }),
+    );
+  });
+
+  it('maps duplicate name violations to 409 on batch replacement', async () => {
+    const duplicateError = new Error('duplicate entry');
+    duplicateError.name = 'SequelizeUniqueConstraintError';
+    replaceMultipleRecordSets.mockRejectedValue(duplicateError);
+
+    const req = {
+      body: {
+        data: {
+          agents: [
+            {
+              name: 'Anby',
+              element: 'Electric',
+              factionId: 1,
+              roleId: 1,
+              rarityId: 1,
+            },
+          ],
+        },
+      },
+    };
+    const res = createResponse();
+
+    await DataSyncController.updateAllData(req, res);
+
+    expect(res.status).toHaveBeenCalledWith(409);
+    expect(res.json).toHaveBeenCalledWith(
+      expect.objectContaining({
+        success: false,
+        error: 'duplicate entry',
+      }),
+    );
+  });
+
+  it('backs up the database before batch replacement runs', async () => {
+    replaceMultipleRecordSets.mockResolvedValue({ agents: [{ id: 1 }] });
+
+    const req = { body: { data: { agents: [{ name: 'Anby', element: 'Electric', factionId: 1, roleId: 1, rarityId: 1 }] } } };
+    const res = createResponse();
+
+    await DataSyncController.updateAllData(req, res);
+
+    expect(createDatabaseBackup).toHaveBeenCalledTimes(1);
+    expect(createDatabaseBackup.mock.invocationCallOrder[0])
+      .toBeLessThan(replaceMultipleRecordSets.mock.invocationCallOrder[0]);
+    expect(res.json).toHaveBeenCalledWith(
+      expect.objectContaining({
+        success: true,
+        backup: 'hengbeger-test.sql',
+      }),
+    );
+  });
+
+  it('aborts batch replacement when the database backup fails', async () => {
+    const backupError = new Error('mysqldump unavailable');
+    backupError.statusCode = 503;
+    createDatabaseBackup.mockRejectedValue(backupError);
+
+    const req = { body: { data: { agents: [] } } };
+    const res = createResponse();
+
+    await DataSyncController.updateAllData(req, res);
+
+    expect(replaceMultipleRecordSets).not.toHaveBeenCalled();
+    expect(res.status).toHaveBeenCalledWith(503);
+    expect(res.json).toHaveBeenCalledWith(
+      expect.objectContaining({
+        success: false,
+        error: 'mysqldump unavailable',
+      }),
+    );
   });
 });

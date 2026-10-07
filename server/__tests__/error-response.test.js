@@ -22,4 +22,24 @@ describe('error response payload', () => {
       error: 'Bad request.',
     });
   });
+
+  it('maps unique constraint violations to 409 responses', async () => {
+    const app = express();
+
+    app.get('/dup', (_req, _res, next) => {
+      const error = new Error('duplicate entry');
+      error.name = 'SequelizeUniqueConstraintError';
+      next(error);
+    });
+
+    app.use(errorMiddleware);
+
+    const response = await request(app).get('/dup');
+
+    expect(response.status).toBe(409);
+    expect(response.body).toMatchObject({
+      success: false,
+      message: '数据已存在，不能重复创建',
+    });
+  });
 });

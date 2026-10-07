@@ -1,4 +1,5 @@
 import defineAgent from './models/agent.js';
+import defineAppMeta from './models/appmeta.js';
 import defineBumbo from './models/bumbo.js';
 import defineDriveDisk from './models/drivedisk.js';
 import defineFaction from './models/faction.js';
@@ -15,13 +16,17 @@ import defineHsrRelicType from './models/hsr/relicType.js';
 import { sequelize as defaultSequelize } from './config.js';
 import { Op } from 'sequelize';
 import dualStorageManager from './dualStorageManager.js';
+import { assertReplaceSafety } from './replaceSafety.js';
 import storageManager from './storageManager.js';
+import { AppError } from '../utils/errorHandler.js';
 import { createSerialTaskQueue } from '../utils/serialTaskQueue.js';
+import { logger } from '../utils/logger.js';
 
 let currentSequelize = null;
 let modelsInitialized = false;
 
 let Agent;
+let AppMeta;
 let Bumbo;
 let DriveDisk;
 let Faction;
@@ -41,6 +46,7 @@ const DEFAULT_HSR_IMAGE = '/assets/hsr.jpg';
 const DEFAULT_PUBLIC_PAGE_SIZE = 12;
 const MAX_PUBLIC_PAGE_SIZE = 100;
 const enqueueStorageSync = createSerialTaskQueue();
+const enqueueReplace = createSerialTaskQueue();
 
 const ensureModelsInitialized = () => {
   if (!modelsInitialized) {
@@ -149,6 +155,7 @@ export function initializeModels(sequelizeInstance = defaultSequelize) {
 
   currentSequelize = sequelizeInstance;
   Agent = defineAgent(sequelizeInstance);
+  AppMeta = defineAppMeta(sequelizeInstance);
   SoundEngine = defineSoundEngine(sequelizeInstance);
   Bumbo = defineBumbo(sequelizeInstance);
   DriveDisk = defineDriveDisk(sequelizeInstance);
@@ -172,6 +179,7 @@ export function initializeModels(sequelizeInstance = defaultSequelize) {
 
 export const getModels = () => ({
   Agent,
+  AppMeta,
   SoundEngine,
   Bumbo,
   DriveDisk,
@@ -194,6 +202,7 @@ const serializeAgent = (record) => {
     name: plain.name,
     element: plain.element,
     image: resolveImage(plain.image, DEFAULT_ZZZ_IMAGE),
+    description: plain.description || '',
     factionId: plain.factionId ?? plain.Faction?.id ?? null,
     roleId: plain.roleId ?? plain.Role?.id ?? null,
     rarityId: plain.rarityId ?? plain.Rarity?.id ?? null,
@@ -243,6 +252,7 @@ const serializeHsrCharacter = (record) => {
     id: plain.id,
     name: plain.name,
     image: resolveImage(plain.image, DEFAULT_HSR_IMAGE),
+    description: plain.description || '',
     elementId: plain.elementId ?? plain.HsrElement?.id ?? null,
     pathId: plain.pathId ?? plain.HsrPath?.id ?? null,
     rarityId: plain.rarityId ?? plain.HsrRarity?.id ?? null,
@@ -285,7 +295,7 @@ const resolveRelationId = async (model, payloadId, payloadName, label, options =
   }
 
   if (typeof payloadName !== 'string' || !payloadName.trim()) {
-    throw new Error(`Missing ${label}.`);
+    throw new AppError(`Missing ${label}.`, 400);
   }
 
   const record = await model.findOne({
@@ -293,7 +303,7 @@ const resolveRelationId = async (model, payloadId, payloadName, label, options =
     ...buildQueryOptions(options),
   });
   if (!record) {
-    throw new Error(`${label} "${payloadName}" was not found.`);
+    throw new AppError(`${label} "${payloadName}" was not found.`, 400);
   }
 
   return record.id;
@@ -599,6 +609,39 @@ export const syncDatabaseToStorage = async () => {
   return enqueueStorageSync(performStorageSync);
 };
 
+export const waitForStorageSync = () => enqueueStorageSync(async () => true);
+
+let storageDirty = false;
+
+export const isStorageSyncDirty = () => storageDirty;
+
+const syncAfterWrite = async (options = {}) => {
+  if (options.syncStorage === false) {
+    return true;
+  }
+
+  for (let attempt = 1; attempt <= 2; attempt += 1) {
+    try {
+      await syncDatabaseToStorage();
+      storageDirty = false;
+      return true;
+    } catch (error) {
+      logger.error('Storage sync failed after write', {
+        attempt,
+        message: error.message,
+        stack: error.stack,
+      });
+    }
+  }
+
+  storageDirty = true;
+  logger.error(
+    'Storage marked dirty after repeated sync failures; next write will rebuild JSON from database',
+    {},
+  );
+  return false;
+};
+
 export const syncData = async () => {
   ensureModelsInitialized();
   return buildSnapshot();
@@ -635,14 +678,13 @@ export const addAgent = async (agentData, options = {}) => {
     name: agentData.name,
     element: agentData.element,
     image: resolveImage(agentData.image, DEFAULT_ZZZ_IMAGE),
+    description: agentData.description || '',
     factionId,
     roleId,
     rarityId,
   }, queryOptions);
 
-  if (options.syncStorage !== false) {
-    await syncDatabaseToStorage();
-  }
+  await syncAfterWrite(options);
 
   return created;
 };
@@ -663,6 +705,9 @@ export const updateAgent = async (id, agentData, options = {}) => {
   }
   if (agentData.image !== undefined) {
     agent.image = resolveImage(agentData.image, DEFAULT_ZZZ_IMAGE);
+  }
+  if (agentData.description !== undefined) {
+    agent.description = agentData.description;
   }
 
   if (agentData.factionId !== undefined || agentData.faction !== undefined) {
@@ -695,9 +740,7 @@ export const updateAgent = async (id, agentData, options = {}) => {
 
   await agent.save(queryOptions);
 
-  if (options.syncStorage !== false) {
-    await syncDatabaseToStorage();
-  }
+  await syncAfterWrite(options);
 
   return agent;
 };
@@ -711,9 +754,7 @@ export const deleteAgent = async (id, options = {}) => {
   }
 
   await agent.destroy(queryOptions);
-  if (options.syncStorage !== false) {
-    await syncDatabaseToStorage();
-  }
+  await syncAfterWrite(options);
   return true;
 };
 
@@ -744,9 +785,7 @@ export const addSoundEngine = async (engineData, options = {}) => {
     roleId,
   }, queryOptions);
 
-  if (options.syncStorage !== false) {
-    await syncDatabaseToStorage();
-  }
+  await syncAfterWrite(options);
 
   return created;
 };
@@ -786,9 +825,7 @@ export const updateSoundEngine = async (id, engineData, options = {}) => {
 
   await engine.save(queryOptions);
 
-  if (options.syncStorage !== false) {
-    await syncDatabaseToStorage();
-  }
+  await syncAfterWrite(options);
 
   return engine;
 };
@@ -802,9 +839,7 @@ export const deleteSoundEngine = async (id, options = {}) => {
   }
 
   await engine.destroy(queryOptions);
-  if (options.syncStorage !== false) {
-    await syncDatabaseToStorage();
-  }
+  await syncAfterWrite(options);
   return true;
 };
 
@@ -827,9 +862,7 @@ export const addBumbo = async (bumboData, options = {}) => {
     rarityId,
   }, queryOptions);
 
-  if (options.syncStorage !== false) {
-    await syncDatabaseToStorage();
-  }
+  await syncAfterWrite(options);
 
   return created;
 };
@@ -860,9 +893,7 @@ export const updateBumbo = async (id, bumboData, options = {}) => {
 
   await bumbo.save(queryOptions);
 
-  if (options.syncStorage !== false) {
-    await syncDatabaseToStorage();
-  }
+  await syncAfterWrite(options);
 
   return bumbo;
 };
@@ -876,9 +907,7 @@ export const deleteBumbo = async (id, options = {}) => {
   }
 
   await bumbo.destroy(queryOptions);
-  if (options.syncStorage !== false) {
-    await syncDatabaseToStorage();
-  }
+  await syncAfterWrite(options);
   return true;
 };
 
@@ -893,9 +922,7 @@ export const addDriveDisk = async (diskData, options = {}) => {
     image: resolveImage(diskData.image, DEFAULT_ZZZ_IMAGE),
   }, queryOptions);
 
-  if (options.syncStorage !== false) {
-    await syncDatabaseToStorage();
-  }
+  await syncAfterWrite(options);
 
   return created;
 };
@@ -920,9 +947,7 @@ export const updateDriveDisk = async (id, diskData, options = {}) => {
 
   await disk.save(queryOptions);
 
-  if (options.syncStorage !== false) {
-    await syncDatabaseToStorage();
-  }
+  await syncAfterWrite(options);
 
   return disk;
 };
@@ -936,9 +961,7 @@ export const deleteDriveDisk = async (id, options = {}) => {
   }
 
   await disk.destroy(queryOptions);
-  if (options.syncStorage !== false) {
-    await syncDatabaseToStorage();
-  }
+  await syncAfterWrite(options);
   return true;
 };
 
@@ -972,14 +995,13 @@ export const addHsrCharacter = async (payload, options = {}) => {
     ...buildCreatePayload(payload, []),
     name: payload.name,
     image: resolveImage(payload.image, DEFAULT_HSR_IMAGE),
+    description: payload.description || '',
     elementId,
     pathId,
     rarityId,
   }, queryOptions);
 
-  if (options.syncStorage !== false) {
-    await syncDatabaseToStorage();
-  }
+  await syncAfterWrite(options);
 
   return created;
 };
@@ -997,6 +1019,9 @@ export const updateHsrCharacter = async (id, payload, options = {}) => {
   }
   if (payload.image !== undefined) {
     character.image = resolveImage(payload.image, DEFAULT_HSR_IMAGE);
+  }
+  if (payload.description !== undefined) {
+    character.description = payload.description;
   }
   if (payload.elementId !== undefined || payload.element !== undefined) {
     character.elementId = await resolveRelationId(
@@ -1028,9 +1053,7 @@ export const updateHsrCharacter = async (id, payload, options = {}) => {
 
   await character.save(queryOptions);
 
-  if (options.syncStorage !== false) {
-    await syncDatabaseToStorage();
-  }
+  await syncAfterWrite(options);
 
   return character;
 };
@@ -1044,9 +1067,7 @@ export const deleteHsrCharacter = async (id, options = {}) => {
   }
 
   await character.destroy(queryOptions);
-  if (options.syncStorage !== false) {
-    await syncDatabaseToStorage();
-  }
+  await syncAfterWrite(options);
   return true;
 };
 
@@ -1077,9 +1098,7 @@ export const addHsrCone = async (payload, options = {}) => {
     rarityId,
   }, queryOptions);
 
-  if (options.syncStorage !== false) {
-    await syncDatabaseToStorage();
-  }
+  await syncAfterWrite(options);
 
   return created;
 };
@@ -1119,9 +1138,7 @@ export const updateHsrCone = async (id, payload, options = {}) => {
 
   await cone.save(queryOptions);
 
-  if (options.syncStorage !== false) {
-    await syncDatabaseToStorage();
-  }
+  await syncAfterWrite(options);
 
   return cone;
 };
@@ -1135,9 +1152,7 @@ export const deleteHsrCone = async (id, options = {}) => {
   }
 
   await cone.destroy(queryOptions);
-  if (options.syncStorage !== false) {
-    await syncDatabaseToStorage();
-  }
+  await syncAfterWrite(options);
   return true;
 };
 
@@ -1162,9 +1177,7 @@ export const addHsrRelic = async (payload, options = {}) => {
     part: payload.part || '',
   }, queryOptions);
 
-  if (options.syncStorage !== false) {
-    await syncDatabaseToStorage();
-  }
+  await syncAfterWrite(options);
 
   return created;
 };
@@ -1201,9 +1214,7 @@ export const updateHsrRelic = async (id, payload, options = {}) => {
 
   await relic.save(queryOptions);
 
-  if (options.syncStorage !== false) {
-    await syncDatabaseToStorage();
-  }
+  await syncAfterWrite(options);
 
   return relic;
 };
@@ -1217,9 +1228,7 @@ export const deleteHsrRelic = async (id, options = {}) => {
   }
 
   await relic.destroy(queryOptions);
-  if (options.syncStorage !== false) {
-    await syncDatabaseToStorage();
-  }
+  await syncAfterWrite(options);
   return true;
 };
 
@@ -1283,6 +1292,8 @@ const replaceRecordsForType = async (type, items = [], options = {}) => {
       .filter((id) => id !== undefined),
   );
 
+  assertReplaceSafety(type, incomingItems.length, existingRecords.length, options);
+
   for (const item of incomingItems) {
     const id = normalizeOptionalId(item.id);
     if (id && existingIds.has(id)) {
@@ -1301,7 +1312,7 @@ const replaceRecordsForType = async (type, items = [], options = {}) => {
   }
 };
 
-export const replaceMultipleRecordSets = async (dataMap = {}) => {
+export const replaceMultipleRecordSets = async (dataMap = {}, options = {}) => {
   ensureSequelizeReady();
 
   const touchedTypes = Object.keys(dataMap);
@@ -1315,17 +1326,18 @@ export const replaceMultipleRecordSets = async (dataMap = {}) => {
     }
   }
 
-  await currentSequelize.transaction(async (transaction) => {
+  await enqueueReplace(() => currentSequelize.transaction(async (transaction) => {
     for (const type of touchedTypes) {
-      await replaceRecordsForType(type, dataMap[type], { transaction });
+      await replaceRecordsForType(type, dataMap[type], { ...options, transaction });
     }
-  });
+  }));
 
-  return syncDatabaseToStorage();
+  await syncAfterWrite(options);
+  return syncData();
 };
 
-export const replaceAllRecords = async (type, items = []) => (
-  replaceMultipleRecordSets({ [type]: items })
+export const replaceAllRecords = async (type, items = [], options = {}) => (
+  replaceMultipleRecordSets({ [type]: items }, options)
 );
 
 export {

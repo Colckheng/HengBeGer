@@ -149,4 +149,37 @@ describe('representative authenticated create routes', () => {
       image: '/assets/march.png',
     });
   });
+
+  it('keeps sanitized HSR character descriptions instead of dropping them', async () => {
+    const app = buildTestApp();
+    const agent = await loginAsAdmin(app);
+
+    const response = await agent.post('/api/hsr/characters').send({
+      name: 'March 7th',
+      elementId: '1',
+      pathId: '2',
+      rarityId: '4',
+      description: '<b>Archive</b> keeper',
+    });
+
+    expect(response.status).toBe(201);
+    expect(response.body.payload.description).toBe('Archive keeper');
+  });
+
+  it('preserves an explicitly empty description so clears reach the database', async () => {
+    const app = buildTestApp();
+    const agent = await loginAsAdmin(app);
+
+    const response = await agent.post('/api/agents').send({
+      name: 'Anby',
+      element: 'Electric',
+      factionId: '1',
+      roleId: '1',
+      rarityId: '1',
+      description: '',
+    });
+
+    expect(response.status).toBe(201);
+    expect(response.body.payload).toHaveProperty('description', '');
+  });
 });

@@ -1,12 +1,17 @@
 import crypto from 'crypto';
 import process from 'process';
 
+import { logAdminAudit } from '../../src/utils/adminAudit.js';
 import { AppError } from '../../src/utils/errorHandler.js';
 
 const ADMIN_SESSION_COOKIE = 'hengbeger_admin_session';
 const SESSION_DURATION_MS = 1000 * 60 * 60 * 8;
 const TEST_ADMIN_PASSWORD = 'TestAdminPassword!1';
 const TEST_AUTH_SECRET = 'test-auth-secret';
+const PASSWORD_KDF_SALT = 'hengbeger-admin-login-v1';
+const MAX_PASSWORD_LENGTH = 512;
+const COMPARE_HMAC_KEY = 'hengbeger-secure-compare-v1';
+const revokedSessionJtis = new Map();
 
 const normalizeSecret = (value) => (
   typeof value === 'string' ? value.trim() : ''
@@ -41,13 +46,9 @@ const secureCompare = (left, right) => {
     return false;
   }
 
-  const leftBuffer = Buffer.from(left);
-  const rightBuffer = Buffer.from(right);
-  if (leftBuffer.length !== rightBuffer.length) {
-    return false;
-  }
-
-  return crypto.timingSafeEqual(leftBuffer, rightBuffer);
+  const leftDigest = crypto.createHmac('sha256', COMPARE_HMAC_KEY).update(String(left)).digest();
+  const rightDigest = crypto.createHmac('sha256', COMPARE_HMAC_KEY).update(String(right)).digest();
+  return crypto.timingSafeEqual(leftDigest, rightDigest);
 };
 
 const getAdminPassword = () => {
@@ -55,19 +56,7 @@ const getAdminPassword = () => {
     return TEST_ADMIN_PASSWORD;
   }
 
-  return (
-    normalizeSecret(process.env.ADMIN_PASSWORD) ||
-    normalizeSecret(process.env.ADMIN_API_TOKEN) ||
-    (process.env.NODE_ENV !== 'production' ? normalizeSecret(process.env.DB_PASSWORD) : '')
-  );
-};
-
-const getBearerToken = () => {
-  if (process.env.NODE_ENV === 'test') {
-    return '';
-  }
-
-  return normalizeSecret(process.env.ADMIN_API_TOKEN);
+  return normalizeSecret(process.env.ADMIN_PASSWORD);
 };
 
 const getAuthSecret = () => {
@@ -75,24 +64,30 @@ const getAuthSecret = () => {
     return TEST_AUTH_SECRET;
   }
 
-  return (
-    normalizeSecret(process.env.AUTH_SECRET) ||
-    normalizeSecret(process.env.ADMIN_PASSWORD) ||
-    (process.env.NODE_ENV !== 'production' ? normalizeSecret(process.env.DB_PASSWORD) : '')
-  );
+  return normalizeSecret(process.env.AUTH_SECRET);
 };
 
 const getAuthConfiguration = () => {
   const adminPassword = getAdminPassword();
-  const bearerToken = getBearerToken();
   const authSecret = getAuthSecret();
 
   return {
     adminPassword,
-    bearerToken,
     authSecret,
     configured: Boolean(adminPassword && authSecret),
   };
+};
+
+const derivePasswordDigest = (value) => crypto.scryptSync(value, PASSWORD_KDF_SALT, 64);
+
+const verifyAdminPassword = (providedPassword) => {
+  try {
+    const expectedDigest = derivePasswordDigest(getAdminPassword());
+    const providedDigest = derivePasswordDigest(providedPassword);
+    return crypto.timingSafeEqual(providedDigest, expectedDigest);
+  } catch {
+    return false;
+  }
 };
 
 const getBearerValue = (req) => {
@@ -107,9 +102,29 @@ const getBearerValue = (req) => {
 const createSessionPayload = () => {
   const issuedAt = Date.now();
   return {
+    jti: crypto.randomUUID(),
     issuedAt,
     expiresAt: issuedAt + SESSION_DURATION_MS,
   };
+};
+
+const isSessionRevoked = (payload) => {
+  const jti = payload?.jti;
+  if (!jti) {
+    return true;
+  }
+
+  const expiresAt = revokedSessionJtis.get(jti);
+  if (expiresAt === undefined) {
+    return false;
+  }
+
+  if (expiresAt > Date.now()) {
+    return true;
+  }
+
+  revokedSessionJtis.delete(jti);
+  return false;
 };
 
 const createSessionToken = (secret) => {
@@ -140,6 +155,9 @@ const verifySignedValue = (value, secret) => {
   try {
     const payload = JSON.parse(Buffer.from(encodedPayload, 'base64url').toString('utf8'));
     if (!payload?.expiresAt || payload.expiresAt <= Date.now()) {
+      return null;
+    }
+    if (isSessionRevoked(payload)) {
       return null;
     }
     return payload;
@@ -193,32 +211,17 @@ const getAdminSessionFromBearer = (req) => {
   return verifySignedValue(providedToken, authSecret);
 };
 
-const hasValidBearerToken = (req) => {
-  const { bearerToken, adminPassword } = getAuthConfiguration();
-  const providedToken = getBearerValue(req);
-  if (!providedToken) {
-    return false;
-  }
-
-  if (getAdminSessionFromBearer(req)) {
-    return true;
-  }
-
-  return secureCompare(providedToken, bearerToken || adminPassword);
-};
-
 export const isAdminAuthenticated = (req) => (
-  Boolean(getAdminSession(req) || getAdminSessionFromBearer(req) || hasValidBearerToken(req))
+  Boolean(getAdminSession(req) || getAdminSessionFromBearer(req))
 );
 
 export const getAdminAuthStatus = (req) => {
   const config = getAuthConfiguration();
   const session = req.adminSession || getAdminSession(req) || getAdminSessionFromBearer(req);
-  const tokenAuthenticated = hasValidBearerToken(req);
 
   return {
     configured: config.configured,
-    authenticated: Boolean(session || tokenAuthenticated),
+    authenticated: Boolean(session),
     expiresAt: session?.expiresAt ?? null,
   };
 };
@@ -239,7 +242,7 @@ export const requireAdmin = (req, res, next) => {
 };
 
 export const createAdminSession = (req, res, next) => {
-  const { adminPassword, authSecret, configured } = getAuthConfiguration();
+  const { authSecret, configured } = getAuthConfiguration();
   if (!configured) {
     next(new AppError('Admin authentication is not configured.', 503));
     return;
@@ -247,11 +250,13 @@ export const createAdminSession = (req, res, next) => {
 
   const password = normalizeSecret(req.body?.password);
   if (!password) {
+    logAdminAudit(req, 'admin.session.login.failed', { reason: 'missing_password' });
     next(new AppError('Password is required.', 400));
     return;
   }
 
-  if (!secureCompare(password, adminPassword)) {
+  if (password.length > MAX_PASSWORD_LENGTH || !verifyAdminPassword(password)) {
+    logAdminAudit(req, 'admin.session.login.failed', { reason: 'invalid_password' });
     next(new AppError('Invalid admin password.', 401));
     return;
   }
@@ -268,7 +273,14 @@ export const createAdminSession = (req, res, next) => {
   next();
 };
 
-export const clearAdminSession = (res) => {
+export const clearAdminSession = (req, res) => {
+  const session = req
+    ? (req.adminSession || getAdminSession(req) || getAdminSessionFromBearer(req))
+    : null;
+  if (session?.jti && typeof session.expiresAt === 'number') {
+    revokedSessionJtis.set(session.jti, session.expiresAt);
+  }
+
   appendSetCookie(
     res,
     buildCookie(ADMIN_SESSION_COOKIE, '', {

@@ -1,8 +1,11 @@
 import fs from 'fs';
 import path from 'path';
+import { fileURLToPath } from 'url';
 
 import initialData from '../initialdata.js';
 import { logger } from '../utils/logger.js';
+
+const MODULE_DIR = path.dirname(fileURLToPath(import.meta.url));
 
 export const STORAGE_TYPES = [
   'agents',
@@ -18,7 +21,7 @@ const STORAGE_VERSION = '2.0.0';
 
 class StorageManager {
   constructor() {
-    this.storagePath = path.join(process.cwd(), 'src', 'db', 'storage');
+    this.storagePath = path.join(MODULE_DIR, 'storage');
     this.backupPath = path.join(this.storagePath, 'backup');
     this.ensureDirectories();
   }
@@ -65,6 +68,17 @@ class StorageManager {
     });
   }
 
+  async writeJsonAtomic(filePath, payload) {
+    const tmpPath = `${filePath}.${process.pid}.${Date.now()}.tmp`;
+    await fs.promises.writeFile(tmpPath, JSON.stringify(payload, null, 2), 'utf-8');
+    try {
+      await fs.promises.rename(tmpPath, filePath);
+    } catch (renameError) {
+      await fs.promises.unlink(tmpPath).catch(() => undefined);
+      throw renameError;
+    }
+  }
+
   async initializeStorage({ force = false, seedData = initialData } = {}) {
     for (const type of STORAGE_TYPES) {
       const filePath = this.getStorageFilePath(type);
@@ -73,11 +87,7 @@ class StorageManager {
       }
 
       const data = Array.isArray(seedData[type]) ? seedData[type] : [];
-      await fs.promises.writeFile(
-        filePath,
-        JSON.stringify(this.buildStoragePayload(type, data), null, 2),
-        'utf-8',
-      );
+      await this.writeJsonAtomic(filePath, this.buildStoragePayload(type, data));
     }
 
     logger.info('Root storage initialized', { force });
@@ -106,10 +116,9 @@ class StorageManager {
 
     const normalizedData = Array.isArray(data) ? data : [];
     await this.backupIfExists(type);
-    await fs.promises.writeFile(
+    await this.writeJsonAtomic(
       this.getStorageFilePath(type),
-      JSON.stringify(this.buildStoragePayload(type, normalizedData), null, 2),
-      'utf-8',
+      this.buildStoragePayload(type, normalizedData),
     );
 
     logger.info('Root storage updated', { type, count: normalizedData.length });

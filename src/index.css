@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;800&family=Rajdhani:wght@500;600;700&display=swap');
+@import './styles/tokens.css';
 
 :root {
-  color: #f5f7fb;
-  background: #0b0d13;
-  font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  font-family: var(--font);
   line-height: 1.5;
   font-weight: 400;
   font-synthesis: none;
@@ -21,22 +21,21 @@
 html {
   min-width: 320px;
   min-height: 100%;
-  scroll-behavior: smooth;
 }
 
 body {
   min-width: 320px;
   min-height: 100vh;
   margin: 0;
-  background:
-    radial-gradient(circle at top, rgba(80, 107, 255, 0.16), transparent 28%),
-    radial-gradient(circle at bottom left, rgba(255, 168, 59, 0.14), transparent 24%),
-    #0b0d13;
-  color: #f5f7fb;
+  background: var(--bg);
+  color: var(--text);
+  transition:
+    background var(--dur-swap) var(--ease),
+    color var(--dur-swap) var(--ease);
 }
 
 body::selection {
-  background: rgba(255, 205, 92, 0.35);
+  background: var(--tint-a24);
 }
 
 #root {
@@ -58,4 +57,8 @@ input,
 select,
 textarea {
   font: inherit;
+}
+
+button {
+  cursor: pointer;
 }

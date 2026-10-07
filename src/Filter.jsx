@@ -1,21 +1,4 @@
-const ROLES = ['强攻', '异常', '击破', '防护', '支援', '命破'];
 const ELEMENTS = ['电', '火', '冰', '以太', '物理'];
-const FACTIONS = [
-  '狡兔屋',
-  '刑侦特勤组',
-  'H.S.O.S.6',
-  '白祇重工',
-  '维多利亚家政',
-  '卡吕冬之子',
-  '天琴座',
-  '奥伯勒斯小队',
-  '反舌鸟',
-  '云岿山',
-  '怪啸屋',
-];
-const SOUND_ROLES = ['强攻', '异常', '击破', '防护', '支援'];
-const RARITIES = ['S', 'A', 'B'];
-const BUMBO_RARITIES = ['S', 'A'];
 
 const buildActiveState = (values = [], candidate) => values.includes(candidate);
 
@@ -61,8 +44,12 @@ const Filter = ({
   activeTab,
   filters,
   onFilterChange,
+  optionLists = {},
 }) => {
   const currentFilters = filters || {};
+  const roles = optionLists.roles || [];
+  const factions = optionLists.factions || [];
+  const rarities = optionLists.rarities || [];
 
   if (activeTab === 'agents') {
     return (
@@ -70,7 +57,7 @@ const Filter = ({
         <FilterGroup
           title="职业"
           values={currentFilters.role}
-          options={ROLES}
+          options={roles}
           onReset={() => onFilterChange('agents', 'role', [])}
           onToggle={(option) => onFilterChange(
             'agents',
@@ -92,7 +79,7 @@ const Filter = ({
         <FilterGroup
           title="阵营"
           values={currentFilters.faction}
-          options={FACTIONS}
+          options={factions}
           wrap
           onReset={() => onFilterChange('agents', 'faction', [])}
           onToggle={(option) => onFilterChange(
@@ -111,7 +98,7 @@ const Filter = ({
         <FilterGroup
           title="职业"
           values={currentFilters.role}
-          options={SOUND_ROLES}
+          options={roles}
           onReset={() => onFilterChange('soundEngines', 'role', [])}
           onToggle={(option) => onFilterChange(
             'soundEngines',
@@ -122,7 +109,7 @@ const Filter = ({
         <FilterGroup
           title="稀有度"
           values={currentFilters.rarity}
-          options={RARITIES}
+          options={rarities}
           onReset={() => onFilterChange('soundEngines', 'rarity', [])}
           onToggle={(option) => onFilterChange(
             'soundEngines',
@@ -140,7 +127,7 @@ const Filter = ({
         <FilterGroup
           title="稀有度"
           values={currentFilters.rarity}
-          options={BUMBO_RARITIES}
+          options={rarities}
           onReset={() => onFilterChange('bumbos', 'rarity', [])}
           onToggle={(option) => onFilterChange(
             'bumbos',

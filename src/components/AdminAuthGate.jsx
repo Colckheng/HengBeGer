@@ -18,6 +18,7 @@ const COPY = {
   passwordLabel: '管理员密码',
   loggingIn: '登录中...',
   login: '登录',
+  retry: '重试',
 };
 
 const AdminAuthGate = ({ children }) => {
@@ -27,21 +28,28 @@ const AdminAuthGate = ({ children }) => {
     configured: true,
     authenticated: false,
     expiresAt: null,
+    failed: false,
   });
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [submitting, setSubmitting] = useState(false);
+  const [retryNonce, setRetryNonce] = useState(0);
 
-  const loadSession = async () => {
+  const loadSession = async (isCancelled = () => false) => {
     setStatus((current) => ({ ...current, loading: true }));
 
     try {
       const response = await apiClient.get('/auth/session');
+      if (isCancelled()) {
+        return;
+      }
+
       setStatus({
         loading: false,
         configured: Boolean(response.data?.configured),
         authenticated: Boolean(response.data?.authenticated),
         expiresAt: response.data?.expiresAt || null,
+        failed: false,
       });
 
       if (!response.data?.authenticated) {
@@ -50,19 +58,42 @@ const AdminAuthGate = ({ children }) => {
 
       setError('');
     } catch (sessionError) {
+      if (isCancelled()) {
+        return;
+      }
+
+      if (sessionError?.response?.status === 401) {
+        clearStoredAdminSessionToken();
+        setStatus({
+          loading: false,
+          configured: true,
+          authenticated: false,
+          expiresAt: null,
+          failed: false,
+        });
+        setError('');
+        return;
+      }
+
       setStatus({
         loading: false,
         configured: true,
         authenticated: false,
         expiresAt: null,
+        failed: true,
       });
       setError(getApiErrorMessage(sessionError, COPY.sessionCheckFailed));
     }
   };
 
   useEffect(() => {
-    void loadSession();
-  }, []);
+    let cancelled = false;
+    void loadSession(() => cancelled);
+
+    return () => {
+      cancelled = true;
+    };
+  }, [retryNonce]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -93,6 +124,24 @@ const AdminAuthGate = ({ children }) => {
     return (
       <div className="error-container">
         <p>{COPY.missingConfig}</p>
+      </div>
+    );
+  }
+
+  if (status.failed) {
+    return (
+      <div className="error-container">
+        <p>{error || COPY.sessionCheckFailed}</p>
+        <button
+          type="button"
+          className="btn-primary"
+          onClick={() => {
+            setError('');
+            setRetryNonce((current) => current + 1);
+          }}
+        >
+          {COPY.retry}
+        </button>
       </div>
     );
   }

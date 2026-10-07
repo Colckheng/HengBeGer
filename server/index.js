@@ -6,7 +6,11 @@ import express from 'express';
 import rateLimit from 'express-rate-limit';
 import helmet from 'helmet';
 import client from 'prom-client';
+import path from 'path';
 import process from 'process';
+import { fileURLToPath } from 'url';
+
+import { RELIC_PARTS } from './constants/relicParts.cjs';
 
 import { createSequelizeInstance } from '../src/db/config.js';
 import {
@@ -30,6 +34,7 @@ import {
   HsrRarity,
   HsrRelicType,
   initializeModels,
+  isStorageSyncDirty,
   listAgents,
   listBumbos,
   listDriveDisks,
@@ -37,7 +42,6 @@ import {
   listHsrCones,
   listHsrRelics,
   listSoundEngines,
-  replaceMultipleRecordSets,
   Rarity,
   Role,
   syncData,
@@ -48,6 +52,7 @@ import {
   updateHsrCone,
   updateHsrRelic,
   updateSoundEngine,
+  waitForStorageSync,
 } from '../src/db/api.js';
 import DataSyncController from '../src/api/dataSync.js';
 import dualStorageManager from '../src/db/dualStorageManager.js';
@@ -88,9 +93,12 @@ import {
 } from './middleware/validation.cjs';
 
 try {
-  dotenvSafe.config();
-} catch {
+  dotenvSafe.config({ allowEmptyValues: true });
+} catch (error) {
   dotenv.config();
+  logger.error('dotenv-safe 校验失败，已回退 dotenv.config()', {
+    message: error.message,
+  });
 }
 
 const app = express();
@@ -135,40 +143,71 @@ const resolveAllowedOrigins = () => {
 
 const allowedOrigins = resolveAllowedOrigins();
 
-app.set('trust proxy', 1);
+const trustProxyHops = Number(process.env.TRUST_PROXY_HOPS);
+const trustProxyEnabled = Number.isInteger(trustProxyHops) && trustProxyHops > 0;
+app.set('trust proxy', trustProxyEnabled ? trustProxyHops : false);
+
+let warnedMissingTrustProxy = false;
+app.use((req, res, next) => {
+  if (!trustProxyEnabled && !warnedMissingTrustProxy && req.get('x-forwarded-for')) {
+    warnedMissingTrustProxy = true;
+    logger.warn(
+      'X-Forwarded-For received while trust proxy is disabled; set TRUST_PROXY_HOPS behind a reverse proxy so rate limits key on real client IPs',
+    );
+  }
+  next();
+});
 app.use(helmet());
 app.use(compression());
 app.use(rateLimit({ windowMs: 60 * 1000, max: 200 }));
+
+const loginRateLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 10,
+  skipSuccessfulRequests: true,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { success: false, message: 'Too many login attempts. Try again later.' },
+});
+
+const fullDumpRateLimiter = rateLimit({
+  windowMs: 60 * 1000,
+  max: 60,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { success: false, message: 'Too many full export requests. Try again later.' },
+});
+
+app.use((req, res, next) => {
+  const origin = req.get('origin');
+  if (!origin || allowedOrigins.includes(origin)) {
+    next();
+    return;
+  }
+
+  const sameOrigin = origin === `${req.protocol}://${req.get('host')}`;
+  if (sameOrigin) {
+    next();
+    return;
+  }
+
+  if (req.method === 'GET' || req.method === 'HEAD' || req.method === 'OPTIONS') {
+    delete req.headers.origin;
+    next();
+    return;
+  }
+
+  next(new AppError('Origin is not allowed.', 403));
+});
+
 app.use(
   cors({
     credentials: true,
-    origin(origin, callback) {
-      if (!origin) {
-        callback(null, true);
-        return;
-      }
-
-      if (allowedOrigins.length === 0) {
-        if (process.env.NODE_ENV === 'production') {
-          callback(new Error('CORS_ORIGINS is not configured for this deployment.'));
-          return;
-        }
-
-        callback(null, true);
-        return;
-      }
-
-      if (allowedOrigins.includes(origin)) {
-        callback(null, true);
-        return;
-      }
-
-      callback(new Error(`Origin ${origin} is not allowed by CORS.`));
-    },
+    origin: true,
   }),
 );
-app.use(express.json({ limit: '10mb' }));
-app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+app.use(express.json({ limit: '3mb' }));
+app.use(express.urlencoded({ extended: true, limit: '3mb' }));
 
 app.use((req, res, next) => {
   const requestId = req.get('x-request-id') || Math.random().toString(36).slice(2);
@@ -200,13 +239,14 @@ app.use((req, res, next) => {
 
   res.on('finish', () => {
     logAPI(req, res, req.startTime);
+    const routeLabel = req.route?.path ? `${req.baseUrl}${req.route.path}` : 'unmatched';
     apiRequestCounter.inc({
       method: req.method,
-      route: req.path,
+      route: routeLabel,
       status: String(res.statusCode),
     });
     apiRequestDuration.observe(
-      { route: req.path, method: req.method },
+      { route: routeLabel, method: req.method },
       Date.now() - req.startTime,
     );
   });
@@ -258,8 +298,32 @@ const checkDbConnection = (req, res, next) => {
   next();
 };
 
-const sendReadiness = (req, res) => {
-  const ready = dbInitialized;
+const READINESS_PROBE_TIMEOUT_MS = 1500;
+
+const probeDatabase = async () => {
+  if (!sequelize) {
+    return dbInitialized;
+  }
+
+  let timer;
+  try {
+    await Promise.race([
+      sequelize.authenticate(),
+      new Promise((_, reject) => {
+        timer = setTimeout(() => reject(new Error('Readiness probe timed out.')), READINESS_PROBE_TIMEOUT_MS);
+      }),
+    ]);
+    return true;
+  } catch (error) {
+    logger.warn('Readiness probe failed', { message: error.message });
+    return false;
+  } finally {
+    clearTimeout(timer);
+  }
+};
+
+const sendReadiness = async (req, res) => {
+  const ready = dbInitialized && await probeDatabase();
   res.status(ready ? 200 : 503).json({
     code: 0,
     message: ready ? 'ready' : 'not_ready',
@@ -279,7 +343,7 @@ app.get('/health/live', (req, res) => {
 app.get('/health/ready', sendReadiness);
 app.get('/health', sendReadiness);
 
-app.get('/metrics', async (req, res) => {
+app.get('/metrics', requireAdmin, async (req, res) => {
   res.setHeader('Content-Type', register.contentType);
   res.end(await register.metrics());
 });
@@ -288,7 +352,7 @@ app.get('/api/auth/session', (req, res) => {
   res.json({ success: true, ...getAdminAuthStatus(req) });
 });
 
-app.post('/api/auth/session', createAdminSession, (req, res) => {
+app.post('/api/auth/session', loginRateLimiter, createAdminSession, (req, res) => {
   logAdminAudit(req, 'admin.session.login', {
     authenticated: true,
     expiresAt: req.adminSession?.expiresAt ?? null,
@@ -302,7 +366,7 @@ app.post('/api/auth/session', createAdminSession, (req, res) => {
 });
 
 app.delete('/api/auth/session', (req, res) => {
-  clearAdminSession(res);
+  clearAdminSession(req, res);
   logAdminAudit(req, 'admin.session.logout', {
     authenticated: false,
   });
@@ -313,11 +377,11 @@ app.delete('/api/auth/session', (req, res) => {
   });
 });
 
-app.get('/api/data', checkDbConnection, catchAsync(async (req, res) => {
+app.get('/api/data', requireAdmin, checkDbConnection, fullDumpRateLimiter, catchAsync(async (req, res) => {
   res.json(await syncData());
 }));
 
-app.get('/api/data/optimized', checkDbConnection, catchAsync(async (req, res) => {
+app.get('/api/data/optimized', requireAdmin, checkDbConnection, fullDumpRateLimiter, catchAsync(async (req, res) => {
   res.json({
     success: true,
     data: await queryOptimizer.getAllDataOptimized(),
@@ -325,14 +389,15 @@ app.get('/api/data/optimized', checkDbConnection, catchAsync(async (req, res) =>
   });
 }));
 
-app.get('/api/agents/optimized', checkDbConnection, catchAsync(async (req, res) => {
+app.get('/api/agents/optimized', requireAdmin, checkDbConnection, catchAsync(async (req, res) => {
+  const limit = Math.min(parsePositiveIntQuery(req.query.limit) ?? 50, 100);
   const filters = {
-    factionId: req.query.factionId ? Number(req.query.factionId) : undefined,
-    roleId: req.query.roleId ? Number(req.query.roleId) : undefined,
-    rarityId: req.query.rarityId ? Number(req.query.rarityId) : undefined,
+    factionId: parsePositiveIntQuery(req.query.factionId),
+    roleId: parsePositiveIntQuery(req.query.roleId),
+    rarityId: parsePositiveIntQuery(req.query.rarityId),
     element: req.query.element,
-    limit: req.query.limit ? Number(req.query.limit) : 50,
-    offset: req.query.offset ? Number(req.query.offset) : 0,
+    limit,
+    offset: parseNonNegativeIntQuery(req.query.offset, 0),
   };
 
   const result = await queryOptimizer.getAgentsOptimized(filters);
@@ -344,7 +409,7 @@ app.get('/api/agents/optimized', checkDbConnection, catchAsync(async (req, res) 
   });
 }));
 
-app.get('/api/search/optimized', checkDbConnection, catchAsync(async (req, res) => {
+app.get('/api/search/optimized', requireAdmin, checkDbConnection, catchAsync(async (req, res) => {
   const searchTerm = String(req.query.q || '').trim();
   const type = String(req.query.type || 'all');
 
@@ -367,24 +432,7 @@ app.get('/api/search/optimized', checkDbConnection, catchAsync(async (req, res) 
   });
 }));
 
-app.post('/api/query/analyze', checkDbConnection, catchAsync(async (req, res) => {
-  if (!req.body?.queryType) {
-    throw new AppError('queryType is required.', 400);
-  }
-
-  const analysis = await queryOptimizer.analyzeQueryPerformance(
-    req.body.queryType,
-    req.body.filters || {},
-  );
-
-  if (!analysis) {
-    throw new AppError('Unsupported query type.', 400);
-  }
-
-  res.json({ success: true, analysis });
-}));
-
-app.get('/api/database/stats', checkDbConnection, catchAsync(async (req, res) => {
+app.get('/api/database/stats', requireAdmin, checkDbConnection, catchAsync(async (req, res) => {
   res.json({
     success: true,
     stats: await queryOptimizer.getQueryStats(),
@@ -418,7 +466,7 @@ app.get('/api/hsr/base-data', checkDbConnection, catchAsync(async (req, res) => 
     paths: paths.map((item) => ({ id: item.id, name: item.name })),
     rarities: rarities.map((rarity) => ({ id: rarity.id, name: rarity.name })),
     relicTypes: relicTypes.map((type) => ({ id: type.id, name: type.name })),
-    relicParts: ['头部', '手部', '身躯', '脚部', '位面球', '连接绳'],
+    relicParts: RELIC_PARTS,
   });
 }));
 
@@ -485,7 +533,7 @@ app.get('/api/hsr/relics/list', checkDbConnection, catchAsync(async (req, res) =
   }));
 }));
 
-app.get('/api/dual-storage/web/data', catchAsync(async (req, res) => {
+app.get('/api/dual-storage/web/data', fullDumpRateLimiter, catchAsync(async (req, res) => {
   res.json({
     success: true,
     data: await dualStorageManager.getAllWebData(),
@@ -757,82 +805,13 @@ app.delete('/api/hsr/relics/:id', requireAdmin, checkDbConnection, validateId, c
   res.json({ success: true });
 }));
 
-app.post('/api/dual-storage/initialize', requireAdmin, catchAsync(async (req, res) => {
-  await dualStorageManager.initializeDualStorage();
-  logAdminAudit(req, 'dualStorage.initialize', {
-    scope: 'web',
-  });
-  res.json({ success: true, message: 'Web storage initialized.' });
-}));
-
-app.post('/api/dual-storage/admin/session', requireAdmin, catchAsync(async (req, res) => {
-  await dualStorageManager.initializeAdminSession({
-    forceRefresh: req.body?.forceRefresh === true,
-  });
-  logAdminAudit(req, 'dualStorage.adminSession.initialize', {
-    forceRefresh: req.body?.forceRefresh === true,
-  });
-  res.json({ success: true, message: 'Admin storage session initialized.' });
-}));
-
-app.get('/api/dual-storage/admin/data', requireAdmin, catchAsync(async (req, res) => {
-  res.json({
-    success: true,
-    data: await dualStorageManager.getAllAdminData(),
-  });
-}));
-
-app.put('/api/dual-storage/admin/:type', requireAdmin, validateDataType, catchAsync(async (req, res) => {
-  if (!Array.isArray(req.body?.data)) {
-    throw new AppError('Admin storage payload must be an array.', 400);
-  }
-
-  await dualStorageManager.saveToAdminStorage(req.params.type, req.body.data);
-  logAdminAudit(req, 'dualStorage.adminStaging.update', {
-    storageType: req.params.type,
-    count: req.body.data.length,
-  });
-  res.json({
-    success: true,
-    message: `${req.params.type} admin staging updated.`,
-  });
-}));
-
-app.post('/api/dual-storage/sync', requireAdmin, checkDbConnection, catchAsync(async (req, res) => {
-  const stagedData = await dualStorageManager.getAllAdminData();
-  const snapshot = await replaceMultipleRecordSets(stagedData);
-  await dualStorageManager.saveAllToAdminStorage(snapshot);
-  logAdminAudit(req, 'dualStorage.adminStaging.publish', {
-    results: Object.fromEntries(
-      Object.entries(snapshot).map(([type, items]) => [type, items.length]),
-    ),
-  });
-
-  res.json({
-    success: true,
-    message: 'Admin staging synced to the database and public storage.',
-    syncResults: Object.fromEntries(
-      Object.entries(snapshot).map(([type, items]) => [type, {
-        success: true,
-        count: items.length,
-      }]),
-    ),
-  });
-}));
-
 app.get('/api/dual-storage/status', requireAdmin, catchAsync(async (req, res) => {
   res.json({
     success: true,
-    status: await dualStorageManager.getDualStorageStatus(),
-  });
-}));
-
-app.delete('/api/dual-storage/admin/session', requireAdmin, catchAsync(async (req, res) => {
-  await dualStorageManager.cleanupAdminSession();
-  logAdminAudit(req, 'dualStorage.adminSession.cleanup');
-  res.json({
-    success: true,
-    message: 'Admin storage session cleaned up.',
+    status: {
+      ...(await dualStorageManager.getDualStorageStatus()),
+      storageDirty: isStorageSyncDirty(),
+    },
   });
 }));
 
@@ -860,12 +839,34 @@ app.put('/api/storage/:type', requireAdmin, checkDbConnection, validateDataType,
   await DataSyncController.updateDataByType(req, res);
 });
 
+const distDir = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'dist');
+
+app.use(express.static(distDir));
+
+app.use((req, res, next) => {
+  if (req.method !== 'GET'
+    || req.path.startsWith('/api')
+    || req.path.startsWith('/health')
+    || req.path === '/metrics') {
+    next();
+    return;
+  }
+
+  res.sendFile(path.join(distDir, 'index.html'), (sendError) => {
+    if (sendError) {
+      next();
+    }
+  });
+});
+
 app.use(errorMiddleware);
+
+let httpServer;
 
 initDb()
   .then(() => {
     if (!isTest) {
-      app.listen(PORT, () => {
+      httpServer = app.listen(PORT, () => {
         logger.info(`Server listening on http://localhost:${PORT}`);
       });
     }
@@ -877,11 +878,35 @@ initDb()
     }
   });
 
-process.on('SIGINT', async () => {
-  if (sequelize) {
-    await sequelize.close();
+const shutdown = async (signal) => {
+  logger.info(`Received ${signal}, starting graceful shutdown`);
+
+  const forceExit = setTimeout(() => {
+    logger.error('Graceful shutdown timed out, forcing exit');
+    process.exit(1);
+  }, 10000);
+  forceExit.unref();
+
+  try {
+    if (httpServer) {
+      await new Promise((resolve) => {
+        httpServer.close(resolve);
+        httpServer.closeAllConnections?.();
+      });
+    }
+    await waitForStorageSync();
+    if (sequelize) {
+      await sequelize.close();
+    }
+    logger.info('Graceful shutdown completed');
+    process.exit(0);
+  } catch (error) {
+    logger.error('Graceful shutdown failed', { message: error.message, stack: error.stack });
+    process.exit(1);
   }
-  process.exit(0);
-});
+};
+
+process.on('SIGINT', () => shutdown('SIGINT'));
+process.on('SIGTERM', () => shutdown('SIGTERM'));
 
 export default app;

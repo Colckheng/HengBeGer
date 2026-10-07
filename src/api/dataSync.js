@@ -3,6 +3,7 @@ import {
   replaceMultipleRecordSets,
   syncDatabaseToStorage,
 } from '../db/api.js';
+import { createDatabaseBackup } from '../db/databaseBackup.js';
 import storageManager, { STORAGE_TYPES } from '../db/storageManager.js';
 import { logAdminAudit } from '../utils/adminAudit.js';
 import { logger } from '../utils/logger.js';
@@ -74,6 +75,18 @@ const validateType = (type) => {
   }
 };
 
+const resolveErrorStatusCode = (error) => {
+  if (Number.isInteger(error?.statusCode)) {
+    return error.statusCode;
+  }
+
+  if (error?.name === 'SequelizeUniqueConstraintError') {
+    return 409;
+  }
+
+  return 500;
+};
+
 const validateItems = (type, items) => {
   if (!Array.isArray(items)) {
     return [`${type} payload must be an array.`];
@@ -116,10 +129,11 @@ class DataSyncController {
         message: error.message,
         stack: error.stack,
       });
-      res.status(500).json({
+      const statusCode = resolveErrorStatusCode(error);
+      res.status(statusCode).json({
         success: false,
-        message: 'Failed to load storage data.',
-        error: error.message,
+        message: statusCode === 500 ? 'Failed to load storage data.' : error.message,
+        error: statusCode === 500 ? 'Internal server error.' : error.message,
       });
     }
   }
@@ -140,10 +154,11 @@ class DataSyncController {
         type: req.params.type,
         message: error.message,
       });
-      res.status(500).json({
+      const statusCode = resolveErrorStatusCode(error);
+      res.status(statusCode).json({
         success: false,
-        message: 'Failed to load storage data.',
-        error: error.message,
+        message: statusCode === 500 ? 'Failed to load storage data.' : error.message,
+        error: statusCode === 500 ? 'Internal server error.' : error.message,
       });
     }
   }
@@ -163,15 +178,20 @@ class DataSyncController {
         });
       }
 
-      const snapshot = await replaceAllRecords(type, data);
+      const backup = await createDatabaseBackup({ reason: `storage.replaceByType:${type}` });
+      const snapshot = await replaceAllRecords(type, data, {
+        allowEmptyWipe: req.body?.confirm === true,
+      });
       logAdminAudit(req, 'storage.replaceByType', {
         storageType: type,
         count: snapshot[type]?.length || 0,
+        backupFile: backup.fileName,
       });
       res.json({
         success: true,
         message: `${type} data replaced successfully.`,
         count: snapshot[type]?.length || 0,
+        backup: backup.fileName,
         timestamp: new Date().toISOString(),
       });
     } catch (error) {
@@ -180,10 +200,11 @@ class DataSyncController {
         message: error.message,
         stack: error.stack,
       });
-      res.status(500).json({
+      const statusCode = resolveErrorStatusCode(error);
+      res.status(statusCode).json({
         success: false,
-        message: 'Failed to replace data.',
-        error: error.message,
+        message: statusCode === 500 ? 'Failed to replace data.' : error.message,
+        error: statusCode === 500 ? 'Internal server error.' : error.message,
       });
     }
   }
@@ -213,11 +234,13 @@ class DataSyncController {
         }
       }
 
+      const backup = await createDatabaseBackup({ reason: 'storage.replaceBatch' });
       const snapshot = await replaceMultipleRecordSets(
         touchedTypes.reduce((result, type) => {
           result[type] = payload[type];
           return result;
         }, {}),
+        { allowEmptyWipe: req.body?.confirm === true },
       );
       const results = touchedTypes.reduce((result, type) => {
         result[type] = {
@@ -230,12 +253,14 @@ class DataSyncController {
         results: Object.fromEntries(
           touchedTypes.map((type) => [type, snapshot[type]?.length || 0]),
         ),
+        backupFile: backup.fileName,
       });
 
       res.json({
         success: true,
         message: 'All provided data sets were replaced successfully.',
         results,
+        backup: backup.fileName,
         timestamp: new Date().toISOString(),
       });
     } catch (error) {
@@ -243,10 +268,11 @@ class DataSyncController {
         message: error.message,
         stack: error.stack,
       });
-      res.status(500).json({
+      const statusCode = resolveErrorStatusCode(error);
+      res.status(statusCode).json({
         success: false,
-        message: 'Failed to replace all storage data.',
-        error: error.message,
+        message: statusCode === 500 ? 'Failed to replace all storage data.' : error.message,
+        error: statusCode === 500 ? 'Internal server error.' : error.message,
       });
     }
   }
@@ -265,10 +291,11 @@ class DataSyncController {
         message: error.message,
         stack: error.stack,
       });
-      res.status(500).json({
+      const statusCode = resolveErrorStatusCode(error);
+      res.status(statusCode).json({
         success: false,
-        message: 'Failed to load storage status.',
-        error: error.message,
+        message: statusCode === 500 ? 'Failed to load storage status.' : error.message,
+        error: statusCode === 500 ? 'Internal server error.' : error.message,
       });
     }
   }
@@ -294,10 +321,11 @@ class DataSyncController {
         message: error.message,
         stack: error.stack,
       });
-      res.status(500).json({
+      const statusCode = resolveErrorStatusCode(error);
+      res.status(statusCode).json({
         success: false,
-        message: 'Failed to rebuild storage from database.',
-        error: error.message,
+        message: statusCode === 500 ? 'Failed to rebuild storage from database.' : error.message,
+        error: statusCode === 500 ? 'Internal server error.' : error.message,
       });
     }
   }

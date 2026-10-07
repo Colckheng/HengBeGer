@@ -5,15 +5,17 @@ import {
   useMemo,
   useState,
 } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-import zzz from './assets/zzz.jpg';
+import LoadErrorBanner from './components/LoadErrorBanner.jsx';
 import PaginationControls from './components/PaginationControls.jsx';
 import { useData } from './DataContext.jsx';
 import Filter from './Filter.jsx';
 import usePaginatedPublicList from './hooks/usePaginatedPublicList.js';
 import { buildZzzListRequest } from './utils/publicFilterParams.js';
 import './ZZZWiki.css';
+
+const zzz = '/assets/zzz.jpg';
 
 const DEFAULT_FILTERS = {
   agents: { role: [], element: [], faction: [] },
@@ -63,7 +65,7 @@ const rarityBadge = (rarity) => {
 };
 
 const normalizeImage = (fallback) => (item) => {
-  const image = item.image;
+  const image = typeof item.image === 'string' ? item.image : '';
   if (image && (image.startsWith('data:') || image.startsWith('/'))) {
     return image;
   }
@@ -71,7 +73,16 @@ const normalizeImage = (fallback) => (item) => {
   return image || fallback;
 };
 
-const agentImage = (item) => normalizeImage(`/images/agents/${item.name.toLowerCase().replace(/[^a-z0-9]/g, '')}.jpg`)(item);
+const handleImageError = (event) => {
+  const img = event.currentTarget;
+  if (img.dataset.fallbackApplied === '1') {
+    return;
+  }
+  img.dataset.fallbackApplied = '1';
+  img.src = zzz;
+};
+
+const agentImage = normalizeImage(zzz);
 const engineImage = normalizeImage(zzz);
 const bumboImage = normalizeImage(zzz);
 const diskImage = normalizeImage(zzz);
@@ -86,7 +97,11 @@ const countSelectedFilters = (filters = {}) => (
   }, 0)
 );
 
-const AgentDetail = ({ agent, onBack }) => {
+const optionNames = (list = []) => (
+  [...new Set(list.map((item) => item && item.name).filter(Boolean))]
+);
+
+const AgentDetail = ({ agent }) => {
   if (!agent) {
     return (
       <div className="wiki-status-panel">
@@ -97,17 +112,12 @@ const AgentDetail = ({ agent, onBack }) => {
 
   return (
     <section className="detail-shell">
-      <button type="button" className="ghost-action" onClick={onBack}>
-        返回列表
-      </button>
       <div className="detail-surface">
         <div className="detail-media">
           <img
             src={agentImage(agent)}
             alt={agent.name}
-            onError={(event) => {
-              event.currentTarget.src = zzz;
-            }}
+            onError={handleImageError}
           />
         </div>
         <div className="detail-body">
@@ -131,12 +141,13 @@ const AgentDetail = ({ agent, onBack }) => {
 };
 
 const ZZZWiki = ({ mode = 'list', agentId = null }) => {
-  const navigate = useNavigate();
   const {
     data,
     baseData,
+    baseDataDegraded,
     loading: contextLoading,
     error: contextError,
+    refreshData,
   } = useData();
   const [activeTab, setActiveTab] = useState('agents');
   const [selectedAgent, setSelectedAgent] = useState(null);
@@ -156,6 +167,12 @@ const ZZZWiki = ({ mode = 'list', agentId = null }) => {
     [activeTab, baseData, filters],
   );
 
+  const optionLists = useMemo(() => ({
+    roles: optionNames(baseData.roles),
+    factions: optionNames(baseData.factions),
+    rarities: optionNames(baseData.rarities),
+  }), [baseData]);
+
   const listState = usePaginatedPublicList({
     endpoint: TAB_CONFIG[activeTab].endpoint,
     filters: requestFilters,
@@ -164,34 +181,11 @@ const ZZZWiki = ({ mode = 'list', agentId = null }) => {
     fallbackError: '加载列表失败。',
   });
 
-  const loading = mode === 'detail' ? contextLoading : contextLoading || listState.loading;
+  const initialLoading = contextLoading
+    || (mode !== 'detail' && listState.loading && listState.items.length === 0);
+  const refreshing = mode !== 'detail' && !initialLoading && listState.loading;
   const error = mode === 'detail' ? contextError : listState.error || contextError;
   const selectedFilterCount = countSelectedFilters(filters[activeTab]);
-
-  const heroStats = useMemo(() => ([
-    {
-      label: '当前分类',
-      value: TAB_CONFIG[activeTab].title,
-      detail: '当前展示资料类型',
-      accent: 'amber',
-      kind: 'category',
-    },
-    {
-      label: '总条目',
-      value: mode === 'detail' ? (data.agents?.length || 0) : listState.total,
-      detail: `当前分类共 ${mode === 'detail' ? (data.agents?.length || 0) : listState.total} 条`,
-      accent: 'plain',
-      kind: 'number',
-    },
-    {
-      label: '筛选条件',
-      value: selectedFilterCount ? `${selectedFilterCount} 项生效` : '显示全部',
-      detail: selectedFilterCount ? '结果范围已缩小' : '显示全部结果',
-      status: selectedFilterCount ? '已筛选' : '未筛选',
-      accent: 'plain',
-      kind: 'filter',
-    },
-  ]), [activeTab, data.agents?.length, listState.total, mode, selectedFilterCount]);
 
   const handleFilterChange = (tab, filterType, value) => {
     setFilters((current) => ({
@@ -203,9 +197,13 @@ const ZZZWiki = ({ mode = 'list', agentId = null }) => {
     }));
   };
 
-  const handleAgentClick = (agent) => {
-    setSelectedAgent(agent);
-    navigate(`/zzz-wiki/agent/${agent.id}`);
+  const handleRetry = () => {
+    if (listState.error) {
+      listState.retry();
+    }
+    if (contextError) {
+      void refreshData().catch(() => {});
+    }
   };
 
   const renderCards = () => {
@@ -219,34 +217,35 @@ const ZZZWiki = ({ mode = 'list', agentId = null }) => {
 
     if (activeTab === 'agents') {
       return listState.items.map((agent) => (
-        <article
+        <Link
           key={agent.id}
           className="wiki-card is-clickable"
-          onClick={() => handleAgentClick(agent)}
+          to={`/zzz-wiki/agent/${agent.id}`}
         >
           <div className="wiki-card-image">
             <img
               src={agentImage(agent)}
               alt={agent.name}
-              onError={(event) => {
-                event.currentTarget.src = zzz;
-              }}
+              onError={handleImageError}
             />
+            <span className="rarity-badge" data-rarity={rarityBadge(agent.rarity || agent.Rarity?.name)}>
+              {rarityBadge(agent.rarity || agent.Rarity?.name)}
+            </span>
           </div>
           <div className="wiki-card-body">
             <div className="wiki-card-heading">
               <h3>{agent.name}</h3>
-              <span className="rarity-badge" data-rarity={rarityBadge(agent.rarity || agent.Rarity?.name)}>
-                {rarityBadge(agent.rarity || agent.Rarity?.name)}
-              </span>
+              <span className="wiki-card-chev" aria-hidden="true">›</span>
             </div>
             <p>{agent.role || agent.Role?.name || '未知职业'}</p>
             <div className="wiki-card-tags">
               <span className="role-tag">{agent.faction || agent.Faction?.name || '未知阵营'}</span>
-              <span className="role-tag">{agent.element || agent.Element?.name || '未知属性'}</span>
+              <span className="role-tag" data-el={agent.element || agent.Element?.name}>
+                {agent.element || agent.Element?.name || '未知属性'}
+              </span>
             </div>
           </div>
-        </article>
+        </Link>
       ));
     }
 
@@ -257,17 +256,15 @@ const ZZZWiki = ({ mode = 'list', agentId = null }) => {
             <img
               src={engineImage(engine)}
               alt={engine.name}
-              onError={(event) => {
-                event.currentTarget.src = zzz;
-              }}
+              onError={handleImageError}
             />
+            <span className="rarity-badge" data-rarity={rarityBadge(engine.rarity || engine.Rarity?.name)}>
+              {rarityBadge(engine.rarity || engine.Rarity?.name)}
+            </span>
           </div>
           <div className="wiki-card-body">
             <div className="wiki-card-heading">
               <h3>{engine.name}</h3>
-              <span className="rarity-badge" data-rarity={rarityBadge(engine.rarity || engine.Rarity?.name)}>
-                {rarityBadge(engine.rarity || engine.Rarity?.name)}
-              </span>
             </div>
             <p>职业适配一眼可见，方便和角色快速配对。</p>
             <div className="wiki-card-tags">
@@ -285,17 +282,15 @@ const ZZZWiki = ({ mode = 'list', agentId = null }) => {
             <img
               src={bumboImage(bumbo)}
               alt={bumbo.name}
-              onError={(event) => {
-                event.currentTarget.src = zzz;
-              }}
+              onError={handleImageError}
             />
+            <span className="rarity-badge" data-rarity={rarityBadge(bumbo.rarity || bumbo.Rarity?.name)}>
+              {rarityBadge(bumbo.rarity || bumbo.Rarity?.name)}
+            </span>
           </div>
           <div className="wiki-card-body">
             <div className="wiki-card-heading">
               <h3>{bumbo.name}</h3>
-              <span className="rarity-badge" data-rarity={rarityBadge(bumbo.rarity || bumbo.Rarity?.name)}>
-                {rarityBadge(bumbo.rarity || bumbo.Rarity?.name)}
-              </span>
             </div>
             <p>更轻量的卡片浏览模式，适合快速扫完整个邦布池。</p>
           </div>
@@ -309,9 +304,7 @@ const ZZZWiki = ({ mode = 'list', agentId = null }) => {
           <img
             src={diskImage(disk)}
             alt={disk.name}
-            onError={(event) => {
-              event.currentTarget.src = zzz;
-            }}
+            onError={handleImageError}
           />
         </div>
         <div className="wiki-card-body">
@@ -324,7 +317,7 @@ const ZZZWiki = ({ mode = 'list', agentId = null }) => {
     ));
   };
 
-  if (loading) {
+  if (initialLoading) {
     return (
       <div className="wiki-shell theme-zzz">
         <div className="wiki-status-panel">
@@ -334,11 +327,14 @@ const ZZZWiki = ({ mode = 'list', agentId = null }) => {
     );
   }
 
-  if (error) {
+  if (error && initialLoading) {
     return (
       <div className="wiki-shell theme-zzz">
         <div className="wiki-status-panel">
           <p>加载失败：{error}</p>
+          <button type="button" className="wiki-error-retry" onClick={handleRetry}>
+            重试
+          </button>
         </div>
       </div>
     );
@@ -349,17 +345,14 @@ const ZZZWiki = ({ mode = 'list', agentId = null }) => {
       <div className="wiki-shell theme-zzz">
         <div className="wiki-backdrop" />
         <div className="wiki-frame">
-          <header className="wiki-topbar">
-            <Link to="/" className="wiki-brand">HengBeGer</Link>
-            <div className="wiki-topbar-actions">
-              <Link to="/zzz-wiki" className="ghost-action">返回 ZZZ</Link>
-              <Link to="/zzz-wiki/admin" className="solid-action">内容后台</Link>
-            </div>
-          </header>
-          <AgentDetail
-            agent={selectedAgent}
-            onBack={() => navigate('/zzz-wiki')}
-          />
+          {error && <LoadErrorBanner message={error} onRetry={handleRetry} />}
+          {!error && baseDataDegraded && (
+            <LoadErrorBanner
+              message="部分基础数据加载失败，筛选选项可能不完整。"
+              onRetry={handleRetry}
+            />
+          )}
+          <AgentDetail agent={selectedAgent} />
         </div>
       </div>
     );
@@ -369,38 +362,33 @@ const ZZZWiki = ({ mode = 'list', agentId = null }) => {
     <div className="wiki-shell theme-zzz">
       <div className="wiki-backdrop" />
       <div className="wiki-frame">
-        <header className="wiki-topbar">
-          <Link to="/" className="wiki-brand">HengBeGer</Link>
-          <div className="wiki-topbar-actions">
-            <Link to="/hsr-wiki" className="ghost-action">切到 HSR</Link>
-            <Link to="/zzz-wiki/admin" className="solid-action">内容后台</Link>
+        {error && <LoadErrorBanner message={error} onRetry={handleRetry} />}
+        {!error && baseDataDegraded && (
+          <LoadErrorBanner
+            message="部分基础数据加载失败，筛选选项可能不完整。"
+            onRetry={handleRetry}
+          />
+        )}
+        <section className="wiki-head">
+          <div className="wiki-head-left">
+            <h1>{TAB_CONFIG[activeTab].title}</h1>
+            <span className="wiki-kicker">Zenless Zone Zero Archive</span>
           </div>
-        </header>
-
-        <section className="wiki-hero">
-          <div className="wiki-hero-copy">
-            <p className="wiki-kicker">Zenless Zone Zero Archive</p>
-            <h1>HengZZZ</h1>
-            <p className="wiki-description">{TAB_CONFIG[activeTab].heroCopy}</p>
-          </div>
-          <div className="wiki-stat-grid">
-            {heroStats.map((item) => (
-              <article
-                key={item.label}
-                className="wiki-stat-card"
-                data-accent={item.accent}
-                data-kind={item.kind}
-              >
-                <span className="wiki-stat-label">{item.label}</span>
-                {item.status ? (
-                  <span className="wiki-stat-pill">{item.status}</span>
-                ) : null}
-                <strong>{item.value}</strong>
-                <p className="wiki-stat-detail">{item.detail}</p>
-              </article>
-            ))}
+          <div className="wiki-head-right">
+            <span>
+              共 {listState.total} 条 · 第 {listState.page} / {listState.totalPages} 页
+            </span>
+            <PaginationControls
+              totalPages={listState.totalPages}
+              canPrev={listState.canPrev}
+              canNext={listState.canNext}
+              disabled={listState.loading}
+              onPrev={listState.prevPage}
+              onNext={listState.nextPage}
+            />
           </div>
         </section>
+        <p className="wiki-subtitle">{TAB_CONFIG[activeTab].heroCopy}</p>
 
         <section className="wiki-toolbar">
           <div className="wiki-chip-nav">
@@ -419,9 +407,6 @@ const ZZZWiki = ({ mode = 'list', agentId = null }) => {
               </button>
             ))}
           </div>
-          <p className="wiki-toolbar-copy">
-            当前页共 {listState.total} 条，支持分页浏览与多维筛选。
-          </p>
         </section>
 
         <section className="wiki-surface">
@@ -429,23 +414,25 @@ const ZZZWiki = ({ mode = 'list', agentId = null }) => {
             activeTab={activeTab}
             filters={filters[activeTab]}
             onFilterChange={handleFilterChange}
+            optionLists={optionLists}
           />
         </section>
 
-        <section className="wiki-grid">
+        <p className="wiki-result-line">
+          <span>
+            {selectedFilterCount
+              ? `已筛选 ${selectedFilterCount} 项 · 当前页共 ${listState.total} 条`
+              : `当前页共 ${listState.total} 条，显示全部结果`}
+          </span>
+          <span>支持分页与多维筛选</span>
+        </p>
+
+        <section
+          className={`wiki-grid${refreshing ? ' is-refreshing' : ''}`}
+          aria-busy={refreshing}
+        >
           {renderCards()}
         </section>
-
-        <PaginationControls
-          page={listState.page}
-          totalPages={listState.totalPages}
-          total={listState.total}
-          canPrev={listState.canPrev}
-          canNext={listState.canNext}
-          disabled={listState.loading}
-          onPrev={listState.prevPage}
-          onNext={listState.nextPage}
-        />
       </div>
     </div>
   );

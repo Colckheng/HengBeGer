@@ -83,6 +83,7 @@ const main = async () => {
   }
 
   console.log('Warning: this command restores storage snapshots only and does not roll back MySQL data.');
+  console.log('Warning: local storage files are re-synced from MySQL on the next server restart; apply persistent rollbacks at the database layer.');
 };
 
 main().catch((error) => {

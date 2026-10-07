@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
 import { DEFAULT_PUBLIC_PAGE_SIZE, fetchPublicList } from '../api/publicLists.js';
 import { getApiErrorMessage } from '../utils/apiError.js';
@@ -20,6 +20,8 @@ export const usePaginatedPublicList = ({
 }) => {
   const serializedFilters = useMemo(() => JSON.stringify(filters), [filters]);
   const [offset, setOffset] = useState(0);
+  const [retryToken, setRetryToken] = useState(0);
+  const resetKeyRef = useRef(`${limit}|${serializedFilters}`);
   const [state, setState] = useState({
     ...EMPTY_STATE,
     loading: enabled,
@@ -27,13 +29,29 @@ export const usePaginatedPublicList = ({
 
   useEffect(() => {
     setOffset(0);
-  }, [endpoint, limit, resetKey, serializedFilters]);
+  }, [limit, serializedFilters]);
+
+  useEffect(() => {
+    setOffset(0);
+    setState((current) => (
+      current.items.length === 0 && !current.error
+        ? current
+        : { ...EMPTY_STATE, loading: enabled }
+    ));
+  }, [endpoint, enabled, resetKey]);
 
   useEffect(() => {
     if (!enabled) {
       setState(EMPTY_STATE);
       return undefined;
     }
+
+    const nextResetKey = `${limit}|${serializedFilters}`;
+    if (offset !== 0 && nextResetKey !== resetKeyRef.current) {
+      return undefined;
+    }
+
+    resetKeyRef.current = nextResetKey;
 
     let cancelled = false;
     setState((current) => ({
@@ -73,7 +91,7 @@ export const usePaginatedPublicList = ({
     return () => {
       cancelled = true;
     };
-  }, [enabled, endpoint, fallbackError, limit, offset, serializedFilters]);
+  }, [enabled, endpoint, fallbackError, limit, offset, retryToken, serializedFilters]);
 
   const totalPages = Math.max(1, Math.ceil((state.total || 0) / limit) || 1);
   const page = Math.floor(offset / limit) + 1;
@@ -97,6 +115,9 @@ export const usePaginatedPublicList = ({
     goToPage: (nextPage) => {
       const normalizedPage = Math.max(1, Number(nextPage) || 1);
       setOffset((normalizedPage - 1) * limit);
+    },
+    retry: () => {
+      setRetryToken((current) => current + 1);
     },
   };
 };

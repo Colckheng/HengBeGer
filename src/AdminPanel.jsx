@@ -3,6 +3,7 @@ import {
   useDeferredValue,
   useEffect,
   useMemo,
+  useRef,
   useState,
 } from 'react';
 import { Link } from 'react-router-dom';
@@ -113,7 +114,9 @@ const AdminPanel = () => {
   const {
     data,
     baseData,
+    baseDataDegraded,
     loading,
+    refreshing,
     error,
     refreshData,
     handleAddAgent,
@@ -136,12 +139,16 @@ const AdminPanel = () => {
   const [imagePreview, setImagePreview] = useState(null);
   const [submitting, setSubmitting] = useState(false);
   const [statusMessage, setStatusMessage] = useState('');
+  const [statusTone, setStatusTone] = useState('success');
   const [searchTerm, setSearchTerm] = useState('');
   const [editorOpen, setEditorOpen] = useState(true);
   const deferredSearchTerm = useDeferredValue(searchTerm);
   const imageInputId = `${activeTab}-image-upload`;
+  const fieldId = (name) => `${activeTab}-field-${name}`;
+  const fileReadSeqRef = useRef(0);
 
   useEffect(() => {
+    fileReadSeqRef.current += 1;
     setEditingItem(null);
     setFormData(EMPTY_FORM);
     setImagePreview(null);
@@ -259,6 +266,11 @@ const AdminPanel = () => {
   const roleOptions = baseData?.roles || [];
   const rarityOptions = baseData?.rarities || [];
 
+  const pushStatus = (message, tone = 'success') => {
+    setStatusMessage(message);
+    setStatusTone(tone);
+  };
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData((current) => ({ ...current, [name]: value }));
@@ -267,6 +279,7 @@ const AdminPanel = () => {
   const handleFileChange = (event) => {
     const file = event.target.files?.[0];
     if (!file) {
+      fileReadSeqRef.current += 1;
       setImagePreview(null);
       setStatusMessage('');
       return;
@@ -274,14 +287,19 @@ const AdminPanel = () => {
 
     const validationResult = validateAdminImageFile(file);
     if (!validationResult.valid) {
+      fileReadSeqRef.current += 1;
       setFormData((current) => ({ ...current, image: '' }));
       setImagePreview(null);
-      setStatusMessage(validationResult.error);
+      pushStatus(validationResult.error, 'error');
       event.target.value = '';
       return;
     }
 
+    const readSeq = ++fileReadSeqRef.current;
     buildFileReader(file, (result) => {
+      if (readSeq !== fileReadSeqRef.current) {
+        return;
+      }
       setFormData((current) => ({ ...current, image: result }));
       setImagePreview(result);
       setStatusMessage('');
@@ -289,6 +307,7 @@ const AdminPanel = () => {
   };
 
   const closeEditor = () => {
+    fileReadSeqRef.current += 1;
     setEditingItem(null);
     setFormData(EMPTY_FORM);
     setImagePreview(null);
@@ -296,6 +315,7 @@ const AdminPanel = () => {
   };
 
   const openCreateEditor = () => {
+    fileReadSeqRef.current += 1;
     setEditingItem(null);
     setFormData(EMPTY_FORM);
     setImagePreview(null);
@@ -304,6 +324,7 @@ const AdminPanel = () => {
   };
 
   const handleEdit = (item) => {
+    fileReadSeqRef.current += 1;
     setEditingItem(item);
     setFormData(normalizeItemForForm(activeTab, item));
     setImagePreview(item.image || null);
@@ -321,9 +342,9 @@ const AdminPanel = () => {
 
     try {
       await activeConfig.remove(id);
-      setStatusMessage(`${activeConfig.label}已删除。`);
+      pushStatus(`${activeConfig.label}已删除。`);
     } catch (deleteError) {
-      setStatusMessage(getApiErrorMessage(deleteError, '删除失败。'));
+      pushStatus(getApiErrorMessage(deleteError, '删除失败。'), 'error');
     } finally {
       setSubmitting(false);
     }
@@ -331,6 +352,10 @@ const AdminPanel = () => {
 
   const handleLogout = async () => {
     await logoutAdminSession();
+  };
+
+  const handleRefresh = () => {
+    void refreshData().catch(() => {});
   };
 
   const handleSubmit = async (event) => {
@@ -342,10 +367,10 @@ const AdminPanel = () => {
       const payload = preparePayload(activeTab, formData);
       if (editingItem) {
         await activeConfig.update(editingItem.id, payload);
-        setStatusMessage(`${activeConfig.label}已更新。`);
+        pushStatus(`${activeConfig.label}已更新。`);
       } else {
         await activeConfig.add(payload);
-        setStatusMessage(`${activeConfig.label}已创建。`);
+        pushStatus(`${activeConfig.label}已创建。`);
       }
 
       setEditingItem(null);
@@ -353,11 +378,19 @@ const AdminPanel = () => {
       setImagePreview(null);
       setEditorOpen(true);
     } catch (submitError) {
-      setStatusMessage(getApiErrorMessage(submitError, '保存失败。'));
+      pushStatus(getApiErrorMessage(submitError, '保存失败。'), 'error');
       setEditorOpen(true);
     } finally {
       setSubmitting(false);
     }
+  };
+
+  const handleSaveClick = (event) => {
+    const form = event.currentTarget.closest('.admin-drawer')?.querySelector('form');
+    if (form && !form.reportValidity()) {
+      return;
+    }
+    handleSubmit(event);
   };
 
   const renderForm = () => {
@@ -366,12 +399,12 @@ const AdminPanel = () => {
         return (
           <>
             <div className="form-group">
-              <label>名称</label>
-              <input name="name" value={formData.name || ''} onChange={handleInputChange} required />
+              <label htmlFor={fieldId('name')}>名称</label>
+              <input id={fieldId('name')} name="name" value={formData.name || ''} onChange={handleInputChange} required />
             </div>
             <div className="form-group">
-              <label>属性</label>
-              <select name="element" value={formData.element || ''} onChange={handleInputChange} required>
+              <label htmlFor={fieldId('element')}>属性</label>
+              <select id={fieldId('element')} name="element" value={formData.element || ''} onChange={handleInputChange} required>
                 <option value="">请选择属性</option>
                 {['物理', '火', '冰', '电', '以太'].map((element) => (
                   <option key={element} value={element}>{element}</option>
@@ -379,8 +412,8 @@ const AdminPanel = () => {
               </select>
             </div>
             <div className="form-group">
-              <label>阵营</label>
-              <select name="factionId" value={formData.factionId || ''} onChange={handleInputChange} required>
+              <label htmlFor={fieldId('factionId')}>阵营</label>
+              <select id={fieldId('factionId')} name="factionId" value={formData.factionId || ''} onChange={handleInputChange} required>
                 <option value="">请选择阵营</option>
                 {factionOptions.map((faction) => (
                   <option key={faction.id} value={faction.id}>{faction.name}</option>
@@ -388,8 +421,8 @@ const AdminPanel = () => {
               </select>
             </div>
             <div className="form-group">
-              <label>职业</label>
-              <select name="roleId" value={formData.roleId || ''} onChange={handleInputChange} required>
+              <label htmlFor={fieldId('roleId')}>职业</label>
+              <select id={fieldId('roleId')} name="roleId" value={formData.roleId || ''} onChange={handleInputChange} required>
                 <option value="">请选择职业</option>
                 {roleOptions.map((role) => (
                   <option key={role.id} value={role.id}>{role.name}</option>
@@ -397,8 +430,8 @@ const AdminPanel = () => {
               </select>
             </div>
             <div className="form-group">
-              <label>稀有度</label>
-              <select name="rarityId" value={formData.rarityId || ''} onChange={handleInputChange} required>
+              <label htmlFor={fieldId('rarityId')}>稀有度</label>
+              <select id={fieldId('rarityId')} name="rarityId" value={formData.rarityId || ''} onChange={handleInputChange} required>
                 <option value="">请选择稀有度</option>
                 {rarityOptions.map((rarity) => (
                   <option key={rarity.id} value={rarity.id}>{rarity.name}</option>
@@ -406,8 +439,9 @@ const AdminPanel = () => {
               </select>
             </div>
             <div className="form-group">
-              <label>描述</label>
+              <label htmlFor={fieldId('description')}>描述</label>
               <textarea
+                id={fieldId('description')}
                 name="description"
                 value={formData.description || ''}
                 onChange={handleInputChange}
@@ -420,12 +454,12 @@ const AdminPanel = () => {
         return (
           <>
             <div className="form-group">
-              <label>名称</label>
-              <input name="name" value={formData.name || ''} onChange={handleInputChange} required />
+              <label htmlFor={fieldId('name')}>名称</label>
+              <input id={fieldId('name')} name="name" value={formData.name || ''} onChange={handleInputChange} required />
             </div>
             <div className="form-group">
-              <label>职业</label>
-              <select name="roleId" value={formData.roleId || ''} onChange={handleInputChange} required>
+              <label htmlFor={fieldId('roleId')}>职业</label>
+              <select id={fieldId('roleId')} name="roleId" value={formData.roleId || ''} onChange={handleInputChange} required>
                 <option value="">请选择职业</option>
                 {roleOptions.map((role) => (
                   <option key={role.id} value={role.id}>{role.name}</option>
@@ -433,8 +467,8 @@ const AdminPanel = () => {
               </select>
             </div>
             <div className="form-group">
-              <label>稀有度</label>
-              <select name="rarityId" value={formData.rarityId || ''} onChange={handleInputChange} required>
+              <label htmlFor={fieldId('rarityId')}>稀有度</label>
+              <select id={fieldId('rarityId')} name="rarityId" value={formData.rarityId || ''} onChange={handleInputChange} required>
                 <option value="">请选择稀有度</option>
                 {rarityOptions.map((rarity) => (
                   <option key={rarity.id} value={rarity.id}>{rarity.name}</option>
@@ -447,12 +481,12 @@ const AdminPanel = () => {
         return (
           <>
             <div className="form-group">
-              <label>名称</label>
-              <input name="name" value={formData.name || ''} onChange={handleInputChange} required />
+              <label htmlFor={fieldId('name')}>名称</label>
+              <input id={fieldId('name')} name="name" value={formData.name || ''} onChange={handleInputChange} required />
             </div>
             <div className="form-group">
-              <label>稀有度</label>
-              <select name="rarityId" value={formData.rarityId || ''} onChange={handleInputChange} required>
+              <label htmlFor={fieldId('rarityId')}>稀有度</label>
+              <select id={fieldId('rarityId')} name="rarityId" value={formData.rarityId || ''} onChange={handleInputChange} required>
                 <option value="">请选择稀有度</option>
                 {rarityOptions.filter((item) => item.name !== 'B').map((rarity) => (
                   <option key={rarity.id} value={rarity.id}>{rarity.name}</option>
@@ -466,12 +500,13 @@ const AdminPanel = () => {
         return (
           <>
             <div className="form-group">
-              <label>名称</label>
-              <input name="name" value={formData.name || ''} onChange={handleInputChange} required />
+              <label htmlFor={fieldId('name')}>名称</label>
+              <input id={fieldId('name')} name="name" value={formData.name || ''} onChange={handleInputChange} required />
             </div>
             <div className="form-group">
-              <label>描述</label>
+              <label htmlFor={fieldId('description')}>描述</label>
               <textarea
+                id={fieldId('description')}
                 name="description"
                 value={formData.description || ''}
                 onChange={handleInputChange}
@@ -532,8 +567,8 @@ const AdminPanel = () => {
                   </td>
                   <td>
                     <div className="admin-row-tags">
-                      {metaTags.filter(Boolean).slice(0, 3).map((tag) => (
-                        <span key={`${item.id}-${tag}`} className="admin-badge">{tag}</span>
+                      {metaTags.filter(Boolean).slice(0, 3).map((tag, tagIndex) => (
+                        <span key={`${item.id}-${tag}-${tagIndex}`} className="admin-badge">{tag}</span>
                       ))}
                     </div>
                   </td>
@@ -570,7 +605,7 @@ const AdminPanel = () => {
   }
 
   return (
-    <div className="admin-shell theme-zzz-admin">
+    <div className={`admin-shell theme-zzz-admin${refreshing ? ' is-refreshing' : ''}`}>
       <aside className="admin-sidebar">
         <Link to="/zzz-wiki" className="admin-sidebar-brand">
           <h2>HengZZZ</h2>
@@ -584,6 +619,7 @@ const AdminPanel = () => {
               type="button"
               className={`admin-sidebar-link ${activeTab === key ? 'active' : ''}`}
               onClick={() => setActiveTab(key)}
+              disabled={submitting}
             >
               <strong>{config.label}</strong>
               <span>{config.summary}</span>
@@ -612,7 +648,7 @@ const AdminPanel = () => {
             </div>
           </div>
           <div className="admin-actions">
-            <button type="button" className="admin-action secondary" onClick={refreshData}>
+            <button type="button" className="admin-action secondary" onClick={handleRefresh}>
               刷新数据
             </button>
             <button type="button" className="admin-action secondary" onClick={handleLogout}>
@@ -625,11 +661,19 @@ const AdminPanel = () => {
         </header>
 
         {statusMessage ? (
-          <div className={`status-banner ${statusMessage.includes('失败') ? 'error' : ''}`}>
+          <div className={`status-banner${statusTone === 'error' ? ' error' : ''}`}>
             {statusMessage}
           </div>
         ) : null}
         {error ? <div className="status-banner error">{error}</div> : null}
+        {!error && baseDataDegraded ? (
+          <div className="status-banner error" role="alert">
+            部分基础数据加载失败，下拉选项可能不完整。
+            <button type="button" className="wiki-error-retry" onClick={handleRefresh}>
+              重试
+            </button>
+          </div>
+        ) : null}
 
         <section className="admin-metric-grid">
           {metrics.map((metric) => (
@@ -667,6 +711,7 @@ const AdminPanel = () => {
                   value={searchTerm}
                   onChange={(event) => setSearchTerm(event.target.value)}
                   placeholder={`搜索${activeConfig.label}...`}
+                  aria-label={`搜索${activeConfig.label}`}
                 />
               </div>
             </div>
@@ -711,7 +756,7 @@ const AdminPanel = () => {
                     切换到新增
                   </button>
                 ) : null}
-                <button type="button" className="btn-primary" onClick={handleSubmit} disabled={submitting}>
+                <button type="button" className="btn-primary" onClick={handleSaveClick} disabled={submitting}>
                   {submitting ? '保存中...' : (editingItem ? '保存修改' : '新增')}
                 </button>
               </div>

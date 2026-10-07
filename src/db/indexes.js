@@ -5,7 +5,7 @@
  * 为数据库表添加索引以优化查询性能
  * @param {Sequelize} sequelize - Sequelize实例
  */
-import { logger, logDatabase, logPerformance } from '../utils/logger.js';
+import { logger, logDatabase } from '../utils/logger.js';
 
 export async function createIndexes(sequelize) {
   try {
@@ -13,17 +13,56 @@ export async function createIndexes(sequelize) {
     const [dbResult] = await sequelize.query('SELECT DATABASE() as db_name');
     const dbName = dbResult[0].db_name;
 
-    const ensureIndex = async (table, indexName, columns) => {
-      const [exists] = await sequelize.query(`
-        SELECT 1 FROM INFORMATION_SCHEMA.STATISTICS
+    const ensureIndex = async (table, indexName, columns, options = {}) => {
+      const wantUnique = options.unique === true;
+      const [rows] = await sequelize.query(`
+        SELECT NON_UNIQUE FROM INFORMATION_SCHEMA.STATISTICS
         WHERE TABLE_SCHEMA = '${dbName}' AND TABLE_NAME = '${table}' AND INDEX_NAME = '${indexName}'
         LIMIT 1
       `);
-      if (exists.length === 0) {
+      const existing = rows[0];
+
+      if (!existing) {
+        try {
+          await sequelize.query(`CREATE ${wantUnique ? 'UNIQUE ' : ''}INDEX ${indexName} ON ${table}(${columns})`);
+        } catch {
+          await sequelize.query(`ALTER TABLE ${table} ADD ${wantUnique ? 'UNIQUE ' : ''}INDEX ${indexName} (${columns})`);
+        }
+        return;
+      }
+
+      if (!wantUnique || existing.NON_UNIQUE === 0) {
+        return;
+      }
+
+      const [dupRows] = await sequelize.query(`
+        SELECT COUNT(*) AS dupCount FROM (
+          SELECT name FROM ${table} GROUP BY name HAVING COUNT(*) > 1
+        ) duplicates
+      `);
+      if (Number(dupRows[0].dupCount) > 0) {
+        logger.warn('存在重复 name，保留普通索引，修复重复后重启可升级为唯一索引', {
+          table,
+          indexName,
+          duplicateGroups: Number(dupRows[0].dupCount),
+        });
+        return;
+      }
+
+      try {
+        await sequelize.query(`DROP INDEX ${indexName} ON ${table}`);
+        await sequelize.query(`CREATE UNIQUE INDEX ${indexName} ON ${table}(${columns})`);
+        logger.info('名称索引已升级为唯一索引', { table, indexName });
+      } catch (error) {
+        logger.warn('名称唯一索引升级失败，已回退为普通索引', {
+          table,
+          indexName,
+          message: error.message,
+        });
         try {
           await sequelize.query(`CREATE INDEX ${indexName} ON ${table}(${columns})`);
         } catch {
-          await sequelize.query(`ALTER TABLE ${table} ADD INDEX ${indexName} (${columns})`);
+          logger.error('回退普通索引失败', { table, indexName });
         }
       }
     };
@@ -33,15 +72,15 @@ export async function createIndexes(sequelize) {
     await ensureIndex('agents', 'idx_agents_rarity_id', 'rarityId');
     await ensureIndex('agents', 'idx_agents_faction_role', 'factionId, roleId');
     await ensureIndex('agents', 'idx_agents_role_rarity', 'roleId, rarityId');
-    await ensureIndex('agents', 'idx_agents_name', 'name');
+    await ensureIndex('agents', 'idx_agents_name', 'name', { unique: true });
     await ensureIndex('agents', 'idx_agents_element', 'element');
     await ensureIndex('sound_engines', 'idx_sound_engines_rarity_id', 'rarityId');
     await ensureIndex('sound_engines', 'idx_sound_engines_role_id', 'roleId');
     await ensureIndex('sound_engines', 'idx_sound_engines_role_rarity', 'roleId, rarityId');
-    await ensureIndex('sound_engines', 'idx_sound_engines_name', 'name');
+    await ensureIndex('sound_engines', 'idx_sound_engines_name', 'name', { unique: true });
     await ensureIndex('bumbos', 'idx_bumbos_rarity_id', 'rarityId');
-    await ensureIndex('bumbos', 'idx_bumbos_name', 'name');
-    await ensureIndex('drive_disks', 'idx_drive_disks_name', 'name');
+    await ensureIndex('bumbos', 'idx_bumbos_name', 'name', { unique: true });
+    await ensureIndex('drive_disks', 'idx_drive_disks_name', 'name', { unique: true });
     await ensureIndex('agents', 'idx_agents_created_at', 'createdAt');
     await ensureIndex('agents', 'idx_agents_updated_at', 'updatedAt');
     await ensureIndex('sound_engines', 'idx_sound_engines_created_at', 'createdAt');
@@ -51,12 +90,12 @@ export async function createIndexes(sequelize) {
     await ensureIndex('hsr_characters', 'idx_hsr_characters_element', 'elementId');
     await ensureIndex('hsr_characters', 'idx_hsr_characters_path', 'pathId');
     await ensureIndex('hsr_characters', 'idx_hsr_characters_rarity', 'rarityId');
-    await ensureIndex('hsr_characters', 'idx_hsr_characters_name', 'name');
+    await ensureIndex('hsr_characters', 'idx_hsr_characters_name', 'name', { unique: true });
     await ensureIndex('hsr_cones', 'idx_hsr_cones_path', 'pathId');
     await ensureIndex('hsr_cones', 'idx_hsr_cones_rarity', 'rarityId');
-    await ensureIndex('hsr_cones', 'idx_hsr_cones_name', 'name');
+    await ensureIndex('hsr_cones', 'idx_hsr_cones_name', 'name', { unique: true });
     await ensureIndex('hsr_relics', 'idx_hsr_relics_type', 'typeId');
-    await ensureIndex('hsr_relics', 'idx_hsr_relics_name', 'name');
+    await ensureIndex('hsr_relics', 'idx_hsr_relics_name', 'name', { unique: true });
     
     logger.info('数据库索引创建完成');
     return true;
@@ -161,88 +200,8 @@ export async function checkIndexes(sequelize) {
   }
 }
 
-/**
- * 分析查询性能
- * @param {Sequelize} sequelize - Sequelize实例
- * @param {string} query - 要分析的SQL查询
- */
-export async function analyzeQuery(sequelize, query) {
-  const startTime = Date.now();
-  try {
-    logger.info('分析查询性能...', { query });
-    
-    // 使用EXPLAIN分析查询
-    const [result] = await sequelize.query(`EXPLAIN ${query}`);
-    
-    if (process.env.NODE_ENV === 'development') {
-      console.table(result);
-    }
-    
-    // 检查是否使用了索引
-    const hasIndex = result.some(row => row.key && row.key !== 'NULL');
-    const hasFullTableScan = result.some(row => row.type === 'ALL');
-    
-    const analysisResult = {
-      executionPlan: result,
-      hasIndex,
-      hasFullTableScan,
-      recommendations: generateRecommendations(result)
-    };
-    
-    logger.info('查询性能分析完成', {
-      hasIndex,
-      hasFullTableScan,
-      planSteps: result.length
-    });
-    
-    logPerformance('查询分析', Date.now() - startTime, {
-      query: query.substring(0, 100) + '...',
-      hasIndex,
-      hasFullTableScan
-    });
-    
-    return analysisResult;
-  } catch (error) {
-    logger.error('查询分析失败', {
-      message: error.message,
-      query: query.substring(0, 100) + '...',
-      stack: error.stack
-    });
-    return null;
-  }
-}
-
-/**
- * 生成优化建议
- * @param {Array} executionPlan - 执行计划
- */
-function generateRecommendations(executionPlan) {
-  const recommendations = [];
-  
-  executionPlan.forEach(row => {
-    if (row.type === 'ALL') {
-      recommendations.push(`表 ${row.table} 正在进行全表扫描，建议为 ${row.Extra || '查询条件'} 添加索引`);
-    }
-    
-    if (row.rows > 1000) {
-      recommendations.push(`表 ${row.table} 扫描行数过多 (${row.rows} 行)，建议优化查询条件或添加索引`);
-    }
-    
-    if (row.Extra && row.Extra.includes('Using temporary')) {
-      recommendations.push(`查询使用了临时表，建议优化 ORDER BY 或 GROUP BY 子句`);
-    }
-    
-    if (row.Extra && row.Extra.includes('Using filesort')) {
-      recommendations.push(`查询使用了文件排序，建议为排序字段添加索引`);
-    }
-  });
-  
-  return recommendations;
-}
-
 export default {
   createIndexes,
   dropIndexes,
-  checkIndexes,
-  analyzeQuery
+  checkIndexes
 };

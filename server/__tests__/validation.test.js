@@ -60,4 +60,28 @@ describe('validation middleware', () => {
       rarityId: 1,
     })).toThrow();
   });
+
+  it('keeps drive disk image payloads instead of dropping them', () => {
+    const { validateDriveDiskData } = validationModule;
+    const cleaned = validateDriveDiskData({
+      name: 'Rotor 4',
+      description: 'Balance',
+      image: 'data:image/png;base64,abc',
+    });
+
+    expect(cleaned.image).toBe('data:image/png;base64,abc');
+    expect(cleaned.description).toBe('Balance');
+  });
+
+  it('keeps empty HSR character descriptions so clears are not ignored', () => {
+    const cleaned = validateHsrCharacterData({
+      name: 'March 7th',
+      elementId: 1,
+      pathId: 1,
+      rarityId: 1,
+      description: '',
+    });
+
+    expect(cleaned.description).toBe('');
+  });
 });

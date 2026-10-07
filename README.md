@@ -140,7 +140,7 @@ npm run cleanup-storage-backups -- --dry-run
 4. 后端重建 root storage 和 web storage
 5. 公开 Wiki 详情页或兼容链路可从 `GET /api/dual-storage/web/data` 读取快照
 
-兼容性的 legacy staging 接口仍然保留，但发布动作现在也会通过数据库事务完成，不再允许只改 JSON 不改数据库。
+legacy staging 接口已整体下线：数据库是唯一事实源，批量替换走 `/api/storage/*`（提交前强制 mysqldump 备份）。
 
 ## 公开与管理 API
 
@@ -182,8 +182,7 @@ npm run cleanup-storage-backups -- --dry-run
 - `/api/hsr/cones`
 - `/api/hsr/relics`
 - `/api/storage/*`
-- `/api/dual-storage/admin/*`
-- `/api/dual-storage/sync`
+- `/api/dual-storage/status`
 
 ## 文档导航
 

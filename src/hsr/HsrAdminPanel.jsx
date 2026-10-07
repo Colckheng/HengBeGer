@@ -3,16 +3,18 @@ import {
   useDeferredValue,
   useEffect,
   useMemo,
+  useRef,
   useState,
 } from 'react';
 import { Link } from 'react-router-dom';
 
-import star from '../assets/star.jpg';
 import { useData } from '../DataContext.jsx';
 import logoutAdminSession from '../utils/adminLogout.js';
 import { getApiErrorMessage } from '../utils/apiError.js';
 import { validateAdminImageFile } from '../utils/imageUpload.js';
 import '../ZZZWiki.css';
+
+const star = '/assets/star.jpg';
 
 const EMPTY_FORM = {};
 
@@ -100,6 +102,7 @@ const matchesSearch = (item, query) => {
     item.type,
     item.setName,
     item.part,
+    item.description,
   ]
     .filter(Boolean)
     .join(' ')
@@ -112,7 +115,9 @@ const HsrAdminPanel = () => {
   const {
     data,
     baseData,
+    baseDataDegraded,
     loading,
+    refreshing,
     error,
     refreshData,
     handleAddHsrCharacter,
@@ -132,12 +137,21 @@ const HsrAdminPanel = () => {
   const [imagePreview, setImagePreview] = useState(null);
   const [submitting, setSubmitting] = useState(false);
   const [statusMessage, setStatusMessage] = useState('');
+  const [statusTone, setStatusTone] = useState('success');
   const [searchTerm, setSearchTerm] = useState('');
   const [editorOpen, setEditorOpen] = useState(true);
   const deferredSearchTerm = useDeferredValue(searchTerm);
   const imageInputId = `${activeTab}-image-upload`;
+  const fieldId = (name) => `${activeTab}-field-${name}`;
+  const fileReadSeqRef = useRef(0);
+
+  const pushStatus = (message, tone = 'success') => {
+    setStatusMessage(message);
+    setStatusTone(tone);
+  };
 
   useEffect(() => {
+    fileReadSeqRef.current += 1;
     setEditingItem(null);
     setFormData(EMPTY_FORM);
     setImagePreview(null);
@@ -253,6 +267,7 @@ const HsrAdminPanel = () => {
   const handleFileChange = (event) => {
     const file = event.target.files?.[0];
     if (!file) {
+      fileReadSeqRef.current += 1;
       setImagePreview(null);
       setStatusMessage('');
       return;
@@ -260,14 +275,19 @@ const HsrAdminPanel = () => {
 
     const validationResult = validateAdminImageFile(file);
     if (!validationResult.valid) {
+      fileReadSeqRef.current += 1;
       setFormData((current) => ({ ...current, image: '' }));
       setImagePreview(null);
-      setStatusMessage(validationResult.error);
+      pushStatus(validationResult.error, 'error');
       event.target.value = '';
       return;
     }
 
+    const readSeq = ++fileReadSeqRef.current;
     readFileAsDataUrl(file, (result) => {
+      if (readSeq !== fileReadSeqRef.current) {
+        return;
+      }
       setFormData((current) => ({ ...current, image: result }));
       setImagePreview(result);
       setStatusMessage('');
@@ -275,6 +295,7 @@ const HsrAdminPanel = () => {
   };
 
   const closeEditor = () => {
+    fileReadSeqRef.current += 1;
     setEditingItem(null);
     setFormData(EMPTY_FORM);
     setImagePreview(null);
@@ -282,6 +303,7 @@ const HsrAdminPanel = () => {
   };
 
   const openCreateEditor = () => {
+    fileReadSeqRef.current += 1;
     setEditingItem(null);
     setFormData(EMPTY_FORM);
     setImagePreview(null);
@@ -290,6 +312,7 @@ const HsrAdminPanel = () => {
   };
 
   const handleEdit = (item) => {
+    fileReadSeqRef.current += 1;
     setEditingItem(item);
     setFormData(normalizeItemForForm(activeTab, item));
     setImagePreview(item.image || null);
@@ -307,9 +330,9 @@ const HsrAdminPanel = () => {
 
     try {
       await activeConfig.remove(id);
-      setStatusMessage(`${activeConfig.label}已删除。`);
+      pushStatus(`${activeConfig.label}已删除。`);
     } catch (deleteError) {
-      setStatusMessage(getApiErrorMessage(deleteError, '删除失败。'));
+      pushStatus(getApiErrorMessage(deleteError, '删除失败。'), 'error');
     } finally {
       setSubmitting(false);
     }
@@ -317,6 +340,10 @@ const HsrAdminPanel = () => {
 
   const handleLogout = async () => {
     await logoutAdminSession();
+  };
+
+  const handleRefresh = () => {
+    void refreshData().catch(() => {});
   };
 
   const handleSubmit = async (event) => {
@@ -328,10 +355,10 @@ const HsrAdminPanel = () => {
       const payload = preparePayload(activeTab, formData);
       if (editingItem) {
         await activeConfig.update(editingItem.id, payload);
-        setStatusMessage(`${activeConfig.label}已更新。`);
+        pushStatus(`${activeConfig.label}已更新。`);
       } else {
         await activeConfig.add(payload);
-        setStatusMessage(`${activeConfig.label}已创建。`);
+        pushStatus(`${activeConfig.label}已创建。`);
       }
 
       setEditingItem(null);
@@ -339,11 +366,19 @@ const HsrAdminPanel = () => {
       setImagePreview(null);
       setEditorOpen(true);
     } catch (submitError) {
-      setStatusMessage(getApiErrorMessage(submitError, '保存失败。'));
+      pushStatus(getApiErrorMessage(submitError, '保存失败。'), 'error');
       setEditorOpen(true);
     } finally {
       setSubmitting(false);
     }
+  };
+
+  const handleSaveClick = (event) => {
+    const form = event.currentTarget.closest('.admin-drawer')?.querySelector('form');
+    if (form && !form.reportValidity()) {
+      return;
+    }
+    handleSubmit(event);
   };
 
   const renderForm = () => {
@@ -351,12 +386,12 @@ const HsrAdminPanel = () => {
       return (
         <>
           <div className="form-group">
-            <label>名称</label>
-            <input name="name" value={formData.name || ''} onChange={handleInputChange} required />
+            <label htmlFor={fieldId('name')}>名称</label>
+            <input id={fieldId('name')} name="name" value={formData.name || ''} onChange={handleInputChange} required />
           </div>
           <div className="form-group">
-            <label>元素</label>
-            <select name="elementId" value={formData.elementId || ''} onChange={handleInputChange} required>
+            <label htmlFor={fieldId('elementId')}>元素</label>
+            <select id={fieldId('elementId')} name="elementId" value={formData.elementId || ''} onChange={handleInputChange} required>
               <option value="">请选择元素</option>
               {hsrBase.elements.map((element) => (
                 <option key={element.id} value={element.id}>{element.name}</option>
@@ -364,8 +399,8 @@ const HsrAdminPanel = () => {
             </select>
           </div>
           <div className="form-group">
-            <label>命途</label>
-            <select name="pathId" value={formData.pathId || ''} onChange={handleInputChange} required>
+            <label htmlFor={fieldId('pathId')}>命途</label>
+            <select id={fieldId('pathId')} name="pathId" value={formData.pathId || ''} onChange={handleInputChange} required>
               <option value="">请选择命途</option>
               {hsrBase.paths.map((path) => (
                 <option key={path.id} value={path.id}>{path.name}</option>
@@ -373,8 +408,8 @@ const HsrAdminPanel = () => {
             </select>
           </div>
           <div className="form-group">
-            <label>稀有度</label>
-            <select name="rarityId" value={formData.rarityId || ''} onChange={handleInputChange} required>
+            <label htmlFor={fieldId('rarityId')}>稀有度</label>
+            <select id={fieldId('rarityId')} name="rarityId" value={formData.rarityId || ''} onChange={handleInputChange} required>
               <option value="">请选择稀有度</option>
               {hsrBase.rarities.map((rarity) => (
                 <option key={rarity.id} value={rarity.id}>{rarity.name}</option>
@@ -382,8 +417,9 @@ const HsrAdminPanel = () => {
             </select>
           </div>
           <div className="form-group">
-            <label>描述</label>
+            <label htmlFor={fieldId('description')}>描述</label>
             <textarea
+              id={fieldId('description')}
               name="description"
               value={formData.description || ''}
               onChange={handleInputChange}
@@ -398,12 +434,12 @@ const HsrAdminPanel = () => {
       return (
         <>
           <div className="form-group">
-            <label>名称</label>
-            <input name="name" value={formData.name || ''} onChange={handleInputChange} required />
+            <label htmlFor={fieldId('name')}>名称</label>
+            <input id={fieldId('name')} name="name" value={formData.name || ''} onChange={handleInputChange} required />
           </div>
           <div className="form-group">
-            <label>命途</label>
-            <select name="pathId" value={formData.pathId || ''} onChange={handleInputChange} required>
+            <label htmlFor={fieldId('pathId')}>命途</label>
+            <select id={fieldId('pathId')} name="pathId" value={formData.pathId || ''} onChange={handleInputChange} required>
               <option value="">请选择命途</option>
               {hsrBase.paths.map((path) => (
                 <option key={path.id} value={path.id}>{path.name}</option>
@@ -411,8 +447,8 @@ const HsrAdminPanel = () => {
             </select>
           </div>
           <div className="form-group">
-            <label>稀有度</label>
-            <select name="rarityId" value={formData.rarityId || ''} onChange={handleInputChange} required>
+            <label htmlFor={fieldId('rarityId')}>稀有度</label>
+            <select id={fieldId('rarityId')} name="rarityId" value={formData.rarityId || ''} onChange={handleInputChange} required>
               <option value="">请选择稀有度</option>
               {hsrBase.rarities.map((rarity) => (
                 <option key={rarity.id} value={rarity.id}>{rarity.name}</option>
@@ -426,12 +462,12 @@ const HsrAdminPanel = () => {
     return (
       <>
         <div className="form-group">
-          <label>名称</label>
-          <input name="name" value={formData.name || ''} onChange={handleInputChange} required />
+          <label htmlFor={fieldId('name')}>名称</label>
+          <input id={fieldId('name')} name="name" value={formData.name || ''} onChange={handleInputChange} required />
         </div>
         <div className="form-group">
-          <label>类型</label>
-          <select name="typeId" value={formData.typeId || ''} onChange={handleInputChange} required>
+          <label htmlFor={fieldId('typeId')}>类型</label>
+          <select id={fieldId('typeId')} name="typeId" value={formData.typeId || ''} onChange={handleInputChange} required>
             <option value="">请选择类型</option>
             {hsrBase.relicTypes.map((type) => (
               <option key={type.id} value={type.id}>{type.name}</option>
@@ -439,12 +475,12 @@ const HsrAdminPanel = () => {
           </select>
         </div>
         <div className="form-group">
-          <label>套装名称</label>
-          <input name="setName" value={formData.setName || ''} onChange={handleInputChange} />
+          <label htmlFor={fieldId('setName')}>套装名称</label>
+          <input id={fieldId('setName')} name="setName" value={formData.setName || ''} onChange={handleInputChange} />
         </div>
         <div className="form-group">
-          <label>部位</label>
-          <select name="part" value={formData.part || ''} onChange={handleInputChange}>
+          <label htmlFor={fieldId('part')}>部位</label>
+          <select id={fieldId('part')} name="part" value={formData.part || ''} onChange={handleInputChange}>
             <option value="">请选择部位</option>
             {hsrBase.relicParts.map((part) => (
               <option key={part} value={part}>{part}</option>
@@ -502,8 +538,8 @@ const HsrAdminPanel = () => {
                   </td>
                   <td>
                     <div className="admin-row-tags">
-                      {metaTags.filter(Boolean).slice(0, 3).map((tag) => (
-                        <span key={`${item.id}-${tag}`} className="admin-badge">{tag}</span>
+                      {metaTags.filter(Boolean).slice(0, 3).map((tag, tagIndex) => (
+                        <span key={`${item.id}-${tag}-${tagIndex}`} className="admin-badge">{tag}</span>
                       ))}
                     </div>
                   </td>
@@ -540,7 +576,7 @@ const HsrAdminPanel = () => {
   }
 
   return (
-    <div className="admin-shell theme-hsr-admin">
+    <div className={`admin-shell theme-hsr-admin${refreshing ? ' is-refreshing' : ''}`}>
       <aside className="admin-sidebar">
         <Link to="/hsr-wiki" className="admin-sidebar-brand">
           <h2>HengHSR</h2>
@@ -554,6 +590,7 @@ const HsrAdminPanel = () => {
               type="button"
               className={`admin-sidebar-link ${activeTab === key ? 'active' : ''}`}
               onClick={() => setActiveTab(key)}
+              disabled={submitting}
             >
               <strong>{config.label}</strong>
               <span>{config.summary}</span>
@@ -582,7 +619,7 @@ const HsrAdminPanel = () => {
             </div>
           </div>
           <div className="admin-actions">
-            <button type="button" className="admin-action secondary" onClick={refreshData}>
+            <button type="button" className="admin-action secondary" onClick={handleRefresh}>
               刷新数据
             </button>
             <button type="button" className="admin-action secondary" onClick={handleLogout}>
@@ -595,11 +632,19 @@ const HsrAdminPanel = () => {
         </header>
 
         {statusMessage ? (
-          <div className={`status-banner ${statusMessage.includes('失败') ? 'error' : ''}`}>
+          <div className={`status-banner${statusTone === 'error' ? ' error' : ''}`}>
             {statusMessage}
           </div>
         ) : null}
         {error ? <div className="status-banner error">{error}</div> : null}
+        {!error && baseDataDegraded ? (
+          <div className="status-banner error" role="alert">
+            部分基础数据加载失败，下拉选项可能不完整。
+            <button type="button" className="wiki-error-retry" onClick={handleRefresh}>
+              重试
+            </button>
+          </div>
+        ) : null}
 
         <section className="admin-metric-grid">
           {metrics.map((metric) => (
@@ -637,6 +682,7 @@ const HsrAdminPanel = () => {
                   value={searchTerm}
                   onChange={(event) => setSearchTerm(event.target.value)}
                   placeholder={`搜索${activeConfig.label}...`}
+                  aria-label={`搜索${activeConfig.label}`}
                 />
               </div>
             </div>
@@ -682,7 +728,7 @@ const HsrAdminPanel = () => {
                     切换到新增
                   </button>
                 ) : null}
-                <button type="button" className="btn-primary" onClick={handleSubmit} disabled={submitting}>
+                <button type="button" className="btn-primary" onClick={handleSaveClick} disabled={submitting}>
                   {submitting ? '保存中...' : (editingItem ? '保存修改' : '新增')}
                 </button>
               </div>

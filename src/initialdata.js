@@ -94,7 +94,7 @@ const initialData = {
     {
       "id": 11,
       "name": "「扳机」",
-      "faction": "奥伯勒斯小队",
+      "faction": "奥波勒斯小队",
       "role": "击破",
       "rarity": "S",
       "element": "电",
@@ -103,7 +103,7 @@ const initialData = {
     {
       "id": 12,
       "name": "零号・安比",
-      "faction": "奥伯勒斯小队",
+      "faction": "奥波勒斯小队",
       "role": "强攻",
       "rarity": "S",
       "element": "电",
@@ -202,7 +202,7 @@ const initialData = {
     {
       "id": 23,
       "name": "「11号」",
-      "faction": "奥伯勒斯小队",
+      "faction": "奥波勒斯小队",
       "role": "强攻",
       "rarity": "S",
       "element": "火",

@@ -7,6 +7,8 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
+cd "$(dirname "$0")" || exit 1
+
 echo "========================================"
 echo "    HengBeGer 项目一键启动脚本"
 echo "========================================"
@@ -24,7 +26,7 @@ echo
 echo "[2/5] 检查项目依赖..."
 if [ ! -d "node_modules" ]; then
     echo -e "${BLUE}📦 正在安装项目依赖...${NC}"
-    npm install --legacy-peer-deps
+    npm install
     if [ $? -ne 0 ]; then
         echo -e "${RED}❌ 依赖安装失败${NC}"
         exit 1

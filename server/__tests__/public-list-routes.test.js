@@ -107,13 +107,13 @@ describe('public list routes', () => {
 
     const response = await request(app).get('/api/hsr/relics/list').query({
       typeId: '2',
-      part: '头部',
+      part: '头',
     });
 
     expect(response.status).toBe(200);
     expect(listHsrRelics).toHaveBeenCalledWith({
       typeIds: [2],
-      parts: ['头部'],
+      parts: ['头'],
       limit: undefined,
       offset: 0,
     });

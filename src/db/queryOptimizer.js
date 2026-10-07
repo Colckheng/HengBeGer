@@ -1,8 +1,9 @@
 // 查询优化工具
 // 提供常见查询的优化版本和性能分析
 
-import { analyzeQuery } from './indexes.js';
 import { Op } from 'sequelize';
+
+import { logger, logDatabase, logPerformance } from '../utils/logger.js';
 
 /**
  * 优化的查询构建器
@@ -19,16 +20,10 @@ export class QueryOptimizer {
       cacheMisses: 0
     };
     
-    // 导入日志工具
-    import('../utils/logger.js').then(({ logger, logDatabase, logPerformance }) => {
-      this.logger = logger;
-      this.logDatabase = logDatabase;
-      this.logPerformance = logPerformance;
-      this.logger.info('查询优化器已初始化');
-    });
-    
-    // 临时使用console.log直到logger加载完成
-    console.log('🚀 查询优化器已初始化');
+    this.logger = logger;
+    this.logDatabase = logDatabase;
+    this.logPerformance = logPerformance;
+    this.logger.info('查询优化器已初始化');
   }
 
   /**
@@ -68,7 +63,7 @@ export class QueryOptimizer {
       const result = await this.sequelize.models.Agent.findAndCountAll(query);
       
       // 记录查询性能
-      console.log(`🔍 代理人查询完成: 返回 ${result.rows.length}/${result.count} 条记录`);
+      logger.debug(`代理人查询完成: 返回 ${result.rows.length}/${result.count} 条记录`);
       
       return result;
     } catch (error) {
@@ -101,7 +96,7 @@ export class QueryOptimizer {
     
     try {
       const result = await this.sequelize.models.SoundEngine.findAndCountAll(query);
-      console.log(`🔍 音擎查询完成: 返回 ${result.rows.length}/${result.count} 条记录`);
+      logger.debug(`音擎查询完成: 返回 ${result.rows.length}/${result.count} 条记录`);
       return result;
     } catch (error) {
       console.error('❌ 音擎查询失败:', error.message);
@@ -130,7 +125,7 @@ export class QueryOptimizer {
     
     try {
       const result = await this.sequelize.models.Bumbo.findAndCountAll(query);
-      console.log(`🔍 邦布查询完成: 返回 ${result.rows.length}/${result.count} 条记录`);
+      logger.debug(`邦布查询完成: 返回 ${result.rows.length}/${result.count} 条记录`);
       return result;
     } catch (error) {
       console.error('❌ 邦布查询失败:', error.message);
@@ -152,7 +147,7 @@ export class QueryOptimizer {
     
     try {
       const result = await this.sequelize.models.DriveDisk.findAndCountAll(query);
-      console.log(`🔍 驱动盘查询完成: 返回 ${result.rows.length}/${result.count} 条记录`);
+      logger.debug(`驱动盘查询完成: 返回 ${result.rows.length}/${result.count} 条记录`);
       return result;
     } catch (error) {
       console.error('❌ 驱动盘查询失败:', error.message);
@@ -166,7 +161,7 @@ export class QueryOptimizer {
    */
   async getAllDataOptimized() {
     try {
-      console.log('🔍 开始批量查询所有数据...');
+      logger.debug('开始批量查询所有数据...');
       
       // 并行执行多个查询
       const [agents, soundEngines, bumbos, driveDisks, factions, roles, rarities] = await Promise.all([
@@ -199,8 +194,8 @@ export class QueryOptimizer {
         this.sequelize.models.Rarity.findAll({ order: [['name', 'ASC']] })
       ]);
       
-      console.log('✅ 批量查询完成');
-      console.log(`📊 查询结果: 代理人${agents.length}个, 音擎${soundEngines.length}个, 邦布${bumbos.length}个, 驱动盘${driveDisks.length}个`);
+      logger.debug('批量查询完成');
+      logger.debug(`查询结果: 代理人${agents.length}个, 音擎${soundEngines.length}个, 邦布${bumbos.length}个, 驱动盘${driveDisks.length}个`);
       
       return {
         agents,
@@ -288,7 +283,7 @@ export class QueryOptimizer {
         });
         this.logPerformance('搜索操作', Date.now() - startTime, { searchTerm, type });
       } else {
-        console.log(`🔍 搜索 "${searchTerm}" 完成: 找到 ${totalResults} 条结果`);
+        logger.debug(`搜索 "${searchTerm}" 完成: 找到 ${totalResults} 条结果`);
       }
       
       return results;
@@ -305,102 +300,6 @@ export class QueryOptimizer {
       }
       throw error;
     }
-  }
-
-  /**
-   * 分析查询性能
-   */
-  async analyzeQueryPerformance(queryType, filters = {}) {
-    console.log(`🔍 分析 ${queryType} 查询性能...`);
-    
-    let sqlQuery = '';
-    
-    switch (queryType) {
-      case 'agents':
-        sqlQuery = this.buildAgentQuery(filters);
-        break;
-      case 'soundEngines':
-        sqlQuery = this.buildSoundEngineQuery(filters);
-        break;
-      case 'bumbos':
-        sqlQuery = this.buildBumboQuery(filters);
-        break;
-      default:
-        console.warn('未知的查询类型:', queryType);
-        return null;
-    }
-    
-    if (sqlQuery) {
-      return await analyzeQuery(this.sequelize, sqlQuery);
-    }
-    
-    return null;
-  }
-
-  /**
-   * 构建代理人查询SQL
-   */
-  buildAgentQuery(filters) {
-    const { factionId, roleId, rarityId, element } = filters;
-    let whereConditions = [];
-    
-    if (factionId) whereConditions.push(`factionId = ${factionId}`);
-    if (roleId) whereConditions.push(`roleId = ${roleId}`);
-    if (rarityId) whereConditions.push(`rarityId = ${rarityId}`);
-    if (element) whereConditions.push(`element = '${element}'`);
-    
-    const whereClause = whereConditions.length > 0 ? `WHERE ${whereConditions.join(' AND ')}` : '';
-    
-    return `
-      SELECT a.*, f.name as factionName, r.name as roleName, ra.name as rarityName
-      FROM agents a
-      LEFT JOIN factions f ON a.factionId = f.id
-      LEFT JOIN roles r ON a.roleId = r.id
-      LEFT JOIN rarities ra ON a.rarityId = ra.id
-      ${whereClause}
-      ORDER BY a.createdAt DESC
-      LIMIT 50
-    `;
-  }
-
-  /**
-   * 构建音擎查询SQL
-   */
-  buildSoundEngineQuery(filters) {
-    const { roleId, rarityId } = filters;
-    let whereConditions = [];
-    
-    if (roleId) whereConditions.push(`roleId = ${roleId}`);
-    if (rarityId) whereConditions.push(`rarityId = ${rarityId}`);
-    
-    const whereClause = whereConditions.length > 0 ? `WHERE ${whereConditions.join(' AND ')}` : '';
-    
-    return `
-      SELECT se.*, r.name as roleName, ra.name as rarityName
-      FROM sound_engines se
-      LEFT JOIN roles r ON se.roleId = r.id
-      LEFT JOIN rarities ra ON se.rarityId = ra.id
-      ${whereClause}
-      ORDER BY se.createdAt DESC
-      LIMIT 50
-    `;
-  }
-
-  /**
-   * 构建邦布查询SQL
-   */
-  buildBumboQuery(filters) {
-    const { rarityId } = filters;
-    const whereClause = rarityId ? `WHERE rarityId = ${rarityId}` : '';
-    
-    return `
-      SELECT b.*, ra.name as rarityName
-      FROM bumbos b
-      LEFT JOIN rarities ra ON b.rarityId = ra.id
-      ${whereClause}
-      ORDER BY b.createdAt DESC
-      LIMIT 50
-    `;
   }
 
   /**
@@ -421,12 +320,11 @@ export class QueryOptimizer {
         ORDER BY total_size DESC
       `);
       
-      console.log('📊 数据库表统计信息:');
-      console.table(stats);
+      logger.debug('数据库表统计信息', { stats });
       
       return stats;
     } catch (error) {
-      console.error('❌ 获取查询统计失败:', error.message);
+      logger.error('获取查询统计失败', { message: error.message });
       return [];
     }
   }

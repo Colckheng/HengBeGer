@@ -19,6 +19,9 @@ export default function defineAgent(sequelize) {
     image: {
       type: DataTypes.TEXT('long')
     },
+    description: {
+      type: DataTypes.TEXT
+    },
     factionId: {
       type: DataTypes.INTEGER,
       allowNull: false

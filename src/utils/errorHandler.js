@@ -72,7 +72,23 @@ export const catchAsync = (fn) => {
 export const handleError = (error, context = '') => {
   // 记录错误日志
   logError(error, context);
-  
+
+  if (error?.type === 'entity.parse.failed') {
+    return {
+      statusCode: 400,
+      message: 'Invalid JSON payload.',
+      isOperational: true
+    };
+  }
+
+  if (error?.type === 'entity.too.large') {
+    return {
+      statusCode: 413,
+      message: 'Request payload too large.',
+      isOperational: true
+    };
+  }
+
   // 根据错误类型返回适当的信息
   if (error instanceof AppError) {
     return {
@@ -115,8 +131,7 @@ const handleDatabaseError = (error) => {
   logger.error('数据库错误', {
     name: error.name,
     message: error.message,
-    sql: error.sql,
-    parameters: error.parameters
+    sql: error.sql
   });
   
   // 根据具体的数据库错误类型返回用户友好的消息
@@ -217,6 +232,7 @@ export const errorMiddleware = (err, req, res, _next) => {
   // 记录API错误日志
   logger.api(req.method, req.path, errorInfo.statusCode, Date.now() - startTime, {
     error: err.message,
+    stack: err.stack,
     userAgent: req.get('User-Agent'),
     ip: req.ip,
     requestId: req.requestId
@@ -228,11 +244,7 @@ export const errorMiddleware = (err, req, res, _next) => {
     message: errorInfo.message,
     error: errorInfo.message,
     timestamp: new Date().toISOString(),
-    requestId: req.requestId,
-    ...(process.env.NODE_ENV === 'development' && {
-      stack: err.stack,
-      details: err
-    })
+    requestId: req.requestId
   });
 };
 
