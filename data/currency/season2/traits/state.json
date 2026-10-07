@@ -3,10 +3,10 @@
   "block": "currency",
   "seed_source": "D:\\github\\hsr.nanoka.cc",
   "seed_version": "4.6.51 (checked 2026-10-01 21:30)",
-  "last_crawled_at": null,
-  "primary_source": null,
+  "last_crawled_at": "2026-10-07T10:52:13.159Z",
+  "primary_source": "nanoka",
   "counts": {
     "files": 34,
-    "indexed": 33
+    "indexed": 34
   }
 }
