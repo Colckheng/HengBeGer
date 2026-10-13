@@ -1,0 +1,39 @@
+{
+  "startedAt": "2026-10-13T06:53:01.037Z",
+  "desktop": {
+    "top": 607.4000244140625,
+    "bodyHeight": 2137
+  },
+  "level": {
+    "exactInput": 7,
+    "displayed": "等级\t普攻·单体\t强化·单体\t强化·全体\n等级7\t55%\t33%\t33%"
+  },
+  "groupSwitch": {
+    "keyboard": true,
+    "preservesButtonFocus": true,
+    "remembersChapter": true
+  },
+  "mobile": {
+    "top": 654.6000366210938,
+    "bodyHeight": 2311,
+    "width": 390,
+    "scrollWidth": 390
+  },
+  "mobileDirectory": {
+    "keyboardOpen": true,
+    "keyboardSelect": true,
+    "focusOnReading": true,
+    "closedAfterSelection": true
+  },
+  "provenance": {
+    "openedByKeyboard": true,
+    "focusOnSummary": true
+  },
+  "related": {
+    "heading": "三月七存护",
+    "primaryChapter": "行迹"
+  },
+  "passed": true,
+  "pageErrors": [],
+  "endedAt": "2026-10-13T06:53:03.512Z"
+}

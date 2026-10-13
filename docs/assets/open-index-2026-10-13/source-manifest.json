@@ -1,0 +1,189 @@
+{
+  "recordedAt": "2026-10-13T07:22:01.625Z",
+  "sourceRoot": "C:/Users/hengxing/.codex/worktrees/3bbd/HengBerGer",
+  "branch": "codex/t2-9d",
+  "head": "99484aa",
+  "scope": "Selected source and asset snapshot after homepage desktop-image replacement; not a full repository backup or a new test run.",
+  "files": [
+    {
+      "path": "demo.html",
+      "bytes": 601,
+      "sha256": "24a09645e7ced334226c5067b957b5c5732ad6090cefdd3666420f3668b3aa4d"
+    },
+    {
+      "path": "package.json",
+      "bytes": 3911,
+      "sha256": "764a67a78e25de49265a4e77d613413d22c7390f20bea2897ca41f14849cf079"
+    },
+    {
+      "path": "vite.config.js",
+      "bytes": 812,
+      "sha256": "fad44787bd30cb40c0a689955325c50a9e45fdbac2caabb9642b56aab6c5c554"
+    },
+    {
+      "path": "src/demo/main.jsx",
+      "bytes": 806,
+      "sha256": "d59dcc297fb3b23ef9a871ea977c60f5afe4e1160e7ba07ead7eef66b319835e"
+    },
+    {
+      "path": "src/demo/DemoApp.jsx",
+      "bytes": 15129,
+      "sha256": "924697f7b2b8b9ad63842ea18f8affc972432f64bf3cf53eb3cb861894db3e7b"
+    },
+    {
+      "path": "src/demo/AtlasEdition.jsx",
+      "bytes": 7698,
+      "sha256": "09372871d8702493ffc976d03a3354f0d4df3d701c573c048ef4bdcdcb9585a0"
+    },
+    {
+      "path": "src/demo/AtlasCollection.jsx",
+      "bytes": 5073,
+      "sha256": "b489b17969ac7f0d469455e8036fabbc204f749b79bfa7b2b45ceb91e8727fd3"
+    },
+    {
+      "path": "src/demo/AtlasDetail.jsx",
+      "bytes": 13300,
+      "sha256": "cc6bac7d7ef9df496f29b14b47e87d89ab49f4cfd7bac9c0b47407f5e78787de"
+    },
+    {
+      "path": "src/demo/atlas-edition.css",
+      "bytes": 28801,
+      "sha256": "3065f6340cdba7d5120642d73cc25162444cfafc9a1fe59c2b348c32740a977b"
+    },
+    {
+      "path": "src/demo/atlas-collection.css",
+      "bytes": 11248,
+      "sha256": "0d50bfdff2d4e4e588b20731bfeb94f0e15d235f11779fe9d24f79aaf8e11ba0"
+    },
+    {
+      "path": "src/demo/atlas-detail.css",
+      "bytes": 29215,
+      "sha256": "7dc93ad16726947d2bba49869a7535561b6322bda150655188e78aea2879e6c0"
+    },
+    {
+      "path": "src/demo/demo-v3.css",
+      "bytes": 88917,
+      "sha256": "98ca471dbe903283e1900e9bf95dc0a69a799dd09b24665c7dacb8ba74753fb5"
+    },
+    {
+      "path": "src/demo/demo-refinement.css",
+      "bytes": 38807,
+      "sha256": "5a3397d28d2e21ce199877bc3dfdfab2bf6ebf826238dad06f0a1501865a75a4"
+    },
+    {
+      "path": "src/demo/ink-edition.css",
+      "bytes": 57054,
+      "sha256": "6012eb25564d74e11616470615095474747e762c2bc14ef96f665061ad04297d"
+    },
+    {
+      "path": "src/demo/fonts.css",
+      "bytes": 1381,
+      "sha256": "57ab53196d3d5ddc0b737e287e52315f0d10407201d57fe7b402b77c810c7860"
+    },
+    {
+      "path": "src/demo/edition-fonts.css",
+      "bytes": 91411,
+      "sha256": "baad49a5ee0639da83248b958bca76308a634ce319cb2584079a9562048a088b"
+    },
+    {
+      "path": "src/demo/ReaderLoader.jsx",
+      "bytes": 276,
+      "sha256": "ff06b2d1658ab935caf7af9bdb8258d4f6b4c1e7d0694a334e8c75a1796eb5d0"
+    },
+    {
+      "path": "src/demo/Reader.jsx",
+      "bytes": 6133,
+      "sha256": "f30d9bc9be520afe5e426395e56327265c0e41fe225a09bbc3aeb687f27e00a2"
+    },
+    {
+      "path": "src/demo/LevelSlider.jsx",
+      "bytes": 2999,
+      "sha256": "ac9bc0a38c936ad472ac4add490f13d35ad87b1979c92b7c60fe61a9288e6c7d"
+    },
+    {
+      "path": "src/demo/contentModel.js",
+      "bytes": 6913,
+      "sha256": "4fce87d1dc8649faecc6be829bc89f9ef38437099223437a3d4bce000675c1bd"
+    },
+    {
+      "path": "src/demo/model.js",
+      "bytes": 4683,
+      "sha256": "c7274f90b284d74165a92e675853fb4f9114a3de4798999b60be81e5b7a53f3e"
+    },
+    {
+      "path": "src/demo/navigation.js",
+      "bytes": 3368,
+      "sha256": "01cc9fa1b29cdebfcdc0a9d6db9025f52f692db9f32aa4a177276d40fe4930a9"
+    },
+    {
+      "path": "src/demo/Visuals.jsx",
+      "bytes": 3281,
+      "sha256": "0cbe2c04e3e1f24013d1319d49e52f39ae815ff4800e850b445a1cc39dd3a028"
+    },
+    {
+      "path": "src/demo/artworks.json",
+      "bytes": 3408,
+      "sha256": "241ce8d0a1b05b0b0679ae77d15571a2cbd0436e4af918a151314d29dec81e5b"
+    },
+    {
+      "path": "src/demo/worlds.js",
+      "bytes": 842,
+      "sha256": "618869facbfc3ad323c389692b4f027058adcac8f984f243b2619f6a368d8877"
+    },
+    {
+      "path": "src/demo/DesignHome.jsx",
+      "bytes": 5834,
+      "sha256": "1f3e698615f42aa5477579fa37deedd0ec0f9435096f5666ce8b8d2ca35a2721"
+    },
+    {
+      "path": "src/demo/CollectionLayouts.jsx",
+      "bytes": 5215,
+      "sha256": "30bbf373f3f01400cc93fd55dab026d759f8cb5cfe7982c5adc36c32fca35b44"
+    },
+    {
+      "path": "src/demo/DetailLayouts.jsx",
+      "bytes": 13836,
+      "sha256": "8c460e582a83efe76b62d79217787726943a9d9d01b0258a46e531cf665fa699"
+    },
+    {
+      "path": "src/demo/WorldLayouts.jsx",
+      "bytes": 5193,
+      "sha256": "f7cafdb18c36ea4e746dac8284cc0821d638673617548e9e2655b42d0c1155e9"
+    },
+    {
+      "path": "src/demo/DesignGallery.jsx",
+      "bytes": 3980,
+      "sha256": "fe96054ef12ec5480a23b906743340d09c75f11b0ee74e2ad972171439bd98e2"
+    },
+    {
+      "path": "src/demo/themes.js",
+      "bytes": 4097,
+      "sha256": "693f0d5f7c83fb79f88624d519f0c985f82ff3df99272a2b90d6bd72fc23c1c3"
+    },
+    {
+      "path": "public/demo-art/covers/sources.json",
+      "bytes": 1188,
+      "sha256": "64d28206140234ad56f12cfc75464c7209f0db011c518b97f886c741ca4d0744"
+    },
+    {
+      "path": "public/demo-art/covers/zzz.png",
+      "bytes": 1013763,
+      "sha256": "2347c961405b8e86584a767ac9c4b32f0220aaa934b8989be2fdbdeb43e5aca0"
+    },
+    {
+      "path": "public/demo-art/covers/hsr.png",
+      "bytes": 591873,
+      "sha256": "4682aa36a1240d5f24b7696f5bd71da140b7616dee3ca07a272de93ea6cce174"
+    },
+    {
+      "path": "public/demo-art/covers/currency.png",
+      "bytes": 765422,
+      "sha256": "0244aa4273a91ed374714564d8bad45b4ecbabca201f07abd28a4fa002674066"
+    },
+    {
+      "path": "public/demo-data/index.json",
+      "bytes": 84614,
+      "sha256": "e66073beeaf8ac219491acc58a2bef23815c3ea938c3c0e7796936c07cb85816"
+    }
+  ]
+}

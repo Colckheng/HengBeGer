@@ -1,0 +1,508 @@
+{
+  "format": "WOFF2 variable, unicode-range partitioned",
+  "fonttools_version": "4.66.1",
+  "sources": {
+    "sans": {
+      "local_source": "C:\\Windows\\Fonts\\NotoSansSC-VF.ttf",
+      "sha256": "763146584cf0710223441356b4395e279021b0806c196614377a7a0174ae074a",
+      "family": "Noto Sans SC",
+      "version": "Version 2.04;241114210130;non-release",
+      "copyright": "© 2014-2021 Adobe (http://www.adobe.com/), with Reserved Font Name 'Source'.",
+      "original_codepoints": 30890,
+      "weights": [
+        100.0,
+        900.0
+      ],
+      "bytes": 9441120,
+      "shards": 33,
+      "core_bytes": 223960,
+      "upstream": "https://github.com/notofonts/noto-cjk",
+      "license_source": "https://github.com/notofonts/noto-cjk/blob/main/Sans/LICENSE",
+      "license_file": "edition-sans-OFL.txt",
+      "current_cjk_missing": []
+    },
+    "serif": {
+      "local_source": "C:\\Windows\\Fonts\\NotoSerifSC-VF.ttf",
+      "sha256": "a4aed9985a5916fbf6690456f8732a9fccd517938e353165d4142b4f11a39280",
+      "family": "Noto Serif SC",
+      "version": "Version 2.02;241114204558;non-release",
+      "copyright": "© 2017-2023 Adobe (http://www.adobe.com/).",
+      "original_codepoints": 30928,
+      "weights": [
+        200.0,
+        900.0
+      ],
+      "bytes": 12671964,
+      "shards": 33,
+      "core_bytes": 298848,
+      "upstream": "https://github.com/notofonts/noto-cjk",
+      "license_source": "https://github.com/notofonts/noto-cjk/blob/main/Serif/LICENSE",
+      "license_file": "edition-serif-OFL.txt",
+      "current_cjk_missing": []
+    }
+  },
+  "shards": [
+    {
+      "kind": "sans",
+      "label": "core",
+      "file": "edition-sans-core.woff2",
+      "bytes": 223960,
+      "codepoints": 1193
+    },
+    {
+      "kind": "sans",
+      "label": "content-00",
+      "file": "edition-sans-content-00.woff2",
+      "bytes": 129128,
+      "codepoints": 512
+    },
+    {
+      "kind": "sans",
+      "label": "content-01",
+      "file": "edition-sans-content-01.woff2",
+      "bytes": 156972,
+      "codepoints": 512
+    },
+    {
+      "kind": "sans",
+      "label": "content-02",
+      "file": "edition-sans-content-02.woff2",
+      "bytes": 167924,
+      "codepoints": 512
+    },
+    {
+      "kind": "sans",
+      "label": "content-03",
+      "file": "edition-sans-content-03.woff2",
+      "bytes": 21880,
+      "codepoints": 51
+    },
+    {
+      "kind": "sans",
+      "label": "extended-00",
+      "file": "edition-sans-extended-00.woff2",
+      "bytes": 100908,
+      "codepoints": 1024
+    },
+    {
+      "kind": "sans",
+      "label": "extended-01",
+      "file": "edition-sans-extended-01.woff2",
+      "bytes": 250476,
+      "codepoints": 1024
+    },
+    {
+      "kind": "sans",
+      "label": "extended-02",
+      "file": "edition-sans-extended-02.woff2",
+      "bytes": 303232,
+      "codepoints": 1024
+    },
+    {
+      "kind": "sans",
+      "label": "extended-03",
+      "file": "edition-sans-extended-03.woff2",
+      "bytes": 324364,
+      "codepoints": 1024
+    },
+    {
+      "kind": "sans",
+      "label": "extended-04",
+      "file": "edition-sans-extended-04.woff2",
+      "bytes": 358532,
+      "codepoints": 1024
+    },
+    {
+      "kind": "sans",
+      "label": "extended-05",
+      "file": "edition-sans-extended-05.woff2",
+      "bytes": 357844,
+      "codepoints": 1024
+    },
+    {
+      "kind": "sans",
+      "label": "extended-06",
+      "file": "edition-sans-extended-06.woff2",
+      "bytes": 342432,
+      "codepoints": 1024
+    },
+    {
+      "kind": "sans",
+      "label": "extended-07",
+      "file": "edition-sans-extended-07.woff2",
+      "bytes": 352412,
+      "codepoints": 1024
+    },
+    {
+      "kind": "sans",
+      "label": "extended-08",
+      "file": "edition-sans-extended-08.woff2",
+      "bytes": 329212,
+      "codepoints": 1024
+    },
+    {
+      "kind": "sans",
+      "label": "extended-09",
+      "file": "edition-sans-extended-09.woff2",
+      "bytes": 283040,
+      "codepoints": 1024
+    },
+    {
+      "kind": "sans",
+      "label": "extended-10",
+      "file": "edition-sans-extended-10.woff2",
+      "bytes": 297572,
+      "codepoints": 1024
+    },
+    {
+      "kind": "sans",
+      "label": "extended-11",
+      "file": "edition-sans-extended-11.woff2",
+      "bytes": 310720,
+      "codepoints": 1024
+    },
+    {
+      "kind": "sans",
+      "label": "extended-12",
+      "file": "edition-sans-extended-12.woff2",
+      "bytes": 310944,
+      "codepoints": 1024
+    },
+    {
+      "kind": "sans",
+      "label": "extended-13",
+      "file": "edition-sans-extended-13.woff2",
+      "bytes": 313016,
+      "codepoints": 1024
+    },
+    {
+      "kind": "sans",
+      "label": "extended-14",
+      "file": "edition-sans-extended-14.woff2",
+      "bytes": 346620,
+      "codepoints": 1024
+    },
+    {
+      "kind": "sans",
+      "label": "extended-15",
+      "file": "edition-sans-extended-15.woff2",
+      "bytes": 336296,
+      "codepoints": 1024
+    },
+    {
+      "kind": "sans",
+      "label": "extended-16",
+      "file": "edition-sans-extended-16.woff2",
+      "bytes": 328728,
+      "codepoints": 1024
+    },
+    {
+      "kind": "sans",
+      "label": "extended-17",
+      "file": "edition-sans-extended-17.woff2",
+      "bytes": 305056,
+      "codepoints": 1024
+    },
+    {
+      "kind": "sans",
+      "label": "extended-18",
+      "file": "edition-sans-extended-18.woff2",
+      "bytes": 367680,
+      "codepoints": 1024
+    },
+    {
+      "kind": "sans",
+      "label": "extended-19",
+      "file": "edition-sans-extended-19.woff2",
+      "bytes": 345592,
+      "codepoints": 1024
+    },
+    {
+      "kind": "sans",
+      "label": "extended-20",
+      "file": "edition-sans-extended-20.woff2",
+      "bytes": 311512,
+      "codepoints": 1024
+    },
+    {
+      "kind": "sans",
+      "label": "extended-21",
+      "file": "edition-sans-extended-21.woff2",
+      "bytes": 331620,
+      "codepoints": 1024
+    },
+    {
+      "kind": "sans",
+      "label": "extended-22",
+      "file": "edition-sans-extended-22.woff2",
+      "bytes": 321196,
+      "codepoints": 1024
+    },
+    {
+      "kind": "sans",
+      "label": "extended-23",
+      "file": "edition-sans-extended-23.woff2",
+      "bytes": 323196,
+      "codepoints": 1024
+    },
+    {
+      "kind": "sans",
+      "label": "extended-24",
+      "file": "edition-sans-extended-24.woff2",
+      "bytes": 335184,
+      "codepoints": 1024
+    },
+    {
+      "kind": "sans",
+      "label": "extended-25",
+      "file": "edition-sans-extended-25.woff2",
+      "bytes": 370124,
+      "codepoints": 1024
+    },
+    {
+      "kind": "sans",
+      "label": "extended-26",
+      "file": "edition-sans-extended-26.woff2",
+      "bytes": 368904,
+      "codepoints": 1024
+    },
+    {
+      "kind": "sans",
+      "label": "extended-27",
+      "file": "edition-sans-extended-27.woff2",
+      "bytes": 114844,
+      "codepoints": 462
+    },
+    {
+      "kind": "serif",
+      "label": "core",
+      "file": "edition-serif-core.woff2",
+      "bytes": 298848,
+      "codepoints": 1193
+    },
+    {
+      "kind": "serif",
+      "label": "content-00",
+      "file": "edition-serif-content-00.woff2",
+      "bytes": 169360,
+      "codepoints": 512
+    },
+    {
+      "kind": "serif",
+      "label": "content-01",
+      "file": "edition-serif-content-01.woff2",
+      "bytes": 202696,
+      "codepoints": 512
+    },
+    {
+      "kind": "serif",
+      "label": "content-02",
+      "file": "edition-serif-content-02.woff2",
+      "bytes": 217056,
+      "codepoints": 512
+    },
+    {
+      "kind": "serif",
+      "label": "content-03",
+      "file": "edition-serif-content-03.woff2",
+      "bytes": 27872,
+      "codepoints": 51
+    },
+    {
+      "kind": "serif",
+      "label": "extended-00",
+      "file": "edition-serif-extended-00.woff2",
+      "bytes": 122320,
+      "codepoints": 1024
+    },
+    {
+      "kind": "serif",
+      "label": "extended-01",
+      "file": "edition-serif-extended-01.woff2",
+      "bytes": 373444,
+      "codepoints": 1024
+    },
+    {
+      "kind": "serif",
+      "label": "extended-02",
+      "file": "edition-serif-extended-02.woff2",
+      "bytes": 391308,
+      "codepoints": 1024
+    },
+    {
+      "kind": "serif",
+      "label": "extended-03",
+      "file": "edition-serif-extended-03.woff2",
+      "bytes": 410552,
+      "codepoints": 1024
+    },
+    {
+      "kind": "serif",
+      "label": "extended-04",
+      "file": "edition-serif-extended-04.woff2",
+      "bytes": 456736,
+      "codepoints": 1024
+    },
+    {
+      "kind": "serif",
+      "label": "extended-05",
+      "file": "edition-serif-extended-05.woff2",
+      "bytes": 437832,
+      "codepoints": 1024
+    },
+    {
+      "kind": "serif",
+      "label": "extended-06",
+      "file": "edition-serif-extended-06.woff2",
+      "bytes": 436540,
+      "codepoints": 1024
+    },
+    {
+      "kind": "serif",
+      "label": "extended-07",
+      "file": "edition-serif-extended-07.woff2",
+      "bytes": 451468,
+      "codepoints": 1024
+    },
+    {
+      "kind": "serif",
+      "label": "extended-08",
+      "file": "edition-serif-extended-08.woff2",
+      "bytes": 419088,
+      "codepoints": 1024
+    },
+    {
+      "kind": "serif",
+      "label": "extended-09",
+      "file": "edition-serif-extended-09.woff2",
+      "bytes": 383288,
+      "codepoints": 1024
+    },
+    {
+      "kind": "serif",
+      "label": "extended-10",
+      "file": "edition-serif-extended-10.woff2",
+      "bytes": 416440,
+      "codepoints": 1024
+    },
+    {
+      "kind": "serif",
+      "label": "extended-11",
+      "file": "edition-serif-extended-11.woff2",
+      "bytes": 435140,
+      "codepoints": 1024
+    },
+    {
+      "kind": "serif",
+      "label": "extended-12",
+      "file": "edition-serif-extended-12.woff2",
+      "bytes": 408796,
+      "codepoints": 1024
+    },
+    {
+      "kind": "serif",
+      "label": "extended-13",
+      "file": "edition-serif-extended-13.woff2",
+      "bytes": 424104,
+      "codepoints": 1024
+    },
+    {
+      "kind": "serif",
+      "label": "extended-14",
+      "file": "edition-serif-extended-14.woff2",
+      "bytes": 461876,
+      "codepoints": 1024
+    },
+    {
+      "kind": "serif",
+      "label": "extended-15",
+      "file": "edition-serif-extended-15.woff2",
+      "bytes": 473360,
+      "codepoints": 1024
+    },
+    {
+      "kind": "serif",
+      "label": "extended-16",
+      "file": "edition-serif-extended-16.woff2",
+      "bytes": 438568,
+      "codepoints": 1024
+    },
+    {
+      "kind": "serif",
+      "label": "extended-17",
+      "file": "edition-serif-extended-17.woff2",
+      "bytes": 420496,
+      "codepoints": 1024
+    },
+    {
+      "kind": "serif",
+      "label": "extended-18",
+      "file": "edition-serif-extended-18.woff2",
+      "bytes": 492976,
+      "codepoints": 1024
+    },
+    {
+      "kind": "serif",
+      "label": "extended-19",
+      "file": "edition-serif-extended-19.woff2",
+      "bytes": 472760,
+      "codepoints": 1024
+    },
+    {
+      "kind": "serif",
+      "label": "extended-20",
+      "file": "edition-serif-extended-20.woff2",
+      "bytes": 432752,
+      "codepoints": 1024
+    },
+    {
+      "kind": "serif",
+      "label": "extended-21",
+      "file": "edition-serif-extended-21.woff2",
+      "bytes": 451216,
+      "codepoints": 1024
+    },
+    {
+      "kind": "serif",
+      "label": "extended-22",
+      "file": "edition-serif-extended-22.woff2",
+      "bytes": 446324,
+      "codepoints": 1024
+    },
+    {
+      "kind": "serif",
+      "label": "extended-23",
+      "file": "edition-serif-extended-23.woff2",
+      "bytes": 440240,
+      "codepoints": 1024
+    },
+    {
+      "kind": "serif",
+      "label": "extended-24",
+      "file": "edition-serif-extended-24.woff2",
+      "bytes": 473076,
+      "codepoints": 1024
+    },
+    {
+      "kind": "serif",
+      "label": "extended-25",
+      "file": "edition-serif-extended-25.woff2",
+      "bytes": 525880,
+      "codepoints": 1024
+    },
+    {
+      "kind": "serif",
+      "label": "extended-26",
+      "file": "edition-serif-extended-26.woff2",
+      "bytes": 511920,
+      "codepoints": 1024
+    },
+    {
+      "kind": "serif",
+      "label": "extended-27",
+      "file": "edition-serif-extended-27.woff2",
+      "bytes": 147632,
+      "codepoints": 500
+    }
+  ]
+}

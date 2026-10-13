@@ -1,0 +1,29 @@
+{
+  "picker": {
+    "escape": true,
+    "focusReturned": true,
+    "outside": true
+  },
+  "related": {
+    "originalSource": true,
+    "noNestedReturn": true
+  },
+  "return": {
+    "hash": "#/orbital?view=list&category=zzz%2Fagents&scope=all&page=2",
+    "entry": "zzz/bangboo/55098",
+    "sourceY": 98.4000015258789,
+    "returnY": 98.4000015258789,
+    "focus": true
+  },
+  "pagination": {
+    "page": 3,
+    "resultFocus": true
+  },
+  "filters": {
+    "query": "昔",
+    "attribute": "冰",
+    "preserved": true
+  },
+  "pageErrors": [],
+  "passed": true
+}

@@ -5,15 +5,8 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HengBeGer</title>
-    <script>
-      try {
-        var t = localStorage.getItem('hb-theme');
-        document.documentElement.dataset.theme =
-          t === 'dark' || t === 'light' ? t : 'light';
-      } catch (e) {
-        document.documentElement.dataset.theme = 'light';
-      }
-    </script>
+    <!-- External, not inline: the production CSP only allows script-src 'self'. -->
+    <script src="/theme-boot.js"></script>
   </head>
   <body>
     <div id="root"></div>

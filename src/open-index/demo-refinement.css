@@ -1,0 +1,510 @@
+/* 由 scripts/build-open-index-css.mjs 从 src/demo/demo-refinement.css 生成，请勿手改。
+   源文件：src/demo/demo-refinement.css
+   重新生成：node scripts/build-open-index-css.mjs */
+/* Review revision: fit the task to the viewport and retain eight visual languages. */
+.open-index{padding-bottom:24px}
+.open-index .theme-radio{--ink:#191510;--muted:#211711;--line:#783023}
+.open-index .theme-museum{--muted:#5c5549;--accent:#675034}
+.open-index .theme-clarity{--muted:#435c74}
+.open-index .theme-ink{--muted:#5b5e51}
+.open-index .review-bar{position:relative;inset:auto;transform:none;z-index:30;width:100%;max-width:none;min-height:44px;padding:0 4.5%;border:0;border-bottom:1px solid #c5c8bf;border-radius:0;box-shadow:none;justify-content:flex-start;gap:24px;background:#f6f6ef;font-size:12px}
+.open-index .review-bar a,.open-index .review-bar select,.open-index .review-bar .page-picker{min-height:44px;display:inline-flex;align-items:center;font-size:12px}
+.open-index .review-bar .review-hint{margin-left:auto;color:#535d50;font-size:12px}
+.open-index .review-bar .page-menu{top:100%;bottom:auto;left:auto;right:4.5%;width:420px;max-width:92%;max-height:65svh}
+.open-index .review-bar .page-menu a{min-height:44px}
+.open-index .site-header,.open-index .theme-terminal .site-header,.open-index .theme-museum .site-header{height:72px;min-height:72px;padding:0 4.5%;gap:24px}
+.open-index .site-header nav{font-size:13px;gap:24px}
+.open-index .header-search input{font-size:13px;min-height:44px}
+.open-index .site-header .brand{font-size:20px}
+.open-index .header-search input::placeholder,.open-index .filter-bar input::placeholder{color:var(--muted);opacity:1}
+.open-index .eyebrow{font-size:12px;letter-spacing:.055em}
+.open-index .cover img{object-fit:contain;object-position:center;transform:none!important}
+.open-index .cover{background:var(--surface)}
+.open-index .asset-illustration[data-asset-key] img{transform:none;padding:12px}
+.open-index .asset img{object-fit:contain}
+.open-index .asset-missing{min-height:100px}
+.open-index .season-title{display:block;font:500 22px/1.5 var(--display);color:var(--accent);margin-top:10px;font-style:normal}
+.open-index .world-total{font-size:13px!important;margin-top:18px!important;color:var(--muted)}
+.open-index .season-switch a{min-height:44px}
+.open-index .season-switch a.active{font-weight:700;text-decoration:underline;text-underline-offset:5px}
+.open-index .world-intro h1{font-size:clamp(30px,3.5vw,48px)}
+.open-index .world-cinema>.cover,.open-index .world-radio>.cover,.open-index .world-comic>.cover,.open-index .world-atlas>.cover,.open-index .world-book .cover{max-height:480px}
+.open-index .world-museum>.cover{max-height:460px}
+
+/* The three entrances are the first screen, with different framing per edition. */
+.open-index.is-home .demo-main{min-height:0}
+.open-index.is-home .demo-main>section{height:calc(100svh - 116px);min-height:490px;max-height:1050px;display:grid;grid-template-rows:100px minmax(0,1fr);gap:18px;padding:18px 5% 28px}
+.open-index.is-home .home-colophon,.open-index.is-home .desktop-dock,.open-index.is-home .comic-ribbon{display:none}
+.open-index.is-home :is(.cinema-intro,.atlas-mast,.radio-mast,.museum-mast,.terminal-mast,.desktop-mast,.comic-mast,.ink-mast){margin:0;padding:0 0 14px;height:100px;min-height:0;gap:20px;border-bottom:1px solid var(--line)}
+.open-index.is-home :is(.cinema-intro,.atlas-mast,.radio-mast,.terminal-mast,.desktop-mast,.comic-mast,.ink-mast) h1{font-size:40px;line-height:1.05;margin:0;letter-spacing:-.03em}
+.open-index.is-home h1 br{display:none}
+.open-index.is-home h1 span{font-size:19px;margin-top:8px}
+.open-index.is-home .cinema-intro{grid-template-columns:1fr 1.3fr 1fr;align-items:center}
+.open-index.is-home .cinema-intro h1{font-size:38px;letter-spacing:.06em}
+.open-index.is-home .atlas-mast h1{font-size:58px;max-width:560px}
+.open-index.is-home .atlas-mast>p{font-size:14px;padding:0}
+.open-index.is-home .atlas-mast>p span{margin-top:8px;font-size:12px}
+.open-index.is-home .radio-mast h1{font-size:38px;margin-top:8px}
+.open-index.is-home .radio-mast h1 i{color:var(--ink)}
+.open-index.is-home .radio-seal{height:82px;width:82px;font-size:12px;rotate:6deg}
+.open-index.is-home .radio-seal b{font-size:35px}
+.open-index.is-home .radio-seal span{display:none}
+.open-index.is-home .museum-mast{display:flex;align-items:center;justify-content:space-between}
+.open-index.is-home .museum-mast h1{font-size:39px;line-height:1.3;margin:0;font-weight:400}
+.open-index.is-home .museum-mast>p:last-child{position:static;font-size:13px}
+.open-index.is-home .terminal-mast{grid-template-columns:1.2fr 1fr;grid-template-rows:auto auto;gap:5px 25px}
+.open-index.is-home .terminal-mast>.eyebrow{grid-column:1;grid-row:1}
+.open-index.is-home .terminal-mast h1{grid-column:1;grid-row:2;font-size:33px}
+.open-index.is-home .terminal-mast>p:not(.eyebrow){display:none}
+.open-index.is-home .terminal-counts{grid-row:1/3;grid-column:2;justify-content:flex-end;gap:25px;padding:0}
+.open-index.is-home .terminal-counts b{font-size:29px}
+.open-index.is-home .desktop-mast{display:flex;align-items:center;text-align:left;justify-content:space-between}
+.open-index.is-home .desktop-mast h1{font-size:34px}
+.open-index.is-home .comic-mast h1{font-size:54px;line-height:.95}
+.open-index.is-home .comic-burst{width:85px;height:85px;font-size:12px;border-width:2px}
+.open-index.is-home .comic-burst strong{font-size:18px}
+.open-index.is-home .ink-mast{display:flex;align-items:center;gap:30px}
+.open-index.is-home .ink-mast h1{font-size:42px;letter-spacing:.1em}
+.open-index.is-home .ink-mast>.book-stamp{position:static;order:-1;font-size:14px;padding:6px}
+.open-index.is-home .ink-mast>p:last-child{position:static;font-size:13px;margin-left:auto}
+.open-index.is-home :is(.cinema-portals,.atlas-portals,.museum-portals,.terminal-portals,.desktop-portals,.comic-portals,.ink-portals){display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin:0;padding:0;min-height:0;align-items:stretch}
+.open-index.is-home .portal-card{min-height:0;margin:0!important;rotate:0deg}
+.open-index.is-home .portal-copy{padding:12px 0!important;min-height:0}
+.open-index.is-home .portal-copy .eyebrow{font-size:12px;line-height:1.4;letter-spacing:.02em}
+.open-index.is-home .portal-copy h2{font-size:27px;line-height:1.3;margin:5px 0;font-weight:500}
+.open-index.is-home .portal-copy>p{display:none}
+.open-index.is-home .portal-enter{font-size:13px;margin-top:9px;padding-top:8px;min-height:32px}
+.open-index.is-home .cover{height:100%;min-height:0;aspect-ratio:auto;margin:0}
+.open-index.is-home .cinema-portals .portal-card{display:grid;grid-template-rows:minmax(0,1fr) 117px}
+.open-index.is-home .poster-mat{display:grid;grid-template-rows:minmax(0,1fr) 25px;padding:10px 10px 0;min-height:0}
+.open-index.is-home .poster-index{padding:4px;font-size:12px;letter-spacing:.1em}
+.open-index.is-home .atlas-portals .portal-card{display:grid;grid-template-rows:27px minmax(0,1fr) 117px;border-top:2px solid var(--ink);padding-top:9px}
+.open-index.is-home .atlas-portal-no{font-size:22px;margin:0}
+.open-index.is-home .radio-portals{display:grid;grid-template-rows:repeat(3,minmax(0,1fr));min-height:0}
+.open-index.is-home .radio-portals .portal-card{grid-template-columns:65px 125px minmax(0,1fr) 48px;gap:28px;padding:10px 0}
+.open-index.is-home .radio-portals .cover{height:100%;max-height:170px;background:#c54028}
+.open-index.is-home .frequency{font-size:34px}
+.open-index.is-home .frequency small{font-size:12px;letter-spacing:0;margin-top:8px}
+.open-index.is-home .radio-arrow{font-size:48px}
+.open-index.is-home .radio-portals .portal-copy h2{font-size:30px}
+.open-index.is-home .radio-portals .portal-enter{border:0;padding:0;margin-top:8px}
+.open-index.is-home .museum-portals .portal-card,.open-index.is-home .museum-portals .portal-card:nth-child(2){grid-template-columns:1fr;grid-template-rows:minmax(0,1fr) 110px;gap:10px;padding:0;border:0}
+.open-index.is-home .museum-portals .museum-frame{order:0!important;min-height:0;padding:16px}
+.open-index.is-home .museum-caption{display:flex;align-items:center;gap:18px}
+.open-index.is-home .museum-number{font-size:32px;color:var(--muted)}
+.open-index.is-home .museum-caption .portal-copy{flex:1}
+.open-index.is-home .museum-caption .eyebrow{display:none}
+.open-index.is-home .terminal-portals{gap:0}
+.open-index.is-home .terminal-portals .portal-card{display:grid;grid-template-rows:minmax(0,1fr) 117px;padding:15px}
+.open-index.is-home .terminal-cover{min-height:0;padding-bottom:24px}
+.open-index.is-home .terminal-cover>span{font-size:12px;padding:1px 0;background:transparent}
+.open-index.is-home .desktop-portals{gap:25px;padding:0 4px 6px}
+.open-index.is-home .desktop-portals .portal-card{display:grid;grid-template-rows:36px minmax(0,1fr) 117px;box-shadow:0 10px 20px #36547018}
+.open-index.is-home .desktop-portals .window-bar{padding:7px 15px;font-size:12px}
+.open-index.is-home .desktop-portals .portal-copy{padding:12px 16px!important}
+.open-index.is-home .desktop-portals .cover{padding:8px;background:#f0f5f7}
+.open-index.is-home .comic-portals .portal-card{display:grid;grid-template-rows:32px minmax(0,1fr) 125px;border-width:2px;box-shadow:5px 5px 0 var(--ink)}
+.open-index.is-home .comic-strip-label{padding:4px 12px;border-width:2px;font-size:12px}
+.open-index.is-home .comic-portals .portal-copy{padding:9px 15px!important;border-width:2px}
+.open-index.is-home .ink-portals{gap:0}
+.open-index.is-home .ink-portals .portal-card{grid-template-columns:24px minmax(0,1fr);grid-template-rows:minmax(0,1fr) 117px;padding:15px 20px 0;gap:0 12px}
+.open-index.is-home .volume-label{grid-row:1/3;grid-column:1;font-size:14px;writing-mode:vertical-rl;margin:0}
+.open-index.is-home .ink-portals .cover{grid-column:2}
+.open-index.is-home .ink-portals .portal-copy{grid-column:2}
+
+/* Compact navigation and useful first rows without flattening the collection layouts. */
+.open-index .page-heading{padding:22px 0!important;margin:0 0 12px;min-height:0}
+.open-index .page-heading h1{font-size:38px!important;margin:6px 0;letter-spacing:-.03em}
+.open-index .page-heading>div>p:last-child{display:none}
+.open-index .listing-workspace{margin-top:16px}
+.open-index .filter-bar{margin:0 0 12px;padding:8px 0;gap:10px;align-items:center}
+.open-index .filter-select{gap:7px;align-items:center}
+.open-index .filter-select select{min-height:44px;font-size:13px}
+.open-index .search-field input{min-height:44px;font-size:14px}
+.open-index .search-field{min-width:140px;flex:1}
+.open-index .filter-bar .small-button{padding:10px 15px;min-height:44px}
+.open-index .result-line{font-size:12px;margin:12px 0 16px}
+.open-index .listing-categories .category-links a{min-height:44px}
+.open-index .category-links small{font-size:12px}
+.open-index .listing-radio .listing-results{padding-top:0}
+.open-index .listing-radio .filter-bar{padding-right:18px}
+.open-index .listing-radio .search-field{min-width:0;width:100%}
+.open-index .listing-radio .search-field input{width:100%;min-width:0}
+.open-index .listing-radio .filter-bar .small-button{width:100%;justify-content:center}
+.open-index .frequency-label{margin:0 0 18px}
+.open-index .frequency-label b{font-size:38px!important}
+.open-index .museum-collection{gap:36px 7%;padding-top:0}
+.open-index .exhibit-record:nth-child(even){padding-top:45px}
+.open-index .record-table td:last-child .entry-link{display:inline-flex;min-width:44px;min-height:44px;align-items:center;justify-content:center;border:1px solid var(--line)}
+.open-index .record-table th .entry-link{min-height:44px}
+.open-index .single-result-note{padding:20px 0;font-size:14px;color:var(--muted)}
+.open-index .page-jump{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:13px}
+.open-index .page-jump input{width:4em;padding:8px;min-height:44px}
+.open-index .page-jump button,.open-index .pagination>button{padding:10px;min-height:44px}
+.open-index .finder-inline{display:none}
+
+/* Reading: shared capabilities, edition-specific organization and components. */
+.open-index .breadcrumb{font-size:13px;padding:10px 0;margin-bottom:20px;align-items:center;min-height:52px}
+.open-index .breadcrumb a,.open-index .related-records a{min-height:44px;display:inline-flex;align-items:center}
+.open-index .identity h1{margin:12px 0;font-size:44px}
+.open-index .identity-note{margin:12px 0;font-size:14px}
+.open-index .detail-visual figcaption,.open-index .tag-row>span,.open-index .stats-grid dt,.open-index .facts dl>div{font-size:12px}
+.open-index .rich-text{font-size:15px!important;line-height:1.95!important;max-width:46em}
+.open-index .rich-text h3{font-size:22px;line-height:1.5}
+.open-index .rich-text h4{font-size:17px;line-height:1.5}
+.open-index .table-scroll table{font-size:14px}
+.open-index .table-scroll th,.open-index .table-scroll td{padding:12px;min-width:95px}
+.open-index .table-hint{display:block;font-size:12px;color:var(--muted);margin:0 0 6px!important}
+.open-index .table-scroll{overscroll-behavior-x:contain}
+.open-index .detail-content{min-width:0}
+.open-index .chapter-disclosure{border-top:1px solid var(--line);margin:0;scroll-margin-top:20px}
+.open-index .chapter-disclosure>summary{list-style:none;display:flex;align-items:center;gap:16px;padding:18px 0;cursor:pointer;min-height:66px}
+.open-index .chapter-disclosure>summary::-webkit-details-marker{display:none}
+.open-index .chapter-disclosure>summary>span:nth-child(2){flex:1}
+.open-index .chapter-disclosure>summary strong{font-size:17px;font-weight:500}
+.open-index .chapter-disclosure>summary small{display:block;font-size:12px;margin-top:3px}
+.open-index .chapter-disclosure>summary b{font-weight:400;font-size:24px}
+.open-index .chapter-order{font-size:12px;color:var(--muted);min-width:25px}
+.open-index .chapter-disclosure>.reader-section{border:0;margin:0;padding:12px 0 28px}
+.open-index .chapter-disclosure>.reader-section>.section-heading{display:none}
+.open-index .chapter-disclosure[open]>summary{color:var(--accent)}
+.open-index .skill-layout{min-width:0}
+.open-index .skill-tabs{gap:0;margin:0 0 20px;border-bottom:1px solid var(--line);flex-wrap:nowrap;overflow:auto;overscroll-behavior-x:contain;padding-bottom:4px}
+.open-index .skill-count{display:none}
+.open-index .skill-tabs button{border:0;border-bottom:2px solid transparent;font-size:13px;padding:10px 14px;min-height:44px;flex-shrink:0;max-width:320px;text-align:left}
+.open-index .skill-tabs button[aria-pressed=true]{color:var(--accent);background:transparent;border-color:var(--accent)}
+.open-index .many-skills .skill-tabs{flex-wrap:wrap;max-height:200px;overflow:auto;padding:0 0 10px;gap:4px}
+.open-index .many-skills .skill-count{display:block;width:100%;font-size:12px;color:var(--muted);padding:5px 0}
+.open-index .many-skills .skill-tabs button{font-size:13px;max-width:100%;white-space:normal;padding:8px 10px;flex-shrink:1}
+.open-index .skill-reading{min-width:0}
+.open-index .skill-navigation{margin-bottom:18px}
+.open-index .skill-navigation>.skill-tabs{margin-bottom:4px}
+.open-index .skill-more{border-bottom:1px solid var(--line);font-size:13px}
+.open-index .skill-more>summary{cursor:pointer;min-height:44px;padding:10px 0;color:var(--muted)}
+.open-index .skill-more .skill-tabs{margin:0;max-height:210px!important}
+.open-index .detail-visual .asset-characters.asset-icon img{width:min(100%,300px);height:min(100%,300px);object-fit:contain}
+.open-index .level-control{margin:14px 0 24px;max-width:480px;width:100%;padding:12px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.open-index .level-control-head{display:flex;align-items:center;justify-content:space-between;gap:20px;font-size:13px}
+.open-index .level-readout{display:flex;align-items:baseline;gap:6px;font-size:12px;color:var(--muted)}
+.open-index .level-readout input{font-size:30px;width:3ch;padding:0 2px;height:44px;text-align:center;font-variant-numeric:tabular-nums;border:0;border-bottom:1px solid transparent;background:transparent;border-radius:0}
+.open-index .level-readout input:hover{border-bottom-color:var(--line)}
+.open-index .level-track{position:relative;height:68px;--thumb:18px}
+.open-index .level-track input[type=range]{appearance:none;-webkit-appearance:none;position:absolute;inset:0;width:100%;height:52px;background:transparent;border:0;margin:0;cursor:ew-resize;z-index:2;touch-action:pan-y}
+.open-index .level-track input::-webkit-slider-runnable-track{background:transparent;height:52px}
+.open-index .level-track input::-moz-range-track{background:transparent;height:52px}
+.open-index .level-track input::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;width:var(--thumb);height:52px;border:0;background:transparent}
+.open-index .level-track input::-moz-range-thumb{width:var(--thumb);height:52px;border:0;background:transparent}
+.open-index .level-rail{position:absolute;inset:25px 9px auto;height:2px;background:var(--line);pointer-events:none}
+.open-index .level-fill{height:100%;width:var(--level-progress);background:var(--accent)}
+.open-index .level-thumb{position:absolute;left:var(--level-progress);top:50%;transform:translate(-50%,-50%);width:15px;height:15px;border-radius:50%;background:var(--accent);border:3px solid var(--bg);outline:1px solid var(--accent)}
+.open-index .level-track:hover .level-thumb{box-shadow:0 0 0 5px var(--surface)}
+.open-index .level-tick{position:absolute;top:0;font-size:12px;line-height:1;padding-top:17px;transform:translateX(-50%);color:var(--muted)}
+.open-index .level-tick:before{content:'';position:absolute;left:50%;top:-2px;width:1px;height:6px;background:var(--muted)}
+.open-index .level-help{font-size:12px;line-height:1.6;color:var(--muted)}
+.open-index .level-error{font-size:13px;margin-top:8px}
+.open-index .level-ruler{position:absolute;inset:0;overflow:hidden;mask-image:linear-gradient(to right,transparent,#000 15%,#000 85%,transparent);pointer-events:none}
+.open-index .level-ruler>div{position:absolute;top:21px;left:50%;transform:translateX(calc(var(--level-index) * -32px))}
+.open-index .level-ruler span{position:absolute;top:0;font-size:12px;line-height:1;padding-top:22px;transform:translateX(-50%);color:var(--muted)}
+.open-index .level-ruler span:before{content:'';position:absolute;left:50%;top:0;width:1px;height:13px;background:currentColor}
+.open-index .level-ruler span.selected{color:var(--accent);font-weight:700}
+.open-index .level-needle{position:absolute;top:14px;left:50%;width:2px;height:23px;background:var(--accent);pointer-events:none}
+.open-index .level-needle:before{content:'';position:absolute;top:-5px;left:-3px;border:4px solid transparent;border-top-color:var(--accent)}
+.open-index .theme-editorial .chapter-disclosure{border-top:1px solid #62715c}
+.open-index .theme-editorial .chapter-disclosure>summary strong{font-family:Georgia,'Microsoft YaHei',serif;letter-spacing:.05em}
+.open-index .theme-editorial .cinema-dossier .detail-toc{max-height:160px;overflow:auto;gap:0}
+.open-index .theme-editorial .detail-toc button{border:0;border-bottom:1px solid var(--line);font-size:13px}
+.open-index .theme-editorial .section-heading{border-bottom:1px solid var(--accent);padding-bottom:16px}
+.open-index .theme-editorial .rich-text blockquote{background:transparent;border-left:1px solid var(--accent);font-style:italic}
+.open-index.theme-orbital .atlas-title{padding:0 0 18px}
+.open-index.theme-orbital .atlas-title .identity h1{font-size:52px}
+.open-index.theme-orbital .atlas-summary{padding:20px 0;gap:40px;grid-template-columns:minmax(0,.8fr) minmax(0,1fr)}
+.open-index.theme-orbital .atlas-summary .detail-visual>.asset{height:290px}
+.open-index.theme-orbital .atlas-summary .stats-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.open-index.theme-orbital .atlas-reading{margin-top:25px;gap:35px;grid-template-columns:190px minmax(0,1fr)}
+.open-index.theme-orbital .chapter-order{font-size:22px;color:var(--accent);min-width:38px}
+.open-index.theme-orbital .chapter-disclosure>summary{padding:20px 0;border-top:2px solid var(--ink)}
+.open-index.theme-orbital .table-scroll{border:0}
+.open-index.theme-orbital .table-scroll td,.open-index.theme-orbital .table-scroll th{border-width:0 0 1px}
+.open-index .theme-radio .record-sleeve{gap:40px}
+.open-index .theme-radio .record-sleeve .asset{height:330px}
+.open-index .theme-radio .record-tracks{max-width:1000px;margin:auto}
+.open-index .theme-radio .track>summary{min-height:64px}
+.open-index .theme-radio .track .detail-content{padding:20px;background:var(--surface)}
+.open-index .theme-radio .level-control{--bg:#f8eee0;--accent:#7a2716;--line:#c7b5a5}
+.open-index .theme-radio .skill-tabs button[aria-pressed=true]{color:#6d2416;border-color:#6d2416}
+.open-index .theme-radio .record-preview{--muted:#514a40}
+.open-index .theme-radio .entry-link:hover h3{color:#191510;text-decoration:underline}
+.open-index .theme-museum .exhibit-heading{padding:0 0 24px}
+.open-index .theme-museum .exhibit-stage{gap:6%;padding:0 0 30px}
+.open-index .theme-museum .exhibit-stage .asset{height:340px}
+.open-index .theme-museum .exhibit-essays{margin-top:25px;gap:35px}
+.open-index .theme-museum .exhibit-essays>aside nav{max-height:420px;overflow:auto}
+.open-index .theme-museum .exhibit-essays>aside a{display:block;min-height:44px;font-size:13px;padding:9px 0}
+.open-index .theme-museum .chapter-disclosure{margin:0 0 18px;border:1px solid var(--line);padding:0 20px;background:#f9f5ed}
+.open-index .theme-museum .chapter-disclosure>summary strong{font-family:var(--serif);font-size:19px}
+.open-index .theme-museum .facts dl>div{border-bottom:1px dotted var(--line)}
+.open-index .theme-terminal .terminal-workspace{grid-template-columns:minmax(200px,.85fr) minmax(0,2fr) minmax(165px,.65fr)}
+.open-index .theme-terminal .terminal-identity .asset{height:300px}
+.open-index .theme-terminal .terminal-reading>.detail-toc{max-height:220px;overflow:auto}
+.open-index .theme-terminal .chapter-disclosure>summary{background:#18271b;padding:12px;margin-top:7px}
+.open-index .theme-terminal .chapter-disclosure>summary strong{font-size:14px;font-family:'Space Grotesk','Microsoft YaHei',sans-serif}
+.open-index .theme-terminal .chapter-order{color:var(--accent)}
+.open-index .theme-terminal .level-control{background:#152319;padding:12px 16px;border:1px solid var(--line)}
+.open-index .theme-terminal .stats-grid dd{font-family:'Space Grotesk',monospace;font-size:28px}
+.open-index .theme-clarity .document-sheet{min-height:0;padding:28px}
+.open-index .theme-clarity .chapter-disclosure{border:1px solid var(--line);border-radius:7px;margin-bottom:12px;background:#fff;padding:0 16px}
+.open-index .theme-clarity .chapter-disclosure>summary strong{font-size:16px}
+.open-index .theme-clarity .chapter-order{border:1px solid var(--line);padding:5px;border-radius:4px;background:#edf3f9}
+.open-index .theme-clarity .level-control{padding:10px 15px;background:#f0f5fc;border:0;border-radius:8px}
+.open-index .theme-clarity .level-thumb{--bg:#f0f5fc}
+.open-index .theme-comic .comic-cover .asset{height:340px}
+.open-index .theme-comic .comic-story{grid-template-columns:1fr 1fr;align-items:start}
+.open-index .theme-comic .comic-facts{grid-column:1/-1;padding:18px}
+.open-index .theme-comic .comic-facts .facts{margin:0}
+.open-index .theme-comic .story-panel:first-of-type{grid-column:1/-1}
+.open-index .comic-appendix{grid-column:1/-1;padding:25px 0}
+.open-index .comic-appendix>h2{font-size:27px;margin-bottom:20px}
+.open-index .theme-comic .chapter-disclosure{border:2px solid var(--ink);background:var(--surface);padding:0 18px;margin-bottom:14px;box-shadow:3px 3px var(--ink)}
+.open-index .theme-comic .chapter-order{color:var(--ink);font-size:18px;font-weight:700}
+.open-index .theme-comic .chapter-disclosure>summary small{display:none}
+.open-index .theme-comic .level-control{border:2px solid var(--ink);padding:10px 14px;background:#fffbed}
+.open-index .theme-comic .level-thumb{border-radius:2px;--bg:#fffbed;outline-width:2px}
+.open-index .theme-comic .skill-tabs button[aria-pressed=true]{background:var(--ink);color:var(--surface)}
+.open-index .theme-ink .book-spread{align-items:start}
+.open-index .theme-ink .book-page{min-height:0;padding:30px 35px}
+.open-index .theme-ink .book-frontispiece .asset{height:280px}
+.open-index .theme-ink .book-frontispiece .detail-toc{max-height:450px;overflow:auto}
+.open-index .theme-ink .book-running-head{font-size:13px;margin-bottom:20px}
+.open-index .theme-ink .rich-text{font-family:var(--serif);line-height:2!important}
+.open-index .theme-ink .chapter-disclosure{border-top:3px double var(--line)}
+.open-index .theme-ink .chapter-disclosure>summary strong{font-family:var(--serif)}
+.open-index .theme-ink .level-control{border-top:3px double var(--line);border-bottom:0}
+.open-index .theme-ink .level-readout input{font-family:Georgia,serif;font-style:italic}
+.open-index .theme-ink .level-thumb{border:0;outline:0;border-radius:0;width:11px;height:20px;clip-path:polygon(0 0,100% 0,100% 100%,50% 74%,0 100%);transform:translate(-50%,-80%)}
+.open-index .theme-ink .level-rail{height:1px}
+.open-index .theme-ink .skill-tabs button{font-family:var(--serif)}
+.open-index .provenance,.open-index .data-notice{font-size:13px}
+.open-index .provenance summary,.open-index .data-notice summary{min-height:44px;align-content:center}
+.open-index .chapter-pagination{font-size:13px;align-items:center}
+.open-index .chapter-pagination button{min-height:44px;padding:10px}
+.open-index .detail-toc{max-height:65svh;overflow:auto}
+.open-index .detail-toc button{font-size:13px!important}
+.open-index .section-heading .mono,.open-index .toc-num{font-size:12px}
+.open-index .stats-grid dt,.open-index .facts dt{color:var(--muted)}
+
+@media(max-width:1100px){
+ .open-index .site-header nav{gap:15px}.open-index .site-header{gap:16px}
+ .open-index.is-home .portal-copy h2{font-size:24px}
+ .open-index.is-home .portal-copy .eyebrow{font-size:11px}
+ .open-index.is-home .museum-mast>p:last-child{display:none}
+ .open-index.is-home .desktop-mast>.eyebrow{display:none}
+ .open-index.is-home .ink-mast>.eyebrow{display:none}
+ .open-index .theme-terminal .terminal-workspace{grid-template-columns:210px minmax(0,1fr)}
+ .open-index .theme-terminal .terminal-metrics{grid-column:1/-1;display:grid;grid-template-columns:1fr 2fr;gap:25px}
+ .open-index .theme-terminal .terminal-metrics .stats-section{margin:0}
+ .open-index .theme-terminal .terminal-metrics>p.muted{display:none}
+}
+@media(max-width:800px){
+ .open-index .site-header,.open-index .theme-terminal .site-header,.open-index .theme-museum .site-header{height:104px;min-height:104px;flex-wrap:wrap;gap:4px 15px;padding:10px 5% 0}
+ .open-index .site-header nav{width:100%;order:3;justify-content:space-between;gap:9px;font-size:12px}
+ .open-index .site-header nav a{padding:10px 0;min-height:44px}
+ .open-index .header-search{width:145px!important}.open-index .header-search input{width:100px!important}
+ .open-index .review-bar{padding:0 5%;gap:12px;flex-wrap:wrap}
+ .open-index .review-bar .review-hint,.open-index .review-bar label>span{display:none}
+ .open-index .review-bar select{width:145px;font-size:12px}
+ .open-index .review-bar .page-picker{font-size:12px}
+ .open-index.is-home .demo-main>section{height:calc(100svh - 148px);min-height:490px;padding:12px 5% 20px;grid-template-rows:72px minmax(0,1fr);gap:12px}
+ .open-index.is-home :is(.cinema-intro,.atlas-mast,.radio-mast,.museum-mast,.terminal-mast,.desktop-mast,.comic-mast,.ink-mast){height:72px;padding:0 0 10px}
+ .open-index.is-home .cinema-intro{display:flex;justify-content:space-between}
+ .open-index.is-home .cinema-intro>.eyebrow,.open-index.is-home .cinema-intro>p{display:none}
+ .open-index.is-home :is(.cinema-intro,.atlas-mast,.radio-mast,.museum-mast,.terminal-mast,.desktop-mast,.comic-mast,.ink-mast) h1{font-size:30px}
+ .open-index.is-home .atlas-mast>p,.open-index.is-home .desktop-mast>p,.open-index.is-home .ink-mast>p:last-child,.open-index.is-home .museum-mast>.eyebrow{display:none}
+ .open-index.is-home .atlas-mast h1{font-size:42px}
+ .open-index.is-home .radio-seal{height:60px;width:60px;font-size:10px}.open-index.is-home .radio-seal b{font-size:25px}
+ .open-index.is-home .radio-mast .eyebrow{font-size:11px}
+ .open-index.is-home .radio-mast h1{margin-top:5px}
+ .open-index.is-home .terminal-counts{gap:13px}.open-index.is-home .terminal-counts b{font-size:22px}.open-index.is-home .terminal-counts span{font-size:11px}
+ .open-index.is-home .terminal-counts span:last-child{display:none}
+ .open-index.is-home .comic-burst{height:60px;width:60px;font-size:10px}.open-index.is-home .comic-burst strong{font-size:13px}
+ .open-index.is-home .issue-label{font-size:11px;padding:5px 0}
+ .open-index.is-home :is(.cinema-portals,.atlas-portals,.museum-portals,.terminal-portals,.desktop-portals,.comic-portals,.ink-portals){gap:12px}
+ .open-index.is-home .portal-copy h2{font-size:22px}
+ .open-index.is-home .portal-copy .eyebrow{font-size:11px;letter-spacing:0}
+ .open-index.is-home .ink-portals .portal-card{padding:12px 8px 0;gap:0 6px;grid-template-columns:18px 1fr}
+ .open-index.is-home .radio-portals .portal-card{grid-template-columns:42px 95px 1fr 30px;gap:15px}
+ .open-index.is-home .radio-portals .portal-copy h2{font-size:25px}.open-index.is-home .frequency{font-size:27px}.open-index.is-home .radio-arrow{display:block;font-size:28px}
+ .open-index.is-home .museum-frame{padding:9px!important}.open-index.is-home .museum-caption{gap:8px}.open-index.is-home .museum-number{font-size:23px}
+ .open-index .listing-workspace{display:block;margin-top:0}
+ .open-index .listing-categories .category-links{display:flex!important;flex-direction:row!important;flex-wrap:nowrap;overflow:auto;padding:0!important;gap:18px!important;margin:0 0 14px;border:0!important}
+ .open-index .listing-categories .category-links a{flex-shrink:0;padding:9px 0!important;gap:7px}
+ .open-index .listing-categories .category-links a>span,.open-index .listing-categories .category-links a>b,.open-index .listing-categories .category-links small{display:none}
+ .open-index .listing-radio .listing-results{display:block}
+ .open-index .listing-radio .filter-bar{flex-direction:row;border:0;padding:0;flex-wrap:wrap}
+ .open-index .listing-radio .search-field{width:auto;flex:1}
+ .open-index .listing-radio .filter-bar .small-button{width:auto}
+ .open-index .finder-inline{display:block;padding:15px;border-bottom:1px solid var(--line)}
+ .open-index .finder-inline .asset{height:210px;width:100%;background:transparent;margin-bottom:10px}
+ .open-index .finder-inline .button{margin-top:15px}
+ .open-index .finder-split{display:block;min-height:0}
+ .open-index .finder-preview{display:none}.open-index .finder-files{border:0;padding:10px}
+ .open-index .theme-terminal .terminal-workspace{display:block}
+ .open-index .theme-terminal .terminal-identity{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:18px}
+ .open-index .theme-terminal .terminal-identity .asset{height:200px}
+ .open-index .theme-terminal .terminal-identity .identity h1{font-size:30px}
+ .open-index .theme-terminal .terminal-metrics{display:block;padding:18px}
+ .open-index .theme-terminal .terminal-metrics>dl{display:none}
+ .open-index .theme-terminal .terminal-reading{padding:20px}
+ .open-index.theme-orbital .atlas-reading{grid-template-columns:150px minmax(0,1fr);gap:20px}
+ .open-index .theme-museum .exhibit-essays{grid-template-columns:150px minmax(0,1fr);gap:20px}
+ .open-index .theme-ink .book-frontispiece{display:grid;grid-template-columns:130px 1fr;gap:18px;padding:20px}
+ .open-index .theme-ink .book-frontispiece .asset{height:180px}
+ .open-index .theme-ink .book-frontispiece .detail-toc{grid-column:1/-1;max-height:150px}
+ .open-index .theme-comic .comic-story{display:block}.open-index .theme-comic .story-panel{margin-top:20px}
+}
+@media(max-width:560px){
+ .open-index .review-bar{min-height:44px;gap:8px;justify-content:space-between;padding:0 4%;flex-wrap:nowrap}
+ .open-index .review-bar select{width:127px}.open-index .review-home{font-size:12px!important}
+ .open-index .review-bar .page-picker{font-size:12px;padding:0}
+ .open-index.is-home .demo-main>section{min-height:490px;grid-template-rows:64px minmax(0,1fr);gap:10px;padding:10px 5% 16px}
+ .open-index.is-home :is(.cinema-intro,.atlas-mast,.radio-mast,.museum-mast,.terminal-mast,.desktop-mast,.comic-mast,.ink-mast){height:64px}
+ .open-index.is-home .cinema-intro h1{font-size:28px}.open-index.is-home .cinema-intro h1 span{display:inline;font-size:13px;margin-left:12px}
+ .open-index.is-home .atlas-mast h1{font-size:34px}
+ .open-index.is-home .terminal-mast{display:flex;align-items:center;justify-content:space-between;gap:8px}
+ .open-index.is-home .terminal-mast>.eyebrow{display:none}.open-index.is-home .terminal-mast h1{font-size:25px}.open-index.is-home .terminal-counts span:not(:first-child){display:none}
+ .open-index.is-home .desktop-mast h1{font-size:28px}
+ .open-index.is-home .comic-mast h1{font-size:31px}.open-index.is-home .comic-mast{gap:12px}
+ .open-index.is-home .ink-mast{gap:18px}.open-index.is-home .ink-mast h1{font-size:30px}
+ .open-index.is-home :is(.cinema-portals,.atlas-portals,.museum-portals,.terminal-portals,.desktop-portals,.comic-portals,.ink-portals){grid-template-columns:1fr;grid-template-rows:repeat(3,minmax(0,1fr));gap:10px}
+ .open-index.is-home .portal-copy{padding:8px 0!important;align-self:center}
+ .open-index.is-home .portal-copy .eyebrow{font-size:11px}
+ .open-index.is-home .portal-copy h2{font-size:24px;letter-spacing:0;margin:4px 0}
+ .open-index.is-home .portal-enter{font-size:12px;padding-top:5px;margin-top:6px;min-height:26px}
+ .open-index.is-home .cinema-portals .portal-card{grid-template-columns:92px minmax(0,1fr);grid-template-rows:1fr;gap:18px}
+ .open-index.is-home .poster-mat{padding:5px;grid-template-rows:minmax(0,1fr)}.open-index.is-home .poster-index{display:none}
+ .open-index.is-home .atlas-portals .portal-card{grid-template-columns:24px 85px minmax(0,1fr);grid-template-rows:1fr;gap:12px;padding:5px 0}
+ .open-index.is-home .atlas-portal-no{align-self:start;font-size:19px;margin-top:5px}
+ .open-index.is-home .radio-portals .portal-card{grid-template-columns:26px 80px minmax(0,1fr);gap:12px;padding:8px 0}
+ .open-index.is-home .radio-portals .frequency{font-size:22px}.open-index.is-home .frequency small,.open-index.is-home .radio-arrow{display:none}
+ .open-index.is-home .radio-portals .portal-copy h2{font-size:24px}.open-index.is-home .radio-portals .portal-copy .eyebrow{font-size:10px}
+ .open-index.is-home .museum-portals .portal-card,.open-index.is-home .museum-portals .portal-card:nth-child(2){grid-template-columns:100px minmax(0,1fr);grid-template-rows:1fr;gap:16px}
+ .open-index.is-home .museum-frame{padding:7px!important}.open-index.is-home .museum-caption{gap:10px}.open-index.is-home .museum-number{font-size:23px}
+ .open-index.is-home .museum-caption .portal-copy h2{font-size:24px}
+ .open-index.is-home .terminal-portals{border:0}
+ .open-index.is-home .terminal-portals .portal-card{grid-template-columns:85px minmax(0,1fr);grid-template-rows:1fr;gap:16px;padding:8px 12px;border:1px solid var(--line)!important}
+ .open-index.is-home .terminal-cover{padding:0}.open-index.is-home .terminal-cover>span{display:none}
+ .open-index.is-home .desktop-portals .portal-card{grid-template-columns:94px minmax(0,1fr);grid-template-rows:25px minmax(0,1fr)}
+ .open-index.is-home .desktop-portals .window-bar{grid-column:1/-1;font-size:11px;padding:3px 10px}
+ .open-index.is-home .desktop-portals .portal-copy{padding:3px 12px!important}.open-index.is-home .desktop-portals .portal-copy .eyebrow{display:none}
+ .open-index.is-home .desktop-portals .cover{padding:5px}
+ .open-index.is-home .comic-portals .portal-card{grid-template-columns:85px minmax(0,1fr);grid-template-rows:1fr;gap:12px;padding:6px 10px 6px 6px;box-shadow:3px 3px 0 var(--ink)}
+ .open-index.is-home .comic-strip-label{display:none}.open-index.is-home .comic-portals .portal-copy{padding:4px 0!important;border:0}
+ .open-index.is-home .ink-portals{border:0}
+ .open-index.is-home .ink-portals .portal-card{grid-template-columns:20px 76px minmax(0,1fr);grid-template-rows:1fr;gap:12px;border:0;border-top:3px double var(--line);padding:6px 0}
+ .open-index.is-home .ink-portals .volume-label{grid-row:1;grid-column:1;font-size:13px}
+ .open-index.is-home .ink-portals .cover{grid-column:2}.open-index.is-home .ink-portals .portal-copy{grid-column:3}
+ .open-index.is-home .ink-portals .portal-copy .eyebrow{display:none}
+ .open-index .page-heading h1{font-size:30px!important}.open-index .page-heading{padding:16px 0!important}
+ .open-index .listing-categories{margin-bottom:8px}
+ .open-index .category-links strong{font-size:14px}
+ .open-index .filter-bar{display:flex;flex-wrap:wrap;padding:0;margin-bottom:10px;gap:8px}
+ .open-index .filter-select{display:flex;flex:1;min-width:90px;flex-direction:column;align-items:stretch;gap:2px}
+ .open-index .filter-select span{font-size:12px}.open-index .filter-select select{padding:8px 6px;min-width:0}
+ .open-index .search-field{flex-basis:60%;min-width:120px}.open-index .search-field input{width:100%}
+ .open-index .result-line{gap:10px;font-size:12px;flex-wrap:wrap}
+ .open-index .museum-collection{gap:28px}.open-index .exhibit-record:nth-child(even){padding-top:0}
+ .open-index .breadcrumb{font-size:12px;margin-bottom:14px;gap:10px}.open-index .breadcrumb>span{display:none}
+ .open-index .identity h1{font-size:36px!important}
+ .open-index .cinema-poster{padding:14px;margin-bottom:20px}.open-index .cinema-poster .detail-visual>.asset{height:270px}
+ .open-index .theme-editorial .cinema-dossier .detail-toc{max-height:142px;margin:18px 0}
+ .open-index.theme-orbital .atlas-summary{gap:15px;grid-template-columns:1fr;padding:15px 0}
+ .open-index.theme-orbital .atlas-summary .detail-visual>.asset{height:260px}
+ .open-index.theme-orbital .atlas-summary .facts{margin:10px 0}
+ .open-index.theme-orbital .atlas-reading{display:block;margin-top:15px}
+ .open-index.theme-orbital .atlas-reading>.detail-toc{position:static;max-height:145px;margin-bottom:20px;display:flex;flex-direction:row;flex-wrap:wrap;gap:0 10px}
+ .open-index.theme-orbital .detail-toc>.eyebrow{width:100%}
+ .open-index .theme-radio .record-sleeve .asset{height:260px}.open-index .theme-radio .record-sleeve{gap:20px}
+ .open-index .theme-radio .track .detail-content{padding:16px}
+ .open-index .theme-radio .record-track-head h2{font-size:25px}
+ .open-index .theme-museum .exhibit-stage .asset{height:280px}.open-index .theme-museum .exhibit-essays{display:block}
+ .open-index .theme-museum .exhibit-essays>aside nav{max-height:145px;display:flex;flex-wrap:wrap;gap:0 15px;margin-bottom:20px}
+ .open-index .theme-museum .chapter-disclosure{padding:0 14px}
+ .open-index .theme-terminal .terminal-identity{grid-template-columns:105px 1fr;gap:15px;padding:15px}
+ .open-index .theme-terminal .terminal-identity .asset{height:170px}.open-index .theme-terminal .terminal-identity .identity h1{font-size:28px!important}
+ .open-index .theme-terminal .terminal-reading{padding:15px}
+ .open-index .theme-terminal .terminal-reading>.detail-toc{max-height:160px}
+ .open-index .theme-clarity .document-sheet{padding:18px 14px}.open-index .theme-clarity .desktop-document>aside .detail-toc{max-height:155px}
+ .open-index .theme-clarity .chapter-disclosure{padding:0 12px}.open-index .theme-clarity .desktop-profile .asset{height:260px}
+ .open-index .theme-comic .comic-cover .asset{height:280px}.open-index .theme-comic .comic-heading .identity h1{font-size:36px!important}
+ .open-index .theme-comic .comic-heading>.comic-issue{font-size:12px}.open-index .theme-comic .chapter-disclosure{padding:0 13px}
+ .open-index .theme-ink .book-frontispiece{grid-template-columns:100px 1fr;padding:15px;gap:15px}
+ .open-index .theme-ink .book-frontispiece .asset{height:160px}.open-index .theme-ink .book-frontispiece .stats-grid{gap:12px}
+ .open-index .theme-ink .book-frontispiece .stats-grid dd{font-size:21px}.open-index .theme-ink .book-frontispiece .stats-section{padding:0}
+ .open-index .theme-ink .book-page{padding:22px 17px}.open-index .theme-ink .book-frontispiece .detail-toc{max-height:155px}
+ .open-index .many-skills .skill-tabs{max-height:175px}
+ .open-index .skill-tabs button{font-size:13px;max-width:260px}
+ .open-index .table-scroll th,.open-index .table-scroll td{font-size:14px;padding:10px}
+ .open-index .chapter-disclosure>summary{gap:10px;padding:16px 0}.open-index .chapter-disclosure>summary strong{font-size:16px}
+ .open-index .chapter-disclosure>summary small{font-size:12px}
+ .open-index .level-control{margin:12px 0 20px}.open-index .level-help{font-size:12px}
+ .open-index .pagination{flex-wrap:wrap;gap:10px}
+ .open-index .world-total{font-size:13px!important}.open-index .season-title{font-size:20px}
+}
+.open-index.is-home .museum-portals .portal-card{align-items:stretch}
+.open-index.is-home .museum-frame{height:100%;display:grid;grid-template-rows:minmax(0,1fr)}
+.open-index.is-home .museum-caption{margin-top:0}
+.open-index.is-home .atlas-mast h1 em,.open-index.is-home .comic-mast h1 em{margin-left:.14em}
+.open-index.is-home .desktop-portals .portal-card{grid-template-rows:36px minmax(0,1fr) 130px}
+.open-index.is-home .desktop-portals .portal-card:nth-child(n){rotate:0deg}
+.open-index.is-home .desktop-portals .portal-enter{margin-top:7px}
+@media(min-width:1101px){
+ .open-index.is-home .demo-main>.home-terminal{grid-template-columns:210px minmax(0,1fr);grid-template-rows:minmax(0,1fr);gap:35px;padding-top:30px}
+ .open-index.is-home .home-terminal .terminal-mast{height:100%;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;border-bottom:0;border-right:1px solid var(--line);padding:18px 25px 20px 0;gap:30px}
+ .open-index.is-home .home-terminal .terminal-mast h1{font-size:40px;line-height:1.35}
+ .open-index.is-home .home-terminal .terminal-mast h1 br{display:block}
+ .open-index.is-home .home-terminal .terminal-mast>p:not(.eyebrow){display:block;font-size:14px;margin-top:auto;align-self:start}
+ .open-index.is-home .home-terminal .terminal-counts{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-self:stretch}
+ .open-index.is-home .home-terminal .terminal-counts span:last-child{grid-column:1/-1}
+ .open-index.is-home .terminal-portals .portal-card{padding:10px;grid-template-rows:minmax(0,1fr) 130px}
+ .open-index.is-home .terminal-portals .portal-copy h2{font-size:25px}
+ .open-index.is-home .comic-portals{grid-template-columns:1.12fr 1fr .95fr;gap:22px}
+}
+.open-index .advanced-filters{position:relative;font-size:13px;min-width:90px}
+.open-index .advanced-filters>summary{cursor:pointer;min-height:44px;display:flex;align-items:center;justify-content:center;gap:8px;padding:8px 12px;border:1px solid var(--line)}
+.open-index .advanced-filters>summary:after{content:'＋'}
+.open-index .advanced-filters[open]>summary:after{content:'−'}
+.open-index .filter-options{display:flex;flex-wrap:wrap;gap:14px;padding:15px;border:1px solid var(--line);background:var(--surface)}
+.open-index .advanced-filters[open]{flex-basis:100%}
+.open-index .page-heading{padding:12px 0!important;margin-bottom:8px}
+.open-index .page-heading .eyebrow{display:none}
+.open-index .page-heading h1{font-size:34px!important}
+.open-index .filter-bar{margin-bottom:8px}
+.open-index .result-line{margin:8px 0 12px}
+.open-index .listing-page:not(.listing-terminal):not(.listing-orbital) .listing-categories .category-links{padding:0;gap:18px}
+.open-index .listing-page .category-links a{padding-top:10px;padding-bottom:10px}
+.open-index .theme-ink .book-title{padding:8px 0 18px;gap:20px}
+.open-index .theme-ink .book-title .identity h1{font-size:48px;margin:10px 0}
+.open-index .theme-ink .book-title .identity-note{margin:8px 0}
+.open-index .theme-ink .book-spread{margin-top:22px}
+@media(max-width:560px){
+ .open-index.is-home .desktop-portals .portal-card{grid-template-rows:25px minmax(0,1fr)}
+ .open-index.is-home .radio-portals .frequency{grid-column:1;grid-row:1;align-self:center}
+ .open-index.is-home .radio-portals .cover{grid-column:2;grid-row:1}
+ .open-index.is-home .radio-portals .portal-copy{grid-column:3;grid-row:1}
+ .open-index.is-home .radio-portals .portal-card{grid-template-rows:minmax(0,1fr);align-items:center}
+ .open-index.is-home .radio-mast{align-items:center}.open-index.is-home .radio-mast h1{font-size:25px}
+ .open-index.is-home .radio-mast .eyebrow{display:none}
+ .open-index.is-home .museum-portals .portal-card,.open-index.is-home .museum-portals .portal-card:nth-child(2){display:grid}
+ .open-index.is-home .atlas-portals .portal-copy{grid-column:3;grid-row:1}
+ .open-index.is-home .atlas-portals .cover{grid-column:2;grid-row:1}
+ .open-index.is-home .atlas-portal-no{grid-column:1;grid-row:1}
+ .open-index.is-home .terminal-counts{margin-top:0}
+ .open-index .filter-bar .search-field{flex-basis:40%;min-width:80px}
+ .open-index .filter-bar .small-button{padding:8px 10px;gap:0}
+ .open-index .advanced-filters{min-width:65px}
+ .open-index .advanced-filters>summary{padding:8px}
+ .open-index .advanced-filters[open]{flex-basis:100%}
+ .open-index .listing-page .category-links{margin:0 0 7px}
+ .open-index .page-heading{padding:10px 0!important}.open-index .page-heading h1{font-size:28px!important}
+ .open-index .theme-ink .book-title .identity h1{font-size:35px}
+}
+@media(prefers-reduced-motion:reduce){.open-index{scroll-behavior:auto}.open-index,.open-index *,.open-index *::before,.open-index *::after{transition:none!important;animation:none!important}}

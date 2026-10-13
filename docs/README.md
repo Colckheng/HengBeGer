@@ -2,6 +2,8 @@
 
 ## 推荐先读
 
+- [开放图录 · 方案定稿与开发交接（2026-10-13）](./32-open-index-design-handoff-2026-10-13.md)
+
 - [项目总览](../README.md)
 - [快速开始](./04-quick-start.md)
 - [管理员工作流](./11-admin-workflow.md)

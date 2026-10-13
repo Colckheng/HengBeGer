@@ -78,6 +78,7 @@ import {
   parsePositiveIntQuery,
   parseStringListQuery,
 } from './utils/publicListQuery.js';
+import { createCatalogRouter } from './catalog.js';
 import {
   validateAgentData,
   validateBody,
@@ -838,6 +839,10 @@ app.get('/api/storage/:type', requireAdmin, validateDataType, async (req, res) =
 app.put('/api/storage/:type', requireAdmin, checkDbConnection, validateDataType, async (req, res) => {
   await DataSyncController.updateDataByType(req, res);
 });
+
+app.use('/api/catalog', createCatalogRouter({
+  query: (sql, params = []) => sequelize.query(sql, { replacements: params }),
+}));
 
 const distDir = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'dist');
 

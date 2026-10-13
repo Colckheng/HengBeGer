@@ -1,0 +1,71 @@
+{
+  "zzz/agents/1011": {
+    "src": "/demo-art/zzz-1011.png",
+    "name": "安比",
+    "source": "https://act-upload.mihoyo.com/nap-obc-indep/2024/06/25/76099754/f52acbc7bc625ba62aacdfcbcb7f64cc_5255041409433299502.png",
+    "sourcePage": "https://www.miyoushe.com/zzz/wiki/content/379/detail"
+  },
+  "hsr/characters/1224": {
+    "src": "/demo-art/hsr-1224.png",
+    "name": "三月七",
+    "source": "https://act-upload.mihoyo.com/sr-wiki/2025/08/06/281496331/87757046fcd7644b685c0d51e011f242_2452303955027980096.png",
+    "sourcePage": "https://www.miyoushe.com/sr/wiki/content/3121/detail"
+  },
+  "zzz/agents/1431": {
+    "src": "/demo-art/zzz-1431.png",
+    "name": "叶瞬光",
+    "source": "https://act-upload.mihoyo.com/nap-obc-indep/2025/12/25/15559334/bc2d2491d3d46cd33ff691fb79234532_5743555002107902069.png",
+    "sourcePage": "https://www.miyoushe.com/zzz/wiki/content/1687/detail"
+  },
+  "zzz/agents/1371": {
+    "src": "/demo-art/zzz-1371.png",
+    "name": "仪玄",
+    "source": "https://act-upload.mihoyo.com/nap-obc-indep/2025/05/28/15559334/2b105076fc7b408c3214f0b3349afede_2954897288856944924.png",
+    "sourcePage": "https://www.miyoushe.com/zzz/wiki/content/1299/detail"
+  },
+  "zzz/agents/1611": {
+    "src": "/demo-art/zzz-1611.png",
+    "name": "克拉蕾",
+    "source": "https://act-upload.mihoyo.com/nap-obc-indep/2026/09/02/72175806/463afe9a548c65ed12600e3d66177189_1169523356918771019.png",
+    "sourcePage": "https://www.miyoushe.com/zzz/wiki/content/2145/detail"
+  },
+  "hsr/characters/1415": {
+    "src": "/demo-art/hsr-1415.png",
+    "name": "昔涟",
+    "source": "https://act-upload.mihoyo.com/sr-wiki/2025/10/24/276833758/7e882466b8296aec6babf9ae587c7db1_2588671916746164363.png",
+    "sourcePage": "https://www.miyoushe.com/sr/wiki/content/5851/detail",
+    "usage": "emblem"
+  },
+  "hsr/characters/8007": {
+    "src": "/demo-art/hsr-8007.png",
+    "name": "开拓者",
+    "source": "https://act-upload.mihoyo.com/sr-wiki/2026/07/09/197948068/4d41b6e0c2bdb838bb750b67fe0b3b25_8589691139586795681.png",
+    "sourcePage": "https://www.miyoushe.com/sr/wiki/content/4441/detail"
+  },
+  "hsr/characters/1502": {
+    "src": "/demo-art/hsr-1502.png",
+    "name": "爻光",
+    "source": "https://act-upload.mihoyo.com/sr-wiki/2026/01/02/276833758/4289695278385bf69e230f069c4e0461_5399176605810919556.png",
+    "sourcePage": "https://www.miyoushe.com/sr/wiki/content/6746/detail"
+  },
+  "hsr/characters/1001": {
+    "src": "/demo-art/hsr-1001.png",
+    "name": "三月七",
+    "source": "https://act-upload.mihoyo.com/sr-wiki/2025/08/24/281496331/058b1964932ed5a487de911d29a39f04_5562474376695252482.png",
+    "sourcePage": "https://www.miyoushe.com/sr/wiki/content/48/detail"
+  },
+  "currency/season1/roles/1001": {
+    "src": "/demo-art/hsr-1001.png",
+    "name": "三月七",
+    "source": "https://act-upload.mihoyo.com/sr-wiki/2025/08/24/281496331/058b1964932ed5a487de911d29a39f04_5562474376695252482.png",
+    "sourcePage": "https://www.miyoushe.com/sr/wiki/content/48/detail",
+    "match": "same-game-character-id"
+  },
+  "currency/season1/roles/1502": {
+    "src": "/demo-art/hsr-1502.png",
+    "name": "爻光",
+    "source": "https://act-upload.mihoyo.com/sr-wiki/2026/01/02/276833758/4289695278385bf69e230f069c4e0461_5399176605810919556.png",
+    "sourcePage": "https://www.miyoushe.com/sr/wiki/content/6746/detail",
+    "match": "same-game-character-id"
+  }
+}

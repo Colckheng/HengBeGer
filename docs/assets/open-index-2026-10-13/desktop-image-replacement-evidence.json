@@ -1,0 +1,105 @@
+{
+  "checks": [
+    {
+      "viewport": {
+        "width": 360,
+        "height": 640
+      },
+      "images": [
+        {
+          "src": "/demo-art/covers/zzz.png",
+          "loaded": true,
+          "fit": "contain"
+        },
+        {
+          "src": "/demo-art/covers/hsr.png",
+          "loaded": true,
+          "fit": "contain"
+        },
+        {
+          "src": "/demo-art/covers/currency.png",
+          "loaded": true,
+          "fit": "contain"
+        }
+      ],
+      "firstScreen": true,
+      "overflow": false
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "images": [
+        {
+          "src": "/demo-art/covers/zzz.png",
+          "loaded": true,
+          "fit": "contain"
+        },
+        {
+          "src": "/demo-art/covers/hsr.png",
+          "loaded": true,
+          "fit": "contain"
+        },
+        {
+          "src": "/demo-art/covers/currency.png",
+          "loaded": true,
+          "fit": "contain"
+        }
+      ],
+      "firstScreen": true,
+      "overflow": false
+    },
+    {
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "images": [
+        {
+          "src": "/demo-art/covers/zzz.png",
+          "loaded": true,
+          "fit": "contain"
+        },
+        {
+          "src": "/demo-art/covers/hsr.png",
+          "loaded": true,
+          "fit": "contain"
+        },
+        {
+          "src": "/demo-art/covers/currency.png",
+          "loaded": true,
+          "fit": "contain"
+        }
+      ],
+      "firstScreen": true,
+      "overflow": false
+    },
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "images": [
+        {
+          "src": "/demo-art/covers/zzz.png",
+          "loaded": true,
+          "fit": "contain"
+        },
+        {
+          "src": "/demo-art/covers/hsr.png",
+          "loaded": true,
+          "fit": "contain"
+        },
+        {
+          "src": "/demo-art/covers/currency.png",
+          "loaded": true,
+          "fit": "contain"
+        }
+      ],
+      "firstScreen": true,
+      "overflow": false
+    }
+  ],
+  "pageErrors": []
+}

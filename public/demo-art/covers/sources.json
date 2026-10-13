@@ -1,0 +1,35 @@
+{
+  "recordedAt": "2026-10-11T15:21:17.690Z",
+  "covers": [
+    {
+      "world": "zzz",
+      "subject": "安比生日图",
+      "sourceFile": "C:/Users/hengxing/Desktop/3136fa60b486593948a0e3a7f7159e9c_3789252039600726563.png",
+      "src": "/demo-art/covers/zzz.png",
+      "width": 600,
+      "height": 930,
+      "sha256": "2347c961405b8e86584a767ac9c4b32f0220aaa934b8989be2fdbdeb43e5aca0",
+      "mappingConfirmedByUser": true
+    },
+    {
+      "world": "hsr",
+      "subject": "三月七花束图",
+      "sourceFile": "C:/Users/hengxing/Desktop/500px-2025三月七.png",
+      "src": "/demo-art/covers/hsr.png",
+      "width": 500,
+      "height": 667,
+      "sha256": "4682aa36a1240d5f24b7696f5bd71da140b7616dee3ca07a272de93ea6cce174",
+      "mappingConfirmedByUser": true
+    },
+    {
+      "world": "currency",
+      "subject": "三月七蛋糕图",
+      "sourceFile": "C:/Users/hengxing/Desktop/e1c08a5d47de6238a1e45cacdb8f04ff_2236671098876582948.png",
+      "src": "/demo-art/covers/currency.png",
+      "width": 500,
+      "height": 889,
+      "sha256": "0244aa4273a91ed374714564d8bad45b4ecbabca201f07abd28a4fa002674066",
+      "mappingConfirmedByUser": true
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "pages": [
+    {
+      "name": "home",
+      "h1": "把世界，\n展开来看。\n↗",
+      "overflow": false,
+      "badImages": []
+    },
+    {
+      "name": "list",
+      "h1": "代理人图鉴04",
+      "overflow": false,
+      "badImages": []
+    },
+    {
+      "name": "detail",
+      "h1": "昔涟",
+      "overflow": false,
+      "badImages": []
+    },
+    {
+      "name": "comparison",
+      "h1": "两种气质，\n同一份热爱。",
+      "overflow": false,
+      "badImages": []
+    },
+    {
+      "name": "ink",
+      "h1": "在万象之间，\n读懂每一份热爱。",
+      "overflow": false,
+      "badImages": []
+    },
+    {
+      "name": "season",
+      "h1": "货币战争第一赛季",
+      "overflow": false,
+      "badImages": []
+    }
+  ],
+  "errors": [],
+  "failed": [],
+  "readerChunkLoaded": true
+}
