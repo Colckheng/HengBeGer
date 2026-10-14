@@ -99,3 +99,12 @@ deploy/data-preview/
 deploy/import/
 deploy/backups/
 
+# Desktop client (Electron)
+desktop/node_modules/
+desktop/*.log
+desktop/.probe-min*/
+desktop/out/
+desktop/.smoke/
+desktop/.tmp-test-userdata/
+.tmp-test-userdata/
+

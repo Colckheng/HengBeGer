@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'">
+<title>连不上服务器</title>
+<style>
+  :root { color-scheme: dark; }
+  body { margin: 0; height: 100vh; display: flex; align-items: center; justify-content: center;
+         background: #14161c; color: #e7e9ee; font: 15px/1.7 "Microsoft YaHei", system-ui, sans-serif; }
+  main { width: 520px; padding: 28px 30px; background: #1c1f27; border: 1px solid #2b2f3a; border-radius: 14px; }
+  h1 { margin: 0 0 8px; font-size: 19px; }
+  .why { color: #ffb27a; font-size: 13px; margin: 0 0 6px; word-break: break-all; }
+  .url { color: #9db2ff; font-size: 13px; margin: 0 0 18px; word-break: break-all; }
+  .row { display: flex; gap: 10px; }
+  button { padding: 9px 16px; border-radius: 8px; border: 1px solid #3a4152; background: #232833;
+           color: #e7e9ee; font-size: 14px; cursor: pointer; }
+  button.primary { background: #3d6df0; border-color: #3d6df0; }
+  .hint { margin-top: 16px; color: #6f7787; font-size: 12px; line-height: 1.6; }
+</style>
+</head>
+<body>
+<main>
+  <h1>连不上服务器</h1>
+  <p class="why" id="why"></p>
+  <p class="url" id="url"></p>
+  <div class="row">
+    <button class="primary" id="retry">重试</button>
+    <button id="setup">改服务器地址</button>
+  </div>
+  <div class="hint">
+    常见原因：ECS 安全组没放行 8443/tcp、容器没起（<code>docker compose ps</code>）、地址写错端口。<br>
+    若服务端换了证书，删除「改服务器地址」里保存的信任指纹后重连会重新询问。
+  </div>
+</main>
+<script>
+  const q = new URLSearchParams(location.search);
+  document.getElementById('why').textContent = q.get('why') || '连接失败';
+  document.getElementById('url').textContent = q.get('url') || '';
+  document.getElementById('retry').addEventListener('click', () => window.hengberger.state().then(() => location.reload()));
+  document.getElementById('setup').addEventListener('click', () => window.hengberger.saveServer(''));
+</script>
+</body>
+</html>

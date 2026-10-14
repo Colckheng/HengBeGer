@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'">
+<title>连接 HengBerGer</title>
+<style>
+  :root { color-scheme: dark; }
+  body { margin: 0; height: 100vh; display: flex; align-items: center; justify-content: center;
+         background: #14161c; color: #e7e9ee; font: 15px/1.6 "Microsoft YaHei", system-ui, sans-serif; }
+  main { width: 460px; padding: 28px 30px; background: #1c1f27; border: 1px solid #2b2f3a; border-radius: 14px; }
+  h1 { margin: 0 0 6px; font-size: 19px; }
+  p { margin: 0 0 18px; color: #9aa1b0; font-size: 13px; }
+  label { display: block; font-size: 13px; color: #9aa1b0; margin-bottom: 6px; }
+  input { width: 100%; box-sizing: border-box; padding: 10px 12px; border-radius: 8px;
+          border: 1px solid #333846; background: #12141a; color: #e7e9ee; font-size: 14px; }
+  .row { display: flex; gap: 10px; margin-top: 18px; align-items: center; }
+  button { padding: 9px 16px; border-radius: 8px; border: 1px solid #3a4152; background: #232833;
+           color: #e7e9ee; font-size: 14px; cursor: pointer; }
+  button.primary { background: #3d6df0; border-color: #3d6df0; }
+  .err { color: #ff8b8b; font-size: 13px; min-height: 20px; }
+  .hint { margin-top: 14px; color: #6f7787; font-size: 12px; line-height: 1.5; }
+  code { color: #9db2ff; }
+</style>
+</head>
+<body>
+<main>
+  <h1>连接 HengBerGer</h1>
+  <p>填云端地址，客户端会把它当作这一台机器的主服务器。</p>
+  <label for="server">服务器地址</label>
+  <input id="server" spellcheck="false" placeholder="https://127.0.0.1:8444">
+  <div class="err" id="err"></div>
+  <div class="row">
+    <button class="primary" id="save">保存并连接</button>
+    <button id="quit">退出</button>
+  </div>
+  <div class="hint">
+    自签证书：第一次连接时会弹窗显示证书指纹，确认后记住，之后不再问。<br>
+    本机预演填 <code>https://127.0.0.1:8444</code>；上云后填 <code>https://&lt;ECS公网IP&gt;:8443</code>。
+  </div>
+</main>
+<script>
+  const input = document.getElementById('server');
+  const err = document.getElementById('err');
+  document.getElementById('quit').addEventListener('click', () => window.hengberger.quit());
+  document.getElementById('save').addEventListener('click', async () => {
+    const res = await window.hengberger.saveServer(input.value);
+    if (!res.ok) { err.textContent = res.error; return; }
+    err.textContent = '';
+  });
+  input.addEventListener('keydown', (e) => { if (e.key === 'Enter') document.getElementById('save').click(); });
+  (async () => {
+    const state = await window.hengberger.state();
+    input.value = state.serverUrl || state.defaultServer;
+    input.focus();
+    input.select();
+  })();
+</script>
+</body>
+</html>

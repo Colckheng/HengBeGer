@@ -1,0 +1,40 @@
+{
+  "name": "hengbeger-desktop",
+  "private": true,
+  "version": "0.1.0",
+  "description": "HengBerGer 桌面客户端：连云端（自签 TLS）的窗口壳，复用已验收的 Web 界面",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "smoke": "electron . --smoke",
+    "test": "node --test test/settings.test.mjs test/main-process.test.mjs",
+    "dist": "electron-builder --win --x64"
+  },
+  "devDependencies": {
+    "electron": "42.2.0",
+    "electron-builder": "^26.15.3"
+  },
+  "build": {
+    "appId": "cc.nanoka.hengbeger",
+    "productName": "HengBerGer",
+    "files": [
+      "main.js",
+      "preload.js",
+      "src/**",
+      "renderer/**"
+    ],
+    "directories": {
+      "output": "out"
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}
