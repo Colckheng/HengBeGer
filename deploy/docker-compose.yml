@@ -25,6 +25,10 @@ x-app-environment: &app-environment
   TRUST_PROXY_HOPS: ${TRUST_PROXY_HOPS:-1}
   # 网页与 App 都是同源/无 Origin 请求，默认不需要 CORS 白名单
   CORS_ORIGINS: ${CORS_ORIGINS:-}
+  # 出图两态（设计文档 §3.5）：容器里一律 file —— 图片由 Nginx 从 /srv/images 直出，
+  # 应用只负责扫描目录判断"这张图有没有"。本机跑 npm run server 时不设这个变量，走 db 老路。
+  IMAGE_MODE: ${IMAGE_MODE:-file}
+  IMAGES_ROOT: /srv/images
   TZ: ${TZ:-Asia/Shanghai}
 
 services:

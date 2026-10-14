@@ -99,6 +99,7 @@ LOG_LEVEL=info
 SECURITY_SILENCE=false
 TRUST_PROXY_HOPS=1
 CORS_ORIGINS=
+IMAGE_MODE=file
 APP_TAG=latest
 
 # ---- 预演覆盖层专用 ----

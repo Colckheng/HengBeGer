@@ -1,8 +1,11 @@
 import express from 'express';
+import fs from 'node:fs/promises';
+import os from 'node:os';
+import path from 'node:path';
 import request from 'supertest';
 import { jest } from '@jest/globals';
 
-import { createCatalogRouter } from '../catalog.js';
+import { createCatalogRouter, scanThumbHashes } from '../catalog.js';
 import {
   buildEntry,
   buildGroups,
@@ -13,6 +16,7 @@ import {
   createEntryLookup,
   deriveIssues,
   displayName,
+  imageUrls,
   ISSUE_DYNAMIC_REF,
   ISSUE_LV80,
   ISSUE_SIX_STAR,
@@ -390,6 +394,64 @@ const routerRows = [
     },
   },
 ];
+
+describe('openIndex imageUrls（出图地址两态）', () => {
+  const hash = 'a'.repeat(64);
+
+  it('db 模式（默认）给应用出图接口，没有 imageLarge', () => {
+    expect(imageUrls(hash, true, 'db')).toEqual({ image: `/api/catalog/images/${hash}`, imageLarge: null });
+    // 不传 mode 时走模块级 IMAGE_MODE；测试环境不设该变量，必须是 db，老行为不变
+    expect(imageUrls(hash, true)).toEqual({ image: `/api/catalog/images/${hash}`, imageLarge: null });
+  });
+
+  it('file 模式给 Nginx 直出的两档 WebP 地址', () => {
+    expect(imageUrls(hash, true, 'file')).toEqual({
+      image: `/img/t/${hash}.webp`,
+      imageLarge: `/img/d/${hash}.webp`,
+    });
+  });
+
+  it('没有 hash 或资产不存在时两态都给 null', () => {
+    expect(imageUrls(null, true, 'file')).toEqual({ image: null, imageLarge: null });
+    expect(imageUrls(hash, false, 'file')).toEqual({ image: null, imageLarge: null });
+    expect(imageUrls(hash, false, 'db')).toEqual({ image: null, imageLarge: null });
+    expect(imageUrls(undefined, undefined, 'db')).toEqual({ image: null, imageLarge: null });
+  });
+});
+
+describe('catalog scanThumbHashes（file 模式的图片真值来源）', () => {
+  let root;
+
+  beforeEach(async () => {
+    root = await fs.mkdtemp(path.join(os.tmpdir(), 'hengbeger-thumbs-'));
+  });
+
+  afterEach(async () => {
+    await fs.rm(root, { recursive: true, force: true });
+  });
+
+  it('把 t 档里的 <hash>.webp 收成集合，忽略别的文件', async () => {
+    const keep = 'b'.repeat(64);
+    await fs.mkdir(path.join(root, 't'), { recursive: true });
+    await fs.writeFile(path.join(root, 't', `${keep}.webp`), 'x');
+    await fs.writeFile(path.join(root, 't', 'notes.txt'), 'x');
+    await fs.writeFile(path.join(root, 't', 'no-suffix'), 'x');
+    // d 档不参与：列表和详情都以 t 档为准
+    await fs.mkdir(path.join(root, 'd'), { recursive: true });
+    await fs.writeFile(path.join(root, 'd', `${'c'.repeat(64)}.webp`), 'x');
+
+    expect(await scanThumbHashes(root)).toEqual(new Set([keep]));
+  });
+
+  it('目录不存在（图片还没导入）返回空集合而不是抛错', async () => {
+    expect(await scanThumbHashes(path.join(root, 'does-not-exist'))).toEqual(new Set());
+  });
+
+  it('t 档是空目录时也是空集合', async () => {
+    await fs.mkdir(path.join(root, 't'), { recursive: true });
+    expect(await scanThumbHashes(root)).toEqual(new Set());
+  });
+});
 
 describe('catalog router open index routes', () => {
   const query = jest.fn(async sql => {

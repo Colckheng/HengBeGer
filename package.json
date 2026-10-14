@@ -48,6 +48,8 @@
     "cloud:export": "node scripts/cloud/export-data.mjs",
     "cloud:export:count": "node scripts/cloud/export-data.mjs --count-only",
     "cloud:export:verify": "node scripts/cloud/export-data.mjs --verify",
+    "cloud:images": "node scripts/cloud/export-images.mjs",
+    "cloud:images:verify": "node scripts/cloud/export-images.mjs --verify",
     "verify:api": "node scripts/open-index-api-smoke.mjs",
     "verify:shots": "node scripts/open-index-shots.mjs",
     "demo:data": "node scripts/build-demo-data.mjs",
@@ -89,6 +91,7 @@
     "globals": "^16.3.0",
     "jest": "^29.7.0",
     "jsdom": "^27.2.0",
+    "sharp": "^0.35.5",
     "supertest": "^6.3.4",
     "vite": "^7.3.6",
     "vitest": "^4.1.11"

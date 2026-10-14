@@ -1,9 +1,12 @@
 import express from 'express';
+import fs from 'node:fs/promises';
+import path from 'node:path';
 import {
   buildEntry,
   buildIndex,
   CATEGORIES,
   createEntryLookup,
+  IMAGE_MODE,
   parsePayload,
   sha256Hex,
 } from './openIndex.js';
@@ -12,6 +15,30 @@ import {
 // in-process so a burst of visitors cannot re-run the whole assembly.
 const INDEX_TTL_MS = 60 * 1000;
 const indexCache = { at: 0, body: null };
+
+// file 模式下图片由 Nginx 从磁盘直出（/img/ -> 这个目录），所以「这张图有没有」的真相
+// 也在磁盘上：只信 catalog_assets 会漏掉「表里说有、文件其实没传上去」的情况。
+// 目录清单缓存 60s，与 /index 同一节奏；导入完最多等一分钟生效。
+export const IMAGES_ROOT = process.env.IMAGES_ROOT || '/srv/images';
+const THUMB_DIR = 't';
+const THUMB_SUFFIX = '.webp';
+const assetCache = { at: 0, set: null };
+
+/**
+ * 扫一档缩略图目录，文件名去掉 .webp 就是 hash。
+ * 目录不存在（图片还没导入）返回空集合，不抛错；其它错误照抛。
+ */
+export async function scanThumbHashes(root = IMAGES_ROOT) {
+  const set = new Set();
+  try {
+    for (const name of await fs.readdir(path.join(root, THUMB_DIR))) {
+      if (name.endsWith(THUMB_SUFFIX)) set.add(name.slice(0, -THUMB_SUFFIX.length));
+    }
+  } catch (error) {
+    if (error.code !== 'ENOENT') throw error;
+  }
+  return set;
+}
 
 export function createCatalogRouter({ query }) {
   const router = express.Router();
@@ -25,6 +52,15 @@ export function createCatalogRouter({ query }) {
     const [rows] = await query('SELECT hash FROM catalog_assets', []);
     return new Set(rows.map(r => r.hash));
   };
+  // file 模式：t 档存在即认为图片可用（列表和详情都依赖它），目录清单缓存 60s。
+  const loadFileAssetHashes = async () => {
+    if (assetCache.set && Date.now() - assetCache.at < INDEX_TTL_MS) return assetCache.set;
+    const set = await scanThumbHashes();
+    assetCache.at = Date.now();
+    assetCache.set = set;
+    return set;
+  };
+  const resolveAssetHashes = () => (IMAGE_MODE === 'file' ? loadFileAssetHashes() : loadAssetHashes());
   const loadEntries = async () => {
     const [rows] = await query('SELECT entry_key AS `key`, category, name, payload FROM catalog_entries', []);
     return rows.map(row => ({ ...row, payload: parsePayload(row.payload) }));
@@ -47,7 +83,7 @@ export function createCatalogRouter({ query }) {
     if (typeof req.query.key !== 'string' || req.query.key.length > 191) return res.status(400).json({error:'无效的条目'});
     const [[row]] = await query('SELECT entry_key AS `key`, category, name, payload FROM catalog_entries WHERE entry_key = ?', [req.query.key]);
     if (!row) return res.status(404).json({error:'未找到条目'});
-    const [entries, assetHashes] = await Promise.all([loadEntries(), loadAssetHashes()]);
+    const [entries, assetHashes] = await Promise.all([loadEntries(), resolveAssetHashes()]);
     res.set('Cache-Control','private, max-age=30').json(buildEntry({ ...row, payload: parsePayload(row.payload) }, assetHashes, createEntryLookup(entries)));
   }));
   // Legacy raw-payload access, kept under its own path.
@@ -59,7 +95,7 @@ export function createCatalogRouter({ query }) {
   }));
   router.get('/index', handle(async (_req,res) => {
     if (!indexCache.body || Date.now() - indexCache.at > INDEX_TTL_MS) {
-      const [rows, assetHashes] = await Promise.all([loadEntries(), loadAssetHashes()]);
+      const [rows, assetHashes] = await Promise.all([loadEntries(), resolveAssetHashes()]);
       indexCache.body = buildIndex(rows, assetHashes);
       indexCache.at = Date.now();
     }

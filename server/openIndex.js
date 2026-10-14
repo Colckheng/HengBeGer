@@ -49,8 +49,27 @@ export const sha256Hex = value => crypto.createHash('sha256').update(value).dige
  *   1. entry: links are emitted for every key that exists in catalog_entries,
  *      not only for the 87 curated demo samples;
  *   2. an image URL is emitted only when the payload imageHash also has a
- *      matching catalog_assets row.
+ *      matching catalog_assets row (db 模式) 或 /srv/images/t 下有对应文件（file 模式）。
  */
+
+/**
+ * 出图地址两态（设计文档 §3.5）：
+ *   db   —— 默认。图片以 base64 存在 catalog_assets 里，走应用出图接口 /api/catalog/images/<hash>。
+ *   file —— 云端。图片由阶段 2 在本机转成两档 WebP 落在磁盘上，交给 Nginx 直出：
+ *           缩略图 /img/t/<hash>.webp（宽 320）、显示图 /img/d/<hash>.webp（长边 1280）。
+ * 文件名就是图片内容的 sha256，内容变则文件名变，所以 immutable 缓存名正言顺。
+ * 只在云端设 IMAGE_MODE=file；本机与测试不设，行为与以前完全一致。
+ */
+export const IMAGE_MODE = process.env.IMAGE_MODE === 'file' ? 'file' : 'db';
+
+/** 由 (imageHash, 这张图是否存在, 模式) 推出对外的图片地址。导出以便单测两种模式。 */
+export function imageUrls(imageHash, hasImage, mode = IMAGE_MODE) {
+  if (!imageHash || !hasImage) return { image: null, imageLarge: null };
+  if (mode === 'file') {
+    return { image: `/img/t/${imageHash}.webp`, imageLarge: `/img/d/${imageHash}.webp` };
+  }
+  return { image: `/api/catalog/images/${imageHash}`, imageLarge: null };
+}
 
 export const CATEGORY_ENTRIES = Object.entries(CATEGORIES);
 
@@ -144,6 +163,8 @@ function itemFromPayload(payload, row, assetHashes) {
   const imageHash = payload.imageHash ?? null;
   const issues = Array.isArray(payload.issues) ? payload.issues : [];
   const category = payload.category ?? row.category ?? '';
+  // 缩略图与显示图：db 模式只有 image（原图），file 模式给两档。
+  const { image, imageLarge } = imageUrls(imageHash, Boolean(imageHash && assetHashes?.has(imageHash)));
 
   return {
     key,
@@ -151,7 +172,8 @@ function itemFromPayload(payload, row, assetHashes) {
     category,
     name: displayName(rawName, id),
     rawName,
-    image: imageHash && assetHashes?.has(imageHash) ? `/api/catalog/images/${imageHash}` : null,
+    image,
+    imageLarge,
     fields: payload.fields ?? null,
     issues: [...new Set([
       ...issues,

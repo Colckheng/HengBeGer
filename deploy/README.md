@@ -34,6 +34,7 @@
 | `scripts/gen-secrets.mjs` | 生成 `deploy/.env`，密钥现场随机 |
 | `scripts/make-cert.mjs` | 生成自签证书（本机有 openssl 就用本机，没有就借 alpine 容器） |
 | `scripts/verify-preview.mjs` | 预演验收，逐条打 PASS/FAIL |
+| `../scripts/cloud/*.mjs` | 导出数据包与图片（阶段 1/2，见下面两节） |
 
 生成物（都不进 git）：`.env`、`ssl/`、`data/`（云端的 MySQL 数据）、
 `data-preview/`（预演的 MySQL 数据）、`import/`（导入中间文件）、`backups/`。
@@ -120,6 +121,25 @@ npm run cloud:export:verify   # 不连库，只校验已导出的包（文件/�
 
 产物：`deploy/import/manifest.json` + `entries.jsonl`（`catalog_entries` 全量）+ `tables/*.jsonl`（旧后台 15 张小表）。
 导出全程只读（`REPEATABLE READ` + `CONSISTENT SNAPSHOT`），本地库一个字节都不写；`deploy/import/` 已在 `.gitignore` 里。
+
+## 图片（阶段 2：base64 解出来，转成两档 WebP）
+
+云端不让应用从 MySQL 读图出图：一次性转成静态文件，交给 Nginx 直出（`IMAGE_MODE=file`）。
+
+```bash
+npm run cloud:images          # 解 base64 → 落 t/d 两档 WebP 到 deploy/import/images/
+npm run cloud:images:verify   # 不连库，只比对张数与字节数
+```
+
+- 两档：`t/` 宽 320（列表/网格）、`d/` 长边 1280（详情页）。**不搬原图**。
+- 文件名 = 图片内容的 sha256，与该行 `catalog_assets.hash` 一致；导出前逐张校验，对不上就跳过并报错。
+- 实测 1710 张：t 22.8 MB + d 51.1 MB = 73.9 MB（原 base64 315 MB）；整包 = entries 18 MB + images 73.9 MB ≈ **91.8 MB**。
+- 转码用本机 devDependency `sharp`；云端不装任何图像处理库。
+
+出图两态由环境变量 `IMAGE_MODE` 决定：容器里一律 `file`（compose 里给了默认值），
+本机跑 `npm run server` 不设它 → `db`（老路，图片走 `/api/catalog/images/<hash>`）。
+`file` 模式下「这张图有没有」以磁盘上的 `t/<hash>.webp` 为准（目录清单缓存 60s），
+所以云端**不需要**导入 `catalog_assets` 那张 315 MB 的表。
 
 ## 上云
 
