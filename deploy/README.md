@@ -1,0 +1,141 @@
+# deploy —— 云端托管与本机预演
+
+设计依据：[docs/plans/2026-10-14-cloud-android-design.md](../docs/plans/2026-10-14-cloud-android-design.md)。
+这里只放"怎么跑"，不放"为什么这么选"。
+
+## 这套东西是什么
+
+一台 ECS 上用 Docker Compose 起三个容器：
+
+```
+浏览器 / 安卓 App
+      │  https://<ECS公网IP>:8443    （大陆无域名，走不了 80/443）
+      ▼
+   nginx ── 只放行 /api/catalog/、/img/、/health*、SPA 静态资源
+      │      其余 /api/* 与 /metrics 一律 403
+      ▼
+    app ── Node 22 + Express（就是本机那套 server/index.js）
+      │
+      ▼
+   mysql:8.0 ── 只在 internal 网络里可见，公网碰不到
+```
+
+图片走具名卷 `images`，nginx 用 `/img/` 直出（阶段 4 落地后 app 才往这个卷写文件）。
+
+## 目录
+
+| 文件 | 作用 |
+| --- | --- |
+| `Dockerfile` | 多阶段构建：装依赖 → vite build → 只留运行必需 |
+| `docker-compose.yml` | 云端正式栈，项目名 `hengbeger-cloud`，端口 8443 |
+| `docker-compose.preview.yml` | 本机预演覆盖层，项目名 `hengbeger-preview`，端口 8444 |
+| `nginx/nginx.conf` | TLS 终止、路径白名单、图片直出 |
+| `.env.example` | 配置模板（键名说明都在这） |
+| `scripts/gen-secrets.mjs` | 生成 `deploy/.env`，密钥现场随机 |
+| `scripts/make-cert.mjs` | 生成自签证书（本机有 openssl 就用本机，没有就借 alpine 容器） |
+| `scripts/verify-preview.mjs` | 预演验收，逐条打 PASS/FAIL |
+
+生成物（都不进 git）：`.env`、`ssl/`、`data/`（云端的 MySQL 数据）、
+`data-preview/`（预演的 MySQL 数据）、`import/`（导入中间文件）、`backups/`。
+
+## 首次准备
+
+前置：Docker Desktop 正在运行（`docker version` 有输出）。
+
+```bash
+npm run cloud:secrets   # 生成 deploy/.env，密钥不回显
+npm run cloud:cert      # 生成 deploy/ssl/server.crt|key，并打印 SHA256 指纹
+```
+
+云端还要多一步：把 ECS 公网 IP 写进证书 SAN，否则 App 那边的证书固定对不上。
+
+```bash
+npm run cloud:cert -- --ip 47.98.1.2
+```
+
+## 本机预演
+
+```bash
+npm run cloud:preview:up       # 构建 + 起栈（首次会拉镜像，几分钟）
+npm run cloud:preview:verify   # 验收，全 PASS 才算过
+npm run cloud:preview:logs     # 看日志
+npm run cloud:preview:down     # 停栈（数据卷保留）
+```
+
+浏览器打开 <https://127.0.0.1:8444> —— 自签证书，Chrome 会拦一次，
+点"高级 → 继续前往"即可（这是自签的必然代价，不是配置错误）。
+
+预演与云端**数据天然隔离**：项目名不同 → 卷名不同
+（`hengbeger-preview_images` vs `hengbeger-cloud_images`），
+MySQL 数据目录也各自独立（`deploy/data/mysql` vs 云端的 `/srv/hengbeger/data/mysql`）。
+预演怎么折腾都不会碰到本地开发库 `hengbeger`。
+
+想彻底重来：
+
+```bash
+docker compose -f deploy/docker-compose.yml -f deploy/docker-compose.preview.yml down -v
+rm -rf deploy/data deploy/data-preview deploy/ssl deploy/.env
+```
+
+## 验收清单
+
+`npm run cloud:preview:verify` 会跑完下面这些；手工核对时用同样的路径。
+
+- [ ] TLS 握手成功（TLSv1.3），证书 CN/到期时间合理，且指纹与 `deploy/ssl/server.crt` 一致
+- [ ] `GET /health/live` → 200（进程活着）
+- [ ] `GET /health/ready` → 200（数据库通了）
+- [ ] `GET /` → 200 且是那份 SPA HTML
+- [ ] `GET /api/catalog/index` → 200 JSON 且能读出条目数；**全新空库上按设计返回 503「资料库尚未导入，请完成数据同步。」**也接受（`catalog_entries`/`catalog_assets` 不归 `sync({})` 建，要等阶段 3 导入），导入后必须变成 200
+- [ ] `/api/data`、`/api/auth/session`、`/api/storage/status`、`/metrics` → 403（nginx 挡住旧后台接口）
+- [ ] `GET /img/does-not-exist.png` → 404（图片直出路由通了）。已实测正例：以 `node`(uid 1000) 身份往 `/srv/images` 写文件后，`GET /img/<该文件>` 返回 200 且响应头带 `Cache-Control: public, max-age=31536000, immutable`
+- [ ] `docker compose ps` 三个容器都是 `healthy`
+- [ ] 全新空库能自举（生产模式 `sync({})` 直接建表）：
+      `docker compose -f deploy/docker-compose.yml exec mysql sh -c 'mysql -u"$MYSQL_USER" -p"$MYSQL_PASSWORD" "$MYSQL_DATABASE" -e "show tables"'`
+      应列出 15 张表（`agents app_meta bumbos drive_disks factions hsr_characters hsr_cones hsr_elements hsr_paths hsr_rarities hsr_relic_types hsr_relics rarities roles sound_engines`；`catalog_entries`/`catalog_assets` 不在其中，由阶段 3 的导入创建）
+
+### 最近一次预演结果（2026-10-14，本机）
+
+`npm run cloud:preview:verify` **11/11 PASS**；三个容器全 healthy；空库自举日志
+`Database initialization complete | {"destructive":false,"allowAlter":false,"seededZzz":true,"seededHsr":true}`。
+
+为让全新空库能自举，本次改了 `src/db/models/soundengine.js` 与 `src/db/models/bumbo.js`：
+删掉 TEXT 列上的 `defaultValue: '/assets/zzz.jpg'`（MySQL 8 不接受 BLOB/TEXT/JSON 的默认值，
+会让 `sync()` 的 CREATE TABLE 直接失败）。已有库不受影响——写入方（`initializedata.js` / `api.js`）
+本来就显式兜底这个路径。
+
+## 上云
+
+阶段 6 才执行；没有用户提供的 ECS 信息（公网 IP、能否装 Docker、实例配置）之前不动手。
+
+1. ECS 安全组放行 `8443/tcp`（源可以是 `0.0.0.0/0`，个人服务够用）
+2. 装 Docker + compose 插件，`git clone` 到 `/srv/hengbeger`
+3. `cd /srv/hengbeger`，按上面的"首次准备"生成 `.env` 与证书（`--ip <公网IP>`）
+4. 从本机导出数据（`npm run cloud:export`，阶段 1 落地）并 scp 到 `deploy/import/`
+5. `docker compose -f deploy/docker-compose.yml up -d --build`
+6. 导入数据（阶段 3 落地），再跑一次与预演相同的验收
+
+回滚：`APP_TAG` 换成上一版标签重新 up 即可（每次发布用日期打标签，例如 `APP_TAG=2026-10-14`）。
+
+## 运维
+
+```bash
+# 状态与日志
+docker compose -f deploy/docker-compose.yml ps
+docker compose -f deploy/docker-compose.yml logs -f --tail=100 app
+
+# 数据库备份（导到 deploy/backups/）
+docker compose -f deploy/docker-compose.yml exec -T mysql \
+  sh -c 'exec mysqldump -uroot -p"$MYSQL_ROOT_PASSWORD" --single-transaction --routines --triggers "$MYSQL_DATABASE"' \
+  > deploy/backups/hengbeger-$(date +%F).sql
+
+# 只重启应用（改代码后）
+docker compose -f deploy/docker-compose.yml up -d --build app
+```
+
+## 已知限制
+
+- **自签证书**：浏览器每次会警告；App 端靠证书固定，不受影响。换域名 + 备案后可以换成 Let's Encrypt，那时把 8443 换成 443 并打开 HSTS。
+- **单机**：没有冗余。MySQL 卷丢了就得靠备份恢复，所以备份要定期拉到本机。
+- **镜像里没有 demo-art / demo-data**：这两个目录是仓库里的演示数据（约 60MB），生产入口不引用，构建时已删。
+- **旧后台接口在云端不可用**：`/api/*` 除 catalog 外全被 nginx 挡在门外，这是刻意的——个人服务不需要暴露后台。
+- 端口号写死在 compose 与证书里；换端口要同时改 `.env`、安全组和 App 里配置的地址。

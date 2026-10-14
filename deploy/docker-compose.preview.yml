@@ -1,0 +1,25 @@
+# 本机预演覆盖层 —— 只改项目名与端口，云端配置一字不动。
+#
+#   up:   docker compose -f deploy/docker-compose.yml -f deploy/docker-compose.preview.yml up -d --build
+#   down: docker compose -f deploy/docker-compose.yml -f deploy/docker-compose.preview.yml down
+#
+# 为什么用 !override：Compose 对 ports 这类多值字段是「拼接」而不是「替换」，
+# 直接写 ports 会让预演同时占用 8443 和 8444，跟将来的云端端口撞车。
+#
+# 项目名不同 => 具名卷自动隔离（hengbeger-preview_images vs hengbeger-cloud_images）。
+# MySQL 用的是绑定挂载，Compose 不会加项目名前缀，所以这里必须显式换成
+# deploy/data-preview —— 否则两个栈会共用同一个数据目录，两个 mysqld 一起写会毁库。
+
+name: hengbeger-preview
+
+services:
+  nginx:
+    ports: !override
+      - "${PREVIEW_HTTPS_PORT:-8444}:8443"
+
+  mysql:
+    # 只绑回环：本机用客户端看数据方便，又不至于把 3306 暴露到局域网
+    ports:
+      - "127.0.0.1:${PREVIEW_MYSQL_PORT:-3307}:3306"
+    volumes: !override
+      - ${PREVIEW_DATA_ROOT:-./data-preview}/mysql:/var/lib/mysql

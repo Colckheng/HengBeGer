@@ -1,0 +1,51 @@
+# Docker 构建上下文裁剪（见 deploy/Dockerfile）
+# 目标：镜像里只留「生产依赖 + dist + server + src + scripts」
+
+.git
+.gitattributes
+.github
+.vscode
+.idea
+.claude
+
+node_modules
+**/node_modules
+
+# 构建产物（镜像里自己重新 build）
+dist
+dist-ssr
+build
+coverage
+
+# 本机数据与审计件
+data
+db-backups
+reports
+backup_storage
+logs
+_logs
+*.log
+
+# 部署运行期状态（证书/数据/导入包绝不能进镜像）
+deploy/.env
+deploy/ssl
+deploy/data
+deploy/import
+deploy/backups
+
+# 只服务设计预览页 demo.html 的素材，生产入口用不到（设计文档 §2.1「不搬」）
+public/demo-art
+public/demo-data
+
+# 安卓工程（将来 mobile/ 目录单独构建）
+mobile
+
+.env
+.env.*
+!.env.example
+
+*.tmp
+*.temp
+.cache
+.DS_Store
+Thumbs.db

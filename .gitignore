@@ -90,3 +90,12 @@ reports/open-index-verification/
 
 # Local editor state
 .claude/
+
+# Deploy runtime state (deploy/.env is already covered by the .env rule above)
+deploy/.env
+deploy/ssl/
+deploy/data/
+deploy/data-preview/
+deploy/import/
+deploy/backups/
+

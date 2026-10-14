@@ -1,0 +1,106 @@
+# HengBerGer 云端单机全栈：MySQL + Node(API 与网页) + Nginx(8443 TLS / 图片直出)
+#
+# 设计依据：docs/plans/2026-10-14-cloud-android-design.md §1 §2.6 §4
+# 用法与验收：deploy/README.md
+# 本机预演请叠加 deploy/docker-compose.preview.yml，不要直接跑这个文件。
+#
+# 变量来自 deploy/.env（先执行 npm run cloud:secrets 生成）。
+# 云端 DATA_ROOT=/srv/hengbeger/data；本机预演留空即用 deploy/data。
+
+name: hengbeger-cloud
+
+x-app-environment: &app-environment
+  NODE_ENV: production
+  PORT: "3001"
+  DB_HOST: mysql
+  DB_PORT: "3306"
+  DB_NAME: ${DB_NAME:-hengbeger}
+  DB_USER: ${DB_USER:-hengbeger}
+  DB_PASSWORD: ${DB_PASSWORD:?deploy/.env 缺少 DB_PASSWORD，请先执行 npm run cloud:secrets}
+  ADMIN_PASSWORD: ${ADMIN_PASSWORD:?deploy/.env 缺少 ADMIN_PASSWORD}
+  AUTH_SECRET: ${AUTH_SECRET:?deploy/.env 缺少 AUTH_SECRET}
+  LOG_LEVEL: ${LOG_LEVEL:-info}
+  SECURITY_SILENCE: ${SECURITY_SILENCE:-false}
+  # Nginx 恰好一层，必须是 1；写错会让全站限流塌成一个共享桶
+  TRUST_PROXY_HOPS: ${TRUST_PROXY_HOPS:-1}
+  # 网页与 App 都是同源/无 Origin 请求，默认不需要 CORS 白名单
+  CORS_ORIGINS: ${CORS_ORIGINS:-}
+  TZ: ${TZ:-Asia/Shanghai}
+
+services:
+  mysql:
+    image: mysql:8.0
+    restart: unless-stopped
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --max-allowed-packet=256M
+      - --innodb-buffer-pool-size=${MYSQL_BUFFER_POOL:-256M}
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?deploy/.env 缺少 MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME:-hengbeger}
+      MYSQL_USER: ${DB_USER:-hengbeger}
+      MYSQL_PASSWORD: ${DB_PASSWORD:?deploy/.env 缺少 DB_PASSWORD}
+      TZ: ${TZ:-Asia/Shanghai}
+    volumes:
+      - ${DATA_ROOT:-./data}/mysql:/var/lib/mysql
+    healthcheck:
+      # $$ 是 compose 的转义，容器里的 sh 拿到的是 $MYSQL_ROOT_PASSWORD
+      test: ['CMD-SHELL', 'mysqladmin ping -h 127.0.0.1 -uroot -p"$$MYSQL_ROOT_PASSWORD" --silent']
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 60s
+    networks: [backend]
+
+  app:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    image: hengbeger-app:${APP_TAG:-latest}
+    restart: unless-stopped
+    environment: *app-environment
+    volumes:
+      # 具名卷而不是绑定挂载：镜像里 /srv/images 属于 node(uid 1000)，
+      # 具名卷首次创建会继承这个属主；绑定挂载会变成 root 属主，非 root 进程写不进去。
+      - images:/srv/images
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks: [backend, frontend]
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3001/health/live').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 40s
+
+  nginx:
+    image: nginx:1.27-alpine
+    restart: unless-stopped
+    ports:
+      - "${HTTPS_PORT:-8443}:8443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/nginx/certs:ro
+      - images:/srv/images:ro
+    depends_on:
+      app:
+        condition: service_started
+    networks: [frontend]
+    healthcheck:
+      # 走完整链路：TLS 握手 -> nginx -> app -> /health/live
+      test: ["CMD-SHELL", "wget -q --no-check-certificate -O /dev/null https://127.0.0.1:8443/health/live || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+
+networks:
+  frontend:
+  backend:
+    # MySQL 只挂在这张内部网上：拿不到默认路由，也就出不了公网
+    internal: true
+
+volumes:
+  images:
