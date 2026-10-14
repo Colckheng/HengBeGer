@@ -1,15 +1,6 @@
-function safeParse(x) {
-  if (typeof x !== 'string') return x;
-  try { return JSON.parse(x); } catch { return null; }
-}
-
 function decodeDataData(html) {
   const m = /data-data="([^"]+)"/.exec(html);
   return m ? JSON.parse(decodeURIComponent(m[1])) : [];
-}
-
-function findPart(arr, tmplKey, partKey) {
-  return arr.find((n) => (n.tmplKey || n.tmk) === tmplKey && n.partKey === partKey);
 }
 
 export function transformHsrRelic({ content, listItem, localId, existing, now = new Date() }) {
