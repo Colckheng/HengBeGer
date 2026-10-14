@@ -118,6 +118,6 @@
 ### 已知风险 / 待办
 
 - `npm install` 需 `--legacy-peer-deps`（vite 7 vs vitest 2.1.9 / vite-plugin-node-stdlib-browser peer 冲突），完善阶段根治
-- `.env` `DB_PASSWORD=<removed>` 强度不足，安全检查会提示
+- `.env` 的 `DB_PASSWORD` 曾是弱密码（安全检查会提示）；密码只保存在本机忽略文件 `.env`，不得写入文档、报告或提交
 - 后台运行时会重写 `src/db/storage/*.json` 的 `lastUpdated` 时间戳——提交前用 `git checkout -- src/db/storage/` 还原，勿混入 UI 提交
 - 收尾清理 `design-demos\`（或留作风格参考，届时问用户）

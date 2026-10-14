@@ -12,7 +12,7 @@
 - 仓库：`D:\github\HengBerGer`（React 19 + Vite 7 + Express 5 + MySQL）
 - 验证命令：`npm run lint` / `npm run test:backend`（42）/ `npm run test:frontend`（47）/ `npm run build`
 - 代码风格：**不加任何注释**；输出/文档中文
-- 密码约定：`<removed>`（`.env` 不动）；mysql CLI：`C:\Program Files\MySQL\MySQL Server 8.0\bin\mysql.exe` + `$env:MYSQL_PWD='<removed>'`
+- 凭据约定：数据库密码只保存在本机忽略文件 `.env`（`DB_PASSWORD`），不得硬编码、写入文档/报告或作为命令行参数暴露；连接参数统一从 `DB_HOST` / `DB_PORT` / `DB_USER` / `DB_PASSWORD` / `DB_NAME` 读取
 - PS 坑：改文件用 edit/write 工具（不要 Get/Set-Content）；复杂 `node -e` 写临时文件到 `C:\Users\hengxing\AppData\Local\Temp\opencode\`；命令前置 `[Console]::OutputEncoding=[Text.Encoding]::UTF8`
 - 网络：系统代理 `127.0.0.1:7892`；米游社/GameKee API 已实测免登录（docs/17 §7/§8）
 - 门禁（AD-3）：**任何 data/ → DB 的同步，必须凭用户确认后的报告 ID 执行**
