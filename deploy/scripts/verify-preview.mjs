@@ -130,6 +130,50 @@ record('GET /api/catalog/index', (index.status === 200 && indexJson !== null) ||
       ? 'HTTP 503，空库未导入（符合预期；阶段 3 导入后应为 200 并显示条目数）'
       : 'HTTP ' + index.status + ' ' + index.body.slice(0, 120));
 
+// 阶段 1 的 manifest（deploy/import/manifest.json）是「应该有多少条」的参照物；它被 gitignore，
+// 没有时只报告条数、不做断言。
+function localManifest() {
+  try {
+    return JSON.parse(fs.readFileSync(new URL('../import/manifest.json', import.meta.url), 'utf8'));
+  } catch {
+    return null;
+  }
+}
+
+const items = indexJson && Array.isArray(indexJson.items) ? indexJson.items : [];
+
+if (index.status === 200 && items.length) {
+  const manifest = localManifest();
+  const expected = manifest && manifest.data && manifest.data.entries ? manifest.data.entries.count : null;
+  record('条目数与 manifest 一致', expected === null || items.length === expected, expected === null
+    ? items.length + ' 条（本地没有 deploy/import/manifest.json，跳过比对）'
+    : '接口 ' + items.length + ' 条 / manifest ' + expected + ' 条');
+
+  // 出图地址是服务端按 IMAGE_MODE 生成的：file 模式应当给 /img/t|d/<sha256>.webp。
+  const first = items[0];
+  const modeOk = typeof first.image === 'string' && first.image.startsWith('/img/t/')
+    && typeof first.imageLarge === 'string' && first.imageLarge.startsWith('/img/d/');
+  record('IMAGE_MODE=file 的出图地址', modeOk, modeOk
+    ? first.image.slice(0, 28) + ' + ' + first.imageLarge.slice(0, 28)
+    : '拿到的是 ' + String(first.image) + ' / ' + String(first.imageLarge) + '（若为空库或未设 IMAGE_MODE=file 会走 /api/catalog/images/）');
+
+  // 真正按接口给出的地址把图取回来：nginx 直出 + 具名卷 + 阶段 3 导入三者任一没通都过不了。
+  for (const [field, label] of [['image', '缩略图 /img/t/'], ['imageLarge', '显示图 /img/d/']]) {
+    const pathname = first[field];
+    if (typeof pathname !== 'string' || !pathname.startsWith('/img/')) {
+      record('GET ' + label, false, '接口没给出 ' + field);
+      continue;
+    }
+    const res = await request(pathname);
+    const type = String(res.headers['content-type'] || '');
+    const cacheOk = String(res.headers['cache-control'] || '').includes('immutable');
+    record('GET ' + label + ' -> 200', res.status === 200 && type.includes('image/webp') && cacheOk,
+      'HTTP ' + res.status + '，' + type + '，' + res.body.length + ' 字节，Cache-Control: ' + (res.headers['cache-control'] || '（缺）'));
+  }
+} else if (index.status === 200) {
+  record('接口返回了条目', false, '200 但 items 为空');
+}
+
 for (const [pathname, label] of [
   ['/api/data', '旧后台全量导出'],
   ['/api/auth/session', '后台登录态'],

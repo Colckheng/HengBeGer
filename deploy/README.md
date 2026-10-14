@@ -34,7 +34,7 @@
 | `scripts/gen-secrets.mjs` | 生成 `deploy/.env`，密钥现场随机 |
 | `scripts/make-cert.mjs` | 生成自签证书（本机有 openssl 就用本机，没有就借 alpine 容器） |
 | `scripts/verify-preview.mjs` | 预演验收，逐条打 PASS/FAIL |
-| `../scripts/cloud/*.mjs` | 导出数据包与图片（阶段 1/2，见下面两节） |
+| `../scripts/cloud/*.mjs` | 导出数据包与图片、导入到云端（阶段 1/2/3，见下面三节） |
 
 生成物（都不进 git）：`.env`、`ssl/`、`data/`（云端的 MySQL 数据）、
 `data-preview/`（预演的 MySQL 数据）、`import/`（导入中间文件）、`backups/`。
@@ -92,6 +92,10 @@ rm -rf deploy/data deploy/data-preview deploy/ssl deploy/.env
 - [ ] `GET /health/ready` → 200（数据库通了）
 - [ ] `GET /` → 200 且是那份 SPA HTML
 - [ ] `GET /api/catalog/index` → 200 JSON 且能读出条目数；**全新空库上按设计返回 503「资料库尚未导入，请完成数据同步。」**也接受（`catalog_entries`/`catalog_assets` 不归 `sync({})` 建，要等阶段 3 导入），导入后必须变成 200
+- [ ] 导入过数据后：`GET /api/catalog/index` 的条目数与 `deploy/import/manifest.json` 里的 `data.entries.count` 一致
+- [ ] `IMAGE_MODE=file` 时接口给的是 `/img/t/<sha256>.webp` + `/img/d/<sha256>.webp`，且按这个地址真能取回图：
+      两条都要 200 + `content-type: image/webp` + `Cache-Control: public, max-age=31536000, immutable`
+      （这一条同时压住三件事：nginx 直出、图片具名卷、阶段 3 的导入）
 - [ ] `/api/data`、`/api/auth/session`、`/api/storage/status`、`/metrics` → 403（nginx 挡住旧后台接口）
 - [ ] `GET /img/does-not-exist.png` → 404（图片直出路由通了）。已实测正例：以 `node`(uid 1000) 身份往 `/srv/images` 写文件后，`GET /img/<该文件>` 返回 200 且响应头带 `Cache-Control: public, max-age=31536000, immutable`
 - [ ] `docker compose ps` 三个容器都是 `healthy`
@@ -101,7 +105,10 @@ rm -rf deploy/data deploy/data-preview deploy/ssl deploy/.env
 
 ### 最近一次预演结果（2026-10-14，本机）
 
-`npm run cloud:preview:verify` **11/11 PASS**；三个容器全 healthy；空库自举日志
+数据灌进去之后再验收：`npm run cloud:preview:verify` **15/15 PASS**（阶段 0 的 11 条 + 阶段 5 的 4 条：
+条目数与 manifest 一致、出图地址是 `/img/...`、t 档与 d 档都能取回）；
+导入本身跑两遍都是幂等的（第二遍条目重写、小表整体替换、图片 1710+1710 全部跳过）。
+三个容器全 healthy；空库自举日志
 `Database initialization complete | {"destructive":false,"allowAlter":false,"seededZzz":true,"seededHsr":true}`。
 
 为让全新空库能自举，本次改了 `src/db/models/soundengine.js` 与 `src/db/models/bumbo.js`：
@@ -140,6 +147,38 @@ npm run cloud:images:verify   # 不连库，只比对张数与字节数
 本机跑 `npm run server` 不设它 → `db`（老路，图片走 `/api/catalog/images/<hash>`）。
 `file` 模式下「这张图有没有」以磁盘上的 `t/<hash>.webp` 为准（目录清单缓存 60s），
 所以云端**不需要**导入 `catalog_assets` 那张 315 MB 的表。
+
+## 导入（阶段 3：把包灌进云端库与图片卷）
+
+导入脚本在 **app 容器里**跑：容器里有 node_modules、能连到 `mysql`、`/srv/images` 是图片卷，
+宿主的 `deploy/import` 以只读方式挂在容器 `/import`。
+
+```bash
+# 本机预演（一条命令，走 preview 栈的 app 容器）
+npm run cloud:preview:import:check   # 只读体检：包完整吗、云端差多少条
+npm run cloud:preview:import         # 真导入
+
+# 云端（阶段 6 会用 npm run cloud:push 把 scp 与这一步串起来）
+docker compose -f deploy/docker-compose.yml exec -T app \
+  node scripts/cloud/import-data.mjs --dir /import
+```
+
+语义（设计文档 §2.3）：
+
+- `catalog_entries` 是 upsert；**默认什么都不删**。要删必须显式 `--prune`，
+  而且只给 `--prune` 时只打印待删清单，再加 `--yes` 才真的动手。
+- 旧后台那 15 张小表按**整表替换**写入（关外键检查 → `DELETE` → 按包原样写回，连本地 id 一起照抄），
+  整体一个事务，失败就回滚。原因：这些表在云端是只读参考数据，但 app 首次启动会用种子数据灌一遍，
+  种子 id 是自增出来的、与本地库对不上，而 `name` 上有唯一索引——按主键 upsert 会在 id 与 name 之间
+  互相顶掉（`Duplicate entry '天琴座' for key 'factions.name'`）。幂等性由「包是唯一真相」保证。
+- 替换完成后自动跑一次**外键完整性检查**：包内小表之间不允许有悬空引用，有就报失败并 exit 1。
+- 导入后做**逐键回查**：包里 2675 个 `entry_key` 必须全部存在且 `content_hash` 一致，
+  任何一条对不上就 exit 1 —— 宁可不报成功，也不让云端带着半套数据对外服务。
+- 图片按内容寻址，目标已存在且大小相同就跳过，重复导入是幂等的。
+- 旧后台那 15 张表如果云端还没有（表由 app 启动时 sequelize 自动建），会跳过并提示，建好后重导一次即可。
+- 只读体检用 `--check`；**不要用 `--dry-run`**，那是 npm 自己的标志，会被 npm 截走。
+
+导入完成后 `IMAGE_MODE=file` 的出图地址以磁盘 `t/` 档为准（目录清单缓存 60 秒），最多一分钟生效。
 
 ## 上云
 

@@ -32,6 +32,16 @@ export function writeJsonAtomic(file, value) {
   fs.renameSync(tmp, file);
 }
 
+// manifest 是跨机器（Windows 导出 / Linux 导入）的交换格式，相对路径统一按正斜杠解释。
+// 早期版本在 Windows 上用 path.join 写出过 `tables\\xxx.jsonl` 这种反斜杠路径，这里一并兼容。
+export function toPosixPath(rel) {
+  return String(rel).split('\\').join('/');
+}
+
+export function resolveInPackage(dir, rel) {
+  return path.join(dir, ...toPosixPath(rel).split('/'));
+}
+
 export function readManifest(dir) {
   const file = path.join(dir, 'manifest.json');
   if (!fs.existsSync(file)) return null;
@@ -55,20 +65,21 @@ function checkFileEntry(dir, info, problems) {
     problems.push('manifest 里缺少文件条目');
     return;
   }
-  const file = path.join(dir, info.file);
+  const label = toPosixPath(info.file);
+  const file = resolveInPackage(dir, info.file);
   if (!fs.existsSync(file)) {
-    problems.push('缺少文件 ' + info.file);
+    problems.push('缺少文件 ' + label);
     return;
   }
   const stat = fs.statSync(file);
   if (Number.isFinite(info.bytes) && stat.size !== info.bytes) {
-    problems.push(info.file + ' 字节数不符：manifest ' + info.bytes + '，实际 ' + stat.size);
+    problems.push(label + ' 字节数不符：manifest ' + info.bytes + '，实际 ' + stat.size);
   }
   if (info.sha256 && sha256File(file) !== info.sha256) {
-    problems.push(info.file + ' sha256 不符');
+    problems.push(label + ' sha256 不符');
   }
   if (Number.isFinite(info.count) && countLines(file) !== info.count) {
-    problems.push(info.file + ' 行数不符：manifest ' + info.count + '，实际 ' + countLines(file));
+    problems.push(label + ' 行数不符：manifest ' + info.count + '，实际 ' + countLines(file));
   }
 }
 
@@ -89,7 +100,7 @@ export function verifyDataPackage(dir) {
   }
   checkFileEntry(dir, data.entries, problems);
   for (const [name, info] of Object.entries(data.tables || {})) {
-    if (!info || !info.file) info.file = path.join('tables', name + '.jsonl');
+    if (!info || !info.file) info.file = 'tables/' + name + '.jsonl';
     checkFileEntry(dir, info, problems);
   }
   return { ok: problems.length === 0, problems, manifest };

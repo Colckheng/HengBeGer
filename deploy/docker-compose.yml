@@ -68,6 +68,9 @@ services:
       # 具名卷而不是绑定挂载：镜像里 /srv/images 属于 node(uid 1000)，
       # 具名卷首次创建会继承这个属主；绑定挂载会变成 root 属主，非 root 进程写不进去。
       - images:/srv/images
+      # 数据包（阶段 3）：宿主 deploy/import 只读挂进容器，导入时用 --dir /import。
+      # 目录不存在时 Docker 会自己建一个空目录，不影响启动。
+      - ./import:/import:ro
     depends_on:
       mysql:
         condition: service_healthy

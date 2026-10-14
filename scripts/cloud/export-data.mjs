@@ -181,7 +181,8 @@ async function exportData(opts) {
     let tablesBytes = 0;
     let tablesCount = 0;
     for (const table of SMALL_TABLES) {
-      const relFile = path.join('tables', table + '.jsonl');
+      // manifest 是跨机器的交换格式：相对路径一律正斜杠，别写进 Windows 的反斜杠
+  const relFile = 'tables/' + table + '.jsonl';
       const lines = jsonlLines(tableRows[table]);
       writeJsonl(opts.out, relFile, lines);
       const info = describeFile(opts.out, relFile, lines);

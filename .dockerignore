@@ -30,6 +30,7 @@ _logs
 deploy/.env
 deploy/ssl
 deploy/data
+deploy/data-preview
 deploy/import
 deploy/backups
 
