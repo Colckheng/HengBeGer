@@ -50,8 +50,13 @@ npm run cloud:cert      # 生成 deploy/ssl/server.crt|key，并打印 SHA256 �
 云端还要多一步：把 ECS 公网 IP 写进证书 SAN，否则 App 那边的证书固定对不上。
 
 ```bash
-npm run cloud:cert -- --ip 47.98.1.2
+node deploy/scripts/make-cert.mjs --ip 47.98.1.2   # 推荐：直调，参数一定到得了
+npm run cloud:cert "--" "--ip" "47.98.1.2"         # 等价写法：-- 必须加引号
 ```
+
+> **PowerShell 5.1 的坑**：写成 `npm run cloud:cert -- --ip 1.2.3.4` 时，裸 `--` 会被 PowerShell 吞掉，
+> npm 再把 `--ip` 当自己的配置收走，脚本一个参数都收不到，**默默签出一张只有 localhost 的证书**。
+> 脚本在没收到 `--ip`/`--dns` 时会打印醒目警告。同理适用于 `cloud:export` 的参数。
 
 ## 本机预演
 
@@ -102,6 +107,19 @@ rm -rf deploy/data deploy/data-preview deploy/ssl deploy/.env
 删掉 TEXT 列上的 `defaultValue: '/assets/zzz.jpg'`（MySQL 8 不接受 BLOB/TEXT/JSON 的默认值，
 会让 `sync()` 的 CREATE TABLE 直接失败）。已有库不受影响——写入方（`initializedata.js` / `api.js`）
 本来就显式兜底这个路径。
+
+## 数据包（阶段 1：把本地库导出成上云用的包）
+
+图片不在这里——`catalog_assets` 那 1710 张（315 MB base64）走阶段 2 的图片通道。
+
+```bash
+npm run cloud:export          # 只读导出一份到 deploy/import/（约 19 MB）
+npm run cloud:export:count    # 只连库数一数，不写任何文件
+npm run cloud:export:verify   # 不连库，只校验已导出的包（文件/字节数/sha256/行数）
+```
+
+产物：`deploy/import/manifest.json` + `entries.jsonl`（`catalog_entries` 全量）+ `tables/*.jsonl`（旧后台 15 张小表）。
+导出全程只读（`REPEATABLE READ` + `CONSISTENT SNAPSHOT`），本地库一个字节都不写；`deploy/import/` 已在 `.gitignore` 里。
 
 ## 上云
 

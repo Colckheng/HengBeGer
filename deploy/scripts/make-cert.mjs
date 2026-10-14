@@ -5,6 +5,13 @@
 //   node deploy/scripts/make-cert.mjs --ip 47.98.1.2          # 云端：填 ECS 公网 IP
 //   node deploy/scripts/make-cert.mjs --ip 47.98.1.2,192.168.1.9 --dns hengbeger.local --days 3650
 //
+// 传参提醒（Windows PowerShell 5.1 实测）：npm run cloud:cert -- --ip 1.2.3.4 里的裸 -- 会被
+// PowerShell 吞掉，变成 npm run cloud:cert --ip 1.2.3.4，npm 再把 --ip 当自己的配置收走，
+// 脚本一个参数都收不到，**默默签出一张只有 localhost 的证书**。两种可靠写法：
+//   node deploy/scripts/make-cert.mjs --ip 1.2.3.4
+//   npm run cloud:cert "--" "--ip" "1.2.3.4"      （把 -- 用引号包起来）
+// 没收到 --ip/--dns 时脚本会打印醒目警告，防止「以为签了公网 IP，其实签了 localhost」。
+//
 // 为什么自签：大陆 + 无域名 => 80/443 不可用 => Let's Encrypt 的 ACME 校验走不了。
 // App 端用证书固定（fingerprint）解决信任问题，见设计文档 §6。
 //
@@ -52,6 +59,9 @@ if (args.help) {
 if (args.ips.length === 0 && args.dns.length === 0) {
   args.ips.push('127.0.0.1');
   args.dns.push('localhost');
+  console.warn('[cert] 注意：没有收到 --ip / --dns，本次只签 127.0.0.1 + localhost 的自签证书。');
+  console.warn('[cert] 如果是给云端的，请用：node deploy/scripts/make-cert.mjs --ip <ECS公网IP>');
+  console.warn('[cert] 原因：PowerShell 5.1 会吞掉裸 --，npm run cloud:cert -- --ip 1.2.3.4 的参数到不了脚本。');
 }
 if (!Number.isFinite(args.days) || args.days < 1) throw new Error('--days 必须是正整数');
 
