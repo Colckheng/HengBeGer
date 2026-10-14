@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 自签证书：整个 App 只信任这一把公钥，不信任任何公共 CA。
+     用 base-config 而不是 domain-config，是因为服务器地址是可配置的
+     （模拟器 10.0.2.2、局域网 IP、云服务器公网 IP 都可能填）。
+     证书换了以后必须重新生成（npm run mobile:pins），否则 App 直接连不上。 -->
+<network-security-config>
+  <base-config cleartextTrafficPermitted="false">
+    <trust-anchors>
+      <certificates src="system" />
+    </trust-anchors>
+    <pin-set expiration="2036-10-11">
+      <pin digest="SHA-256">pyTwrzjVYFpogw/TGqDtS9i8dO0ewZhnDyyZ8gKN0Zk=</pin>
+    </pin-set>
+  </base-config>
+</network-security-config>

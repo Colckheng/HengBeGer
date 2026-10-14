@@ -1,0 +1,25 @@
+{
+  "expo": {
+    "name": "HengBerGer",
+    "slug": "hengbeger",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "scheme": "hengbeger",
+    "userInterfaceStyle": "dark",
+    "android": {
+      "package": "cc.nanoka.hengbeger",
+      "versionCode": 1,
+      "permissions": [
+        "android.permission.INTERNET"
+      ]
+    },
+    "plugins": [
+      "expo-router",
+      "expo-sqlite",
+      "expo-status-bar"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}

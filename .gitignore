@@ -109,3 +109,13 @@ desktop/.smoke/
 desktop/.tmp-test-userdata/
 .tmp-test-userdata/
 
+# Android client (Expo / React Native)
+mobile/node_modules/
+mobile/.expo/
+mobile/android/
+mobile/ios/
+mobile/dist/
+mobile/*.keystore
+mobile/*.jks
+mobile/keystore.properties
+
