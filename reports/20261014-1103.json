@@ -1,0 +1,8025 @@
+{
+  "id": "20261014-1103",
+  "createdAt": "2026-10-14T03:03:17.462Z",
+  "gitCommit": "cbe8d14f50fb361df07e468df8bda6f29862faea",
+  "treeHash": "eda7c67b340d5b037297115bee2a47704ca098688f43e3444a59df4a5dbdac44",
+  "files": {
+    "added": [],
+    "modified": [
+      "hsr/light_cones/20000_锋镝.md",
+      "hsr/light_cones/20001_物穰.md",
+      "hsr/light_cones/20002_天倾.md",
+      "hsr/light_cones/20003_琥珀.md",
+      "hsr/light_cones/20004_幽邃.md",
+      "hsr/light_cones/20005_齐颂.md",
+      "hsr/light_cones/20006_智库.md",
+      "hsr/light_cones/20007_离弦.md",
+      "hsr/light_cones/20008_嘉果.md",
+      "hsr/light_cones/20009_乐圮.md",
+      "hsr/light_cones/20010_戍御.md",
+      "hsr/light_cones/20011_渊环.md",
+      "hsr/light_cones/20012_轮契.md",
+      "hsr/light_cones/20013_灵钥.md",
+      "hsr/light_cones/20014_相抗.md",
+      "hsr/light_cones/20015_蕃息.md",
+      "hsr/light_cones/20016_俱殁.md",
+      "hsr/light_cones/20017_开疆.md",
+      "hsr/light_cones/20018_匿影.md",
+      "hsr/light_cones/20019_调和.md",
+      "hsr/light_cones/20020_睿见.md",
+      "hsr/light_cones/20021_焚影.md",
+      "hsr/light_cones/20022_溯忆.md",
+      "hsr/light_cones/20023_嗤笑.md",
+      "hsr/light_cones/20024_残泪.md",
+      "hsr/light_cones/21000_一场术后对话.md",
+      "hsr/light_cones/21001_晚安与睡颜.md",
+      "hsr/light_cones/21002_余生的第一天.md",
+      "hsr/light_cones/21003_唯有沉默.md",
+      "hsr/light_cones/21004_记忆中的模样.md",
+      "hsr/light_cones/21005_鼹鼠党欢迎你.md",
+      "hsr/light_cones/21006_「我」的诞生.md",
+      "hsr/light_cones/21007_同一种心情.md",
+      "hsr/light_cones/21008_猎物的视线.md",
+      "hsr/light_cones/21009_朗道的选择.md",
+      "hsr/light_cones/21010_论剑.md",
+      "hsr/light_cones/21011_与行星相会.md",
+      "hsr/light_cones/21012_秘密誓心.md",
+      "hsr/light_cones/21013_别让世界静下来.md",
+      "hsr/light_cones/21014_此时恰好.md",
+      "hsr/light_cones/21015_决心如汗珠般闪耀.md",
+      "hsr/light_cones/21016_宇宙市场趋势.md",
+      "hsr/light_cones/21017_点个关注吧！.md",
+      "hsr/light_cones/21018_舞！舞！舞！.md",
+      "hsr/light_cones/21019_在蓝天下.md",
+      "hsr/light_cones/21020_天才们的休憩.md",
+      "hsr/light_cones/21021_等价交换.md",
+      "hsr/light_cones/21022_延长记号.md",
+      "hsr/light_cones/21023_我们是地火.md",
+      "hsr/light_cones/21024_春水初生.md",
+      "hsr/light_cones/21025_过往未来.md",
+      "hsr/light_cones/21026_汪！散步时间！.md",
+      "hsr/light_cones/21027_早餐的仪式感.md",
+      "hsr/light_cones/21028_暖夜不会漫长.md",
+      "hsr/light_cones/21029_后会有期.md",
+      "hsr/light_cones/21030_这就是我啦！.md",
+      "hsr/light_cones/21031_重返幽冥.md",
+      "hsr/light_cones/21032_镂月裁云之意.md",
+      "hsr/light_cones/21033_无处可逃.md",
+      "hsr/light_cones/21034_今日亦是和平的一日.md",
+      "hsr/light_cones/21035_何物为真.md",
+      "hsr/light_cones/21036_美梦小镇大冒险.md",
+      "hsr/light_cones/21037_最后的赢家.md",
+      "hsr/light_cones/21038_在火的远处.md",
+      "hsr/light_cones/21039_织造命运之线.md",
+      "hsr/light_cones/21040_银河沦陷日.md",
+      "hsr/light_cones/21041_好戏开演.md",
+      "hsr/light_cones/21042_铭记于心的约定.md",
+      "hsr/light_cones/21043_两个人的演唱会.md",
+      "hsr/light_cones/21044_无边曼舞.md",
+      "hsr/light_cones/21045_谐乐静默之后.md",
+      "hsr/light_cones/21046_芳华待灼.md",
+      "hsr/light_cones/21047_黑夜如影随行.md",
+      "hsr/light_cones/21048_梦的蒙太奇.md",
+      "hsr/light_cones/21050_胜利只在朝夕间.md",
+      "hsr/light_cones/21051_天才们的问候.md",
+      "hsr/light_cones/21052_多流汗，少流泪.md",
+      "hsr/light_cones/21053_愿旅途永远坦然.md",
+      "hsr/light_cones/21054_故事的下一页.md",
+      "hsr/light_cones/21055_直到明天的明天.md",
+      "hsr/light_cones/21056_追逐风的时候.md",
+      "hsr/light_cones/21057_花儿不会忘记.md",
+      "hsr/light_cones/21058_一行往日的血.md",
+      "hsr/light_cones/21060_氤氲麦香的梦.md",
+      "hsr/light_cones/21061_假日浴场大冒险.md",
+      "hsr/light_cones/21062_于那终点再见.md",
+      "hsr/light_cones/21064_菇菇嘎嘎历险记.md",
+      "hsr/light_cones/21065_今日好手气.md",
+      "hsr/light_cones/21066_放个短假.md",
+      "hsr/light_cones/22000_新手任务开始前.md",
+      "hsr/light_cones/22001_嘿，我在这儿.md",
+      "hsr/light_cones/22002_为了明日的旅途.md",
+      "hsr/light_cones/22003_忍事录•音律狩猎.md",
+      "hsr/light_cones/22004_宇宙大生意.md",
+      "hsr/light_cones/22005_永远的迷境饭.md",
+      "hsr/light_cones/22006_飞向粉色的明天.md",
+      "hsr/light_cones/22007_未来，有我们一起.md",
+      "hsr/light_cones/22008_向着地平线的终点.md",
+      "hsr/light_cones/23000_银河铁道之夜.md",
+      "hsr/light_cones/23001_于夜色中.md",
+      "hsr/light_cones/23002_无可取代的东西.md",
+      "hsr/light_cones/23003_但战斗还未结束.md",
+      "hsr/light_cones/23004_以世界之名.md",
+      "hsr/light_cones/23005_制胜的瞬间.md",
+      "hsr/light_cones/23006_只需等待.md",
+      "hsr/light_cones/23007_雨一直下.md",
+      "hsr/light_cones/23008_棺的回响.md",
+      "hsr/light_cones/23009_到不了的彼岸.md",
+      "hsr/light_cones/23010_拂晓之前.md",
+      "hsr/light_cones/23011_她已闭上双眼.md",
+      "hsr/light_cones/23012_如泥酣眠.md",
+      "hsr/light_cones/23013_时节不居.md",
+      "hsr/light_cones/23014_此身为剑.md",
+      "hsr/light_cones/23015_比阳光更明亮的.md",
+      "hsr/light_cones/23016_烦恼着，幸福着.md",
+      "hsr/light_cones/23017_惊魂夜.md",
+      "hsr/light_cones/23018_片刻，留在眼底.md",
+      "hsr/light_cones/23019_镜中故我.md",
+      "hsr/light_cones/23020_纯粹思维的洗礼.md",
+      "hsr/light_cones/23021_游戏尘寰.md",
+      "hsr/light_cones/23022_重塑时光之忆.md",
+      "hsr/light_cones/23023_命运从未公平.md",
+      "hsr/light_cones/23024_行于流逝的岸.md",
+      "hsr/light_cones/23025_梦应归于何处.md",
+      "hsr/light_cones/23026_夜色流光溢彩.md",
+      "hsr/light_cones/23027_驶向第二次生命.md",
+      "hsr/light_cones/23028_偏偏希望无价.md",
+      "hsr/light_cones/23029_那无数个春天.md",
+      "hsr/light_cones/23030_落日时起舞.md",
+      "hsr/light_cones/23031_我将，巡征追猎.md",
+      "hsr/light_cones/23032_唯有香如故.md",
+      "hsr/light_cones/23033_忍法帖•缭乱破魔.md",
+      "hsr/light_cones/23034_回到大地的飞行.md",
+      "hsr/light_cones/23035_长路终有归途.md",
+      "hsr/light_cones/23036_将光阴织成黄金.md",
+      "hsr/light_cones/23037_向着不可追问处.md",
+      "hsr/light_cones/23038_如果时间是一朵花.md",
+      "hsr/light_cones/23039_血火啊，燃烧前路.md",
+      "hsr/light_cones/23040_让告别，更美一些.md",
+      "hsr/light_cones/23041_生命当付之一炬.md",
+      "hsr/light_cones/23042_愿虹光永驻天空.md",
+      "hsr/light_cones/23043_谎言在风中飘扬.md",
+      "hsr/light_cones/23044_黎明恰如此燃烧.md",
+      "hsr/light_cones/23045_没有回报的加冕.md",
+      "hsr/light_cones/23046_理想燃烧的地狱.md",
+      "hsr/light_cones/23047_海洋为何而歌.md",
+      "hsr/light_cones/23048_金血铭刻的时代.md",
+      "hsr/light_cones/23049_致长夜的星光.md",
+      "hsr/light_cones/23050_勿忘她的火焰.md",
+      "hsr/light_cones/23051_纵然山河万程.md",
+      "hsr/light_cones/23052_爱如此刻永恒.md",
+      "hsr/light_cones/23053_花花世界迷人眼.md",
+      "hsr/light_cones/23054_当她决定看见.md",
+      "hsr/light_cones/23055_献给明日的色彩.md",
+      "hsr/light_cones/23056_一场谎言的终幕.md",
+      "hsr/light_cones/23057_欢迎来到银河城.md",
+      "hsr/light_cones/23058_邂逅于下一个花季.md",
+      "hsr/light_cones/23059_灼尽炼狱的新骸.md",
+      "hsr/light_cones/23060_当一颗星照亮夜空.md",
+      "hsr/light_cones/23061_星火悄然闪耀.md",
+      "hsr/light_cones/23062_所见即我.md",
+      "hsr/light_cones/23063_你将起身歌唱.md",
+      "hsr/light_cones/23064_向浪花掷下盛夏.md",
+      "hsr/light_cones/24000_记一位星神的陨落.md",
+      "hsr/light_cones/24001_星海巡航.md",
+      "hsr/light_cones/24002_记忆的质料.md",
+      "hsr/light_cones/24003_孤独的疗愈.md",
+      "hsr/light_cones/24004_不息的演算.md",
+      "hsr/light_cones/24005_记忆永不落幕.md",
+      "hsr/light_cones/24006_欢愉满溢祝福.md",
+      "hsr/light_cones/state.json"
+    ],
+    "deleted": []
+  },
+  "details": {
+    "hsr/light_cones/20000_锋镝.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "20000",
+          "to": "\"20000\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/326/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"13\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "318",
+          "to": "317"
+        },
+        {
+          "key": "基础生命值",
+          "from": "847",
+          "to": "846"
+        },
+        {
+          "key": "基础防御力",
+          "from": "265",
+          "to": "264"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"危机\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/20001_物穰.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "20001",
+          "to": "\"20001\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/335/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"15\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "265",
+          "to": "264"
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "基础防御力",
+          "from": "265",
+          "to": "264"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"繁盛\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/20002_天倾.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "20002",
+          "to": "\"20002\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/323/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"12\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "847",
+          "to": "846"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"破灭\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/20003_琥珀.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "20003",
+          "to": "\"20003\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/331/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"12\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "265",
+          "to": "264"
+        },
+        {
+          "key": "基础生命值",
+          "from": "847",
+          "to": "846"
+        },
+        {
+          "key": "基础防御力",
+          "from": "331",
+          "to": "330"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"静滞\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/20004_幽邃.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "20004",
+          "to": "\"20004\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/333/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"13\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "318",
+          "to": "317"
+        },
+        {
+          "key": "基础生命值",
+          "from": "847",
+          "to": "846"
+        },
+        {
+          "key": "基础防御力",
+          "from": "265",
+          "to": "264"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"沉沦\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/20005_齐颂.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "20005",
+          "to": "\"20005\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/330/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"14\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "318",
+          "to": "317"
+        },
+        {
+          "key": "基础生命值",
+          "from": "847",
+          "to": "846"
+        },
+        {
+          "key": "基础防御力",
+          "from": "265",
+          "to": "264"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"协力\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/20006_智库.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "20006",
+          "to": "\"20006\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/328/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"12\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "741",
+          "to": "740"
+        },
+        {
+          "key": "基础防御力",
+          "from": "265",
+          "to": "264"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"博识\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/20007_离弦.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "20007",
+          "to": "\"20007\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/327/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"13\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "741",
+          "to": "740"
+        },
+        {
+          "key": "基础防御力",
+          "from": "265",
+          "to": "264"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"鸣角\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/20008_嘉果.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "20008",
+          "to": "\"20008\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/336/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"14\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "318",
+          "to": "317"
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"甘美\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/20009_乐圮.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "20009",
+          "to": "\"20009\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/324/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"14\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "847",
+          "to": "846"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"诛讨\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/20010_戍御.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "20010",
+          "to": "\"20010\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/334/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"12\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "265",
+          "to": "264"
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "基础防御力",
+          "from": "265",
+          "to": "264"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"兴复\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/20011_渊环.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "20011",
+          "to": "\"20011\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/332/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"12\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "318",
+          "to": "317"
+        },
+        {
+          "key": "基础生命值",
+          "from": "847",
+          "to": "846"
+        },
+        {
+          "key": "基础防御力",
+          "from": "265",
+          "to": "264"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"追逼\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/20012_轮契.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "20012",
+          "to": "\"20012\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/329/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"14\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "318",
+          "to": "317"
+        },
+        {
+          "key": "基础生命值",
+          "from": "847",
+          "to": "846"
+        },
+        {
+          "key": "基础防御力",
+          "from": "265",
+          "to": "264"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"速决\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/20013_灵钥.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "20013",
+          "to": "\"20013\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/325/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"13\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "741",
+          "to": "740"
+        },
+        {
+          "key": "基础防御力",
+          "from": "265",
+          "to": "264"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"顿悟\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/20014_相抗.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "20014",
+          "to": "\"20014\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/555/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"5\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "741",
+          "to": "740"
+        },
+        {
+          "key": "基础防御力",
+          "from": "265",
+          "to": "264"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"联盟\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/20015_蕃息.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "20015",
+          "to": "\"20015\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/553/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"7\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "318",
+          "to": "317"
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"丰饶民\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/20016_俱殁.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "20016",
+          "to": "\"20016\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/556/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"5\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "847",
+          "to": "846"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"军团\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/20017_开疆.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "20017",
+          "to": "\"20017\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/552/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"6\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "265",
+          "to": "264"
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "基础防御力",
+          "from": "265",
+          "to": "264"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"公司\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/20018_匿影.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "20018",
+          "to": "\"20018\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/551/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"6\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "318",
+          "to": "317"
+        },
+        {
+          "key": "基础生命值",
+          "from": "847",
+          "to": "846"
+        },
+        {
+          "key": "基础防御力",
+          "from": "265",
+          "to": "264"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"机关\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/20019_调和.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "20019",
+          "to": "\"20019\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/550/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"7\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "318",
+          "to": "317"
+        },
+        {
+          "key": "基础生命值",
+          "from": "847",
+          "to": "846"
+        },
+        {
+          "key": "基础防御力",
+          "from": "265",
+          "to": "264"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"家族\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/20020_睿见.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "20020",
+          "to": "\"20020\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/554/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"5\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "741",
+          "to": "740"
+        },
+        {
+          "key": "基础防御力",
+          "from": "265",
+          "to": "264"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"天才\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/20021_焚影.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "20021",
+          "to": "\"20021\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/4640/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"3\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "318",
+          "to": "317"
+        },
+        {
+          "key": "基础防御力",
+          "from": "265",
+          "to": "264"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"美化\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/20022_溯忆.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "20022",
+          "to": "\"20022\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/4638/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"4\""
+        },
+        {
+          "key": "基础防御力",
+          "from": "265",
+          "to": "264"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"入寐\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/20023_嗤笑.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "20023",
+          "to": "\"20023\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/7097/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "741",
+          "to": "740"
+        },
+        {
+          "key": "基础防御力",
+          "from": "265",
+          "to": "264"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"纵欢\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/20024_残泪.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "20024",
+          "to": "\"20024\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/7096/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "318",
+          "to": "317"
+        },
+        {
+          "key": "基础生命值",
+          "from": "847",
+          "to": "846"
+        },
+        {
+          "key": "基础防御力",
+          "from": "265",
+          "to": "264"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"悼念\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21000_一场术后对话.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21000",
+          "to": "\"21000\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/221/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"16\""
+        },
+        {
+          "key": "基础防御力",
+          "from": "331",
+          "to": "330"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"互相治愈\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21001_晚安与睡颜.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21001",
+          "to": "\"21001\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/224/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"16\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "基础防御力",
+          "from": "331",
+          "to": "330"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"劳碌者\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21002_余生的第一天.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21002",
+          "to": "\"21002\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/271/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"13\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"此刻定格\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21003_唯有沉默.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21003",
+          "to": "\"21003\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/66/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"14\""
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"记录\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21004_记忆中的模样.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21004",
+          "to": "\"21004\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/242/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"17\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "396"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"老相片\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21005_鼹鼠党欢迎你.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21005",
+          "to": "\"21005\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/241/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"17\""
+        },
+        {
+          "key": "基础防御力",
+          "from": "265",
+          "to": "264"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"奇妙冒险\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21006_「我」的诞生.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21006",
+          "to": "\"21006\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/196/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"19\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "基础防御力",
+          "from": "331",
+          "to": "330"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"画像少女\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21007_同一种心情.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21007",
+          "to": "\"21007\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/360/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"16\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "396"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"救治与维修\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21008_猎物的视线.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21008",
+          "to": "\"21008\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/225/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"17\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "基础防御力",
+          "from": "331",
+          "to": "330"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"自信\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21009_朗道的选择.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21009",
+          "to": "\"21009\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/419/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"15\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "396"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"时光如梭\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21010_论剑.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21010",
+          "to": "\"21010\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/316/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"15\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "基础防御力",
+          "from": "331",
+          "to": "330"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"各自的答案\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21011_与行星相会.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21011",
+          "to": "\"21011\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/244/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"21\""
+        },
+        {
+          "key": "基础防御力",
+          "from": "331",
+          "to": "330"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"启程\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21012_秘密誓心.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21012",
+          "to": "\"21012\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/222/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"17\""
+        },
+        {
+          "key": "基础防御力",
+          "from": "265",
+          "to": "264"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"竭力而为\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21013_别让世界静下来.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21013",
+          "to": "\"21013\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/200/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"16\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "847",
+          "to": "846"
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "396"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"声音的力量\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21014_此时恰好.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21014",
+          "to": "\"21014\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/846/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"6\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "396"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"折射的视线\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21015_决心如汗珠般闪耀.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21015",
+          "to": "\"21015\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/853/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"7\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "基础防御力",
+          "from": "331",
+          "to": "330"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"回眸\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21016_宇宙市场趋势.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21016",
+          "to": "\"21016\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/848/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"8\""
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "396"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"新一轮洗牌\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21017_点个关注吧！.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21017",
+          "to": "\"21017\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/854/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"5\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "基础防御力",
+          "from": "331",
+          "to": "330"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"不赞不许走！\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21018_舞！舞！舞！.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21018",
+          "to": "\"21018\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/851/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"8\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "396"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"停不下来啦！\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21019_在蓝天下.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21019",
+          "to": "\"21019\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/845/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"6\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "基础防御力",
+          "from": "331",
+          "to": "330"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"暖阳麦浪\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21020_天才们的休憩.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21020",
+          "to": "\"21020\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/856/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"6\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "847",
+          "to": "846"
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "396"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"各得其所\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21021_等价交换.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21021",
+          "to": "\"21021\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/847/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"7\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "396"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"酣适\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21022_延长记号.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21022",
+          "to": "\"21022\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/850/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"7\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "基础防御力",
+          "from": "331",
+          "to": "330"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"休止符\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21023_我们是地火.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21023",
+          "to": "\"21023\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/849/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"8\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "741",
+          "to": "740"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"泪中人\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21024_春水初生.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21024",
+          "to": "\"21024\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/855/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"8\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "847",
+          "to": "846"
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "396"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"驱散余寒\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21025_过往未来.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21025",
+          "to": "\"21025\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/852/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"11\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "396"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"旧日纸鸢\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21026_汪！散步时间！.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21026",
+          "to": "\"21026\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/548/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"11\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "基础防御力",
+          "from": "331",
+          "to": "330"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"快溜\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21027_早餐的仪式感.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21027",
+          "to": "\"21027\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/545/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"13\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "847",
+          "to": "846"
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "396"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"各就其位\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21028_暖夜不会漫长.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21028",
+          "to": "\"21028\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/541/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"16\""
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "396"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"小小灯火\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21029_后会有期.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21029",
+          "to": "\"21029\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/543/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"12\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "847",
+          "to": "846"
+        },
+        {
+          "key": "基础防御力",
+          "from": "331",
+          "to": "330"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"交手如交谈\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21030_这就是我啦！.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21030",
+          "to": "\"21030\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/542/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"15\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "847",
+          "to": "846"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"新篇章\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21031_重返幽冥.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21031",
+          "to": "\"21031\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/547/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"12\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "847",
+          "to": "846"
+        },
+        {
+          "key": "基础防御力",
+          "from": "331",
+          "to": "330"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"汹涌\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21032_镂月裁云之意.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21032",
+          "to": "\"21032\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/544/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"13\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "基础防御力",
+          "from": "331",
+          "to": "330"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"秘密\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21033_无处可逃.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21033",
+          "to": "\"21033\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/549/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"12\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "基础防御力",
+          "from": "265",
+          "to": "264"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"绝境\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21034_今日亦是和平的一日.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21034",
+          "to": "\"21034\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/546/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"14\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "847",
+          "to": "846"
+        },
+        {
+          "key": "基础防御力",
+          "from": "331",
+          "to": "330"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"风雨将至\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21035_何物为真.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21035",
+          "to": "\"21035\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/2320/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"6\""
+        },
+        {
+          "key": "基础防御力",
+          "from": "331",
+          "to": "330"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"假设\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21036_美梦小镇大冒险.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21036",
+          "to": "\"21036\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/2321/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"6\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "396"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"团结\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21037_最后的赢家.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21037",
+          "to": "\"21037\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/2322/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"5\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "基础防御力",
+          "from": "331",
+          "to": "330"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"下注\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21038_在火的远处.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21038",
+          "to": "\"21038\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/2319/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"7\""
+        },
+        {
+          "key": "基础防御力",
+          "from": "265",
+          "to": "264"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"爆燃\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21039_织造命运之线.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21039",
+          "to": "\"21039\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/2323/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"7\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"洞见\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21040_银河沦陷日.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21040",
+          "to": "\"21040\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/2324/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"6\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "基础防御力",
+          "from": "331",
+          "to": "330"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"攻略\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21041_好戏开演.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21041",
+          "to": "\"21041\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/2325/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"7\""
+        },
+        {
+          "key": "基础防御力",
+          "from": "265",
+          "to": "264"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"自娱自乐\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21042_铭记于心的约定.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21042",
+          "to": "\"21042\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/2373/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"5\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "基础防御力",
+          "from": "331",
+          "to": "330"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"传承\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21043_两个人的演唱会.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21043",
+          "to": "\"21043\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/2586/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"9\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"鼓舞\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21044_无边曼舞.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21044",
+          "to": "\"21044\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/2730/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"5\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "基础防御力",
+          "from": "331",
+          "to": "330"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"试探\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21045_谐乐静默之后.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21045",
+          "to": "\"21045\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/3416/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"2\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "847",
+          "to": "846"
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "396"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"沉寂\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21046_芳华待灼.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21046",
+          "to": "\"21046\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/3712/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"3\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "396"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"莫失莫忘\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21047_黑夜如影随行.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21047",
+          "to": "\"21047\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/4158/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"3\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "847",
+          "to": "846"
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "396"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"隐匿\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21048_梦的蒙太奇.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21048",
+          "to": "\"21048\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/4237/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"3\""
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "396"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"学院式剪接\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21050_胜利只在朝夕间.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21050",
+          "to": "\"21050\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/4642/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"7\""
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "396"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"最后一击\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21051_天才们的问候.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21051",
+          "to": "\"21051\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/4684/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"4\""
+        },
+        {
+          "key": "基础防御力",
+          "from": "331",
+          "to": "330"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"恭喜\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21052_多流汗，少流泪.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21052",
+          "to": "\"21052\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/4641/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"6\""
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"来练！\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21053_愿旅途永远坦然.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21053",
+          "to": "\"21053\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/5631/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"2\""
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"甜梦\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21054_故事的下一页.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21054",
+          "to": "\"21054\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/5630/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"2\""
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "396"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"书写\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21055_直到明天的明天.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21055",
+          "to": "\"21055\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/5629/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"2\""
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "396"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"离别\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21056_追逐风的时候.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21056",
+          "to": "\"21056\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/5628/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"2\""
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "396"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"慌张\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21057_花儿不会忘记.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21057",
+          "to": "\"21057\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/5627/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"2\""
+        },
+        {
+          "key": "基础防御力",
+          "from": "331",
+          "to": "330"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"相依为命\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21058_一行往日的血.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21058",
+          "to": "\"21058\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/5626/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"3\""
+        },
+        {
+          "key": "基础防御力",
+          "from": "331",
+          "to": "330"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"厮杀\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21060_氤氲麦香的梦.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21060",
+          "to": "\"21060\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/5625/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"2\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "396"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"憧憬\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21061_假日浴场大冒险.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21061",
+          "to": "\"21061\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/5624/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"2\""
+        },
+        {
+          "key": "基础防御力",
+          "from": "331",
+          "to": "330"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"冷静一下\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21062_于那终点再见.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21062",
+          "to": "\"21062\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/5623/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"2\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "396"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"执着\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21064_菇菇嘎嘎历险记.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21064",
+          "to": "\"21064\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/6875/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"3\""
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "396"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"乱斗\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21065_今日好手气.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21065",
+          "to": "\"21065\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/6876/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"4\""
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "396"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"抉择\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/21066_放个短假.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "21066",
+          "to": "\"21066\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/7989/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"2\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "423",
+          "to": "370"
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "1058"
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "396"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"秘语\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/22000_新手任务开始前.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "22000",
+          "to": "\"22000\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/1087/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"7\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "基础防御力",
+          "from": "331",
+          "to": "330"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"眼疾手快\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/22001_嘿，我在这儿.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "22001",
+          "to": "\"22001\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/1964/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"4\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "396"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"不怕不怕啦\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/22002_为了明日的旅途.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "22002",
+          "to": "\"22002\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/2729/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"6\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "基础防御力",
+          "from": "331",
+          "to": "330"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"联结\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/22003_忍事录•音律狩猎.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "22003",
+          "to": "\"22003\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/4254/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"2\""
+        },
+        {
+          "key": "基础防御力",
+          "from": "265",
+          "to": "264"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"开演！\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/22004_宇宙大生意.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "22004",
+          "to": "\"22004\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/5155/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"2\""
+        },
+        {
+          "key": "基础防御力",
+          "from": "331",
+          "to": "330"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"互惠\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/22005_永远的迷境饭.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "22005",
+          "to": "\"22005\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/5771/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "基础防御力",
+          "from": "331",
+          "to": "330"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"真香\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/22006_飞向粉色的明天.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "22006",
+          "to": "\"22006\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/6475/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"2\""
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "396"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"凝望\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/22007_未来，有我们一起.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "22007",
+          "to": "\"22007\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/7438/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1\""
+        },
+        {
+          "key": "基础防御力",
+          "from": "331",
+          "to": "330"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"同行\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/22008_向着地平线的终点.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "22008",
+          "to": "\"22008\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/7990/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"2\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "847",
+          "to": "846"
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "396"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"超越\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23000_银河铁道之夜.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23000",
+          "to": "\"23000\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/390/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"13\""
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "396"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"流星群\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23001_于夜色中.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23001",
+          "to": "\"23001\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/268/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"16\""
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"花与蝶\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23002_无可取代的东西.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23002",
+          "to": "\"23002\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/384/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"12\""
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "396"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"家人\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23003_但战斗还未结束.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23003",
+          "to": "\"23003\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/362/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"15\""
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"继承人\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23004_以世界之名.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23004",
+          "to": "\"23004\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/273/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"15\""
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"传承者\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23005_制胜的瞬间.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23005",
+          "to": "\"23005\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/388/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"15\""
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"决断\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23006_只需等待.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23006",
+          "to": "\"23006\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/1324/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"10\""
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"蜘蛛的网\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23007_雨一直下.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23007",
+          "to": "\"23007\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/1086/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"13\""
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"幻影现实\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23008_棺的回响.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23008",
+          "to": "\"23008\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/1186/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"6\""
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "396"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"荆棘\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23009_到不了的彼岸.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23009",
+          "to": "\"23009\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/1215/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"9\""
+        },
+        {
+          "key": "基础防御力",
+          "from": "331",
+          "to": "330"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"不得\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23010_拂晓之前.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23010",
+          "to": "\"23010\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/361/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"13\""
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"长夜\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23011_她已闭上双眼.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23011",
+          "to": "\"23011\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/1677/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"6\""
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"视界\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23012_如泥酣眠.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23012",
+          "to": "\"23012\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/566/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"13\""
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"美梦\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23013_时节不居.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23013",
+          "to": "\"23013\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/567/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"12\""
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"日有四时\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23014_此身为剑.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23014",
+          "to": "\"23014\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/1718/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"10\""
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "396"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"执此宵玉\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23015_比阳光更明亮的.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23015",
+          "to": "\"23015\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/1475/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"8\""
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "396"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"抵死\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23016_烦恼着，幸福着.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23016",
+          "to": "\"23016\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/1719/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"12\""
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"一个一个来\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23017_惊魂夜.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23017",
+          "to": "\"23017\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/1943/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"11\""
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"深度深呼吸\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23018_片刻，留在眼底.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23018",
+          "to": "\"23018\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/2037/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"9\""
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"骑士巡礼\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23019_镜中故我.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23019",
+          "to": "\"23019\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/2089/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"12\""
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"彻骨梅香\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23020_纯粹思维的洗礼.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23020",
+          "to": "\"23020\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/2088/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"7\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"思想训练\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23021_游戏尘寰.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23021",
+          "to": "\"23021\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/2412/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"11\""
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"善变\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23022_重塑时光之忆.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23022",
+          "to": "\"23022\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/2313/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"9\""
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"结晶\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23023_命运从未公平.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23023",
+          "to": "\"23023\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/2607/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"14\""
+        },
+        {
+          "key": "基础防御力",
+          "from": "662",
+          "to": "661"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"全下\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23024_行于流逝的岸.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23024",
+          "to": "\"23024\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/2546/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"11\""
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "396"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"司渡\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23025_梦应归于何处.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23025",
+          "to": "\"23025\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/3115/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"17\""
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"蜕变\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23026_夜色流光溢彩.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23026",
+          "to": "\"23026\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/2732/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"11\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"抚慰\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23027_驶向第二次生命.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23027",
+          "to": "\"23027\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/2883/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"7\""
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"苦航\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23028_偏偏希望无价.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23028",
+          "to": "\"23028\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/3399/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"4\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"承诺\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23029_那无数个春天.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23029",
+          "to": "\"23029\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/3713/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"4\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"世事无痕\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23030_落日时起舞.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23030",
+          "to": "\"23030\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/3524/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"4\""
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"沉酣\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23031_我将，巡征追猎.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23031",
+          "to": "\"23031\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/3863/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"6\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"震慑\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23032_唯有香如故.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23032",
+          "to": "\"23032\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/4157/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"7\""
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"安心\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23033_忍法帖•缭乱破魔.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23033",
+          "to": "\"23033\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/4238/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"6\""
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"除邪\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23034_回到大地的飞行.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23034",
+          "to": "\"23034\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/4469/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"9\""
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"再启程\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23035_长路终有归途.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23035",
+          "to": "\"23035\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/4577/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"7\""
+        },
+        {
+          "key": "基础防御力",
+          "from": "662",
+          "to": "661"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"新生\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23036_将光阴织成黄金.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23036",
+          "to": "\"23036\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/4887/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"7\""
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "396"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"创设\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23037_向着不可追问处.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23037",
+          "to": "\"23037\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/4639/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"7\""
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"思维游戏\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23038_如果时间是一朵花.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23038",
+          "to": "\"23038\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/4956/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"11\""
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "396"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"希冀\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23039_血火啊，燃烧前路.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23039",
+          "to": "\"23039\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/5106/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"4\""
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "396"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"远望\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23040_让告别，更美一些.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23040",
+          "to": "\"23040\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/5154/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"6\""
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "396"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"铭刻\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23041_生命当付之一炬.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23041",
+          "to": "\"23041\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/5289/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"9\""
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"熔炼\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23042_愿虹光永驻天空.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23042",
+          "to": "\"23042\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/5380/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"14\""
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"包容\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23043_谎言在风中飘扬.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23043",
+          "to": "\"23043\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/5574/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"7\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"欺瞒\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23044_黎明恰如此燃烧.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23044",
+          "to": "\"23044\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/5622/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"7\""
+        },
+        {
+          "key": "基础攻击力",
+          "from": "688",
+          "to": "687"
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "396"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"失却\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23045_没有回报的加冕.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23045",
+          "to": "\"23045\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/5674/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"2\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"骑士之王\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23046_理想燃烧的地狱.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23046",
+          "to": "\"23046\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/5675/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"4\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"赤原猎兵\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23047_海洋为何而歌.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23047",
+          "to": "\"23047\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/5751/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"7\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"独奏\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23048_金血铭刻的时代.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23048",
+          "to": "\"23048\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/5847/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"6\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"征服\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23049_致长夜的星光.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23049",
+          "to": "\"23049\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/5910/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"6\""
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"未眠\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23050_勿忘她的火焰.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23050",
+          "to": "\"23050\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/6698/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"5\""
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"焚身\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23051_纵然山河万程.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23051",
+          "to": "\"23051\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/5998/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"4\""
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"新鳞\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23052_爱如此刻永恒.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23052",
+          "to": "\"23052\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/6065/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"6\""
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"约定\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23053_花花世界迷人眼.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23053",
+          "to": "\"23053\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/6953/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"6\""
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"瞩目\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23054_当她决定看见.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23054",
+          "to": "\"23054\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/6873/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"7\""
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"破局\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23055_献给明日的色彩.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23055",
+          "to": "\"23055\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/8119/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1\""
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"挥墨\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23056_一场谎言的终幕.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23056",
+          "to": "\"23056\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/7114/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"5\""
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"破局\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23057_欢迎来到银河城.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23057",
+          "to": "\"23057\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/7316/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"2\""
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"稳赢\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23058_邂逅于下一个花季.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23058",
+          "to": "\"23058\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/7477/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"3\""
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"遐想\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23059_灼尽炼狱的新骸.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23059",
+          "to": "\"23059\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/7646/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"3\""
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"淬炼\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23060_当一颗星照亮夜空.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23060",
+          "to": "\"23060\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/7811/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"2\""
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"初愿\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23061_星火悄然闪耀.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23061",
+          "to": "\"23061\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/7835/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"2\""
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"萌芽\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23062_所见即我.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23062",
+          "to": "\"23062\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/7836/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"2\""
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"随心\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23063_你将起身歌唱.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23063",
+          "to": "\"23063\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/7987/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"3\""
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "396"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"即兴\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/23064_向浪花掷下盛夏.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "23064",
+          "to": "\"23064\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/8072/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"2\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"浪行\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/24000_记一位星神的陨落.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "24000",
+          "to": "\"24000\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/844/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"11\""
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "396"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"扑火\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/24001_星海巡航.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "24001",
+          "to": "\"24001\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/870/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"11\""
+        },
+        {
+          "key": "基础生命值",
+          "from": "953",
+          "to": "952"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"猎逐\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/24002_记忆的质料.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "24002",
+          "to": "\"24002\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/871/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"8\""
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"珍存\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/24003_孤独的疗愈.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "24003",
+          "to": "\"24003\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/1477/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"4\""
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "396"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"混沌灵药\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/24004_不息的演算.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "24004",
+          "to": "\"24004\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/3163/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"2\""
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "396"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"无界之思\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/24005_记忆永不落幕.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "24005",
+          "to": "\"24005\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/4957/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"3\""
+        },
+        {
+          "key": "基础防御力",
+          "from": "397",
+          "to": "396"
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"收取\""
+        }
+      ],
+      "body": {
+        "linesAdded": 8,
+        "linesRemoved": 9,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/24006_欢愉满溢祝福.md": {
+      "frontMatter": [
+        {
+          "key": "id",
+          "from": "24006",
+          "to": "\"24006\""
+        },
+        {
+          "key": "last_crawled_at",
+          "from": "(absent)",
+          "to": "\"2026-10-13T00:00:00.000Z\""
+        },
+        {
+          "key": "source",
+          "from": "\"nanoka-seed\"",
+          "to": "\"mihoyo-api\""
+        },
+        {
+          "key": "source_url",
+          "from": "(absent)",
+          "to": "\"https://www.miyoushe.com/sr/wiki/content/7227/detail\""
+        },
+        {
+          "key": "version",
+          "from": "(absent)",
+          "to": "\"1\""
+        },
+        {
+          "key": "技能名",
+          "from": "(absent)",
+          "to": "\"开场\""
+        }
+      ],
+      "body": {
+        "linesAdded": 6,
+        "linesRemoved": 7,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    },
+    "hsr/light_cones/state.json": {
+      "frontMatter": [],
+      "body": {
+        "linesAdded": 2,
+        "linesRemoved": 2,
+        "tableRowsBefore": 0,
+        "tableRowsAfter": 0
+      }
+    }
+  },
+  "anomalies": [
+    "hsr/light_cones 21003_唯有沉默.md: 源面板“80级（未确认）”标记未确认，保留种子基础生命值、基础攻击力、基础防御力",
+    "hsr/light_cones 22009_在世界尽头相会吧！.md: 官方目录中无匹配条目，保持不动",
+    "hsr/light_cones 23065_当第一声「阿哈」响起.md: 官方目录中无匹配条目，保持不动",
+    "首次定向更新因未限定章节范围，命中其他表格同名字段；已回滚并用「仅限 基础数值（等级 80） 章节 + 必须替换 3 行」的守卫重做。"
+  ],
+  "confirmed": false,
+  "syncCommand": "npm run sync -- --report 20261014-1103",
+  "blockers": [],
+  "action": "surgical-db-update",
+  "actionNotes": [
+    "连接预览显示 2613/2675 行会更新：本仓库 data/ 是较旧的 nanoka 种子快照，而数据库来自更新的采集结果（其他类目正文更长、字段更全）。",
+    "为只修复光锥而不回退其他类目，改为对 hsr/light_cones 做定向更新：仅替换正文「## 基础数值（等级 80）」章节内的三个数值，其他内容（字段、图片、来源、其他章节）保持数据库原样。",
+    "更新 160 行；12 行数值本就一致；备份 db-backups/catalog-1791947642172-5*.json 可回滚。",
+    "首次尝试用全局正则替换时误改了「晋阶材料」等同名行，已从事前备份完整回滚并逐行校验字节一致后才重做。"
+  ]
+}

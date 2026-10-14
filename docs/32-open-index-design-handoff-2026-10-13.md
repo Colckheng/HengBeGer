@@ -240,4 +240,69 @@ node scripts/open-index-api-smoke.mjs http://127.0.0.1:3001
 
 本次实现完成 ESLint、前端/后端测试、生产构建和 API smoke 的复验；Reader 已延迟分包，生产构建通过。作用域样式已重新生成，并增加 `node scripts/build-open-index-css.mjs --check` 的磁盘产物一致性检查，防止生成文件缺失、截断或与设计源码不一致。生产界面的本机浏览器核验截图与机器可读摘要保存在本机 `reports/open-index-verification/`；该报告目录是本次本机验收产物，未纳入本次代码提交。摘要结果为首页 390×844 与 1366×768 截图 errors/warnings/exceptions/failed requests 均为 0，另抽验图鉴、详情、世界页、赛季页及旧路由。尚未覆盖真实设备、Safari/Firefox、屏幕阅读器、弱网和全量负载性能；因此此补记是本次接入与构建/API验收，不等于部署、发布或最终无障碍/跨浏览器验收。
 
-数据仍有两项明确披露的完整性限制：目录中 157/2,675 项没有可用图片资产，页面以图签/占位符容错；光锥「锋镝」的摘要基础属性 846/317/264 与正文 Lv.80 表 847/318/265 不一致，来源暂未确认，因此保留两组数值并提示读者，不擅自选择其一。详见第 6 节及详情来源说明。
+数据仍有两项明确披露的完整性限制：目录中 157/2,675 项没有可用图片资产，页面以图签/占位符容错；光锥正文 Lv.80 表存在来源版本落后，详见下文。
+
+### 基础数值表核验（2026-10-13 后续）
+
+第 6 节记录光锥「锋镝」摘要 846/317/264 与正文 847/318/265 不一致，并标注「来源暂未确认」。该项已按「以官方 wiki 为准」核实完毕：**落后的一侧是正文表，不是摘要**。
+
+以条目自带的 source_url（米游社 sr_wiki content 326）回查官方接口 `GET https://act-api-takumi-static.mihoyo.com/common/blackboard/sr_wiki/v1/content/info?app_sn=sr_wiki&content_id=326`，请求头 `x-rpc-wiki_app: sr_wiki`、`Referer: https://baike.mihoyo.com/`，取 `data-data` 解码后 `light/value.data.material` 中名为 `80级` 的行。官方返回「锋镝」Lv.80 为 **846/317/264**，与数据库 `payload.fields`（`source: mihoyo-api`）完全一致，`version` 13 也一致。
+
+该问题不是单条，而是系统性的。对 hsr/light_cones 全部 172 条逐一回查官方接口（170 条有 content id；22009、23065 无 id 无法回查）：
+
+| 判定 | 条数 |
+| --- | --- |
+| 摘要与正文都已等于官方值 | 43 |
+| 摘要等于官方值、正文表落后 | 126 |
+| 摘要不等于官方值、正文等于官方值 | 0 |
+| 摘要与正文都不等于官方值 | 1 |
+
+摘要侧 170 条中 169 条与官方一致，可确认 `payload.fields` 是 mihoyo-api 采集结果、为可信值。需要修复的是正文 `## 基础数值（等级 80）` 表，共 127 条。差值集中在 +1：生命/攻击/防御差值分布为 `1,0,1` 47 条、`0,0,1` 43 条、`1,0,0` 20 条、`1,1,1` 13 条、`1,1,0` 2 条、`0,1,1` 1 条，另 1 条为特殊项。形态符合「旧数据版本比官方高 1」。
+
+唯一例外为 `21003_唯有沉默`（content 66）：摘要 953/476/331、正文 953/476/331、官方 952/476/330。官方该行标签为 `80级（未确认）`，即官方自身标注未确认，且这是官方值低于留存副本的唯一一条。
+
+机制已定位到代码：`scripts/crawler/transformers/hsr-lightcone.js:52` 的 `transformHsrLightcone` 只构造 front-matter 并返回 `sections: []`；`scripts/crawler/writer.js:49` 的 `mergeBodies` 保留旧正文中标题不在新集合里的章节（`const kept = old.sections.filter((s) => !newHeads.has(s.heading));`）。新集合为空，因此早期 nanoka-seed 导入写入的 `## 基础数值（等级 80）` 表永远不会被任何一次重爬覆盖。正文自身留有痕迹：`20000_锋镝.md` 末尾注明「页面来源：https://hsr.nanoka.cc/lightcone/20000 · 数据版本 4.6.51 · 抓取时间 2026-09-30」。
+
+主项目当前的 `hsr-lightcone.js:24` 还有一处脆弱点：用 `x.name === '80级'` 精确匹配，而官方真实标签是带制表符的 `80级\t`。工作副本（codex/t2-9d）中的同名文件已修好：改用 `textValue(row?.name) === '80级'` 归一化比较，并新增 `unconfirmed80` 分支——当只有 `80级（未确认）` 行时保留种子数值并写入 `sourceWarnings`，这正是 21003 的预期行为。该修复尚未合并进主项目。
+
+### 修复执行记录（2026-10-13）
+
+**已按用户授权执行光锥正文表修复：数据层范围仅限 `data/hsr/light_cones/`，数据库层为定向更新（160 行）。** 变更报告 `reports/20261014-1103.md`（数据层 171 个文件，其中 170 个正文表 + `state.json`），并记录了数据库定向更新的执行动作与回滚方式。
+
+选择的最小改动路径（未迁移工作副本整棵数据树，理由见第 10 节待办 1、2 的说明）：
+
+1. 移植工作副本的 `scripts/crawler/transformers/hsr-shared.js`（`textValue` 归一化、`commonFrontMatter` 校验、`decodeParts` 解析）与重写后的 `scripts/crawler/transformers/hsr-lightcone.js`。
+2. transformer 现在输出 `## 基础数值（等级 80）` 章节，内容取自官方面板 `light/value.data.material` 中名为 `80级` 的行，并对生命/攻击/防御三项做正数校验（缺失或非正数即抛错，不写半套值）；`mergeBodies` 因此能覆盖旧表。
+3. 当官方仅有 `80级（未确认）` 行时（21003），保留种子数值 953/476/331，并在正文表下追加「> 官方页面将该等级标记为未确认；此处保留既有资料值。」，同时把差异写入报告异常区，不擅自采用官方未确认值。
+4. `scripts/crawl-mihoyo.js` 的 `crawlOne` 透传 `sourceWarnings`，批量分支将其追加到 `anomalies`，使来源警告进入报告而非只打印。
+5. 更新 `data/hsr/light_cones/state.json`：`primary_source: mihoyo-api`、`last_crawled_at: 2026-10-13T00:00:00.000Z`。
+
+本机网络无法直接访问米游社接口（`getaddrinfo ENOTFOUND undefined`，`scripts/crawl-mihoyo.js` 走 axios），因此采集改为离线执行：先用 `web_fetch` 抓取官方目录页与 170 个 content 详情页，缓存为 `reports/open-index-verification/lightcone-official-pages.json`，再以真实 transformer/writer/diff/report 模块完成落盘与报告生成，写入路径与 `--write` 完全相同（`writeEntityFile` + 校验 + 快照 diff）。
+
+修复结果核验：172 个数据文件全部通过 `validateFile`（除既有两个无来源孤儿与 `_index.md` 外 0 错误）；170 个文件的正文表与 front-matter 一致；章节完整性检查 0 异常（无新增/丢失 `##` 章节，`基础数值（等级 80）` 每文件仅 1 个）；22009、23065 无官方匹配条目，保持 nanoka-seed 原值不动。
+
+同为视觉层残留的硬编码已移除：`src/demo/AtlasDetail.jsx` 中针对 `hsr/light_cones/20000` 的「来源数值存在差异」提示段，以及 `levelCaption` 里 `['21003','22009','23065']` 的特殊文案（光锥统一为「基础属性 · Lv.80」，与已按官方口径修复的正文一致）。
+
+### 数据库同步：为什么没有走 sync，而是定向更新
+
+按报告执行 `previewImport` 时发现：**本仓库 `data/` 是较旧的 nanoka 种子快照，而数据库来自更新的采集结果**。证据：`hsr/characters/1002` 的数据库 `payload.body` 长 17292 字节、本地 16439；`hsr/characters/1415` 数据库 36757、本地 35514；数据库还带 `image` / `image_match` / `image_source` 等本地没有的字段。也就是说，若按常规流程 `applyImport`，会把 2613/2675 行整体写回较旧的内容——**修复 160 条光锥的同时回退 2400 多条其他类目**，属于不可接受的数据回退。
+
+因此改为**定向更新，只改 hsr/light_cones**：在事务内逐行读取数据库 `payload.body`，仅替换「## 基础数值（等级 80）」章节内的三个数值（守卫：必须命中且只命中 3 行），其余内容（字段、图片、来源、其他章节）保持数据库原样。结果：更新 160 行，12 行数值本就一致，`content_hash` 重算；核验 172/172 行正文表与 `payload.fields` 一致。备份 `db-backups/catalog-1791947642172-*.json`（172 行更新前快照）。
+
+过程中一次失败的尝试已回滚：首次用全局正则替换，命中「晋阶材料」等其他表格中的同名字段（如 21000 的 `1,058` 被写成 `1`），从事前备份完整恢复并逐行比对字节一致后才重做。教训：**跨表格批量替换必须限定章节范围，并对替换次数设上限**。
+
+### 角色重复章节清理（2026-10-14 执行）
+
+上一节遗留的待办已处理：`hsr/characters` 的 97 个文件带 `## 基础数值（等级 80）` 旧节，与权威 `### 80级属性` 重复且数值更旧（例：1002_丹恒 882/547/397 vs 882/546/396），且该 `###` 嵌套在 `## 晋阶` 下，`mergeBodies` 只认 `## `，永远覆盖不到——所以只能一次性清理。
+
+范围核验：本地 99 个角色文件与数据库 99 行完全同构——都含 98 个带旧节、97 个同时有权威节。其中 93 条的旧节数值与权威节不同（其余 4 条数值恰好相同），97 条的权威节都含生命/攻击/防御行。唯一例外是 `1218_椒丘`：它**没有** `### 80级属性`，旧节是其唯一的属性表，且与 front-matter（mihoyo-api，version 25）一致，因此保留。
+
+执行方式与光锥一致（本地改 data/ + 数据库定向删节，均带备份与守卫）：
+
+- 本地：删除 97 个文件的该章节（`data/hsr/characters/*.md`），其余章节标题集合逐文件比对 0 漂移，`validateFile` 0 错误。
+- 数据库：事务内删除同样 97 行 `payload.body` 中的该章节，守卫为「删除后必须不存在旧节标题、且权威节仍在」，`content_hash` 重算；`skipped` 1 行即 `1218_椒丘`。备份 `db-backups/catalog-1791950976998-*.json`（99 行更新前快照）。
+- 测试 fixture `src/demo/__fixtures__/entries/02d92adfc2816928.json`（hsr/characters/1224）正文同步为数据库现行版本，否则单测仍会读到旧节。
+
+入口影响：`contentModel.js:31` 的 `shortTitleFor` 对 `^基础数值` 标题生成「基础数值」短标题、`DetailLayouts.jsx:28` 给其优先级 1；删除后角色详情的首章仍是 `## 角色信息`（99 个文件中 98 个都有，仅 1218 椒丘没有，其首章为本就保留的 `## 基础数值（等级 80）`），主阅读区不放空。
+
+遗留：数据库与本地 `data/` 仍不同代（数据库正文更长、字段更全），本次及上次都只做定向修补，没有、也不应整体同步；两条链路各自自洽（本地 268 个文件改动未提交，数据库 257 行已更新）。

@@ -1,4 +1,4 @@
-﻿import fs from 'node:fs';
+import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createFetcher } from './crawler/fetcher.js';
@@ -6,6 +6,11 @@ import { createMihoyoSource, CHANNELS } from './crawler/sources/mihoyo.js';
 import { transformZzzCharacter } from './crawler/transformers/zzz-character.js';
 import { transformHsrCharacter } from './crawler/transformers/hsr-character.js';
 import { transformGacha } from './crawler/transformers/gacha.js';
+import { transformHsrLightcone } from './crawler/transformers/hsr-lightcone.js';
+import { transformHsrRelic } from './crawler/transformers/hsr-relic.js';
+import { transformZzzWeapon } from './crawler/transformers/zzz-weapon.js';
+import { transformZzzEquipment } from './crawler/transformers/zzz-equipment.js';
+import { transformZzzBangboo } from './crawler/transformers/zzz-bangboo.js';
 import {
   renderDoc,
   mergeBodies,
@@ -29,6 +34,11 @@ const DATA_ROOT = path.join(ROOT, 'data');
 const TARGETS = {
   'zzz-agent': { game: 'zzz', dir: ['zzz', 'agents'], channel: CHANNELS['zzz/character'], transform: 'zzz' },
   'hsr-character': { game: 'hsr', dir: ['hsr', 'characters'], channel: CHANNELS['hsr/character'], transform: 'hsr' },
+  'zzz-weapon': { game: 'zzz', dir: ['zzz', 'sound_engines'], channel: CHANNELS['zzz/weapon'], transform: 'zzz-weapon' },
+  'zzz-equipment': { game: 'zzz', dir: ['zzz', 'drive_disks'], channel: CHANNELS['zzz/equipment'], transform: 'zzz-equipment' },
+  'zzz-bangboo': { game: 'zzz', dir: ['zzz', 'bangboo'], channel: CHANNELS['zzz/bangboo'], transform: 'zzz-bangboo' },
+  'hsr-lightcone': { game: 'hsr', dir: ['hsr', 'light_cones'], channel: CHANNELS['hsr/lightcone'], transform: 'hsr-lightcone' },
+  'hsr-relic': { game: 'hsr', dir: ['hsr', 'relics'], channel: CHANNELS['hsr/relic'], transform: 'hsr-relic' },
   gacha: { transform: 'gacha' },
 };
 
@@ -102,11 +112,39 @@ async function crawlOne(src, target, item, opts = {}) {
   const existing = existingPath ? readEntityFile(existingPath) : null;
   if (!existing && opts.batch) return null;
   const localId = (existing && existing.fm && existing.fm.id) || contentId;
-  const page = target.transform === 'zzz' ? await src.getZzzEntry(contentId) : await src.getHsrContent(contentId);
-  const { fm, sections } =
-    target.transform === 'zzz'
-      ? transformZzzCharacter({ page, listItem: item, localId, existing: existing && existing.fm })
-      : transformHsrCharacter({ content: page, listItem: item, localId, existing: existing && existing.fm });
+  let page;
+  let fm, sections, sourceWarnings = [];
+  if (target.transform === 'zzz') {
+    page = await src.getZzzEntry(contentId);
+    const { fm: f, sections: s } = transformZzzCharacter({ page, listItem: item, localId, existing: existing && existing.fm });
+    fm = f; sections = s;
+  } else if (target.transform === 'hsr') {
+    page = await src.getHsrContent(contentId);
+    const { fm: f, sections: s } = transformHsrCharacter({ content: page, listItem: item, localId, existing: existing && existing.fm });
+    fm = f; sections = s;
+  } else if (target.transform === 'zzz-weapon') {
+    page = await src.getZzzEntry(contentId);
+    const { fm: f, sections: s } = transformZzzWeapon({ page, listItem: item, localId, existing: existing && existing.fm });
+    fm = f; sections = s;
+  } else if (target.transform === 'zzz-equipment') {
+    page = await src.getZzzEntry(contentId);
+    const { fm: f, sections: s } = transformZzzEquipment({ page, listItem: item, localId, existing: existing && existing.fm });
+    fm = f; sections = s;
+  } else if (target.transform === 'zzz-bangboo') {
+    page = await src.getZzzEntry(contentId);
+    const { fm: f, sections: s } = transformZzzBangboo({ page, listItem: item, localId, existing: existing && existing.fm });
+    fm = f; sections = s;
+  } else if (target.transform === 'hsr-lightcone') {
+    page = await src.getHsrContent(contentId);
+    const result = transformHsrLightcone({ content: page, listItem: item, localId, existing: existing && existing.fm });
+    fm = result.fm; sections = result.sections; sourceWarnings = result.sourceWarnings || [];
+  } else if (target.transform === 'hsr-relic') {
+    page = await src.getHsrContent(contentId);
+    const { fm: f, sections: s } = transformHsrRelic({ content: page, listItem: item, localId, existing: existing && existing.fm });
+    fm = f; sections = s;
+  } else {
+    throw new Error(`Unknown transform: ${target.transform}`);
+  }
   const mergedFm = existing ? mergeFm(existing.fm, fm) : fm;
   const preamble = buildPreamble(mergedFm);
   const text = existing
@@ -115,7 +153,7 @@ async function crawlOne(src, target, item, opts = {}) {
   const filename = existingPath
     ? path.basename(existingPath)
     : `${localId}_${sanitizeFilename(mergedFm.name)}.md`;
-  return { kind: 'character', dir, filename, fm: mergedFm, text, existed: Boolean(existingPath), contentId, prevRaw: existing && existing.raw };
+  return { kind: 'character', dir, filename, fm: mergedFm, text, existed: Boolean(existingPath), contentId, prevRaw: existing && existing.raw, sourceWarnings };
 }
 
 async function crawlCharacter(src, target, sel, args, anomalies) {
@@ -135,7 +173,12 @@ async function crawlCharacter(src, target, sel, args, anomalies) {
         continue;
       }
       const r = await crawlOne(src, target, item, { batch: true, existingPath });
-      if (r) out.push(r);
+      if (r) {
+        out.push(r);
+        for (const warning of r.sourceWarnings || []) {
+          anomalies.push(`${target.dir.join('/')} ${r.filename}: ${warning}`);
+        }
+      }
     }
     return out;
   }
@@ -188,6 +231,7 @@ function validateResults(results) {
     console.log(`[${status}] ${path.relative(ROOT, path.join(r.dir, r.filename))}  content_id=${r.contentId}`);
     if (v.errors.length) console.log(`  错误: ${v.errors.join('; ')}`);
     if (v.warnings.length) console.log(`  警告: ${v.warnings.join('; ')}`);
+    for (const warning of r.sourceWarnings || []) console.log(`  来源警告: ${warning}`);
   }
   return bad;
 }
@@ -200,8 +244,9 @@ async function main() {
     .filter(Boolean);
   if (!specs.length || specs.some((s) => !TARGETS[s.split(':')[0]])) {
     console.log('用法: node scripts/crawl-mihoyo.js --target <名称[:选择器]>[,...] [--id N | --name 名字] [--game zzz|hsr] [--write] [--print]');
-    console.log('  目标: zzz-agent | hsr-character | gacha；选择器: content_id 或 名字；省略选择器 = 该目标全量批量');
+    console.log('  目标: zzz-agent | hsr-character | zzz-weapon | zzz-equipment | zzz-bangboo | hsr-lightcone | hsr-relic | gacha；选择器: content_id 或 名字；省略选择器 = 该目标全量批量');
     console.log('  示例: --target zzz-agent:安比,hsr-character:48,gacha --write；全量: --target zzz-agent,hsr-character,gacha --write');
+    console.log('  全量新类: --target zzz-weapon,zzz-equipment,zzz-bangboo,hsr-lightcone,hsr-relic --write');
     process.exit(1);
   }
   const write = Boolean(args.write);

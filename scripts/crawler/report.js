@@ -17,6 +17,25 @@ export function treeHash(snapshotMap) {
   return crypto.createHash('sha256').update(lines.join('\n')).digest('hex');
 }
 
+export function verifyImageManifest(root) {
+  const file = path.join(root, 'data', 'image-manifest.json');
+  if (!fs.existsSync(file)) return null;
+  const manifest = JSON.parse(fs.readFileSync(file, 'utf8'));
+  if (manifest.format !== 1 || !manifest.assets || typeof manifest.assets !== 'object' || Array.isArray(manifest.assets)) throw new Error('invalid image manifest');
+  const imageRoot = path.resolve(root, 'data/images');
+  let bytes = 0;
+  for (const [rel, asset] of Object.entries(manifest.assets)) {
+    const image = path.resolve(imageRoot, rel);
+    if (!image.startsWith(`${imageRoot}${path.sep}`)) throw new Error(`unsafe manifest image path ${rel}`);
+    if (!fs.existsSync(image)) throw new Error(`missing manifest image: ${rel}`);
+    const buffer = fs.readFileSync(image);
+    const hash = crypto.createHash('sha256').update(buffer).digest('hex');
+    if (hash !== asset.sha256 || buffer.length !== asset.bytes) throw new Error(`image differs from manifest: ${rel}`);
+    bytes += buffer.length;
+  }
+  return { manifest: 'data/image-manifest.json', files: Object.keys(manifest.assets).length, bytes };
+}
+
 function ensureDir(root) {
   const dir = path.join(root, REPORTS_DIR);
   fs.mkdirSync(dir, { recursive: true });

@@ -44,22 +44,39 @@ test('the mobile chapter toggle controls the real unique directory and closes af
   expect(toggle.getAttribute('aria-expanded')).toBe('false');
 });
 
-test('the exceptional light cone exposes both source values and never claims its summary is Lv.80', () => {
+test('a confirmed light cone keeps its summary and body table on one Lv.80 value set', () => {
   const cone = record('hsr/light_cones/20000');
   render(<AtlasDetail p={cone} route={{entry: cone.key}} data={data}/>);
-  expect(document.querySelector('.atlasx-stats').textContent).toContain('来源基础值 · 等级见正文');
-  fireEvent.click(screen.getByRole('button', {name: '含来源数值差异 · 查看说明 ↗'}));
+  expect(document.querySelector('.atlasx-stats').textContent).toContain('基础属性 · Lv.80');
+  const stats = document.querySelector('.atlasx-stats');
+  expect(stats.textContent).toContain('846');
+  expect(stats.textContent).toContain('317');
+  expect(stats.textContent).toContain('264');
   const source = screen.getByText('来源与核验记录', {selector: 'summary > span'}).closest('details');
-  expect(source.open).toBe(true);
-  expect(source.textContent).toContain('846 / 317 / 264');
-  expect(source.textContent).toContain('847 / 318 / 265');
-  expect(document.activeElement).toBe(source.querySelector('summary'));
+  expect(source.open).toBe(false);
+  expect(source.textContent).not.toContain('847 / 318 / 265');
+  // The detail reader exposes the same Lv.80 table as the profile summary.
+  const body = document.body.textContent;
+  for (const value of ['846', '317', '264']) expect(body).toContain(value);
 });
 
-test.each(['21003', '22009', '23065'])('confirmed light cone %s labels its Lv.80 summary', id => {
-  const cone = record(`hsr/light_cones/${id}`);
+test('every confirmed light cone labels its Lv.80 summary', () => {
+  for (const key of data.items.filter(item => item.category === 'hsr/light_cones').map(item => item.key)) {
+    const cone = record(key);
+    const view = render(<AtlasDetail p={cone} route={{entry: cone.key}} data={data}/>);
+    expect(document.querySelector('.atlasx-stats').textContent).toContain('基础属性 · Lv.80');
+    view.unmount();
+  }
+});
+
+test('the officially unconfirmed light cone keeps its retained values and says so', () => {
+  const cone = record('hsr/light_cones/21003');
   render(<AtlasDetail p={cone} route={{entry: cone.key}} data={data}/>);
-  expect(document.querySelector('.atlasx-stats').textContent).toContain('基础属性 · Lv.80');
+  expect(document.querySelector('.atlasx-stats').textContent).toContain('生命值');
+  const body = document.querySelector('.atlasx-section') || document.body;
+  expect(body.textContent).toContain('953');
+  expect(body.textContent).toContain('476');
+  expect(body.textContent).toContain('331');
 });
 
 test('record navigation resets chapter state while preserving the complete return destination', () => {

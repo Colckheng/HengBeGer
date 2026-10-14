@@ -44,7 +44,7 @@ function Portrait({item, icon = false}) {
 function levelCaption(p) {
   if (p.category.startsWith('currency/')) return `赛季属性 · ${p.fields.赛季 || '等级见正文'}`;
   if (p.category === 'hsr/characters') return '基础属性 · Lv.1';
-  if (p.category === 'hsr/light_cones') return ['21003', '22009', '23065'].includes(String(p.id)) ? '基础属性 · Lv.80' : '来源基础值 · 等级见正文';
+  if (p.category === 'hsr/light_cones') return '基础属性 · Lv.80';
   if (p.category === 'hsr/enemies' && p.fields.属性等级) return `属性摘要 · Lv.${p.fields.属性等级} / 难度组 1`;
   return '属性摘要 · 等级见正文';
 }
@@ -58,7 +58,6 @@ function Provenance({p, sourceRef, sourceId}) {
     <div className="atlasx-disclosure-body">
       <dl className="atlasx-source-meta"><div><dt>原始来源</dt><dd>{fields.source || '未注明'}{fields.source_url && <a href={fields.source_url} target="_blank" rel="noreferrer">查阅来源 ↗</a>}</dd></div><div><dt>收录日期</dt><dd>{date || '未注明'}</dd></div>{fields.author && <div><dt>作者</dt><dd>{fields.author}</dd></div>}{fields.license && <div><dt>内容许可</dt><dd>{fields.license}</dd></div>}</dl>
       <p>资料保留来源数值与等级口径。收录日期不代表游戏版本；不同形态、等级与来源的数值，请结合正文说明阅读。</p>
-      {p.key === 'hsr/light_cones/20000' && <p className="atlasx-source-difference"><strong>来源数值存在差异。</strong>摘要字段的生命 / 攻击 / 防御为 846 / 317 / 264，正文 Lv.80 表为 847 / 318 / 265。两组原始值均予保留，差异原因尚未确认。</p>}
       {p.sourceCheck?.scope && <p>{p.sourceCheck.scope}</p>}
       {notes.map(section => <details className="atlasx-verification" key={section.id}><summary>{section.title}</summary><pre>{section.body}</pre></details>)}
     </div>
