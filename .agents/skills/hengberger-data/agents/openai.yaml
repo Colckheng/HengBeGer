@@ -1,0 +1,4 @@
+interface:
+  display_name: "HengBerGer 数据更新"
+  short_description: "采集游戏资料、核验来源与图片，预览并同步 MySQL 资料库"
+  default_prompt: "使用 $hengberger-data 更新当前项目资料，并验证数据到网页的同步结果。"

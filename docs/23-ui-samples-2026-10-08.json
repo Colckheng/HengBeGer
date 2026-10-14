@@ -1,0 +1,6095 @@
+{
+  "schemaVersion": 1,
+  "capturedOn": "2026-10-08",
+  "scope": "样本选择与UI需求；不属于UI实现或数据库迁移",
+  "dataTreeHash": "be42e72d6b2abb487e0d6e342e2bfaa788b7cad24c3dae9a13e3006c9eb8d29c",
+  "totalRecords": 2675,
+  "logicalTypes": 18,
+  "groups": 23,
+  "sampleCount": 87,
+  "categories": [
+    {
+      "category": "zzz/agents",
+      "label": "绝区零 · 代理人",
+      "total": 62,
+      "validImages": 62,
+      "fieldCoverage": {
+        "alias": {
+          "present": 43,
+          "nonEmpty": 43
+        },
+        "game": {
+          "present": 62,
+          "nonEmpty": 62
+        },
+        "id": {
+          "present": 62,
+          "nonEmpty": 62
+        },
+        "image": {
+          "present": 62,
+          "nonEmpty": 62
+        },
+        "last_crawled_at": {
+          "present": 62,
+          "nonEmpty": 62
+        },
+        "name": {
+          "present": 62,
+          "nonEmpty": 62
+        },
+        "source": {
+          "present": 62,
+          "nonEmpty": 62
+        },
+        "source_url": {
+          "present": 62,
+          "nonEmpty": 62
+        },
+        "tags": {
+          "present": 62,
+          "nonEmpty": 62
+        },
+        "type": {
+          "present": 62,
+          "nonEmpty": 62
+        },
+        "version": {
+          "present": 62,
+          "nonEmpty": 62
+        },
+        "冲击力": {
+          "present": 62,
+          "nonEmpty": 62
+        },
+        "属性": {
+          "present": 62,
+          "nonEmpty": 62
+        },
+        "攻击力": {
+          "present": 62,
+          "nonEmpty": 62
+        },
+        "攻击方式": {
+          "present": 62,
+          "nonEmpty": 62
+        },
+        "星级": {
+          "present": 62,
+          "nonEmpty": 62
+        },
+        "特性": {
+          "present": 62,
+          "nonEmpty": 62
+        },
+        "生命值": {
+          "present": 62,
+          "nonEmpty": 62
+        },
+        "评级": {
+          "present": 62,
+          "nonEmpty": 62
+        },
+        "防御力": {
+          "present": 62,
+          "nonEmpty": 62
+        },
+        "阵营": {
+          "present": 62,
+          "nonEmpty": 62
+        },
+        "image_match": {
+          "present": 61,
+          "nonEmpty": 61
+        },
+        "image_source": {
+          "present": 61,
+          "nonEmpty": 61
+        },
+        "image_source_url": {
+          "present": 61,
+          "nonEmpty": 61
+        }
+      },
+      "samples": [
+        {
+          "key": "zzz/agents/1011",
+          "id": "1011",
+          "name": "安比",
+          "path": "data/zzz/agents/1011_安比.md",
+          "purpose": "常规A级击破角色；技能多等级表、影画、信赖与故事。",
+          "source": "mihoyo-api",
+          "contentHash": "e7a0c90079965c82af898cd3fe304c6832b3bac6e5a2ab53caafc4e0fc6e7814",
+          "fileSha256": "ec66cdbb24afd90deec0013458d1b8bebcc516047116ae318e948beef97f4eda",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "alias": "安比·德玛拉",
+            "game": "zzz",
+            "id": "1011",
+            "image": "zzz/agents/1011.png",
+            "last_crawled_at": "2026-10-07T06:36:49.625Z",
+            "name": "安比",
+            "source": "mihoyo-api",
+            "source_url": "https://www.miyoushe.com/zzz/wiki/content/379/detail",
+            "tags": [
+              "zzz",
+              "character"
+            ],
+            "type": "character",
+            "version": "1767587851",
+            "冲击力": 136,
+            "属性": "电",
+            "攻击力": 658,
+            "攻击方式": "斩击",
+            "星级": 4,
+            "特性": "击破",
+            "生命值": 7500,
+            "评级": "A级",
+            "防御力": 612,
+            "阵营": "狡兔屋"
+          },
+          "bodyHeadings": [
+            "# 安比",
+            "## 简介",
+            "## 技能",
+            "### 普通攻击",
+            "#### 普通攻击：伏特速攻",
+            "#### 普通攻击：落雷",
+            "### 闪避",
+            "#### 闪避：滑步",
+            "#### 闪避反击：迅雷",
+            "#### 冲刺攻击：电弧斩",
+            "### 支援技",
+            "#### 招架支援：电光一闪",
+            "#### 快速支援：降雷前场",
+            "#### 支援突击：回旋闪电",
+            "### 特殊技",
+            "#### 特殊技：电光挥击",
+            "#### 强化特殊技：苍雷斩",
+            "### 终结技",
+            "#### 终结技：过载引擎",
+            "#### 连携技：电磁引擎",
+            "### 核心技",
+            "### 总计",
+            "## 影画",
+            "## 角色印象",
+            "## 信赖奖励",
+            "## 攻略推荐",
+            "## 角色CV",
+            "## 故事",
+            "## 录像店留言"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "zzz/agents/1431",
+          "id": "1431",
+          "name": "叶瞬光",
+          "path": "data/zzz/agents/1431_叶瞬光.md",
+          "purpose": "正文较长；凛刃属性与多段技能，检查标签扩展和长内容导航。",
+          "source": "mihoyo-api",
+          "contentHash": "d007a5285a2992af13755ccb0ad0d963c3f17615498e06a5c1d7da8d8d961b1c",
+          "fileSha256": "5c5c8cc80ef6fe9052232b2a5102bef150a058d1ac02ce80d33725ee72d2f6c8",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "game": "zzz",
+            "id": "1431",
+            "image": "zzz/agents/1431.png",
+            "image_match": "source-url",
+            "image_source": "mihoyo-api",
+            "image_source_url": "https://act-upload.mihoyo.com/nap-obc-indep/2025/12/25/15559334/a616a865cac5d9faad9b22aa1a4e329b_3555207546534807102.png",
+            "last_crawled_at": "2026-10-07T11:54:14.601Z",
+            "name": "叶瞬光",
+            "source": "mihoyo-api",
+            "source_url": "https://www.miyoushe.com/zzz/wiki/content/1687/detail",
+            "tags": [
+              "zzz",
+              "character"
+            ],
+            "type": "character",
+            "version": "1789311761",
+            "冲击力": 83,
+            "属性": "凛刃",
+            "攻击力": 938,
+            "攻击方式": "斩击",
+            "星级": 5,
+            "特性": "强攻",
+            "生命值": 7673,
+            "评级": "S级",
+            "防御力": 606,
+            "阵营": "云岿山"
+          },
+          "bodyHeadings": [
+            "# 叶瞬光",
+            "## 简介",
+            "## 技能",
+            "### 普攻",
+            "#### 普通攻击：快剑",
+            "#### 普通攻击：流云剑意",
+            "#### 普通攻击：明心境·分水行",
+            "#### 普通攻击：明心境·扶摇势",
+            "#### 普通攻击：明心境·斩流光 极",
+            "#### 普通攻击：明心境·斩流光",
+            "#### 普通攻击：明心境·斩流光 灭",
+            "#### 观止",
+            "#### 普通攻击：明心镜·分水行（3段 无剑势）",
+            "#### 普通攻击：明心镜·斩流光 极（衔接 强化特殊技：明心镜·飞光）",
+            "#### 普通攻击：明心镜·斩流光 灭（不足2层剑势）",
+            "#### 普通攻击：明心镜·斩流光 灭（衔接 强化特殊技：明心镜·飞光）",
+            "### 闪避",
+            "#### 闪避：不留行",
+            "#### 闪避：逍遥云踪",
+            "#### 冲刺攻击：如影疾行",
+            "#### 闪避反击：燕袭",
+            "#### 闪避：不留行（明心镜）",
+            "#### 闪避：不留行（明心镜 衔接 普通攻击：明心镜·扶摇势）",
+            "#### 闪避：不留行（往前）",
+            "### 支援技",
+            "#### 登场技：照影",
+            "#### 快速支援：援守",
+            "#### 支援突击：止戈",
+            "#### 招架支援：归去时",
+            "#### 快速支援：明心境·策应",
+            "#### 支援突击：明心境·抱一",
+            "#### 招架支援：归去时（明心镜）",
+            "### 特殊技",
+            "#### 特殊技：引沧澜",
+            "#### 强化特殊技：定风波",
+            "#### 特殊技：明心境·拂衣去",
+            "#### 强化特殊技：明心境·飞光",
+            "#### 强化特殊技：明心境·归尘",
+            "#### 特殊技：引沧澜（极限闪避）",
+            "#### 特殊技：明心镜·拂衣去（极限闪避）",
+            "#### 特殊技：明心镜·拂衣去（闪避衔接 普通攻击：明心镜·斩流光 极）",
+            "### 终结技",
+            "#### 连携技：斩邪祟",
+            "#### 终结技：逐云惊霆",
+            "#### 连携技：明心境·掣惊雷",
+            "#### 终结技：斩妄开天",
+            "#### 终结技：斩妄开天（耗尽青溟剑势）",
+            "### 核心技",
+            "### 总计",
+            "## 影画",
+            "## 角色印象",
+            "## 信赖奖励",
+            "## 角色CV",
+            "## 攻略推荐",
+            "## 故事",
+            "## 录像店留言",
+            "## 等级（Lv.60）",
+            "## 突破素材（Lv.1 -> Lv.60）",
+            "## 总育成素材（等级: Lv.1 -> Lv.60）",
+            "## 核心被动（Lv.6）",
+            "### 核心被动：照破无明",
+            "### 额外能力：溯影惊鸿",
+            "## 推荐配装",
+            "### [沧浪行歌](../equipment/33500_沧浪行歌.md)",
+            "### [折枝剑歌](../equipment/32700_折枝剑歌.md)",
+            "### [啄木鸟电音](../equipment/31000_啄木鸟电音.md)"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "zzz/agents/1371",
+          "id": "1371",
+          "name": "仪玄",
+          "path": "data/zzz/agents/1371_仪玄.md",
+          "purpose": "玄墨／命破角色；贯穿力说明、多终结技及补充配装段落。",
+          "source": "mihoyo-api",
+          "contentHash": "639a096ecc5ac11082a2b42649a5347e7f573ddb7d269f17a16dc74349f24ea0",
+          "fileSha256": "49a6157b614721f9da8251ab535177088ab4e2ee70cfff7459d952d72d9d3617",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "game": "zzz",
+            "id": "1371",
+            "image": "zzz/agents/1371.png",
+            "image_match": "source-url",
+            "image_source": "mihoyo-api",
+            "image_source_url": "https://act-upload.mihoyo.com/nap-obc-indep/2025/06/04/76099754/0e23c7bada797f49d626181c8d3e169c_2545105937304446730.png",
+            "last_crawled_at": "2026-10-07T11:54:20.220Z",
+            "name": "仪玄",
+            "source": "mihoyo-api",
+            "source_url": "https://www.miyoushe.com/zzz/wiki/content/1299/detail",
+            "tags": [
+              "zzz",
+              "character"
+            ],
+            "type": "character",
+            "version": "1789311731",
+            "冲击力": 93,
+            "属性": "玄墨",
+            "攻击力": 872,
+            "攻击方式": "打击",
+            "星级": 5,
+            "特性": "命破",
+            "生命值": 8373,
+            "评级": "S级",
+            "防御力": 441,
+            "阵营": "云岿山"
+          },
+          "bodyHeadings": [
+            "# 仪玄",
+            "## 简介",
+            "## 技能",
+            "### 普攻",
+            "#### 普通攻击：霄云劲",
+            "#### 普通攻击：墨影凝云",
+            "#### 普通攻击：玄墨极阵",
+            "#### 普通攻击：青溟震击",
+            "### 闪避",
+            "#### 闪避：隐云身法",
+            "#### 冲刺攻击：凌云破",
+            "#### 闪避：清霄同游",
+            "#### 闪避反击：除祟一击",
+            "### 支援技",
+            "#### 快速支援：流云影身",
+            "#### 招架支援：清霄劲",
+            "#### 支援突击：霄云迅击",
+            "### 特殊技",
+            "#### 特殊技：烬影诀",
+            "#### 强化特殊技：墨痕化形",
+            "#### 强化特殊技：凝云术",
+            "#### 强化特殊技：墨烬影消",
+            "#### 强化特殊技：墨痕化形（格挡）",
+            "### 终结技",
+            "#### 连携技：玄墨迅击",
+            "#### 终结技：青溟云影",
+            "#### 终结技：符法千重",
+            "### 核心技",
+            "### 总计",
+            "## 影画",
+            "## 角色印象",
+            "## 信赖奖励",
+            "## 角色CV",
+            "## 攻略推荐",
+            "## 故事",
+            "## 录像店留言",
+            "## 等级（Lv.60）",
+            "## 突破素材（Lv.1 -> Lv.60）",
+            "## 总育成素材（等级: Lv.1 -> Lv.60）",
+            "## 核心被动（Lv.6）",
+            "### 核心被动：术法宗师",
+            "### 额外能力：玄墨暗涌",
+            "## 推荐配装",
+            "### [云岿如我](../equipment/33100_云岿如我.md)",
+            "### [啄木鸟电音](../equipment/31000_啄木鸟电音.md)",
+            "### [折枝剑歌](../equipment/32700_折枝剑歌.md)"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "zzz/agents/1611",
+          "id": "1611",
+          "name": "克拉蕾",
+          "path": "data/zzz/agents/1611_克拉蕾.md",
+          "purpose": "锋御角色；斩击／打击双攻击方式，检查多值标签。",
+          "source": "mihoyo-api",
+          "contentHash": "8adca111f57a3020ebe531816f9fa53dbe36f324aa44996c82b5e8c29864c49a",
+          "fileSha256": "375c096a6e4708500a64e1d300cc1f84f59b62b3b4354e88a98bddcc00acacfd",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "alias": "克拉蕾·弗林特",
+            "game": "zzz",
+            "id": "1611",
+            "image": "zzz/agents/1611.png",
+            "image_match": "source-url",
+            "image_source": "mihoyo-api",
+            "image_source_url": "https://act-upload.mihoyo.com/nap-obc-indep/2026/09/09/233874762/3bddde3ed114b2f9d77e344c6520021f_30924177319878367.png",
+            "last_crawled_at": "2026-10-07T11:54:09.002Z",
+            "name": "克拉蕾",
+            "source": "mihoyo-api",
+            "source_url": "https://www.miyoushe.com/zzz/wiki/content/2145/detail",
+            "tags": [
+              "zzz",
+              "character"
+            ],
+            "type": "character",
+            "version": "1790914138",
+            "冲击力": 93,
+            "属性": "电",
+            "攻击力": 626,
+            "攻击方式": "斩击 / 打击",
+            "星级": 5,
+            "特性": "锋御",
+            "生命值": 5651,
+            "评级": "S级",
+            "防御力": 441,
+            "阵营": "弗林特工坊"
+          },
+          "bodyHeadings": [
+            "# 克拉蕾",
+            "## 简介",
+            "## 技能",
+            "### 普攻",
+            "#### 普通攻击：血锻四式",
+            "#### 普通攻击：血华誓·锻星",
+            "#### 普通攻击：血华誓·伏钺",
+            "### 闪避",
+            "#### 闪避：夜视",
+            "#### 冲刺攻击：淬火",
+            "#### 闪避反击：回锋",
+            "#### 闪避反击：血华誓·回锋",
+            "### 支援技",
+            "#### 快速支援：厄月再临",
+            "#### 快速支援：血华誓·厄月再临",
+            "#### 招架支援：不屈炉心",
+            "#### 支援突击：血华誓·无垢溶锋",
+            "#### 反制支援：寸铁不让",
+            "#### 支援突击：血华誓·琢形",
+            "### 特殊技",
+            "#### 特殊技：初辉启鸣",
+            "#### 强化特殊技：血华誓·铸锋秘术",
+            "#### 特殊技：血华誓·斩金断铁",
+            "#### 特殊技：血华誓·葬血强袭",
+            "### 终结技",
+            "#### 连携技：血华誓·血契共鸣",
+            "#### 终结技：血华誓·千锤百炼",
+            "### 核心技",
+            "### 总计",
+            "## 影画",
+            "## 角色印象",
+            "## 信赖奖励",
+            "## 角色CV",
+            "## 攻略推荐",
+            "## 故事",
+            "## 录像店留言",
+            "## 等级（Lv.60）",
+            "## 突破素材（Lv.1 -> Lv.60）",
+            "## 总育成素材（等级: Lv.1 -> Lv.60）",
+            "## 核心被动（Lv.6）",
+            "### 核心被动：苍白血宴",
+            "### 额外能力：血裔传承",
+            "## 推荐配装",
+            "### [荆棘玫瑰](../equipment/34200_荆棘玫瑰.md)",
+            "### [啄木鸟电音](../equipment/31000_啄木鸟电音.md)",
+            "### [河豚电音](../equipment/31100_河豚电音.md)"
+          ],
+          "sourceCheckScope": null
+        }
+      ]
+    },
+    {
+      "category": "zzz/sound_engines",
+      "label": "绝区零 · 音擎",
+      "total": 103,
+      "validImages": 103,
+      "fieldCoverage": {
+        "alias": {
+          "present": 83,
+          "nonEmpty": 83
+        },
+        "game": {
+          "present": 103,
+          "nonEmpty": 103
+        },
+        "id": {
+          "present": 103,
+          "nonEmpty": 103
+        },
+        "image": {
+          "present": 103,
+          "nonEmpty": 103
+        },
+        "image_match": {
+          "present": 103,
+          "nonEmpty": 103
+        },
+        "image_source": {
+          "present": 103,
+          "nonEmpty": 103
+        },
+        "image_source_url": {
+          "present": 103,
+          "nonEmpty": 103
+        },
+        "last_crawled_at": {
+          "present": 100,
+          "nonEmpty": 100
+        },
+        "name": {
+          "present": 103,
+          "nonEmpty": 103
+        },
+        "source": {
+          "present": 103,
+          "nonEmpty": 103
+        },
+        "source_url": {
+          "present": 100,
+          "nonEmpty": 100
+        },
+        "tags": {
+          "present": 103,
+          "nonEmpty": 103
+        },
+        "type": {
+          "present": 103,
+          "nonEmpty": 103
+        },
+        "version": {
+          "present": 100,
+          "nonEmpty": 100
+        },
+        "副词条数值": {
+          "present": 100,
+          "nonEmpty": 100
+        },
+        "副词条类型": {
+          "present": 100,
+          "nonEmpty": 100
+        },
+        "基础攻击力": {
+          "present": 98,
+          "nonEmpty": 98
+        },
+        "技能名": {
+          "present": 100,
+          "nonEmpty": 100
+        },
+        "攻击力": {
+          "present": 25,
+          "nonEmpty": 25
+        },
+        "星级": {
+          "present": 103,
+          "nonEmpty": 103
+        },
+        "特性": {
+          "present": 103,
+          "nonEmpty": 103
+        },
+        "稀有度": {
+          "present": 103,
+          "nonEmpty": 103
+        },
+        "基础防御力": {
+          "present": 4,
+          "nonEmpty": 4
+        },
+        "补充来源": {
+          "present": 3,
+          "nonEmpty": 3
+        },
+        "补充核验版本": {
+          "present": 3,
+          "nonEmpty": 3
+        }
+      },
+      "samples": [
+        {
+          "key": "zzz/sound_engines/12001",
+          "id": "12001",
+          "name": "「月相」-望",
+          "path": "data/zzz/sound_engines/12001_「月相」-望.md",
+          "purpose": "B级常规攻击音擎；基础攻击力与百分比副词条必须分开。",
+          "source": "mihoyo-api",
+          "contentHash": "284932932a36aaa9c32e1bf6cca04cf0a8937a7aecf287408bcee35e0f327251",
+          "fileSha256": "d09b2c49b3bed92d7f0572a253616832b175131ef7a55e61c1623056ba530bd7",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "alias": "「月相」-望",
+            "game": "zzz",
+            "id": "12001",
+            "image": "zzz/sound_engines/12001.png",
+            "image_match": "source-url",
+            "image_source": "mihoyo-api",
+            "image_source_url": "https://act-upload.mihoyo.com/nap-obc-indep/2024/05/22/82500917/62251019ac4ef58fd4c279f83524cd84_4183639709296529508.png",
+            "last_crawled_at": "2026-10-07T14:31:24.937Z",
+            "name": "「月相」-望",
+            "source": "mihoyo-api",
+            "source_url": "https://www.miyoushe.com/zzz/wiki/content/118/detail",
+            "tags": [
+              "zzz",
+              "weapon"
+            ],
+            "type": "weapon",
+            "version": "1737349393",
+            "副词条数值": "+20%",
+            "副词条类型": "攻击力",
+            "基础攻击力": 475,
+            "技能名": "满月",
+            "攻击力": "20%",
+            "星级": 3,
+            "特性": "强攻",
+            "稀有度": "B"
+          },
+          "bodyHeadings": [
+            "# 「月相」-望",
+            "## 突破属性（Lv.60）",
+            "## 精炼",
+            "## 突破素材"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "zzz/sound_engines/13022",
+          "id": "13022",
+          "name": "烛光诡计",
+          "path": "data/zzz/sound_engines/13022_烛光诡计.md",
+          "purpose": "锋御音擎；基础防御力在正文，精炼与成长参数有补充核验。",
+          "source": "nanoka-seed",
+          "contentHash": "76ab4b84626fefb79e269d7828c8756afa54c76249e0171b9e7429c929e1dce0",
+          "fileSha256": "3a34c43018a030249067eb6289b6e8517798fe66b27e0468191c39be986a14db",
+          "imageAvailable": true,
+          "issues": [
+            "保留种子数据，部分属性待核验"
+          ],
+          "fields": {
+            "game": "zzz",
+            "id": 13022,
+            "image": "zzz/sound_engines/13022.webp",
+            "image_match": "snapshot-id-and-title-og",
+            "image_source": "nanoka-snapshot",
+            "image_source_url": "https://static.nanoka.cc/assets/zzz/Weapon_A_Common_22.webp",
+            "name": "烛光诡计",
+            "source": "nanoka-seed",
+            "tags": [
+              "zzz",
+              "weapon"
+            ],
+            "type": "weapon",
+            "星级": 4,
+            "特性": "锋御",
+            "稀有度": "A级",
+            "补充来源": "https://static.nanoka.cc/zzz/3.3.4+19304006/zh/weapon/13022.json",
+            "补充核验版本": "3.3.4+19304006"
+          },
+          "bodyHeadings": [
+            "# 烛光诡计",
+            "## 突破属性（Lv.60）",
+            "## 精炼",
+            "## 突破素材",
+            "## nanoka 补充核验",
+            "### 1 · 惊吓时刻",
+            "### 2 · 惊吓时刻",
+            "### 3 · 惊吓时刻",
+            "### 4 · 惊吓时刻",
+            "### 5 · 惊吓时刻"
+          ],
+          "sourceCheckScope": "来源直出基础值、成长参数及精炼1–5；不推断满级取整公式"
+        },
+        {
+          "key": "zzz/sound_engines/14163",
+          "id": "14163",
+          "name": "禁罪囚笼",
+          "path": "data/zzz/sound_engines/14163_禁罪囚笼.md",
+          "purpose": "S级种子记录；暴击副词条与精炼文本，覆盖来源与精度问题。",
+          "source": "nanoka-seed",
+          "contentHash": "851894ff7462b1f122bccab3d3d88bef6ab3938c946d240893f3b03a740f24f9",
+          "fileSha256": "ba0f17893968815ef050468a1dbdc30166eeae3d7964a41a9fe6de3f95567dea",
+          "imageAvailable": true,
+          "issues": [
+            "保留种子数据，部分属性待核验"
+          ],
+          "fields": {
+            "game": "zzz",
+            "id": 14163,
+            "image": "zzz/sound_engines/14163.webp",
+            "image_match": "snapshot-id-and-title-og",
+            "image_source": "nanoka-snapshot",
+            "image_source_url": "https://static.nanoka.cc/assets/zzz/Weapon_S_1631.webp",
+            "name": "禁罪囚笼",
+            "source": "nanoka-seed",
+            "tags": [
+              "zzz",
+              "weapon"
+            ],
+            "type": "weapon",
+            "基础攻击力": 713,
+            "星级": 5,
+            "特性": "强攻",
+            "稀有度": "S级",
+            "补充来源": "https://static.nanoka.cc/zzz/3.3.4+19304006/zh/weapon/14163.json",
+            "补充核验版本": "3.3.4+19304006"
+          },
+          "bodyHeadings": [
+            "# 禁罪囚笼",
+            "## 突破属性（Lv.60）",
+            "## 精炼",
+            "## 突破素材",
+            "## nanoka 补充核验",
+            "### 1 · 掌中狩恶",
+            "### 2 · 掌中狩恶",
+            "### 3 · 掌中狩恶",
+            "### 4 · 掌中狩恶",
+            "### 5 · 掌中狩恶"
+          ],
+          "sourceCheckScope": "来源直出基础值、成长参数及精炼1–5；不推断满级取整公式"
+        },
+        {
+          "key": "zzz/sound_engines/14164",
+          "id": "14164",
+          "name": "涅槃初翎",
+          "path": "data/zzz/sound_engines/14164_涅槃初翎.md",
+          "purpose": "异常音擎；百分比属性及精炼1–5，检验不同特性共用详情框架。",
+          "source": "nanoka-seed",
+          "contentHash": "87562735cef2e2df0e10d3b0f9e13956ed6a502c4659aba85ccb0af876327b13",
+          "fileSha256": "50155fdcf3c58ca0f45485238c9c4e48bb885709395ad7d842f84d6791d22e18",
+          "imageAvailable": true,
+          "issues": [
+            "保留种子数据，部分属性待核验"
+          ],
+          "fields": {
+            "game": "zzz",
+            "id": 14164,
+            "image": "zzz/sound_engines/14164.webp",
+            "image_match": "snapshot-id-and-title-og",
+            "image_source": "nanoka-snapshot",
+            "image_source_url": "https://static.nanoka.cc/assets/zzz/Weapon_S_1641.webp",
+            "name": "涅槃初翎",
+            "source": "nanoka-seed",
+            "tags": [
+              "zzz",
+              "weapon"
+            ],
+            "type": "weapon",
+            "基础攻击力": 713,
+            "星级": 5,
+            "特性": "异常",
+            "稀有度": "S级",
+            "补充来源": "https://static.nanoka.cc/zzz/3.3.4+19304006/zh/weapon/14164.json",
+            "补充核验版本": "3.3.4+19304006"
+          },
+          "bodyHeadings": [
+            "# 涅槃初翎",
+            "## 突破属性（Lv.60）",
+            "## 精炼",
+            "## 突破素材",
+            "## nanoka 补充核验",
+            "### 1 · 破壳日",
+            "### 2 · 破壳日",
+            "### 3 · 破壳日",
+            "### 4 · 破壳日",
+            "### 5 · 破壳日"
+          ],
+          "sourceCheckScope": "来源直出基础值、成长参数及精炼1–5；不推断满级取整公式"
+        }
+      ]
+    },
+    {
+      "category": "zzz/drive_disks",
+      "label": "绝区零 · 驱动盘",
+      "total": 30,
+      "validImages": 30,
+      "fieldCoverage": {
+        "alias": {
+          "present": 30,
+          "nonEmpty": 30
+        },
+        "game": {
+          "present": 30,
+          "nonEmpty": 30
+        },
+        "id": {
+          "present": 30,
+          "nonEmpty": 30
+        },
+        "image": {
+          "present": 30,
+          "nonEmpty": 30
+        },
+        "image_match": {
+          "present": 30,
+          "nonEmpty": 30
+        },
+        "image_source": {
+          "present": 30,
+          "nonEmpty": 30
+        },
+        "image_source_url": {
+          "present": 30,
+          "nonEmpty": 30
+        },
+        "last_crawled_at": {
+          "present": 30,
+          "nonEmpty": 30
+        },
+        "name": {
+          "present": 30,
+          "nonEmpty": 30
+        },
+        "source": {
+          "present": 30,
+          "nonEmpty": 30
+        },
+        "source_url": {
+          "present": 30,
+          "nonEmpty": 30
+        },
+        "tags": {
+          "present": 30,
+          "nonEmpty": 30
+        },
+        "type": {
+          "present": 30,
+          "nonEmpty": 30
+        },
+        "version": {
+          "present": 30,
+          "nonEmpty": 30
+        },
+        "稀有度": {
+          "present": 12,
+          "nonEmpty": 12
+        }
+      },
+      "samples": [
+        {
+          "key": "zzz/drive_disks/31000",
+          "id": "31000",
+          "name": "啄木鸟电音",
+          "path": "data/zzz/drive_disks/31000_啄木鸟电音.md",
+          "purpose": "有稀有度；标准2／4件套效果与故事。",
+          "source": "mihoyo-api",
+          "contentHash": "3c91b908cff23f447397fac6b6488d68f9796bb9ceac6f80c5da03a741cea29b",
+          "fileSha256": "228d11858d46b6df8e478514f660cf613dbc7d8e6c25b3b12582466636f99345",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "alias": "啄木鸟电音",
+            "game": "zzz",
+            "id": "31000",
+            "image": "zzz/drive_disks/31000.png",
+            "image_match": "source-url",
+            "image_source": "mihoyo-api",
+            "image_source_url": "https://act-upload.mihoyo.com/nap-obc-indep/2024/05/29/15559334/0d4dd047370168a3b992d9884ca926c6_3624385829818904793.png",
+            "last_crawled_at": "2026-10-07T14:31:39.684Z",
+            "name": "啄木鸟电音",
+            "source": "mihoyo-api",
+            "source_url": "https://www.miyoushe.com/zzz/wiki/content/232/detail",
+            "tags": [
+              "zzz",
+              "equipment"
+            ],
+            "type": "equipment",
+            "version": "1781254819",
+            "稀有度": "S"
+          },
+          "bodyHeadings": [
+            "# 啄木鸟电音",
+            "## 套装效果",
+            "### 故事"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "zzz/drive_disks/31200",
+          "id": "31200",
+          "name": "震星迪斯科",
+          "path": "data/zzz/drive_disks/31200_震星迪斯科.md",
+          "purpose": "缺少稀有度；不能补成S级或以缺字段排除。",
+          "source": "mihoyo-api",
+          "contentHash": "a7bb4a74369e7493eede8d1b7ff25f2ca9bc321d479620c642c33dcc927a6ec9",
+          "fileSha256": "c5568f023bf3d3504b0946f5189ef71bae3f85ddc5fdf59a01b43376289c95b6",
+          "imageAvailable": true,
+          "issues": [
+            "来源未提供稀有度"
+          ],
+          "fields": {
+            "alias": "震星迪斯科",
+            "game": "zzz",
+            "id": "31200",
+            "image": "zzz/drive_disks/31200.png",
+            "image_match": "source-url",
+            "image_source": "mihoyo-api",
+            "image_source_url": "https://act-upload.mihoyo.com/nap-obc-indep/2024/05/29/15559334/b3feeb5bf8107a0f9aa81c948fb18d70_5006176235064018963.png",
+            "last_crawled_at": "2026-10-07T14:31:43.287Z",
+            "name": "震星迪斯科",
+            "source": "mihoyo-api",
+            "source_url": "https://www.miyoushe.com/zzz/wiki/content/152/detail",
+            "tags": [
+              "zzz",
+              "equipment"
+            ],
+            "type": "equipment",
+            "version": "1781254777"
+          },
+          "bodyHeadings": [
+            "# 震星迪斯科",
+            "## 套装效果",
+            "### 故事"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "zzz/drive_disks/33500",
+          "id": "33500",
+          "name": "沧浪行歌",
+          "path": "data/zzz/drive_disks/33500_沧浪行歌.md",
+          "purpose": "较长套装文本；检查条件效果换行。",
+          "source": "mihoyo-api",
+          "contentHash": "331bc0f93845ae5041fe5d62f8c98496829635ad6eb6bd7cf0c211bbb4c04496",
+          "fileSha256": "8e636ab482072b0455254f8c7e36b092d054e5d2be6405f4829efc301eed4a96",
+          "imageAvailable": true,
+          "issues": [
+            "来源未提供稀有度"
+          ],
+          "fields": {
+            "alias": "沧浪行歌",
+            "game": "zzz",
+            "id": "33500",
+            "image": "zzz/drive_disks/33500.png",
+            "image_match": "source-url",
+            "image_source": "mihoyo-api",
+            "image_source_url": "https://act-upload.mihoyo.com/nap-obc-indep/2025/12/25/158441880/bbfcfbdff6e8a7fc8838c3d036eb01f6_3178263733094632077.png",
+            "last_crawled_at": "2026-10-07T14:31:32.668Z",
+            "name": "沧浪行歌",
+            "source": "mihoyo-api",
+            "source_url": "https://www.miyoushe.com/zzz/wiki/content/1754/detail",
+            "tags": [
+              "zzz",
+              "equipment"
+            ],
+            "type": "equipment",
+            "version": "1781254900"
+          },
+          "bodyHeadings": [
+            "# 沧浪行歌",
+            "## 套装效果",
+            "### 故事"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "zzz/drive_disks/33800",
+          "id": "33800",
+          "name": "囚徒手记",
+          "path": "data/zzz/drive_disks/33800_囚徒手记.md",
+          "purpose": "长效果与缺稀有度组合；检验卡片摘要与完整详情。",
+          "source": "mihoyo-api",
+          "contentHash": "d9d9acefa5b0a2431192152aaa3955b8f56203285c4f6cb13c9f0725a40093ae",
+          "fileSha256": "da55af80bd40632615c9e91c088ae4429d0e7fb890048601d56ed2b47cc02acf",
+          "imageAvailable": true,
+          "issues": [
+            "来源未提供稀有度"
+          ],
+          "fields": {
+            "alias": "囚徒手记",
+            "game": "zzz",
+            "id": "33800",
+            "image": "zzz/drive_disks/33800.png",
+            "image_match": "source-url",
+            "image_source": "mihoyo-api",
+            "image_source_url": "https://act-upload.mihoyo.com/nap-obc-indep/2026/03/16/141353238/4ebfdd28579fa98ff24f948ec172d845_1224104404961001766.png",
+            "last_crawled_at": "2026-10-07T14:31:32.038Z",
+            "name": "囚徒手记",
+            "source": "mihoyo-api",
+            "source_url": "https://www.miyoushe.com/zzz/wiki/content/1906/detail",
+            "tags": [
+              "zzz",
+              "equipment"
+            ],
+            "type": "equipment",
+            "version": "1790597357"
+          },
+          "bodyHeadings": [
+            "# 囚徒手记",
+            "## 套装效果",
+            "### 故事"
+          ],
+          "sourceCheckScope": null
+        }
+      ]
+    },
+    {
+      "category": "zzz/bangboo",
+      "label": "绝区零 · 邦布",
+      "total": 42,
+      "validImages": 41,
+      "fieldCoverage": {
+        "alias": {
+          "present": 34,
+          "nonEmpty": 34
+        },
+        "game": {
+          "present": 42,
+          "nonEmpty": 42
+        },
+        "id": {
+          "present": 42,
+          "nonEmpty": 42
+        },
+        "image": {
+          "present": 41,
+          "nonEmpty": 41
+        },
+        "image_match": {
+          "present": 41,
+          "nonEmpty": 41
+        },
+        "image_source": {
+          "present": 41,
+          "nonEmpty": 41
+        },
+        "image_source_url": {
+          "present": 41,
+          "nonEmpty": 41
+        },
+        "last_crawled_at": {
+          "present": 41,
+          "nonEmpty": 41
+        },
+        "name": {
+          "present": 42,
+          "nonEmpty": 42
+        },
+        "source": {
+          "present": 42,
+          "nonEmpty": 42
+        },
+        "source_url": {
+          "present": 41,
+          "nonEmpty": 41
+        },
+        "tags": {
+          "present": 42,
+          "nonEmpty": 42
+        },
+        "type": {
+          "present": 42,
+          "nonEmpty": 42
+        },
+        "version": {
+          "present": 41,
+          "nonEmpty": 41
+        },
+        "冲击力": {
+          "present": 42,
+          "nonEmpty": 42
+        },
+        "攻击力": {
+          "present": 42,
+          "nonEmpty": 42
+        },
+        "星级": {
+          "present": 42,
+          "nonEmpty": 42
+        },
+        "生命值": {
+          "present": 42,
+          "nonEmpty": 42
+        },
+        "稀有度": {
+          "present": 42,
+          "nonEmpty": 42
+        },
+        "防御力": {
+          "present": 42,
+          "nonEmpty": 42
+        },
+        "冲击力来源": {
+          "present": 4,
+          "nonEmpty": 4
+        },
+        "冲击力核验版本": {
+          "present": 4,
+          "nonEmpty": 4
+        },
+        "补充来源": {
+          "present": 1,
+          "nonEmpty": 1
+        },
+        "补充核验版本": {
+          "present": 1,
+          "nonEmpty": 1
+        }
+      },
+      "samples": [
+        {
+          "key": "zzz/bangboo/54016",
+          "id": "54016",
+          "name": "罗宾",
+          "path": "data/zzz/bangboo/54016_罗宾.md",
+          "purpose": "S级邦布；a／b／c技能组与属性表。",
+          "source": "mihoyo-api",
+          "contentHash": "04829a57fc61cfb3df995fa33b71a02de2b447c74a74a955bf26976037c1fba4",
+          "fileSha256": "69bf6fc2d450279ad110bb792c530fb5728ec73e2531632ac788669d7a457c61",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "alias": "罗宾",
+            "game": "zzz",
+            "id": "54016",
+            "image": "zzz/bangboo/54016.png",
+            "image_match": "source-url",
+            "image_source": "mihoyo-api",
+            "image_source_url": "https://act-upload.mihoyo.com/nap-obc-indep/2025/04/22/160824341/c1c9a5cb2f97b9a71d7c53f0bb598b89_6223576448502250249.png",
+            "last_crawled_at": "2026-10-07T14:31:49.944Z",
+            "name": "罗宾",
+            "source": "mihoyo-api",
+            "source_url": "https://www.miyoushe.com/zzz/wiki/content/1281/detail",
+            "tags": [
+              "zzz",
+              "bangboo"
+            ],
+            "type": "bangboo",
+            "version": "1775556535",
+            "冲击力": 117,
+            "攻击力": 8621,
+            "星级": 5,
+            "生命值": 4210,
+            "稀有度": "S",
+            "防御力": 666
+          },
+          "bodyHeadings": [
+            "# 罗宾",
+            "## 突破属性（Lv.60）",
+            "## 突破素材",
+            "## 技能（Lv.1）",
+            "### a. 绮幕终落",
+            "### b. 百变怪杰",
+            "### c. 幻幕拉开！"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "zzz/bangboo/53002",
+          "id": "53002",
+          "name": "招财布",
+          "path": "data/zzz/bangboo/53002_招财布.md",
+          "purpose": "只有a／b技能组；不能固定生成三个技能页签。",
+          "source": "mihoyo-api",
+          "contentHash": "34d774fd4e52ab556f4e4e348a43e177f14d7b832ec65beafb7a4e287a0872ae",
+          "fileSha256": "ddb9960f406595dbec26411ca8be07e549cbb2ab09e7f437bcdbef425e6c8732",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "alias": "招财布",
+            "game": "zzz",
+            "id": "53002",
+            "image": "zzz/bangboo/53002.png",
+            "image_match": "source-url",
+            "image_source": "mihoyo-api",
+            "image_source_url": "https://act-upload.mihoyo.com/nap-obc-indep/2024/05/24/141353238/4a21245daa6c2ebb699609e5c21ac7b1_4999512287203748704.png",
+            "last_crawled_at": "2026-10-07T14:31:59.620Z",
+            "name": "招财布",
+            "source": "mihoyo-api",
+            "source_url": "https://www.miyoushe.com/zzz/wiki/content/167/detail",
+            "tags": [
+              "zzz",
+              "bangboo"
+            ],
+            "type": "bangboo",
+            "version": "1775556917",
+            "冲击力": 94,
+            "冲击力来源": "https://static.nanoka.cc/zzz/3.3.4+19304006/zh/bangboo/53002.json",
+            "冲击力核验版本": "3.3.4+19304006",
+            "攻击力": 6198,
+            "星级": 4,
+            "生命值": 3827,
+            "稀有度": "A",
+            "防御力": 781
+          },
+          "bodyHeadings": [
+            "# 招财布",
+            "## 突破属性（Lv.60）",
+            "## 突破素材",
+            "## 技能（Lv.1）",
+            "### a. 一掷千金",
+            "### b. 运气乃实力一环"
+          ],
+          "sourceCheckScope": "基础冲击力；等级成长未提供该属性增量"
+        },
+        {
+          "key": "zzz/bangboo/53021",
+          "id": "53021",
+          "name": "幽浮布",
+          "path": "data/zzz/bangboo/53021_幽浮布.md",
+          "purpose": "技能等级表与补充核验的冲击力；展示字段级证据。",
+          "source": "mihoyo-api",
+          "contentHash": "c0a042e81fdd773cedcb4e0ef579a3f3c018ba5c81bd06a4cfa64fcb4351637e",
+          "fileSha256": "813df4cfcb73cb52d59274e97dea7afb140103af19e5cf2a30c501f7accb4ecf",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "game": "zzz",
+            "id": "53021",
+            "image": "zzz/bangboo/53021.png",
+            "image_match": "source-url",
+            "image_source": "mihoyo-api",
+            "image_source_url": "https://act-upload.mihoyo.com/nap-obc-indep/2026/05/07/233874762/f11ae8f4fa158127108942fd86d6921f_2287767881967283841.png",
+            "last_crawled_at": "2026-10-07T14:31:46.408Z",
+            "name": "幽浮布",
+            "source": "mihoyo-api",
+            "source_url": "https://www.miyoushe.com/zzz/wiki/content/1981/detail",
+            "tags": [
+              "zzz",
+              "bangboo"
+            ],
+            "type": "bangboo",
+            "version": "1778162421",
+            "冲击力": 94,
+            "冲击力来源": "https://static.nanoka.cc/zzz/3.3.4+19304006/zh/bangboo/53021.json",
+            "冲击力核验版本": "3.3.4+19304006",
+            "攻击力": 6570,
+            "星级": 4,
+            "生命值": 3827,
+            "稀有度": "A",
+            "防御力": 781
+          },
+          "bodyHeadings": [
+            "# 幽浮布",
+            "## 突破属性（Lv.60）",
+            "## 突破素材",
+            "## 技能（Lv.1）",
+            "### a. 诅咒追光",
+            "### b. 特型惊吓演员",
+            "### c. 捣蛋鬼出没"
+          ],
+          "sourceCheckScope": "基础冲击力；等级成长未提供该属性增量"
+        },
+        {
+          "key": "zzz/bangboo/55098",
+          "id": "55098",
+          "name": "伊埃斯",
+          "path": "data/zzz/bangboo/55098_伊埃斯.md",
+          "purpose": "缺图、无技能等级表；原Lv.60生命／攻击／防御仍待核验。",
+          "source": "nanoka-seed",
+          "contentHash": "200a84ba91e11bee4db3fc996e83f76a7e75d7173deb980fc0598d5ee3f156e7",
+          "fileSha256": "b73620b6c2a4ebb2e3122a8990d0c17e27b69ee1a9e56a11fa0a49de28de3653",
+          "imageAvailable": false,
+          "issues": [
+            "暂无可用图片",
+            "保留种子数据，部分属性待核验"
+          ],
+          "fields": {
+            "game": "zzz",
+            "id": 55098,
+            "name": "伊埃斯",
+            "source": "nanoka-seed",
+            "tags": [
+              "zzz",
+              "bangboo"
+            ],
+            "type": "bangboo",
+            "冲击力": 103,
+            "攻击力": 2198,
+            "星级": 4,
+            "生命值": 3176,
+            "稀有度": "A级",
+            "补充来源": "https://static.nanoka.cc/zzz/3.3.4+19304006/zh/bangboo/55098.json",
+            "补充核验版本": "3.3.4+19304006",
+            "防御力": 493
+          },
+          "bodyHeadings": [
+            "# 伊埃斯",
+            "## 突破属性（Lv.60）",
+            "## 突破素材",
+            "## 技能（Lv.1）",
+            "## nanoka 补充核验"
+          ],
+          "sourceCheckScope": "仅基础属性与成长参数；此条目没有等级表和技能等级，不能确认原Lv60生命/攻击/防御"
+        }
+      ]
+    },
+    {
+      "category": "zzz/enemies",
+      "label": "绝区零 · 敌人",
+      "total": 364,
+      "validImages": 301,
+      "fieldCoverage": {
+        "game": {
+          "present": 364,
+          "nonEmpty": 364
+        },
+        "id": {
+          "present": 364,
+          "nonEmpty": 364
+        },
+        "image": {
+          "present": 301,
+          "nonEmpty": 301
+        },
+        "last_crawled_at": {
+          "present": 364,
+          "nonEmpty": 364
+        },
+        "name": {
+          "present": 364,
+          "nonEmpty": 364
+        },
+        "source": {
+          "present": 364,
+          "nonEmpty": 364
+        },
+        "source_url": {
+          "present": 364,
+          "nonEmpty": 364
+        },
+        "tags": {
+          "present": 364,
+          "nonEmpty": 364
+        },
+        "type": {
+          "present": 364,
+          "nonEmpty": 364
+        },
+        "version": {
+          "present": 364,
+          "nonEmpty": 364
+        },
+        "冲击力": {
+          "present": 274,
+          "nonEmpty": 274
+        },
+        "弱点": {
+          "present": 232,
+          "nonEmpty": 232
+        },
+        "攻击力": {
+          "present": 274,
+          "nonEmpty": 274
+        },
+        "生命值": {
+          "present": 274,
+          "nonEmpty": 274
+        },
+        "评级": {
+          "present": 314,
+          "nonEmpty": 314
+        },
+        "防御力": {
+          "present": 274,
+          "nonEmpty": 274
+        },
+        "阵营": {
+          "present": 314,
+          "nonEmpty": 314
+        },
+        "image_match": {
+          "present": 300,
+          "nonEmpty": 300
+        },
+        "image_source": {
+          "present": 300,
+          "nonEmpty": 300
+        },
+        "image_source_url": {
+          "present": 300,
+          "nonEmpty": 300
+        },
+        "抗性": {
+          "present": 117,
+          "nonEmpty": 117
+        }
+      },
+      "samples": [
+        {
+          "key": "zzz/enemies/10000",
+          "id": "10000",
+          "name": "提尔锋",
+          "path": "data/zzz/enemies/10000_提尔锋.md",
+          "purpose": "常规敌人；Lv.70属性、弱点、多个变体。",
+          "source": "nanoka",
+          "contentHash": "712ef5fa205aedc1576c9492e3467246e150b7473b7e9001d3f9ffbf84d6605c",
+          "fileSha256": "c21f0dc67abf426892396723d241a83f591734642e6e5bb24b7e0a7e96fa4799",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "game": "zzz",
+            "id": 10000,
+            "image": "zzz/enemies/10000.png",
+            "last_crawled_at": "2026-10-07T11:28:13.891Z",
+            "name": "提尔锋",
+            "source": "nanoka",
+            "source_url": "https://static.nanoka.cc/zzz/3.3.4+19304006/zh/monster/10000.json",
+            "tags": [
+              "zzz",
+              "monster"
+            ],
+            "type": "monster",
+            "version": "3.3.4+19304006",
+            "冲击力": 1002,
+            "弱点": "冰、以太",
+            "攻击力": 609,
+            "生命值": 60709,
+            "评级": "C",
+            "防御力": 571,
+            "阵营": "以太异形"
+          },
+          "bodyHeadings": [
+            "# 提尔锋",
+            "## 成长属性（等级 70）",
+            "### 描述",
+            "### 卡片语录",
+            "### 卡片技能描述",
+            "## 怪物变体",
+            "### #11096 Monster_ClaymoreGrey",
+            "### #11097 Monster_ClaymoreGrey",
+            "### #30306 Monster_ClaymoreGrey",
+            "### #41011 Monster_ClaymoreGrey_TurnBased",
+            "### #41012 Monster_ClaymoreRed_TurnBased"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "zzz/enemies/100001",
+          "id": "100001",
+          "name": "提尔锋·蓄能型",
+          "path": "data/zzz/enemies/100001_提尔锋·蓄能型.md",
+          "purpose": "同族不同条目与弱点；不得按相似名称合并。",
+          "source": "nanoka",
+          "contentHash": "d6c3f9269bd1d1c893a5af8e56b2b5fe289fb260884580a5d8f95e27ca941d5c",
+          "fileSha256": "9a2f5f9c42b7c2a1836bf0a9a13511303606c57a40236b8029c277fbf78d8c97",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "game": "zzz",
+            "id": 100001,
+            "image": "zzz/enemies/100001.png",
+            "image_match": "unique-exact-name",
+            "image_source": "mihoyo-api",
+            "image_source_url": "https://act-upload.mihoyo.com/nap-obc-indep/2024/06/17/15559334/626f24fc2203a74c552a21c4e191f3a0_180934096732364353.png",
+            "last_crawled_at": "2026-10-07T11:28:13.891Z",
+            "name": "提尔锋·蓄能型",
+            "source": "nanoka",
+            "source_url": "https://static.nanoka.cc/zzz/3.3.4+19304006/zh/monster/100001.json",
+            "tags": [
+              "zzz",
+              "monster"
+            ],
+            "type": "monster",
+            "version": "3.3.4+19304006",
+            "冲击力": 1002,
+            "弱点": "火",
+            "攻击力": 609,
+            "生命值": 60709,
+            "评级": "C",
+            "防御力": 571,
+            "阵营": "以太异形"
+          },
+          "bodyHeadings": [
+            "# 提尔锋·蓄能型",
+            "## 成长属性（等级 70）",
+            "### 描述",
+            "### 卡片语录",
+            "### 卡片技能描述",
+            "## 怪物变体",
+            "### #11098 Monster_ClaymoreRed",
+            "### #11099 Monster_ClaymoreRed",
+            "### #30307 Monster_ClaymoreRed"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "zzz/enemies/30028",
+          "id": "30028",
+          "name": "特勤护卫",
+          "path": "data/zzz/enemies/30028_特勤护卫.md",
+          "purpose": "变体正文很长；检验变体导航与折叠。",
+          "source": "nanoka",
+          "contentHash": "2cc6ba0f79598603bc23ae74103a15249794b7b0f6b2b1fc64d2a299e9101ada",
+          "fileSha256": "e20201283dd4de1b117ca682adba59f59061795c1fea26caa594e3bc70a7307b",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "game": "zzz",
+            "id": 30028,
+            "image": "zzz/enemies/30028.png",
+            "image_match": "unique-exact-name",
+            "image_source": "mihoyo-api",
+            "image_source_url": "https://act-upload.mihoyo.com/nap-obc-indep/2025/01/23/82500917/cc704bf1559951009d01515509e92489_4053874556664991034.png",
+            "last_crawled_at": "2026-10-07T11:28:13.891Z",
+            "name": "特勤护卫",
+            "source": "nanoka",
+            "source_url": "https://static.nanoka.cc/zzz/3.3.4+19304006/zh/monster/30028.json",
+            "tags": [
+              "zzz",
+              "monster"
+            ],
+            "type": "monster",
+            "version": "3.3.4+19304006",
+            "冲击力": 1102,
+            "弱点": "火、物理",
+            "攻击力": 702,
+            "生命值": 72872,
+            "评级": "C",
+            "防御力": 571,
+            "阵营": "特殊"
+          },
+          "bodyHeadings": [
+            "# 特勤护卫",
+            "## 成长属性（等级 70）",
+            "### 描述",
+            "### 卡片语录",
+            "### 卡片技能描述",
+            "## 怪物变体",
+            "### #11911 Monster_Bodyguard",
+            "### #11912 Monster_Bodyguard",
+            "### #11913 Monster_Bodyguard",
+            "### #11914 Monster_Bodyguard",
+            "### #11915 Monster_Bodyguard",
+            "### #11916 Monster_Bodyguard",
+            "### #11917 Monster_Bodyguard",
+            "### #11918 Monster_Bodyguard",
+            "### #11921 Monster_Bruiser",
+            "### #11922 Monster_Bruiser",
+            "### #11923 Monster_Bruiser",
+            "### #11924 Monster_Bruiser",
+            "### #11925 Monster_Bruiser",
+            "### #11926 Monster_Bruiser",
+            "### #11927 Monster_Bruiser",
+            "### #11928 Monster_Bruiser",
+            "### #11931 Monster_Sharpshooter",
+            "### #11932 Monster_Sharpshooter",
+            "### #11933 Monster_Sharpshooter",
+            "### #11934 Monster_Sharpshooter",
+            "### #11935 Monster_Sharpshooter",
+            "### #11936 Monster_Sharpshooter",
+            "### #11937 Monster_Sharpshooter",
+            "### #11938 Monster_Sharpshooter",
+            "### #51021 Monster_Bodyguard_TurnBased",
+            "### #51022 Monster_Bodyguard_TurnBased"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "zzz/enemies/100101",
+          "id": "100101",
+          "name": "OfficialName_",
+          "path": "data/zzz/enemies/100101_OfficialName.md",
+          "purpose": "OfficialName_占位名、缺图和属性缺失，覆盖不完整详情。",
+          "source": "nanoka",
+          "contentHash": "589f205f79e5d3be302aaf5577384bcaad996f52ac36d9966dac617f762966de",
+          "fileSha256": "b50c2a191fee1f9e98ac69c0304eea7582bd7ba44c16bc5292093fdb61b50a5e",
+          "imageAvailable": false,
+          "issues": [
+            "暂无可用图片"
+          ],
+          "fields": {
+            "game": "zzz",
+            "id": 100101,
+            "last_crawled_at": "2026-10-07T11:28:13.891Z",
+            "name": "OfficialName_",
+            "source": "nanoka",
+            "source_url": "https://static.nanoka.cc/zzz/3.3.4+19304006/zh/monster/100101.json",
+            "tags": [
+              "zzz",
+              "monster"
+            ],
+            "type": "monster",
+            "version": "3.3.4+19304006",
+            "评级": "C",
+            "阵营": "治安局"
+          },
+          "bodyHeadings": [
+            "# OfficialName_",
+            "## 成长属性（等级 70）",
+            "### 描述",
+            "### 卡片语录",
+            "### 卡片技能描述",
+            "## 怪物变体"
+          ],
+          "sourceCheckScope": null
+        }
+      ]
+    },
+    {
+      "category": "zzz/gacha",
+      "label": "绝区零 · 调频",
+      "total": 4,
+      "validImages": 0,
+      "fieldCoverage": {
+        "end_time": {
+          "present": 4,
+          "nonEmpty": 4
+        },
+        "game": {
+          "present": 4,
+          "nonEmpty": 4
+        },
+        "id": {
+          "present": 4,
+          "nonEmpty": 4
+        },
+        "image": {
+          "present": 4,
+          "nonEmpty": 0
+        },
+        "last_crawled_at": {
+          "present": 4,
+          "nonEmpty": 4
+        },
+        "name": {
+          "present": 4,
+          "nonEmpty": 4
+        },
+        "source": {
+          "present": 4,
+          "nonEmpty": 4
+        },
+        "source_url": {
+          "present": 4,
+          "nonEmpty": 4
+        },
+        "start_time": {
+          "present": 4,
+          "nonEmpty": 4
+        },
+        "tags": {
+          "present": 4,
+          "nonEmpty": 4
+        },
+        "type": {
+          "present": 4,
+          "nonEmpty": 4
+        },
+        "version": {
+          "present": 4,
+          "nonEmpty": 4
+        }
+      },
+      "samples": [
+        {
+          "key": "zzz/gacha/1",
+          "id": "1",
+          "name": "「红月初升」",
+          "path": "data/zzz/gacha/1_「红月初升」.md",
+          "purpose": "官方调频记录；检查UP表、日期与来源状态。",
+          "source": "mihoyo-api",
+          "contentHash": "231abc92ab9fc5c950d3ada4d558554912d6fcb861a1e7a96510e22ba426f0c3",
+          "fileSha256": "789a5de74f125aa7b55a3fc4afe0a5f2208e2acea025b004cde3ed8026a5d6c8",
+          "imageAvailable": false,
+          "issues": [],
+          "fields": {
+            "end_time": "2026-09-30 11:59:00",
+            "game": "zzz",
+            "id": "1",
+            "image": "",
+            "last_crawled_at": "2026-10-07T11:55:30.440Z",
+            "name": "「红月初升」",
+            "source": "mihoyo-api",
+            "source_url": "https://www.miyoushe.com/zzz/article/78027827",
+            "start_time": "2026-09-09 10:00:00",
+            "tags": [
+              "zzz",
+              "gacha"
+            ],
+            "type": "gacha",
+            "version": "unknown"
+          },
+          "bodyHeadings": [
+            "# 「红月初升」",
+            "## UP 一览"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "zzz/gacha/2",
+          "id": "2",
+          "name": "「猩红渴望」",
+          "path": "data/zzz/gacha/2_「猩红渴望」.md",
+          "purpose": "官方调频记录；与其他条目按ID独立展示。",
+          "source": "mihoyo-api",
+          "contentHash": "ec004d3e7910c70905384eb8180e784decb46a3a06786b8950a4eb40a75ee365",
+          "fileSha256": "aa902ac1c55b6cf2770ee08b169c1238986bc2b64794aa74c86846c6434848ff",
+          "imageAvailable": false,
+          "issues": [],
+          "fields": {
+            "end_time": "2026-09-30 11:59:00",
+            "game": "zzz",
+            "id": "2",
+            "image": "",
+            "last_crawled_at": "2026-10-07T11:55:30.442Z",
+            "name": "「猩红渴望」",
+            "source": "mihoyo-api",
+            "source_url": "https://www.miyoushe.com/zzz/article/78027827",
+            "start_time": "2026-09-09 10:00:00",
+            "tags": [
+              "zzz",
+              "gacha"
+            ],
+            "type": "gacha",
+            "version": "unknown"
+          },
+          "bodyHeadings": [
+            "# 「猩红渴望」",
+            "## UP 一览"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "zzz/gacha/6",
+          "id": "6",
+          "name": "「视线定格公理」",
+          "path": "data/zzz/gacha/6_「视线定格公理」.md",
+          "purpose": "名称较长的官方调频；检查移动端标题与UP条目。",
+          "source": "mihoyo-api",
+          "contentHash": "468469d3cd4de0d36e60c6b323e173bc7ddf682c3750aca2286e988a45180e7b",
+          "fileSha256": "7d38dd35dcc97f92fc7030d440e4c9894c8b8a53c08c9006fd9391e2b3714575",
+          "imageAvailable": false,
+          "issues": [],
+          "fields": {
+            "end_time": "2026-09-30 11:59:00",
+            "game": "zzz",
+            "id": "6",
+            "image": "",
+            "last_crawled_at": "2026-10-07T11:55:30.443Z",
+            "name": "「视线定格公理」",
+            "source": "mihoyo-api",
+            "source_url": "https://www.miyoushe.com/zzz/article/78027827",
+            "start_time": "2026-09-09 10:00:00",
+            "tags": [
+              "zzz",
+              "gacha"
+            ],
+            "type": "gacha",
+            "version": "unknown"
+          },
+          "bodyHeadings": [
+            "# 「视线定格公理」",
+            "## UP 一览"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "zzz/gacha/7",
+          "id": "7",
+          "name": "「霓虹妄想」",
+          "path": "data/zzz/gacha/7_「霓虹妄想」.md",
+          "purpose": "第四条官方记录；本类全部纳入，不预设卡池类型字段齐全。",
+          "source": "mihoyo-api",
+          "contentHash": "ddd451da50d41f753008523c87e0de63aa2aba4b1d3177091f53dc0b8065a246",
+          "fileSha256": "a444ccc2f5be241c2178aa1a5119148798ebdef3f6cb0050e5aeea84d8a6e582",
+          "imageAvailable": false,
+          "issues": [],
+          "fields": {
+            "end_time": "2026-09-30 11:59:00",
+            "game": "zzz",
+            "id": "7",
+            "image": "",
+            "last_crawled_at": "2026-10-07T11:55:30.445Z",
+            "name": "「霓虹妄想」",
+            "source": "mihoyo-api",
+            "source_url": "https://www.miyoushe.com/zzz/article/78027827",
+            "start_time": "2026-09-09 10:00:00",
+            "tags": [
+              "zzz",
+              "gacha"
+            ],
+            "type": "gacha",
+            "version": "unknown"
+          },
+          "bodyHeadings": [
+            "# 「霓虹妄想」",
+            "## UP 一览"
+          ],
+          "sourceCheckScope": null
+        }
+      ]
+    },
+    {
+      "category": "zzz/formula",
+      "label": "绝区零 · 机制",
+      "total": 1,
+      "validImages": 0,
+      "fieldCoverage": {
+        "author": {
+          "present": 1,
+          "nonEmpty": 1
+        },
+        "captured_at": {
+          "present": 1,
+          "nonEmpty": 1
+        },
+        "game": {
+          "present": 1,
+          "nonEmpty": 1
+        },
+        "id": {
+          "present": 1,
+          "nonEmpty": 1
+        },
+        "name": {
+          "present": 1,
+          "nonEmpty": 1
+        },
+        "origin": {
+          "present": 1,
+          "nonEmpty": 1
+        },
+        "source": {
+          "present": 1,
+          "nonEmpty": 1
+        },
+        "source_url": {
+          "present": 1,
+          "nonEmpty": 1
+        },
+        "tags": {
+          "present": 1,
+          "nonEmpty": 1
+        },
+        "type": {
+          "present": 1,
+          "nonEmpty": 1
+        }
+      },
+      "samples": [
+        {
+          "key": "zzz/formula/zzz-formula-2.0",
+          "id": "zzz-formula-2.0",
+          "name": "绝区零数据机制导论（2.0版）",
+          "path": "data/zzz/formula/数据机制导论2.0.md",
+          "purpose": "当前唯一机制长文；多级目录、公式、表格与版本说明。",
+          "source": "news.17173.com",
+          "contentHash": "a357ebb263c5ea805fb1d4088d7b8dba0cd967a274999788cf7254c6183d61ed",
+          "fileSha256": "b96fa9bee8bacae5aa8e8d60279e3a25bb25e56ec4496ee0d2735ecacd02b826",
+          "imageAvailable": false,
+          "issues": [],
+          "fields": {
+            "author": "666bj（新艾利都快讯攻略组）",
+            "captured_at": "2026-10-06",
+            "game": "zzz",
+            "id": "zzz-formula-2.0",
+            "name": "绝区零数据机制导论（2.0版）",
+            "origin": "米游社/NGA 同文（NGA tid=44468012，直连 403，采用 17173 转载）",
+            "source": "news.17173.com",
+            "source_url": "http://news.17173.com/content/07112025/114804086.shtml",
+            "tags": [
+              "zzz",
+              "formula"
+            ],
+            "type": "formula"
+          },
+          "bodyHeadings": [
+            "# 《绝区零》绝区零数据机制导论（2.0版）",
+            "# ▍PART 01 伤害乘区",
+            "## 1.1 「基础伤害区」",
+            "## 1.2 「增伤区」",
+            "## 1.3 「暴击区」",
+            "## 1.4 「防御区」",
+            "## 1.5 「抗性区」",
+            "## 1.6 「减易伤区」",
+            "## 1.7 「失衡易伤区」",
+            "## 1.8 「贯穿增伤区」",
+            "## 1.9 「特殊乘区」",
+            "# ▍PART 02 失衡",
+            "## 2.1 「失衡值」",
+            "## 2.1.1 「失衡比例」",
+            "## 2.1.2 「基础失衡区」",
+            "## 2.1.3 「失衡抗性区」",
+            "## 2.1.4 「失衡值提升区」",
+            "## 2.1.5 「受到失衡值提升区」",
+            "## 2.1.6 「直接失衡值累积/回复」",
+            "## 2.1.7 「失衡值自动回复」",
+            "## 2.2 「失衡状态」",
+            "## 2.3 「失衡恢复」",
+            "## 2.3.1 「失衡恢复速度」",
+            "## 2.3.2 调整「失衡恢复时间」",
+            "# ▍PART 03 属性异常",
+            "## 3.1 「异常效果简介」",
+            "## 3.1.1 「冻结」和「霜寒」",
+            "## 3.1.2 「强击」和「畏缩」",
+            "## 3.1.3 「侵蚀」",
+            "## 3.1.4 「感电」",
+            "## 3.1.5 「灼烧」",
+            "## 3.2 「异常积蓄」",
+            "## 3.2.1 「异常积蓄值」",
+            "## 3.2.2 触发「属性异常」",
+            "## 3.3 「异常伤害」",
+            "## 3.3.1 「异常精通区」",
+            "## 3.3.2 「伤害等级区」",
+            "## 3.3.3 「异常增伤区」",
+            "## 3.3.4 「异常暴击区」",
+            "## 3.3.5 「异常伤害」计算",
+            "## 3.4 「紊乱」",
+            "## 3.4.1 「紊乱」伤害",
+            "## 3.4.2 「紊乱」的其他效果",
+            "# ▍PART 04 能量系统",
+            "## 4.1 「能量」",
+            "## 4.2 「闪能」",
+            "## 4.3 「喧响值」",
+            "## 4.3.1 「喧响值回复」",
+            "## 4.3.2 「喧响值获得效率」",
+            "## 4.3.3 「喧响值伴随获得效率」",
+            "# ▍PART 05 秽息",
+            "## 5.1 「秽浊流界与秽盾」",
+            "## 5.2 「秽盾净除」",
+            "## 5.3 「秽盾」有关影响分析",
+            "## 5.4 「秽染与秽息泽」",
+            "# ▍PART 06 部位破坏",
+            "## 6.1伤害触发型「部位破坏」",
+            "## 6.1.1 工程机械类敌人",
+            "## 6.1.2 未知复合侵蚀体",
+            "## 6.1.3 特战强袭轰击者",
+            "## 6.1.4 杰佩托",
+            "## 6.2 非伤害触发型「部位破坏」",
+            "## 6.2.1 盗洞暴徒·蛮横力士",
+            "## 6.2.2 提丰·破坏者型",
+            "## 6.2.3 特佩什",
+            "## 6.2.4 秽息司祭",
+            "## 6.3 非典型「部位破坏」",
+            "## 6.3.1 杜拉罕",
+            "## 6.3.2 法布提",
+            "## 6.3.3 装甲哈提",
+            "## 6.3.4 凶心疯汉",
+            "## 6.3.5 霍普利泰",
+            "## 6.3.6 防暴巡查员",
+            "# ▍PART 07 打断",
+            "## 7.1「打断的基本原理」",
+            "## 7.2「打断等级」",
+            "## 7.3「抗打断等级」",
+            "## 7.3.1 初始抗打断等级",
+            "## 7.3.2 改变抗打断等级",
+            "## 7.4「招架支援」的打断",
+            "## 7.5「特殊的打断」"
+          ],
+          "sourceCheckScope": null
+        }
+      ]
+    },
+    {
+      "category": "hsr/characters",
+      "label": "星铁 · 角色",
+      "total": 99,
+      "validImages": 99,
+      "fieldCoverage": {
+        "alias": {
+          "present": 12,
+          "nonEmpty": 12
+        },
+        "game": {
+          "present": 99,
+          "nonEmpty": 99
+        },
+        "id": {
+          "present": 99,
+          "nonEmpty": 99
+        },
+        "image": {
+          "present": 99,
+          "nonEmpty": 99
+        },
+        "last_crawled_at": {
+          "present": 99,
+          "nonEmpty": 99
+        },
+        "name": {
+          "present": 99,
+          "nonEmpty": 99
+        },
+        "source": {
+          "present": 99,
+          "nonEmpty": 99
+        },
+        "source_url": {
+          "present": 99,
+          "nonEmpty": 99
+        },
+        "tags": {
+          "present": 99,
+          "nonEmpty": 99
+        },
+        "type": {
+          "present": 99,
+          "nonEmpty": 99
+        },
+        "version": {
+          "present": 99,
+          "nonEmpty": 99
+        },
+        "命途": {
+          "present": 99,
+          "nonEmpty": 99
+        },
+        "基础攻击力": {
+          "present": 99,
+          "nonEmpty": 99
+        },
+        "基础生命值": {
+          "present": 99,
+          "nonEmpty": 99
+        },
+        "基础速度": {
+          "present": 99,
+          "nonEmpty": 99
+        },
+        "基础防御力": {
+          "present": 99,
+          "nonEmpty": 99
+        },
+        "属性": {
+          "present": 99,
+          "nonEmpty": 99
+        },
+        "星级": {
+          "present": 99,
+          "nonEmpty": 99
+        },
+        "阵营": {
+          "present": 85,
+          "nonEmpty": 85
+        },
+        "image_match": {
+          "present": 98,
+          "nonEmpty": 98
+        },
+        "image_source": {
+          "present": 98,
+          "nonEmpty": 98
+        },
+        "image_source_url": {
+          "present": 98,
+          "nonEmpty": 98
+        }
+      },
+      "samples": [
+        {
+          "key": "hsr/characters/1001",
+          "id": "1001",
+          "name": "三月七",
+          "path": "data/hsr/characters/1001_三月七.md",
+          "purpose": "三月七·存护；常规角色及大量故事、技能、语音段落。",
+          "source": "mihoyo-api",
+          "contentHash": "354b53ab37a7bb2e9f075fdacdb851fbe63f8c3e8af51956d447c5b306844df4",
+          "fileSha256": "1a6d29ce8fc52b34d8eaef546d97c7baccc917960181d164adc6e4b5a2e8c6c3",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "alias": "仙舟三月七",
+            "game": "hsr",
+            "id": "1001",
+            "image": "hsr/characters/1001.png",
+            "last_crawled_at": "2026-10-07T12:21:05.107Z",
+            "name": "三月七",
+            "source": "mihoyo-api",
+            "source_url": "https://www.miyoushe.com/sr/wiki/content/48/detail",
+            "tags": [
+              "hsr",
+              "character"
+            ],
+            "type": "character",
+            "version": "83",
+            "命途": "存护",
+            "基础攻击力": 69,
+            "基础生命值": 144,
+            "基础速度": 101,
+            "基础防御力": 78,
+            "属性": "冰",
+            "星级": 4,
+            "阵营": "星穹列车"
+          },
+          "bodyHeadings": [
+            "# 三月七",
+            "## 角色信息",
+            "## 晋阶",
+            "### 1级属性/晋阶所需材料",
+            "### 80级属性",
+            "### 20级晋阶",
+            "### 30级晋阶",
+            "### 40级晋阶",
+            "### 50级晋阶",
+            "### 60级晋阶",
+            "### 70级晋阶",
+            "## 行迹",
+            "### 极寒的弓矢（普攻）",
+            "### 可爱即是正义（战技）",
+            "### 冰刻箭雨之时（终结技）",
+            "### 少女的特权（天赋）",
+            "### 冻人的瞬间（秘技）",
+            "### 纯洁（额外能力）",
+            "### 加护（额外能力）",
+            "### 冰咒（额外能力）",
+            "### 伤害强化•冰（属性加成）",
+            "### 防御强化（属性加成）",
+            "### 伤害强化•冰（属性加成）",
+            "### 效果抵抗强化（属性加成）",
+            "### 伤害强化•冰（属性加成）",
+            "### 效果抵抗强化（属性加成）",
+            "### 防御强化（属性加成）",
+            "### 伤害强化•冰（属性加成）",
+            "### 伤害强化•冰（属性加成）",
+            "### 防御强化（属性加成）",
+            "## 星魂",
+            "## 光锥推荐",
+            "## 遗器推荐",
+            "## 配队推荐",
+            "## 攻略推荐",
+            "## 故事",
+            "### 角色故事·其一",
+            "### 角色故事·其二",
+            "### 角色故事·其三",
+            "### 角色故事·其四",
+            "### 角色故事•仙舟",
+            "## 语音",
+            "## 角色关系",
+            "### 3.6",
+            "## 角色解析",
+            "### 3.5",
+            "## 角色考据",
+            "## 角色画廊",
+            "### 视频",
+            "### 图片"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "hsr/characters/1224",
+          "id": "1224",
+          "name": "三月七",
+          "path": "data/hsr/characters/1224_三月七.md",
+          "purpose": "三月七·巡猎；同名不同命途，alias不能单独充当身份。",
+          "source": "mihoyo-api",
+          "contentHash": "8d067055ea5fbb5de4d97217be7e6c40f002849218e4d59f18071af97c12f274",
+          "fileSha256": "858a0ac0f0399a22871d901f384f102f032394388f634e69fcb9c93f53eb8191",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "alias": "仙舟三月七",
+            "game": "hsr",
+            "id": "1224",
+            "image": "hsr/characters/1224.png",
+            "image_match": "source-url",
+            "image_source": "mihoyo-api",
+            "image_source_url": "https://act-upload.mihoyo.com/sr-wiki/2025/09/20/159300832/72a4515990438f6fcca79204831ebd0f_2642506094289206250.png",
+            "last_crawled_at": "2026-10-07T12:20:54.998Z",
+            "name": "三月七",
+            "source": "mihoyo-api",
+            "source_url": "https://www.miyoushe.com/sr/wiki/content/3121/detail",
+            "tags": [
+              "hsr",
+              "character"
+            ],
+            "type": "character",
+            "version": "33",
+            "命途": "巡猎",
+            "基础攻击力": 76,
+            "基础生命值": 144,
+            "基础速度": 102,
+            "基础防御力": 60,
+            "属性": "虚数",
+            "星级": 4,
+            "阵营": "星穹列车"
+          },
+          "bodyHeadings": [
+            "# 三月七",
+            "## 角色信息",
+            "## 晋阶",
+            "### 1级属性/晋阶所需材料",
+            "### 80级属性",
+            "### 20级晋阶",
+            "### 30级晋阶",
+            "### 40级晋阶",
+            "### 50级晋阶",
+            "### 60级晋阶",
+            "### 70级晋阶",
+            "## 行迹",
+            "### （普攻）",
+            "### 师父，请喝茶！（战技）",
+            "### 盖世女侠三月七（终结技）",
+            "### 师父，我悟了！（天赋）",
+            "### 一气化三餐（秘技）",
+            "### 惊鸿（额外能力）",
+            "### 玲珑（额外能力）",
+            "### 斡波（额外能力）",
+            "### 攻击强化（属性加成）",
+            "### 暴击伤害强化（属性加成）",
+            "### 攻击强化（属性加成）",
+            "### 防御强化（属性加成）",
+            "### 攻击强化（属性加成）",
+            "### 暴击伤害强化（属性加成）",
+            "### 攻击强化（属性加成）",
+            "### 防御强化（属性加成）",
+            "### 暴击伤害强化（属性加成）",
+            "### 攻击强化（属性加成）",
+            "## 星魂",
+            "## 光锥推荐",
+            "## 遗器推荐",
+            "## 配队推荐",
+            "## 攻略推荐",
+            "## 故事",
+            "### 角色故事·其一",
+            "### 角色故事·其二",
+            "### 角色故事·其三",
+            "### 角色故事·其四",
+            "### 角色故事·仙舟",
+            "## 语音",
+            "## 角色关系",
+            "### 3.5",
+            "## 角色解析",
+            "### 3.5",
+            "## 角色考据",
+            "## 角色画廊",
+            "### 视频",
+            "### 图片",
+            "## 基础数值（等级 80）",
+            "## 配音演员",
+            "## 晋阶材料（等级: Lv.1 -> Lv.80）",
+            "## 技能材料（等级: 1 -> 6 / 1 -> 10 / 1 -> 10 / 1 -> 10）",
+            "## 技能",
+            "### 普攻 · 荡涤妖邪琉璃剑（单攻）",
+            "### 战技 · 师父，请喝茶！（辅助）",
+            "### 终结技 · 盖世女侠三月七（单攻）",
+            "### 天赋 · 师父，我悟了！（强化）",
+            "### 秘技 · 一气化三餐（强化）",
+            "## 附加能力",
+            "### 惊鸿（附加能力1）",
+            "### 玲珑（附加能力2）",
+            "### 斡波（附加能力3）",
+            "## 总属性加成",
+            "## 推荐配装",
+            "### 推荐光锥",
+            "### 推荐队伍",
+            "### 推荐遗器"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "hsr/characters/1415",
+          "id": "1415",
+          "name": "昔涟",
+          "path": "data/hsr/characters/1415_昔涟.md",
+          "purpose": "记忆角色；忆灵技能、长正文、阵营字段缺失。",
+          "source": "mihoyo-api",
+          "contentHash": "c1cf75201def30af904d1ef5e141ec96f0b39555238867fc6d94b1f41b73464b",
+          "fileSha256": "e7f4e17e2bab85955e4fe0f66967c0f60d2bc7edf64291c284831424af518a92",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "game": "hsr",
+            "id": "1415",
+            "image": "hsr/characters/1415.png",
+            "image_match": "source-url",
+            "image_source": "mihoyo-api",
+            "image_source_url": "https://act-upload.mihoyo.com/sr-wiki/2025/11/05/276833758/6e558e2bc44ae6ed652b43e5c203da1a_7105918530439173264.png",
+            "last_crawled_at": "2026-10-07T11:54:47.358Z",
+            "name": "昔涟",
+            "source": "mihoyo-api",
+            "source_url": "https://www.miyoushe.com/sr/wiki/content/5851/detail",
+            "tags": [
+              "hsr",
+              "character"
+            ],
+            "type": "character",
+            "version": "27",
+            "命途": "记忆",
+            "基础攻击力": 61,
+            "基础生命值": 190,
+            "基础速度": 101,
+            "基础防御力": 79,
+            "属性": "冰",
+            "星级": 5
+          },
+          "bodyHeadings": [
+            "# 昔涟",
+            "## 角色信息",
+            "## 晋阶",
+            "### 1级属性/晋阶所需材料",
+            "### 80级属性",
+            "### 20级晋阶",
+            "### 30级晋阶",
+            "### 40级晋阶",
+            "### 50级晋阶",
+            "### 60级晋阶",
+            "### 70级晋阶",
+            "## 行迹",
+            "### 看，希望的起始！/向着爱与明天♪（普攻）",
+            "### 盛放吧，来世的乐土（战技）",
+            "### 诗的「◦」誓约的「∞」/一如初见的重逢（终结技）",
+            "### 众愿啊，汇流如歌（天赋）",
+            "### 西风尽头，宁谧永恒（秘技）",
+            "### 记忆的净子（额外能力）",
+            "### 岁月的旅人（额外能力）",
+            "### 三相的因果（额外能力）",
+            "### 暴击伤害强化（属性加成）",
+            "### 速度强化（属性加成）",
+            "### 暴击伤害强化（属性加成）",
+            "### 生命强化（属性加成）",
+            "### 暴击伤害强化（属性加成）",
+            "### 速度强化（属性加成）",
+            "### 暴击伤害强化（属性加成）",
+            "### 生命强化（属性加成）",
+            "### 速度强化（属性加成）",
+            "### 暴击伤害强化（属性加成）",
+            "### 花与箭的舞曲/此诗，献予一切生命/献予「XX」之诗（忆灵技）",
+            "### 等待，在所有的过去/「你好，世界♪」（忆灵天赋）",
+            "## 星魂",
+            "## 光锥推荐",
+            "## 遗器推荐",
+            "## 配队推荐",
+            "## 攻略推荐",
+            "## 故事",
+            "### 角色故事·其一",
+            "### 角色故事·其二",
+            "### 角色故事·其三",
+            "### 角色故事·其四",
+            "## 语音",
+            "## 角色关系",
+            "### 3.4",
+            "### 3.5",
+            "### 3.7",
+            "## 角色解析",
+            "### 3.7",
+            "## 角色考据",
+            "## 角色画廊",
+            "### 视频",
+            "### 图片",
+            "## 基础数值（等级 80）",
+            "## 配音演员",
+            "## 晋阶材料（等级: Lv.1 -> Lv.80）",
+            "## 技能材料（等级: 1 -> 6 / 1 -> 10 / 1 -> 10 / 1 -> 10）",
+            "## 技能",
+            "### 普攻 · 看，希望的起始！（单攻）",
+            "### 战技 · 盛放吧，来世的乐土（辅助）",
+            "### 终结技 · 诗的「◦」誓约的「∞」（召唤）",
+            "### 天赋 · 众愿啊，汇流如歌（强化）",
+            "### 秘技 · 西风尽头，宁谧永恒（辅助）",
+            "## 忆灵技能",
+            "### 忆灵技 · 花与箭的舞曲（群攻）",
+            "### 忆灵天赋 · 等待，在所有的过去（强化）",
+            "## 附加能力",
+            "### 记忆的净子（附加能力1）",
+            "### 岁月的旅人（附加能力2）",
+            "### 三相的因果（附加能力3）",
+            "## 总属性加成",
+            "## 推荐配装",
+            "### 推荐光锥",
+            "### 推荐队伍",
+            "### 推荐遗器"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "hsr/characters/8007",
+          "id": "8007",
+          "name": "开拓者",
+          "path": "data/hsr/characters/8007_开拓者.md",
+          "purpose": "开拓者·记忆；主角形态与忆灵模块，按独立ID定位。",
+          "source": "mihoyo-api",
+          "contentHash": "d51b079b4a87fdf83330023ef84c1b8515d001c4176c6840bd5d414fdcf4a4db",
+          "fileSha256": "35bf3deb02792d183b85763a15c7a3941621fe4d671a6888cf1649b88fb97d02",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "alias": "开拓者•记忆",
+            "game": "hsr",
+            "id": "8007",
+            "image": "hsr/characters/8007.png",
+            "image_match": "source-url",
+            "image_source": "mihoyo-api",
+            "image_source_url": "https://act-upload.mihoyo.com/sr-wiki/2025/09/20/159300832/a4e98f31245da161130243af8d0e0aa4_672704169865489529.png",
+            "last_crawled_at": "2026-10-07T12:20:43.176Z",
+            "name": "开拓者",
+            "source": "mihoyo-api",
+            "source_url": "https://www.miyoushe.com/sr/wiki/content/4441/detail",
+            "tags": [
+              "hsr",
+              "character"
+            ],
+            "type": "character",
+            "version": "49",
+            "命途": "记忆",
+            "基础攻击力": 73,
+            "基础生命值": 142,
+            "基础速度": 103,
+            "基础防御力": 85,
+            "属性": "冰",
+            "星级": 5,
+            "阵营": "星穹列车"
+          },
+          "bodyHeadings": [
+            "# 开拓者",
+            "## 角色信息",
+            "## 晋阶",
+            "### 1级属性/晋阶所需材料",
+            "### 80级属性",
+            "### 20级晋阶",
+            "### 30级晋阶",
+            "### 40级晋阶",
+            "### 50级晋阶",
+            "### 60级晋阶",
+            "### 70级晋阶",
+            "## 行迹",
+            "### 包在我身上！（普攻）",
+            "### 就决定是你了！（战技）",
+            "### 一起上吧，迷迷！（终结技）",
+            "### 无所不能的伙伴（天赋）",
+            "### 记忆如往日重现（秘技）",
+            "### 追念之权杖（额外能力）",
+            "### 袖珍的事诗（额外能力）",
+            "### 磁石与长链（额外能力）",
+            "### 暴击伤害强化（属性加成）",
+            "### 攻击强化（属性加成）",
+            "### 暴击伤害强化（属性加成）",
+            "### 攻击强化（属性加成）",
+            "### 暴击伤害强化（属性加成）",
+            "### 生命强化（属性加成）",
+            "### 暴击伤害强化（属性加成）",
+            "### 攻击强化（属性加成）",
+            "### 生命强化（属性加成）",
+            "### 暴击伤害强化（属性加成）",
+            "### 坏人！麻烦！/我会！帮你！（忆灵技）",
+            "### 伙伴！一起！/迷迷，加油！/遗憾…不留（忆灵天赋）",
+            "### 未完的尾声（额外能力）",
+            "## 星魂",
+            "## 光锥推荐",
+            "## 遗器推荐",
+            "## 配队推荐",
+            "## 攻略推荐",
+            "## 故事",
+            "### 你的「故事」•一",
+            "### 你的「故事」•二",
+            "### 你的「故事」•三",
+            "### 你的「故事」•四",
+            "### 你的「故事」•五",
+            "## 语音",
+            "## 角色关系",
+            "### 3.3",
+            "## 角色解析",
+            "### 3.3",
+            "## 角色考据",
+            "## 角色画廊",
+            "### 视频",
+            "### 图片",
+            "## 基础数值（等级 80）",
+            "## 配音演员",
+            "## 晋阶材料（等级: Lv.1 -> Lv.80）",
+            "## 技能材料（等级: 1 -> 6 / 1 -> 10 / 1 -> 10 / 1 -> 10）",
+            "## 技能",
+            "### 普攻 · 包在我身上！（单攻）",
+            "### 战技 · 就决定是你了！（召唤）",
+            "### 终结技 · 一起上吧，迷迷！（群攻）",
+            "### 天赋 · 无所不能的伙伴（强化）",
+            "### 秘技 · 记忆如往日重现（妨害）",
+            "## 忆灵技能",
+            "### 忆灵技 · 坏人！麻烦！（群攻）",
+            "### 忆灵天赋 · 伙伴！一起！（辅助）",
+            "## 附加能力",
+            "### 追念之权杖（附加能力1）",
+            "### 袖珍的事诗（附加能力2）",
+            "### 磁石与长链（附加能力3）",
+            "### 未完的尾声（附加能力4）",
+            "## 总属性加成",
+            "## 推荐配装",
+            "### 推荐光锥",
+            "### 推荐队伍",
+            "### 推荐遗器"
+          ],
+          "sourceCheckScope": null
+        }
+      ]
+    },
+    {
+      "category": "hsr/light_cones",
+      "label": "星铁 · 光锥",
+      "total": 172,
+      "validImages": 172,
+      "fieldCoverage": {
+        "game": {
+          "present": 172,
+          "nonEmpty": 172
+        },
+        "id": {
+          "present": 172,
+          "nonEmpty": 172
+        },
+        "image": {
+          "present": 172,
+          "nonEmpty": 172
+        },
+        "image_match": {
+          "present": 172,
+          "nonEmpty": 172
+        },
+        "image_source": {
+          "present": 172,
+          "nonEmpty": 172
+        },
+        "image_source_url": {
+          "present": 172,
+          "nonEmpty": 172
+        },
+        "last_crawled_at": {
+          "present": 170,
+          "nonEmpty": 170
+        },
+        "name": {
+          "present": 172,
+          "nonEmpty": 172
+        },
+        "source": {
+          "present": 172,
+          "nonEmpty": 172
+        },
+        "source_url": {
+          "present": 170,
+          "nonEmpty": 170
+        },
+        "tags": {
+          "present": 172,
+          "nonEmpty": 172
+        },
+        "type": {
+          "present": 172,
+          "nonEmpty": 172
+        },
+        "version": {
+          "present": 170,
+          "nonEmpty": 170
+        },
+        "命途": {
+          "present": 172,
+          "nonEmpty": 172
+        },
+        "基础攻击力": {
+          "present": 172,
+          "nonEmpty": 172
+        },
+        "基础生命值": {
+          "present": 172,
+          "nonEmpty": 172
+        },
+        "基础防御力": {
+          "present": 172,
+          "nonEmpty": 172
+        },
+        "技能名": {
+          "present": 170,
+          "nonEmpty": 170
+        },
+        "星级": {
+          "present": 172,
+          "nonEmpty": 172
+        },
+        "补充来源": {
+          "present": 2,
+          "nonEmpty": 2
+        },
+        "补充核验版本": {
+          "present": 2,
+          "nonEmpty": 2
+        }
+      },
+      "samples": [
+        {
+          "key": "hsr/light_cones/20000",
+          "id": "20000",
+          "name": "锋镝",
+          "path": "data/hsr/light_cones/20000_锋镝.md",
+          "purpose": "三星基础光锥；命途、Lv.80属性与叠影1–5。",
+          "source": "mihoyo-api",
+          "contentHash": "6c04377e2afa3c7cc125c6d959dad3f1c055ae575ce880b5b38d0f277c546aac",
+          "fileSha256": "24b160de5617d5ac1bfc8cc9aede3d441cf37385300c9b7885fea6f8db97de1d",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "game": "hsr",
+            "id": "20000",
+            "image": "hsr/light_cones/20000.png",
+            "image_match": "source-url",
+            "image_source": "mihoyo-api",
+            "image_source_url": "https://act-upload.mihoyo.com/sr-wiki/2024/05/25/276833758/1057d14e9dc0508c2dba1cc9352643af_5543522890096226430.png",
+            "last_crawled_at": "2026-10-07T14:33:33.202Z",
+            "name": "锋镝",
+            "source": "mihoyo-api",
+            "source_url": "https://www.miyoushe.com/sr/wiki/content/326/detail",
+            "tags": [
+              "hsr",
+              "lightcone"
+            ],
+            "type": "lightcone",
+            "version": "13",
+            "命途": "巡猎",
+            "基础攻击力": 317,
+            "基础生命值": 846,
+            "基础防御力": 264,
+            "技能名": "危机",
+            "星级": 3
+          },
+          "bodyHeadings": [
+            "# 锋镝（Arrows）",
+            "## 基础数值（等级 80）",
+            "## 光锥效果 · 危机",
+            "### 叠影 1",
+            "### 叠影 2",
+            "### 叠影 3",
+            "### 叠影 4",
+            "### 叠影 5",
+            "## 晋阶材料（Level 80）"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "hsr/light_cones/21003",
+          "id": "21003",
+          "name": "唯有沉默",
+          "path": "data/hsr/light_cones/21003_唯有沉默.md",
+          "purpose": "四星常规光锥；当前生命值字段与正文均为953，保留原精度与等级标注。",
+          "source": "mihoyo-api",
+          "contentHash": "dfd9a7f0a88de02fe53f2e62d2031080f2248485ddcc455c1d24e47f8c0a7b67",
+          "fileSha256": "1825aa667a2093ea9b49cb59a1d8925ae74ca58c14905e95320b2777682468bc",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "game": "hsr",
+            "id": "21003",
+            "image": "hsr/light_cones/21003.png",
+            "image_match": "source-url",
+            "image_source": "mihoyo-api",
+            "image_source_url": "https://act-upload.mihoyo.com/sr-wiki/2024/05/25/276833758/26207c06c88dc6e6acf09d5075222a96_3394515290750449816.png",
+            "last_crawled_at": "2026-10-07T14:33:17.338Z",
+            "name": "唯有沉默",
+            "source": "mihoyo-api",
+            "source_url": "https://www.miyoushe.com/sr/wiki/content/66/detail",
+            "tags": [
+              "hsr",
+              "lightcone"
+            ],
+            "type": "lightcone",
+            "version": "14",
+            "命途": "巡猎",
+            "基础攻击力": 476,
+            "基础生命值": 953,
+            "基础防御力": 331,
+            "技能名": "记录",
+            "星级": 4
+          },
+          "bodyHeadings": [
+            "# 唯有沉默（Only Silence Remains）",
+            "## 基础数值（等级 80）",
+            "## 光锥效果 · 记录",
+            "### 叠影 1",
+            "### 叠影 2",
+            "### 叠影 3",
+            "### 叠影 4",
+            "### 叠影 5",
+            "## 晋阶材料（Level 80）",
+            "## 推荐该光锥的角色"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "hsr/light_cones/22009",
+          "id": "22009",
+          "name": "在世界尽头相会吧！",
+          "path": "data/hsr/light_cones/22009_在世界尽头相会吧！.md",
+          "purpose": "四星欢愉光锥；种子记录带参数核验，技能名不在摘要字段。",
+          "source": "nanoka-seed",
+          "contentHash": "fb935bb670be5f90544f4137b69ec61168a154f6dc97ae2f888d12bdea314cac",
+          "fileSha256": "9a0158dfd039c880b3c04807335005f37d8ccdce9d76312fdebdc9cfcca5a517",
+          "imageAvailable": true,
+          "issues": [
+            "保留种子数据，部分属性待核验"
+          ],
+          "fields": {
+            "game": "hsr",
+            "id": 22009,
+            "image": "hsr/light_cones/22009.webp",
+            "image_match": "snapshot-id-and-title-og",
+            "image_source": "nanoka-snapshot",
+            "image_source_url": "https://static.nanoka.cc/assets/hsr/lightconemaxfigures/22009.webp",
+            "name": "在世界尽头相会吧！",
+            "source": "nanoka-seed",
+            "tags": [
+              "hsr",
+              "lightcone"
+            ],
+            "type": "lightcone",
+            "命途": "欢愉",
+            "基础攻击力": 476,
+            "基础生命值": 847,
+            "基础防御力": 397,
+            "星级": 4,
+            "补充来源": "https://static.nanoka.cc/hsr/4.6.51/zh/lightcone/22009.json",
+            "补充核验版本": "4.6.51"
+          },
+          "bodyHeadings": [
+            "# 在世界尽头相会吧！（See You at the World's End!）",
+            "## 基础数值（等级 80）",
+            "## 光锥效果 · 同谋",
+            "### 叠影 1",
+            "### 叠影 2",
+            "### 叠影 3",
+            "### 叠影 4",
+            "### 叠影 5",
+            "## 晋阶材料（Level 80）",
+            "## 推荐该光锥的角色",
+            "## nanoka 补充核验",
+            "### 1 · 同谋",
+            "### 2 · 同谋",
+            "### 3 · 同谋",
+            "### 4 · 同谋",
+            "### 5 · 同谋"
+          ],
+          "sourceCheckScope": "Lv80 原始成长计算与种子取整对照；叠影1–5效果"
+        },
+        {
+          "key": "hsr/light_cones/23065",
+          "id": "23065",
+          "name": "当第一声「阿哈」响起",
+          "path": "data/hsr/light_cones/23065_当第一声「阿哈」响起.md",
+          "purpose": "五星欢愉光锥；较长叠影效果与补充来源。",
+          "source": "nanoka-seed",
+          "contentHash": "619d0c87596f35d83e8a9f3c4af17745af7d52de34fc7a9c1f2dde192d663810",
+          "fileSha256": "a7ca8b6cc8989e2d71698c372cfda75f133f31586b9efbbfb00694f6fbb56501",
+          "imageAvailable": true,
+          "issues": [
+            "保留种子数据，部分属性待核验"
+          ],
+          "fields": {
+            "game": "hsr",
+            "id": 23065,
+            "image": "hsr/light_cones/23065.webp",
+            "image_match": "snapshot-id-and-title-og",
+            "image_source": "nanoka-snapshot",
+            "image_source_url": "https://static.nanoka.cc/assets/hsr/lightconemaxfigures/23065.webp",
+            "name": "当第一声「阿哈」响起",
+            "source": "nanoka-seed",
+            "tags": [
+              "hsr",
+              "lightcone"
+            ],
+            "type": "lightcone",
+            "命途": "欢愉",
+            "基础攻击力": 582,
+            "基础生命值": 953,
+            "基础防御力": 529,
+            "星级": 5,
+            "补充来源": "https://static.nanoka.cc/hsr/4.6.51/zh/lightcone/23065.json",
+            "补充核验版本": "4.6.51"
+          },
+          "bodyHeadings": [
+            "# 当第一声「阿哈」响起（Upon the First Echo of \"Aha\"）",
+            "## 基础数值（等级 80）",
+            "## 光锥效果 · 即兴巡演",
+            "### 叠影 1",
+            "### 叠影 2",
+            "### 叠影 3",
+            "### 叠影 4",
+            "### 叠影 5",
+            "## 晋阶材料（Level 80）",
+            "## 推荐该光锥的角色",
+            "## nanoka 补充核验",
+            "### 1 · 即兴巡演",
+            "### 2 · 即兴巡演",
+            "### 3 · 即兴巡演",
+            "### 4 · 即兴巡演",
+            "### 5 · 即兴巡演"
+          ],
+          "sourceCheckScope": "Lv80 原始成长计算与种子取整对照；叠影1–5效果"
+        }
+      ]
+    },
+    {
+      "category": "hsr/relics",
+      "label": "星铁 · 遗器",
+      "total": 64,
+      "validImages": 62,
+      "fieldCoverage": {
+        "game": {
+          "present": 64,
+          "nonEmpty": 64
+        },
+        "id": {
+          "present": 64,
+          "nonEmpty": 64
+        },
+        "image": {
+          "present": 62,
+          "nonEmpty": 62
+        },
+        "image_match": {
+          "present": 62,
+          "nonEmpty": 62
+        },
+        "image_source": {
+          "present": 62,
+          "nonEmpty": 62
+        },
+        "image_source_url": {
+          "present": 62,
+          "nonEmpty": 62
+        },
+        "last_crawled_at": {
+          "present": 62,
+          "nonEmpty": 62
+        },
+        "name": {
+          "present": 64,
+          "nonEmpty": 64
+        },
+        "source": {
+          "present": 64,
+          "nonEmpty": 64
+        },
+        "source_url": {
+          "present": 62,
+          "nonEmpty": 62
+        },
+        "tags": {
+          "present": 64,
+          "nonEmpty": 64
+        },
+        "type": {
+          "present": 64,
+          "nonEmpty": 64
+        },
+        "version": {
+          "present": 62,
+          "nonEmpty": 62
+        },
+        "套装名称": {
+          "present": 62,
+          "nonEmpty": 62
+        },
+        "类型": {
+          "present": 64,
+          "nonEmpty": 64
+        },
+        "补充来源": {
+          "present": 2,
+          "nonEmpty": 2
+        },
+        "补充核验版本": {
+          "present": 2,
+          "nonEmpty": 2
+        }
+      },
+      "samples": [
+        {
+          "key": "hsr/relics/101",
+          "id": "101",
+          "name": "云无留迹的过客",
+          "path": "data/hsr/relics/101_云无留迹的过客.md",
+          "purpose": "隧洞遗器；2／4件套及四个部件。",
+          "source": "mihoyo-api",
+          "contentHash": "bc996aa3afc1275ef3506cc4071c08bfebc462a17c480795911637b35435479a",
+          "fileSha256": "e49694a0e60d8609523e20c9f0a72b9a6199b261c1e009ebf5608d918a7bae10",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "game": "hsr",
+            "id": "101",
+            "image": "hsr/relics/101.png",
+            "image_match": "source-url",
+            "image_source": "mihoyo-api",
+            "image_source_url": "https://uploadstatic.mihoyo.com/sr-wiki/2023/02/07/103492603/d8f089c5b0354c61e3c96e2067127d5e_6785888131352845640.png",
+            "last_crawled_at": "2026-10-07T14:33:57.226Z",
+            "name": "云无留迹的过客",
+            "source": "mihoyo-api",
+            "source_url": "https://www.miyoushe.com/sr/wiki/content/571/detail",
+            "tags": [
+              "hsr",
+              "relic"
+            ],
+            "type": "relic",
+            "version": "9",
+            "套装名称": "云无留迹的过客",
+            "类型": "隧洞遗器"
+          },
+          "bodyHeadings": [
+            "# 云无留迹的过客（Passerby of Wandering Cloud）",
+            "## 套装效果",
+            "### 2套装",
+            "### 4套装",
+            "## 部位",
+            "## 推荐该套装的角色"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "hsr/relics/102",
+          "id": "102",
+          "name": "野穗伴行的快枪手",
+          "path": "data/hsr/relics/102_野穗伴行的快枪手.md",
+          "purpose": "另一隧洞套装；较多推荐角色，检查关联列表。",
+          "source": "mihoyo-api",
+          "contentHash": "1c3e1cacaa9c81581749a493286fa013cca7eb0a83ca4a8ceaf0aab553094899",
+          "fileSha256": "e8682cc59a62344507597b706a6e2f3b3507510d991a0d3cc55698893d235bf2",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "game": "hsr",
+            "id": "102",
+            "image": "hsr/relics/102.png",
+            "image_match": "source-url",
+            "image_source": "mihoyo-api",
+            "image_source_url": "https://uploadstatic.mihoyo.com/sr-wiki/2023/02/07/103492603/9f9c7def172252571e39bc9e3add067b_2538568534562830100.png",
+            "last_crawled_at": "2026-10-07T14:33:56.673Z",
+            "name": "野穗伴行的快枪手",
+            "source": "mihoyo-api",
+            "source_url": "https://www.miyoushe.com/sr/wiki/content/574/detail",
+            "tags": [
+              "hsr",
+              "relic"
+            ],
+            "type": "relic",
+            "version": "13",
+            "套装名称": "野穗伴行的快枪手",
+            "类型": "隧洞遗器"
+          },
+          "bodyHeadings": [
+            "# 野穗伴行的快枪手（Musketeer of Wild Wheat）",
+            "## 套装效果",
+            "### 2套装",
+            "### 4套装",
+            "## 部位",
+            "## 推荐该套装的角色"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "hsr/relics/301",
+          "id": "301",
+          "name": "太空封印站",
+          "path": "data/hsr/relics/301_太空封印站.md",
+          "purpose": "位面饰品；仅2件套、两个部件与长推荐名单。",
+          "source": "mihoyo-api",
+          "contentHash": "c676810cca7a5a4fe8fe45260ec9af7123c244b91b92a0513887c1022b2c6c10",
+          "fileSha256": "b1480baa532783d8924b778af8f546491f818710541ee423ae8f292cf1979929",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "game": "hsr",
+            "id": "301",
+            "image": "hsr/relics/301.png",
+            "image_match": "source-url",
+            "image_source": "mihoyo-api",
+            "image_source_url": "https://uploadstatic.mihoyo.com/sr-wiki/2023/02/07/103492603/6656aaa5d4d438ecfc79a906bb79fde5_8881891454574324291.png",
+            "last_crawled_at": "2026-10-07T14:34:05.354Z",
+            "name": "太空封印站",
+            "source": "mihoyo-api",
+            "source_url": "https://www.miyoushe.com/sr/wiki/content/586/detail",
+            "tags": [
+              "hsr",
+              "relic"
+            ],
+            "type": "relic",
+            "version": "8",
+            "套装名称": "太空封印站",
+            "类型": "位面饰品"
+          },
+          "bodyHeadings": [
+            "# 太空封印站（Space Sealing Station）",
+            "## 套装效果",
+            "### 2套装",
+            "## 部位",
+            "## 推荐该套装的角色"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "hsr/relics/329",
+          "id": "329",
+          "name": "神的瞬息欢愉",
+          "path": "data/hsr/relics/329_神的瞬息欢愉.md",
+          "purpose": "缺图的位面饰品；套装效果已补充核验，不能等同整条均未核验。",
+          "source": "nanoka-seed",
+          "contentHash": "f497d0d6d9a6da9071c848716ce18d319eba0db78e79d2c0bb85264b48a902fe",
+          "fileSha256": "a59a903b9a0bf06a70ed4d744cad847f5b50ae8d89160a450b5cd051a9e86e75",
+          "imageAvailable": false,
+          "issues": [
+            "暂无可用图片",
+            "保留种子数据，部分属性待核验"
+          ],
+          "fields": {
+            "game": "hsr",
+            "id": 329,
+            "name": "神的瞬息欢愉",
+            "source": "nanoka-seed",
+            "tags": [
+              "hsr",
+              "relic"
+            ],
+            "type": "relic",
+            "类型": "位面饰品",
+            "补充来源": "https://static.nanoka.cc/hsr/4.6.51/zh/relicset/329.json",
+            "补充核验版本": "4.6.51"
+          },
+          "bodyHeadings": [
+            "# 神的瞬息欢愉（God's Moment of Joy）",
+            "## 套装效果",
+            "### 2套装",
+            "## 部位",
+            "## 推荐该套装的角色",
+            "## nanoka 补充核验",
+            "### 2"
+          ],
+          "sourceCheckScope": "套装效果及部位逐项核验"
+        }
+      ]
+    },
+    {
+      "category": "hsr/enemies",
+      "label": "星铁 · 敌人",
+      "total": 664,
+      "validImages": 664,
+      "fieldCoverage": {
+        "alias": {
+          "present": 590,
+          "nonEmpty": 590
+        },
+        "game": {
+          "present": 664,
+          "nonEmpty": 664
+        },
+        "id": {
+          "present": 664,
+          "nonEmpty": 664
+        },
+        "image": {
+          "present": 664,
+          "nonEmpty": 664
+        },
+        "image_match": {
+          "present": 664,
+          "nonEmpty": 664
+        },
+        "image_source": {
+          "present": 664,
+          "nonEmpty": 664
+        },
+        "image_source_url": {
+          "present": 664,
+          "nonEmpty": 664
+        },
+        "last_crawled_at": {
+          "present": 590,
+          "nonEmpty": 590
+        },
+        "name": {
+          "present": 664,
+          "nonEmpty": 664
+        },
+        "source": {
+          "present": 664,
+          "nonEmpty": 664
+        },
+        "source_url": {
+          "present": 590,
+          "nonEmpty": 590
+        },
+        "tags": {
+          "present": 664,
+          "nonEmpty": 664
+        },
+        "type": {
+          "present": 664,
+          "nonEmpty": 664
+        },
+        "version": {
+          "present": 590,
+          "nonEmpty": 590
+        },
+        "属性口径": {
+          "present": 590,
+          "nonEmpty": 590
+        },
+        "属性等级": {
+          "present": 590,
+          "nonEmpty": 590
+        },
+        "弱点": {
+          "present": 619,
+          "nonEmpty": 619
+        },
+        "攻击力": {
+          "present": 664,
+          "nonEmpty": 664
+        },
+        "效果抵抗": {
+          "present": 590,
+          "nonEmpty": 590
+        },
+        "暴击伤害": {
+          "present": 590,
+          "nonEmpty": 590
+        },
+        "生命值": {
+          "present": 664,
+          "nonEmpty": 664
+        },
+        "评级": {
+          "present": 664,
+          "nonEmpty": 664
+        },
+        "速度": {
+          "present": 664,
+          "nonEmpty": 664
+        },
+        "防御力": {
+          "present": 664,
+          "nonEmpty": 664
+        },
+        "阵营": {
+          "present": 664,
+          "nonEmpty": 664
+        },
+        "韧性": {
+          "present": 590,
+          "nonEmpty": 590
+        }
+      },
+      "samples": [
+        {
+          "key": "hsr/enemies/8011020",
+          "id": "8011020",
+          "name": "反重子",
+          "path": "data/hsr/enemies/8011020_反重子.md",
+          "purpose": "反重子；当前字段Lv.80与历史正文Lv.95并存，必须标注口径。",
+          "source": "appfeng",
+          "contentHash": "9a349ff09cbd6a7377847339755d6f85beebe06415d94c6a7bb2d91afea153a0",
+          "fileSha256": "27333e7f3e144ccfbbd4f9372e7c7918928fb93f201f0897ed2954ec9879f4ad",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "alias": "反重子",
+            "game": "hsr",
+            "id": 8011020,
+            "image": "hsr/enemies/8011020.png",
+            "image_match": "unique-exact-name",
+            "image_source": "mihoyo-api",
+            "image_source_url": "https://uploadstatic.mihoyo.com/sr-wiki/2023/02/13/1805320/5bc8b08795bf20ae4400b5259629eecb_3687062634660787853.png",
+            "last_crawled_at": "2026-10-08T06:50:09.921Z",
+            "name": "反重子",
+            "source": "appfeng",
+            "source_url": "https://sr.appfeng.com/monster/8011020",
+            "tags": [
+              "hsr",
+              "monster"
+            ],
+            "type": "monster",
+            "version": "sha256:aefb2c89cc41cd4bac6b90c2ad14a1e24533fc4b0fdfa4ab25f67bc71a9ef09c",
+            "属性口径": "难度组 1 的等级区间 1 ~ 100；数值 = 基础值 × 本体倍率 × 等级乘区",
+            "属性等级": 80,
+            "弱点": "物理 / 量子",
+            "攻击力": 552,
+            "效果抵抗": "0%",
+            "暴击伤害": "20%",
+            "生命值": 8259,
+            "评级": "Minion",
+            "速度": 100,
+            "防御力": 1000,
+            "阵营": "反物质军团",
+            "韧性": 30
+          },
+          "bodyHeadings": [
+            "# 反重子",
+            "## 基础属性",
+            "## 说明",
+            "## 奖励",
+            "## 技能",
+            "### 湮灭（Skills #801102001）",
+            "## 变种个体",
+            "### #8011020",
+            "### #801102001",
+            "### #801102002",
+            "### #801102003",
+            "### #801102004",
+            "### #801102005",
+            "### #801102007",
+            "### #801102008",
+            "### #801102009",
+            "### #801102011",
+            "### #801102012",
+            "## 均衡等级掉落",
+            "## appfeng 属性快照",
+            "### 页面列出的属性抗性"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "hsr/enemies/1002018",
+          "id": "1002018",
+          "name": "无尽寒冬之槊",
+          "path": "data/hsr/enemies/1002018_无尽寒冬之槊.md",
+          "purpose": "无尽寒冬之槊；同名／共享图片也保留独立ID与变体。",
+          "source": "appfeng",
+          "contentHash": "5503718b38202a745aa96ae024dc65cade90c50bfd23293365d3ce3c4bff01e4",
+          "fileSha256": "66e545a187ec7a7612084ec80ec910701448201a745641c3e12f6e168a8534fb",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "alias": "无尽寒冬之槊",
+            "game": "hsr",
+            "id": 1002018,
+            "image": "hsr/enemies/1002018.webp",
+            "image_match": "snapshot-id-and-title-alt",
+            "image_source": "nanoka-snapshot",
+            "image_source_url": "https://static.nanoka.cc/assets/hsr/monsterfigure/Monster_1002014.webp",
+            "last_crawled_at": "2026-10-08T07:58:42.198Z",
+            "name": "无尽寒冬之槊",
+            "source": "appfeng",
+            "source_url": "https://sr.appfeng.com/monster/1002018",
+            "tags": [
+              "hsr",
+              "monster"
+            ],
+            "type": "monster",
+            "version": "sha256:7fe04964f6b498367c93f41494f0889cee82f1e3a46376316ef5c65cf97e0fe5",
+            "属性口径": "难度组 1 的等级区间 1 ~ 100；数值 = 基础值 × 本体倍率 × 等级乘区",
+            "属性等级": 80,
+            "弱点": "火 / 量子",
+            "攻击力": 552,
+            "效果抵抗": "20%",
+            "暴击伤害": "20%",
+            "生命值": 30971,
+            "评级": "Minion Lv.2",
+            "速度": 120,
+            "防御力": 1000,
+            "阵营": "其他",
+            "韧性": 120
+          },
+          "bodyHeadings": [
+            "# 无尽寒冬之槊",
+            "## 基础属性",
+            "## 说明",
+            "## 奖励",
+            "## 技能",
+            "### 永冬余响（Skills #100201801）",
+            "### 冷酷追击（Skills #100201802）",
+            "## 变种个体",
+            "### #1002018",
+            "### #100201802",
+            "### #100201803",
+            "### #100201804",
+            "### #100201805",
+            "### #100201806",
+            "## 均衡等级掉落",
+            "## appfeng 属性快照",
+            "### 页面列出的属性抗性",
+            "### 页面列出的负面状态抵抗"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "hsr/enemies/3002053",
+          "id": "3002053",
+          "name": "王下一桶（投影）",
+          "path": "data/hsr/enemies/3002053_王下一桶（投影）.md",
+          "purpose": "王下一桶（投影）；种子来源且无弱点字段，不能解释为无弱点。",
+          "source": "nanoka-seed",
+          "contentHash": "5d60e79bf4155d1c1b832cbf167de26584952f94531406bde4f69fa7a241a62a",
+          "fileSha256": "8458635461c8219164c4c2cc6fdee344c4c5f43ca83483892e06a99d9571523b",
+          "imageAvailable": true,
+          "issues": [
+            "保留种子数据，部分属性待核验"
+          ],
+          "fields": {
+            "game": "hsr",
+            "id": 3002053,
+            "image": "hsr/enemies/3002053.webp",
+            "image_match": "snapshot-id-and-title-alt",
+            "image_source": "nanoka-snapshot",
+            "image_source_url": "https://static.nanoka.cc/assets/hsr/monsterfigure/Monster_3002050.webp",
+            "name": "王下一桶（投影）",
+            "source": "nanoka-seed",
+            "tags": [
+              "hsr",
+              "monster"
+            ],
+            "type": "monster",
+            "攻击力": 718,
+            "生命值": 2738122,
+            "评级": "Minion Lv.2",
+            "速度": 190,
+            "防御力": 1150,
+            "阵营": "其他"
+          },
+          "bodyHeadings": [
+            "# 王下一桶（投影）",
+            "## 基础属性",
+            "## 说明",
+            "## 奖励",
+            "## 技能",
+            "### 桶的锤炼（Skills #300205301）",
+            "### 桶的磨砺（Skills #300205302）",
+            "### 桶的信条（Skills #300205303）",
+            "## 变种个体",
+            "### #3002053",
+            "## 均衡等级掉落"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "hsr/enemies/8032030",
+          "id": "8032030",
+          "name": "「所有或一无所有」",
+          "path": "data/hsr/enemies/8032030_「所有或一无所有」.md",
+          "purpose": "特殊敌人；无弱点字段，检验不完整分类信息。",
+          "source": "appfeng",
+          "contentHash": "0f2316b93c742f7373b00d3425b4526e5bafcf1d7aebc2e73d313c6ebc0d7063",
+          "fileSha256": "7ed7665a7461426f000d7c4f3096da8ff406143e16ff40546494d3934da26dcb",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "alias": "「所有或一无所有」",
+            "game": "hsr",
+            "id": 8032030,
+            "image": "hsr/enemies/8032030.webp",
+            "image_match": "snapshot-id-and-title-alt",
+            "image_source": "nanoka-snapshot",
+            "image_source_url": "https://static.nanoka.cc/assets/hsr/monsterfigure/Monster_8032030.webp",
+            "last_crawled_at": "2026-10-08T06:50:09.921Z",
+            "name": "「所有或一无所有」",
+            "source": "appfeng",
+            "source_url": "https://sr.appfeng.com/monster/8032030",
+            "tags": [
+              "hsr",
+              "monster"
+            ],
+            "type": "monster",
+            "version": "sha256:21769f04cc0ad7215157797c39b0c174d38005fa795cd682c6b14570f2edb6f7",
+            "属性口径": "难度组 1 的等级区间 1 ~ 100；数值 = 基础值 × 本体倍率 × 等级乘区",
+            "属性等级": 80,
+            "攻击力": 552,
+            "效果抵抗": "0%",
+            "暴击伤害": "20%",
+            "生命值": 6883,
+            "评级": "Minion Lv.2",
+            "速度": 120,
+            "防御力": 1000,
+            "阵营": "其他",
+            "韧性": 0
+          },
+          "bodyHeadings": [
+            "# 「所有或一无所有」",
+            "## 基础属性",
+            "## 说明",
+            "## 奖励",
+            "## 技能",
+            "### 运数莫测（Skills #803203001）",
+            "## 变种个体",
+            "### #8032030",
+            "## 均衡等级掉落",
+            "## appfeng 属性快照"
+          ],
+          "sourceCheckScope": null
+        }
+      ]
+    },
+    {
+      "category": "hsr/gacha",
+      "label": "星铁 · 跃迁",
+      "total": 65,
+      "validImages": 0,
+      "fieldCoverage": {
+        "end_time": {
+          "present": 65,
+          "nonEmpty": 63
+        },
+        "game": {
+          "present": 65,
+          "nonEmpty": 65
+        },
+        "half": {
+          "present": 64,
+          "nonEmpty": 64
+        },
+        "history_ref": {
+          "present": 2,
+          "nonEmpty": 2
+        },
+        "id": {
+          "present": 65,
+          "nonEmpty": 65
+        },
+        "image": {
+          "present": 65,
+          "nonEmpty": 0
+        },
+        "last_crawled_at": {
+          "present": 65,
+          "nonEmpty": 65
+        },
+        "name": {
+          "present": 65,
+          "nonEmpty": 65
+        },
+        "record_scope": {
+          "present": 64,
+          "nonEmpty": 64
+        },
+        "source": {
+          "present": 65,
+          "nonEmpty": 65
+        },
+        "source_url": {
+          "present": 65,
+          "nonEmpty": 65
+        },
+        "start_time": {
+          "present": 65,
+          "nonEmpty": 64
+        },
+        "tags": {
+          "present": 65,
+          "nonEmpty": 65
+        },
+        "type": {
+          "present": 65,
+          "nonEmpty": 65
+        },
+        "version": {
+          "present": 65,
+          "nonEmpty": 65
+        },
+        "version_source": {
+          "present": 2,
+          "nonEmpty": 2
+        },
+        "end_open": {
+          "present": 62,
+          "nonEmpty": 62
+        },
+        "end_time_text": {
+          "present": 62,
+          "nonEmpty": 62
+        },
+        "future": {
+          "present": 62,
+          "nonEmpty": 62
+        },
+        "future_basis": {
+          "present": 62,
+          "nonEmpty": 62
+        },
+        "pool_key": {
+          "present": 62,
+          "nonEmpty": 62
+        },
+        "start_time_text": {
+          "present": 62,
+          "nonEmpty": 62
+        },
+        "time_basis": {
+          "present": 62,
+          "nonEmpty": 62
+        }
+      },
+      "samples": [
+        {
+          "key": "hsr/gacha/125",
+          "id": "125",
+          "name": "沧海萃珠",
+          "path": "data/hsr/gacha/125_沧海萃珠.md",
+          "purpose": "官方单活动记录；版本阶段关联与历史时间差异，状态原文非实时状态。",
+          "source": "mihoyo-api",
+          "contentHash": "f1f6c4c36ff3828519412f7245a474ef3027f2ecc98fc590d432d8a76deae10d",
+          "fileSha256": "e74c4e5c609222f30c081ff512b6b16a72a6a2688f6df9948d51f1c57bf0e810",
+          "imageAvailable": false,
+          "issues": [],
+          "fields": {
+            "end_time": "2026-11-10 15:00:00",
+            "game": "hsr",
+            "half": 1,
+            "history_ref": "bittopup-4.6-1",
+            "id": "125",
+            "image": "",
+            "last_crawled_at": "2026-10-08T06:50:09.921Z",
+            "name": "沧海萃珠",
+            "record_scope": "activity-pool",
+            "source": "mihoyo-api",
+            "source_url": "https://www.miyoushe.com/sr/article/78448395",
+            "start_time": "2026-09-28 00:00:00",
+            "tags": [
+              "hsr",
+              "gacha"
+            ],
+            "type": "gacha",
+            "version": "4.6",
+            "version_source": "bittopup"
+          },
+          "bodyHeadings": [
+            "# 沧海萃珠",
+            "## UP 一览"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "hsr/gacha/98",
+          "id": "98",
+          "name": "联动跃迁",
+          "path": "data/hsr/gacha/98_联动跃迁.md",
+          "purpose": "联动活动；version=unknown，与开始日期及长期开放原文分别呈现。",
+          "source": "mihoyo-api",
+          "contentHash": "7b427e0a6f5a99b51dc410c70c53db24cbd58fbac3a22b54a8b630c6e1fe5f4d",
+          "fileSha256": "706f985f17e666e474a7874873c31b786693f2f1cdeb585cd137a8fcc150390b",
+          "imageAvailable": false,
+          "issues": [],
+          "fields": {
+            "end_time": "2027-12-11 13:00:00",
+            "game": "hsr",
+            "id": "98",
+            "image": "",
+            "last_crawled_at": "2026-10-07T06:36:52.643Z",
+            "name": "联动跃迁",
+            "source": "mihoyo-api",
+            "source_url": "https://www.miyoushe.com/sr/article/76423940",
+            "start_time": "2026-12-11 12:00:00",
+            "tags": [
+              "hsr",
+              "gacha"
+            ],
+            "type": "gacha",
+            "version": "unknown"
+          },
+          "bodyHeadings": [
+            "# 联动跃迁",
+            "## UP 一览"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "hsr/gacha/bittopup-1.0-1",
+          "id": "bittopup-1.0-1",
+          "name": "1.0上半跃迁阶段",
+          "path": "data/hsr/gacha/bittopup-1.0-1_1.0上半跃迁阶段.md",
+          "purpose": "版本阶段汇总；起始日期是正式开服后，UP表用游戏ID。",
+          "source": "bittopup",
+          "contentHash": "06afff99e89bd1e6a9e5836201b744c409b3e69312c299c4c0b301e8a906792b",
+          "fileSha256": "0bf83e8f1e96ac20d662a2aa975a7e2721c101614a97012415af75426ae14c7a",
+          "imageAvailable": false,
+          "issues": [],
+          "fields": {
+            "end_open": false,
+            "end_time": "2023-05-17 17:59:00",
+            "end_time_text": "2023/05/17 17:59",
+            "future": false,
+            "future_basis": "按 Asia/Shanghai 采集日比较来源起始日期；不推断源时区",
+            "game": "hsr",
+            "half": 1,
+            "id": "bittopup-1.0-1",
+            "image": "",
+            "last_crawled_at": "2026-10-08T06:50:09.921Z",
+            "name": "1.0上半跃迁阶段",
+            "pool_key": "bittopup-1.0-1",
+            "record_scope": "version-phase",
+            "source": "bittopup",
+            "source_url": "https://wiki.bittopup.com/zh-CN/starrail/banner",
+            "start_time": "",
+            "start_time_text": "正式开服后",
+            "tags": [
+              "hsr",
+              "gacha",
+              "history"
+            ],
+            "time_basis": "source-local; timezone unspecified",
+            "type": "gacha",
+            "version": "1.0"
+          },
+          "bodyHeadings": [
+            "# 1.0上半跃迁阶段",
+            "## UP 一览"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "hsr/gacha/bittopup-3.4-1",
+          "id": "bittopup-3.4-1",
+          "name": "3.4上半跃迁阶段",
+          "path": "data/hsr/gacha/bittopup-3.4-1_3.4上半跃迁阶段.md",
+          "purpose": "长期阶段汇总；结束日期为空但end_open=true，多角色和光锥。",
+          "source": "bittopup",
+          "contentHash": "415a251378640ae07bfd79ff8b6536e9f1944d7dea982290d2b44b99bc9118ec",
+          "fileSha256": "36710c2f2875f9233f2453e60bf6963c9612cc1cf151bf1829cf14f4bd50b011",
+          "imageAvailable": false,
+          "issues": [],
+          "fields": {
+            "end_open": true,
+            "end_time": "",
+            "end_time_text": "长期",
+            "future": false,
+            "future_basis": "按 Asia/Shanghai 采集日比较来源起始日期；不推断源时区",
+            "game": "hsr",
+            "half": 1,
+            "id": "bittopup-3.4-1",
+            "image": "",
+            "last_crawled_at": "2026-10-08T06:50:09.921Z",
+            "name": "3.4上半跃迁阶段",
+            "pool_key": "bittopup-3.4-1",
+            "record_scope": "version-phase",
+            "source": "bittopup",
+            "source_url": "https://wiki.bittopup.com/zh-CN/starrail/banner",
+            "start_time": "2025-07-11 12:00:00",
+            "start_time_text": "2025/07/11 12:00",
+            "tags": [
+              "hsr",
+              "gacha",
+              "history"
+            ],
+            "time_basis": "source-local; timezone unspecified",
+            "type": "gacha",
+            "version": "3.4"
+          },
+          "bodyHeadings": [
+            "# 3.4上半跃迁阶段",
+            "## UP 一览"
+          ],
+          "sourceCheckScope": null
+        }
+      ]
+    },
+    {
+      "category": "hsr/formula",
+      "label": "星铁 · 机制",
+      "total": 2,
+      "validImages": 0,
+      "fieldCoverage": {
+        "captured_at": {
+          "present": 2,
+          "nonEmpty": 2
+        },
+        "game": {
+          "present": 2,
+          "nonEmpty": 2
+        },
+        "id": {
+          "present": 2,
+          "nonEmpty": 2
+        },
+        "license": {
+          "present": 2,
+          "nonEmpty": 2
+        },
+        "name": {
+          "present": 2,
+          "nonEmpty": 2
+        },
+        "source": {
+          "present": 2,
+          "nonEmpty": 2
+        },
+        "source_url": {
+          "present": 2,
+          "nonEmpty": 2
+        },
+        "tags": {
+          "present": 2,
+          "nonEmpty": 2
+        },
+        "type": {
+          "present": 2,
+          "nonEmpty": 2
+        }
+      },
+      "samples": [
+        {
+          "key": "hsr/formula/hsr-formula-damage",
+          "id": "hsr-formula-damage",
+          "name": "伤害计算公式",
+          "path": "data/hsr/formula/伤害计算公式.md",
+          "purpose": "伤害公式；行内／块级数学表达式、适用范围、署名与许可。",
+          "source": "starrail.huijiwiki.com",
+          "contentHash": "3a287d53fe4e7b8f990ffb9bee73f98653bc0ec173e7a0265445519ba5a11a6d",
+          "fileSha256": "e52e7a1db6dd41d0558b1aa1fe5375f06260286503a430f8d842b00c10e82b03",
+          "imageAvailable": false,
+          "issues": [],
+          "fields": {
+            "captured_at": "2026-10-06",
+            "game": "hsr",
+            "id": "hsr-formula-damage",
+            "license": "CC BY-SA 4.0",
+            "name": "伤害计算公式",
+            "source": "starrail.huijiwiki.com",
+            "source_url": "https://starrail.huijiwiki.com/wiki/伤害计算公式",
+            "tags": [
+              "hsr",
+              "formula"
+            ],
+            "type": "formula"
+          },
+          "bodyHeadings": [
+            "# 伤害计算公式",
+            "## 基础伤害",
+            "## 伤害加成",
+            "## 防御减免",
+            "## 抗性修正",
+            "## 易伤修正",
+            "## 减伤修正"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "hsr/formula/hsr-formula-break",
+          "id": "hsr-formula-break",
+          "name": "韧性和弱点击破",
+          "path": "data/hsr/formula/韧性和弱点击破.md",
+          "purpose": "弱点击破专题；长目录、分属性效果与交叉引用。",
+          "source": "starrail.huijiwiki.com",
+          "contentHash": "a51a2683568f718c154bd7f59d1b375b49c0bf649e719b3430775b58696f5a48",
+          "fileSha256": "83876310f471c513b4525c0bcf9271cbfbccca458eca904574fd7cb5bd52f8f3",
+          "imageAvailable": false,
+          "issues": [],
+          "fields": {
+            "captured_at": "2026-10-06",
+            "game": "hsr",
+            "id": "hsr-formula-break",
+            "license": "CC BY-SA 4.0",
+            "name": "韧性和弱点击破",
+            "source": "starrail.huijiwiki.com",
+            "source_url": "https://starrail.huijiwiki.com/wiki/韧性和弱点击破",
+            "tags": [
+              "hsr",
+              "formula"
+            ],
+            "type": "formula"
+          },
+          "bodyHeadings": [
+            "# 韧性和弱点击破",
+            "## 基本信息",
+            "### 弱点效果",
+            "### 韧性效果",
+            "### 韧性削减",
+            "## 击破效果",
+            "## 击破伤害",
+            "### 击破基础伤害",
+            "### 韧性值系数",
+            "### 击破属性系数",
+            "### 其他修正",
+            "## 击破负面效果",
+            "### 物理属性：裂伤",
+            "### 火属性：灼烧",
+            "### 冰属性：冻结",
+            "### 雷属性：触电",
+            "### 风属性：风化",
+            "### 量子属性：纠缠",
+            "### 虚数属性：禁锢"
+          ],
+          "sourceCheckScope": null
+        }
+      ]
+    },
+    {
+      "category": "currency/season1/roles",
+      "label": "货币战争 S1 · 角色",
+      "total": 75,
+      "validImages": 70,
+      "fieldCoverage": {
+        "game": {
+          "present": 75,
+          "nonEmpty": 75
+        },
+        "id": {
+          "present": 75,
+          "nonEmpty": 75
+        },
+        "image": {
+          "present": 70,
+          "nonEmpty": 70
+        },
+        "last_crawled_at": {
+          "present": 75,
+          "nonEmpty": 75
+        },
+        "name": {
+          "present": 75,
+          "nonEmpty": 75
+        },
+        "source": {
+          "present": 75,
+          "nonEmpty": 75
+        },
+        "source_url": {
+          "present": 75,
+          "nonEmpty": 75
+        },
+        "tags": {
+          "present": 75,
+          "nonEmpty": 75
+        },
+        "type": {
+          "present": 75,
+          "nonEmpty": 75
+        },
+        "version": {
+          "present": 75,
+          "nonEmpty": 75
+        },
+        "星级": {
+          "present": 75,
+          "nonEmpty": 75
+        },
+        "星阶": {
+          "present": 75,
+          "nonEmpty": 75
+        },
+        "治疗护盾": {
+          "present": 75,
+          "nonEmpty": 75
+        },
+        "特性": {
+          "present": 75,
+          "nonEmpty": 75
+        },
+        "站位": {
+          "present": 75,
+          "nonEmpty": 75
+        },
+        "赛季": {
+          "present": 75,
+          "nonEmpty": 75
+        },
+        "image_match": {
+          "present": 69,
+          "nonEmpty": 69
+        },
+        "image_source": {
+          "present": 69,
+          "nonEmpty": 69
+        },
+        "image_source_url": {
+          "present": 69,
+          "nonEmpty": 69
+        }
+      },
+      "samples": [
+        {
+          "key": "currency/season1/roles/1001",
+          "id": "1001",
+          "name": "三月七",
+          "path": "data/currency/season1/roles/1001_三月七.md",
+          "purpose": "后排护盾角色；星阶、羁绊、技能与推荐物品。",
+          "source": "nanoka",
+          "contentHash": "5c1ba7b04ede67d27041442903e22711e631ddff0ac4d25ad54c89a2f5649a18",
+          "fileSha256": "37f8d467015642c55720eaa7695242131e9e3deb8458a3719cda4effdc7b41d4",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "game": "hsr",
+            "id": 1001,
+            "image": "currency/roles/1001.png",
+            "last_crawled_at": "2026-10-07T10:52:07.905Z",
+            "name": "三月七",
+            "source": "nanoka",
+            "source_url": "https://static.nanoka.cc/hsr/4.6.51/zh/currency/role.json",
+            "tags": [
+              "hsr",
+              "role"
+            ],
+            "type": "role",
+            "version": "4.6.51",
+            "星级": 1,
+            "星阶": 1,
+            "治疗护盾": "护盾",
+            "特性": "列车同行、护盾",
+            "站位": "后排",
+            "赛季": "S1"
+          },
+          "bodyHeadings": [
+            "# 三月七",
+            "## 星阶",
+            "### 星阶特性",
+            "#### 后排特性",
+            "### 特性",
+            "#### 列车同行",
+            "#### 护盾",
+            "### 角色详情",
+            "## 后排技能",
+            "### 可爱即是正义（防御）",
+            "### 无漏之诗（辅助）",
+            "## 星魂",
+            "## 推荐物品"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "currency/season1/roles/1502",
+          "id": "1502",
+          "name": "爻光",
+          "path": "data/currency/season1/roles/1502_爻光.md",
+          "purpose": "前后排角色；两组技能与较长正文。",
+          "source": "nanoka",
+          "contentHash": "3b974d4e4cd420cd08cacdfa295cd281e053366b880cf07b013697f4180101af",
+          "fileSha256": "599b16135e912b1e3dedb3c27eecece4d12778e5f52bc3dc4b64e76bf1fd2b71",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "game": "hsr",
+            "id": 1502,
+            "image": "currency/season1/roles/1502.png",
+            "image_match": "same-game-unique-character-portrait",
+            "image_source": "mihoyo-api",
+            "image_source_url": "https://act-upload.mihoyo.com/sr-wiki/2026/01/02/276833758/2a1311351f8eee50b73df0baf495461c_8336179883999891591.png",
+            "last_crawled_at": "2026-10-07T10:52:07.905Z",
+            "name": "爻光",
+            "source": "nanoka",
+            "source_url": "https://static.nanoka.cc/hsr/4.6.51/zh/currency/role.json",
+            "tags": [
+              "hsr",
+              "role"
+            ],
+            "type": "role",
+            "version": "4.6.51",
+            "星级": 1,
+            "星阶": 1,
+            "治疗护盾": "治疗",
+            "特性": "仙舟、欢愉",
+            "站位": "前后排",
+            "赛季": "S1"
+          },
+          "bodyHeadings": [
+            "# 爻光",
+            "## 星阶",
+            "### 星阶特性",
+            "#### 前排特性",
+            "#### 后排特性",
+            "### 特性",
+            "#### 仙舟",
+            "#### 欢愉",
+            "### 角色详情",
+            "## 前排技能",
+            "### 霓裳铁羽，六爻皆吉（辅助）",
+            "### 屏开千光，遍观自在（辅助）",
+            "### 赠君一卦，火树银花（群攻）",
+            "### 卜者笑语（强化）",
+            "### 华丽登场（强化）",
+            "## 后排技能",
+            "### 雀翎鸣镝，过招有喜（扩散）",
+            "### 十方光映，万法皆明（辅助）",
+            "### 霓裳铁羽，六爻皆吉（辅助）",
+            "### 屏开千光，遍观自在（辅助）",
+            "### 赠君一卦，火树银花（群攻）",
+            "### 卜者笑语（强化）",
+            "### 华丽登场（强化）",
+            "## 星魂",
+            "### 额外回合",
+            "### 阿哈",
+            "### 笑点",
+            "### 欢愉伤害",
+            "### 额外回合",
+            "### 阿哈",
+            "### 欢愉伤害",
+            "### 增笑",
+            "## 光锥",
+            "## 推荐物品"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "currency/season1/roles/15061",
+          "id": "15061",
+          "name": "银狼LV.<unbreak>999</unbreak>",
+          "path": "data/currency/season1/roles/15061_银狼LV.999.md",
+          "purpose": "银狼LV.999的星阶3记录；名称含unbreak标记且缺图。",
+          "source": "nanoka",
+          "contentHash": "1c29f223eb1a2cde18b00ee83745d7a115260bed18208512983ac31744d50ac9",
+          "fileSha256": "961886b143ead31040424b9dd06f38da0b58ff7c8a2f0aa7eb50ba81a32c9e29",
+          "imageAvailable": false,
+          "issues": [
+            "暂无可用图片"
+          ],
+          "fields": {
+            "game": "hsr",
+            "id": 15061,
+            "last_crawled_at": "2026-10-07T10:52:07.905Z",
+            "name": "银狼LV.<unbreak>999</unbreak>",
+            "source": "nanoka",
+            "source_url": "https://static.nanoka.cc/hsr/4.6.51/zh/currency/role.json",
+            "tags": [
+              "hsr",
+              "role"
+            ],
+            "type": "role",
+            "version": "4.6.51",
+            "星级": 3,
+            "星阶": 3,
+            "治疗护盾": "治疗",
+            "特性": "星核猎手、欢愉、头号玩家",
+            "站位": "前排",
+            "赛季": "S1"
+          },
+          "bodyHeadings": [
+            "# 银狼LV.999",
+            "## 星阶",
+            "### 星阶特性",
+            "#### 前排特性",
+            "### 特性",
+            "#### 星核猎手",
+            "#### 欢愉",
+            "#### 头号玩家",
+            "### 角色详情",
+            "## 前排技能",
+            "### 隐藏关卡（强化）",
+            "### 骇客笑语（强化）",
+            "## 推荐物品"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "currency/season1/roles/15062",
+          "id": "15062",
+          "name": "银狼LV.<unbreak>999</unbreak>",
+          "path": "data/currency/season1/roles/15062_银狼LV.999.md",
+          "purpose": "同名星阶4记录；与15061分别展示，检验同名消歧。",
+          "source": "nanoka",
+          "contentHash": "07a5b79fdfab6ac4c2c375c0624db3719094db762b8989cb214b086950837279",
+          "fileSha256": "077c5e4ddd6b9a794c84d71e6d7b5057c1ecf60b10928a66707924ff4dbe5824",
+          "imageAvailable": false,
+          "issues": [
+            "暂无可用图片"
+          ],
+          "fields": {
+            "game": "hsr",
+            "id": 15062,
+            "last_crawled_at": "2026-10-07T10:52:07.905Z",
+            "name": "银狼LV.<unbreak>999</unbreak>",
+            "source": "nanoka",
+            "source_url": "https://static.nanoka.cc/hsr/4.6.51/zh/currency/role.json",
+            "tags": [
+              "hsr",
+              "role"
+            ],
+            "type": "role",
+            "version": "4.6.51",
+            "星级": 4,
+            "星阶": 4,
+            "治疗护盾": "治疗",
+            "特性": "星核猎手、欢愉、头号玩家",
+            "站位": "前排",
+            "赛季": "S1"
+          },
+          "bodyHeadings": [
+            "# 银狼LV.999",
+            "## 星阶",
+            "### 星阶特性",
+            "#### 前排特性",
+            "### 特性",
+            "#### 星核猎手",
+            "#### 欢愉",
+            "#### 头号玩家",
+            "### 角色详情",
+            "## 前排技能",
+            "### 隐藏关卡（强化）",
+            "### 骇客笑语（强化）",
+            "## 推荐物品"
+          ],
+          "sourceCheckScope": null
+        }
+      ]
+    },
+    {
+      "category": "currency/season1/traits",
+      "label": "货币战争 S1 · 羁绊",
+      "total": 33,
+      "validImages": 33,
+      "fieldCoverage": {
+        "game": {
+          "present": 33,
+          "nonEmpty": 33
+        },
+        "id": {
+          "present": 33,
+          "nonEmpty": 33
+        },
+        "image": {
+          "present": 33,
+          "nonEmpty": 33
+        },
+        "last_crawled_at": {
+          "present": 33,
+          "nonEmpty": 33
+        },
+        "name": {
+          "present": 33,
+          "nonEmpty": 33
+        },
+        "source": {
+          "present": 33,
+          "nonEmpty": 33
+        },
+        "source_url": {
+          "present": 33,
+          "nonEmpty": 33
+        },
+        "tags": {
+          "present": 33,
+          "nonEmpty": 33
+        },
+        "type": {
+          "present": 33,
+          "nonEmpty": 33
+        },
+        "version": {
+          "present": 33,
+          "nonEmpty": 33
+        },
+        "成员数": {
+          "present": 33,
+          "nonEmpty": 33
+        },
+        "赛季": {
+          "present": 33,
+          "nonEmpty": 33
+        },
+        "image_match": {
+          "present": 32,
+          "nonEmpty": 32
+        },
+        "image_source": {
+          "present": 32,
+          "nonEmpty": 32
+        },
+        "image_source_url": {
+          "present": 32,
+          "nonEmpty": 32
+        }
+      },
+      "samples": [
+        {
+          "key": "currency/season1/traits/1001",
+          "id": "1001",
+          "name": "列车同行",
+          "path": "data/currency/season1/traits/1001_列车同行.md",
+          "purpose": "常规多人羁绊；层数效果、成员与专家顾问。",
+          "source": "nanoka",
+          "contentHash": "fbad0bafda62fc1f741b6a01baaf2be5bb2fcf6815d67b0329e9a046d20e58af",
+          "fileSha256": "581ff11ab50f0e9975a073ff80e6b46e6ff1118c48c91221c197fe7aa42c75b5",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "game": "hsr",
+            "id": 1001,
+            "image": "currency/traits/1001.png",
+            "last_crawled_at": "2026-10-07T10:52:07.905Z",
+            "name": "列车同行",
+            "source": "nanoka",
+            "source_url": "https://static.nanoka.cc/hsr/4.6.51/zh/currency/trait.json",
+            "tags": [
+              "hsr",
+              "trait"
+            ],
+            "type": "trait",
+            "version": "4.6.51",
+            "成员数": 7,
+            "赛季": "S1"
+          },
+          "bodyHeadings": [
+            "# 列车同行"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "currency/season1/traits/2003",
+          "id": "2003",
+          "name": "群攻",
+          "path": "data/currency/season1/traits/2003_群攻.md",
+          "purpose": "较长战斗羁绊；检查分层效果及成员列表。",
+          "source": "nanoka",
+          "contentHash": "0548433e86ac5893ff5a8c99023f9c97ebf0afbf12607e1a26cef2ffa4dcc761",
+          "fileSha256": "ef736b6a66509a9831ab0b270135e10f4cbfcf30eecc06af0b8abf2d2b020a4e",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "game": "hsr",
+            "id": 2003,
+            "image": "currency/season1/traits/2003.webp",
+            "image_match": "snapshot-season-category-unique-name",
+            "image_source": "nanoka-snapshot",
+            "image_source_url": "https://static.nanoka.cc/assets/hsr/gridfight/icon/2003.webp",
+            "last_crawled_at": "2026-10-07T10:52:07.905Z",
+            "name": "群攻",
+            "source": "nanoka",
+            "source_url": "https://static.nanoka.cc/hsr/4.6.51/zh/currency/trait.json",
+            "tags": [
+              "hsr",
+              "trait"
+            ],
+            "type": "trait",
+            "version": "4.6.51",
+            "成员数": 7,
+            "赛季": "S1"
+          },
+          "bodyHeadings": [
+            "# 群攻"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "currency/season1/traits/1014",
+          "id": "1014",
+          "name": "师徒",
+          "path": "data/currency/season1/traits/1014_师徒.md",
+          "purpose": "成员数为0；零值必须保留，不能当成字段缺失。",
+          "source": "nanoka",
+          "contentHash": "d176a383910ea9bcb7e4a3648af643c92287667ea627f716664876f32f40e6d3",
+          "fileSha256": "3011bfdab749864c632cc9c514e280f948df3b604586cc17074cdb1366764b6c",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "game": "hsr",
+            "id": 1014,
+            "image": "currency/season1/traits/1014.webp",
+            "image_match": "snapshot-season-category-unique-name",
+            "image_source": "nanoka-snapshot",
+            "image_source_url": "https://static.nanoka.cc/assets/hsr/gridfight/icon/1014.webp",
+            "last_crawled_at": "2026-10-07T10:52:07.905Z",
+            "name": "师徒",
+            "source": "nanoka",
+            "source_url": "https://static.nanoka.cc/hsr/4.6.51/zh/currency/trait.json",
+            "tags": [
+              "hsr",
+              "trait"
+            ],
+            "type": "trait",
+            "version": "4.6.51",
+            "成员数": 0,
+            "赛季": "S1"
+          },
+          "bodyHeadings": [
+            "# 师徒"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "currency/season1/traits/3001",
+          "id": "3001",
+          "name": "大守护者",
+          "path": "data/currency/season1/traits/3001_大守护者.md",
+          "purpose": "专属羁绊；与多人羁绊共用层数框架，按实际内容展示。",
+          "source": "nanoka",
+          "contentHash": "b475f9c14740f6d7c6854b6f88bbe712bc64b196fe2c5eea54c89f6565a7f33b",
+          "fileSha256": "4b82d90d2820762a2510667e0a99fcc9e61e6e41c919348b51e7511317a0d4a2",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "game": "hsr",
+            "id": 3001,
+            "image": "currency/season1/traits/3001.webp",
+            "image_match": "snapshot-season-category-unique-name",
+            "image_source": "nanoka-snapshot",
+            "image_source_url": "https://static.nanoka.cc/assets/hsr/gridfight/icon/3001.webp",
+            "last_crawled_at": "2026-10-07T10:52:07.905Z",
+            "name": "大守护者",
+            "source": "nanoka",
+            "source_url": "https://static.nanoka.cc/hsr/4.6.51/zh/currency/trait.json",
+            "tags": [
+              "hsr",
+              "trait"
+            ],
+            "type": "trait",
+            "version": "4.6.51",
+            "成员数": 2,
+            "赛季": "S1"
+          },
+          "bodyHeadings": [
+            "# 大守护者"
+          ],
+          "sourceCheckScope": null
+        }
+      ]
+    },
+    {
+      "category": "currency/season1/items",
+      "label": "货币战争 S1 · 物品",
+      "total": 160,
+      "validImages": 158,
+      "fieldCoverage": {
+        "game": {
+          "present": 160,
+          "nonEmpty": 160
+        },
+        "id": {
+          "present": 160,
+          "nonEmpty": 160
+        },
+        "image": {
+          "present": 160,
+          "nonEmpty": 158
+        },
+        "image_match": {
+          "present": 158,
+          "nonEmpty": 158
+        },
+        "image_source": {
+          "present": 158,
+          "nonEmpty": 158
+        },
+        "image_source_url": {
+          "present": 158,
+          "nonEmpty": 158
+        },
+        "last_crawled_at": {
+          "present": 160,
+          "nonEmpty": 160
+        },
+        "name": {
+          "present": 160,
+          "nonEmpty": 160
+        },
+        "source": {
+          "present": 160,
+          "nonEmpty": 160
+        },
+        "source_url": {
+          "present": 160,
+          "nonEmpty": 160
+        },
+        "tags": {
+          "present": 160,
+          "nonEmpty": 160
+        },
+        "type": {
+          "present": 160,
+          "nonEmpty": 160
+        },
+        "version": {
+          "present": 160,
+          "nonEmpty": 160
+        },
+        "类型": {
+          "present": 160,
+          "nonEmpty": 160
+        },
+        "赛季": {
+          "present": 160,
+          "nonEmpty": 160
+        },
+        "稀有度": {
+          "present": 5,
+          "nonEmpty": 5
+        }
+      },
+      "samples": [
+        {
+          "key": "currency/season1/items/350101",
+          "id": "350101",
+          "name": "拆装扳手",
+          "path": "data/currency/season1/items/350101_拆装扳手.md",
+          "purpose": "Consumable消耗品；效果型详情。",
+          "source": "nanoka",
+          "contentHash": "cfe0a212a7e9e87659c49abad828a84e08b12311d7050b5f52eec1ee581fcbc9",
+          "fileSha256": "8190343f81cd613b30df5f9ff91fc5673a7c54f80fbfd260e08d530dfc80391f",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "game": "currency",
+            "id": 350101,
+            "image": "currency/season1/items/350101.webp",
+            "image_match": "snapshot-season-category-unique-name",
+            "image_source": "nanoka-snapshot",
+            "image_source_url": "https://static.nanoka.cc/assets/hsr/gridfight/equipment/350101.webp",
+            "last_crawled_at": "2026-10-07T10:52:07.905Z",
+            "name": "拆装扳手",
+            "source": "nanoka",
+            "source_url": "https://static.nanoka.cc/hsr/4.6.51/zh/currency/item.json",
+            "tags": [
+              "currency",
+              "item"
+            ],
+            "type": "item",
+            "version": "4.6.51",
+            "类型": "Consumable",
+            "赛季": "S1"
+          },
+          "bodyHeadings": [
+            "# 拆装扳手",
+            "## 效果"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "currency/season1/items/352802",
+          "id": "352802",
+          "name": "极·天地乖离开辟之星",
+          "path": "data/currency/season1/items/352802_极·天地乖离开辟之星.md",
+          "purpose": "Equipment装备；长效果、属性和长名称。",
+          "source": "nanoka",
+          "contentHash": "163ce4320d49439af94b0a22a15895836c7162856c2a4be2943df5a2d67145af",
+          "fileSha256": "fbc87b48e9fdcaaff5a4000a21a9e3a7097abe19e0dc7ea18f11846b4f15be5b",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "game": "currency",
+            "id": 352802,
+            "image": "currency/season1/items/352802.webp",
+            "image_match": "snapshot-season-category-unique-name",
+            "image_source": "nanoka-snapshot",
+            "image_source_url": "https://static.nanoka.cc/assets/hsr/gridfight/equipment/352602.webp",
+            "last_crawled_at": "2026-10-07T10:52:07.905Z",
+            "name": "极·天地乖离开辟之星",
+            "source": "nanoka",
+            "source_url": "https://static.nanoka.cc/hsr/4.6.51/zh/currency/item.json",
+            "tags": [
+              "currency",
+              "item"
+            ],
+            "type": "item",
+            "version": "4.6.51",
+            "类型": "Equipment",
+            "赛季": "S1"
+          },
+          "bodyHeadings": [
+            "# 极·天地乖离开辟之星",
+            "## 效果",
+            "## 属性"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "currency/season1/items/352608",
+          "id": "352608",
+          "name": "财富",
+          "path": "data/currency/season1/items/352608_财富.md",
+          "purpose": "缺图装备；同名财富存在其他ID，保持身份独立。",
+          "source": "nanoka",
+          "contentHash": "86dd90db124cede3fdaa0983762af063913d1eceba70ec42be04ef7ab38972ee",
+          "fileSha256": "e9158713c0e2ef54cb4e3d6a529505967d29f5d9db156158ebb1abc98aeb9058",
+          "imageAvailable": false,
+          "issues": [
+            "暂无可用图片"
+          ],
+          "fields": {
+            "game": "currency",
+            "id": 352608,
+            "image": "",
+            "last_crawled_at": "2026-10-07T10:52:07.905Z",
+            "name": "财富",
+            "source": "nanoka",
+            "source_url": "https://static.nanoka.cc/hsr/4.6.51/zh/currency/item.json",
+            "tags": [
+              "currency",
+              "item"
+            ],
+            "type": "item",
+            "version": "4.6.51",
+            "类型": "Equipment",
+            "赛季": "S1"
+          },
+          "bodyHeadings": [
+            "# 财富",
+            "## 效果",
+            "## 属性"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "currency/season1/items/99990",
+          "id": "99990",
+          "name": "专家邀请函",
+          "path": "data/currency/season1/items/99990_专家邀请函.md",
+          "purpose": "Forge类道具；有稀有度字段，覆盖不同类型。",
+          "source": "nanoka",
+          "contentHash": "d39454616fb8c541662e00f2e69156ec5c5cffd26eb3836167203f343397100b",
+          "fileSha256": "4aabdab81b1e2b61eebad81793d8b0d32fd09f9818c060d8dbeed421c7e7e178",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "game": "currency",
+            "id": 99990,
+            "image": "currency/season1/items/99990.webp",
+            "image_match": "snapshot-season-category-unique-name",
+            "image_source": "nanoka-snapshot",
+            "image_source_url": "https://static.nanoka.cc/assets/hsr/gridfight/equipment/GridFight_ExpertContract1.webp",
+            "last_crawled_at": "2026-10-07T10:52:07.905Z",
+            "name": "专家邀请函",
+            "source": "nanoka",
+            "source_url": "https://static.nanoka.cc/hsr/4.6.51/zh/currency/item.json",
+            "tags": [
+              "currency",
+              "item"
+            ],
+            "type": "item",
+            "version": "4.6.51",
+            "稀有度": "Emblem",
+            "类型": "Forge",
+            "赛季": "S1"
+          },
+          "bodyHeadings": [
+            "# 专家邀请函",
+            "## 效果"
+          ],
+          "sourceCheckScope": null
+        }
+      ]
+    },
+    {
+      "category": "currency/season1/strategies",
+      "label": "货币战争 S1 · 投资策略",
+      "total": 334,
+      "validImages": 334,
+      "fieldCoverage": {
+        "game": {
+          "present": 334,
+          "nonEmpty": 334
+        },
+        "id": {
+          "present": 334,
+          "nonEmpty": 334
+        },
+        "image": {
+          "present": 334,
+          "nonEmpty": 334
+        },
+        "image_match": {
+          "present": 334,
+          "nonEmpty": 334
+        },
+        "image_source": {
+          "present": 334,
+          "nonEmpty": 334
+        },
+        "image_source_url": {
+          "present": 334,
+          "nonEmpty": 334
+        },
+        "last_crawled_at": {
+          "present": 334,
+          "nonEmpty": 334
+        },
+        "name": {
+          "present": 334,
+          "nonEmpty": 334
+        },
+        "source": {
+          "present": 334,
+          "nonEmpty": 334
+        },
+        "source_url": {
+          "present": 334,
+          "nonEmpty": 334
+        },
+        "tags": {
+          "present": 334,
+          "nonEmpty": 334
+        },
+        "type": {
+          "present": 334,
+          "nonEmpty": 334
+        },
+        "version": {
+          "present": 334,
+          "nonEmpty": 334
+        },
+        "类型": {
+          "present": 334,
+          "nonEmpty": 334
+        },
+        "赛季": {
+          "present": 334,
+          "nonEmpty": 334
+        }
+      },
+      "samples": [
+        {
+          "key": "currency/season1/strategies/100101",
+          "id": "100101",
+          "name": "特战资金",
+          "path": "data/currency/season1/strategies/100101_特战资金.md",
+          "purpose": "Silver常规策略；短说明。",
+          "source": "nanoka",
+          "contentHash": "67b54514529d38bce8347dc22700db37d863601d75d14f00ba2c257c7995447d",
+          "fileSha256": "f3ce9502106e686c92e7ddf0bff53344fe62eb3547a4365d85ac79df488dec0d",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "game": "currency",
+            "id": 100101,
+            "image": "currency/season1/strategies/100101.webp",
+            "image_match": "snapshot-season-category-unique-name",
+            "image_source": "nanoka-snapshot",
+            "image_source_url": "https://static.nanoka.cc/assets/hsr/gridfight/augmentbig/100101.webp",
+            "last_crawled_at": "2026-10-07T10:52:07.905Z",
+            "name": "特战资金",
+            "source": "nanoka",
+            "source_url": "https://static.nanoka.cc/hsr/4.6.51/zh/currency/augment.json",
+            "tags": [
+              "currency",
+              "strategy"
+            ],
+            "type": "strategy",
+            "version": "4.6.51",
+            "类型": "Silver",
+            "赛季": "S1"
+          },
+          "bodyHeadings": [
+            "# 特战资金",
+            "## 说明"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "currency/season1/strategies/100102",
+          "id": "100102",
+          "name": "特战资金+",
+          "path": "data/currency/season1/strategies/100102_特战资金+.md",
+          "purpose": "同系列加号变体；保留名称中的+。",
+          "source": "nanoka",
+          "contentHash": "ce6dcdc93d71c038ced7c5131ef506fa7aead2d532bd0f706d078dcdd0f10a9e",
+          "fileSha256": "67b56394fbda5315166833c424d7bbdcd19be503cd6dbc40b5c18a2682b6bbab",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "game": "currency",
+            "id": 100102,
+            "image": "currency/season1/strategies/100102.webp",
+            "image_match": "snapshot-season-category-unique-name",
+            "image_source": "nanoka-snapshot",
+            "image_source_url": "https://static.nanoka.cc/assets/hsr/gridfight/augmentbig/100101.webp",
+            "last_crawled_at": "2026-10-07T10:52:07.905Z",
+            "name": "特战资金+",
+            "source": "nanoka",
+            "source_url": "https://static.nanoka.cc/hsr/4.6.51/zh/currency/augment.json",
+            "tags": [
+              "currency",
+              "strategy"
+            ],
+            "type": "strategy",
+            "version": "4.6.51",
+            "类型": "Silver",
+            "赛季": "S1"
+          },
+          "bodyHeadings": [
+            "# 特战资金+",
+            "## 说明"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "currency/season1/strategies/352201",
+          "id": "352201",
+          "name": "白衣伙伴",
+          "path": "data/currency/season1/strategies/352201_白衣伙伴.md",
+          "purpose": "Gold长说明；含gridfightinfo动态引用与异常3i文本。",
+          "source": "nanoka",
+          "contentHash": "e88d6ea16d92f47ce748a9ebe39b3570f7ee80a362e98997231f749b96318eac",
+          "fileSha256": "361683c60f928874df0550abe57373ad270ea9878151fa06c51704b929fe6919",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "game": "currency",
+            "id": 352201,
+            "image": "currency/season1/strategies/352201.webp",
+            "image_match": "snapshot-season-category-unique-name",
+            "image_source": "nanoka-snapshot",
+            "image_source_url": "https://static.nanoka.cc/assets/hsr/gridfight/augmentbig/352201.webp",
+            "last_crawled_at": "2026-10-07T10:52:07.905Z",
+            "name": "白衣伙伴",
+            "source": "nanoka",
+            "source_url": "https://static.nanoka.cc/hsr/4.6.51/zh/currency/augment.json",
+            "tags": [
+              "currency",
+              "strategy"
+            ],
+            "type": "strategy",
+            "version": "4.6.51",
+            "类型": "Gold",
+            "赛季": "S1"
+          },
+          "bodyHeadings": [
+            "# 白衣伙伴",
+            "## 说明"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "currency/season1/strategies/300101",
+          "id": "300101",
+          "name": "开源节流",
+          "path": "data/currency/season1/strategies/300101_开源节流.md",
+          "purpose": "Prismatic策略；覆盖第三档品质。",
+          "source": "nanoka",
+          "contentHash": "a75f144a6ac80777cc43d679ffb160af397e978c1c4c83e12fe6190394e3766b",
+          "fileSha256": "753b89365413bb3ba41d3dfbfc93f95d830411f836aef7639b335944e11eefac",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "game": "currency",
+            "id": 300101,
+            "image": "currency/season1/strategies/300101.webp",
+            "image_match": "snapshot-season-category-unique-name",
+            "image_source": "nanoka-snapshot",
+            "image_source_url": "https://static.nanoka.cc/assets/hsr/gridfight/augmentbig/300101.webp",
+            "last_crawled_at": "2026-10-07T10:52:07.905Z",
+            "name": "开源节流",
+            "source": "nanoka",
+            "source_url": "https://static.nanoka.cc/hsr/4.6.51/zh/currency/augment.json",
+            "tags": [
+              "currency",
+              "strategy"
+            ],
+            "type": "strategy",
+            "version": "4.6.51",
+            "类型": "Prismatic",
+            "赛季": "S1"
+          },
+          "bodyHeadings": [
+            "# 开源节流",
+            "## 说明"
+          ],
+          "sourceCheckScope": null
+        }
+      ]
+    },
+    {
+      "category": "currency/season1/environments",
+      "label": "货币战争 S1 · 投资环境",
+      "total": 84,
+      "validImages": 82,
+      "fieldCoverage": {
+        "game": {
+          "present": 84,
+          "nonEmpty": 84
+        },
+        "id": {
+          "present": 84,
+          "nonEmpty": 84
+        },
+        "image": {
+          "present": 84,
+          "nonEmpty": 82
+        },
+        "image_match": {
+          "present": 82,
+          "nonEmpty": 82
+        },
+        "image_source": {
+          "present": 82,
+          "nonEmpty": 82
+        },
+        "image_source_url": {
+          "present": 82,
+          "nonEmpty": 82
+        },
+        "last_crawled_at": {
+          "present": 84,
+          "nonEmpty": 84
+        },
+        "name": {
+          "present": 84,
+          "nonEmpty": 84
+        },
+        "source": {
+          "present": 84,
+          "nonEmpty": 84
+        },
+        "source_url": {
+          "present": 84,
+          "nonEmpty": 84
+        },
+        "tags": {
+          "present": 84,
+          "nonEmpty": 84
+        },
+        "type": {
+          "present": 84,
+          "nonEmpty": 84
+        },
+        "version": {
+          "present": 84,
+          "nonEmpty": 84
+        },
+        "关联": {
+          "present": 20,
+          "nonEmpty": 20
+        },
+        "赛季": {
+          "present": 84,
+          "nonEmpty": 84
+        }
+      },
+      "samples": [
+        {
+          "key": "currency/season1/environments/1001",
+          "id": "1001",
+          "name": "追击概念股",
+          "path": "data/currency/season1/environments/1001_追击概念股.md",
+          "purpose": "概念股；存在关联ID串，但目标类型需要解析。",
+          "source": "nanoka",
+          "contentHash": "23b95237f9590269491b90831cb2265d30f23231a32e80257e14d33fa42d8c9b",
+          "fileSha256": "338317b8f8f0a8e01cf78b31be1f2da256175c3ef114a76450aed5dedfede96f",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "game": "currency",
+            "id": 1001,
+            "image": "currency/season1/environments/1001.webp",
+            "image_match": "snapshot-season-category-unique-name",
+            "image_source": "nanoka-snapshot",
+            "image_source_url": "https://static.nanoka.cc/assets/hsr/gridfight/portal/1001.webp",
+            "last_crawled_at": "2026-10-07T10:52:07.905Z",
+            "name": "追击概念股",
+            "source": "nanoka",
+            "source_url": "https://static.nanoka.cc/hsr/4.6.51/zh/currency/buff.json",
+            "tags": [
+              "currency",
+              "environment"
+            ],
+            "type": "environment",
+            "version": "4.6.51",
+            "关联": "1、1220、350201、1305、101",
+            "赛季": "S1"
+          },
+          "bodyHeadings": [
+            "# 追击概念股",
+            "## 说明"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "currency/season1/environments/1013",
+          "id": "1013",
+          "name": "群攻概念股",
+          "path": "data/currency/season1/environments/1013_群攻概念股.md",
+          "purpose": "群攻概念股；缺图且存在同名另一条。",
+          "source": "nanoka",
+          "contentHash": "7e8d3c987e745cf0c4bfd53bd242c445abd84a64e73b8cb7f85266f39da6e1f5",
+          "fileSha256": "8deff75b511e57e7b4fb26b58f24752a26c61535a7be153a81ff2c9e2af935be",
+          "imageAvailable": false,
+          "issues": [
+            "暂无可用图片"
+          ],
+          "fields": {
+            "game": "currency",
+            "id": 1013,
+            "image": "",
+            "last_crawled_at": "2026-10-07T10:52:07.905Z",
+            "name": "群攻概念股",
+            "source": "nanoka",
+            "source_url": "https://static.nanoka.cc/hsr/4.6.51/zh/currency/buff.json",
+            "tags": [
+              "currency",
+              "environment"
+            ],
+            "type": "environment",
+            "version": "4.6.51",
+            "关联": "1、1013、1405、350204、101",
+            "赛季": "S1"
+          },
+          "bodyHeadings": [
+            "# 群攻概念股",
+            "## 说明"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "currency/season1/environments/1015",
+          "id": "1015",
+          "name": "群攻概念股",
+          "path": "data/currency/season1/environments/1015_群攻概念股.md",
+          "purpose": "同名群攻概念股的不同关联组合；不能按名称去重。",
+          "source": "nanoka",
+          "contentHash": "b2d78856651c95a427ff9281f08c93833724f63a1cb8a023b05e04dbac5ffcbd",
+          "fileSha256": "c6bf0becac3d44717983ed88b60a91c9b0a6d44dee1a7d0e578633c365cdc69c",
+          "imageAvailable": false,
+          "issues": [
+            "暂无可用图片"
+          ],
+          "fields": {
+            "game": "currency",
+            "id": 1015,
+            "image": "",
+            "last_crawled_at": "2026-10-07T10:52:07.905Z",
+            "name": "群攻概念股",
+            "source": "nanoka",
+            "source_url": "https://static.nanoka.cc/hsr/4.6.51/zh/currency/buff.json",
+            "tags": [
+              "currency",
+              "environment"
+            ],
+            "type": "environment",
+            "version": "4.6.51",
+            "关联": "1、1013、1403",
+            "赛季": "S1"
+          },
+          "bodyHeadings": [
+            "# 群攻概念股",
+            "## 说明"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "currency/season1/environments/1201",
+          "id": "1201",
+          "name": "欢愉契约",
+          "path": "data/currency/season1/environments/1201_欢愉契约.md",
+          "purpose": "契约类长说明；没有结构化类型字段。",
+          "source": "nanoka",
+          "contentHash": "e46ce347373d3842e79bd4734680ab667d13152d8a01a73608b6108fe08836e5",
+          "fileSha256": "2f3b7f2245f3f1c8d7a916404310b4981abb91a24b7db50d8636336b5b0da838",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "game": "currency",
+            "id": 1201,
+            "image": "currency/season1/environments/1201.webp",
+            "image_match": "snapshot-season-category-unique-name",
+            "image_source": "nanoka-snapshot",
+            "image_source_url": "https://static.nanoka.cc/assets/hsr/gridfight/portal/1201.webp",
+            "last_crawled_at": "2026-10-07T10:52:07.905Z",
+            "name": "欢愉契约",
+            "source": "nanoka",
+            "source_url": "https://static.nanoka.cc/hsr/4.6.51/zh/currency/buff.json",
+            "tags": [
+              "currency",
+              "environment"
+            ],
+            "type": "environment",
+            "version": "4.6.51",
+            "赛季": "S1"
+          },
+          "bodyHeadings": [
+            "# 欢愉契约",
+            "## 说明"
+          ],
+          "sourceCheckScope": null
+        }
+      ]
+    },
+    {
+      "category": "currency/season2/roles",
+      "label": "货币战争 S2 · 角色",
+      "total": 64,
+      "validImages": 57,
+      "fieldCoverage": {
+        "game": {
+          "present": 64,
+          "nonEmpty": 64
+        },
+        "id": {
+          "present": 64,
+          "nonEmpty": 64
+        },
+        "image": {
+          "present": 57,
+          "nonEmpty": 57
+        },
+        "image_match": {
+          "present": 57,
+          "nonEmpty": 57
+        },
+        "image_source": {
+          "present": 57,
+          "nonEmpty": 57
+        },
+        "image_source_url": {
+          "present": 57,
+          "nonEmpty": 57
+        },
+        "last_crawled_at": {
+          "present": 64,
+          "nonEmpty": 64
+        },
+        "name": {
+          "present": 64,
+          "nonEmpty": 64
+        },
+        "source": {
+          "present": 64,
+          "nonEmpty": 64
+        },
+        "source_url": {
+          "present": 64,
+          "nonEmpty": 64
+        },
+        "tags": {
+          "present": 64,
+          "nonEmpty": 64
+        },
+        "type": {
+          "present": 64,
+          "nonEmpty": 64
+        },
+        "version": {
+          "present": 64,
+          "nonEmpty": 64
+        },
+        "星级": {
+          "present": 64,
+          "nonEmpty": 64
+        },
+        "星阶": {
+          "present": 64,
+          "nonEmpty": 64
+        },
+        "治疗护盾": {
+          "present": 64,
+          "nonEmpty": 64
+        },
+        "特性": {
+          "present": 64,
+          "nonEmpty": 64
+        },
+        "站位": {
+          "present": 64,
+          "nonEmpty": 64
+        },
+        "赛季": {
+          "present": 64,
+          "nonEmpty": 64
+        }
+      },
+      "samples": [
+        {
+          "key": "currency/season2/roles/100402",
+          "id": "100402",
+          "name": "瓦尔特",
+          "path": "data/currency/season2/roles/100402_瓦尔特.md",
+          "purpose": "瓦尔特；前后排技能，S2星阶与S1不同。",
+          "source": "nanoka",
+          "contentHash": "58b9b8997690a41930774011c123341a33df8be20752630d515bc022fb6309bb",
+          "fileSha256": "15d54d9b55a1df015238da1dbf8fcfddbedc5c88c2f0dda8bf6fd607ea018982",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "game": "hsr",
+            "id": 100402,
+            "image": "currency/season2/roles/100402.png",
+            "image_match": "same-game-unique-character-portrait",
+            "image_source": "mihoyo-api",
+            "image_source_url": "https://act-upload.mihoyo.com/sr-wiki/2025/09/20/159300832/7876a85200a90efef241e953c21a3d31_6126296474937130602.png",
+            "last_crawled_at": "2026-10-07T10:52:07.905Z",
+            "name": "瓦尔特",
+            "source": "nanoka",
+            "source_url": "https://static.nanoka.cc/hsr/4.6.51/zh/currency/role.json",
+            "tags": [
+              "hsr",
+              "role"
+            ],
+            "type": "role",
+            "version": "4.6.51",
+            "星级": 1,
+            "星阶": 1,
+            "治疗护盾": "治疗",
+            "特性": "开拓银轨、群攻",
+            "站位": "前后排",
+            "赛季": "S2"
+          },
+          "bodyHeadings": [
+            "# 瓦尔特",
+            "## 星阶",
+            "### 星阶特性",
+            "#### 前排特性",
+            "#### 后排特性",
+            "### 特性",
+            "#### 开拓银轨",
+            "#### 群攻",
+            "### 角色详情",
+            "## 前排技能",
+            "### 虚空断界（群攻）",
+            "### 拟似黑洞（群攻）",
+            "### 时空扭曲（强化）",
+            "## 后排技能",
+            "### 虚空断界（弹射）",
+            "### 拟似黑洞（群攻）",
+            "### 时空扭曲（强化）",
+            "## 星魂",
+            "### 附加伤害",
+            "## 光锥",
+            "## 推荐物品"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "currency/season2/roles/151112",
+          "id": "151112",
+          "name": "星神★阿哈",
+          "path": "data/currency/season2/roles/151112_星神★阿哈.md",
+          "purpose": "星神★阿哈星阶4；缺图的同名变体。",
+          "source": "nanoka",
+          "contentHash": "798b603d8f01660de8cd301224fd8f3e82b4a209c4b5827e2bda41871bcc3707",
+          "fileSha256": "bf1fcdbd5b24fb50f52dc0cc2565b659cc3e4dd29c4719d69e2fab7c900b846b",
+          "imageAvailable": false,
+          "issues": [
+            "暂无可用图片"
+          ],
+          "fields": {
+            "game": "hsr",
+            "id": 151112,
+            "last_crawled_at": "2026-10-07T10:52:07.905Z",
+            "name": "星神★阿哈",
+            "source": "nanoka",
+            "source_url": "https://static.nanoka.cc/hsr/4.6.51/zh/currency/role.json",
+            "tags": [
+              "hsr",
+              "role"
+            ],
+            "type": "role",
+            "version": "4.6.51",
+            "星级": 4,
+            "星阶": 4,
+            "治疗护盾": "治疗",
+            "特性": "欢愉、幻乐之主",
+            "站位": "前排",
+            "赛季": "S2"
+          },
+          "bodyHeadings": [
+            "# 星神★阿哈",
+            "## 星阶",
+            "### 星阶特性",
+            "#### 前排特性",
+            "### 特性",
+            "#### 欢愉",
+            "#### 幻乐之主",
+            "### 角色详情",
+            "## 前排技能",
+            "### 满月，是神在的时间（群攻）",
+            "### 真的是令使！（强化）",
+            "### 欢愉万相★应有尽有（强化）",
+            "## 推荐物品"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "currency/season2/roles/151122",
+          "id": "151122",
+          "name": "星神★阿哈",
+          "path": "data/currency/season2/roles/151122_星神★阿哈.md",
+          "purpose": "星神★阿哈另一独立ID；星级字段为5而正文显示六星，不能把星级和星阶直接视作同义。",
+          "source": "nanoka",
+          "contentHash": "05d897feef674d2a7893670df073da132ab9480e1cceb37abbd5c164608555da",
+          "fileSha256": "4a5caf1b5a1f0437d5a9fba18fbd48a5cd668d7406744c3681ed42c61986836c",
+          "imageAvailable": false,
+          "issues": [
+            "暂无可用图片"
+          ],
+          "fields": {
+            "game": "hsr",
+            "id": 151122,
+            "last_crawled_at": "2026-10-07T10:52:07.905Z",
+            "name": "星神★阿哈",
+            "source": "nanoka",
+            "source_url": "https://static.nanoka.cc/hsr/4.6.51/zh/currency/role.json",
+            "tags": [
+              "hsr",
+              "role"
+            ],
+            "type": "role",
+            "version": "4.6.51",
+            "星级": 5,
+            "星阶": 5,
+            "治疗护盾": "治疗",
+            "特性": "欢愉、幻乐之主",
+            "站位": "前排",
+            "赛季": "S2"
+          },
+          "bodyHeadings": [
+            "# 星神★阿哈",
+            "## 星阶",
+            "### 星阶特性",
+            "#### 前排特性",
+            "### 特性",
+            "#### 欢愉",
+            "#### 幻乐之主",
+            "### 角色详情",
+            "## 前排技能",
+            "### 满月，是神在的时间（群攻）",
+            "### 真的是令使！（强化）",
+            "### 欢愉万相★应有尽有（强化）",
+            "## 推荐物品"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "currency/season2/roles/604202",
+          "id": "604202",
+          "name": "未命名",
+          "path": "data/currency/season2/roles/604202_未命名.md",
+          "purpose": "未命名角色；正文有技能信息，展示占位名和ID，不能猜名字。",
+          "source": "nanoka",
+          "contentHash": "32cc7ac6f3395db823423b87b3cf77ac60a98869ad1f3b13ae872387bed80cf9",
+          "fileSha256": "5b3d9e186fbdcedac0b1e8d38934460e82591902e6785aeb615ff43c04925185",
+          "imageAvailable": false,
+          "issues": [
+            "暂无可用图片"
+          ],
+          "fields": {
+            "game": "hsr",
+            "id": 604202,
+            "last_crawled_at": "2026-10-07T10:52:07.905Z",
+            "name": "未命名",
+            "source": "nanoka",
+            "source_url": "https://static.nanoka.cc/hsr/4.6.51/zh/currency/role.json",
+            "tags": [
+              "hsr",
+              "role"
+            ],
+            "type": "role",
+            "version": "4.6.51",
+            "星级": 5,
+            "星阶": 5,
+            "治疗护盾": "治疗",
+            "特性": "开拓银轨",
+            "站位": "后排",
+            "赛季": "S2"
+          },
+          "bodyHeadings": [
+            "# 角色 604202",
+            "## 星阶",
+            "### 星阶特性",
+            "#### 后排特性",
+            "### 特性",
+            "#### 开拓银轨",
+            "### 角色详情",
+            "## 后排技能",
+            "### 无死角洗涤（群攻）",
+            "### 饱和式大扫除！（群攻）",
+            "### 开拓意志（强化）",
+            "## 推荐物品"
+          ],
+          "sourceCheckScope": null
+        }
+      ]
+    },
+    {
+      "category": "currency/season2/traits",
+      "label": "货币战争 S2 · 羁绊",
+      "total": 33,
+      "validImages": 33,
+      "fieldCoverage": {
+        "game": {
+          "present": 33,
+          "nonEmpty": 33
+        },
+        "id": {
+          "present": 33,
+          "nonEmpty": 33
+        },
+        "image": {
+          "present": 33,
+          "nonEmpty": 33
+        },
+        "image_match": {
+          "present": 33,
+          "nonEmpty": 33
+        },
+        "image_source": {
+          "present": 33,
+          "nonEmpty": 33
+        },
+        "image_source_url": {
+          "present": 33,
+          "nonEmpty": 33
+        },
+        "last_crawled_at": {
+          "present": 33,
+          "nonEmpty": 33
+        },
+        "name": {
+          "present": 33,
+          "nonEmpty": 33
+        },
+        "source": {
+          "present": 33,
+          "nonEmpty": 33
+        },
+        "source_url": {
+          "present": 33,
+          "nonEmpty": 33
+        },
+        "tags": {
+          "present": 33,
+          "nonEmpty": 33
+        },
+        "type": {
+          "present": 33,
+          "nonEmpty": 33
+        },
+        "version": {
+          "present": 33,
+          "nonEmpty": 33
+        },
+        "成员数": {
+          "present": 33,
+          "nonEmpty": 33
+        },
+        "赛季": {
+          "present": 33,
+          "nonEmpty": 33
+        }
+      },
+      "samples": [
+        {
+          "key": "currency/season2/traits/100102",
+          "id": "100102",
+          "name": "仙舟舰队",
+          "path": "data/currency/season2/traits/100102_仙舟舰队.md",
+          "purpose": "常规多人羁绊；与S1保持赛季隔离。",
+          "source": "nanoka",
+          "contentHash": "c292d4b2e067b1a1ba1bd12dda66c186aab745ed10979763b87a00bc34b4c8b5",
+          "fileSha256": "310c6bb3bced88f8393df5e942b681b497b1573a75fb8de9a07d8c4f313f4a67",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "game": "hsr",
+            "id": 100102,
+            "image": "currency/season2/traits/100102.webp",
+            "image_match": "snapshot-season-category-unique-name",
+            "image_source": "nanoka-snapshot",
+            "image_source_url": "https://static.nanoka.cc/assets/hsr/gridfight/icon/100102.webp",
+            "last_crawled_at": "2026-10-07T10:52:07.905Z",
+            "name": "仙舟舰队",
+            "source": "nanoka",
+            "source_url": "https://static.nanoka.cc/hsr/4.6.51/zh/currency/trait.json",
+            "tags": [
+              "hsr",
+              "trait"
+            ],
+            "type": "trait",
+            "version": "4.6.51",
+            "成员数": 7,
+            "赛季": "S2"
+          },
+          "bodyHeadings": [
+            "# 仙舟舰队"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "currency/season2/traits/200302",
+          "id": "200302",
+          "name": "群攻",
+          "path": "data/currency/season2/traits/200302_群攻.md",
+          "purpose": "较长分层效果；与S1同名群攻分别呈现。",
+          "source": "nanoka",
+          "contentHash": "f66a534d98541c12d0670db5bd0a220d8cfe518dbbbd69ca9e9a1ab424e21db4",
+          "fileSha256": "a488a685d485eebf2a3dcd485e96b7f6075fb39cb01f9b581b0733b7d3d33c32",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "game": "hsr",
+            "id": 200302,
+            "image": "currency/season2/traits/200302.webp",
+            "image_match": "snapshot-season-category-unique-name",
+            "image_source": "nanoka-snapshot",
+            "image_source_url": "https://static.nanoka.cc/assets/hsr/gridfight/icon/200302.webp",
+            "last_crawled_at": "2026-10-07T10:52:07.905Z",
+            "name": "群攻",
+            "source": "nanoka",
+            "source_url": "https://static.nanoka.cc/hsr/4.6.51/zh/currency/trait.json",
+            "tags": [
+              "hsr",
+              "trait"
+            ],
+            "type": "trait",
+            "version": "4.6.51",
+            "成员数": 7,
+            "赛季": "S2"
+          },
+          "bodyHeadings": [
+            "# 群攻"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "currency/season2/traits/300102",
+          "id": "300102",
+          "name": "双龙吟",
+          "path": "data/currency/season2/traits/300102_双龙吟.md",
+          "purpose": "专属羁绊；验证不同成员规模。",
+          "source": "nanoka",
+          "contentHash": "4db993fa189e2d0f3a09b002135809ffc5ef9063a2ca1680c64e93aa5f335577",
+          "fileSha256": "e6aa020918afe0e15ee05db33b548eb1c4f96e5e990b453421ec2439456bd9b0",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "game": "hsr",
+            "id": 300102,
+            "image": "currency/season2/traits/300102.webp",
+            "image_match": "snapshot-season-category-unique-name",
+            "image_source": "nanoka-snapshot",
+            "image_source_url": "https://static.nanoka.cc/assets/hsr/gridfight/icon/300102.webp",
+            "last_crawled_at": "2026-10-07T10:52:07.905Z",
+            "name": "双龙吟",
+            "source": "nanoka",
+            "source_url": "https://static.nanoka.cc/hsr/4.6.51/zh/currency/trait.json",
+            "tags": [
+              "hsr",
+              "trait"
+            ],
+            "type": "trait",
+            "version": "4.6.51",
+            "成员数": 2,
+            "赛季": "S2"
+          },
+          "bodyHeadings": [
+            "# 双龙吟"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "currency/season2/traits/400102",
+          "id": "400102",
+          "name": "追击伙伴",
+          "path": "data/currency/season2/traits/400102_追击伙伴.md",
+          "purpose": "成员数0但有效果层数；不生成空成员卡片。",
+          "source": "nanoka",
+          "contentHash": "e6ccc4d44a829ad477207f16eee2ccee05462bde99a5b38c79e7b8a7e923180b",
+          "fileSha256": "9014ddbbd696e9ed7d10e5634b0281b1b2773718e4923351462ca93b2ca31c6f",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "game": "hsr",
+            "id": 400102,
+            "image": "currency/season2/traits/400102.webp",
+            "image_match": "snapshot-season-category-unique-name",
+            "image_source": "nanoka-snapshot",
+            "image_source_url": "https://static.nanoka.cc/assets/hsr/gridfight/icon/400102.webp",
+            "last_crawled_at": "2026-10-07T10:52:07.905Z",
+            "name": "追击伙伴",
+            "source": "nanoka",
+            "source_url": "https://static.nanoka.cc/hsr/4.6.51/zh/currency/trait.json",
+            "tags": [
+              "hsr",
+              "trait"
+            ],
+            "type": "trait",
+            "version": "4.6.51",
+            "成员数": 0,
+            "赛季": "S2"
+          },
+          "bodyHeadings": [
+            "# 追击伙伴"
+          ],
+          "sourceCheckScope": null
+        }
+      ]
+    },
+    {
+      "category": "currency/season2/items",
+      "label": "货币战争 S2 · 物品",
+      "total": 109,
+      "validImages": 106,
+      "fieldCoverage": {
+        "game": {
+          "present": 109,
+          "nonEmpty": 109
+        },
+        "id": {
+          "present": 109,
+          "nonEmpty": 109
+        },
+        "image": {
+          "present": 109,
+          "nonEmpty": 106
+        },
+        "image_match": {
+          "present": 106,
+          "nonEmpty": 106
+        },
+        "image_source": {
+          "present": 106,
+          "nonEmpty": 106
+        },
+        "image_source_url": {
+          "present": 106,
+          "nonEmpty": 106
+        },
+        "last_crawled_at": {
+          "present": 109,
+          "nonEmpty": 109
+        },
+        "name": {
+          "present": 109,
+          "nonEmpty": 109
+        },
+        "source": {
+          "present": 109,
+          "nonEmpty": 109
+        },
+        "source_url": {
+          "present": 109,
+          "nonEmpty": 109
+        },
+        "tags": {
+          "present": 109,
+          "nonEmpty": 109
+        },
+        "type": {
+          "present": 109,
+          "nonEmpty": 109
+        },
+        "version": {
+          "present": 109,
+          "nonEmpty": 109
+        },
+        "类型": {
+          "present": 109,
+          "nonEmpty": 109
+        },
+        "赛季": {
+          "present": 109,
+          "nonEmpty": 109
+        },
+        "稀有度": {
+          "present": 6,
+          "nonEmpty": 6
+        }
+      },
+      "samples": [
+        {
+          "key": "currency/season2/items/350108",
+          "id": "350108",
+          "name": "实习生投影仪",
+          "path": "data/currency/season2/items/350108_实习生投影仪.md",
+          "purpose": "Consumable道具；已有图片的常规记录。",
+          "source": "nanoka",
+          "contentHash": "77c05f0c401367072ec8a80c81547d49c6f573dc2d8e360a24fbbd8f8079df2e",
+          "fileSha256": "78e7ca48f0b135d1a4eda3ef3024b236a7b2fca5135f5051057534f92ffb7781",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "game": "currency",
+            "id": 350108,
+            "image": "currency/season2/items/350108.webp",
+            "image_match": "snapshot-season-category-unique-name",
+            "image_source": "nanoka-snapshot",
+            "image_source_url": "https://static.nanoka.cc/assets/hsr/gridfight/equipment/350110.webp",
+            "last_crawled_at": "2026-10-07T10:52:07.905Z",
+            "name": "实习生投影仪",
+            "source": "nanoka",
+            "source_url": "https://static.nanoka.cc/hsr/4.6.51/zh/currency/item.json",
+            "tags": [
+              "currency",
+              "item"
+            ],
+            "type": "item",
+            "version": "4.6.51",
+            "类型": "Consumable",
+            "赛季": "S2"
+          },
+          "bodyHeadings": [
+            "# 实习生投影仪",
+            "## 效果"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "currency/season2/items/47030108",
+          "id": "47030108",
+          "name": "星航履",
+          "path": "data/currency/season2/items/47030108_星航履.md",
+          "purpose": "星航履；缺图装备的效果和属性。",
+          "source": "nanoka",
+          "contentHash": "1c57bd8458abb0025636fb2e73d171f48fa51ddc5010994416d0f609cbf6dc30",
+          "fileSha256": "ecbeadd388916acf3cd054e588b1b31a334e1a2d21c9c65f9b332704e54085c8",
+          "imageAvailable": false,
+          "issues": [
+            "暂无可用图片"
+          ],
+          "fields": {
+            "game": "currency",
+            "id": 47030108,
+            "image": "",
+            "last_crawled_at": "2026-10-07T10:52:07.905Z",
+            "name": "星航履",
+            "source": "nanoka",
+            "source_url": "https://static.nanoka.cc/hsr/4.6.51/zh/currency/item.json",
+            "tags": [
+              "currency",
+              "item"
+            ],
+            "type": "item",
+            "version": "4.6.51",
+            "类型": "Equipment",
+            "赛季": "S2"
+          },
+          "bodyHeadings": [
+            "# 星航履",
+            "## 效果",
+            "## 属性"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "currency/season2/items/47040108",
+          "id": "47040108",
+          "name": "星航履·特权",
+          "path": "data/currency/season2/items/47040108_星航履·特权.md",
+          "purpose": "星航履·特权；不同ID与效果，不能当普通版别名。",
+          "source": "nanoka",
+          "contentHash": "7707853c0ea2e2b8b5a0295f9983a1f64654584da8e47a2f270814de91cf663a",
+          "fileSha256": "2e94b9b92e14801cf712602212741122316e5e4656df5c20be8d936c922c74a7",
+          "imageAvailable": false,
+          "issues": [
+            "暂无可用图片"
+          ],
+          "fields": {
+            "game": "currency",
+            "id": 47040108,
+            "image": "",
+            "last_crawled_at": "2026-10-07T10:52:07.905Z",
+            "name": "星航履·特权",
+            "source": "nanoka",
+            "source_url": "https://static.nanoka.cc/hsr/4.6.51/zh/currency/item.json",
+            "tags": [
+              "currency",
+              "item"
+            ],
+            "type": "item",
+            "version": "4.6.51",
+            "类型": "Equipment",
+            "赛季": "S2"
+          },
+          "bodyHeadings": [
+            "# 星航履·特权",
+            "## 效果",
+            "## 属性"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "currency/season2/items/99989",
+          "id": "99989",
+          "name": "阿哈·简易武装箱",
+          "path": "data/currency/season2/items/99989_阿哈·简易武装箱.md",
+          "purpose": "Forge类缺图道具；有Basic稀有度。",
+          "source": "nanoka",
+          "contentHash": "cb959e0d29817b25ea35b54cd24ae5878f5a7751e64f5e8b0d22a0a51cb0156c",
+          "fileSha256": "4eec8f8b7d0116b39e88eb02b3b0446bd7775de5e54ab92d6ea0528e26a854b2",
+          "imageAvailable": false,
+          "issues": [
+            "暂无可用图片"
+          ],
+          "fields": {
+            "game": "currency",
+            "id": 99989,
+            "image": "",
+            "last_crawled_at": "2026-10-07T10:52:07.905Z",
+            "name": "阿哈·简易武装箱",
+            "source": "nanoka",
+            "source_url": "https://static.nanoka.cc/hsr/4.6.51/zh/currency/item.json",
+            "tags": [
+              "currency",
+              "item"
+            ],
+            "type": "item",
+            "version": "4.6.51",
+            "稀有度": "Basic",
+            "类型": "Forge",
+            "赛季": "S2"
+          },
+          "bodyHeadings": [
+            "# 阿哈·简易武装箱",
+            "## 效果"
+          ],
+          "sourceCheckScope": null
+        }
+      ]
+    },
+    {
+      "category": "currency/season2/strategies",
+      "label": "货币战争 S2 · 投资策略",
+      "total": 79,
+      "validImages": 79,
+      "fieldCoverage": {
+        "game": {
+          "present": 79,
+          "nonEmpty": 79
+        },
+        "id": {
+          "present": 79,
+          "nonEmpty": 79
+        },
+        "image": {
+          "present": 79,
+          "nonEmpty": 79
+        },
+        "image_match": {
+          "present": 79,
+          "nonEmpty": 79
+        },
+        "image_source": {
+          "present": 79,
+          "nonEmpty": 79
+        },
+        "image_source_url": {
+          "present": 79,
+          "nonEmpty": 79
+        },
+        "last_crawled_at": {
+          "present": 79,
+          "nonEmpty": 79
+        },
+        "name": {
+          "present": 79,
+          "nonEmpty": 79
+        },
+        "source": {
+          "present": 79,
+          "nonEmpty": 79
+        },
+        "source_url": {
+          "present": 79,
+          "nonEmpty": 79
+        },
+        "tags": {
+          "present": 79,
+          "nonEmpty": 79
+        },
+        "type": {
+          "present": 79,
+          "nonEmpty": 79
+        },
+        "version": {
+          "present": 79,
+          "nonEmpty": 79
+        },
+        "类型": {
+          "present": 79,
+          "nonEmpty": 79
+        },
+        "赛季": {
+          "present": 79,
+          "nonEmpty": 79
+        }
+      },
+      "samples": [
+        {
+          "key": "currency/season2/strategies/104101",
+          "id": "104101",
+          "name": "片场解散",
+          "path": "data/currency/season2/strategies/104101_片场解散.md",
+          "purpose": "Silver策略；常规短说明。",
+          "source": "nanoka",
+          "contentHash": "b9b71339f756cdc786e44728c3d06738777b3b687dbb7c042f9110702e9bd1b6",
+          "fileSha256": "726c06c0b5fe32243e68cc7669124e20e04efcc4a4dc50396dda78ed3580fe7e",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "game": "currency",
+            "id": 104101,
+            "image": "currency/season2/strategies/104101.webp",
+            "image_match": "snapshot-season-category-unique-name",
+            "image_source": "nanoka-snapshot",
+            "image_source_url": "https://static.nanoka.cc/assets/hsr/gridfight/augmentbig/104101.webp",
+            "last_crawled_at": "2026-10-07T10:52:07.905Z",
+            "name": "片场解散",
+            "source": "nanoka",
+            "source_url": "https://static.nanoka.cc/hsr/4.6.51/zh/currency/augment.json",
+            "tags": [
+              "currency",
+              "strategy"
+            ],
+            "type": "strategy",
+            "version": "4.6.51",
+            "类型": "Silver",
+            "赛季": "S2"
+          },
+          "bodyHeadings": [
+            "# 片场解散",
+            "## 说明"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "currency/season2/strategies/204801",
+          "id": "204801",
+          "name": "人才大礼包",
+          "path": "data/currency/season2/strategies/204801_人才大礼包.md",
+          "purpose": "Gold人才大礼包；基础版本。",
+          "source": "nanoka",
+          "contentHash": "01d3cb6431dfac6a92167ebecdc22cc595e5a079889bff4960efe7786b43e8cc",
+          "fileSha256": "fc99d4278897329faad966b88fb9526bc348219a991509ad370d905d265278ac",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "game": "currency",
+            "id": 204801,
+            "image": "currency/season2/strategies/204801.webp",
+            "image_match": "snapshot-season-category-unique-name",
+            "image_source": "nanoka-snapshot",
+            "image_source_url": "https://static.nanoka.cc/assets/hsr/gridfight/augmentbig/204801.webp",
+            "last_crawled_at": "2026-10-07T10:52:07.905Z",
+            "name": "人才大礼包",
+            "source": "nanoka",
+            "source_url": "https://static.nanoka.cc/hsr/4.6.51/zh/currency/augment.json",
+            "tags": [
+              "currency",
+              "strategy"
+            ],
+            "type": "strategy",
+            "version": "4.6.51",
+            "类型": "Gold",
+            "赛季": "S2"
+          },
+          "bodyHeadings": [
+            "# 人才大礼包",
+            "## 说明"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "currency/season2/strategies/204803",
+          "id": "204803",
+          "name": "人才大礼包++",
+          "path": "data/currency/season2/strategies/204803_人才大礼包++.md",
+          "purpose": "人才大礼包++；保留双加号并与基础版分开。",
+          "source": "nanoka",
+          "contentHash": "3c4f097fce2c68bd2d67d0be8840a454f34baeefa608c1b66ec6ceddb15ca6d1",
+          "fileSha256": "e5c8598dc412bad6fc5f0c14f5d96d551e45f81a842f36e885c0186f2012a78e",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "game": "currency",
+            "id": 204803,
+            "image": "currency/season2/strategies/204803.webp",
+            "image_match": "snapshot-season-category-unique-name",
+            "image_source": "nanoka-snapshot",
+            "image_source_url": "https://static.nanoka.cc/assets/hsr/gridfight/augmentbig/204801.webp",
+            "last_crawled_at": "2026-10-07T10:52:07.905Z",
+            "name": "人才大礼包++",
+            "source": "nanoka",
+            "source_url": "https://static.nanoka.cc/hsr/4.6.51/zh/currency/augment.json",
+            "tags": [
+              "currency",
+              "strategy"
+            ],
+            "type": "strategy",
+            "version": "4.6.51",
+            "类型": "Gold",
+            "赛季": "S2"
+          },
+          "bodyHeadings": [
+            "# 人才大礼包++",
+            "## 说明"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "currency/season2/strategies/312401",
+          "id": "312401",
+          "name": "黄金大饭店星徽套组",
+          "path": "data/currency/season2/strategies/312401_黄金大饭店星徽套组.md",
+          "purpose": "Prismatic长名称；正文涉及羁绊与物品。",
+          "source": "nanoka",
+          "contentHash": "1ef0b3ad32ef57c9bc07821aa93dec454c54186205e42cddfff21cdbc5393ce7",
+          "fileSha256": "3bcde98ec2bf4d21c14f96b95b38990330cb202fa239258a0dd025717bd028f2",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "game": "currency",
+            "id": 312401,
+            "image": "currency/season2/strategies/312401.webp",
+            "image_match": "snapshot-season-category-unique-name",
+            "image_source": "nanoka-snapshot",
+            "image_source_url": "https://static.nanoka.cc/assets/hsr/gridfight/augmentbig/312401.webp",
+            "last_crawled_at": "2026-10-07T10:52:07.905Z",
+            "name": "黄金大饭店星徽套组",
+            "source": "nanoka",
+            "source_url": "https://static.nanoka.cc/hsr/4.6.51/zh/currency/augment.json",
+            "tags": [
+              "currency",
+              "strategy"
+            ],
+            "type": "strategy",
+            "version": "4.6.51",
+            "类型": "Prismatic",
+            "赛季": "S2"
+          },
+          "bodyHeadings": [
+            "# 黄金大饭店星徽套组",
+            "## 说明"
+          ],
+          "sourceCheckScope": null
+        }
+      ]
+    },
+    {
+      "category": "currency/season2/environments",
+      "label": "货币战争 S2 · 投资环境",
+      "total": 32,
+      "validImages": 32,
+      "fieldCoverage": {
+        "game": {
+          "present": 32,
+          "nonEmpty": 32
+        },
+        "id": {
+          "present": 32,
+          "nonEmpty": 32
+        },
+        "image": {
+          "present": 32,
+          "nonEmpty": 32
+        },
+        "image_match": {
+          "present": 32,
+          "nonEmpty": 32
+        },
+        "image_source": {
+          "present": 32,
+          "nonEmpty": 32
+        },
+        "image_source_url": {
+          "present": 32,
+          "nonEmpty": 32
+        },
+        "last_crawled_at": {
+          "present": 32,
+          "nonEmpty": 32
+        },
+        "name": {
+          "present": 32,
+          "nonEmpty": 32
+        },
+        "source": {
+          "present": 32,
+          "nonEmpty": 32
+        },
+        "source_url": {
+          "present": 32,
+          "nonEmpty": 32
+        },
+        "tags": {
+          "present": 32,
+          "nonEmpty": 32
+        },
+        "type": {
+          "present": 32,
+          "nonEmpty": 32
+        },
+        "version": {
+          "present": 32,
+          "nonEmpty": 32
+        },
+        "赛季": {
+          "present": 32,
+          "nonEmpty": 32
+        }
+      },
+      "samples": [
+        {
+          "key": "currency/season2/environments/2101",
+          "id": "2101",
+          "name": "仙舟舰队邀请",
+          "path": "data/currency/season2/environments/2101_仙舟舰队邀请.md",
+          "purpose": "邀请类说明；没有结构化类型或关联字段。",
+          "source": "nanoka",
+          "contentHash": "2bcdb074b58fe125eb42fd2cabb93c7a53e50b2a0e6db1a06b65ecd62b5332bc",
+          "fileSha256": "9d1ad0654e5e273484bbd1c57fc49b5f20c4404b7ad893a5b39598e591cc76ed",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "game": "currency",
+            "id": 2101,
+            "image": "currency/season2/environments/2101.webp",
+            "image_match": "snapshot-season-category-unique-name",
+            "image_source": "nanoka-snapshot",
+            "image_source_url": "https://static.nanoka.cc/assets/hsr/gridfight/portal/2101.webp",
+            "last_crawled_at": "2026-10-07T10:52:07.905Z",
+            "name": "仙舟舰队邀请",
+            "source": "nanoka",
+            "source_url": "https://static.nanoka.cc/hsr/4.6.51/zh/currency/buff.json",
+            "tags": [
+              "currency",
+              "environment"
+            ],
+            "type": "environment",
+            "version": "4.6.51",
+            "赛季": "S2"
+          },
+          "bodyHeadings": [
+            "# 仙舟舰队邀请",
+            "## 说明"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "currency/season2/environments/2201",
+          "id": "2201",
+          "name": "仙舟舰队概念股",
+          "path": "data/currency/season2/environments/2201_仙舟舰队概念股.md",
+          "purpose": "同一羁绊的概念股；效果不同，不按前缀合并。",
+          "source": "nanoka",
+          "contentHash": "c052e4a05a27b5221f4e82944fc9a5b2916e61bc170e35ea3d6fd7cdddca018b",
+          "fileSha256": "2673d0bc5a1dff80a4d4226b21539d5812ee85a389bce5fe4986f366cd7f70e3",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "game": "currency",
+            "id": 2201,
+            "image": "currency/season2/environments/2201.webp",
+            "image_match": "snapshot-season-category-unique-name",
+            "image_source": "nanoka-snapshot",
+            "image_source_url": "https://static.nanoka.cc/assets/hsr/gridfight/portal/2201.webp",
+            "last_crawled_at": "2026-10-07T10:52:07.905Z",
+            "name": "仙舟舰队概念股",
+            "source": "nanoka",
+            "source_url": "https://static.nanoka.cc/hsr/4.6.51/zh/currency/buff.json",
+            "tags": [
+              "currency",
+              "environment"
+            ],
+            "type": "environment",
+            "version": "4.6.51",
+            "赛季": "S2"
+          },
+          "bodyHeadings": [
+            "# 仙舟舰队概念股",
+            "## 说明"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "currency/season2/environments/2116",
+          "id": "2116",
+          "name": "召唤邀请",
+          "path": "data/currency/season2/environments/2116_召唤邀请.md",
+          "purpose": "召唤邀请；覆盖战斗羁绊相关说明。",
+          "source": "nanoka",
+          "contentHash": "25a2bf5be9c76517bd5c1216fba0862b1b86c537036ee1f721654a32fa9421da",
+          "fileSha256": "675b75d9cda5118910d399d6e13462b6ee49c47034cf6d1a1a25aadc0e209a1b",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "game": "currency",
+            "id": 2116,
+            "image": "currency/season2/environments/2116.webp",
+            "image_match": "snapshot-season-category-unique-name",
+            "image_source": "nanoka-snapshot",
+            "image_source_url": "https://static.nanoka.cc/assets/hsr/gridfight/portal/2116.webp",
+            "last_crawled_at": "2026-10-07T10:52:07.905Z",
+            "name": "召唤邀请",
+            "source": "nanoka",
+            "source_url": "https://static.nanoka.cc/hsr/4.6.51/zh/currency/buff.json",
+            "tags": [
+              "currency",
+              "environment"
+            ],
+            "type": "environment",
+            "version": "4.6.51",
+            "赛季": "S2"
+          },
+          "bodyHeadings": [
+            "# 召唤邀请",
+            "## 说明"
+          ],
+          "sourceCheckScope": null
+        },
+        {
+          "key": "currency/season2/environments/2214",
+          "id": "2214",
+          "name": "能量概念股",
+          "path": "data/currency/season2/environments/2214_能量概念股.md",
+          "purpose": "能量概念股；覆盖另一种效果文本。",
+          "source": "nanoka",
+          "contentHash": "741fac806339eceb148042453d034e90e1094a2ab6cf0150872f2a1714378c3d",
+          "fileSha256": "fa174eced36a1c68aa6e37427789c69da5d799317477f8b2242c396a3a28310a",
+          "imageAvailable": true,
+          "issues": [],
+          "fields": {
+            "game": "currency",
+            "id": 2214,
+            "image": "currency/season2/environments/2214.webp",
+            "image_match": "snapshot-season-category-unique-name",
+            "image_source": "nanoka-snapshot",
+            "image_source_url": "https://static.nanoka.cc/assets/hsr/gridfight/portal/2214.webp",
+            "last_crawled_at": "2026-10-07T10:52:07.905Z",
+            "name": "能量概念股",
+            "source": "nanoka",
+            "source_url": "https://static.nanoka.cc/hsr/4.6.51/zh/currency/buff.json",
+            "tags": [
+              "currency",
+              "environment"
+            ],
+            "type": "environment",
+            "version": "4.6.51",
+            "赛季": "S2"
+          },
+          "bodyHeadings": [
+            "# 能量概念股",
+            "## 说明"
+          ],
+          "sourceCheckScope": null
+        }
+      ]
+    }
+  ]
+}

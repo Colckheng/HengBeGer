@@ -291,6 +291,18 @@ node scripts/open-index-api-smoke.mjs http://127.0.0.1:3001
 
 过程中一次失败的尝试已回滚：首次用全局正则替换，命中「晋阶材料」等其他表格中的同名字段（如 21000 的 `1,058` 被写成 `1`），从事前备份完整恢复并逐行比对字节一致后才重做。教训：**跨表格批量替换必须限定章节范围，并对替换次数设上限**。
 
+### 仓库整理（2026-10-14）
+
+文档与文件结构做了统一整理，便于接手：
+
+- **文档索引**：`docs/README.md` 重写为完整索引，按「推荐先读 / 交接记录 / 资料管线 / 界面与设计 / 架构与分析 / 使用与运维 / 评审与规范 / 附件」分组。
+- **补回缺失文档**：原只在工作树的 20–31 号文档（爬取覆盖、资料补齐、资料同步、UI 样本/需求/Demo 各版、滑动条研究、评审修订）已迁入 `docs/`，并修正其中指向工作树的绝对路径。
+- **交接链归档**：`HANDOFF_T2.9d…h` 五个文件移入 `docs/handoff/`（改名为 `t2.9*-handoff.md`），互相之间的链接与指向 `docs/` 的相对路径已修正；仓库根不再放交接文件。
+- **skill 受控副本**：`.agents/skills/hengberger-data/` 与已安装版本保持同步，内容含本次修复的口径与陷阱说明。
+- **可复现工具**：新增 npm 脚本 `verify:api`、`verify:shots`、`demo:data`、`open-index:css`，对应 `scripts/open-index-api-smoke.mjs`、`scripts/open-index-shots.mjs`、`scripts/build-demo-data.mjs`、`scripts/build-open-index-css.mjs`。
+- **清理**：删除 WSL 崩溃转储、临时缓存、无人引用的探针脚本 `scripts/crawler/_probe_t29d.js`；重复的数据库备份只保留每个范围最新一份。
+- **忽略规则**：`reports/design-review/`、`reports/open-index-css/`、`reports/open-index-verification/`、`.claude/` 加入 `.gitignore`（本机验证产物与编辑器状态，不入库）。
+
 ### 角色重复章节清理（2026-10-14 执行）
 
 上一节遗留的待办已处理：`hsr/characters` 的 97 个文件带 `## 基础数值（等级 80）` 旧节，与权威 `### 80级属性` 重复且数值更旧（例：1002_丹恒 882/547/397 vs 882/546/396），且该 `###` 嵌套在 `## 晋阶` 下，`mergeBodies` 只认 `## `，永远覆盖不到——所以只能一次性清理。

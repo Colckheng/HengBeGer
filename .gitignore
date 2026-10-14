@@ -82,3 +82,11 @@ test-data.html
 
 # Data pipeline
 data/images/
+
+# Local verification artifacts (screenshots, probes, acceptance logs)
+reports/design-review/
+reports/open-index-css/
+reports/open-index-verification/
+
+# Local editor state
+.claude/

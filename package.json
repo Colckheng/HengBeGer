@@ -38,7 +38,11 @@
     "test:frontend": "vitest run src --environment jsdom",
     "test:frontend:coverage": "vitest run src --environment jsdom --coverage",
     "test": "npm run test:backend && npm run test:frontend",
-    "test:coverage": "npm run test:backend:coverage && npm run test:frontend:coverage"
+    "test:coverage": "npm run test:backend:coverage && npm run test:frontend:coverage",
+    "verify:api": "node scripts/open-index-api-smoke.mjs",
+    "verify:shots": "node scripts/open-index-shots.mjs",
+    "demo:data": "node scripts/build-demo-data.mjs",
+    "open-index:css": "node scripts/build-open-index-css.mjs"
   },
   "dependencies": {
     "axios": "^1.11.0",
