@@ -180,16 +180,45 @@ docker compose -f deploy/docker-compose.yml exec -T app \
 
 导入完成后 `IMAGE_MODE=file` 的出图地址以磁盘 `t/` 档为准（目录清单缓存 60 秒），最多一分钟生效。
 
+## 推送（阶段 6：一条命令把本机数据推到云端）
+
+云端仓库在 `/srv/hengbeger`（`--dir` 可改）。数据先在本机导好，然后：
+
+```bash
+npm run cloud:export && npm run cloud:images     # 1. 本机导出数据与两档图片（只读快照）
+node scripts/cloud/push-data.mjs --host <公网IP> --dry-run   # 2. 空跑：只看将执行的命令
+node scripts/cloud/push-data.mjs --host <公网IP>             # 3. 真推：上传 + 远端导入 + 复核
+```
+
+它按顺序做五件事，任何一步失败就停下来并报出是哪一步（**前面的步骤已经生效**）：
+
+1. 本地校验数据包（`manifest` 的字节数/sha256/行数，加两档图片的张数与字节数）——
+   包不完整就直接拒绝上传；
+2. 打成 `deploy/packages/hengbeger-package.tar.gz`（纯 Node 写的 ustar，实测 92 MB → 76.9 MB / 3437 个文件）；
+3. `scp` 到 `<用户>@<IP>:/srv/hengbeger/incoming/`；
+4. `ssh` 远端解包到 `deploy/import`（**先 `rm -rf deploy/import` 再解**，那个目录里只放上传的包）；
+5. 在 app 容器里跑 `import-data.mjs`，最后再跑一次 `--check` 复核。
+
+常用参数：`--user`（默认 root）、`--port`、`--key`（私钥）、`--password-auth`
+（默认是 `BatchMode=yes`，只走密钥/agent，不弹密码）、`--check`（只读看云端现状）、
+`--skip-upload`（只校验+打包）、`--skip-import`（上传解包但不导入）、`--dry-run`（只打印命令，零副作用）。
+也可用环境变量 `HENGBERGER_CLOUD_HOST/USER/PORT/DIR/KEY`。
+
+第一次连一台新机器会写 `known_hosts`（`StrictHostKeyChecking=accept-new`）；
+主机指纹变了会直接拒绝连接，这是有意的。
+
+自检：`npm run cloud:test`（16 个用例：tar 打包器、ssh/scp 参数、失败中止、dry-run 零副作用等）。
+
 ## 上云
 
 阶段 6 才执行；没有用户提供的 ECS 信息（公网 IP、能否装 Docker、实例配置）之前不动手。
 
 1. ECS 安全组放行 `8443/tcp`（源可以是 `0.0.0.0/0`，个人服务够用）
 2. 装 Docker + compose 插件，`git clone` 到 `/srv/hengbeger`
-3. `cd /srv/hengbeger`，按上面的"首次准备"生成 `.env` 与证书（`--ip <公网IP>`）
-4. 从本机导出数据（`npm run cloud:export`，阶段 1 落地）并 scp 到 `deploy/import/`
-5. `docker compose -f deploy/docker-compose.yml up -d --build`
-6. 导入数据（阶段 3 落地），再跑一次与预演相同的验收
+3. `cd /srv/hengbeger`，按上面的"首次准备"生成 `.env` 与证书（`node deploy/scripts/make-cert.mjs --ip <公网IP>`）
+4. `docker compose -f deploy/docker-compose.yml up -d --build`
+5. 本机 `npm run cloud:export && npm run cloud:images`，然后 `node scripts/cloud/push-data.mjs --host <公网IP>`
+6. 浏览器开 `https://<公网IP>:8443`，再跑一次与预演相同的验收（见上）——注意证书是自签的，浏览器会拦一次
 
 回滚：`APP_TAG` 换成上一版标签重新 up 即可（每次发布用日期打标签，例如 `APP_TAG=2026-10-14`）。
 

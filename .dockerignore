@@ -32,6 +32,7 @@ deploy/ssl
 deploy/data
 deploy/data-preview
 deploy/import
+deploy/packages
 deploy/backups
 
 # 只服务设计预览页 demo.html 的素材，生产入口用不到（设计文档 §2.1「不搬」）

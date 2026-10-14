@@ -97,6 +97,7 @@ deploy/ssl/
 deploy/data/
 deploy/data-preview/
 deploy/import/
+deploy/packages/
 deploy/backups/
 
 # Desktop client (Electron)
