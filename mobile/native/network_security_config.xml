@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- 自签证书：整个 App 只信任这一把公钥，不信任任何公共 CA。
-     用 base-config 而不是 domain-config，是因为服务器地址是可配置的
-     （模拟器 10.0.2.2、局域网 IP、云服务器公网 IP 都可能填）。
-     证书换了以后必须重新生成（npm run mobile:pins），否则 App 直接连不上。 -->
+<!-- 自签证书：整个 App 只信任 res/raw/hengbeger_server.pem 这一张证书，不信任任何公共 CA。
+     不要改成 <pin-set>：Android 只允许它出现在 <domain-config> 里，放进 base-config 会在
+     App 启动时抛 "pin-set element not allowed in base-config" 直接闪退；而 domain-config
+     必须写死域名/IP，与「服务器地址可配置」冲突。@raw 信任锚在 base-config 里合法。
+     release 变体：cleartextTrafficPermitted=false —— 禁止一切明文流量。
+     Metro 的 http://localhost:8081 只在 debug 变体里放开（见 network_security_config.debug.xml）。 -->
 <network-security-config>
   <base-config cleartextTrafficPermitted="false">
     <trust-anchors>
-      <certificates src="system" />
+      <certificates src="@raw/hengbeger_server" />
     </trust-anchors>
-    <pin-set expiration="2036-10-11">
-      <pin digest="SHA-256">pyTwrzjVYFpogw/TGqDtS9i8dO0ewZhnDyyZ8gKN0Zk=</pin>
-    </pin-set>
   </base-config>
 </network-security-config>

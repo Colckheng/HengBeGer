@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { ActivityIndicator, FlatList, Image, Pressable, RefreshControl, StyleSheet, Text, View } from 'react-native';
 import { Link } from 'expo-router';
-import { getApp } from './_client';
+import { getApp } from '../src/api/app';
 import { buildHomeModel, totalCount } from '../src/lib/home';
 
 export default function HomeScreen() {

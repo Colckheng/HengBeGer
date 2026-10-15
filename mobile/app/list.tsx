@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { ActivityIndicator, FlatList, Image, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { Link, useLocalSearchParams } from 'expo-router';
-import { getApp } from './_client';
+import { getApp } from '../src/api/app';
 import { categoriesOf, filterItems } from '../src/lib/list';
 
 const PAGE_SIZE = 30;

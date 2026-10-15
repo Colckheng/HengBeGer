@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { ActivityIndicator, Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import Markdown from 'react-native-markdown-display';
 import { useLocalSearchParams } from 'expo-router';
-import { getApp } from '../_client';
+import { getApp } from '../../src/api/app';
 import { prepareReaderContent, prepareSections } from '../../src/content/content';
 import { describeFields } from '../../src/lib/fields';
 

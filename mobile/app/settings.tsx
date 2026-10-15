@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
-import { getApp } from './_client';
+import { getApp } from '../src/api/app';
 import { DEFAULT_SERVER_URL, normalizeServerUrl } from '../src/api/client';
 
 export default function SettingsScreen() {

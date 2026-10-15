@@ -1,8 +1,10 @@
 // 全局单例：服务器地址来自设置（默认 DEFAULT_SERVER_URL），缓存由 SQLite 提供。
-import { createApiClient, DEFAULT_SERVER_URL } from '../src/api/client';
-import { createCache } from '../src/store/cache';
-import { createLibrary } from '../src/store/library';
-import { openSqliteStorage } from '../src/store/sqlite';
+// 注意：这个文件不能放在 app/ 下 —— expo-router 会把 app/ 里的每个文件当成路由页面，
+// 放在 app/ 下会报 'Route "./_client.ts" is missing the required default export'。
+import { createApiClient, DEFAULT_SERVER_URL } from './client';
+import { createCache } from '../store/cache';
+import { createLibrary } from '../store/library';
+import { openSqliteStorage } from '../store/sqlite';
 
 let ready: Promise<{
   client: ReturnType<typeof createApiClient>;

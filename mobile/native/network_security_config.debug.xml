@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 自签证书：整个 App 只信任 res/raw/hengbeger_server.pem 这一张证书，不信任任何公共 CA。
+     不要改成 <pin-set>：Android 只允许它出现在 <domain-config> 里，放进 base-config 会在
+     App 启动时抛 "pin-set element not allowed in base-config" 直接闪退；而 domain-config
+     必须写死域名/IP，与「服务器地址可配置」冲突。@raw 信任锚在 base-config 里合法。
+     debug 变体：cleartextTrafficPermitted=true —— 设了 networkSecurityConfig 之后，
+     debug manifest 里的 usesCleartextTraffic 会被忽略，而 Metro 是 http://，不放开加载不了 JS。 -->
+<network-security-config>
+  <base-config cleartextTrafficPermitted="true">
+    <trust-anchors>
+      <certificates src="@raw/hengbeger_server" />
+    </trust-anchors>
+  </base-config>
+</network-security-config>
