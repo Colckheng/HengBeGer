@@ -67,6 +67,8 @@
     "mobile:test": "npm --prefix mobile run test",
     "mobile:typecheck": "npm --prefix mobile run typecheck",
     "mobile:pins": "node mobile/scripts/android-pins.mjs --cert deploy/ssl/server.crt --dir mobile/native",
+    "mobile:keystore": "node mobile/scripts/make-keystore.mjs",
+    "mobile:release": "node mobile/scripts/build-release.mjs",
     "verify:api": "node scripts/open-index-api-smoke.mjs",
     "verify:shots": "node scripts/open-index-shots.mjs",
     "demo:data": "node scripts/build-demo-data.mjs",

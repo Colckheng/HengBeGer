@@ -74,7 +74,7 @@ npm run mobile:start       # 只起 Metro（已经装过 debug 包时用这个�
 ## 测试与类型检查
 
 ```powershell
-npm run mobile:test        # node --test（28 个用例；打本机预演栈的 live 用例在栈没起时自动跳过）
+npm run mobile:test        # node --test（39 个用例；打本机预演栈的 live 用例在栈没起时自动跳过）
 npm run mobile:typecheck   # tsc --noEmit
 npm run mobile:pins        # 重新生成证书固定文件
 ```
@@ -104,14 +104,23 @@ cd mobile\android
 # 产物 mobile\android\app\build\outputs\apk\debug\app-debug.apk
 ```
 
-正式包需要自己生成 keystore（**务必备份**）：
+正式包（一条命令）：
 
 ```powershell
-keytool -genkeypair -v -keystore mobile\hengbeger-release.keystore -alias hengbeger ^
-  -keyalg RSA -keysize 2048 -validity 10000
+npm run mobile:keystore    # 首次：生成 mobile\hengbeger-release.keystore + keystore.properties（已存在则拒绝覆盖）
+npm run mobile:release     # 打补丁 → assembleRelease → 验签 → 复制到 mobile\dist\hengbeger-release.apk
 ```
 
+`mobile:release` 会自动把 `JAVA_HOME` 指向 Android Studio 的 jbr（AGP 只对它有保证，PATH 上的 java 1.8 编不了），
+并用 `apksigner verify --print-certs` 核对签名者指纹与 keystore 一致。装 release 包前必须先 `adb uninstall cc.nanoka.hengbeger`
+（签名与 debug 包不同，不能覆盖安装）；release 包内嵌了 JS bundle，**不需要 Metro**。
+
 keystore **务必自己备份**：丢了就再也签不出能覆盖安装的同签名新版本。keystore 与 `keystore.properties` 都不进仓库（`.gitignore` 已排除）。
+
+> **Windows 长路径**：release 构建（RelWithDebInfo）下 ninja 1.10.2 会对超过 260 字符的对象文件路径直接报
+> `Stat(...): Filename longer than 260 characters`。CMake 本来会把超长对象名换成 `md5(前缀)+文件名`，
+> 但默认 `CMAKE_OBJECT_PATH_MAX=250` 时 armeabi-v7a 恰好差 1 个字符没触发缩短。补丁脚本会在 `defaultConfig` 里注入
+> `-DCMAKE_OBJECT_PATH_MAX=270`（安全窗口 251..342），Debug 变体因为目录名短 9 字符本来就不会踩到。
 
 ## 已知限制
 

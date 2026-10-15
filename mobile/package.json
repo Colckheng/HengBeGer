@@ -8,8 +8,10 @@
     "android": "expo run:android",
     "prebuild": "expo prebuild --platform android --no-install",
     "patch:android": "node scripts/apply-android-patches.mjs",
+    "keystore": "node scripts/make-keystore.mjs",
+    "release": "node scripts/build-release.mjs",
     "typecheck": "tsc --noEmit",
-    "test": "node --test test/api.test.mjs test/store.test.mjs test/model.test.mjs test/content.test.mjs test/android-config.test.mjs test/live.test.mjs"
+    "test": "node --test test/api.test.mjs test/store.test.mjs test/model.test.mjs test/content.test.mjs test/android-config.test.mjs test/release-config.test.mjs test/live.test.mjs"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "2.2.0",
