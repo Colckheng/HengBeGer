@@ -90,7 +90,10 @@ export function buildSteps(options, tarPath) {
     'du -sh deploy/import',
     'ls -1 deploy/import',
   ]);
-  const runImport = remoteScript(['set -e', 'cd ' + sq(repo), compose + ' ps', compose + ' exec -T app ' + importArgs]);
+  // 坑：compose 的 `./import:/import:ro` 绑定挂载只在**容器创建时**解析源目录。
+  // 首次 up 时 deploy/import 还不存在的话，容器里 /import 会永远是个空目录（Docker 不会自愈），
+  // 导入就会报「没有找到 manifest.json」。所以每次导入前都重建一次 app 容器。
+  const runImport = remoteScript(['set -e', 'cd ' + sq(repo), compose + ' ps', compose + ' up -d --force-recreate app', compose + ' exec -T app ' + importArgs]);
   const runCheck = remoteScript(['set -e', 'cd ' + sq(repo), compose + ' exec -T app ' + importArgs + ' --check']);
 
   return [

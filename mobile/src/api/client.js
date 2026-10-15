@@ -5,7 +5,10 @@
  * 也能被 RN 页面直接 import（设计文档 §5.2：网络层重写，解析层复用）。
  */
 
-export const DEFAULT_SERVER_URL = 'https://127.0.0.1:8444';
+// 默认连云端 ECS（阿里云 39.102.49.72，自签证书 + 高位端口）。
+// 本机预演栈是 https://127.0.0.1:8444，局域网真机是 https://<电脑IP>:8444，
+// 两者都靠 network_security_config 里的额外信任锚（native/server.pem）连得上，设置页可改。
+export const DEFAULT_SERVER_URL = 'https://39.102.49.72:8443';
 
 export class ApiError extends Error {
   constructor(message, { status = 0, url = '', cause } = {}) {

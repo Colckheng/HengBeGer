@@ -21,8 +21,8 @@
   & "$env:LOCALAPPDATA\Android\Sdk\emulator\emulator.exe" -avd HengSch_QA_API_35 -no-snapshot-load -no-boot-anim -no-window -gpu off
   ```
 
-  连本机预演栈时用 `adb reverse tcp:8444 tcp:8444` + `adb reverse tcp:8081 tcp:8081`，
-  这样设备上的 `127.0.0.1:8444` 直通宿主机，证书 SAN（`DNS:localhost, IP:127.0.0.1`）天然匹配，不必为 `10.0.2.2` 重签证书。
+  连本机预演栈时用 `adb reverse tcp:8444 tcp:8444`（debug 包还要 `adb reverse tcp:8081 tcp:8081` 给 Metro），
+  这样设备上的 `127.0.0.1:8444` 直通宿主机，证书 SAN（`DNS:localhost, IP:127.0.0.1`）天然匹配，不必为 `10.0.2.2` 重签证书。连云端（默认地址）不需要 reverse，模拟器走公网即可。
 
 ## 安装与跑起来
 
@@ -36,20 +36,22 @@ npm run mobile:start       # 只起 Metro（已经装过 debug 包时用这个�
 
 ## 接哪台服务器
 
-设置页（`app/settings.tsx`）里填服务器地址并测试连通，默认 `https://127.0.0.1:8444`。
+设置页（`app/settings.tsx`）里填服务器地址并测试连通，默认 `https://39.102.49.72:8443`（云端 ECS，见 `mobile/src/api/client.js:8`）。
 
+- 云端 ECS：`https://39.102.49.72:8443`（默认；模拟器与真机都能直连）
+- 本机预演栈：`https://127.0.0.1:8444`（配 `adb reverse tcp:8444 tcp:8444`）
 - 模拟器访问宿主机：`https://10.0.2.2:8444`
-- 真机：同局域网 IP，或云服务器公网 IP（`https://<IP>:8443`）
+- 真机连本机：同局域网 IP + 8444
 - 必须是 https；自签证书的信任问题由下面的证书固定解决。
 
 ## 证书固定（关键，配错就连不上）
 
-做法：把自签证书本体放进 `res/raw/`，用 `network_security_config.xml` 声明**只信任这一张证书**（不信任任何公共 CA）。
+做法：把自签证书本体放进 `res/raw/`，用 `network_security_config.xml` 声明**只信任这些证书**（不信任任何公共 CA）。
 
-1. 生成服务器证书：`npm run cloud:cert -- --ip <服务器IP>` → 产物 `deploy/ssl/server.crt`
-2. 生成固定文件：`npm run mobile:pins` → `mobile/native/` 下三个文件
+1. 生成服务器证书：云端跑 `node deploy/scripts/make-cert.mjs --ip <公网IP>` → 产物 `deploy/ssl/server.crt`；把公网证书拷成 `deploy/certs/cloud-server.crt` 进仓库（`deploy/ssl/` 被 .gitignore 排除）
+2. 生成固定文件：`npm run mobile:pins` → `mobile/native/` 下：`native/*.pem` 每个文件就是一个信任锚，配置里逐个 `<certificates src="@raw/<名字>" />`（可同时信任云端与预演栈）
 
-   - `hengbeger_server.pem` —— 证书本体（公开信息，可进仓库）
+   - `cloud_server.pem`（云端 `deploy/certs/cloud-server.crt`，CN=39.102.49.72）与 `server.pem`（预演 `deploy/ssl/server.crt`，CN=localhost；不存在就跳过）—— 证书本体，公开信息可进仓库
    - `network_security_config.xml` —— release 用：信任上面那张证书 + 禁明文
    - `network_security_config.debug.xml` —— debug 用：同上，但放开明文（Metro 走 http）
 3. prebuild 之后打补丁（`android/` 是 prebuild 生成的，手改会被覆盖，所以用脚本）：
@@ -60,7 +62,7 @@ npm run mobile:start       # 只起 Metro（已经装过 debug 包时用这个�
    ```
 
    脚本是幂等的：已经打过就报「已是最新」。对应 `mobile/scripts/apply-android-patches.mjs`。
-4. **证书一旦重新生成，信任锚就变了**，必须重跑 `npm run mobile:pins` 与 `npm run mobile:patch`，否则 App 直接连不上。
+4. **证书一旦重新生成，信任锚就变了**，必须重跑 `npm run mobile:pins` 与 `npm run mobile:patch`（再 `npm run mobile:release` 重打包），否则 App 直接连不上。脚本会顺手删掉 `res/raw/` 里没人引用的旧 `.pem`（aapt2 会把它们也打进包）。
 
 > **不要用 `<pin-set>`。** Android 的解析器只允许 `<pin-set>` 出现在 `<domain-config>` 里，放进 `<base-config>` 会在 Application 初始化时抛
 > `ParserException: pin-set element not allowed in base-config`，App 一启动就闪退（连崩溃日志都要靠 `adb logcat` 才看得到）；
@@ -74,12 +76,18 @@ npm run mobile:start       # 只起 Metro（已经装过 debug 包时用这个�
 ## 测试与类型检查
 
 ```powershell
-npm run mobile:test        # node --test（39 个用例；打本机预演栈的 live 用例在栈没起时自动跳过）
+npm run mobile:test        # node --test（49 个用例；live 用例默认打本机预演栈，栈没起时自动跳过）
 npm run mobile:typecheck   # tsc --noEmit
 npm run mobile:pins        # 重新生成证书固定文件
 ```
 
 注意：`node --test` 在 Windows 下不能传目录，必须显式列文件（`package.json` 里已经列好）。
+
+live 用例打的是真实服务器，可以指向云端：
+
+```powershell
+$env:HENGBERGER_TEST_SERVER='https://39.102.49.72:8443'; node --test mobile/test/live.test.mjs
+```
 
 `punycode` 是显式依赖：`react-native-markdown-display` → `markdown-it@10` 在 `lib/index.js:14` 里 `require('punycode')`，
 但 `markdown-it` 自己没声明这个依赖，Metro 会报 `Unable to resolve module punycode`，bundle 直接 500。

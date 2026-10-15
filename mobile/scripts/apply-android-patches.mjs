@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * prebuild 之后要打的补丁（Expo 没有现成的配置项）：
- *   1. native/hengbeger_server.pem              → android/app/src/main/res/raw/
+ *   1. native/*.pem（信任锚，可多张）           → android/app/src/main/res/raw/
  *   2. native/network_security_config.xml       → android/app/src/main/res/xml/（release）
  *   3. native/network_security_config.debug.xml → android/app/src/debug/res/xml/（debug 变体覆盖 main）
  *                                                以及 android/app/src/debugOptimized/res/xml/
@@ -25,7 +25,6 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 export const MANIFEST_ATTR = 'android:networkSecurityConfig="@xml/network_security_config"';
-const RAW_NAME = 'hengbeger_server';
 
 export function copyIfChanged(src, target) {
   const content = fs.readFileSync(src);
@@ -166,22 +165,40 @@ export function applyPatches({ androidDir = path.resolve('android'), dir = path.
     throw new Error('还没有 android/ 工程，先跑 npm run mobile:prebuild');
   }
   const debugXml = path.join(dir, 'network_security_config.debug.xml');
+  // 信任锚按证书列，可以有多张（云端 ECS + 本机预演栈），文件名即 res/raw 资源名。
+  const anchors = fs.existsSync(dir)
+    ? fs.readdirSync(dir).filter((name) => name.endsWith('.pem')).sort()
+    : [];
+  const rawDir = path.join(androidDir, 'app', 'src', 'main', 'res', 'raw');
   const sources = [
     [path.join(dir, 'network_security_config.xml'), path.join(androidDir, 'app', 'src', 'main', 'res', 'xml', 'network_security_config.xml')],
     [debugXml, path.join(androidDir, 'app', 'src', 'debug', 'res', 'xml', 'network_security_config.xml')],
     [debugXml, path.join(androidDir, 'app', 'src', 'debugOptimized', 'res', 'xml', 'network_security_config.xml')],
-    [path.join(dir, RAW_NAME + '.pem'), path.join(androidDir, 'app', 'src', 'main', 'res', 'raw', RAW_NAME + '.pem')],
+    ...anchors.map((name) => [path.join(dir, name), path.join(rawDir, name)]),
   ];
   for (const [src] of sources) {
     if (!fs.existsSync(src)) {
       throw new Error('缺少证书固定文件，先跑 npm run mobile:pins：' + src);
     }
   }
+  if (anchors.length === 0) {
+    throw new Error('缺少证书固定文件，先跑 npm run mobile:pins：' + dir + ' 里没有 .pem');
+  }
   const files = sources.map(([src, target]) => copyIfChanged(src, target));
+  // 上一版只拷 hengbeger_server.pem；换证书后 res/raw 里的旧锚会被 aapt2 一起打进包，
+  // 虽然没人引用但会让「包里到底信任谁」难以判断，这里清掉。
+  const removed = [];
+  if (fs.existsSync(rawDir)) {
+    for (const name of fs.readdirSync(rawDir)) {
+      if (!name.endsWith('.pem') || anchors.includes(name)) continue;
+      fs.rmSync(path.join(rawDir, name));
+      removed.push(path.join(rawDir, name));
+    }
+  }
   const manifest = patchManifest(androidDir);
   const cmake = patchCmakeArgs(androidDir);
   const signing = patchGradle(androidDir);
-  return { files, manifest, cmake, signing };
+  return { files, removed, manifest, cmake, signing };
 }
 
 const isCli = process.argv[1] && process.argv[1].endsWith('apply-android-patches.mjs');
@@ -190,6 +207,9 @@ if (isCli) {
     const result = applyPatches();
     for (const file of result.files) {
       console.log((file.changed ? '已写入 ' : '已是最新 ') + file.target);
+    }
+    for (const target of result.removed) {
+      console.log('已删除（不再需要的信任锚） ' + target);
     }
     console.log((result.manifest.changed ? '已打补丁 ' : '已是最新 ') + result.manifest.manifest);
     console.log((result.cmake.changed ? '已打补丁 ' : '已是最新 ') + result.cmake.gradle + '（CMAKE_OBJECT_PATH_MAX=' + CMAKE_OBJECT_PATH_MAX + '）');

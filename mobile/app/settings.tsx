@@ -30,7 +30,7 @@ export default function SettingsScreen() {
         placeholderTextColor="#6f6890"
         style={styles.input}
       />
-      <Text style={styles.hint}>走公网 IP + 高位端口，证书自签；首次连接会要求确认指纹。</Text>
+      <Text style={styles.hint}>默认是云端 ECS（公网 IP + 8443，自签证书）。填本机预演栈就写 https://127.0.0.1:8444；证书靠 App 内置信任锚固定，换服务器地址要重打包。</Text>
       <Pressable
         style={styles.button}
         onPress={async () => {

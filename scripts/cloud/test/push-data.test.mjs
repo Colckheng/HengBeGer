@@ -71,7 +71,13 @@ test('buildSteps：ssh 用 -p，scp 用 -P，默认加 BatchMode', () => {
   assert.ok(scp.args[scp.args.length - 1].startsWith('root@47.98.1.2:' + DEFAULTS.remoteDir + '/incoming/'));
   assert.match(extract.args[extract.args.length - 1], /rm -rf deploy\/import/);
   assert.match(extract.args[extract.args.length - 1], /tar -xzf 'incoming\/hengbeger-package\.tar\.gz' -C deploy\/import/);
-  assert.match(importStep.args[importStep.args.length - 1], /docker compose -f deploy\/docker-compose\.yml exec -T app node scripts\/cloud\/import-data\.mjs --dir \/import/);
+  const importScript = importStep.args[importStep.args.length - 1];
+  // 绑定挂载 ./import:/import:ro 只在容器创建时解析，首次 up 时目录不存在会挂成空目录且不自愈，
+  // 所以导入前必须先重建 app 容器（实测踩过：报「没有找到 manifest.json」）。
+  assert.match(importScript, /docker compose -f deploy\/docker-compose\.yml up -d --force-recreate app/);
+  assert.ok(importScript.indexOf('--force-recreate app') < importScript.indexOf('exec -T app'),
+    '必须先重建容器再 exec 导入');
+  assert.match(importScript, /docker compose -f deploy\/docker-compose\.yml exec -T app node scripts\/cloud\/import-data\.mjs --dir \/import/);
   assert.match(check.args[check.args.length - 1], /--check/);
 });
 

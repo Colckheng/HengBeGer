@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- 自签证书：整个 App 只信任 res/raw/hengbeger_server.pem 这一张证书，不信任任何公共 CA。
+<!-- 自签证书：整个 App 只信任下面 res/raw 里列出的证书，不信任任何公共 CA。
      不要改成 <pin-set>：Android 只允许它出现在 <domain-config> 里，放进 base-config 会在
      App 启动时抛 "pin-set element not allowed in base-config" 直接闪退；而 domain-config
      必须写死域名/IP，与「服务器地址可配置」冲突。@raw 信任锚在 base-config 里合法。
@@ -8,7 +8,8 @@
 <network-security-config>
   <base-config cleartextTrafficPermitted="false">
     <trust-anchors>
-      <certificates src="@raw/hengbeger_server" />
+      <certificates src="@raw/cloud_server" />
+      <certificates src="@raw/server" />
     </trust-anchors>
   </base-config>
 </network-security-config>

@@ -197,7 +197,10 @@ node scripts/cloud/push-data.mjs --host <公网IP>             # 3. 真推：上
 2. 打成 `deploy/packages/hengbeger-package.tar.gz`（纯 Node 写的 ustar，实测 92 MB → 76.9 MB / 3437 个文件）；
 3. `scp` 到 `<用户>@<IP>:/srv/hengbeger/incoming/`；
 4. `ssh` 远端解包到 `deploy/import`（**先 `rm -rf deploy/import` 再解**，那个目录里只放上传的包）；
-5. 在 app 容器里跑 `import-data.mjs`，最后再跑一次 `--check` 复核。
+5. 先 `docker compose up -d --force-recreate app`，再在 app 容器里跑 `import-data.mjs`，最后跑一次 `--check` 复核。
+   为什么要重建容器：`./import:/import:ro` 这种绑定挂载只在**容器创建时**解析源目录，
+   首次 `up` 时 `deploy/import` 还不存在的话，容器里 `/import` 会永远是个空目录（Docker 不会自愈），
+   导入就报「没有找到 manifest.json」。重建一次即可，导入本身仍是幂等的。
 
 常用参数：`--user`（默认 root）、`--port`、`--key`（私钥）、`--password-auth`
 （默认是 `BatchMode=yes`，只走密钥/agent，不弹密码）、`--check`（只读看云端现状）、
@@ -207,20 +210,37 @@ node scripts/cloud/push-data.mjs --host <公网IP>             # 3. 真推：上
 第一次连一台新机器会写 `known_hosts`（`StrictHostKeyChecking=accept-new`）；
 主机指纹变了会直接拒绝连接，这是有意的。
 
-自检：`npm run cloud:test`（16 个用例：tar 打包器、ssh/scp 参数、失败中止、dry-run 零副作用等）。
+自检：`npm run cloud:test`（18 个用例：tar 打包器、ssh/scp 参数、失败中止、dry-run 零副作用等）。
 
 ## 上云
 
-阶段 6 才执行；没有用户提供的 ECS 信息（公网 IP、能否装 Docker、实例配置）之前不动手。
+已在阿里云 ECS **39.102.49.72**（2 核 / 1.6G / Ubuntu 22.04）上跑通，步骤与实测如下。
 
-1. ECS 安全组放行 `8443/tcp`（源可以是 `0.0.0.0/0`，个人服务够用）
-2. 装 Docker + compose 插件，`git clone` 到 `/srv/hengbeger`
+1. ECS 安全组放行 `8443/tcp`（源可以是 `0.0.0.0/0`，个人服务够用），服务器上再 `ufw allow 8443/tcp`
+2. 装 Docker + compose 插件（`apt-get install -y docker.io docker-compose-v2`），代码放到 `/srv/hengbeger`
 3. `cd /srv/hengbeger`，按上面的"首次准备"生成 `.env` 与证书（`node deploy/scripts/make-cert.mjs --ip <公网IP>`）
 4. `docker compose -f deploy/docker-compose.yml up -d --build`
 5. 本机 `npm run cloud:export && npm run cloud:images`，然后 `node scripts/cloud/push-data.mjs --host <公网IP>`
 6. 浏览器开 `https://<公网IP>:8443`，再跑一次与预演相同的验收（见上）——注意证书是自签的，浏览器会拦一次
 
 回滚：`APP_TAG` 换成上一版标签重新 up 即可（每次发布用日期打标签，例如 `APP_TAG=2026-10-14`）。
+
+### 实测踩过的坑（2026-10-15，ECS 39.102.49.72）
+
+- **Docker Hub 不可达**：`registry-1.docker.io` 被 DNS 污染（解析到 `2a03:2880:...`），直接 `docker pull` 必然失败。
+  要在 `/etc/docker/daemon.json` 里配国内镜像源，实测可达的有
+  `docker.m.daocloud.io`、`docker.1ms.run`、`docker.1panel.live`、`dockerproxy.net`，改完 `systemctl restart docker`。
+- **`git clone` 走 HTTPS 不稳**：`git ls-remote https://github.com/...` 会超时，`git clone` 报
+  `GnuTLS recv error (-110)`。代码上云改用 `git archive --format=tar.gz`（约 68 MB）scp 过去解包。
+- **容器 `/import` 空挂载**：见上面「推送」第 5 步，`up -d --force-recreate app` 解决。
+- **PowerShell 里别手拼远端命令**：`ssh "...for p in ...; do ...; done"` 会因为引号嵌套报
+  `bash: -c: line 2: syntax error: unexpected end of file`。复杂远端脚本一律「写 `.sh` → `scp` →
+  远端 `tr -d '\r'` 清洗后 `bash` 执行」（PowerShell 管道送过去的是 CRLF，不清洗会报 `$'\r': command not found`）。
+- 验收结果：`/api/catalog/index` 200（2,846,971 字节，2675 条 / 23 个分组 / 2518 条带图）、
+  `/img/t/*.webp` 200 `image/webp`、`/api/data`、`/api/auth/session`、`/metrics` 全 403。
+- 证书 SAN 是 `IP Address:39.102.49.72`，有效期到 2036-10-12；**证书进仓库的副本在 `deploy/certs/cloud-server.crt`**，
+  App 侧靠它做信任锚（`npm run mobile:pins`）。
+
 
 ## 运维
 
