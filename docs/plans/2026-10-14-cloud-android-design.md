@@ -1,7 +1,8 @@
 # 云端托管与安卓 App 设计（2026-10-14）
 
-> 状态：设计定稿，待实施。用户已逐节确认第 1–6 节。
-> 实施前置：需要用户提供阿里云 ECS 的连接信息；在此之前只做本机预演（§4.7）。
+> 状态：**已实施**（2026-10-15 上云完成）。用户已逐节确认第 1–6 节。
+> 实施记录见 `deploy/README.md` 的「上云」与「实测踩过的坑」两节；App 侧见 `mobile/README.md`。
+> ECS：39.102.49.72，https://39.102.49.72:8443，证书 SAN=IP 到 2036-10-12。
 
 ## 背景
 
@@ -413,8 +414,8 @@ mobile/
 
 | # | 未知项 | 影响 | 获取方式 |
 |---|---|---|---|
-| 1 | ECS 具体配置（CPU / 内存 / 磁盘 / 带宽） | 决定 buffer pool、缩略图档位 | 用户执行一条探测命令；未提供则按 2 核 2G / 40G / 3 Mbps 设计 |
-| 2 | ECS 能否装 Docker | 决定是否退到方案 B | 用户确认 |
-| 3 | 代码上云方式 A 是否可行 | 决定用 bundle 还是 git pull | 实施时实测 |
-| 4 | ECS 公网 IP | 证书 SAN、App 默认地址、安全组 | 用户提供 |
+| 1 | ECS 具体配置（CPU / 内存 / 磁盘 / 带宽） | 决定 buffer pool、缩略图档位 | ✅ 实测 2 核 / 1608 MB / 40G（用 7.8G）/ 已有宝塔等常驻服务，MYSQL_BUFFER_POOL 保持 256M |
+| 2 | ECS 能否装 Docker | 决定是否退到方案 B | ✅ 能：`apt-get install -y docker.io docker-compose-v2`（29.1.3 / 2.40.3）。**Docker Hub 被 DNS 污染，必须配国内镜像源** |
+| 3 | 代码上云方式 A 是否可行 | 决定用 bundle 还是 git pull | ✅ A 不可行：`git clone` 报 `GnuTLS recv error (-110)`，改用 `git archive` 的 tar 包 + scp |
+| 4 | ECS 公网 IP | 证书 SAN、App 默认地址、安全组 | ✅ 39.102.49.72；安全组与 ufw 均已放行 8443 |
 
