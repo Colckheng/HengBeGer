@@ -249,7 +249,7 @@ node scripts/cloud/push-data.mjs --host <公网IP>             # 3. 真推：上
 docker compose -f deploy/docker-compose.yml ps
 docker compose -f deploy/docker-compose.yml logs -f --tail=100 app
 
-# 数据库备份（导到 deploy/backups/）
+# 数据库备份（导到 deploy/backups/，手动跑一次）
 docker compose -f deploy/docker-compose.yml exec -T mysql \
   sh -c 'exec mysqldump -uroot -p"$MYSQL_ROOT_PASSWORD" --single-transaction --routines --triggers "$MYSQL_DATABASE"' \
   > deploy/backups/hengbeger-$(date +%F).sql
@@ -257,6 +257,16 @@ docker compose -f deploy/docker-compose.yml exec -T mysql \
 # 只重启应用（改代码后）
 docker compose -f deploy/docker-compose.yml up -d --build app
 ```
+
+### 每日自动备份
+
+`deploy/scripts/backup.sh` 是云端那份备份脚本（mysqldump → gzip → `deploy/backups/`，只留最近 14 份）。
+已经装在 ECS 39.102.49.72 上：脚本在 `/srv/hengbeger/deploy/backup.sh`，root crontab 里是
+`30 3 * * * /srv/hengbeger/deploy/backup.sh >> /var/log/hengbeger-backup.log 2>&1`（实测跑出 3.0 MB 的 `.sql.gz`）。
+新机器上部署时：`scp deploy/scripts/backup.sh <host>:/srv/hengbeger/deploy/backup.sh`，
+远端 `tr -d '\r' < … | sponge`（或先 `tr` 到临时文件再 `mv`）清掉 CRLF、`chmod +x`，再加 crontab。
+
+备份要定期拉到本机（`scp <host>:/srv/hengbeger/deploy/backups/*.sql.gz db-backups/`）——卷丢了只能靠它。
 
 ## 已知限制
 
