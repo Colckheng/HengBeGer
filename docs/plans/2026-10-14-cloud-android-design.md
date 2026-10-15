@@ -119,7 +119,8 @@ manifest 记录：导出时间、条目数、图片数、总字节、条目 `con
 ### 2.5 触发方式
 
 - `npm run cloud:push` = 本地导出 -> scp 上传 -> 远程触发导入 -> 回报结果摘要
-- `npm run cloud:status` = 查看云端数据状态
+  （实测：`node scripts/cloud/push-data.mjs --host 39.102.49.72`，先 `--dry-run` 空跑一遍）
+- `npm run cloud:push:check` = 只读复核云端数据状态（不传 `--host` 时用 `HENGBERGER_CLOUD_HOST`）
 
 ### 2.6 旧后台处置
 
