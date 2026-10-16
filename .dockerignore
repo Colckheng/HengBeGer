@@ -35,8 +35,15 @@ deploy/import
 deploy/packages
 deploy/backups
 
-# 只服务设计预览页 demo.html 的素材，生产入口用不到（设计文档 §2.1「不搬」）
-public/demo-art
+# 生产入口 src/open-index/OpenIndex.jsx 只渲染 orbital 主题，以下素材它真的会用到，
+# 所以必须进入构建上下文（见 scripts/trim-dist.mjs 的裁剪与引用完整性校验）：
+#   - public/demo-art/covers/{zzz,hsr,currency}.png  首页三张世界卡片
+#   - public/demo-art/fonts/*.woff2                  全站字体（退化了也不报错，只能肉眼发现）
+#   - public/demo-art/*.png（根级 9 张插画）         世界页 hero 图 + 详情页肖像图
+# 只排除确认真中用不到的：
+#   - public/demo-art/previews/                      DemoApp 设计总览（#/gallery）与其他 theme
+#   - public/demo-data/                             云端数据走 /api/catalog/*，不读这份 index.json
+public/demo-art/previews
 public/demo-data
 
 # 安卓工程（将来 mobile/ 目录单独构建）

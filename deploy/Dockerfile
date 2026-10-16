@@ -15,11 +15,15 @@ RUN npm ci --no-audit --no-fund
 
 COPY . .
 
-# public/demo-art(约 54MB) 与 public/demo-data(约 7MB) 只服务设计预览页，
-# 生产入口 index.html 完全不引用；vite 会把 public/ 整个拷进 dist，所以这里删掉。
-RUN npm run build \
- && rm -rf dist/demo-art dist/demo-data \
- && node -e "const fs=require('fs');const ok=fs.existsSync('dist/index.html');if(!ok){console.error('dist/index.html missing');process.exit(1)};console.log('dist ready')"
+# vite 会把 public/ 整个拷进 dist。这里按「生产是否真的引用」裁剪，并做引用完整性校验：
+#   - 保留 covers/ 与 fonts/       ：首页三卡 + 全站字体
+#   - 保留根级 9 张插画            ：世界页 hero 图 + 详情页肖像图
+#   - 删掉 previews/ 与 demo-data   ：只有 DemoApp 设计总览用得到
+# 校验逻辑在 scripts/trim-dist.mjs（可本机单独跑、可读、可加单测）：
+# 扫 dist 里所有文本产物的 /demo-art/ 引用，缺一个就让构建失败。
+# 背景：.dockerignore 曾把 public/demo-art 整目录排除，线上首页三卡全部 404、
+# 全站字体静默退化成系统字体，只能靠肉眼发现 —— 这类问题必须在构建期炸掉。
+RUN npm run build && node scripts/trim-dist.mjs
 
 # ---------------------------------------------------------------- runtime
 FROM ${NODE_IMAGE} AS runtime
