@@ -17,6 +17,10 @@ dist-ssr
 build
 *.local
 
+# 例外：electron-builder 的自定义 NSIS 安装器脚本必须进仓库（见 desktop/build/installer.nsi 头部注释）。
+# 注意：`build` 规则排除的是目录，git 不遍历被排除目录，所以只能用目录级例外。
+!desktop/build/
+
 # Binary installers
 *.exe
 *.msi

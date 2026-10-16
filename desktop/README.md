@@ -36,6 +36,31 @@ npm run dist         # 出 Windows 安装包（NSIS + 便携版），产物在 d
 
 仓库根也留了三个入口：`npm run desktop`、`npm run desktop:smoke`、`npm run desktop:dist`。
 
+### 自定义 NSIS 脚本（build/installer.nsi）
+
+`desktop/package.json` 的 `build.nsis.script` 指向 `installer.nsi`，它按 `buildResourcesDir` 解析，
+也就是 `desktop/build/installer.nsi`。
+
+为什么要自定义：官方模板会让 electron-builder 先用 `BUILD_UNINSTALLER` 编一个中间安装器，
+再**直接运行**它，让它自己 `WriteUninstaller` 吐出 uninstaller.exe 供签名
+（`app-builder-lib/out/targets/nsis/NsisTarget.js:337-381`）。那一步在受限宿主里会被信号杀掉
+（`ERR_ELECTRON_BUILDER_CANNOT_EXECUTE`），成品安装器根本构建不到。
+一旦提供自定义脚本，同文件 :342-345 会提前 return，整条 uninstaller 提取/签名流程被跳过。
+
+代价与注意点：
+
+- uninstaller.exe 不打包也不签名（我们没有代码签名证书，本来就签不了）；
+  `registryAddInstallInfo` 仍会写 `UninstallString` 指向 `$INSTDIR\Uninstall HengBerGer.exe`，
+  该文件不存在，所以**系统「应用和功能」里的卸载入口是无效的**，卸载请手动删目录。
+- 自定义脚本里必须把官方 `installApplicationFiles` 宏（`include/installer.nsh:9-101`）
+  末尾的 `File "/oname=${UNINSTALL_FILENAME}" "${UNINSTALLER_OUT_FILE}"` 去掉：
+  自定义路线下 `UNINSTALLER_OUT_FILE` 从未被赋值，留着会让 makensis 报
+  `Usage: File [/nonfatal] ... / Error in macro installApplicationFiles on macroline 91`。
+  NSIS 不允许重定义已存在的宏，所以 `build/installer.nsi` 是把 `installSection.nsh` 的内容
+  内联进来、只替换那一行调用。
+- 升级 electron-builder 后请和 `node_modules/app-builder-lib/templates/nsis/installer.nsi`
+  重新比对。
+
 ## 服务器地址
 
 - 本机预演：`https://127.0.0.1:8444`（先 `npm run cloud:preview:up`）
