@@ -13,9 +13,16 @@
   ```powershell
   $env:JAVA_HOME = 'C:\Program Files\Android\Android Studio\jbr'
   ```
-- 模拟器或真机（`adb devices` 能看到）
+- 模拟器或真机（`adb devices` 能看到）。**本机原来的两个 AVD（`HengSch_QA_API_35`、`Pixel7`）已删掉腾空间**，
+  需要时重建即可（system image 还在 SDK 里，离线就能建）：
 
-  本机（AMD 显卡）上 AVD 只有 `-gpu off` 能起来，`-gpu swiftshader_indirect` 会在 2 秒内 `exit 1`：
+  ```powershell
+  $env:JAVA_HOME = 'C:\Program Files\Android\Android Studio\jbr'
+  & "$env:LOCALAPPDATA\Android\Sdk\cmdline-tools\latest\bin\avdmanager.bat" create avd `
+      -n HengSch_QA_API_35 -k "system-images;android-35;google_apis;x86_64" -d pixel_7
+  ```
+
+  起来时（AMD 显卡）只有 `-gpu off` 能跑，`-gpu swiftshader_indirect` 会在 2 秒内 `exit 1`：
 
   ```powershell
   & "$env:LOCALAPPDATA\Android\Sdk\emulator\emulator.exe" -avd HengSch_QA_API_35 -no-snapshot-load -no-boot-anim -no-window -gpu off
@@ -76,7 +83,7 @@ npm run mobile:start       # 只起 Metro（已经装过 debug 包时用这个�
 ## 测试与类型检查
 
 ```powershell
-npm run mobile:test        # node --test（49 个用例；live 用例默认打本机预演栈，栈没起时自动跳过）
+npm run mobile:test        # node --test（53 个用例；live 用例默认打本机预演栈，栈没起时自动跳过）
 npm run mobile:typecheck   # tsc --noEmit
 npm run mobile:pins        # 重新生成证书固定文件
 ```

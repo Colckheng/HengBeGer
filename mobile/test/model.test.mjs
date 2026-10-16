@@ -85,6 +85,16 @@ test('describeFields：摊平元数据、隐藏内部字段、跳过对象与空
     { label: '赛季', value: 'S1' },
     { label: '版本', value: '4.6.51' },
   ]);
+
+  // 采集链路的元信息不出现在属性表里（它们的值常是很长的 URL / 时间戳）
+  const crawler = describeFields({
+    fields: {
+      id: 1201, name: '欢愉契约', last_crawled_at: '2026-10-07T10:52:07.905Z',
+      image_source_url: 'https://static.nanoka.cc/assets/hsr/gridfight/portal/1201.webp',
+      image_match: 'snapshot-season-category-unique-name', 赛季: 'S1',
+    },
+  });
+  assert.deepEqual(crawler, [{ label: '赛季', value: 'S1' }]);
 });
 
 test('categoriesOf：可按世界过滤', () => {

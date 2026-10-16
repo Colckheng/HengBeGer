@@ -48,18 +48,17 @@ export default function HomeScreen() {
       contentContainerStyle={styles.page}
       refreshControl={<RefreshControl refreshing={false} onRefresh={() => load(true)} />}
       ListHeaderComponent={
-        <View>
-          <Text style={styles.title}>向每一份好奇心开放。</Text>
+        <View style={styles.header}>
           <Text style={styles.sub}>{total} 份资料 · 已同步到本机</Text>
           {note ? <Text style={styles.note}>{note}</Text> : null}
         </View>
       }
       renderItem={({ item }) => (
         <View style={styles.card}>
-          <Text style={styles.world}>{item.title}</Text>
-          <Text style={styles.en}>{item.en}</Text>
-          <Text style={styles.line}>{item.tagline}</Text>
-          <Text style={styles.count}>{item.total} 份资料</Text>
+          <View style={styles.cardHead}>
+            <Text style={styles.world}>{item.title}</Text>
+            <Text style={styles.count}>{item.total}</Text>
+          </View>
           <View style={styles.quickRow}>
             {item.quick.map((group: any) => (
               <Link key={group.id} href={{ pathname: '/list', params: { category: group.id, title: group.name } }} asChild>
@@ -67,20 +66,18 @@ export default function HomeScreen() {
               </Link>
             ))}
           </View>
-          <FlatList
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            data={item.recent}
-            keyExtractor={(entry: any) => entry.key}
-            renderItem={({ item: entry }) => (
-              <Link href={{ pathname: '/entry/[key]', params: { key: entry.key } }} asChild>
-                <Pressable style={styles.recent}>
-                  {entry.image ? <Image source={{ uri: entry.image }} style={styles.thumb} /> : <View style={styles.thumb} />}
-                  <Text numberOfLines={1} style={styles.recentName}>{entry.name}</Text>
-                </Pressable>
-              </Link>
-            )}
-          />
+          {item.recent.length > 0 ? (
+            <View style={styles.recentRow}>
+              {item.recent.map((entry: any) => (
+                <Link key={entry.key} href={{ pathname: '/entry/[key]', params: { key: entry.key } }} asChild>
+                  <Pressable style={styles.recent}>
+                    {entry.image ? <Image source={{ uri: entry.image }} style={styles.thumb} /> : <View style={styles.thumb} />}
+                    <Text numberOfLines={2} style={styles.recentName}>{entry.name}</Text>
+                  </Pressable>
+                </Link>
+              ))}
+            </View>
+          ) : null}
         </View>
       )}
       ListFooterComponent={
@@ -94,23 +91,23 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
-  page: { padding: 16, gap: 16 },
+  page: { paddingHorizontal: 12, paddingTop: 4, paddingBottom: 12, gap: 10 },
   center: { flex: 1, alignItems: 'center', justifyContent: 'center' },
-  title: { color: '#f2eefb', fontSize: 22, fontWeight: '700' },
-  sub: { color: '#9c93b8', marginTop: 4, marginBottom: 8 },
-  note: { color: '#e8b25c', marginBottom: 8 },
-  card: { backgroundColor: '#171426', borderRadius: 16, padding: 16, gap: 6 },
-  world: { color: '#f2eefb', fontSize: 20, fontWeight: '700' },
-  en: { color: '#6f6890', fontSize: 11, letterSpacing: 1 },
-  line: { color: '#c9c2e0', marginTop: 2 },
+  header: { gap: 2, paddingBottom: 4 },
+  sub: { color: '#9c93b8', fontSize: 12 },
+  note: { color: '#e8b25c', fontSize: 12 },
+  card: { backgroundColor: '#171426', borderRadius: 14, padding: 12, gap: 10 },
+  cardHead: { flexDirection: 'row', alignItems: 'baseline', justifyContent: 'space-between' },
+  world: { color: '#f2eefb', fontSize: 17, fontWeight: '700' },
   count: { color: '#9c93b8', fontSize: 12 },
-  quickRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginTop: 8 },
-  chip: { backgroundColor: '#241f3a', paddingHorizontal: 10, paddingVertical: 6, borderRadius: 999 },
-  chipText: { color: '#d7d0ee', fontSize: 12 },
-  recent: { width: 88, marginRight: 10, marginTop: 12 },
-  thumb: { width: 88, height: 88, borderRadius: 12, backgroundColor: '#241f3a' },
-  recentName: { color: '#b9b1d4', fontSize: 11, marginTop: 4 },
-  footer: { flexDirection: 'row', gap: 12, marginTop: 8 },
-  button: { flex: 1, backgroundColor: '#2b2450', paddingVertical: 12, borderRadius: 12, alignItems: 'center' },
+  quickRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 6 },
+  chip: { backgroundColor: '#241f3a', paddingHorizontal: 9, paddingVertical: 5, borderRadius: 999 },
+  chipText: { color: '#d7d0ee', fontSize: 11 },
+  recentRow: { flexDirection: 'row', gap: 8 },
+  recent: { flex: 1, alignItems: 'center' },
+  thumb: { width: '100%', aspectRatio: 1, borderRadius: 10, backgroundColor: '#241f3a' },
+  recentName: { color: '#b9b1d4', fontSize: 9, lineHeight: 12, marginTop: 4, textAlign: 'center' },
+  footer: { flexDirection: 'row', gap: 10, marginTop: 4 },
+  button: { flex: 1, backgroundColor: '#2b2450', paddingVertical: 11, borderRadius: 12, alignItems: 'center' },
   buttonText: { color: '#efe9ff', fontWeight: '600' },
 });

@@ -48,13 +48,21 @@ export default function ListScreen() {
 
   return (
     <View style={styles.page}>
-      <TextInput
-        value={query}
-        onChangeText={(text) => { setQuery(text); setPage(1); }}
-        placeholder="搜索名称或 key"
-        placeholderTextColor="#6f6890"
-        style={styles.search}
-      />
+      <View style={styles.searchRow}>
+        <TextInput
+          value={query}
+          onChangeText={(text) => { setQuery(text); setPage(1); }}
+          placeholder="搜索名称或 key"
+          placeholderTextColor="#6f6890"
+          returnKeyType="search"
+          style={styles.search}
+        />
+        {query ? (
+          <Pressable onPress={() => { setQuery(''); setPage(1); }} style={styles.clear}>
+            <Text style={styles.clearText}>清除</Text>
+          </Pressable>
+        ) : null}
+      </View>
       <FlatList
         horizontal
         showsHorizontalScrollIndicator={false}
@@ -67,18 +75,23 @@ export default function ListScreen() {
             style={[styles.chip, category === group.id && styles.chipActive]}
           >
             <Text style={[styles.chipText, category === group.id && styles.chipTextActive]}>
-              {group.name} {group.count}
+              {group.name.replace(/^.*·\s*/, '')} {group.count}
             </Text>
           </Pressable>
         )}
       />
-      <Text style={styles.total}>共 {view.total} 条 · 第 {view.page}/{view.pageCount} 页</Text>
+      <View style={styles.totalRow}>
+        <Text style={styles.total}>共 {view.total} 条</Text>
+        <Text style={styles.total}>第 {view.page}/{view.pageCount} 页</Text>
+      </View>
       <FlatList
+        style={styles.grid}
         data={view.items}
         numColumns={3}
         keyExtractor={(item: any) => item.key}
         columnWrapperStyle={{ gap: 8 }}
         contentContainerStyle={{ gap: 8, paddingBottom: 24 }}
+        ListEmptyComponent={<Text style={styles.empty}>没有匹配的条目，换个关键词或分类试试。</Text>}
         renderItem={({ item }) => (
           <Link href={{ pathname: '/entry/[key]', params: { key: item.key } }} asChild>
             <Pressable style={styles.cell}>
@@ -89,11 +102,11 @@ export default function ListScreen() {
         )}
       />
       <View style={styles.pager}>
-        <Pressable disabled={view.page <= 1} onPress={() => setPage(view.page - 1)} style={styles.pagerButton}>
-          <Text style={styles.pagerText}>上一页</Text>
+        <Pressable disabled={view.page <= 1} onPress={() => setPage(view.page - 1)} style={[styles.pagerButton, view.page <= 1 && styles.pagerOff]}>
+          <Text style={[styles.pagerText, view.page <= 1 && styles.pagerTextOff]}>上一页</Text>
         </Pressable>
-        <Pressable disabled={view.page >= view.pageCount} onPress={() => setPage(view.page + 1)} style={styles.pagerButton}>
-          <Text style={styles.pagerText}>下一页</Text>
+        <Pressable disabled={view.page >= view.pageCount} onPress={() => setPage(view.page + 1)} style={[styles.pagerButton, view.page >= view.pageCount && styles.pagerOff]}>
+          <Text style={[styles.pagerText, view.page >= view.pageCount && styles.pagerTextOff]}>下一页</Text>
         </Pressable>
       </View>
     </View>
@@ -112,20 +125,28 @@ function GridImage({ path }: { path?: string | null }) {
 }
 
 const styles = StyleSheet.create({
-  page: { flex: 1, paddingHorizontal: 12, paddingTop: 12 },
+  page: { flex: 1, paddingHorizontal: 12, paddingTop: 12, paddingBottom: 12 },
   center: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: 24 },
   error: { color: '#e88' },
-  search: { backgroundColor: '#171426', color: '#f2eefb', borderRadius: 12, paddingHorizontal: 12, paddingVertical: 10 },
+  searchRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
+  search: { flex: 1, backgroundColor: '#171426', color: '#f2eefb', borderRadius: 12, paddingHorizontal: 12, paddingVertical: 10 },
+  clear: { backgroundColor: '#241f3a', paddingHorizontal: 12, paddingVertical: 10, borderRadius: 12 },
+  clearText: { color: '#d7d0ee', fontSize: 12 },
+  empty: { color: '#9c93b8', fontSize: 13, textAlign: 'center', paddingVertical: 40 },
   chipRow: { marginTop: 10, maxHeight: 40 },
+  grid: { flex: 1 },
   chip: { backgroundColor: '#241f3a', paddingHorizontal: 10, paddingVertical: 6, borderRadius: 999, marginRight: 8 },
   chipActive: { backgroundColor: '#4b3f8f' },
   chipText: { color: '#d7d0ee', fontSize: 12 },
   chipTextActive: { color: '#fff', fontWeight: '700' },
-  total: { color: '#9c93b8', fontSize: 12, marginVertical: 10 },
+  totalRow: { flexDirection: 'row', justifyContent: 'space-between', marginVertical: 10 },
+  total: { color: '#9c93b8', fontSize: 12 },
   cell: { flex: 1 / 3, maxWidth: '33.33%' },
   cellImage: { width: '100%', aspectRatio: 1, borderRadius: 12, backgroundColor: '#171426' },
   cellName: { color: '#b9b1d4', fontSize: 11, marginTop: 4 },
-  pager: { flexDirection: 'row', gap: 12, paddingVertical: 10 },
+  pager: { flexDirection: 'row', gap: 12, paddingTop: 10 },
   pagerButton: { flex: 1, backgroundColor: '#2b2450', paddingVertical: 12, borderRadius: 12, alignItems: 'center' },
+  pagerOff: { backgroundColor: '#1b1730' },
   pagerText: { color: '#efe9ff', fontWeight: '600' },
+  pagerTextOff: { color: '#6f6890' },
 });

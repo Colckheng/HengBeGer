@@ -1,7 +1,10 @@
 import { useCallback, useEffect, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import Constants from 'expo-constants';
 import { getApp } from '../src/api/app';
 import { DEFAULT_SERVER_URL, normalizeServerUrl } from '../src/api/client';
+
+const APP_VERSION = Constants.expoConfig?.version ?? '0.1.0';
 
 export default function SettingsScreen() {
   const [value, setValue] = useState(DEFAULT_SERVER_URL);
@@ -66,7 +69,7 @@ export default function SettingsScreen() {
       </Pressable>
 
       <Text style={styles.label}>关于</Text>
-      <Text style={styles.hint}>开放图录手机版 0.1.0 · 只读云端 · 收藏与历史只存在本机。</Text>
+      <Text style={styles.hint}>开放图录手机版 {APP_VERSION} · 只读云端 · 收藏与历史只存在本机。</Text>
     </ScrollView>
   );
 }
