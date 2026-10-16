@@ -51,6 +51,20 @@ npm run mobile:start       # 只起 Metro（已经装过 debug 包时用这个�
 - 真机连本机：同局域网 IP + 8444
 - 必须是 https；自签证书的信任问题由下面的证书固定解决。
 
+## 详情页的信息分层
+
+服务端 `buildSections()` 只按 `## 标题` 切块，一个 hsr 角色平均 **18.9 个平铺 section**（最多 24 个），
+手机上就是一列看不到头的标题，而且正文几乎全是 markdown 表格，`react-native-markdown-display` 会把表格渲染成竖向无限堆叠的长条。
+所以详情页（`app/entry/[key].tsx`）在 `src/lib/sections.js` 里做两层收敛：
+
+1. **分区折叠**：按标题语义把 section 收成「概览 / 战斗 / 养成 / 故事 / 其他」五张卡，前两张默认展开，后三张默认折叠，
+   分区头显示章节数与 `▸/▾`，点一下才展开。每个分区最多展示 6 节，超出显示「还有 N 个同类章节未展示」。
+2. **表格转键值卡**：两列表直接收敛成 `键 -> 值`；「等级/项目/数据」这种多列表且首列重复的（技能倍率表），
+   收敛成 `等级 -> 项目：数据`，行数直接砍半以上。剩下的宽表仍走 Markdown，但截到 20 行。
+
+另外 hero 图从「独占一屏 180dp」缩成 108dp 与标题/收藏按钮横向并排，首屏就能看到属性表和第一张分区卡。
+`mobile/test/sections.test.mjs` 覆盖分区归属、表格解析、键值收敛与分组的边界。
+
 ## 证书固定（关键，配错就连不上）
 
 做法：把自签证书本体放进 `res/raw/`，用 `network_security_config.xml` 声明**只信任这些证书**（不信任任何公共 CA）。
@@ -83,7 +97,7 @@ npm run mobile:start       # 只起 Metro（已经装过 debug 包时用这个�
 ## 测试与类型检查
 
 ```powershell
-npm run mobile:test        # node --test（53 个用例；live 用例默认打本机预演栈，栈没起时自动跳过）
+npm run mobile:test        # node --test（60 个用例；live 用例默认打本机预演栈，栈没起时自动跳过）
 npm run mobile:typecheck   # tsc --noEmit
 npm run mobile:pins        # 重新生成证书固定文件
 ```
