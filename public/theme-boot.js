@@ -9,6 +9,6 @@ try {
   var stored = localStorage.getItem('hb-theme');
   document.documentElement.dataset.theme =
     stored === 'dark' || stored === 'light' ? stored : 'light';
-} catch (error) {
+} catch {
   document.documentElement.dataset.theme = 'light';
 }
