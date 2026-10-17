@@ -101,12 +101,12 @@ export function parseKeystoreSha256(details) {
   return (details.sha256 || '').replace(/[:\s]/g, '').toLowerCase();
 }
 
-export function build({ patch = true, env = process.env, log = console.log } = {}) {
+export async function build({ patch = true, env = process.env, log = console.log } = {}) {
   if (!fs.existsSync(androidDir)) {
     throw new Error('还没有 android/ 工程，先跑 npm run mobile:prebuild');
   }
   if (patch) {
-    const result = applyPatches({ androidDir, dir: path.join(mobileDir, 'native') });
+    const result = await applyPatches({ androidDir, dir: path.join(mobileDir, 'native') });
     if (!result.signing.applied) {
       throw new Error('release 会用 debug 签名，先跑 npm run mobile:keystore 生成 mobile/keystore.properties');
     }

@@ -1,8 +1,9 @@
 import { useCallback, useEffect, useState } from 'react';
-import { ActivityIndicator, FlatList, Image, Pressable, RefreshControl, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, FlatList, Pressable, RefreshControl, StyleSheet, Text, View } from 'react-native';
 import { Link } from 'expo-router';
 import { getApp } from '../src/api/app';
 import { buildHomeModel, totalCount } from '../src/lib/home';
+import { CoverImage } from '../src/ui/Cover';
 
 export default function HomeScreen() {
   const [home, setHome] = useState<any[]>([]);
@@ -71,7 +72,7 @@ export default function HomeScreen() {
               {item.recent.map((entry: any) => (
                 <Link key={entry.key} href={{ pathname: '/entry/[key]', params: { key: entry.key } }} asChild>
                   <Pressable style={styles.recent}>
-                    {entry.image ? <Image source={{ uri: entry.image }} style={styles.thumb} /> : <View style={styles.thumb} />}
+                    <CoverImage path={entry.image} category={entry.category} style={styles.thumb} />
                     <Text numberOfLines={2} style={styles.recentName}>{entry.name}</Text>
                   </Pressable>
                 </Link>
@@ -83,6 +84,7 @@ export default function HomeScreen() {
       ListFooterComponent={
         <View style={styles.footer}>
           <Link href="/list" asChild><Pressable style={styles.button}><Text style={styles.buttonText}>全部图鉴</Text></Pressable></Link>
+          <Link href="/library" asChild><Pressable style={styles.button}><Text style={styles.buttonText}>收藏与历史</Text></Pressable></Link>
           <Link href="/settings" asChild><Pressable style={styles.button}><Text style={styles.buttonText}>设置</Text></Pressable></Link>
         </View>
       }

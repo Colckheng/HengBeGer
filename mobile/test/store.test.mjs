@@ -64,3 +64,15 @@ test('library：历史去重、最新的在最前、超过上限被截断', asyn
   await library.clearHistory();
   assert.deepEqual(await library.listHistory(), []);
 });
+
+test('library：removeHistory 只删指定 key，其余顺序不变', async () => {
+  const library = createLibrary({ storage: createMemoryStorage(), now: () => 1 });
+  await library.pushHistory('a', 'A');
+  await library.pushHistory('b', 'B');
+  await library.pushHistory('c', 'C');
+  await library.removeHistory('b');
+  assert.deepEqual((await library.listHistory()).map((item) => item.key), ['c', 'a']);
+  // 不存在的 key 不报错、不改变列表
+  await library.removeHistory('nope');
+  assert.deepEqual((await library.listHistory()).map((item) => item.key), ['c', 'a']);
+});

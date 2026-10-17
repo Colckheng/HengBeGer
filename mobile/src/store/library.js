@@ -52,7 +52,12 @@ export function createLibrary({ storage, now = Date.now, historyMax = HISTORY_MA
     return writeList(HISTORY_KEY, next.slice(0, historyMax));
   }
 
+  async function removeHistory(key) {
+    const history = await readList(HISTORY_KEY);
+    return writeList(HISTORY_KEY, history.filter((item) => item.key !== key));
+  }
+
   async function clearHistory() { return writeList(HISTORY_KEY, []); }
 
-  return { listFavorites, isFavorite, toggleFavorite, listHistory, pushHistory, clearHistory };
+  return { listFavorites, isFavorite, toggleFavorite, listHistory, pushHistory, removeHistory, clearHistory };
 }

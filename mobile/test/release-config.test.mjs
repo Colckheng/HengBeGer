@@ -151,10 +151,11 @@ test('release 签名：真工程的 build.gradle 已打上补丁（没 prebuild 
   assert.equal(debugLines.length, 1, 'release 变体还是 debug 签名，重跑 npm run mobile:patch');
 });
 
-test('release 签名：applyPatches 会在没有 properties 时明确报错', () => {
+test('release 签名：applyPatches 会在没有 properties 时明确报错', async () => {
   const { androidDir } = makeFixture({ withProps: false });
-  // native/ 里没有证书文件时应该先报证书的错，这里直接确认它能抛错而不是静默通过
-  assert.throws(() => applyPatches({ androidDir, dir: path.resolve(mobileDir, 'native', 'not-exists') }), /缺少证书固定文件/);
+  // native/ 里没有证书文件时应该先报证书的错，这里直接确认它能抛错而不是静默通过。
+  // applyPatches 是 async 的（要调 patchIcons 生成图标），所以用 rejects 而不是 throws。
+  await assert.rejects(() => applyPatches({ androidDir, dir: path.resolve(mobileDir, 'native', 'not-exists') }), /缺少证书固定文件/);
 });
 
 test('release 签名：密码只用 properties/shell 里安全的字符', () => {

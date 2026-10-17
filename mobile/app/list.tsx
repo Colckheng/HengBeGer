@@ -1,10 +1,12 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { ActivityIndicator, FlatList, Image, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+import { ActivityIndicator, FlatList, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { Link, useLocalSearchParams } from 'expo-router';
 import { getApp } from '../src/api/app';
 import { categoriesOf, filterItems } from '../src/lib/list';
+import { CoverImage } from '../src/ui/Cover';
 
 const PAGE_SIZE = 30;
+const SEARCH_DEBOUNCE_MS = 200;
 
 export default function ListScreen() {
   const params = useLocalSearchParams<{ category?: string; title?: string }>();
@@ -12,6 +14,9 @@ export default function ListScreen() {
   const [categories, setCategories] = useState<any[]>([]);
   const [category, setCategory] = useState(params.category || '');
   const [query, setQuery] = useState('');
+  // 搜索防抖：输入框立刻回显，过滤延迟 200ms。2675 条全量 toLowerCase 匹配
+  // 每个按键都跑一遍会让打字明显卡手，低端机上更明显。
+  const [debouncedQuery, setDebouncedQuery] = useState('');
   const [page, setPage] = useState(1);
   const [state, setState] = useState<'loading' | 'ready' | 'error'>('loading');
   const [message, setMessage] = useState('');
@@ -38,9 +43,16 @@ export default function ListScreen() {
   useEffect(() => { load(); }, [load]);
   useEffect(() => { setCategory(params.category || ''); setPage(1); }, [params.category]);
 
+  // 防抖：连续输入只在停顿 200ms 后触发一次过滤。卸载时清掉未触发的定时器，
+  // 否则切走后会 setState 到已卸载的组件上。
+  useEffect(() => {
+    const timer = setTimeout(() => setDebouncedQuery(query), SEARCH_DEBOUNCE_MS);
+    return () => clearTimeout(timer);
+  }, [query]);
+
   const view = useMemo(
-    () => filterItems(items, { category, q: query, page, limit: PAGE_SIZE }),
-    [items, category, query, page],
+    () => filterItems(items, { category, q: debouncedQuery, page, limit: PAGE_SIZE }),
+    [items, category, debouncedQuery, page],
   );
 
   if (state === 'loading') return <View style={styles.center}><ActivityIndicator /></View>;
@@ -58,7 +70,7 @@ export default function ListScreen() {
           style={styles.search}
         />
         {query ? (
-          <Pressable onPress={() => { setQuery(''); setPage(1); }} style={styles.clear}>
+          <Pressable onPress={() => { setQuery(''); setDebouncedQuery(''); setPage(1); }} style={styles.clear}>
             <Text style={styles.clearText}>清除</Text>
           </Pressable>
         ) : null}
@@ -95,7 +107,7 @@ export default function ListScreen() {
         renderItem={({ item }) => (
           <Link href={{ pathname: '/entry/[key]', params: { key: item.key } }} asChild>
             <Pressable style={styles.cell}>
-              <GridImage path={item.image} />
+              <GridImage path={item.image} category={item.category} />
               <Text numberOfLines={2} style={styles.cellName}>{item.name || item.key}</Text>
             </Pressable>
           </Link>
@@ -113,15 +125,9 @@ export default function ListScreen() {
   );
 }
 
-function GridImage({ path }: { path?: string | null }) {
-  const [uri, setUri] = useState<string | null>(null);
-  useEffect(() => {
-    let alive = true;
-    getApp().then(({ client }) => { if (alive) setUri(client.imageUrl(path)); });
-    return () => { alive = false; };
-  }, [path]);
-  if (!uri) return <View style={styles.cellImage} />;
-  return <Image source={{ uri }} style={styles.cellImage} />;
+// 封面：有图走图，无封面/加载失败显示分类文字占位（不再是一块死灰色）。
+function GridImage({ path, category }: { path?: string | null; category?: string | null }) {
+  return <CoverImage path={path} category={category} style={styles.cellImage} />;
 }
 
 const styles = StyleSheet.create({

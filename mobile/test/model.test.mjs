@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { buildHomeModel, totalCount, worldOf, WORLDS } from '../src/lib/home.js';
+import { buildHomeModel, pickRecent, recencyOf, totalCount, worldOf, WORLDS } from '../src/lib/home.js';
 import { categoriesOf, filterItems } from '../src/lib/list.js';
 import { describeFields } from '../src/lib/fields.js';
 
@@ -35,6 +35,82 @@ test('buildHomeModel：三个世界各自计数、常用分类带数量、最近
   assert.deepEqual(zzz.recent.map((entry) => entry.name), ['妮可', '安比']);
   assert.equal(home.find((world) => world.id === 'hsr').total, 1);
   assert.equal(home.find((world) => world.id === 'hsr').recent[0].name, '三月七');
+});
+
+test('recencyOf：读 updatedAt，缺失时退到 fields.last_crawled_at', () => {
+  assert.equal(recencyOf({ updatedAt: '2026-10-09T00:00:00.000Z' }), Date.parse('2026-10-09T00:00:00.000Z'));
+  assert.equal(recencyOf({ fields: { last_crawled_at: '2026-10-08T07:58:42.198Z' } }), Date.parse('2026-10-08T07:58:42.198Z'));
+  assert.equal(recencyOf({}), 0);
+  assert.equal(recencyOf(null), 0);
+  assert.equal(recencyOf({ fields: { last_crawled_at: 'not-a-date' } }), 0);
+});
+
+test('buildHomeModel：最近更新只挑有封面的条目，灰块不会上首页', () => {
+  const mixed = {
+    generatedAt: '2026-10-14T00:00:00.000Z',
+    groups: [],
+    items: [
+      // 无封面（hsr/gacha 全库 65 张都这样），且时间最新
+      { key: 'hsr/gacha/1', category: 'hsr/gacha', name: '常驻跃迁', image: null, updatedAt: '2026-10-14' },
+      { key: 'hsr/gacha/2', category: 'hsr/gacha', name: '始发跃迁', image: '', updatedAt: '2026-10-13' },
+      { key: 'hsr/characters/1', category: 'hsr/characters', name: '三月七', image: '/img/t/c.webp', updatedAt: '2026-10-12' },
+      { key: 'hsr/light_cones/1', category: 'hsr/light_cones', name: '锋镝', image: '/img/t/e.webp', updatedAt: '2026-10-11' },
+      { key: 'hsr/relics/1', category: 'hsr/relics', name: '太空封印站', image: '/img/t/f.webp', updatedAt: '2026-10-10' },
+      { key: 'hsr/enemies/1', category: 'hsr/enemies', name: '冰锋', image: '/img/t/g.webp', updatedAt: '2026-10-09' },
+      { key: 'hsr/relics/2', category: 'hsr/relics', name: '梦想之地', image: '/img/t/h.webp', updatedAt: '2026-10-08' },
+    ],
+  };
+  const hsr = buildHomeModel(mixed, { recentLimit: 4 }).find((world) => world.id === 'hsr');
+  // 两条无封面的跃迁时间最新，但一个都不该出现在六格里
+  assert.deepEqual(hsr.recent.map((entry) => entry.key), [
+    'hsr/characters/1',
+    'hsr/light_cones/1',
+    'hsr/relics/1',
+    'hsr/enemies/1',
+  ]);
+  assert.ok(hsr.recent.every((entry) => entry.image), '最近更新里出现了无封面的条目');
+  // 但总数统计不受影响（无封面条目也是资料）
+  assert.equal(hsr.total, 7);
+});
+
+test('buildHomeModel：整个世界的条目都没封面时回退，六格不留空', () => {
+  const allNoCover = {
+    generatedAt: '2026-10-14T00:00:00.000Z',
+    groups: [],
+    items: [
+      { key: 'hsr/formula/1', category: 'hsr/formula', name: '公式一', image: null, updatedAt: '2026-10-14' },
+      { key: 'hsr/formula/2', category: 'hsr/formula', name: '公式二', image: null, updatedAt: '2026-10-13' },
+    ],
+  };
+  const hsr = buildHomeModel(allNoCover, { recentLimit: 6 }).find((world) => world.id === 'hsr');
+  assert.deepEqual(hsr.recent.map((entry) => entry.key), ['hsr/formula/1', 'hsr/formula/2']);
+});
+
+test('pickRecent：按分类轮转，不把六格缩略图塞满同一个分类', () => {
+  const items = [
+    { key: 'a/1', category: 'zzz/bangboo' },
+    { key: 'a/2', category: 'zzz/bangboo' },
+    { key: 'a/3', category: 'zzz/bangboo' },
+    { key: 'b/1', category: 'zzz/agents' },
+    { key: 'c/1', category: 'zzz/sound_engines' },
+  ];
+  assert.deepEqual(pickRecent(items, 3).map((item) => item.key), ['a/1', 'b/1', 'c/1']);
+  // 分类不够时按轮次补，仍然不重复
+  assert.deepEqual(pickRecent(items, 5).map((item) => item.key), ['a/1', 'b/1', 'c/1', 'a/2', 'a/3']);
+  assert.deepEqual(pickRecent([], 6), []);
+});
+
+test('buildHomeModel：最近更新按时间倒序并跨分类轮转（索引没有 updatedAt 时用 fields）', () => {
+  const withFields = {
+    groups: [{ id: 'zzz/agents', name: '绝区零 · 代理人', count: 1, total: 1 }],
+    items: [
+      { key: 'zzz/bangboo/1', category: 'zzz/bangboo', name: '恶魔布', fields: { last_crawled_at: '2026-10-07T14:32:05.854Z' } },
+      { key: 'zzz/bangboo/2', category: 'zzz/bangboo', name: '泪眼布', fields: { last_crawled_at: '2026-10-07T14:32:05.288Z' } },
+      { key: 'zzz/agents/1011', category: 'zzz/agents', name: '安比', fields: { last_crawled_at: '2026-10-07T14:00:00.000Z' } },
+    ],
+  };
+  const zzz = buildHomeModel(withFields, { recentLimit: 2 }).find((world) => world.id === 'zzz');
+  assert.deepEqual(zzz.recent.map((entry) => entry.name), ['恶魔布', '安比']);
 });
 
 test('buildHomeModel：空索引不炸', () => {

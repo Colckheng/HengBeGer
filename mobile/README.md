@@ -107,6 +107,7 @@ npm run mobile:start       # 只起 Metro（已经装过 debug 包时用这个�
    ```
 
    脚本是幂等的：已经打过就报「已是最新」。对应 `mobile/scripts/apply-android-patches.mjs`。
+   它同时负责图标与启动图（见下面「图标与启动图」）。
 4. **证书一旦重新生成，信任锚就变了**，必须重跑 `npm run mobile:pins` 与 `npm run mobile:patch`（再 `npm run mobile:release` 重打包），否则 App 直接连不上。脚本会顺手删掉 `res/raw/` 里没人引用的旧 `.pem`（aapt2 会把它们也打进包）。
 
 > **不要用 `<pin-set>`。** Android 的解析器只允许 `<pin-set>` 出现在 `<domain-config>` 里，放进 `<base-config>` 会在 Application 初始化时抛
@@ -118,10 +119,36 @@ npm run mobile:start       # 只起 Metro（已经装过 debug 包时用这个�
 > 主机名校验仍由证书自己的 SAN 决定（`@raw` 信任锚只解决"信不信这张证书"，不解决"名字对不对"）。
 > 所以换 IP 要重新签一张 SAN 含该 IP 的证书，再重跑 pins + patch 重装。
 
+## 图标与启动图
+
+默认是 Expo 模板图标：青绿色网格底 + 白色 Android 机器人头，跟本项目深紫配色完全不搭。
+换成「摊开的书 + 一颗琥珀色星」（书 = 图录 / 资料库，不用文字所以缩到 48px 仍认得出）：
+
+```powershell
+npm run mobile:icons      # assets/ 下四个 PNG（用根目录 devDependency sharp）
+npm run mobile:prebuild   # android/ 是 prebuild 生成的，会被重置
+npm run mobile:patch      # 把 assets/ 的图标写进 mipmap-*/drawable-*/values
+```
+
+产物（`mobile/assets/`，进仓库）：`icon.png`（1024，整幅）、`adaptive-icon.png`（1024，透明底前景）、
+`splash.png`（1024，透明底）、`favicon.png`（48）。
+
+两处必须说明：
+
+- **图标不走 app.json 的 `icon` 字段。** `git ls-files mobile/android` 是 0 条 —— `android/` 是 gitignore 的
+  产物目录，prebuild 只在那一次读 app.json，之后手改全被抹掉。所以真相源只能是 `assets/` + patch 脚本。
+- **启动图也不走 app.json 的 `splash` 字段。** `expo-splash-screen` 没装（`mobile/node_modules` 里没有，
+  `expo` 的 dependencies 里也没有），prebuild 时根本不会处理 splash 段。同样由 patch 脚本写
+  `drawable-*/splashscreen_logo.png`，并把 `res/values/colors.xml` 的 `splashscreen_background`
+  从模板的 `#FFFFFF` 改成 `#0b0913` —— 不改的话每次冷启动先闪一下白屏，深色 App 观感非常突兀。
+
+图标文件名沿用 Expo 模板的 `ic_launcher.webp`：那些文件扩展名是 `.webp` 但字节其实是 PNG
+（首 8 字节 `89 50 4e 47`），aapt2 按名编译所以照原样写最稳。
+
 ## 测试与类型检查
 
 ```powershell
-npm run mobile:test        # node --test（87 个用例；live 用例默认打本机预演栈，栈没起时自动跳过）
+npm run mobile:test        # node --test（109 个用例；live 用例默认打本机预演栈，栈没起时自动跳过）
 npm run mobile:typecheck   # tsc --noEmit
 npm run mobile:pins        # 重新生成证书固定文件
 ```
@@ -163,6 +190,9 @@ cd mobile\android
 npm run mobile:keystore    # 首次：生成 mobile\hengbeger-release.keystore + keystore.properties（已存在则拒绝覆盖）
 npm run mobile:release     # 打补丁 → assembleRelease → 验签 → 复制到 mobile\dist\hengbeger-release.apk
 ```
+
+`mobile:release` 内部会先跑一次 patch（图标/证书/签名都在里面），所以日常改代码只要
+`npm run mobile:release`；只有动过 `assets/`、`native/` 或刚 prebuild 过才需要单独跑 `mobile:patch`。
 
 `mobile:release` 会自动把 `JAVA_HOME` 指向 Android Studio 的 jbr（AGP 只对它有保证，PATH 上的 java 1.8 编不了），
 并用 `apksigner verify --print-certs` 核对签名者指纹与 keystore 一致。装 release 包前必须先 `adb uninstall cc.nanoka.hengbeger`

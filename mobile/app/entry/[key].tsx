@@ -5,6 +5,7 @@ import { useLocalSearchParams, useRouter } from 'expo-router';
 import { getApp } from '../../src/api/app';
 import { prepareReaderContent, prepareSections } from '../../src/content/content';
 import { describeFields } from '../../src/lib/fields';
+import { categoryName } from '../../src/lib/labels';
 import { dropIdLines, entryKeyFromLink, stripGameTags } from '../../src/lib/reader';
 import { groupSections } from '../../src/lib/sections';
 import { splitTables } from '../../src/lib/values';
@@ -79,7 +80,7 @@ export default function EntryScreen() {
         {image ? <Image source={{ uri: image }} style={styles.hero} resizeMode="contain" /> : null}
         <View style={styles.headText}>
           <Text style={styles.name} numberOfLines={3}>{entry.name || entry.rawName || key}</Text>
-          <Text style={styles.meta} numberOfLines={2}>{entry.category}</Text>
+          <Text style={styles.meta} numberOfLines={2}>{categoryName(entry.category)}</Text>
           <Pressable
             onPress={async () => {
               const { library } = await getApp();

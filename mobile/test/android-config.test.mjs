@@ -259,3 +259,83 @@ test('信任锚：从非仓库根的 cwd 调用也能找到默认证书', () => 
     process.chdir(before);
   }
 });
+
+// ── 图标与启动图 ────────────────────────────────────────────────
+// Expo 模板图标是青绿网格底 + 白色 Android 机器人头，跟本项目深紫配色不搭。
+// 图标真相源是 mobile/assets/（git 跟踪），由 apply-android-patches.mjs 写进
+// android res —— 所以 assets/ 缺失等于桌面/启动图退化成 Expo 默认机器人。
+const assetsDir = path.resolve(here, '..', 'assets');
+
+test('图标：assets/ 下四个文件都在，且是真 PNG（不是空文件也不是占位）', () => {
+  for (const name of ['icon.png', 'adaptive-icon.png', 'splash.png', 'favicon.png']) {
+    const file = path.join(assetsDir, name);
+    assert.ok(fs.existsSync(file), '缺少 ' + name + '，重跑 npm run mobile:icons');
+    const head = fs.readFileSync(file).subarray(0, 8);
+    assert.deepEqual([...head], [0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a], name + ' 不是 PNG');
+  }
+});
+
+test('图标：splash 与 adaptive-icon 是透明底，不能带白底（否则启动图是白块）', () => {
+  // 透明底靠的是 alpha 通道；如果误加了 background: gradient，左上角会是不透明白。
+  // 这里只查 alpha 是否为 0 —— 不引 sharp，避免测试依赖根 devDependency。
+  for (const name of ['splash.png', 'adaptive-icon.png']) {
+    const buf = fs.readFileSync(path.join(assetsDir, name));
+    // PNG IHDR 紧跟 color type：字节 25 = RGBA（6）
+    assert.equal(buf[25], 6, name + ' 不是 RGBA，没有 alpha 通道');
+  }
+});
+
+// Expo 模板把启动图底色写成 #FFFFFF，深色 App 每次冷启动先闪一下白屏。
+// patchIcons 会把它改成 SPLASH_BACKGROUND；这里锁定这个行为。
+test('启动图：splashscreen_background 不能是模板的白色', async () => {
+  const { SPLASH_BACKGROUND } = await import('../scripts/apply-android-patches.mjs');
+  const colorsPath = path.resolve(here, '..', 'android', 'app', 'src', 'main', 'res', 'values', 'colors.xml');
+  if (!fs.existsSync(colorsPath)) return; // 还没 prebuild，跳过
+  const text = fs.readFileSync(colorsPath, 'utf8');
+  const match = text.match(/<color name="splashscreen_background">(#[0-9a-fA-F]{3,8})<\/color>/);
+  assert.ok(match, 'colors.xml 里没有 splashscreen_background');
+  assert.notEqual(match[1].toLowerCase(), '#ffffff', '启动图还是白底，深色 App 会闪白屏');
+  assert.equal(match[1].toLowerCase(), SPLASH_BACKGROUND.toLowerCase(), '启动图底色与脚本里的 SPLASH_BACKGROUND 不一致');
+});
+
+// 只改 colors.xml 不够：Theme.App.SplashScreen 的 parent 链是
+// AppTheme -> Theme.AppCompat.DayNight.NoActionBar，DayNight 会让系统浅色模式把启动窗口
+// 画成白色（AVD 浅色模式下冷启动实测是一张纯白屏，深色 App 观感很突兀）。
+// patchIcons 会把 windowBackground 换成 layer-list @drawable/ic_launcher_background
+// （底层 splashscreen_background + 上层居中 bitmap），底色才真正固定下来。
+test('启动图：windowBackground 用 layer-list 而不是裸 bitmap', async () => {
+  const stylesPath = path.resolve(here, '..', 'android', 'app', 'src', 'main', 'res', 'values', 'styles.xml');
+  if (!fs.existsSync(stylesPath)) return; // 还没 prebuild，跳过
+  const text = fs.readFileSync(stylesPath, 'utf8');
+  const splash = text.match(/<style name="Theme\.App\.SplashScreen"[^>]*>([\s\S]*?)<\/style>/);
+  assert.ok(splash, 'styles.xml 里没有 Theme.App.SplashScreen');
+  assert.match(
+    splash[1],
+    /<item name="android:windowBackground">@drawable\/ic_launcher_background<\/item>/,
+    'windowBackground 还是 @drawable/splashscreen_logo（裸 bitmap），系统浅色模式会闪白屏；' +
+      '应换成 @drawable/ic_launcher_background（layer-list 带 splashscreen_background 底色）',
+  );
+  // AVD 浅色模式实测：只改 colors.xml 与 windowBackground 仍是纯白屏 —— 窗口底色实际取自
+  // android:colorBackground（DayNight 的浅色值）。必须显式锁死。
+  assert.match(
+    splash[1],
+    /<item name="android:colorBackground">@color\/splashscreen_background<\/item>/,
+    'Theme.App.SplashScreen 没有显式 android:colorBackground，系统浅色模式启动会闪白屏',
+  );
+  // 幂等：补丁重复运行不能补出两行 colorBackground（aapt2 会因重复 item 报错）。
+  const count = (splash[1].match(/android:colorBackground/g) || []).length;
+  assert.equal(count, 1, 'colorBackground 出现了 ' + count + ' 次，补丁不幂等');
+});
+
+// prebuild 之后 res 里的图标必须是新画的（跟 assets/icon.png 内容一致），
+// 否则说明 patch 没跑 —— 用户看到的还是 Expo 机器人。
+test('图标：android res 里的图标来自 assets/icon.png', async () => {
+  const res = path.resolve(here, '..', 'android', 'app', 'src', 'main', 'res');
+  const target = path.join(res, 'mipmap-xxhdpi', 'ic_launcher.webp');
+  if (!fs.existsSync(target)) return; // 还没 prebuild，跳过
+  const sharp = (await import('sharp')).default;
+  const size = 144;
+  const expected = await sharp(path.join(assetsDir, 'icon.png')).resize(size, size, { fit: 'contain', background: 'transparent' }).png().toBuffer();
+  const actual = await sharp(target).resize(size, size, { fit: 'contain', background: 'transparent' }).png().toBuffer();
+  assert.ok(actual.equals(expected), 'mipmap-xxhdpi/ic_launcher.webp 不是 assets/icon.png 生成的，重跑 npm run mobile:patch');
+});

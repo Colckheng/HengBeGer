@@ -13,6 +13,12 @@
  *      （expo prebuild 生成的 release 也是 signingConfigs.debug，见 build.gradle:115）
  *   6. app/build.gradle 的 defaultConfig 里加 -DCMAKE_OBJECT_PATH_MAX=270
  *      （否则 release 构建在 Windows 上会被 ninja 的 260 字符路径限制打死，见下方说明）
+ *   7. assets/icon.png    → mipmap-<dpi>/ic_launcher.webp + ic_launcher_round.webp
+ *      assets/splash.png  → drawable-<dpi>/splashscreen_logo.png
+ *      （Expo 模板图标是青绿网格底 + 白色机器人头，跟本项目深紫配色不搭；
+ *       而且 android/ 是 gitignore 的产物目录，图标真相源只能是 assets/ + 本脚本）
+ *   8. res/values/colors.xml 的 splashscreen_background 从模板的 #FFFFFF 改成深色
+ *      （不改的话每次冷启动先闪一下白屏，深色 App 观感非常突兀）
  *
  * 必须放在 prebuild 之后：prebuild 会重新生成 android/ 目录，手改的东西会被覆盖。
  *
@@ -23,6 +29,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 export const MANIFEST_ATTR = 'android:networkSecurityConfig="@xml/network_security_config"';
 
@@ -160,7 +167,115 @@ export function patchCmakeArgs(androidDir) {
   return { gradle, changed: true };
 }
 
-export function applyPatches({ androidDir = path.resolve('android'), dir = path.resolve('native') } = {}) {
+/**
+ * 图标与启动图。
+ *
+ * 为什么要用脚本而不是 Expo 配置：
+ *   - app.json 的 icon 字段只在 prebuild 那一刻读，而 android/ 是 gitignore 的
+ *     产物目录（git ls-files mobile/android = 0 条），任何「prebuild 后手改」
+ *     都会被下一次 prebuild 抹掉。真相源只能是 assets/ + 本脚本。
+ *   - expo-splash-screen 没有装（mobile/node_modules 里没有，expo 的
+ *     dependencies 里也没有），app.json 写 splash 段在 prebuild 时不会被处理，
+ *     所以启动图也只能由这里写。
+ *
+ * 尺寸沿用 Expo 模板生成的密度桶，不自己发明：
+ *   mipmap 48/72/96/144/192（mdpi..xxxhdpi）
+ *   drawable 288/432/576/864/1152（对应 splashscreen_logo.png 的实测尺寸）
+ * 文件名保持 .webp —— 那是 Expo prebuild 的命名，虽然字节其实是 PNG
+ * （首 8 字节 89 50 4e 47），aapt2 按扩展名当 webp 解码也没问题，
+ * 但为了不引入「改名导致引用找不到」的风险，这里沿用原文件名。
+ */
+const ICON_BUCKETS = [
+  ['mipmap-mdpi', 48],
+  ['mipmap-hdpi', 72],
+  ['mipmap-xhdpi', 96],
+  ['mipmap-xxhdpi', 144],
+  ['mipmap-xxxhdpi', 192],
+];
+const SPLASH_BUCKETS = [
+  ['drawable-mdpi', 288],
+  ['drawable-hdpi', 432],
+  ['drawable-xhdpi', 576],
+  ['drawable-xxhdpi', 864],
+  ['drawable-xxxhdpi', 1152],
+];
+export const SPLASH_BACKGROUND = '#0b0913';
+
+async function resizeInto(src, target, size) {
+  const sharp = (await import('sharp')).default;
+  const png = await sharp(src).resize(size, size, { fit: 'contain', background: 'transparent' }).png().toBuffer();
+  return copyIfChangedBuffer(png, target);
+}
+
+function copyIfChangedBuffer(content, target) {
+  fs.mkdirSync(path.dirname(target), { recursive: true });
+  const existing = fs.existsSync(target) ? fs.readFileSync(target) : null;
+  if (existing && existing.equals(content)) return { target, changed: false };
+  fs.writeFileSync(target, content);
+  return { target, changed: true };
+}
+
+export async function patchIcons({ androidDir = path.resolve('android'), assetsDir = path.resolve('assets') } = {}) {
+  const icon = path.join(assetsDir, 'icon.png');
+  const splash = path.join(assetsDir, 'splash.png');
+  const res = path.join(androidDir, 'app', 'src', 'main', 'res');
+  const files = [];
+  for (const [bucket, size] of ICON_BUCKETS) {
+    for (const name of ['ic_launcher.webp', 'ic_launcher_round.webp']) {
+      files.push(await resizeInto(icon, path.join(res, bucket, name), size));
+    }
+  }
+  for (const [bucket, size] of SPLASH_BUCKETS) {
+    files.push(await resizeInto(splash, path.join(res, bucket, 'splashscreen_logo.png'), size));
+  }
+  // colors.xml：splashscreen_background 换成深色。用正则只换这一个色值，
+  // 不动 colorPrimary（那是 Expo 模板留给原生控件的高亮色，改了会影响按钮/输入框）。
+  const colorsPath = path.join(res, 'values', 'colors.xml');
+  const colors = fs.readFileSync(colorsPath, 'utf8');
+  const patched = colors.replace(
+    /<color name="splashscreen_background">#[0-9a-fA-F]{3,8}<\/color>/,
+    '<color name="splashscreen_background">' + SPLASH_BACKGROUND + '</color>',
+  );
+  const colorsChanged = patched !== colors;
+  if (colorsChanged) fs.writeFileSync(colorsPath, patched, 'utf8');
+  files.push({ target: colorsPath, changed: colorsChanged });
+
+  // styles.xml：Expo 模板的 Theme.App.SplashScreen 继承 AppTheme，而 AppTheme 的 parent 是
+  // Theme.AppCompat.DayNight.NoActionBar —— DayNight 会让系统浅色模式把启动窗口画成白色，
+  // 在 App 内部强制深色（app.json userInterfaceStyle: dark）的情况下非常突兀。
+  // AVD 浅色模式实测：只改 colors.xml 的 splashscreen_background 依然是纯白屏，
+  // 因为窗口底色实际取自 android:colorBackground（DayNight 的浅色值），
+  // 而不是 windowBackground 里的 layer-list 第一层。
+  // 所以两件事一起做：
+  //   ① windowBackground 换成 @drawable/ic_launcher_background（layer-list：底色 + 居中 bitmap）
+  //   ② 显式补 android:colorBackground = @color/splashscreen_background，锁死窗口底色
+  const stylesPath = path.join(res, 'values', 'styles.xml');
+  const styles = fs.readFileSync(stylesPath, 'utf8');
+  const splashStyle = styles.match(/<style name="Theme\.App\.SplashScreen"[^>]*>[\s\S]*?<\/style>/);
+  if (!splashStyle) {
+    throw new Error('styles.xml 里没有 Theme.App.SplashScreen，Expo 模板结构变了？');
+  }
+  let body = splashStyle[0]
+    .replace(
+      /<item name="android:windowBackground">@drawable\/splashscreen_logo<\/item>/,
+      '<item name="android:windowBackground">@drawable/ic_launcher_background</item>',
+    );
+  // colorBackground：先删掉已有的（不管是模板残留还是上一轮补的），再在 </style> 前统一补一行，
+  // 这样重复运行结果完全一致（幂等）。
+  body = body.replace(/\s*<item name="android:colorBackground">[^<]*<\/item>/g, '');
+  body = body.replace(
+    /([ \t]*)<\/style>\s*$/,
+    '$1  <item name="android:colorBackground">@color/splashscreen_background</item>\n$1</style>',
+  );
+  const stylesPatched = styles.replace(splashStyle[0], body);
+  const stylesChanged = stylesPatched !== styles;
+  if (stylesChanged) fs.writeFileSync(stylesPath, stylesPatched, 'utf8');
+  files.push({ target: stylesPath, changed: stylesChanged });
+
+  return { files };
+}
+
+export async function applyPatches({ androidDir = path.resolve('android'), dir = path.resolve('native') } = {}) {
   if (!fs.existsSync(androidDir)) {
     throw new Error('还没有 android/ 工程，先跑 npm run mobile:prebuild');
   }
@@ -198,14 +313,23 @@ export function applyPatches({ androidDir = path.resolve('android'), dir = path.
   const manifest = patchManifest(androidDir);
   const cmake = patchCmakeArgs(androidDir);
   const signing = patchGradle(androidDir);
-  return { files, removed, manifest, cmake, signing };
+  const icons = await patchIcons({ androidDir, assetsDir: path.resolve(mobileAssetsDir(), 'assets') });
+  return { files, removed, manifest, cmake, signing, icons };
+}
+
+// assets/ 在 mobile/ 下；本脚本可能从仓库根被 require，所以从 __dirname 反推更稳。
+function mobileAssetsDir() {
+  return path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 }
 
 const isCli = process.argv[1] && process.argv[1].endsWith('apply-android-patches.mjs');
 if (isCli) {
   try {
-    const result = applyPatches();
+    const result = await applyPatches();
     for (const file of result.files) {
+      console.log((file.changed ? '已写入 ' : '已是最新 ') + file.target);
+    }
+    for (const file of result.icons.files) {
       console.log((file.changed ? '已写入 ' : '已是最新 ') + file.target);
     }
     for (const target of result.removed) {
