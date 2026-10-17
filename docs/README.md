@@ -56,6 +56,11 @@
 - [07-troubleshooting.md](./07-troubleshooting.md)
 - [11-admin-workflow.md](./11-admin-workflow.md)
 
+## 仓库与运维
+
+- [仓库通篇遍历 · 清理结论（2026-10-17）](./33-repo-sweep-2026-10-17.md) — 体积盘点、孤儿文件分析、清理记录
+- [线上 /demo-art 破图事故（2026-10-16）](./incidents/2026-10-16-demo-art-404.md) — 动 .dockerignore 前必读
+
 ## 评审与规范
 
 - [项目审查（2026-10-04）](./15-project-audit-2026-10-04.md)

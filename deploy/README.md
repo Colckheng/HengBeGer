@@ -272,6 +272,9 @@ docker compose -f deploy/docker-compose.yml up -d --build app
 
 - **自签证书**：浏览器每次会警告；App 端靠证书固定，不受影响。换域名 + 备案后可以换成 Let's Encrypt，那时把 8443 换成 443 并打开 HSTS。
 - **单机**：没有冗余。MySQL 卷丢了就得靠备份恢复，所以备份要定期拉到本机。
-- **镜像里没有 demo-art / demo-data**：这两个目录是仓库里的演示数据（约 60MB），生产入口不引用，构建时已删。
+- **镜像里只有 demo-art 的一部分**：`covers/`（首页三张世界卡片）、`fonts/`（全站字体）与根级 9 张插画
+  （世界页 hero + 详情页肖像）会进镜像，`previews/` 与 `demo-data/` 被 `scripts/trim-dist.mjs` 裁掉。
+  这条边界曾经写错过一次，代价是线上首页破图 + 全站字体静默退化，
+  完整事故记录见 `docs/incidents/2026-10-16-demo-art-404.md`——改 `.dockerignore` 前先读它。
 - **旧后台接口在云端不可用**：`/api/*` 除 catalog 外全被 nginx 挡在门外，这是刻意的——个人服务不需要暴露后台。
 - 端口号写死在 compose 与证书里；换端口要同时改 `.env`、安全组和 App 里配置的地址。
