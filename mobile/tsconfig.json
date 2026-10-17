@@ -4,6 +4,6 @@
     "strict": false,
     "allowJs": true
   },
-  "include": ["app/**/*.tsx", "src/**/*.js", "src/**/*.ts", ".expo/types/**/*.ts", "expo-env.d.ts"],
+  "include": ["app/**/*.tsx", "src/**/*.js", "src/**/*.ts", "src/**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts"],
   "exclude": ["node_modules", "test/**/*.mjs"]
 }

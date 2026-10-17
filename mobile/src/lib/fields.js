@@ -17,6 +17,14 @@ const LABELS = {
   season: '赛季', quality: '品质', effect: '效果', cost: '费用',
 };
 
+/**
+ * 采集侧的内部版本号不能直接给读者看：
+ *   hsr 的 version 是内容版本序号（"77"），zzz 的是抓取时间戳（"1767587851"），
+ *   只有货币战争的 version 才是真正有意义的版本号（"4.6.51"）。
+ * 判据：只有 x.y 形式的语义版本才展示，其余当作采集元信息跳过。
+ */
+const SEMANTIC_VERSION = /^\d+\.\d+/;
+
 /** 接口对 fields 有两种形状：数组（一个元素一份元数据）或单个对象，两种都要吃。 */
 export function describeFields(entry) {
   const fields = entry && entry.fields;
@@ -29,6 +37,7 @@ export function describeFields(entry) {
       if (HIDDEN.has(key) || seen.has(key)) continue;
       if (value === null || value === undefined || value === '') continue;
       if (typeof value === 'object') continue;
+      if (key === 'version' && !SEMANTIC_VERSION.test(String(value))) continue;
       seen.add(key);
       rows.push({ label: LABELS[key] || key, value: String(value) });
     }

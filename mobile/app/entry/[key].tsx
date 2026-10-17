@@ -6,7 +6,9 @@ import { getApp } from '../../src/api/app';
 import { prepareReaderContent, prepareSections } from '../../src/content/content';
 import { describeFields } from '../../src/lib/fields';
 import { dropIdLines, entryKeyFromLink, stripGameTags } from '../../src/lib/reader';
-import { groupSections, isKeyValueTable, tableToKeyValues } from '../../src/lib/sections';
+import { groupSections } from '../../src/lib/sections';
+import { splitTables } from '../../src/lib/values';
+import { SubTable } from '../../src/ui/Bars';
 
 export default function EntryScreen() {
   const { key } = useLocalSearchParams<{ key: string }>();
@@ -132,32 +134,17 @@ export default function EntryScreen() {
                       </Markdown>
                     );
                   }
-                  const table = block.table;
-                  const values = table && isKeyValueTable(table) ? tableToKeyValues(table) : [];
-                  if (values.length > 0) {
-                    return (
-                      <View key={index} style={styles.kvTable}>
-                        {values.map((row: any, rowIndex: number) => (
-                          <View key={rowIndex} style={styles.kvRow}>
-                            <Text numberOfLines={1} style={styles.kvKey}>{row.key}</Text>
-                            <Text style={styles.kvValue}>{row.value}</Text>
-                          </View>
-                        ))}
-                      </View>
-                    );
-                  }
-                  if (!table) return null;
-                  // 列多且首列不重复的宽表：仍用 Markdown，但截到 20 行避免无限堆叠。
-                  const lines = table.rows.slice(0, 20).map((cells: string[]) => '| ' + cells.join(' | ') + ' |');
-                  if (table.rows.length > 20) lines.push('', '……还有 ' + (table.rows.length - 20) + ' 行未展示');
+                  if (!block.table) return null;
+                  // 一个 block 里可能粘着多张子表（晋阶表 97 行其实是 9 张），逐张渲染。
+                  // splitTables 认「表头 + 分隔行」定位边界，比只按首个表头切准确得多。
+                  const parts = splitTables(block.tableLines || []);
+                  const tables = parts.length ? parts : [block.table];
                   return (
-                    <Markdown
-                      key={index}
-                      style={markdownStyles}
-                      onLinkPress={(url: string) => openEntryLink(url)}
-                    >
-                      {lines.join(String.fromCharCode(10))}
-                    </Markdown>
+                    <View key={index}>
+                      {tables.map((part: any, partIndex: number) => (
+                        <SubTable key={partIndex} table={part} markdownStyles={markdownStyles} onLinkPress={openEntryLink} />
+                      ))}
+                    </View>
                   );
                 })}
               </View>
@@ -186,6 +173,17 @@ const markdownStyles = {
   code_inline: { color: '#e8b25c' },
   table: { borderWidth: 0 },
   paragraph: { marginTop: 0, marginBottom: 6 },
+  // 数据里的 > 引用块（2018 条条目有，比如 zzz 物品的 "> English name: ..."）。
+  // 不显式给样式的话，react-native-markdown-display 会画成白底方块，深色主题下像
+  // 一张贴错位置的卡片（用户截图里那两块白底高亮）。
+  blockquote: {
+    backgroundColor: '#1b1730',
+    borderLeftWidth: 3,
+    borderLeftColor: '#4b3f8f',
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    marginVertical: 6,
+  },
 };
 
 const styles = StyleSheet.create({

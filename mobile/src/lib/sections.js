@@ -79,8 +79,10 @@ export function splitBlocks(body = '') {
     }
   }
   flush();
+  // 保留原始行（tableLines）：一张 block 里可能粘着多张子表，parseTable 只认第一个
+  // 表头，会把后面子表的表头当成数据行。渲染侧用 values.js 的 splitTables 逐张拆。
   return blocks.map(block => (block.kind === 'table'
-    ? { kind: 'table', table: parseTable(block.lines.join('\n')) }
+    ? { kind: 'table', tableLines: block.lines, table: parseTable(block.lines.join('\n')) }
     : block));
 }
 

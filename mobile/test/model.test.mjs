@@ -69,11 +69,11 @@ test('describeFields：摊平元数据、隐藏内部字段、跳过对象与空
       nothing: null, empty: '', nested: { a: 1 },
     }],
   });
+  // version '27' 是 hsr 的内容版本序号（不是读者要的版本号），按内部编号跳过。
   assert.deepEqual(rows, [
     { label: '命途', value: '记忆' },
     { label: '属性', value: '冰' },
     { label: '星级', value: '5' },
-    { label: '版本', value: '27' },
   ]);
   assert.deepEqual(describeFields(null), []);
   assert.deepEqual(describeFields({ fields: 'nope' }), []);
