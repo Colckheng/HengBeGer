@@ -60,7 +60,8 @@ export function itemByKey(index) {
     if (item && item.key) {
       map.set(item.key, {
         name: item.name || item.rawName || item.key,
-        image: item.image || null,
+        // 缩略图只有 320px 宽，列表小图在高密度屏上会放大模糊；有大图档就用大图档。
+        image: item.imageLarge || item.image || null,
         category: item.category || '',
       });
     }

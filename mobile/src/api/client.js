@@ -36,6 +36,11 @@ export function buildImageUrl(serverUrl, imagePath) {
   return normalizeServerUrl(serverUrl) + (imagePath.startsWith('/') ? imagePath : '/' + imagePath);
 }
 
+/** 使用独立客户端测试指定地址，不影响 App 当前的数据连接。 */
+export function testServerConnection(serverUrl, { fetchImpl } = {}) {
+  return createApiClient({ serverUrl, fetchImpl }).getIndex();
+}
+
 export function createApiClient({
   serverUrl = DEFAULT_SERVER_URL,
   fetchImpl,

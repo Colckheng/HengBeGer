@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
+import * as api from '../src/api/client.js';
 import {
   ApiError, DEFAULT_SERVER_URL, buildImageUrl, createApiClient, normalizeServerUrl,
 } from '../src/api/client.js';
@@ -35,6 +36,22 @@ test('createApiClient：请求路径与查询参数正确', async () => {
   assert.equal(seen[0], 'https://host:8443/api/catalog/index');
   assert.equal(seen[1], 'https://host:8443/api/catalog/entry?key=zzz%2Fagents%2F1011');
   assert.equal(seen[2], 'https://host:8443/api/catalog/entries?category=hsr%2Fcharacters&q=%E4%B8%89%E6%9C%88+%E4%B8%83&page=2&limit=30');
+});
+
+test('连接测试请求传入的新地址，不改变已有客户端', async () => {
+  const seen = [];
+  const fetchImpl = async (url) => { seen.push(url); return jsonResponse({ items: [url] }); };
+  const existing = createApiClient({ serverUrl: 'https://old:8443', fetchImpl });
+  const first = await api.testServerConnection('new-one:8444/', { fetchImpl });
+  const second = await api.testServerConnection('http://new-two:8080/?q=1', { fetchImpl });
+  await existing.getIndex();
+  assert.deepEqual(seen, [
+    'https://new-one:8444/api/catalog/index',
+    'http://new-two:8080/api/catalog/index',
+    'https://old:8443/api/catalog/index',
+  ]);
+  assert.deepEqual(first.items, [seen[0]]);
+  assert.deepEqual(second.items, [seen[1]]);
 });
 
 test('createApiClient：非 2xx 抛 ApiError 并带上状态码', async () => {

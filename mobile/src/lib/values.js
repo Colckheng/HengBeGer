@@ -143,6 +143,23 @@ export function tableToSeries(table) {
   return out;
 }
 
+/** 返回一行的所有显示项，两列表的值也转换为显示项。 */
+export function seriesRowItems(row) {
+  if (!row) return [];
+  return row.bars || [{ label: '', text: row.text ?? '', number: row.number ?? null, unit: row.unit ?? '' }];
+}
+
+/** 仅同单位数值共用刻度，混合百分比和普通数字时退回文本展示。 */
+export function comparableScale(series) {
+  const units = new Set();
+  for (const row of series ?? []) {
+    for (const item of seriesRowItems(row)) {
+      if (item.number != null) units.add(item.unit || '');
+    }
+  }
+  return units.size > 1 ? null : computeScale(series);
+}
+
 /**
  * 计算一组序列共享的刻度。百分比至少给 100%，纯数字取组内最大值，
  * 这样「等级1 50%」和「等级12 176%」在同一个尺度上才看得出增长。

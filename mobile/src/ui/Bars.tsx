@@ -1,9 +1,9 @@
 import { useMemo, useRef, useState } from 'react';
 import { PanResponder, StyleSheet, Text, View } from 'react-native';
-import Markdown from 'react-native-markdown-display';
-import { isKeyValueTable, tableToKeyValues } from '../lib/sections';
+import { isKeyValueTable, tableToKeyValues, wideTableRows } from '../lib/sections';
 import {
   computeScale,
+  comparableScale,
   hasBars,
   isLevelSeries,
   isProjectTable,
@@ -12,6 +12,7 @@ import {
   numericRatio,
   projectTableToLevels,
   rankTableToRows,
+  seriesRowItems,
   splitSegments,
   splitMaterialRun,
   statSnapshotTableToLevels,
@@ -25,7 +26,7 @@ type Scale = { max: number; percent: boolean } | null;
 /** 条形填充色：超过刻度（例如 >100%）用暖色，其余用主色。 */
 function fillColor(value: number, scale: Scale) {
   if (scale && scale.percent && value > 100) return '#c98a3c';
-  return '#6f5bd6';
+  return '#397864';
 }
 
 function ratioOf(value: number, scale: Scale) {
@@ -48,14 +49,14 @@ export function ValueBarRow({ label, value, number, scale, labelWidth = 76 }: {
   const marker = scale && scale.percent && scale.max > 100 ? 100 / scale.max : null;
   return (
     <View style={styles.row}>
-      {label ? <Text numberOfLines={1} style={[styles.rowLabel, { width: labelWidth }]}>{label}</Text> : null}
+      {label ? <Text style={[styles.rowLabel, { width: labelWidth }]}>{label}</Text> : null}
       <View style={styles.track}>
         {number != null ? (
           <View style={[styles.fill, { width: ((ratio * 100).toFixed(1) + '%') as any, backgroundColor: fillColor(number, scale) }]} />
         ) : null}
         {marker != null ? <View style={[styles.marker, { left: ((marker * 100).toFixed(1) + '%') as any }]} /> : null}
       </View>
-      <Text numberOfLines={1} style={styles.rowValue}>{value}</Text>
+      <Text style={styles.rowValue}>{value}</Text>
     </View>
   );
 }
@@ -72,15 +73,13 @@ export function ValueBarGroup({ title, bars, scale, labelWidth = 76 }: {
   return (
     <View style={styles.group}>
       <Text style={styles.groupTitle}>{title}</Text>
-      {bars.map((bar, index) => (
-        <ValueBarRow
-          key={bar.label + index}
-          label={bar.number != null ? bar.label : undefined}
-          value={bar.text}
-          number={bar.number}
-          scale={scale}
-          labelWidth={labelWidth}
-        />
+      {bars.map((bar, index) => bar.number != null ? (
+        <ValueBarRow key={bar.label + index} label={bar.label} value={bar.text} number={bar.number} scale={scale} labelWidth={labelWidth} />
+      ) : (
+        <View key={bar.label + index} style={styles.kvRow}>
+          <Text style={styles.kvKey}>{bar.label}</Text>
+          <Text style={styles.kvValue}>{bar.text}</Text>
+        </View>
       ))}
     </View>
   );
@@ -121,7 +120,7 @@ function makeSliderResponder({ widthRef, select, last }: {
  *     而 Expo 57 + RN 0.86 新架构下它的 autolink 兼容性没有保证；
  *   - 这里只需要「按百分比取整」这一种行为，PanResponder + onLayout 就够，零依赖零风险。
  */
-export function LevelPicker({ series, scale }: { series: { key: string; bars?: Bar[] }[]; scale: Scale }) {
+export function LevelPicker({ series, scale }: { series: { key: string; bars?: Bar[]; text?: string; number?: number | null; unit?: string }[]; scale: Scale }) {
   const [index, setIndex] = useState(0);
   const [width, setWidth] = useState(0);
   const widthRef = useRef(0);
@@ -139,7 +138,7 @@ export function LevelPicker({ series, scale }: { series: { key: string; bars?: B
   const responder = useMemo(() => makeSliderResponder({ widthRef, select, last }), [last]);
 
   const current = series[Math.min(index, last)] || series[0];
-  const bars = current.bars || [];
+  const bars = seriesRowItems(current);
   const ratio = last > 0 ? index / last : 0;
 
   return (
@@ -150,6 +149,15 @@ export function LevelPicker({ series, scale }: { series: { key: string; bars?: B
       </View>
       <View
         style={styles.sliderHit}
+        accessible
+        accessibilityRole="adjustable"
+        accessibilityLabel="选择等级"
+        accessibilityValue={{ min: 1, max: last + 1, now: Math.min(index, last) + 1 }}
+        accessibilityActions={[{ name: 'increment', label: '提高等级' }, { name: 'decrement', label: '降低等级' }]}
+        onAccessibilityAction={(event) => {
+          if (event.nativeEvent.actionName === 'increment') select(indexRef.current + 1);
+          if (event.nativeEvent.actionName === 'decrement') select(indexRef.current - 1);
+        }}
         onLayout={(event) => {
           widthRef.current = event.nativeEvent.layout.width;
           setWidth(event.nativeEvent.layout.width);
@@ -165,8 +173,10 @@ export function LevelPicker({ series, scale }: { series: { key: string; bars?: B
         <Text style={styles.tickText}>{series[last].key}</Text>
       </View>
       <View style={styles.pickerValues}>
-        {bars.map((bar, i) => (
+        {bars.map((bar: Bar, i: number) => bar.number != null ? (
           <ValueBarRow key={bar.label + i} label={bar.label} value={bar.text} number={bar.number} scale={scale} />
+        ) : (
+          <Text key={bar.label + i} style={styles.projectText}>{bar.label ? bar.label + '：' : ''}{bar.text}</Text>
         ))}
       </View>
     </View>
@@ -234,6 +244,15 @@ export function ProjectLevelPicker({ levels }: { levels: ReturnType<typeof proje
       </View>
       <View
         style={styles.sliderHit}
+        accessible
+        accessibilityRole="adjustable"
+        accessibilityLabel="选择等级"
+        accessibilityValue={{ min: 1, max: last + 1, now: Math.min(index, last) + 1 }}
+        accessibilityActions={[{ name: 'increment', label: '提高等级' }, { name: 'decrement', label: '降低等级' }]}
+        onAccessibilityAction={(event) => {
+          if (event.nativeEvent.actionName === 'increment') select(indexRef.current + 1);
+          if (event.nativeEvent.actionName === 'decrement') select(indexRef.current - 1);
+        }}
         onLayout={(event) => {
           widthRef.current = event.nativeEvent.layout.width;
           setWidth(event.nativeEvent.layout.width);
@@ -253,9 +272,12 @@ export function ProjectLevelPicker({ levels }: { levels: ReturnType<typeof proje
           <View key={block.item.label + block.itemIndex} style={styles.projectBlock}>
             <Text style={styles.projectLabel}>{block.item.label}</Text>
             {block.segments.length
-              ? block.segments.map((seg, segIndex) => (
-                <ValueBarRow key={seg.label + segIndex} label={seg.label} value={seg.text} number={seg.number} scale={scale} labelWidth={88} />
-              ))
+              ? <>
+                <Text style={styles.projectText}>{block.item.text}</Text>
+                {block.segments.map((seg, segIndex) => (
+                  <ValueBarRow key={seg.label + segIndex} label={seg.label} value={seg.text} number={seg.number} scale={scale} labelWidth={88} />
+                ))}
+              </>
               : block.item.number != null
                 ? <ValueBarRow value={stripLabelPrefix(block.item.text, block.item.label)} number={block.item.number} scale={scale} />
                 : <Text style={styles.projectText}>{block.item.text}</Text>}
@@ -323,6 +345,15 @@ export function StatSnapshotPicker({ snapshot }: { snapshot: ReturnType<typeof s
       </View>
       <View
         style={styles.sliderHit}
+        accessible
+        accessibilityRole="adjustable"
+        accessibilityLabel="选择等级"
+        accessibilityValue={{ min: 1, max: last + 1, now: Math.min(index, last) + 1 }}
+        accessibilityActions={[{ name: 'increment', label: '提高等级' }, { name: 'decrement', label: '降低等级' }]}
+        onAccessibilityAction={(event) => {
+          if (event.nativeEvent.actionName === 'increment') select(indexRef.current + 1);
+          if (event.nativeEvent.actionName === 'decrement') select(indexRef.current - 1);
+        }}
         onLayout={(event) => {
           widthRef.current = event.nativeEvent.layout.width;
           setWidth(event.nativeEvent.layout.width);
@@ -440,9 +471,9 @@ export function TextTable({ table }: { table: any }) {
  *   - 其余含数值的表 → 每行一条条形（两列）或分组条形（多列）；
  *   - 纯文本表 → 文本网格 / 键值行，绝不把 | --- | 源码丢给读者。
  */
-export function SubTable({ table, markdownStyles, onLinkPress }: any) {
+export function SubTable({ table }: any) {
   const series = useMemo(() => tableToSeries(table), [table]);
-  const scale = useMemo(() => computeScale(series), [series]);
+  const scale = useMemo(() => comparableScale(series), [series]);
   const drawable = useMemo(() => hasBars(series), [series]);
 
   const levels = useMemo(() => (isProjectTable(table) ? projectTableToLevels(table) : []), [table]);
@@ -458,32 +489,15 @@ export function SubTable({ table, markdownStyles, onLinkPress }: any) {
   const ranks = useMemo(() => (isRankTable(table) ? rankTableToRows(table) : []), [table]);
 
   if (!table) return null;
+  const columnCount = Math.max((table.headers || []).length, ...(table.rows || []).map((row: string[]) => row.length));
+  if (columnCount > 5) {
+    return <View style={styles.kvTable}>{wideTableRows(table).map((line: string, index: number) => <Text key={index} style={styles.wideRow}>{line}</Text>)}</View>;
+  }
   if (snapshot && snapshot.levels.length >= 2) return <StatSnapshotPicker snapshot={snapshot} />;
   if (ranks.length >= 2) return <RankTable rows={ranks} />;
   // zzz 代理人技能表：| 等级 | 项目 | 数据 |，优先于普通两列/多列分支。
   if (levels.length >= 2) return <ProjectLevelPicker levels={levels} />;
-  if (!series.length) return null;
-
-  // 整张表都是空单元格（hsr 1507/1508 的残表：只有「等级1..4」、数值列全空）：
-  // 画出来是一串空白行，直接不渲染。
-  const hasContent = series.some((row: any) => {
-    const items = row.bars ? row.bars : [row];
-    return items.some((item: any) => item.number != null || String(item.text ?? '').trim());
-  });
-  if (!hasContent) {
-    // 但「首列有名字、其余列全空」的表不能直接丢：hsr 晋阶的 `| 材料 | 数量 |`
-    // 全库 679 张，数量列在源数据里就是空的，只剩材料名 —— 那是有效信息
-    // （这个角色晋阶要哪些材料），排成一行比整段消失好。
-    const names = series
-      .map((row: any) => String(row.key ?? '').trim())
-      .filter((name: string) => name && !/^(?:等级|Lv\.?)\s*\d+$/i.test(name));
-    if (names.length < 2) return null;
-    return (
-      <View style={styles.projectBlock}>
-        <Text style={styles.projectText}>{names.join('、')}</Text>
-      </View>
-    );
-  }
+  if (!series.length || (drawable && !scale)) return <TextTable table={table} />;
 
   if (scale && drawable && isLevelSeries(series)) {
     return <LevelPicker series={series} scale={scale} />;
@@ -496,9 +510,7 @@ export function SubTable({ table, markdownStyles, onLinkPress }: any) {
       <View style={styles.group}>
         {series.map((row: any, index: number) => {
           if (row.bars) {
-            const bars = row.bars.filter((bar: any) => bar.number != null);
-            if (!bars.length) return null;
-            return <ValueBarGroup key={index} title={row.key} bars={bars} scale={scale} />;
+            return <ValueBarGroup key={index} title={row.key} bars={seriesRowItems(row)} scale={scale} />;
           }
           // 抽不到数值的行（材料表的空「数量」列、纯文字说明）只走文本行，
           // 否则会画出一排没有填充的空轨道，白白占掉半屏。
@@ -506,7 +518,7 @@ export function SubTable({ table, markdownStyles, onLinkPress }: any) {
             if (!String(row.text || '').trim()) return null;
             return (
               <View key={index} style={styles.kvRow}>
-                <Text numberOfLines={1} style={styles.kvKey}>{row.key}</Text>
+                <Text style={styles.kvKey}>{row.key}</Text>
                 <Text style={styles.kvValue}>{row.text}</Text>
               </View>
             );
@@ -526,76 +538,63 @@ export function SubTable({ table, markdownStyles, onLinkPress }: any) {
       <View style={styles.kvTable}>
         {values.map((row: any, rowIndex: number) => (
           <View key={rowIndex} style={styles.kvRow}>
-            <Text numberOfLines={1} style={styles.kvKey}>{row.key}</Text>
+            <Text style={styles.kvKey}>{row.key}</Text>
             <Text style={styles.kvValue}>{row.value}</Text>
           </View>
         ))}
       </View>
     );
   }
-  // 文本网格也放不下（>4 列）才退回 Markdown；即使如此也不再吐原始表格源码，
-  // 改成每行「列名：值」的段落，读者至少看得懂。
-  const grid = <TextTable table={table} />;
-  if (grid) return grid;
-  const lines = table.rows.slice(0, 20).map((cells: string[]) =>
-    cells
-      .map((cell: string, index: number) => {
-        const name = (table.headers || [])[index];
-        return name ? name + '：' + cell : cell;
-      })
-      .filter((part: string) => part.replace(/^[^：]*：/, '').trim())
-      .join('　'),
-  );
-  if (table.rows.length > 20) lines.push('……还有 ' + (table.rows.length - 20) + ' 行未展示');
-  return <Markdown style={markdownStyles} onLinkPress={onLinkPress}>{lines.join(String.fromCharCode(10))}</Markdown>;
+  return <TextTable table={table} />;
 }
 const styles = StyleSheet.create({
   row: { flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 5 },
-  rowLabel: { color: '#b9b1d4', fontSize: 11 },
-  track: { flex: 1, height: 12, borderRadius: 6, backgroundColor: '#241f3a', overflow: 'hidden' },
+  rowLabel: { color: '#4D6C63', fontSize: 13, lineHeight: 19, flexShrink: 1 },
+  track: { flex: 1, height: 10, borderRadius: 6, backgroundColor: '#E7EEE9', overflow: 'hidden' },
   fill: { height: '100%', borderRadius: 6 },
   marker: { position: 'absolute', top: 0, bottom: 0, width: 1, backgroundColor: 'rgba(255,255,255,0.35)' },
-  rowValue: { color: '#e7e2f5', fontSize: 12, minWidth: 52, textAlign: 'right' },
+  rowValue: { color: '#102B2C', fontSize: 13, minWidth: 52, flexShrink: 1, textAlign: 'right' },
   group: { marginTop: 8 },
-  groupTitle: { color: '#f2eefb', fontSize: 13, fontWeight: '700' },
+  groupTitle: { color: '#10383A', fontSize: 13, fontWeight: '700' },
   picker: { marginTop: 8 },
   pickerHead: { flexDirection: 'row', alignItems: 'baseline', justifyContent: 'space-between' },
-  pickerKey: { color: '#f2eefb', fontSize: 15, fontWeight: '700' },
-  pickerHint: { color: '#9c93b8', fontSize: 11 },
-  sliderHit: { height: 34, justifyContent: 'center', marginTop: 4 },
-  sliderTrack: { height: 6, borderRadius: 3, backgroundColor: '#241f3a' },
-  sliderFill: { position: 'absolute', height: 6, borderRadius: 3, backgroundColor: '#6f5bd6' },
-  sliderThumb: { position: 'absolute', width: 18, height: 18, borderRadius: 9, backgroundColor: '#efe9ff' },
+  pickerKey: { color: '#10383A', fontSize: 15, fontWeight: '700' },
+  pickerHint: { color: '#58746C', fontSize: 11 },
+  sliderHit: { height: 48, justifyContent: 'center', marginTop: 4 },
+  sliderTrack: { height: 6, borderRadius: 3, backgroundColor: '#D5E3D9' },
+  sliderFill: { position: 'absolute', height: 6, borderRadius: 3, backgroundColor: '#397864' },
+  sliderThumb: { position: 'absolute', width: 18, height: 18, borderRadius: 9, backgroundColor: '#10383A' },
   sliderTicks: { flexDirection: 'row', justifyContent: 'space-between' },
-  tickText: { color: '#6f6890', fontSize: 10 },
+  tickText: { color: '#58746C', fontSize: 10 },
   pickerValues: { marginTop: 4 },
   projectBlock: { marginTop: 8 },
   statGroup: { marginTop: 6 },
-  statCaption: { color: '#8b83a8', fontSize: 11, marginTop: 4 },
+  statCaption: { color: '#58746C', fontSize: 11, marginTop: 4 },
   statGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
-  statCell: { width: '30%', minWidth: 88, backgroundColor: '#191531', borderRadius: 8, paddingHorizontal: 8, paddingVertical: 6 },
-  statLabel: { color: '#8b83a8', fontSize: 11 },
-  statValue: { color: '#f2eefb', fontSize: 16, fontWeight: '700' },
+  statCell: { width: '30%', minWidth: 88, backgroundColor: '#E7EEE9', borderRadius: 8, paddingHorizontal: 8, paddingVertical: 6 },
+  statLabel: { color: '#58746C', fontSize: 11 },
+  statValue: { color: '#10383A', fontSize: 16, fontWeight: '700' },
   rankHead: { flexDirection: 'row', alignItems: 'center', gap: 8 },
-  rankBadge: { width: 22, height: 22, borderRadius: 11, backgroundColor: '#4b3f8f', alignItems: 'center', justifyContent: 'center' },
-  rankBadgeText: { color: '#efe9ff', fontSize: 12, fontWeight: '700' },
+  rankBadge: { width: 22, height: 22, borderRadius: 11, backgroundColor: '#D6EE99', alignItems: 'center', justifyContent: 'center' },
+  rankBadgeText: { color: '#10383A', fontSize: 12, fontWeight: '700' },
   rankBar: { flex: 1 },
-  rankMaterials: { color: '#8b83a8', fontSize: 11, marginTop: 2 },
+  rankMaterials: { color: '#58746C', fontSize: 11, marginTop: 2 },
   materialWrap: { flexDirection: 'row', flexWrap: 'wrap', gap: 6, marginTop: 4 },
-  materialChip: { flexDirection: 'row', alignItems: 'center', gap: 4, backgroundColor: '#191531', borderRadius: 6, paddingHorizontal: 8, paddingVertical: 4 },
-  materialName: { color: '#c9c1e4', fontSize: 11 },
-  materialCount: { color: '#f2eefb', fontSize: 12, fontWeight: '700' },
-  projectLabel: { color: '#c9c1e4', fontSize: 12, fontWeight: '700', marginBottom: 2 },
-  projectText: { color: '#d7d0ee', fontSize: 13, lineHeight: 20 },
+  materialChip: { flexDirection: 'row', alignItems: 'center', gap: 4, backgroundColor: '#E7EEE9', borderRadius: 6, paddingHorizontal: 8, paddingVertical: 4 },
+  materialName: { color: '#365B50', fontSize: 11 },
+  materialCount: { color: '#10383A', fontSize: 12, fontWeight: '700' },
+  projectLabel: { color: '#365B50', fontSize: 12, fontWeight: '700', marginBottom: 2 },
+  projectText: { color: '#102B2C', fontSize: 13, lineHeight: 20 },
   textTable: { marginTop: 6 },
-  textRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 8, paddingVertical: 5, borderTopWidth: 1, borderTopColor: '#1d1832' },
+  textRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 8, paddingVertical: 5, borderTopWidth: 1, borderTopColor: '#E7EEE9' },
   textHeadRow: { borderTopWidth: 0, paddingTop: 0 },
-  textCell: { flex: 1, color: '#d7d0ee', fontSize: 12, lineHeight: 18 },
+  textCell: { flex: 1, color: '#102B2C', fontSize: 12, lineHeight: 18 },
   textCellCompact: { fontSize: 11, lineHeight: 16 },
-  textCellKey: { flex: 0.9, color: '#c9c1e4' },
-  textHeadCell: { color: '#8b83a8', fontSize: 11 },
+  textCellKey: { flex: 0.9, color: '#365B50' },
+  textHeadCell: { color: '#58746C', fontSize: 11 },
+  wideRow: { color: '#102B2C', fontSize: 14, lineHeight: 22, paddingVertical: 10, borderTopWidth: 1, borderTopColor: '#E7EEE9' },
   kvTable: { marginTop: 2 },
-  kvRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 8, paddingVertical: 5, borderTopWidth: 1, borderTopColor: '#1d1832' },
-  kvKey: { color: '#8b83a8', width: 76, fontSize: 13 },
-  kvValue: { color: '#d7d0ee', flex: 1, fontSize: 13, lineHeight: 20 },
+  kvRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 8, paddingVertical: 5, borderTopWidth: 1, borderTopColor: '#E7EEE9' },
+  kvKey: { color: '#58746C', width: '30%', fontSize: 13, lineHeight: 20 },
+  kvValue: { color: '#102B2C', flex: 1, fontSize: 13, lineHeight: 20 },
 });

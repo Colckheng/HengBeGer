@@ -99,7 +99,8 @@ export function buildHomeModel(index, { recentLimit = 6 } = {}) {
     const recent = pickRecent(pool, recentLimit).map((item) => ({
       key: item.key,
       name: item.name || item.rawName || item.key,
-      image: item.image || null,
+      // 缩略图只有 320px 宽，高密度屏上要放大 1.5 倍以上；有大图档就用大图档。
+      image: item.imageLarge || item.image || null,
       // 无封面条目的占位文字用（整个世界都没图时才会走到）
       category: item.category || '',
     }));

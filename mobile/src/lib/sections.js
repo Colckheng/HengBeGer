@@ -1,3 +1,5 @@
+import { entryKeyFromLink } from './reader.js';
+
 /**
  * App 端章节编排：把服务端切好的 20 来个 section 收成几个可折叠分区，
  * 并把 markdown 表格转成键值行，避免 react-native-markdown-display 把表格
@@ -32,10 +34,34 @@ export function groupOfTitle(title = '') {
   return 'overview';
 }
 
-/**
- * 把一段 markdown 拆成「块」序列：段落 / 表格 / 列表 / 标题。
- * 表格必须单独识别出来，改用原生 View 渲染，不能交给 Markdown 组件。
- */
+// Markdown returns true to let Linking handle the URL.
+export function handleReaderLink(url, openEntry) {
+  const key = entryKeyFromLink(url);
+  if (!key) return true;
+  openEntry(key);
+  return false;
+}
+
+export function wideTableRows(table) {
+  return (table.rows || []).map(cells => cells.map((cell, index) => {
+    if (!String(cell ?? '').trim()) return '';
+    const header = (table.headers || [])[index];
+    return header ? `${header}：${cell}` : cell;
+  }).filter(Boolean).join('　'));
+}
+
+export function readerParts(body = '') {
+  const text = String(body ?? '');
+  const headings = [...text.matchAll(/^###[ \t]+([^\r\n]*\S)[ \t]*$/gm)];
+  return {
+    preamble: headings.length ? text.slice(0, headings[0].index) : text,
+    parts: headings.map((heading, index) => ({
+      title: heading[1].trim(),
+      body: text.slice(heading.index, headings[index + 1]?.index ?? text.length),
+    })),
+  };
+}
+
 const TABLE_LINE = /^\s*\|.*\|\s*$/;
 
 function splitRow(line) {
@@ -142,10 +168,8 @@ export function tableToKeyValues(table) {
 
 /**
  * 章节 -> 分组。返回 [{ id, name, fold, sections: [{ id, title, blocks }] }]。
- * 空 section（清洗后没内容）直接丢掉。
  */
-export function groupSections(sections, options = {}) {
-  const maxPerGroup = options.maxPerGroup ?? 6;
+export function groupSections(sections) {
   const buckets = new Map();
   for (const section of sections ?? []) {
     const group = groupOfTitle(section.title);
@@ -160,12 +184,11 @@ export function groupSections(sections, options = {}) {
       id: def.id,
       name: def.name,
       fold: def.fold,
-      sections: list.slice(0, maxPerGroup).map(section => ({
+      sections: list.map(section => ({
         id: section.id,
         title: section.title,
         blocks: splitBlocks(section.body ?? ''),
       })),
-      hidden: Math.max(0, list.length - maxPerGroup),
     });
   }
   return out;

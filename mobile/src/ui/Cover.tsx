@@ -11,7 +11,7 @@ import { Image, StyleSheet, Text, View } from 'react-native';
 import { getApp } from '../api/app';
 import { placeholderLabel } from '../lib/placeholder';
 
-const PLACEHOLDER_COLOR = '#241f3a';
+const PLACEHOLDER_COLOR = '#E7EEE9';
 
 export function CoverPlaceholder({
   category,
@@ -31,7 +31,7 @@ export function CoverImage({
   path,
   category,
   style,
-  resizeMode = 'cover',
+  resizeMode = 'contain',
 }: {
   path?: string | null;
   category?: string | null;
@@ -63,5 +63,5 @@ export function CoverImage({
 
 const styles = StyleSheet.create({
   box: { alignItems: 'center', justifyContent: 'center', backgroundColor: PLACEHOLDER_COLOR },
-  label: { color: '#6f6890', fontSize: 11, fontWeight: '700' },
+  label: { color: '#526C68', fontSize: 13, fontWeight: '700' },
 });

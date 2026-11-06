@@ -1,6 +1,36 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
+import { readFileSync } from 'node:fs';
+import * as values from '../src/lib/values.js';
 import { computeScale, groupStatSegments, hasBars, isLevelSeries, isProjectTable, isRankTable, isStatSnapshotTable, parseNumber, parseStatSegments, parseTable, projectTableToLevels, rankTableToRows, shortenSegmentLabel, splitMaterialRun, splitSegments, splitTables, statSnapshotTableToLevels, stripLabelPrefix, tableToSeries } from '../src/lib/values.js';
+
+test('真实两列技能等级保留当前等级数值', () => {
+  for (const file of ['1003_姬子.md', '1001_三月七.md']) {
+    const body = readFileSync(new URL('../../data/hsr/characters/' + file, import.meta.url), 'utf8');
+    const table = splitTables(body).find(t => t.headers.length === 2 && isLevelSeries(tableToSeries(t)));
+    assert.ok(table, file);
+    const row = tableToSeries(table)[0];
+    assert.equal(values.seriesRowItems(row)[0].text, row.text);
+    assert.equal(values.seriesRowItems(row)[0].number, row.number);
+  }
+});
+
+test('真实邦布表保留冷却时间和缺失标记，混合单位不共享刻度', () => {
+  for (const file of ['53001_企鹅布.md', '53005_纸壳布.md']) {
+    const body = readFileSync(new URL('../../data/zzz/bangboo/' + file, import.meta.url), 'utf8');
+    const tables = splitTables(body);
+    for (const seconds of file.includes('企鹅') ? ['20秒'] : ['24秒']) {
+      const table = tables.find(t => t.rows.some(row => row.includes(seconds)) && t.headers.length <= 5);
+      assert.ok(table, file + seconds);
+      const series = tableToSeries(table);
+      const row = series.find(r => r.bars?.some(b => b.text === seconds));
+      assert.ok(values.seriesRowItems(row).some(item => item.text === seconds));
+      if (file.includes('企鹅')) assert.equal(values.comparableScale(series), null);
+    }
+  }
+  const series = tableToSeries(parseTable(['| Lv | 伤害 | 失衡 | 冷却 | 积蓄 |', '| -- | -- | -- | -- | -- |', '| 1 | 462% | 270% | — | 346 |']));
+  assert.ok(values.seriesRowItems(series[0]).some(item => item.text === '—'));
+});
 
 test('parseNumber 纯值', () => {
   assert.deepEqual(parseNumber('50%'), { number: 50, unit: '%' });
