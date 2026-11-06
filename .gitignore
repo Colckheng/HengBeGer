@@ -91,6 +91,7 @@ data/images/
 reports/design-review/
 reports/open-index-css/
 reports/open-index-verification/
+vibe_images/
 
 # Local editor state
 .claude/

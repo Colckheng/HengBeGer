@@ -1,0 +1,348 @@
+/* 概念原型样式：编辑排版式的资料索引，纸感底色 + 墨绿 + 砖红点缀。 */
+
+:root {
+  --ink: #202a36;
+  --muted: #64717a;
+  --paper: #fffef9;
+  --line: #cbd1cb;
+  --accent: #b94a32;
+  --dark: #202f3c;
+  --soft: #f1efe8;
+  font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+  color: var(--ink);
+  background: #f5f3ed;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+button, input { font: inherit; }
+button { cursor: pointer; }
+a { color: inherit; }
+
+button:focus-visible,
+input:focus-visible,
+a:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.page-width { width: min(1320px, calc(100% - 64px)); margin: auto; }
+
+.skip {
+  position: fixed;
+  top: 0;
+  left: 10px;
+  transform: translateY(-120%);
+  background: #fff;
+  padding: 12px;
+  z-index: 20;
+}
+.skip:focus { transform: none; }
+
+/* ---------- 顶栏 ---------- */
+
+.masthead { background: var(--dark); color: #faf8ed; }
+.masthead-inner { min-height: 68px; display: flex; align-items: center; gap: 28px; }
+.brand, .library-button { background: none; border: 0; color: inherit; min-height: 44px; }
+.brand { font-weight: 800; letter-spacing: .02em; font-size: 18px; padding: 0; }
+.brand span { color: #ed9c73; }
+.brand small { font-size: 11px; font-weight: 400; letter-spacing: .12em; margin-left: 12px; color: #c9d1cf; }
+.mast-note { font-size: 10px; letter-spacing: .17em; color: #bcc8c8; margin-left: auto; }
+.library-button { border: 1px solid #71818b; padding: 0 16px; }
+.library-button[aria-pressed="true"] { background: #f1d6bc; color: var(--ink); }
+
+/* ---------- 首页 ---------- */
+
+.browse { padding-top: 40px; }
+.intro { display: flex; align-items: end; justify-content: space-between; gap: 40px; padding-bottom: 28px; }
+.eyebrow { font-size: 11px; letter-spacing: .16em; color: var(--accent); font-weight: 700; }
+.intro h1 {
+  font-family: Georgia, "Microsoft YaHei", serif;
+  font-size: clamp(30px, 3.3vw, 49px);
+  line-height: 1.2;
+  letter-spacing: -.04em;
+  margin: 12px 0 0;
+}
+.intro h1 em { font-style: normal; color: #7d8c88; }
+.intro > p { max-width: 360px; color: var(--muted); font-size: 13px; line-height: 1.8; margin: 0; }
+
+.search {
+  background: var(--paper);
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--ink);
+  min-height: 64px;
+}
+.search label { padding: 0 22px; font-size: 12px; font-weight: 700; white-space: nowrap; }
+.search input { flex: 1; min-width: 0; border: 0; background: none; outline: none; height: 58px; }
+.search button {
+  align-self: stretch;
+  background: var(--accent);
+  border: 0;
+  color: #fff;
+  padding: 0 27px;
+  font-weight: 700;
+}
+.search button span { margin-left: 20px; }
+
+/* ---------- 左侧浏览范围 ---------- */
+
+.browse-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 42px; margin-top: 32px; }
+.browse-grid > * { min-width: 0; }
+
+summary { cursor: pointer; }
+
+
+/*
+ * 一级（世界/分类）与二级（属性/命途…）共用同一套 chip 规格：
+ * 同圆角、同字号、同内边距、同选中态，只有排布方向不同。
+ */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+.chip:hover { border-color: var(--accent); }
+.chip[aria-pressed="true"], .chip.selected {
+  background: var(--dark);
+  border-color: var(--dark);
+  color: #fff;
+}
+/* chip 内的淡色计数：两级共用同一规格 */
+.chip small { font-size: 10px; font-weight: 400; color: var(--muted); }
+.chip[aria-pressed="true"] small, .chip.selected small { color: #b9c8c4; }
+
+
+/* ---------- 结果区 ---------- */
+
+.results { min-width: 0; }
+.results-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 16px;
+  border-top: 2px solid var(--ink);
+  padding-top: 15px;
+}
+.results-head h2 { font-size: 26px; margin: 8px 0; }
+.results-head p:last-child { font-size: 13px; color: var(--muted); margin: 0; }
+.results-head strong { color: var(--accent); font-size: 19px; }
+
+.seasons { display: flex; border: 1px solid var(--ink); }
+.seasons button { min-width: 52px; min-height: 44px; border: 0; background: transparent; }
+.seasons button[aria-pressed="true"] { background: var(--dark); color: #fff; }
+
+.active-filters {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 22px 0 10px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.active-filters button {
+  border: 1px solid #c9b3a5;
+  background: #f6e6db;
+  color: #783d2e;
+  min-height: 36px;
+  padding: 4px 10px;
+}
+.active-filters .clear { background: none; border: 0; text-decoration: underline; }
+
+.filters { border-block: 1px solid var(--line); margin-bottom: 20px; }
+.filters summary { padding: 14px 0; font-weight: 700; font-size: 13px; }
+.filters summary span { color: var(--muted); font-weight: 400; margin-left: 10px; }
+.filters fieldset { display: flex; gap: 7px; flex-wrap: wrap; border: 0; padding: 8px 0 14px; margin: 0; }
+.filters legend { font-size: 12px; font-weight: 700; color: var(--muted); padding-bottom: 6px; }
+.filters button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper);
+  padding: 8px 14px;
+  min-width: 44px;
+  min-height: 44px;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.filters button[aria-pressed="true"] { background: var(--dark); color: #fff; border-color: var(--dark); }
+
+/* 统一筛选面板：世界 / 分类 / 二级字段都是「标签 + 一行 chip」 */
+.filter-row { display: flex; align-items: baseline; gap: 14px; padding: 8px 0; }
+.filter-label { flex: 0 0 76px; font-size: 13px; font-weight: 700; color: var(--muted); }
+.filter-values { display: flex; flex-wrap: wrap; gap: 8px; min-width: 0; }
+.filter-note { font-size: 12px; color: var(--muted); margin: 2px 0 0 90px; line-height: 1.6; }
+.facet-note { font-size: 12px; color: var(--muted); margin: 0 0 6px; line-height: 1.7; }
+
+/* ---------- 卡片 ---------- */
+
+.cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.card {
+  min-width: 0;
+  text-align: left;
+  padding: 0;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+}
+.card:hover { border-color: var(--accent); }
+
+/*
+ * 图片区：条目自带的多是只裁了头肩的方形缩略图，
+ * 有完整立绘时优先用立绘；两种都用 contain 完整显示，不裁切。
+ */
+.artwork {
+  height: 250px;
+  width: 100%;
+  background: #e5e8e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: #687771;
+  font-size: 12px;
+  padding: 10px;
+}
+.artwork img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
+.artwork--art { align-items: flex-end; padding-bottom: 0; }
+.artwork--art img { object-position: center bottom; }
+.artwork span { margin: auto; text-align: center; }
+
+.card-copy { display: grid; gap: 7px; padding: 15px; width: 100%; min-width: 0; }
+.card-copy small { font-size: 10px; color: var(--accent); letter-spacing: .04em; }
+.card-copy strong { font-size: 17px; overflow-wrap: anywhere; }
+.card-copy > span { font-size: 12px; color: var(--muted); line-height: 1.5; overflow-wrap: anywhere; }
+.card-id { border-top: 1px solid #e0e3dc; padding-top: 10px; margin-top: 6px; }
+.card-id b { float: right; color: var(--accent); font-size: 16px; }
+
+.empty { padding: 55px 20px; border: 1px solid var(--line); text-align: center; color: var(--muted); }
+.empty button, .back, .save { min-height: 44px; border: 1px solid var(--ink); background: none; padding: 8px 16px; color: var(--ink); }
+
+/* ---------- 详情 ---------- */
+
+.detail { padding-top: 30px; }
+.back { margin-bottom: 18px; }
+.detail-header { display: grid; grid-template-columns: 240px 1fr; background: #e4e7df; min-height: 240px; }
+.detail-header .artwork { height: 240px; background: transparent; padding: 0; }
+.detail-header > div:last-child { padding: 30px; }
+.detail-header h1 { font-size: clamp(30px, 4vw, 48px); margin: 12px 0; }
+.detail-header p:not(.eyebrow) { color: var(--muted); }
+.save { background: var(--dark); color: #fff; margin-right: 12px; }
+.save[aria-pressed="true"] { background: var(--accent); }
+.detail-header small { color: var(--muted); }
+
+.reader-layout { display: grid; grid-template-columns: 245px minmax(0, 1fr); gap: 42px; margin-top: 35px; }
+.toc { align-self: start; border-top: 2px solid var(--ink); position: sticky; top: 16px; max-height: 85vh; overflow: auto; }
+.toc summary { padding: 15px 0; font-weight: 700; }
+.toc nav { display: grid; gap: 6px; padding-bottom: 20px; }
+.toc nav > div { display: grid; }
+.toc a { padding: 7px 4px; text-decoration: none; font-size: 13px; }
+.toc a:hover { text-decoration: underline; color: var(--accent); }
+.toc a.sub-link { padding: 4px 4px 4px 16px; color: var(--muted); font-size: 12px; }
+
+.reader { min-width: 0; background: var(--paper); border: 1px solid var(--line); padding: 32px clamp(18px, 4vw, 52px); }
+.reader section { padding-bottom: 32px; scroll-margin-top: 20px; }
+.reader h2 { font-size: 24px; border-bottom: 1px solid var(--line); padding-bottom: 14px; }
+
+.markdown { line-height: 1.85; overflow-wrap: anywhere; font-size: 15px; }
+.markdown h3 { margin-top: 32px; scroll-margin-top: 20px; }
+.markdown img { max-width: 100%; height: auto; }
+.markdown pre, .markdown .katex-display { max-width: 100%; overflow: auto; }
+
+.table-wrap { max-width: 100%; overflow: auto; margin: 18px 0; }
+.table-hint { display: block; color: var(--muted); font-size: 11px; position: sticky; left: 0; margin-bottom: 6px; }
+.markdown table { border-collapse: collapse; font-size: 13px; min-width: 100%; }
+.markdown th, .markdown td { border: 1px solid var(--line); padding: 9px 12px; text-align: left; vertical-align: top; min-width: 85px; }
+.markdown th { background: #e9ede6; }
+.markdown thead th { position: sticky; top: 0; z-index: 1; }
+.markdown tr > *:first-child { position: sticky; left: 0; background: var(--paper); }
+.markdown thead tr > *:first-child { background: #e9ede6; z-index: 2; }
+
+.notice { background: #f9e9dd; border-left: 3px solid var(--accent); padding: 15px; font-size: 13px; line-height: 1.6; }
+.notice p { margin: 5px 0; }
+.source { border-top: 1px solid var(--line); padding-top: 20px; font-size: 13px; color: var(--muted); }
+
+/* ---------- 页脚 ---------- */
+
+.footer {
+  border-top: 1px solid var(--line);
+  margin-top: 70px;
+  padding-block: 25px 35px;
+  display: flex;
+  gap: 30px;
+  color: var(--muted);
+  font-size: 11px;
+}
+.footer strong { color: var(--ink); margin-right: auto; }
+
+/* ---------- 窄屏 ---------- */
+
+@media (max-width: 850px) {
+  .browse-grid, .reader-layout { grid-template-columns: 1fr; gap: 20px; }
+  .toc { position: static; max-height: none; }
+  .toc nav { max-height: 320px; overflow: auto; overscroll-behavior: contain; }
+  .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+}
+
+@media (max-width: 600px) {
+  .page-width { width: calc(100% - 32px); }
+  .masthead-inner { gap: 10px; }
+  .brand { font-size: 15px; }
+  .brand small, .mast-note { display: none; }
+  .library-button { margin-left: auto; }
+  .browse { padding-top: 25px; }
+  .intro { display: block; padding-bottom: 18px; }
+  .intro h1 { font-size: 29px; }
+  .intro > p { font-size: 12px; margin-top: 12px; }
+  .search label { padding: 0 10px; }
+  .search button { padding: 0 14px; }
+  .search button span { margin-left: 5px; }
+  .browse-grid { margin-top: 20px; }
+  .results-head h2 { font-size: 22px; }
+  .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+  .artwork { height: 175px; }
+  .card-copy { padding: 11px; }
+  .card-copy strong { font-size: 15px; }
+
+  /* 详情头图整幅置顶，人物不再挤在窄列里 */
+  .detail-header { grid-template-columns: 1fr; min-height: 0; }
+  .detail-header .artwork { height: 340px; width: 100%; background: #e4e7df; padding: 14px; }
+  .detail-header > div:last-child { padding: 18px 14px; }
+  .detail-header h1 { font-size: 27px; overflow-wrap: anywhere; margin: 10px 0; }
+  .detail-header small { display: block; margin-top: 8px; }
+  .reader { padding: 18px; }
+
+  .footer { flex-wrap: wrap; gap: 12px; }
+  .footer strong { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
