@@ -1,3 +1,5 @@
+[![Protected by Tracebit Community Edition](https://raw.githubusercontent.com/tracebit-com/tracebit-community-action/main/assets/badges/tracebit-badge.svg)](https://community.tracebit.com/supplychainattacks)
+
 # HengBeGer
 
 HengBeGer 是一个 React + Express + MySQL 的游戏资料站项目，当前包含两套公开 Wiki 和一套管理员能力：
